@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -148,7 +152,7 @@ $(document).ready(function(){initNavTree('_date_time_2_date_time_8hpp_source.htm
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keyword">auto</span> <a class="code" href="classnc_1_1_date_time.html#ab0128875a673f8733a43a60ef2d940b2">fractionalSecond</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(tpSubSeconds.count() % Duration::period::den) /</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                    <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(Duration::period::den);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keyword">auto</span>    time = Clock::to_time_t(std::chrono::time_point_cast&lt;Clock::duration&gt;(tp));</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            std::tm tm;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            std::tm tm{};</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#ifdef _MSC_VER</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            gmtime_s(&amp;tm, &amp;time);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#else</span></div>
@@ -363,7 +367,7 @@ $(document).ready(function(){initNavTree('_date_time_2_date_time_8hpp_source.htm
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> fractionalSeconds = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(timeSinceEpoch % Duration::period::den) /</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                                           <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(Duration::period::den);</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; </div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;            std::tm tm;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;            std::tm tm{};</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="preprocessor">#ifdef _MSC_VER</span></div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;            gmtime_s(&amp;tm, &amp;secondsFromEpoch);</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="preprocessor">#else</span></div>
@@ -404,8 +408,8 @@ $(document).ready(function(){initNavTree('_date_time_2_date_time_8hpp_source.htm
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        <span class="comment">// Method Description:</span></div>
 <div class="line"><a name="l00418"></a><span class="lineno"><a class="line" href="classnc_1_1_date_time.html#ac3414e4f92f84c20d072566652a2721e">  418</a></span>&#160;<span class="comment"></span>        <span class="keyword">static</span> <a class="code" href="namespacenc.html#abf800624d265aabbc5bc48ff63c91562">TimePoint</a> <a class="code" href="classnc_1_1_date_time.html#ac3414e4f92f84c20d072566652a2721e">strToTimepoint</a>(<span class="keyword">const</span> std::string&amp; timestamp)</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        {</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;            <span class="keyword">const</span> std::regex regexIsoTime{ <span class="stringliteral">&quot;\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(.\\d+)?Z&quot;</span> };</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;            <span class="keywordflow">if</span> (!std::regex_match(timestamp, regexIsoTime))</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;            <span class="keyword">const</span> std::regex regexIsoTime{ R<span class="stringliteral">&quot;(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(.\d+)?Z)&quot; };</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="stringliteral">            </span><span class="keywordflow">if</span> (!std::regex_match(timestamp, regexIsoTime))</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;            {</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Invalid iso timestamp format&quot;</span>);</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            }</div>
@@ -539,13 +543,13 @@ $(document).ready(function(){initNavTree('_date_time_2_date_time_8hpp_source.htm
 <div class="ttc" id="aclassnc_1_1_date_time_html_afc8f15ff0271f51b4adaba5478fd0737"><div class="ttname"><a href="classnc_1_1_date_time.html#afc8f15ff0271f51b4adaba5478fd0737">nc::DateTime::setYear</a></div><div class="ttdeci">void setYear(int year)</div><div class="ttdoc">year setter</div><div class="ttdef"><b>Definition:</b> DateTime/DateTime.hpp:145</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="anamespacenc_html_a0c84904bee4e36df8e4efe335dcb7aeb"><div class="ttname"><a href="namespacenc.html#a0c84904bee4e36df8e4efe335dcb7aeb">nc::operator==</a></div><div class="ttdeci">bool operator==(const DateTime &amp;lhs, const DateTime &amp;rhs) noexcept</div><div class="ttdoc">Equality operator for DateTime.</div><div class="ttdef"><b>Definition:</b> DateTime/DateTime.hpp:473</div></div>
-<div class="ttc" id="anamespacenc_html_a0dfd9f5c1ec0c3d61959c4c54e6dc23a"><div class="ttname"><a href="namespacenc.html#a0dfd9f5c1ec0c3d61959c4c54e6dc23a">nc::operator&gt;=</a></div><div class="ttdeci">bool operator&gt;=(const std::complex&lt; T &gt; &amp;lhs, const std::complex&lt; T &gt; &amp;rhs) noexcept</div><div class="ttdef"><b>Definition:</b> StdComplexOperators.hpp:97</div></div>
+<div class="ttc" id="anamespacenc_html_a0dfd9f5c1ec0c3d61959c4c54e6dc23a"><div class="ttname"><a href="namespacenc.html#a0dfd9f5c1ec0c3d61959c4c54e6dc23a">nc::operator&gt;=</a></div><div class="ttdeci">bool operator&gt;=(const std::complex&lt; T &gt; &amp;lhs, const std::complex&lt; T &gt; &amp;rhs) noexcept</div><div class="ttdef"><b>Definition:</b> StdComplexOperators.hpp:98</div></div>
 <div class="ttc" id="anamespacenc_html_a1ee81be5de9d41e4de28313054cf5581"><div class="ttname"><a href="namespacenc.html#a1ee81be5de9d41e4de28313054cf5581">nc::operator-</a></div><div class="ttdeci">Duration operator-(const DateTime &amp;lhs, const DateTime &amp;rhs) noexcept</div><div class="ttdoc">Subtraction operator.</div><div class="ttdef"><b>Definition:</b> DateTime/DateTime.hpp:551</div></div>
-<div class="ttc" id="anamespacenc_html_a20910640e1c1dd8bc9298561fedc84a4"><div class="ttname"><a href="namespacenc.html#a20910640e1c1dd8bc9298561fedc84a4">nc::operator&gt;</a></div><div class="ttdeci">bool operator&gt;(const std::complex&lt; T &gt; &amp;lhs, const std::complex&lt; T &gt; &amp;rhs) noexcept</div><div class="ttdef"><b>Definition:</b> StdComplexOperators.hpp:83</div></div>
+<div class="ttc" id="anamespacenc_html_a20910640e1c1dd8bc9298561fedc84a4"><div class="ttname"><a href="namespacenc.html#a20910640e1c1dd8bc9298561fedc84a4">nc::operator&gt;</a></div><div class="ttdeci">bool operator&gt;(const std::complex&lt; T &gt; &amp;lhs, const std::complex&lt; T &gt; &amp;rhs) noexcept</div><div class="ttdef"><b>Definition:</b> StdComplexOperators.hpp:84</div></div>
 <div class="ttc" id="anamespacenc_html_a5c94080d379f3055158ba6198a036446"><div class="ttname"><a href="namespacenc.html#a5c94080d379f3055158ba6198a036446">nc::Duration</a></div><div class="ttdeci">std::chrono::nanoseconds Duration</div><div class="ttdoc">Duration Type.</div><div class="ttdef"><b>Definition:</b> Clock.hpp:16</div></div>
 <div class="ttc" id="anamespacenc_html_a649576c1af73c2325e8069d864cac74d"><div class="ttname"><a href="namespacenc.html#a649576c1af73c2325e8069d864cac74d">nc::operator!=</a></div><div class="ttdeci">bool operator!=(const DateTime &amp;lhs, const DateTime &amp;rhs) noexcept</div><div class="ttdoc">Non Equality operator for DateTime.</div><div class="ttdef"><b>Definition:</b> DateTime/DateTime.hpp:486</div></div>
-<div class="ttc" id="anamespacenc_html_a724cd71c78633aa5a757aa76b514f46a"><div class="ttname"><a href="namespacenc.html#a724cd71c78633aa5a757aa76b514f46a">nc::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const std::complex&lt; T &gt; &amp;lhs, const std::complex&lt; T &gt; &amp;rhs) noexcept</div><div class="ttdef"><b>Definition:</b> StdComplexOperators.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_html_a9f9bb9e7b4ecf581498351e14f074145"><div class="ttname"><a href="namespacenc.html#a9f9bb9e7b4ecf581498351e14f074145">nc::operator&lt;=</a></div><div class="ttdeci">bool operator&lt;=(const std::complex&lt; T &gt; &amp;lhs, const std::complex&lt; T &gt; &amp;rhs) noexcept</div><div class="ttdef"><b>Definition:</b> StdComplexOperators.hpp:64</div></div>
+<div class="ttc" id="anamespacenc_html_a724cd71c78633aa5a757aa76b514f46a"><div class="ttname"><a href="namespacenc.html#a724cd71c78633aa5a757aa76b514f46a">nc::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const std::complex&lt; T &gt; &amp;lhs, const std::complex&lt; T &gt; &amp;rhs) noexcept</div><div class="ttdef"><b>Definition:</b> StdComplexOperators.hpp:46</div></div>
+<div class="ttc" id="anamespacenc_html_a9f9bb9e7b4ecf581498351e14f074145"><div class="ttname"><a href="namespacenc.html#a9f9bb9e7b4ecf581498351e14f074145">nc::operator&lt;=</a></div><div class="ttdeci">bool operator&lt;=(const std::complex&lt; T &gt; &amp;lhs, const std::complex&lt; T &gt; &amp;rhs) noexcept</div><div class="ttdef"><b>Definition:</b> StdComplexOperators.hpp:65</div></div>
 <div class="ttc" id="anamespacenc_html_abf800624d265aabbc5bc48ff63c91562"><div class="ttname"><a href="namespacenc.html#abf800624d265aabbc5bc48ff63c91562">nc::TimePoint</a></div><div class="ttdeci">std::chrono::time_point&lt; Clock, Duration &gt; TimePoint</div><div class="ttdoc">TimePoint Type.</div><div class="ttdef"><b>Definition:</b> Clock.hpp:21</div></div>
 <div class="ttc" id="anamespacenc_html_ac168198ceda20c1619d0bdb8114f76aa"><div class="ttname"><a href="namespacenc.html#ac168198ceda20c1619d0bdb8114f76aa">nc::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, Duration duration)</div><div class="ttdoc">Output stream operator for the Duration type.</div><div class="ttdef"><b>Definition:</b> Clock.hpp:30</div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -40,107 +40,104 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Roots/Iteration.hpp"
 
-namespace nc
+namespace nc::roots
 {
-    namespace roots
+    //================================================================================
+    // Class Description:
+    /// Secant root finding method
+    ///
+    class Secant : public Iteration
     {
-        //================================================================================
-        // Class Description:
-        /// Secant root finding method
+    public:
+        //============================================================================
+        // Method Description:
+        /// Constructor
         ///
-        class Secant : public Iteration
+        /// @param epsilon: the epsilon value
+        /// @param f: the function
+        ///
+        Secant(const double epsilon, std::function<double(double)> f) noexcept :
+            Iteration(epsilon),
+            f_(std::move(f))
         {
-        public:
-            //============================================================================
-            // Method Description:
-            /// Constructor
-            ///
-            /// @param epsilon: the epsilon value
-            /// @param f: the function
-            ///
-            Secant(const double epsilon, std::function<double(double)> f) noexcept :
-                Iteration(epsilon),
-                f_(std::move(f))
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Constructor
+        ///
+        /// @param epsilon: the epsilon value
+        /// @param maxNumIterations: the maximum number of iterations to perform
+        /// @param f: the function
+        ///
+        Secant(const double epsilon, const uint32 maxNumIterations, std::function<double(double)> f) noexcept :
+            Iteration(epsilon, maxNumIterations),
+            f_(std::move(f))
+        {
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Destructor
+        ///
+        ~Secant() override = default;
+
+        //============================================================================
+        // Method Description:
+        /// Solves for the root in the range [a, b]
+        ///
+        /// @param a: the lower bound
+        /// @param b: the upper bound
+        /// @return root between the bound
+        ///
+        double solve(double a, double b)
+        {
+            resetNumberOfIterations();
+
+            if (f_(a) > f_(b))
             {
+                std::swap(a, b);
             }
 
-            //============================================================================
-            // Method Description:
-            /// Constructor
-            ///
-            /// @param epsilon: the epsilon value
-            /// @param maxNumIterations: the maximum number of iterations to perform
-            /// @param f: the function
-            ///
-            Secant(const double epsilon, const uint32 maxNumIterations, std::function<double(double)> f) noexcept :
-                Iteration(epsilon, maxNumIterations),
-                f_(std::move(f))
+            double x      = b;
+            double lastX  = a;
+            double fx     = f_(b);
+            double lastFx = f_(a);
+
+            while (std::fabs(fx) >= epsilon_)
             {
+                const double x_tmp = calculateX(x, lastX, fx, lastFx);
+
+                lastFx = fx;
+                lastX  = x;
+                x      = x_tmp;
+
+                fx = f_(x);
+
+                incrementNumberOfIterations();
             }
 
-            //============================================================================
-            // Method Description:
-            /// Destructor
-            ///
-            ~Secant() override = default;
+            return x;
+        }
 
-            //============================================================================
-            // Method Description:
-            /// Solves for the root in the range [a, b]
-            ///
-            /// @param a: the lower bound
-            /// @param b: the upper bound
-            /// @return root between the bound
-            ///
-            double solve(double a, double b)
-            {
-                resetNumberOfIterations();
+    private:
+        //============================================================================
+        const std::function<double(double)> f_;
 
-                if (f_(a) > f_(b))
-                {
-                    std::swap(a, b);
-                }
-
-                double x      = b;
-                double lastX  = a;
-                double fx     = f_(b);
-                double lastFx = f_(a);
-
-                while (std::fabs(fx) >= epsilon_)
-                {
-                    const double x_tmp = calculateX(x, lastX, fx, lastFx);
-
-                    lastFx = fx;
-                    lastX  = x;
-                    x      = x_tmp;
-
-                    fx = f_(x);
-
-                    incrementNumberOfIterations();
-                }
-
-                return x;
-            }
-
-        private:
-            //============================================================================
-            const std::function<double(double)> f_;
-
-            //============================================================================
-            // Method Description:
-            /// Calculates x
-            ///
-            /// @param x: the current x value
-            /// @param lastX: the previous x value
-            /// @param fx: the function evaluated at the current x value
-            /// @param lastFx: the function evaluated at the previous x value
-            /// @return x
-            ///
-            static double calculateX(double x, double lastX, double fx, double lastFx) noexcept
-            {
-                const double functionDifference = fx - lastFx;
-                return x - fx * (x - lastX) / functionDifference;
-            }
-        };
-    } // namespace roots
-} // namespace nc
+        //============================================================================
+        // Method Description:
+        /// Calculates x
+        ///
+        /// @param x: the current x value
+        /// @param lastX: the previous x value
+        /// @param fx: the function evaluated at the current x value
+        /// @param lastFx: the function evaluated at the previous x value
+        /// @return x
+        ///
+        static double calculateX(double x, double lastX, double fx, double lastFx) noexcept
+        {
+            const double functionDifference = fx - lastFx;
+            return x - fx * (x - lastX) / functionDifference;
+        }
+    };
+} // namespace nc::roots

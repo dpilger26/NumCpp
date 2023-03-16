@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -113,82 +117,79 @@ $(document).ready(function(){initNavTree('_iteration_8hpp_source.html',''); init
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc_1_1roots.html">nc::roots</a></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">namespace </span>roots</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">//================================================================================</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// Class Description:</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html">   47</a></span>&#160;<span class="comment"></span>        <span class="keyword">class </span><a class="code" href="classnc_1_1roots_1_1_iteration.html">Iteration</a></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136">   56</a></span>&#160;<span class="comment"></span>            <span class="keyword">explicit</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136">Iteration</a>(<span class="keywordtype">double</span> epsilon) noexcept :</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <a class="code" href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">epsilon_</a>(epsilon)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a7948f08cfaa01f5685ec35149bf6bba0">   68</a></span>&#160;<span class="comment"></span>            <a class="code" href="classnc_1_1roots_1_1_iteration.html#a7948f08cfaa01f5685ec35149bf6bba0">Iteration</a>(<span class="keywordtype">double</span> epsilon, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> maxNumIterations) noexcept :</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <a class="code" href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">epsilon_</a>(epsilon),</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <a class="code" href="classnc_1_1roots_1_1_iteration.html#a9b1c4ea8cf91c5308020c105293b4a02">maxNumIterations_</a>(maxNumIterations)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a44492e4a1849938cd7017154213ec002">   78</a></span>&#160;<span class="comment"></span>            <span class="keyword">virtual</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html#a44492e4a1849938cd7017154213ec002">~Iteration</a>() noexcept = default;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#ab3192d0f9de4b8b27b23013c65489e5a">   86</a></span>&#160;<span class="comment"></span>            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="classnc_1_1roots_1_1_iteration.html#ab3192d0f9de4b8b27b23013c65489e5a">numIterations</a>() const noexcept</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">numIterations_</a>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a85e79a4794bc3a6ac6bc3564956737a2">   96</a></span>&#160;<span class="comment"></span>            <span class="keywordtype">void</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html#a85e79a4794bc3a6ac6bc3564956737a2">resetNumberOfIterations</a>() noexcept</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <a class="code" href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">numIterations_</a> = 0;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#ad0262a1a694e734ebc154c77f010bcff">  107</a></span>&#160;<span class="comment"></span>            <span class="keywordtype">void</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html#ad0262a1a694e734ebc154c77f010bcff">incrementNumberOfIterations</a>()</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                ++<a class="code" href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">numIterations_</a>;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">numIterations_</a> &gt; <a class="code" href="classnc_1_1roots_1_1_iteration.html#a9b1c4ea8cf91c5308020c105293b4a02">maxNumIterations_</a>)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                {</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    <a class="code" href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">THROW_RUNTIME_ERROR</a>(</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                        <span class="stringliteral">&quot;Maximum number of iterations has been reached; no root has been found within epsilon.&quot;</span>);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="comment">//====================================Attributes==============================</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">  118</a></span>&#160;            <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">epsilon_</a>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a9b1c4ea8cf91c5308020c105293b4a02">  119</a></span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a>       <a class="code" href="classnc_1_1roots_1_1_iteration.html#a9b1c4ea8cf91c5308020c105293b4a02">maxNumIterations_</a>{ 1000 };</div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">  120</a></span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a>       <a class="code" href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">numIterations_</a>{ 0 };</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        };</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    } <span class="comment">// namespace roots</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">//================================================================================</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// Class Description:</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html">   45</a></span>&#160;<span class="comment"></span>    <span class="keyword">class </span><a class="code" href="classnc_1_1roots_1_1_iteration.html">Iteration</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136">   54</a></span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136">Iteration</a>(<span class="keywordtype">double</span> epsilon) noexcept :</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <a class="code" href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">epsilon_</a>(epsilon)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a7948f08cfaa01f5685ec35149bf6bba0">   66</a></span>&#160;<span class="comment"></span>        <a class="code" href="classnc_1_1roots_1_1_iteration.html#a7948f08cfaa01f5685ec35149bf6bba0">Iteration</a>(<span class="keywordtype">double</span> epsilon, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> maxNumIterations) noexcept :</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <a class="code" href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">epsilon_</a>(epsilon),</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <a class="code" href="classnc_1_1roots_1_1_iteration.html#a9b1c4ea8cf91c5308020c105293b4a02">maxNumIterations_</a>(maxNumIterations)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a44492e4a1849938cd7017154213ec002">   76</a></span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html#a44492e4a1849938cd7017154213ec002">~Iteration</a>() noexcept = default;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#ab3192d0f9de4b8b27b23013c65489e5a">   84</a></span>&#160;<span class="comment"></span>        [[nodiscard]] <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="classnc_1_1roots_1_1_iteration.html#ab3192d0f9de4b8b27b23013c65489e5a">numIterations</a>() const noexcept</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">numIterations_</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a85e79a4794bc3a6ac6bc3564956737a2">   94</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html#a85e79a4794bc3a6ac6bc3564956737a2">resetNumberOfIterations</a>() noexcept</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <a class="code" href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">numIterations_</a> = 0;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#ad0262a1a694e734ebc154c77f010bcff">  105</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html#ad0262a1a694e734ebc154c77f010bcff">incrementNumberOfIterations</a>()</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            ++<a class="code" href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">numIterations_</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">numIterations_</a> &gt; <a class="code" href="classnc_1_1roots_1_1_iteration.html#a9b1c4ea8cf91c5308020c105293b4a02">maxNumIterations_</a>)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <a class="code" href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">THROW_RUNTIME_ERROR</a>(</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    <span class="stringliteral">&quot;Maximum number of iterations has been reached; no root has been found within epsilon.&quot;</span>);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="comment">//====================================Attributes==============================</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">  116</a></span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">epsilon_</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a9b1c4ea8cf91c5308020c105293b4a02">  117</a></span>&#160;        <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a>       <a class="code" href="classnc_1_1roots_1_1_iteration.html#a9b1c4ea8cf91c5308020c105293b4a02">maxNumIterations_</a>{ 1000 };</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">  118</a></span>&#160;        <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a>       <a class="code" href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">numIterations_</a>{ 0 };</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    };</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;} <span class="comment">// namespace nc::roots</span></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
-<div class="ttc" id="a_error_8hpp_html_a0f0ce4acf1fd6032112a06ebc50bb05a"><div class="ttname"><a href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">THROW_RUNTIME_ERROR</a></div><div class="ttdeci">#define THROW_RUNTIME_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:38</div></div>
+<div class="ttc" id="a_error_8hpp_html_a0f0ce4acf1fd6032112a06ebc50bb05a"><div class="ttname"><a href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">THROW_RUNTIME_ERROR</a></div><div class="ttdeci">#define THROW_RUNTIME_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:40</div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html">nc::roots::Iteration</a></div><div class="ttdoc">ABC for iteration classes to derive from.</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:48</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a2d7285a81c033d56ce8283b6dbfca136"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136">nc::roots::Iteration::Iteration</a></div><div class="ttdeci">Iteration(double epsilon) noexcept</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:56</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html">nc::roots::Iteration</a></div><div class="ttdoc">ABC for iteration classes to derive from.</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:46</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a2d7285a81c033d56ce8283b6dbfca136"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136">nc::roots::Iteration::Iteration</a></div><div class="ttdeci">Iteration(double epsilon) noexcept</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:54</div></div>
 <div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a44492e4a1849938cd7017154213ec002"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a44492e4a1849938cd7017154213ec002">nc::roots::Iteration::~Iteration</a></div><div class="ttdeci">virtual ~Iteration() noexcept=default</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a5eafe219bb90f82da4ece84f012a411a"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">nc::roots::Iteration::epsilon_</a></div><div class="ttdeci">const double epsilon_</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:118</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a7948f08cfaa01f5685ec35149bf6bba0"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a7948f08cfaa01f5685ec35149bf6bba0">nc::roots::Iteration::Iteration</a></div><div class="ttdeci">Iteration(double epsilon, uint32 maxNumIterations) noexcept</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:68</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a84d7f2f7412d1f54861edeacc7bc0c20"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">nc::roots::Iteration::numIterations_</a></div><div class="ttdeci">uint32 numIterations_</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:120</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a85e79a4794bc3a6ac6bc3564956737a2"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a85e79a4794bc3a6ac6bc3564956737a2">nc::roots::Iteration::resetNumberOfIterations</a></div><div class="ttdeci">void resetNumberOfIterations() noexcept</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:96</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a9b1c4ea8cf91c5308020c105293b4a02"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a9b1c4ea8cf91c5308020c105293b4a02">nc::roots::Iteration::maxNumIterations_</a></div><div class="ttdeci">uint32 maxNumIterations_</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:119</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_ab3192d0f9de4b8b27b23013c65489e5a"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#ab3192d0f9de4b8b27b23013c65489e5a">nc::roots::Iteration::numIterations</a></div><div class="ttdeci">uint32 numIterations() const noexcept</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:86</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_ad0262a1a694e734ebc154c77f010bcff"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#ad0262a1a694e734ebc154c77f010bcff">nc::roots::Iteration::incrementNumberOfIterations</a></div><div class="ttdeci">void incrementNumberOfIterations()</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:107</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a5eafe219bb90f82da4ece84f012a411a"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">nc::roots::Iteration::epsilon_</a></div><div class="ttdeci">const double epsilon_</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:116</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a7948f08cfaa01f5685ec35149bf6bba0"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a7948f08cfaa01f5685ec35149bf6bba0">nc::roots::Iteration::Iteration</a></div><div class="ttdeci">Iteration(double epsilon, uint32 maxNumIterations) noexcept</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:66</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a84d7f2f7412d1f54861edeacc7bc0c20"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20">nc::roots::Iteration::numIterations_</a></div><div class="ttdeci">uint32 numIterations_</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:118</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a85e79a4794bc3a6ac6bc3564956737a2"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a85e79a4794bc3a6ac6bc3564956737a2">nc::roots::Iteration::resetNumberOfIterations</a></div><div class="ttdeci">void resetNumberOfIterations() noexcept</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:94</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a9b1c4ea8cf91c5308020c105293b4a02"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a9b1c4ea8cf91c5308020c105293b4a02">nc::roots::Iteration::maxNumIterations_</a></div><div class="ttdeci">uint32 maxNumIterations_</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:117</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_ab3192d0f9de4b8b27b23013c65489e5a"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#ab3192d0f9de4b8b27b23013c65489e5a">nc::roots::Iteration::numIterations</a></div><div class="ttdeci">uint32 numIterations() const noexcept</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:84</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_ad0262a1a694e734ebc154c77f010bcff"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#ad0262a1a694e734ebc154c77f010bcff">nc::roots::Iteration::incrementNumberOfIterations</a></div><div class="ttdeci">void incrementNumberOfIterations()</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:105</div></div>
+<div class="ttc" id="anamespacenc_1_1roots_html"><div class="ttname"><a href="namespacenc_1_1roots.html">nc::roots</a></div><div class="ttdef"><b>Definition:</b> Bisection.hpp:43</div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -132,6 +136,10 @@ Data Structures</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnc_1_1is__complex_3_01std_1_1complex_3_01_t_01_4_01_4.html">nc::is_complex&lt; std::complex&lt; T &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnc_1_1is__ndarray__int.html">nc::is_ndarray_int&lt; typename &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnc_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html">nc::is_ndarray_int&lt; NdArray&lt; dtype, Allocator &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnc_1_1is__valid__dtype.html">nc::is_valid_dtype&lt; dtype &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -142,9 +150,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ae6f8d4a50bd2b4254f00085e7f17ce01"><td class="memTemplParams" colspan="2">template&lt;bool B, class T  = void&gt; </td></tr>
-<tr class="memitem:ae6f8d4a50bd2b4254f00085e7f17ce01"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ae6f8d4a50bd2b4254f00085e7f17ce01">nc::enable_if_t</a> = typename std::enable_if&lt; B, T &gt;::type</td></tr>
-<tr class="separator:ae6f8d4a50bd2b4254f00085e7f17ce01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f1f02f3bb3727aa6345330faf5b58e3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a4f1f02f3bb3727aa6345330faf5b58e3"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a4f1f02f3bb3727aa6345330faf5b58e3">nc::ndarray_int_concept</a> = std::enable_if_t&lt; is_ndarray_int_v&lt; T &gt;, int &gt;</td></tr>
+<tr class="separator:a4f1f02f3bb3727aa6345330faf5b58e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -157,24 +165,12 @@ Variables</h2></td></tr>
 <tr class="memitem:a4cdb8bc70afcd7483d200f235181471c"><td class="memTemplParams" colspan="2">template&lt;std::size_t Value1, std::size_t Value2&gt; </td></tr>
 <tr class="memitem:a4cdb8bc70afcd7483d200f235181471c"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a4cdb8bc70afcd7483d200f235181471c">nc::greaterThan_v</a> = greaterThan&lt;Value1, Value2&gt;::value</td></tr>
 <tr class="separator:a4cdb8bc70afcd7483d200f235181471c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5ef02185c876c1c30e12824c3b9aba5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad5ef02185c876c1c30e12824c3b9aba5"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ad5ef02185c876c1c30e12824c3b9aba5">nc::is_arithmetic_v</a> = std::is_arithmetic&lt;T&gt;::value</td></tr>
-<tr class="separator:ad5ef02185c876c1c30e12824c3b9aba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8be3598b0e2894429842d64d3ce4050"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:af8be3598b0e2894429842d64d3ce4050"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#af8be3598b0e2894429842d64d3ce4050">nc::is_complex_v</a> = is_complex&lt;T&gt;::value</td></tr>
 <tr class="separator:af8be3598b0e2894429842d64d3ce4050"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33d8e465a48ee094f340d8a5bab416bd"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a33d8e465a48ee094f340d8a5bab416bd"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a33d8e465a48ee094f340d8a5bab416bd">nc::is_floating_point_v</a> = std::is_floating_point&lt;T&gt;::value</td></tr>
-<tr class="separator:a33d8e465a48ee094f340d8a5bab416bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a157cdac039a66a88d2aa922781d060f6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a157cdac039a66a88d2aa922781d060f6"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a157cdac039a66a88d2aa922781d060f6">nc::is_integral_v</a> = std::is_integral&lt;T&gt;::value</td></tr>
-<tr class="separator:a157cdac039a66a88d2aa922781d060f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04829dab261829c5ee2570febfa287eb"><td class="memTemplParams" colspan="2">template&lt;class A , class B &gt; </td></tr>
-<tr class="memitem:a04829dab261829c5ee2570febfa287eb"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a04829dab261829c5ee2570febfa287eb">nc::is_same_v</a> = std::is_same&lt;A, B&gt;::value</td></tr>
-<tr class="separator:a04829dab261829c5ee2570febfa287eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad149fd11e6732af59a3b2303f97bddd7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad149fd11e6732af59a3b2303f97bddd7"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ad149fd11e6732af59a3b2303f97bddd7">nc::is_unsigned_v</a> = std::is_unsigned&lt;T&gt;::value</td></tr>
-<tr class="separator:ad149fd11e6732af59a3b2303f97bddd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27cd65a041f65f1a562feda18d2fff49"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a27cd65a041f65f1a562feda18d2fff49"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a27cd65a041f65f1a562feda18d2fff49">nc::is_ndarray_int_v</a> = is_ndarray_int&lt;T&gt;::value</td></tr>
+<tr class="separator:a27cd65a041f65f1a562feda18d2fff49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae4eab83016ec7dcaa7d78b6d1e78481"><td class="memTemplParams" colspan="2">template&lt;class dtype &gt; </td></tr>
 <tr class="memitem:aae4eab83016ec7dcaa7d78b6d1e78481"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#aae4eab83016ec7dcaa7d78b6d1e78481">nc::is_valid_dtype_v</a> = is_valid_dtype&lt;dtype&gt;::value</td></tr>
 <tr class="separator:aae4eab83016ec7dcaa7d78b6d1e78481"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -66,3 +66,27 @@ def test_set():
     assert cSlice.start == start and cSlice.stop == stop and cSlice.step == step
 
     cSlice.print()
+
+
+####################################################################################
+def test_numElements():
+    arraySize = 300
+    for _ in range(100):
+        start = np.random.randint(0, arraySize // 2, [1, ]).item()
+        stop = np.random.randint(arraySize // 2, arraySize, [1, ]).item()
+        step = np.random.randint(2, 5, [1, ]).item()
+        cSlice = NumCpp.Slice(start, stop, step)
+        indices = np.arange(start, stop, step)
+        assert cSlice.numElements(arraySize) == indices.size
+
+
+####################################################################################
+def test_toIndices():
+    arraySize = 300
+    for _ in range(100):
+        start = np.random.randint(0, arraySize // 2, [1, ]).item()
+        stop = np.random.randint(arraySize // 2, arraySize, [1, ]).item()
+        step = np.random.randint(2, 5, [1, ]).item()
+        cSlice = NumCpp.Slice(start, stop, step)
+        indices = np.arange(start, stop, step)
+        assert np.array_equal(cSlice.toIndices(arraySize), indices)

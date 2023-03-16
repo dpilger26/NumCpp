@@ -42,92 +42,89 @@
 #include "NumCpp/Linalg/svd.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::rotations
 {
-    namespace rotations
+    //============================================================================
+    // Method Description:
+    /// Finds a rotation matrix (special orthogonal matrix) between two coordinate
+    /// systems from a set of (weighted) vector observations. Solutions to Wahba's
+    /// problem are often used in satellite attitude determination utilising sensors
+    /// such as magnetometers and multi-antenna GPS receivers
+    /// https://en.wikipedia.org/wiki/Wahba%27s_problem
+    ///
+    /// @param wk: k-th 3-vector measurement in the reference frame (n x 3 matrix)
+    /// @param vk: corresponding k-th 3-vector measurement in the body frame (n x 3 matrix)
+    /// @param ak: set of weights for each observation (1 x n or n x 1 matrix)
+    ///
+    /// @return NdArray rotation matrix
+    ///
+    template<typename dtype>
+    NdArray<double> wahbasProblem(const NdArray<dtype>& wk, const NdArray<dtype>& vk, const NdArray<dtype>& ak)
     {
-        //============================================================================
-        // Method Description:
-        /// Finds a rotation matrix (special orthogonal matrix) between two coordinate
-        /// systems from a set of (weighted) vector observations. Solutions to Wahba's
-        /// problem are often used in satellite attitude determination utilising sensors
-        /// such as magnetometers and multi-antenna GPS receivers
-        /// https://en.wikipedia.org/wiki/Wahba%27s_problem
-        ///
-        /// @param wk: k-th 3-vector measurement in the reference frame (n x 3 matrix)
-        /// @param vk: corresponding k-th 3-vector measurement in the body frame (n x 3 matrix)
-        /// @param ak: set of weights for each observation (1 x n or n x 1 matrix)
-        ///
-        /// @return NdArray rotation matrix
-        ///
-        template<typename dtype>
-        NdArray<double> wahbasProblem(const NdArray<dtype>& wk, const NdArray<dtype>& vk, const NdArray<dtype>& ak)
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        const auto wkShape = wk.shape();
+        if (wkShape.cols != 3)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-
-            const auto wkShape = wk.shape();
-            if (wkShape.cols != 3)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("wk matrix must be of shape [n, 3]");
-            }
-
-            const auto vkShape = vk.shape();
-            if (vkShape.cols != 3)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("vk matrix must be of shape [n, 3]");
-            }
-
-            if (wkShape.rows != vkShape.rows)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("wk and vk matrices must have the same number of rows");
-            }
-
-            if (ak.size() != wkShape.rows)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("ak matrix must have the same number of elements as wk and vk rows");
-            }
-
-            auto       b      = zeros<dtype>(3, 3);
-            const auto cSlice = wk.cSlice();
-            for (uint32 row = 0; row < wkShape.rows; ++row)
-            {
-                const auto wkVec = wk(row, cSlice);
-                const auto vkVec = vk(row, cSlice);
-                b += ak[row] * dot(wkVec.transpose(), vkVec);
-            }
-
-            NdArray<double> u;
-            NdArray<double> s;
-            NdArray<double> vt;
-
-            linalg::svd(b, u, s, vt);
-
-            auto m  = eye<double>(3, 3);
-            m(0, 0) = 1.;
-            m(1, 1) = 1.;
-            m(2, 2) = linalg::det(u) * linalg::det(vt.transpose());
-
-            return dot(u, dot(m, vt));
+            THROW_INVALID_ARGUMENT_ERROR("wk matrix must be of shape [n, 3]");
         }
 
-        //============================================================================
-        // Method Description:
-        /// Finds a rotation matrix (special orthogonal matrix) between two coordinate
-        /// systems from a set of (weighted) vector observations. Solutions to Wahba's
-        /// problem are often used in satellite attitude determination utilising sensors
-        /// such as magnetometers and multi-antenna GPS receivers
-        /// https://en.wikipedia.org/wiki/Wahba%27s_problem
-        ///
-        /// @param wk: k-th 3-vector measurement in the reference frame
-        /// @param vk: corresponding k-th 3-vector measurement in the body frame
-        ///
-        /// @return NdArray rotation matrix
-        ///
-        template<typename dtype>
-        NdArray<double> wahbasProblem(const NdArray<dtype>& wk, const NdArray<dtype>& vk)
+        const auto vkShape = vk.shape();
+        if (vkShape.cols != 3)
         {
-            const auto ak = ones<dtype>({ 1, wk.shape().rows });
-            return wahbasProblem(wk, vk, ak);
+            THROW_INVALID_ARGUMENT_ERROR("vk matrix must be of shape [n, 3]");
         }
-    } // namespace rotations
-} // namespace nc
+
+        if (wkShape.rows != vkShape.rows)
+        {
+            THROW_INVALID_ARGUMENT_ERROR("wk and vk matrices must have the same number of rows");
+        }
+
+        if (ak.size() != wkShape.rows)
+        {
+            THROW_INVALID_ARGUMENT_ERROR("ak matrix must have the same number of elements as wk and vk rows");
+        }
+
+        auto       b      = zeros<dtype>(3, 3);
+        const auto cSlice = wk.cSlice();
+        for (uint32 row = 0; row < wkShape.rows; ++row)
+        {
+            const auto wkVec = wk(row, cSlice);
+            const auto vkVec = vk(row, cSlice);
+            b += ak[row] * dot(wkVec.transpose(), vkVec);
+        }
+
+        NdArray<double> u;
+        NdArray<double> s;
+        NdArray<double> vt;
+
+        linalg::svd(b, u, s, vt);
+
+        auto m  = eye<double>(3, 3);
+        m(0, 0) = 1.;
+        m(1, 1) = 1.;
+        m(2, 2) = linalg::det(u) * linalg::det(vt.transpose());
+
+        return dot(u, dot(m, vt));
+    }
+
+    //============================================================================
+    // Method Description:
+    /// Finds a rotation matrix (special orthogonal matrix) between two coordinate
+    /// systems from a set of (weighted) vector observations. Solutions to Wahba's
+    /// problem are often used in satellite attitude determination utilising sensors
+    /// such as magnetometers and multi-antenna GPS receivers
+    /// https://en.wikipedia.org/wiki/Wahba%27s_problem
+    ///
+    /// @param wk: k-th 3-vector measurement in the reference frame
+    /// @param vk: corresponding k-th 3-vector measurement in the body frame
+    ///
+    /// @return NdArray rotation matrix
+    ///
+    template<typename dtype>
+    NdArray<double> wahbasProblem(const NdArray<dtype>& wk, const NdArray<dtype>& vk)
+    {
+        const auto ak = ones<dtype>({ 1, wk.shape().rows });
+        return wahbasProblem(wk, vk, ak);
+    }
+} // namespace nc::rotations

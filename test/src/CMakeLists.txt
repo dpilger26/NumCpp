@@ -43,8 +43,9 @@ add_library(${TARGET_NAME} SHARED
   ${_source_list}
 )
 
-target_include_directories(${TARGET_NAME} SYSTEM PRIVATE .)
+target_include_directories(${TARGET_NAME} SYSTEM PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/pybind11)
 target_include_directories(${TARGET_NAME} PRIVATE 
+  ${CMAKE_CURRENT_SOURCE_DIR}
   ${NUMCPP_INCLUDES}
 )
 
@@ -56,14 +57,15 @@ find_package(Python 3.8 REQUIRED
 
 target_link_libraries(${TARGET_NAME} PRIVATE 
   Python::Module
+  ${ALL_INTERFACE_TARGET}
 )
 
 target_compile_definitions(${TARGET_NAME} PRIVATE 
   -DNUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE
 )
 
-target_link_libraries(${TARGET_NAME} PRIVATE 
-  ${ALL_INTERFACE_TARGET}
+target_compile_options(${TARGET_NAME} PRIVATE
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/bigobj>
 )
 
 target_link_options(${TARGET_NAME} PRIVATE 

@@ -1,0 +1,1 @@
+find include -type f \( -name "*.hpp" \) -exec clang-format -style=file --fallback-style=none -i {} \;

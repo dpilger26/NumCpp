@@ -1,7 +1,7 @@
 var namespacenc_1_1linalg =
 [
     [ "detail", "namespacenc_1_1linalg_1_1detail.html", [
-      [ "det", "namespacenc_1_1linalg_1_1detail.html#ac2169a5439fe9005c882f0faaa573bd7", null ]
+      [ "det", "namespacenc_1_1linalg_1_1detail.html#a636d3082932ef8a13aaf9c4201bf8f9d", null ]
     ] ],
     [ "SVD", "classnc_1_1linalg_1_1_s_v_d.html", "classnc_1_1linalg_1_1_s_v_d" ],
     [ "cholesky", "namespacenc_1_1linalg.html#ac2d27e58dd0f082ef5a422d545699d19", null ],

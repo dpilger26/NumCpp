@@ -44,9 +44,7 @@ namespace nc
     /// @param inAxis
     /// @return NdArray
     ///
-    template<typename dtype,
-             typename Indices,
-             enable_if_t<is_same_v<Indices, NdArray<int32>> || is_same_v<Indices, NdArray<uint32>>, int> = 0>
+    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
     NdArray<dtype> take(const NdArray<dtype>& inArray, const Indices& inIndices, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)

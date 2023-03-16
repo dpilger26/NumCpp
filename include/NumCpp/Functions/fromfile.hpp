@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <filesystem>
 #include <fstream>
 #include <memory>
 #include <sstream>
 #include <string>
 
 #include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Internal/Filesystem.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/fromstring.hpp"
@@ -53,7 +53,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename)
     {
-        if (!filesystem::File(inFilename).exists())
+        if (!std::filesystem::exists(inFilename))
         {
             THROW_INVALID_ARGUMENT_ERROR("input filename does not exist.\n\t" + inFilename);
         }

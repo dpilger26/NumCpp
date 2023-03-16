@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['inf_2513',['inf',['../namespacenc_1_1constants.html#a4649bfc00f6360ccda3b3f9316e2dc0e',1,'nc::constants']]],
-  ['intensity_2514',['intensity',['../classnc_1_1image_processing_1_1_pixel.html#a2ffea8fff18945da4971ab4c847a49bd',1,'nc::imageProcessing::Pixel']]],
-  ['is_5farithmetic_5fv_2515',['is_arithmetic_v',['../namespacenc.html#ad5ef02185c876c1c30e12824c3b9aba5',1,'nc']]],
-  ['is_5fcomplex_5fv_2516',['is_complex_v',['../namespacenc.html#af8be3598b0e2894429842d64d3ce4050',1,'nc']]],
-  ['is_5ffloating_5fpoint_5fv_2517',['is_floating_point_v',['../namespacenc.html#a33d8e465a48ee094f340d8a5bab416bd',1,'nc']]],
-  ['is_5fintegral_5fv_2518',['is_integral_v',['../namespacenc.html#a157cdac039a66a88d2aa922781d060f6',1,'nc']]],
-  ['is_5fsame_5fv_2519',['is_same_v',['../namespacenc.html#a04829dab261829c5ee2570febfa287eb',1,'nc']]],
-  ['is_5funsigned_5fv_2520',['is_unsigned_v',['../namespacenc.html#ad149fd11e6732af59a3b2303f97bddd7',1,'nc']]],
-  ['is_5fvalid_5fdtype_5fv_2521',['is_valid_dtype_v',['../namespacenc.html#aae4eab83016ec7dcaa7d78b6d1e78481',1,'nc']]]
+  ['inf_2536',['inf',['../namespacenc_1_1constants.html#a4649bfc00f6360ccda3b3f9316e2dc0e',1,'nc::constants']]],
+  ['intensity_2537',['intensity',['../classnc_1_1image_processing_1_1_pixel.html#a2ffea8fff18945da4971ab4c847a49bd',1,'nc::imageProcessing::Pixel']]],
+  ['is_5fcomplex_5fv_2538',['is_complex_v',['../namespacenc.html#af8be3598b0e2894429842d64d3ce4050',1,'nc']]],
+  ['is_5fndarray_5fint_5fv_2539',['is_ndarray_int_v',['../namespacenc.html#a27cd65a041f65f1a562feda18d2fff49',1,'nc::is_ndarray_int_v()'],['../namespacenc_1_1type__traits.html#ad59d36d4a0022fbfcd7ab9d740e553b1',1,'nc::type_traits::is_ndarray_int_v()']]],
+  ['is_5fndarray_5fsigned_5fint_5fv_2540',['is_ndarray_signed_int_v',['../namespacenc_1_1type__traits.html#a2bf5d3e8ab7513b705ca0477e7f1e551',1,'nc::type_traits']]],
+  ['is_5fvalid_5fdtype_5fv_2541',['is_valid_dtype_v',['../namespacenc.html#aae4eab83016ec7dcaa7d78b6d1e78481',1,'nc']]]
 ];

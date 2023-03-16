@@ -2,7 +2,6 @@
 
 #include "BindingsIncludes.hpp"
 
-
 //================================================================================
 
 namespace RandomInterface
@@ -24,7 +23,7 @@ namespace RandomInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric permutationScaler(dtype inValue)
+    pbArrayGeneric permutationScalar(dtype inValue)
     {
         return nc2pybind(random::permutation(inValue));
     }
@@ -597,7 +596,7 @@ void initRandom(pb11::module& m)
     m.def("normal", normalArray);
     m.def("normal", normalScalar);
 
-    m.def("permutationScaler", &RandomInterface::permutationScaler<double>);
+    m.def("permutationScalar", &RandomInterface::permutationScalar<double>);
     m.def("permutationArray", &RandomInterface::permutationArray<double>);
 
     NdArray<int32> (*poissonArray)(const Shape&, double) = &random::poisson<int32>;

@@ -144,6 +144,7 @@
 #include "NumCpp/Functions/identity.hpp"
 #include "NumCpp/Functions/imag.hpp"
 #include "NumCpp/Functions/inner.hpp"
+#include "NumCpp/Functions/insert.hpp"
 #include "NumCpp/Functions/interp.hpp"
 #include "NumCpp/Functions/intersect1d.hpp"
 #include "NumCpp/Functions/invert.hpp"

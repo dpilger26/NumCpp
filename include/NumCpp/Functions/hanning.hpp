@@ -30,6 +30,7 @@
 #include <cmath>
 
 #include "NumCpp/Core/Constants.hpp"
+#include "NumCpp/Functions/linspace.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc

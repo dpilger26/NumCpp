@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -118,13 +122,13 @@ $(document).ready(function(){initNavTree('diagonal_8hpp_source.html',''); initRe
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespacenc.html#a8eeb67e5ad2a5b0567570a774b7fb1f3">   47</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#a8eeb67e5ad2a5b0567570a774b7fb1f3">diagonal</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <a class="code" href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">int32</a> inOffset = 0, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis = <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">Axis::ROW</a>)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> inArray.<a class="code" href="classnc_1_1_nd_array.html#aae6a8845bf3654a27265ecffee163628">diagonal</a>(inOffset, inAxis);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> inArray.<a class="code" href="classnc_1_1_nd_array.html#a6dcd356dd86cdd141307b77a5114b00a">diagonal</a>(inOffset, inAxis);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_aae6a8845bf3654a27265ecffee163628"><div class="ttname"><a href="classnc_1_1_nd_array.html#aae6a8845bf3654a27265ecffee163628">nc::NdArray::diagonal</a></div><div class="ttdeci">NdArray&lt; dtype &gt; diagonal(int32 inOffset=0, Axis inAxis=Axis::ROW) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2470</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a6dcd356dd86cdd141307b77a5114b00a"><div class="ttname"><a href="classnc_1_1_nd_array.html#a6dcd356dd86cdd141307b77a5114b00a">nc::NdArray::diagonal</a></div><div class="ttdeci">self_type diagonal(index_type inOffset=0, Axis inAxis=Axis::ROW) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2562</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">nc::Axis</a></div><div class="ttdeci">Axis</div><div class="ttdoc">Enum To describe an axis.</div><div class="ttdef"><b>Definition:</b> Types.hpp:47</div></div>
 <div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a></div><div class="ttdeci">@ ROW</div></div>

@@ -32,30 +32,27 @@
 #include "NumCpp/Filter/Filters/Filters2d/medianFilter.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::filter
 {
-    namespace filter
+    //============================================================================
+    // Method Description:
+    /// Calculates a multidimensional complemenatry median filter.
+    ///
+    /// @param inImageArray
+    /// @param inSize: square size of the kernel to apply
+    /// @param inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+    /// @param inConstantValue: contant value if boundary = 'constant' (default 0)
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> complementaryMedianFilter(const NdArray<dtype>& inImageArray,
+                                             uint32                inSize,
+                                             Boundary              inBoundaryType  = Boundary::REFLECT,
+                                             dtype                 inConstantValue = 0)
     {
-        //============================================================================
-        // Method Description:
-        /// Calculates a multidimensional complemenatry median filter.
-        ///
-        /// @param inImageArray
-        /// @param inSize: square size of the kernel to apply
-        /// @param inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
-        /// @param inConstantValue: contant value if boundary = 'constant' (default 0)
-        /// @return NdArray
-        ///
-        template<typename dtype>
-        NdArray<dtype> complementaryMedianFilter(const NdArray<dtype>& inImageArray,
-                                                 uint32                inSize,
-                                                 Boundary              inBoundaryType  = Boundary::REFLECT,
-                                                 dtype                 inConstantValue = 0)
-        {
-            NdArray<dtype> inImageArrayCopy(inImageArray);
-            inImageArrayCopy -= medianFilter(inImageArray, inSize, inBoundaryType, inConstantValue);
+        NdArray<dtype> inImageArrayCopy(inImageArray);
+        inImageArrayCopy -= medianFilter(inImageArray, inSize, inBoundaryType, inConstantValue);
 
-            return inImageArrayCopy;
-        }
-    } // namespace filter
-} // namespace nc
+        return inImageArrayCopy;
+    }
+} // namespace nc::filter

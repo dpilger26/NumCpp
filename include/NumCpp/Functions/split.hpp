@@ -48,9 +48,8 @@ namespace nc
     ///
     /// @return NdArray
     ///
-    template<typename dtype>
-    std::vector<NdArray<dtype>>
-        split(const NdArray<dtype>& inArray, const NdArray<int32>& indices, Axis inAxis = Axis::ROW)
+    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    std::vector<NdArray<dtype>> split(const NdArray<dtype>& inArray, const Indices& indices, Axis inAxis = Axis::ROW)
     {
         switch (inAxis)
         {

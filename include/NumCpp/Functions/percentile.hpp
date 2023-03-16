@@ -78,7 +78,7 @@ namespace nc
         {
             return {};
         }
-        else if (inArray.size() == 1)
+        else if (inArray.isscalar())
         {
             NdArray<double> returnArray = { static_cast<double>(inArray.front()) };
             return returnArray;

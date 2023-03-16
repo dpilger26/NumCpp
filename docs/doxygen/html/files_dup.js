@@ -173,6 +173,7 @@ var files_dup =
     [ "erfc_inv.hpp", "erfc__inv_8hpp.html", "erfc__inv_8hpp" ],
     [ "Error.hpp", "_error_8hpp.html", "_error_8hpp" ],
     [ "essentiallyEqual.hpp", "essentially_equal_8hpp.html", "essentially_equal_8hpp" ],
+    [ "essentiallyEqualComplex.hpp", "essentially_equal_complex_8hpp.html", "essentially_equal_complex_8hpp" ],
     [ "exp.hpp", "exp_8hpp.html", "exp_8hpp" ],
     [ "exp2.hpp", "exp2_8hpp.html", "exp2_8hpp" ],
     [ "expint.hpp", "expint_8hpp.html", "expint_8hpp" ],
@@ -183,9 +184,6 @@ var files_dup =
     [ "eye.hpp", "eye_8hpp.html", "eye_8hpp" ],
     [ "f.hpp", "f_8hpp.html", "f_8hpp" ],
     [ "factorial.hpp", "factorial_8hpp.html", "factorial_8hpp" ],
-    [ "Filesystem.hpp", "_filesystem_8hpp.html", [
-      [ "File", "classnc_1_1filesystem_1_1_file.html", "classnc_1_1filesystem_1_1_file" ]
-    ] ],
     [ "fillCorners.hpp", "fill_corners_8hpp.html", "fill_corners_8hpp" ],
     [ "fillDiagnol.hpp", "fill_diagnol_8hpp.html", "fill_diagnol_8hpp" ],
     [ "Filter.hpp", "_filter_8hpp.html", null ],
@@ -240,6 +238,7 @@ var files_dup =
     [ "imag.hpp", "imag_8hpp.html", "imag_8hpp" ],
     [ "ImageProcessing.hpp", "_image_processing_8hpp.html", null ],
     [ "inner.hpp", "inner_8hpp.html", "inner_8hpp" ],
+    [ "insert.hpp", "insert_8hpp.html", "insert_8hpp" ],
     [ "Integrate.hpp", "_integrate_8hpp.html", null ],
     [ "Functions/interp.hpp", "_functions_2interp_8hpp.html", "_functions_2interp_8hpp" ],
     [ "Utils/interp.hpp", "_utils_2interp_8hpp.html", "_utils_2interp_8hpp" ],
@@ -322,9 +321,8 @@ var files_dup =
     [ "nanvar.hpp", "nanvar_8hpp.html", "nanvar_8hpp" ],
     [ "nbytes.hpp", "nbytes_8hpp.html", "nbytes_8hpp" ],
     [ "NdArray.hpp", "_nd_array_8hpp.html", null ],
-    [ "NdArrayCore.hpp", "_nd_array_core_8hpp.html", [
-      [ "NdArray", "classnc_1_1_nd_array.html", "classnc_1_1_nd_array" ]
-    ] ],
+    [ "NdArrayBroadcast.hpp", "_nd_array_broadcast_8hpp.html", "_nd_array_broadcast_8hpp" ],
+    [ "NdArrayCore.hpp", "_nd_array_core_8hpp.html", "_nd_array_core_8hpp" ],
     [ "NdArrayIterators.hpp", "_nd_array_iterators_8hpp.html", "_nd_array_iterators_8hpp" ],
     [ "NdArrayOperators.hpp", "_nd_array_operators_8hpp.html", "_nd_array_operators_8hpp" ],
     [ "nearest1d.hpp", "nearest1d_8hpp.html", "nearest1d_8hpp" ],
@@ -477,6 +475,7 @@ var files_dup =
     [ "tan.hpp", "tan_8hpp.html", "tan_8hpp" ],
     [ "tanh.hpp", "tanh_8hpp.html", "tanh_8hpp" ],
     [ "tile.hpp", "tile_8hpp.html", "tile_8hpp" ],
+    [ "timeit.hpp", "timeit_8hpp.html", "timeit_8hpp" ],
     [ "Timer.hpp", "_timer_8hpp.html", [
       [ "Timer", "classnc_1_1_timer.html", "classnc_1_1_timer" ]
     ] ],

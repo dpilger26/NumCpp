@@ -34,52 +34,46 @@
 #include "NumCpp/Filter/Boundaries/Boundaries2d/fillCorners.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::filter::boundary
 {
-    namespace filter
+    //============================================================================
+    // Method Description:
+    /// Constant boundary
+    ///
+    /// @param inImage
+    /// @param inBoundarySize
+    /// @param inConstantValue
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> constant2d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
     {
-        namespace boundary
-        {
-            //============================================================================
-            // Method Description:
-            /// Constant boundary
-            ///
-            /// @param inImage
-            /// @param inBoundarySize
-            /// @param inConstantValue
-            /// @return NdArray
-            ///
-            template<typename dtype>
-            NdArray<dtype> constant2d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
-            {
-                STATIC_ASSERT_ARITHMETIC(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
-                const Shape inShape = inImage.shape();
-                Shape       outShape(inShape);
-                outShape.rows += inBoundarySize * 2;
-                outShape.cols += inBoundarySize * 2;
+        const Shape inShape = inImage.shape();
+        Shape       outShape(inShape);
+        outShape.rows += inBoundarySize * 2;
+        outShape.cols += inBoundarySize * 2;
 
-                NdArray<dtype> outArray(outShape);
-                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
-                             Slice(inBoundarySize, inBoundarySize + inShape.cols),
-                             inImage);
-                fillCorners(outArray, inBoundarySize, inConstantValue);
+        NdArray<dtype> outArray(outShape);
+        outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
+                     Slice(inBoundarySize, inBoundarySize + inShape.cols),
+                     inImage);
+        fillCorners(outArray, inBoundarySize, inConstantValue);
 
-                outArray.put(Slice(0, inBoundarySize),
-                             Slice(inBoundarySize, inBoundarySize + inShape.cols),
-                             inConstantValue); /// bottom
-                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows),
-                             Slice(inBoundarySize, inBoundarySize + inShape.cols),
-                             inConstantValue); /// top
-                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
-                             Slice(0, inBoundarySize),
-                             inConstantValue); /// left
-                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
-                             Slice(outShape.cols - inBoundarySize, outShape.cols),
-                             inConstantValue); /// right
+        outArray.put(Slice(0, inBoundarySize),
+                     Slice(inBoundarySize, inBoundarySize + inShape.cols),
+                     inConstantValue); /// bottom
+        outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows),
+                     Slice(inBoundarySize, inBoundarySize + inShape.cols),
+                     inConstantValue); /// top
+        outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
+                     Slice(0, inBoundarySize),
+                     inConstantValue); /// left
+        outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
+                     Slice(outShape.cols - inBoundarySize, outShape.cols),
+                     inConstantValue); /// right
 
-                return outArray;
-            }
-        } // namespace boundary
-    }     // namespace filter
-} // namespace nc
+        return outArray;
+    }
+} // namespace nc::filter::boundary

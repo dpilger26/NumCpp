@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -108,12 +112,13 @@ $(document).ready(function(){initNavTree('_interface_with_eigen_8cpp-example.htm
 <div class="contents">
 <p>Example for interfaceing with Eigen Matrix</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_num_cpp_8hpp.html">NumCpp.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;Eigen/Dense&gt;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;Eigen/Dense&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"> </div>
+<div class="line"> </div>
 <div class="line"><span class="keyword">typedef</span> Eigen::Matrix&lt;int, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor&gt; EigenIntMatrix;</div>
-<div class="line"><span class="keyword">typedef</span> Eigen::Map&lt;EigenIntMatrix&gt; EigenIntMatrixMap;</div>
+<div class="line"><span class="keyword">typedef</span> Eigen::Map&lt;EigenIntMatrix&gt;                                          EigenIntMatrixMap;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
@@ -124,7 +129,7 @@ $(document).ready(function(){initNavTree('_interface_with_eigen_8cpp-example.htm
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;ncA:\n&quot;</span> &lt;&lt; ncA &lt;&lt; std::endl;</div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;ncB:\n&quot;</span> &lt;&lt; ncB &lt;&lt; std::endl;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// map the arrays to Eigen </span></div>
+<div class="line">    <span class="comment">// map the arrays to Eigen</span></div>
 <div class="line">    <span class="keyword">auto</span> eigenA = EigenIntMatrixMap(ncA.data(), ncA.numRows(), ncA.numCols());</div>
 <div class="line">    <span class="keyword">auto</span> eigenB = EigenIntMatrixMap(ncB.data(), ncB.numRows(), ncB.numCols());</div>
 <div class="line"> </div>
@@ -135,11 +140,11 @@ $(document).ready(function(){initNavTree('_interface_with_eigen_8cpp-example.htm
 <div class="line">    <span class="keyword">auto</span> ncC = ncA + ncB;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// convert the Eigen result back to NumCpp</span></div>
-<div class="line">    <span class="keywordtype">int</span>* dataPtr = <span class="keyword">new</span> <span class="keywordtype">int</span>[eigenC.rows() * eigenC.cols()];</div>
+<div class="line">    <span class="keywordtype">int</span>* dataPtr                                             = <span class="keyword">new</span> <span class="keywordtype">int</span>[eigenC.rows() * eigenC.cols()];</div>
 <div class="line">    EigenIntMatrixMap(dataPtr, eigenC.rows(), eigenC.cols()) = eigenC;</div>
 <div class="line"> </div>
 <div class="line">    constexpr <span class="keywordtype">bool</span> takeOwnership = <span class="keyword">true</span>;</div>
-<div class="line">    <span class="keyword">auto</span> ncCeigen = <a name="_a0"></a><a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;int&gt;</a>(dataPtr, eigenC.rows(), eigenC.cols(), takeOwnership);</div>
+<div class="line">    <span class="keyword">auto</span>           ncCeigen      = <a name="_a0"></a><a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;int&gt;</a>(dataPtr, eigenC.rows(), eigenC.cols(), takeOwnership);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// compare the two outputs</span></div>
 <div class="line">    <span class="keywordflow">if</span> (<a name="a1"></a><a class="code" href="namespacenc.html#a0e8c1396cc01ccd9ec8ba549b6347e21">nc::array_equal</a>(ncC, ncCeigen))</div>
@@ -157,7 +162,7 @@ $(document).ready(function(){initNavTree('_interface_with_eigen_8cpp-example.htm
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="a_num_cpp_8hpp_html"><div class="ttname"><a href="_num_cpp_8hpp.html">NumCpp.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
 <div class="ttc" id="anamespacenc_html_a0e8c1396cc01ccd9ec8ba549b6347e21"><div class="ttname"><a href="namespacenc.html#a0e8c1396cc01ccd9ec8ba549b6347e21">nc::array_equal</a></div><div class="ttdeci">bool array_equal(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2) noexcept</div><div class="ttdef"><b>Definition:</b> array_equal.hpp:47</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->

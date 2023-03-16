@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -116,29 +120,29 @@ Functions</h2></td></tr>
 <tr class="memitem:ad3215e8486eb3a544a483e5234c856d7"><td class="memTemplParams" colspan="2">template&lt;std::size_t DataBits&gt; </td></tr>
 <tr class="memitem:ad3215e8486eb3a544a483e5234c856d7"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1edac_1_1detail.html#ad3215e8486eb3a544a483e5234c856d7">calculateParity</a> (const std::bitset&lt; DataBits &gt; &amp;data) noexcept</td></tr>
 <tr class="separator:ad3215e8486eb3a544a483e5234c856d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea349d7b4d28ca91b85bcb3a2823c145"><td class="memTemplParams" colspan="2">template&lt;std::size_t DataBits, typename IntType , enable_if_t&lt; is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:aea349d7b4d28ca91b85bcb3a2823c145"><td class="memTemplParams" colspan="2">template&lt;std::size_t DataBits, typename IntType , std::enable_if_t&lt; std::is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:aea349d7b4d28ca91b85bcb3a2823c145"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1edac_1_1detail.html#aea349d7b4d28ca91b85bcb3a2823c145">calculateParity</a> (const std::bitset&lt; DataBits &gt; &amp;data, IntType parityBit)</td></tr>
 <tr class="separator:aea349d7b4d28ca91b85bcb3a2823c145"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af386b23445a4942453c69cff80ee0e20"><td class="memTemplParams" colspan="2">template&lt;std::size_t DataBits, std::size_t EncodedBits, enable_if_t&lt; greaterThan_v&lt; EncodedBits, DataBits &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:af386b23445a4942453c69cff80ee0e20"><td class="memTemplParams" colspan="2">template&lt;std::size_t DataBits, std::size_t EncodedBits, std::enable_if_t&lt; greaterThan_v&lt; EncodedBits, DataBits &gt;, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:af386b23445a4942453c69cff80ee0e20"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1edac_1_1detail.html#af386b23445a4942453c69cff80ee0e20">checkBitsConsistent</a> ()</td></tr>
 <tr class="separator:af386b23445a4942453c69cff80ee0e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8a14d5fd872ed0292631e57f5afe618"><td class="memTemplParams" colspan="2">template&lt;typename IntType1 , typename IntType2 , enable_if_t&lt; is_integral_v&lt; IntType1 &gt;, int &gt;  = 0, enable_if_t&lt; is_integral_v&lt; IntType2 &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:aa8a14d5fd872ed0292631e57f5afe618"><td class="memTemplParams" colspan="2">template&lt;typename IntType1 , typename IntType2 , std::enable_if_t&lt; std::is_integral_v&lt; IntType1 &gt;, int &gt;  = 0, std::enable_if_t&lt; std::is_integral_v&lt; IntType2 &gt;, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:aa8a14d5fd872ed0292631e57f5afe618"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::size_t &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1edac_1_1detail.html#aa8a14d5fd872ed0292631e57f5afe618">dataBitsCovered</a> (IntType1 numDataBits, IntType2 parityBit)</td></tr>
 <tr class="separator:aa8a14d5fd872ed0292631e57f5afe618"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c606c3f9302bb406021a50006898ebf"><td class="memTemplParams" colspan="2">template&lt;std::size_t DataBits, std::size_t EncodedBits, enable_if_t&lt; greaterThan_v&lt; EncodedBits, DataBits &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a1c606c3f9302bb406021a50006898ebf"><td class="memTemplParams" colspan="2">template&lt;std::size_t DataBits, std::size_t EncodedBits, std::enable_if_t&lt; greaterThan_v&lt; EncodedBits, DataBits &gt;, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:a1c606c3f9302bb406021a50006898ebf"><td class="memTemplItemLeft" align="right" valign="top">std::bitset&lt; DataBits &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1edac_1_1detail.html#a1c606c3f9302bb406021a50006898ebf">extractData</a> (const std::bitset&lt; EncodedBits &gt; &amp;encodedBits) noexcept</td></tr>
 <tr class="separator:a1c606c3f9302bb406021a50006898ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f066ec8b196c2943ae99382eb63e2fb"><td class="memTemplParams" colspan="2">template&lt;typename IntType , enable_if_t&lt; is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a7f066ec8b196c2943ae99382eb63e2fb"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::enable_if_t&lt; std::is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:a7f066ec8b196c2943ae99382eb63e2fb"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1edac_1_1detail.html#a7f066ec8b196c2943ae99382eb63e2fb">isPowerOfTwo</a> (IntType n) noexcept</td></tr>
 <tr class="memdesc:a7f066ec8b196c2943ae99382eb63e2fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests if value is a power of two.  <a href="namespacenc_1_1edac_1_1detail.html#a7f066ec8b196c2943ae99382eb63e2fb">More...</a><br /></td></tr>
 <tr class="separator:a7f066ec8b196c2943ae99382eb63e2fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a279241a794bffbea6920299cf8e5c4a1"><td class="memTemplParams" colspan="2">template&lt;typename IntType , enable_if_t&lt; is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a279241a794bffbea6920299cf8e5c4a1"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::enable_if_t&lt; std::is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:a279241a794bffbea6920299cf8e5c4a1"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1edac_1_1detail.html#a279241a794bffbea6920299cf8e5c4a1">nextPowerOfTwo</a> (IntType n)</td></tr>
 <tr class="separator:a279241a794bffbea6920299cf8e5c4a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ee59971c08bfdc3e11a0245f17d5f9a"><td class="memTemplParams" colspan="2">template&lt;typename IntType , enable_if_t&lt; is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a6ee59971c08bfdc3e11a0245f17d5f9a"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::enable_if_t&lt; std::is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:a6ee59971c08bfdc3e11a0245f17d5f9a"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1edac_1_1detail.html#a6ee59971c08bfdc3e11a0245f17d5f9a">numSecdedParityBitsNeeded</a> (IntType numDataBits)</td></tr>
 <tr class="separator:a6ee59971c08bfdc3e11a0245f17d5f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4328ffa9ba9949a9c4b494592496055"><td class="memTemplParams" colspan="2">template&lt;typename IntType , enable_if_t&lt; is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:ad4328ffa9ba9949a9c4b494592496055"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::enable_if_t&lt; std::is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:ad4328ffa9ba9949a9c4b494592496055"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::size_t &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1edac_1_1detail.html#ad4328ffa9ba9949a9c4b494592496055">powersOfTwo</a> (IntType n)</td></tr>
 <tr class="separator:ad4328ffa9ba9949a9c4b494592496055"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -219,7 +223,7 @@ template&lt;std::size_t DataBits&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t DataBits, typename IntType , enable_if_t&lt; is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </div>
+template&lt;std::size_t DataBits, typename IntType , std::enable_if_t&lt; std::is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool nc::edac::detail::calculateParity </td>
@@ -265,7 +269,7 @@ template&lt;std::size_t DataBits, typename IntType , enable_if_t&lt; is_integral
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t DataBits, std::size_t EncodedBits, enable_if_t&lt; greaterThan_v&lt; EncodedBits, DataBits &gt;, int &gt;  = 0&gt; </div>
+template&lt;std::size_t DataBits, std::size_t EncodedBits, std::enable_if_t&lt; greaterThan_v&lt; EncodedBits, DataBits &gt;, int &gt;  = 0&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::size_t nc::edac::detail::checkBitsConsistent </td>
@@ -293,7 +297,7 @@ template&lt;std::size_t DataBits, std::size_t EncodedBits, enable_if_t&lt; great
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IntType1 , typename IntType2 , enable_if_t&lt; is_integral_v&lt; IntType1 &gt;, int &gt;  = 0, enable_if_t&lt; is_integral_v&lt; IntType2 &gt;, int &gt;  = 0&gt; </div>
+template&lt;typename IntType1 , typename IntType2 , std::enable_if_t&lt; std::is_integral_v&lt; IntType1 &gt;, int &gt;  = 0, std::enable_if_t&lt; std::is_integral_v&lt; IntType2 &gt;, int &gt;  = 0&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;std::size_t&gt; nc::edac::detail::dataBitsCovered </td>
@@ -339,7 +343,7 @@ template&lt;typename IntType1 , typename IntType2 , enable_if_t&lt; is_integral_
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t DataBits, std::size_t EncodedBits, enable_if_t&lt; greaterThan_v&lt; EncodedBits, DataBits &gt;, int &gt;  = 0&gt; </div>
+template&lt;std::size_t DataBits, std::size_t EncodedBits, std::enable_if_t&lt; greaterThan_v&lt; EncodedBits, DataBits &gt;, int &gt;  = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -375,7 +379,7 @@ template&lt;std::size_t DataBits, std::size_t EncodedBits, enable_if_t&lt; great
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IntType , enable_if_t&lt; is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </div>
+template&lt;typename IntType , std::enable_if_t&lt; std::is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -412,7 +416,7 @@ template&lt;typename IntType , enable_if_t&lt; is_integral_v&lt; IntType &gt;, i
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IntType , enable_if_t&lt; is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </div>
+template&lt;typename IntType , std::enable_if_t&lt; std::is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::size_t nc::edac::detail::nextPowerOfTwo </td>
@@ -460,7 +464,7 @@ template&lt;typename IntType , enable_if_t&lt; is_integral_v&lt; IntType &gt;, i
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IntType , enable_if_t&lt; is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </div>
+template&lt;typename IntType , std::enable_if_t&lt; std::is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::size_t nc::edac::detail::numSecdedParityBitsNeeded </td>
@@ -495,7 +499,7 @@ template&lt;typename IntType , enable_if_t&lt; is_integral_v&lt; IntType &gt;, i
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IntType , enable_if_t&lt; is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </div>
+template&lt;typename IntType , std::enable_if_t&lt; std::is_integral_v&lt; IntType &gt;, int &gt;  = 0&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;std::size_t&gt; nc::edac::detail::powersOfTwo </td>

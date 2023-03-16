@@ -27,22 +27,19 @@
 ///
 #pragma once
 
-namespace nc
+namespace nc::utils
 {
-    namespace utils
+    //============================================================================
+    /// Returns the linear interpolation between two points
+    ///
+    /// @param inValue1
+    /// @param inValue2
+    /// @param inPercent
+    ///
+    /// @return linear interpolated point
+    ///
+    constexpr double interp(double inValue1, double inValue2, double inPercent) noexcept
     {
-        //============================================================================
-        /// Returns the linear interpolation between two points
-        ///
-        /// @param inValue1
-        /// @param inValue2
-        /// @param inPercent
-        ///
-        /// @return linear interpolated point
-        ///
-        constexpr double interp(double inValue1, double inValue2, double inPercent) noexcept
-        {
-            return inValue1 * (1. - inPercent) + inValue2 * inPercent;
-        }
-    } // namespace utils
-} // namespace nc
+        return inValue1 * (1. - inPercent) + inValue2 * inPercent;
+    }
+} // namespace nc::utils

@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -134,6 +138,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab78c6fc396ea087819cdef43f316da4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc8860c7c767170d003da447e7618bee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_data_cube.html#abc8860c7c767170d003da447e7618bee">back</a> () noexcept</td></tr>
 <tr class="separator:abc8860c7c767170d003da447e7618bee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad998863146aa7d9a7590a5a5adb1f5a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_data_cube.html#a1ea7b9bd30731c3325545fbcd2678761">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_data_cube.html#ad998863146aa7d9a7590a5a5adb1f5a9">begin</a> () const noexcept</td></tr>
+<tr class="separator:ad998863146aa7d9a7590a5a5adb1f5a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a430de05758db67815f957784b298b011"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_data_cube.html#a623df8fc48ba169d221b1c26249e5853">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_data_cube.html#a430de05758db67815f957784b298b011">begin</a> () noexcept</td></tr>
 <tr class="separator:a430de05758db67815f957784b298b011"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adee7aa24a04d84f83f4c76ef8dcec974"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_data_cube.html#a1ea7b9bd30731c3325545fbcd2678761">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_data_cube.html#adee7aa24a04d84f83f4c76ef8dcec974">cbegin</a> () const noexcept</td></tr>
@@ -142,6 +148,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aca3c0041f121ed92d47d1f2873f713e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbaa9ebba302183cae3563c9eb371ee3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_data_cube.html#abbaa9ebba302183cae3563c9eb371ee3">dump</a> (const std::string &amp;inFilename) const</td></tr>
 <tr class="separator:abbaa9ebba302183cae3563c9eb371ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc46d9e618309bbc5cfd5af56dd9e977"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_data_cube.html#a1ea7b9bd30731c3325545fbcd2678761">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_data_cube.html#acc46d9e618309bbc5cfd5af56dd9e977">end</a> () const noexcept</td></tr>
+<tr class="separator:acc46d9e618309bbc5cfd5af56dd9e977"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aeac78f9aec9b69b9673c1e56778b1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_data_cube.html#a623df8fc48ba169d221b1c26249e5853">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_data_cube.html#a9aeac78f9aec9b69b9673c1e56778b1b">end</a> () noexcept</td></tr>
 <tr class="separator:a9aeac78f9aec9b69b9673c1e56778b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a398373aeb2f3c9dd8df78f9eac1ca3d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_data_cube.html#a398373aeb2f3c9dd8df78f9eac1ca3d9">front</a> () noexcept</td></tr>
@@ -405,8 +413,37 @@ template&lt;typename dtype &gt; </div>
 
 </div>
 </div>
+<a id="ad998863146aa7d9a7590a5a5adb1f5a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad998863146aa7d9a7590a5a5adb1f5a9">&#9670;&nbsp;</a></span>begin() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_data_cube.html#a1ea7b9bd30731c3325545fbcd2678761">const_iterator</a> <a class="el" href="classnc_1_1_data_cube.html">nc::DataCube</a>&lt; dtype &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns an const_iterator to the first 2d z "slice" of the cube.</p>
+<dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
+
+</div>
+</div>
 <a id="a430de05758db67815f957784b298b011"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a430de05758db67815f957784b298b011">&#9670;&nbsp;</a></span>begin()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a430de05758db67815f957784b298b011">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -527,8 +564,37 @@ template&lt;typename dtype &gt; </div>
 
 </div>
 </div>
+<a id="acc46d9e618309bbc5cfd5af56dd9e977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc46d9e618309bbc5cfd5af56dd9e977">&#9670;&nbsp;</a></span>end() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_data_cube.html#a1ea7b9bd30731c3325545fbcd2678761">const_iterator</a> <a class="el" href="classnc_1_1_data_cube.html">nc::DataCube</a>&lt; dtype &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns an const_iterator to 1 past the last 2d z "slice" of the cube.</p>
+<dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
+
+</div>
+</div>
 <a id="a9aeac78f9aec9b69b9673c1e56778b1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9aeac78f9aec9b69b9673c1e56778b1b">&#9670;&nbsp;</a></span>end()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aeac78f9aec9b69b9673c1e56778b1b">&#9670;&nbsp;</a></span>end() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

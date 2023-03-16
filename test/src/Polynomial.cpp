@@ -8,7 +8,7 @@ namespace PolynomialInterface
 {
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype chebyshev_t_Scaler(uint32 n, dtype inValue)
+    dtype chebyshev_t_Scalar(uint32 n, dtype inValue)
     {
         return polynomial::chebyshev_t(n, inValue);
     }
@@ -28,7 +28,7 @@ namespace PolynomialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype chebyshev_u_Scaler(uint32 n, dtype inValue)
+    dtype chebyshev_u_Scalar(uint32 n, dtype inValue)
     {
         return polynomial::chebyshev_u(n, inValue);
     }
@@ -48,7 +48,7 @@ namespace PolynomialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype hermite_Scaler(uint32 n, dtype inValue)
+    dtype hermite_Scalar(uint32 n, dtype inValue)
     {
         return polynomial::hermite(n, inValue);
     }
@@ -68,7 +68,7 @@ namespace PolynomialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype laguerre_Scaler1(uint32 n, dtype inValue)
+    dtype laguerre_Scalar1(uint32 n, dtype inValue)
     {
         return polynomial::laguerre(n, inValue);
     }
@@ -78,7 +78,7 @@ namespace PolynomialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype laguerre_Scaler2(uint32 n, uint32 m, dtype inValue)
+    dtype laguerre_Scalar2(uint32 n, uint32 m, dtype inValue)
     {
         return polynomial::laguerre(n, m, inValue);
     }
@@ -108,7 +108,7 @@ namespace PolynomialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype legendre_p_Scaler1(int32 n, dtype inValue)
+    dtype legendre_p_Scalar1(int32 n, dtype inValue)
     {
         return polynomial::legendre_p(n, inValue);
     }
@@ -118,7 +118,7 @@ namespace PolynomialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype legendre_p_Scaler2(int32 n, int32 m, dtype inValue)
+    dtype legendre_p_Scalar2(int32 n, int32 m, dtype inValue)
     {
         return polynomial::legendre_p(n, m, inValue);
     }
@@ -148,7 +148,7 @@ namespace PolynomialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype legendre_q_Scaler(int32 n, dtype inValue)
+    dtype legendre_q_Scalar(int32 n, dtype inValue)
     {
         return polynomial::legendre_q(n, inValue);
     }
@@ -211,31 +211,31 @@ void initPolynomial(pb11::module& m)
         .def("__ipow__", &Poly1d::operator^=, pb11::return_value_policy::reference);
 
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("chebyshev_t_Scaler", &PolynomialInterface::chebyshev_t_Scaler<double>);
+    m.def("chebyshev_t_Scalar", &PolynomialInterface::chebyshev_t_Scalar<double>);
     m.def("chebyshev_t_Array", &PolynomialInterface::chebyshev_t_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("chebyshev_u_Scaler", &PolynomialInterface::chebyshev_u_Scaler<double>);
+    m.def("chebyshev_u_Scalar", &PolynomialInterface::chebyshev_u_Scalar<double>);
     m.def("chebyshev_u_Array", &PolynomialInterface::chebyshev_u_Array<double>);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("hermite_Scaler", &PolynomialInterface::hermite_Scaler<double>);
+    m.def("hermite_Scalar", &PolynomialInterface::hermite_Scalar<double>);
     m.def("hermite_Array", &PolynomialInterface::hermite_Array<double>);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("laguerre_Scaler1", &PolynomialInterface::laguerre_Scaler1<double>);
+    m.def("laguerre_Scalar1", &PolynomialInterface::laguerre_Scalar1<double>);
     m.def("laguerre_Array1", &PolynomialInterface::laguerre_Array1<double>);
-    m.def("laguerre_Scaler2", &PolynomialInterface::laguerre_Scaler2<double>);
+    m.def("laguerre_Scalar2", &PolynomialInterface::laguerre_Scalar2<double>);
     m.def("laguerre_Array2", &PolynomialInterface::laguerre_Array2<double>);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("legendre_p_Scaler1", &PolynomialInterface::legendre_p_Scaler1<double>);
+    m.def("legendre_p_Scalar1", &PolynomialInterface::legendre_p_Scalar1<double>);
     m.def("legendre_p_Array1", &PolynomialInterface::legendre_p_Array1<double>);
-    m.def("legendre_p_Scaler2", &PolynomialInterface::legendre_p_Scaler2<double>);
+    m.def("legendre_p_Scalar2", &PolynomialInterface::legendre_p_Scalar2<double>);
     m.def("legendre_p_Array2", &PolynomialInterface::legendre_p_Array2<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("legendre_q_Scaler", &PolynomialInterface::legendre_q_Scaler<double>);
+    m.def("legendre_q_Scalar", &PolynomialInterface::legendre_q_Scalar<double>);
     m.def("legendre_q_Array", &PolynomialInterface::legendre_q_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST

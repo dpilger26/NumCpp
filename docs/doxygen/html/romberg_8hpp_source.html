@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -116,61 +120,57 @@ $(document).ready(function(){initNavTree('romberg_8hpp_source.html',''); initRes
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_utils_2power_8hpp.html">NumCpp/Utils/power.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc_1_1integrate.html">nc::integrate</a></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">namespace </span>integrate</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">double</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="namespacenc_1_1integrate.html#a5406412619aa59539dd19f62f0be8caf">   58</a></span>&#160;            <a class="code" href="namespacenc_1_1integrate.html#a5406412619aa59539dd19f62f0be8caf">romberg</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> low, <span class="keyword">const</span> <span class="keywordtype">double</span> high, <span class="keyword">const</span> <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> n, <span class="keyword">const</span> std::function&lt;<span class="keywordtype">double</span>(<span class="keywordtype">double</span>)&gt;&amp; <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> rombergIntegral(n);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="namespacenc_1_1integrate.html#a5406412619aa59539dd19f62f0be8caf">   55</a></span>&#160;<span class="comment"></span>    <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1integrate.html#a5406412619aa59539dd19f62f0be8caf">romberg</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> low, <span class="keyword">const</span> <span class="keywordtype">double</span> high, <span class="keyword">const</span> <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> n, <span class="keyword">const</span> std::function&lt;<span class="keywordtype">double</span>(<span class="keywordtype">double</span>)&gt;&amp; <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> rombergIntegral(n);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">// R(0,0) Start with trapezoidal integration with N = 1</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        rombergIntegral(0, 0) = <a class="code" href="namespacenc_1_1integrate.html#acdfbecb87f7780b2961eb4e5d3b3d109">trapazoidal</a>(low, high, 1, <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="comment">// R(0,0) Start with trapezoidal integration with N = 1</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            rombergIntegral(0, 0) = <a class="code" href="namespacenc_1_1integrate.html#acdfbecb87f7780b2961eb4e5d3b3d109">trapazoidal</a>(low, high, 1, <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordtype">double</span> h = high - low;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> step = 1; step &lt; n; step++)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                h *= 0.5;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="comment">// R(step, 0) Improve trapezoidal integration with decreasing h</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordtype">double</span>       trapezoidal_integration = 0.;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keyword">const</span> <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> stepEnd                 = <a class="code" href="namespacenc_1_1utils.html#a716a63ef8627c73f6cc4146481fcabdf">utils::power</a>(2, step - 1);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> tzStep = 1; tzStep &lt;= stepEnd; ++tzStep)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">double</span> deltaX = (2. * <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(tzStep - 1)) * h;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    trapezoidal_integration += <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>(low + deltaX);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">double</span> h = high - low;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> step = 1; step &lt; n; step++)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            h *= 0.5;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="comment">// R(step, 0) Improve trapezoidal integration with decreasing h</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordtype">double</span>       trapezoidal_integration = 0.;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> stepEnd                 = <a class="code" href="namespacenc_1_1utils.html#a716a63ef8627c73f6cc4146481fcabdf">utils::power</a>(2, step - 1);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> tzStep = 1; tzStep &lt;= stepEnd; ++tzStep)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> deltaX = (2. * <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(tzStep - 1)) * h;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                trapezoidal_integration += <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>(low + deltaX);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            rombergIntegral(step, 0) = 0.5 * rombergIntegral(step - 1, 0);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            rombergIntegral(step, 0) += trapezoidal_integration * h;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                rombergIntegral(step, 0) = 0.5 * rombergIntegral(step - 1, 0);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                rombergIntegral(step, 0) += trapezoidal_integration * h;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="comment">// R(m,n) Romberg integration with R(m,1) -&gt; Simpson rule, R(m,2) -&gt; Boole&#39;s rule</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> rbStep = 1; rbStep &lt;= step; ++rbStep)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">double</span> k                = <a class="code" href="namespacenc_1_1utils.html#a716a63ef8627c73f6cc4146481fcabdf">utils::power</a>(4, rbStep);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    rombergIntegral(step, rbStep) = k * rombergIntegral(step, rbStep - 1);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    rombergIntegral(step, rbStep) -= rombergIntegral(step - 1, rbStep - 1);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    rombergIntegral(step, rbStep) /= (k - 1.);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">return</span> rombergIntegral.<a class="code" href="classnc_1_1_nd_array.html#a6bb650c9e28ff25c9b58c9f4f08d78bb">back</a>();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    } <span class="comment">// namespace integrate</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="comment">// R(m,n) Romberg integration with R(m,1) -&gt; Simpson rule, R(m,2) -&gt; Boole&#39;s rule</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> rbStep = 1; rbStep &lt;= step; ++rbStep)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> k                = <a class="code" href="namespacenc_1_1utils.html#a716a63ef8627c73f6cc4146481fcabdf">utils::power</a>(4, rbStep);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                rombergIntegral(step, rbStep) = k * rombergIntegral(step, rbStep - 1);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                rombergIntegral(step, rbStep) -= rombergIntegral(step - 1, rbStep - 1);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                rombergIntegral(step, rbStep) /= (k - 1.);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> rombergIntegral.<a class="code" href="classnc_1_1_nd_array.html#a6bb650c9e28ff25c9b58c9f4f08d78bb">back</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;} <span class="comment">// namespace nc::integrate</span></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
 <div class="ttc" id="a_utils_2power_8hpp_html"><div class="ttname"><a href="_utils_2power_8hpp.html">power.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a6bb650c9e28ff25c9b58c9f4f08d78bb"><div class="ttname"><a href="classnc_1_1_nd_array.html#a6bb650c9e28ff25c9b58c9f4f08d78bb">nc::NdArray::back</a></div><div class="ttdeci">const_reference back() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2138</div></div>
-<div class="ttc" id="anamespacenc_1_1integrate_html_a5406412619aa59539dd19f62f0be8caf"><div class="ttname"><a href="namespacenc_1_1integrate.html#a5406412619aa59539dd19f62f0be8caf">nc::integrate::romberg</a></div><div class="ttdeci">double romberg(const double low, const double high, const uint8 n, const std::function&lt; double(double)&gt; &amp;f)</div><div class="ttdef"><b>Definition:</b> romberg.hpp:58</div></div>
-<div class="ttc" id="anamespacenc_1_1integrate_html_acdfbecb87f7780b2961eb4e5d3b3d109"><div class="ttname"><a href="namespacenc_1_1integrate.html#acdfbecb87f7780b2961eb4e5d3b3d109">nc::integrate::trapazoidal</a></div><div class="ttdeci">double trapazoidal(const double low, const double high, const uint32 n, const std::function&lt; double(double)&gt; &amp;f) noexcept</div><div class="ttdef"><b>Definition:</b> trapazoidal.hpp:53</div></div>
-<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_af5bfd54c6d5d0ad7e16e6e532b0dfb2e"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">nc::random::detail::f</a></div><div class="ttdeci">dtype f(GeneratorType &amp;generator, dtype inDofN, dtype inDofD)</div><div class="ttdef"><b>Definition:</b> f.hpp:58</div></div>
-<div class="ttc" id="anamespacenc_1_1utils_html_a716a63ef8627c73f6cc4146481fcabdf"><div class="ttname"><a href="namespacenc_1_1utils.html#a716a63ef8627c73f6cc4146481fcabdf">nc::utils::power</a></div><div class="ttdeci">dtype power(dtype inValue, uint8 inPower) noexcept</div><div class="ttdef"><b>Definition:</b> Utils/power.hpp:48</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a6bb650c9e28ff25c9b58c9f4f08d78bb"><div class="ttname"><a href="classnc_1_1_nd_array.html#a6bb650c9e28ff25c9b58c9f4f08d78bb">nc::NdArray::back</a></div><div class="ttdeci">const_reference back() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2230</div></div>
+<div class="ttc" id="anamespacenc_1_1integrate_html"><div class="ttname"><a href="namespacenc_1_1integrate.html">nc::integrate</a></div><div class="ttdef"><b>Definition:</b> gauss_legendre.hpp:43</div></div>
+<div class="ttc" id="anamespacenc_1_1integrate_html_a5406412619aa59539dd19f62f0be8caf"><div class="ttname"><a href="namespacenc_1_1integrate.html#a5406412619aa59539dd19f62f0be8caf">nc::integrate::romberg</a></div><div class="ttdeci">double romberg(const double low, const double high, const uint8 n, const std::function&lt; double(double)&gt; &amp;f)</div><div class="ttdef"><b>Definition:</b> romberg.hpp:55</div></div>
+<div class="ttc" id="anamespacenc_1_1integrate_html_acdfbecb87f7780b2961eb4e5d3b3d109"><div class="ttname"><a href="namespacenc_1_1integrate.html#acdfbecb87f7780b2961eb4e5d3b3d109">nc::integrate::trapazoidal</a></div><div class="ttdeci">double trapazoidal(const double low, const double high, const uint32 n, const std::function&lt; double(double)&gt; &amp;f) noexcept</div><div class="ttdef"><b>Definition:</b> trapazoidal.hpp:51</div></div>
+<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_af5bfd54c6d5d0ad7e16e6e532b0dfb2e"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">nc::random::detail::f</a></div><div class="ttdeci">dtype f(GeneratorType &amp;generator, dtype inDofN, dtype inDofD)</div><div class="ttdef"><b>Definition:</b> f.hpp:56</div></div>
+<div class="ttc" id="anamespacenc_1_1utils_html_a716a63ef8627c73f6cc4146481fcabdf"><div class="ttname"><a href="namespacenc_1_1utils.html#a716a63ef8627c73f6cc4146481fcabdf">nc::utils::power</a></div><div class="ttdeci">dtype power(dtype inValue, uint8 inPower) noexcept</div><div class="ttdef"><b>Definition:</b> Utils/power.hpp:46</div></div>
 <div class="ttc" id="anamespacenc_html_a9ba5a0aa26753a185985b8273fb9062d"><div class="ttname"><a href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">nc::uint8</a></div><div class="ttdeci">std::uint8_t uint8</div><div class="ttdef"><b>Definition:</b> Types.hpp:42</div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
 <div class="ttc" id="atrapazoidal_8hpp_html"><div class="ttname"><a href="trapazoidal_8hpp.html">trapazoidal.hpp</a></div></div>

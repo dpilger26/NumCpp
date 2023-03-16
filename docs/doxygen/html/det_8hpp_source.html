@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -119,116 +123,113 @@ $(document).ready(function(){initNavTree('det_8hpp_source.html',''); initResizab
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc_1_1linalg.html">nc::linalg</a></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">namespace </span>linalg</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespacenc_1_1linalg_1_1detail.html">   43</a></span>&#160;    <span class="keyword">namespace </span>detail</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespacenc_1_1linalg_1_1detail.html">   45</a></span>&#160;        <span class="keyword">namespace </span>detail</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span>            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespacenc_1_1linalg_1_1detail.html#ac2169a5439fe9005c882f0faaa573bd7">   56</a></span>&#160;            <span class="keyword">auto</span> <a class="code" href="namespacenc_1_1linalg_1_1detail.html#ac2169a5439fe9005c882f0faaa573bd7">det</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> order)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                -&gt; std::conditional_t&lt;is_integral_v&lt;dtype&gt;, <a class="code" href="namespacenc.html#a6223a7f3b0f7886036f64276f36c921e">int64</a>, <span class="keywordtype">double</span>&gt;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="namespacenc_1_1linalg_1_1detail.html#a636d3082932ef8a13aaf9c4201bf8f9d">   54</a></span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespacenc_1_1linalg_1_1detail.html#a636d3082932ef8a13aaf9c4201bf8f9d">det</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> order)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            -&gt; std::conditional_t&lt;std::is_integral_v&lt;dtype&gt;, <a class="code" href="namespacenc.html#a6223a7f3b0f7886036f64276f36c921e">int64</a>, <span class="keywordtype">double</span>&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keyword">using</span> ReturnType = std::conditional_t&lt;std::is_integral_v&lt;dtype&gt;, <a class="code" href="namespacenc.html#a6223a7f3b0f7886036f64276f36c921e">int64</a>, <span class="keywordtype">double</span>&gt;;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keyword">using</span> ReturnType = std::conditional_t&lt;is_integral_v&lt;dtype&gt;, <a class="code" href="namespacenc.html#a6223a7f3b0f7886036f64276f36c921e">int64</a>, <span class="keywordtype">double</span>&gt;;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">if</span> (order == 1)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray.front());</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">if</span> (order == 2)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 0)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 1)) -</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                           <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 1)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 0));</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">if</span> (order == 3)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> aei = <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 0)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 1)) *</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                     <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(2, 2));</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> bfg = <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 1)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 2)) *</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                     <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(2, 0));</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> cdh = <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 2)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 0)) *</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                     <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(2, 1));</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> ceg = <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 2)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 1)) *</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                     <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(2, 0));</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> bdi = <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 1)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 0)) *</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                     <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(2, 2));</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> afh = <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 0)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 2)) *</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                     <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(2, 1));</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    <span class="keywordflow">return</span> aei + bfg + cdh - ceg - bdi - afh;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                ReturnType     determinant = 0;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                ReturnType     <a class="code" href="namespacenc.html#a4a5d98f334e0b50a3cf9c2718485e5e9">sign</a>        = 1;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> submat(order - 1);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a> = 0; <a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a> &lt; order; ++<a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a>)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> subi = 0;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = 1; i &lt; order; ++i)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                        <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> subj = 0;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> = 0; <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> &lt; order; ++<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">if</span> (order == 1)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray.front());</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">if</span> (order == 2)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 0)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 1)) -</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                       <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 1)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 0));</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">if</span> (order == 3)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> aei = <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 0)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 1)) *</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                 <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(2, 2));</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> bfg = <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 1)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 2)) *</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                 <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(2, 0));</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> cdh = <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 2)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 0)) *</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                 <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(2, 1));</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> ceg = <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 2)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 1)) *</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                 <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(2, 0));</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> bdi = <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 1)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 0)) *</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                 <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(2, 2));</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> afh = <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, 0)) * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(1, 2)) *</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                 <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(2, 1));</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">return</span> aei + bfg + cdh - ceg - bdi - afh;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            ReturnType     determinant = 0;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            ReturnType     <a class="code" href="namespacenc.html#a4a5d98f334e0b50a3cf9c2718485e5e9">sign</a>        = 1;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> submat(order - 1);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a> = 0; <a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a> &lt; order; ++<a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a>)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> subi = 0;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = 1; i &lt; order; ++i)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> subj = 0;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> = 0; <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> &lt; order; ++<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        <span class="keywordflow">if</span> (<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> == <a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a>)</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                            <span class="keywordflow">if</span> (<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> == <a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a>)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                            {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                            }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                            submat(subi, subj++) = inArray(i, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                        }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                        ++subi;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    determinant += (<a class="code" href="namespacenc.html#a4a5d98f334e0b50a3cf9c2718485e5e9">sign</a> * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, <a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a>)) * <a class="code" href="namespacenc_1_1linalg_1_1detail.html#ac2169a5439fe9005c882f0faaa573bd7">det</a>(submat, order - 1));</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    <a class="code" href="namespacenc.html#a4a5d98f334e0b50a3cf9c2718485e5e9">sign</a> *= -1;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                }</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">return</span> determinant;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            }</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        } <span class="comment">// namespace detail</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">  133</a></span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">det</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        {</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a> inShape = inArray.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <span class="keywordflow">if</span> (!inShape.<a class="code" href="classnc_1_1_shape.html#a939dd0ab6edf83b7abaf8b8c93a99152">issquare</a>())</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            {</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input array must be square.&quot;</span>);</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            }</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1linalg_1_1detail.html#ac2169a5439fe9005c882f0faaa573bd7">detail::det</a>(inArray, inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    } <span class="comment">// namespace linalg</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                        submat(subi, subj++) = inArray(i, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    ++subi;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                determinant += (<a class="code" href="namespacenc.html#a4a5d98f334e0b50a3cf9c2718485e5e9">sign</a> * <span class="keyword">static_cast&lt;</span>ReturnType<span class="keyword">&gt;</span>(inArray(0, <a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a>)) * <a class="code" href="namespacenc_1_1linalg_1_1detail.html#a636d3082932ef8a13aaf9c4201bf8f9d">det</a>(submat, order - 1));</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <a class="code" href="namespacenc.html#a4a5d98f334e0b50a3cf9c2718485e5e9">sign</a> *= -1;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">return</span> determinant;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    } <span class="comment">// namespace detail</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">  131</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">det</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a> inShape = inArray.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">if</span> (!inShape.<a class="code" href="classnc_1_1_shape.html#a939dd0ab6edf83b7abaf8b8c93a99152">issquare</a>())</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input array must be square.&quot;</span>);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1linalg_1_1detail.html#a636d3082932ef8a13aaf9c4201bf8f9d">detail::det</a>(inArray, inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;} <span class="comment">// namespace nc::linalg</span></div>
 <div class="ttc" id="a_core_2_shape_8hpp_html"><div class="ttname"><a href="_core_2_shape_8hpp.html">Shape.hpp</a></div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
-<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:36</div></div>
+<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:37</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:37</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:39</div></div>
 <div class="ttc" id="a_type_traits_8hpp_html"><div class="ttname"><a href="_type_traits_8hpp.html">TypeTraits.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4092</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4402</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html"><div class="ttname"><a href="classnc_1_1_shape.html">nc::Shape</a></div><div class="ttdoc">A Shape Class for NdArrays.</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:41</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_a6f89f699dea6eb89eef19e00c92b223a"><div class="ttname"><a href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">nc::Shape::rows</a></div><div class="ttdeci">uint32 rows</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:44</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_a939dd0ab6edf83b7abaf8b8c93a99152"><div class="ttname"><a href="classnc_1_1_shape.html#a939dd0ab6edf83b7abaf8b8c93a99152">nc::Shape::issquare</a></div><div class="ttdeci">bool issquare() const noexcept</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:125</div></div>
-<div class="ttc" id="anamespacenc_1_1constants_html_a0e933571f05ee6af915fc327260517e9"><div class="ttname"><a href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">nc::constants::j</a></div><div class="ttdeci">constexpr auto j</div><div class="ttdef"><b>Definition:</b> Constants.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_1_1constants_html_ac3fc62713ed109e451648c67faab7581"><div class="ttname"><a href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">nc::constants::c</a></div><div class="ttdeci">constexpr double c</div><div class="ttdoc">speed of light</div><div class="ttdef"><b>Definition:</b> Constants.hpp:40</div></div>
-<div class="ttc" id="anamespacenc_1_1linalg_1_1detail_html_ac2169a5439fe9005c882f0faaa573bd7"><div class="ttname"><a href="namespacenc_1_1linalg_1_1detail.html#ac2169a5439fe9005c882f0faaa573bd7">nc::linalg::detail::det</a></div><div class="ttdeci">auto det(const NdArray&lt; dtype &gt; &amp;inArray, uint32 order) -&gt; std::conditional_t&lt; is_integral_v&lt; dtype &gt;, int64, double &gt;</div><div class="ttdef"><b>Definition:</b> det.hpp:56</div></div>
-<div class="ttc" id="anamespacenc_1_1linalg_html_a560873e98ef9b3d8da501ad6feb121e9"><div class="ttname"><a href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">nc::linalg::det</a></div><div class="ttdeci">auto det(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> det.hpp:133</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="anamespacenc_1_1constants_html_a0e933571f05ee6af915fc327260517e9"><div class="ttname"><a href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">nc::constants::j</a></div><div class="ttdeci">constexpr auto j</div><div class="ttdef"><b>Definition:</b> Constants.hpp:41</div></div>
+<div class="ttc" id="anamespacenc_1_1constants_html_ac3fc62713ed109e451648c67faab7581"><div class="ttname"><a href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">nc::constants::c</a></div><div class="ttdeci">constexpr double c</div><div class="ttdoc">speed of light</div><div class="ttdef"><b>Definition:</b> Constants.hpp:36</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_1_1detail_html_a636d3082932ef8a13aaf9c4201bf8f9d"><div class="ttname"><a href="namespacenc_1_1linalg_1_1detail.html#a636d3082932ef8a13aaf9c4201bf8f9d">nc::linalg::detail::det</a></div><div class="ttdeci">auto det(const NdArray&lt; dtype &gt; &amp;inArray, uint32 order) -&gt; std::conditional_t&lt; std::is_integral_v&lt; dtype &gt;, int64, double &gt;</div><div class="ttdef"><b>Definition:</b> det.hpp:54</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_html"><div class="ttname"><a href="namespacenc_1_1linalg.html">nc::linalg</a></div><div class="ttdef"><b>Definition:</b> cholesky.hpp:41</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_html_a560873e98ef9b3d8da501ad6feb121e9"><div class="ttname"><a href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">nc::linalg::det</a></div><div class="ttdeci">auto det(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> det.hpp:131</div></div>
 <div class="ttc" id="anamespacenc_html_a4a5d98f334e0b50a3cf9c2718485e5e9"><div class="ttname"><a href="namespacenc.html#a4a5d98f334e0b50a3cf9c2718485e5e9">nc::sign</a></div><div class="ttdeci">int8 sign(dtype inValue) noexcept</div><div class="ttdef"><b>Definition:</b> sign.hpp:52</div></div>
 <div class="ttc" id="anamespacenc_html_a6223a7f3b0f7886036f64276f36c921e"><div class="ttname"><a href="namespacenc.html#a6223a7f3b0f7886036f64276f36c921e">nc::int64</a></div><div class="ttdeci">std::int64_t int64</div><div class="ttdef"><b>Definition:</b> Types.hpp:35</div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>

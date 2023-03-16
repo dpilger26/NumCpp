@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -117,7 +121,7 @@ $(document).ready(function(){initNavTree('putmask_8hpp_source.html',''); initRes
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacenc.html#af6468198b46c36c8a93068c936617725">   50</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; <a class="code" href="namespacenc.html#af6468198b46c36c8a93068c936617725">putmask</a>(<a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;bool&gt;</a>&amp; inMask, dtype inValue)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        inArray.<a class="code" href="classnc_1_1_nd_array.html#a52e65ffbf29d168d53ac7605acb69b4e">putMask</a>(inMask, inValue);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        inArray.<a class="code" href="classnc_1_1_nd_array.html#aff976966fee721aed8ce19a367a350dd">putMask</a>(inMask, inValue);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> inArray;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
@@ -126,13 +130,13 @@ $(document).ready(function(){initNavTree('putmask_8hpp_source.html',''); initRes
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
 <div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="namespacenc.html#a0ae15cbd793c43445aca3660fc209a0c">   72</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; <a class="code" href="namespacenc.html#af6468198b46c36c8a93068c936617725">putmask</a>(<a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;bool&gt;</a>&amp; inMask, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inValues)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        inArray.<a class="code" href="classnc_1_1_nd_array.html#a52e65ffbf29d168d53ac7605acb69b4e">putMask</a>(inMask, inValues);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        inArray.<a class="code" href="classnc_1_1_nd_array.html#aff976966fee721aed8ce19a367a350dd">putMask</a>(inMask, inValues);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> inArray;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a52e65ffbf29d168d53ac7605acb69b4e"><div class="ttname"><a href="classnc_1_1_nd_array.html#a52e65ffbf29d168d53ac7605acb69b4e">nc::NdArray::putMask</a></div><div class="ttdeci">NdArray&lt; dtype &gt; &amp; putMask(const NdArray&lt; bool &gt; &amp;inMask, value_type inValue)</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:3758</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_aff976966fee721aed8ce19a367a350dd"><div class="ttname"><a href="classnc_1_1_nd_array.html#aff976966fee721aed8ce19a367a350dd">nc::NdArray::putMask</a></div><div class="ttdeci">self_type &amp; putMask(const NdArray&lt; bool &gt; &amp;inMask, const value_type &amp;inValue)</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4058</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="anamespacenc_html_af6468198b46c36c8a93068c936617725"><div class="ttname"><a href="namespacenc.html#af6468198b46c36c8a93068c936617725">nc::putmask</a></div><div class="ttdeci">NdArray&lt; dtype &gt; &amp; putmask(NdArray&lt; dtype &gt; &amp;inArray, const NdArray&lt; bool &gt; &amp;inMask, dtype inValue)</div><div class="ttdef"><b>Definition:</b> putmask.hpp:50</div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -31,6 +31,7 @@
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
+#include "NumCpp/Functions/linspace.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Special/bessel_in.hpp"
 #include "NumCpp/Utils/sqr.hpp"

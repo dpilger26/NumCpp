@@ -35,48 +35,45 @@
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::special
 {
-    namespace special
+    //============================================================================
+    // Method Description:
+    /// Returns the "true gamma" of value z.
+    /// NOTE: Use of this function requires using the Boost includes.
+    ///
+    /// @param inValue
+    /// @return calculated-result-type
+    ///
+    template<typename dtype>
+    auto gamma(dtype inValue)
     {
-        //============================================================================
-        // Method Description:
-        /// Returns the "true gamma" of value z.
-        /// NOTE: Use of this function requires using the Boost includes.
-        ///
-        /// @param inValue
-        /// @return calculated-result-type
-        ///
-        template<typename dtype>
-        auto gamma(dtype inValue)
-        {
-            STATIC_ASSERT_ARITHMETIC(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
-            return boost::math::tgamma(inValue);
-        }
+        return boost::math::tgamma(inValue);
+    }
 
-        //============================================================================
-        // Method Description:
-        /// Returns the "true gamma" of values in array.
-        /// NOTE: Use of this function requires using the Boost includes.
-        ///
-        /// @param inArray
-        /// @return NdArray
-        ///
-        template<typename dtype>
-        auto gamma(const NdArray<dtype>& inArray)
-        {
-            NdArray<decltype(gamma(dtype{ 0 }))> returnArray(inArray.shape());
+    //============================================================================
+    // Method Description:
+    /// Returns the "true gamma" of values in array.
+    /// NOTE: Use of this function requires using the Boost includes.
+    ///
+    /// @param inArray
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    auto gamma(const NdArray<dtype>& inArray)
+    {
+        NdArray<decltype(gamma(dtype{ 0 }))> returnArray(inArray.shape());
 
-            stl_algorithms::transform(
-                inArray.cbegin(),
-                inArray.cend(),
-                returnArray.begin(),
-                [](dtype inValue) -> auto{ return gamma(inValue); });
+        stl_algorithms::transform(
+            inArray.cbegin(),
+            inArray.cend(),
+            returnArray.begin(),
+            [](dtype inValue) -> auto{ return gamma(inValue); });
 
-            return returnArray;
-        }
-    } // namespace special
-} // namespace nc
+        return returnArray;
+    }
+} // namespace nc::special
 
 #endif // #ifndef NUMCPP_NO_USE_BOOST

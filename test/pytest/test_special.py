@@ -20,8 +20,8 @@ def test_airy_ai():
         return
 
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.airy_ai_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.airy(value)[0].item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.airy_ai_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.airy(value)[0].item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -38,8 +38,8 @@ def test_airy_ai_prime():
         return
 
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.airy_ai_prime_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.airy(value)[1].item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.airy_ai_prime_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.airy(value)[1].item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -56,8 +56,8 @@ def test_airy_bi():
         return
 
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.airy_bi_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.airy(value)[2].item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.airy_bi_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.airy(value)[2].item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -74,8 +74,8 @@ def test_airy_bi_prime():
         return
 
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.airy_bi_prime_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.airy(value)[3].item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.airy_bi_prime_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.airy(value)[3].item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -92,8 +92,8 @@ def test_bernoulli():
         return
 
     value = np.random.randint(0, 20)
-    assert (roundScaler(NumCpp.bernoulli_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.bernoulli(value)[-1], NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.bernoulli_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.bernoulli(value)[-1], NUM_DECIMALS_ROUND))
 
 
 ####################################################################################
@@ -103,8 +103,8 @@ def test_cylindrical_bessel_i():
 
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.bessel_in_Scaler(order, value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.iv(order, value).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.bessel_in_Scalar(order, value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.iv(order, value).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -123,8 +123,8 @@ def test_cylindrical_bessel_i_prime():
 
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.bessel_in_prime_Scaler(order, value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.ivp(order, value).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.bessel_in_prime_Scalar(order, value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.ivp(order, value).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -143,8 +143,8 @@ def test_cylindrical_bessel_j():
 
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.bessel_jn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.jv(order, value).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.bessel_jn_Scalar(order, value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.jv(order, value).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -163,8 +163,8 @@ def test_cylindrical_bessel_j_prime():
 
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.bessel_jn_prime_Scaler(order, value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.jvp(order, value).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.bessel_jn_prime_Scalar(order, value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.jvp(order, value).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -183,8 +183,8 @@ def test_cylindrical_bessel_k():
 
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.bessel_kn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.kn(order, value).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.bessel_kn_Scalar(order, value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.kn(order, value).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -203,8 +203,8 @@ def test_cylindrical_bessel_k_prime():
 
     order = np.random.randint(0, 5)
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.bessel_kn_prime_Scaler(order, value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.kvp(order, value).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.bessel_kn_prime_Scalar(order, value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.kvp(order, value).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -223,8 +223,8 @@ def test_cylindrical_bessel_y():
 
     order = np.random.randint(0, 5)
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.bessel_yn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.yn(order, value).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.bessel_yn_Scalar(order, value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.yn(order, value).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -243,8 +243,8 @@ def test_cylindrical_bessel_y_prime():
 
     order = np.random.randint(0, 5)
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.bessel_yn_prime_Scaler(order, value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.yvp(order, value).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.bessel_yn_prime_Scalar(order, value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.yvp(order, value).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -263,8 +263,8 @@ def test_beta():
 
     a = np.random.rand(1).item() * 10
     b = np.random.rand(1).item() * 10
-    assert (roundScaler(NumCpp.beta_Scaler(a, b), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.beta(a, b).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.beta_Scalar(a, b), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.beta(a, b).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -284,8 +284,8 @@ def test_comp_ellint_1():
         return
 
     a = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.comp_ellint_1_Scaler(a), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.ellipk(a**2).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.comp_ellint_1_Scalar(a), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.ellipk(a**2).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -302,8 +302,8 @@ def test_comp_ellint_2():
         return
 
     a = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.comp_ellint_2_Scaler(a), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.ellipe(a**2).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.comp_ellint_2_Scalar(a), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.ellipe(a**2).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -321,8 +321,8 @@ def test_comp_ellint_3():
 
     a = np.random.rand(1).item()
     b = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.comp_ellint_3_Scaler(a, b), NUM_DECIMALS_ROUND) ==
-            roundScaler(float(mpmath.ellippi(b, a**2)), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.comp_ellint_3_Scalar(a, b), NUM_DECIMALS_ROUND) ==
+            roundScalar(float(mpmath.ellippi(b, a**2)), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -356,7 +356,7 @@ def test_cylindrical_hankel_1():
 
     order = np.random.randint(0, 6)
     value = np.random.rand(1).item() * 10
-    assert (roundComplex(complex(NumCpp.cyclic_hankel_1_Scaler(order, value)), NUM_DECIMALS_ROUND) ==
+    assert (roundComplex(complex(NumCpp.cyclic_hankel_1_Scalar(order, value)), NUM_DECIMALS_ROUND) ==
             roundComplex(sp.hankel1(order, value), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -376,7 +376,7 @@ def test_cylindrical_hankel_2():
 
     order = np.random.randint(0, 6)
     value = np.random.rand(1).item() * 10
-    assert (roundComplex(complex(NumCpp.cyclic_hankel_2_Scaler(order, value)), NUM_DECIMALS_ROUND) ==
+    assert (roundComplex(complex(NumCpp.cyclic_hankel_2_Scalar(order, value)), NUM_DECIMALS_ROUND) ==
             roundComplex(sp.hankel2(order, value), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -395,8 +395,8 @@ def test_digamma():
         return
 
     value = np.random.rand(1).item() * 10
-    assert (roundScaler(NumCpp.digamma_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.digamma(value), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.digamma_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.digamma(value), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -414,8 +414,8 @@ def test_ellint_1():
 
     a = np.random.rand(1).item()
     b = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.ellint_1_Scaler(a, b), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.ellipkinc(b, a**2), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.ellint_1_Scalar(a, b), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.ellipkinc(b, a**2), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -437,8 +437,8 @@ def test_ellint_2():
 
     a = np.random.rand(1).item()
     b = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.ellint_2_Scaler(a, b), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.ellipeinc(b, a**2), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.ellint_2_Scalar(a, b), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.ellipeinc(b, a**2), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -461,8 +461,8 @@ def test_ellint_3():
     a = np.random.rand(1).item()
     b = np.random.rand(1).item()
     c = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.ellint_3_Scaler(a, b, c), NUM_DECIMALS_ROUND) ==
-            roundScaler(float(mpmath.ellippi(b, c, a**2)), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.ellint_3_Scalar(a, b, c), NUM_DECIMALS_ROUND) ==
+            roundScalar(float(mpmath.ellippi(b, c, a**2)), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -491,8 +491,8 @@ def test_erf():
         return
 
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.erf_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.erf(value), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.erf_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.erf(value), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -509,8 +509,8 @@ def test_erfinv():
         return
 
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.erf_inv_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.erfinv(value), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.erf_inv_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.erfinv(value), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -527,8 +527,8 @@ def test_erfc():
         return
 
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.erfc_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.erfc(value), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.erfc_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.erfc(value), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -545,8 +545,8 @@ def test_erfcinv():
         return
 
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.erfc_inv_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.erfcinv(value), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.erfc_inv_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.erfcinv(value), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -563,8 +563,8 @@ def test_expint():
         return
 
     a = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.expint_Scaler(a), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.expi(a).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.expint_Scalar(a), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.expi(a).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -578,8 +578,8 @@ def test_expint():
 ####################################################################################
 def test_factorial():
     n = np.random.randint(0, 170)
-    assert (roundScaler(NumCpp.factorial_Scaler(n), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.factorial(n).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.factorial_Scalar(n), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.factorial(n).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -596,8 +596,8 @@ def test_gamma():
         return
 
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.gamma_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.gamma(value), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.gamma_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.gamma(value), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -615,7 +615,7 @@ def test_gamma1pm1():
 
     # There is no scipy equivalent to this function
     value = np.random.rand(1).item()
-    assert NumCpp.gamma1pm1_Scaler(value) is not None
+    assert NumCpp.gamma1pm1_Scalar(value) is not None
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -631,8 +631,8 @@ def test_loggamma():
         return
 
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.log_gamma_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.loggamma(value), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.log_gamma_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.loggamma(value), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -657,8 +657,8 @@ def test_polygamma():
 
     order = np.random.randint(1, 5)
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.polygamma_Scaler(order, value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.polygamma(order, value).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.polygamma_Scalar(order, value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.polygamma(order, value).item(), NUM_DECIMALS_ROUND))
 
     order = np.random.randint(1, 5)
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -677,7 +677,7 @@ def test_prime():
 
     # There is no scipy equivalent to this function
     value = np.random.randint(10000)
-    assert NumCpp.prime_Scaler(value) is not None
+    assert NumCpp.prime_Scalar(value) is not None
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -694,8 +694,8 @@ def test_zeta():
         return
 
     value = np.random.rand(1).item() * 5 + 1
-    assert (roundScaler(NumCpp.riemann_zeta_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.zeta(value, 1).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.riemann_zeta_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.zeta(value, 1).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -740,8 +740,8 @@ def test_spherical_bessel_j():
 
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.spherical_bessel_jn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.spherical_jn(order, value).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.spherical_bessel_jn_Scalar(order, value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.spherical_jn(order, value).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -760,8 +760,8 @@ def test_spherical_bessel_y():
 
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.spherical_bessel_yn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.spherical_yn(order, value).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.spherical_bessel_yn_Scalar(order, value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.spherical_yn(order, value).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -781,7 +781,7 @@ def test_spherical_hankel_1():
     # There is no equivalent scipy functions
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
-    assert NumCpp.spherical_hankel_1_Scaler(order, value) is not None
+    assert NumCpp.spherical_hankel_1_Scalar(order, value) is not None
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -800,7 +800,7 @@ def test_spherical_hankel_2():
     # There is no equivalent scipy functions
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
-    assert NumCpp.spherical_hankel_2_Scaler(order, value) is not None
+    assert NumCpp.spherical_hankel_2_Scalar(order, value) is not None
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -817,8 +817,8 @@ def test_trigamma():
         return
 
     value = np.random.rand(1).item()
-    assert (roundScaler(NumCpp.trigamma_Scaler(value), NUM_DECIMALS_ROUND) ==
-            roundScaler(sp.polygamma(1, value).item(), NUM_DECIMALS_ROUND))
+    assert (roundScalar(NumCpp.trigamma_Scalar(value), NUM_DECIMALS_ROUND) ==
+            roundScalar(sp.polygamma(1, value).item(), NUM_DECIMALS_ROUND))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -830,23 +830,23 @@ def test_trigamma():
 
 
 ####################################################################################
-def roundScaler(value: float, numDecimals: int) -> float:
+def roundScalar(value: float, numDecimals: int) -> float:
     return float(f'{{:.{numDecimals}g}}'.format(value))  # noqa
 
 
 ####################################################################################
 def roundArray(values: np.ndarray, numDecimals: int) -> np.ndarray:
-    func = np.vectorize(roundScaler)
+    func = np.vectorize(roundScalar)
     return func(values, numDecimals)
 
 
 ####################################################################################
 def roundComplex(value: complex, numDecimals: int) -> complex:
-    return complex(roundScaler(value.real, numDecimals),
-                   roundScaler(value.imag, numDecimals))
+    return complex(roundScalar(value.real, numDecimals),
+                   roundScalar(value.imag, numDecimals))
 
 
 ####################################################################################
 def roundComplexArray(values: np.array, numDecimals: int) -> np.array:
-    return np.array([complex(roundScaler(value.real, numDecimals),
-                             roundScaler(value.imag, numDecimals)) for value in values.flatten()])
+    return np.array([complex(roundScalar(value.real, numDecimals),
+                             roundScalar(value.imag, numDecimals)) for value in values.flatten()])

@@ -9,7 +9,7 @@ np.random.seed(666)
 # simply be whether or not it crashes
 ####################################################################################
 def test_bernoulli():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     p = np.random.rand()
     assert np.array_equal(NumCpp.bernoulli(
@@ -22,7 +22,7 @@ def test_beta():
     if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     alpha, beta = np.random.randint(1, 100, [2, ]).astype(float)
     assert np.array_equal(NumCpp.beta(
@@ -32,7 +32,7 @@ def test_beta():
 
 ####################################################################################
 def test_binomial():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     n = np.random.randint(100)
     p = np.random.rand(1)
@@ -43,7 +43,7 @@ def test_binomial():
 
 ####################################################################################
 def test_cauchy():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     mean, sigma = np.random.randint(1, 100, [2, ]).astype(float)
     assert np.array_equal(NumCpp.cauchy(
@@ -53,7 +53,7 @@ def test_cauchy():
 
 ####################################################################################
 def test_chiSquare():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     dof = np.random.randint(1, 100)
     assert np.array_equal(NumCpp.chiSquare(
@@ -63,7 +63,7 @@ def test_chiSquare():
 
 ####################################################################################
 def test_choice():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     cArray = NumCpp.NdArray(inShape)
     data = np.random.randint(0, 100, shapeInput)
@@ -78,7 +78,7 @@ def test_choice():
 
 ####################################################################################
 def test_discrete():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     cWeights = NumCpp.NdArray(inShape)
     weights = np.random.randint(0, 100, shapeInput)
@@ -90,7 +90,7 @@ def test_discrete():
 
 ####################################################################################
 def test_exponential():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     scaleValue = np.random.randint(1, 100)
     rng = NumCpp.RNG()
@@ -101,7 +101,7 @@ def test_exponential():
 
 ####################################################################################
 def test_extremeValue():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     a, b = np.random.randint(1, 100, [2, ])
     assert np.array_equal(NumCpp.extremeValue(
@@ -111,7 +111,7 @@ def test_extremeValue():
 
 ####################################################################################
 def test_f():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     dof_n, dof_d = np.random.randint(1, 100, [2, ])
     assert np.array_equal(
@@ -121,7 +121,7 @@ def test_f():
 
 ####################################################################################
 def test_gamma():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     gamma_shape, scale_value = np.random.randint(1, 100, [2, ])
     assert np.array_equal(NumCpp.gamma(
@@ -131,7 +131,7 @@ def test_gamma():
 
 ####################################################################################
 def test_geometric():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     p = np.random.rand()
     assert np.array_equal(NumCpp.geometric(
@@ -144,7 +144,7 @@ def test_laplace():
     if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     loc, scale = np.random.randint(1, 100, [2, ])
     assert np.array_equal(NumCpp.laplace(
@@ -154,7 +154,7 @@ def test_laplace():
 
 ####################################################################################
 def test_lognormal():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     mean, sigma = np.random.randint(1, 100, [2, ])
     assert np.array_equal(NumCpp.lognormal(
@@ -164,7 +164,7 @@ def test_lognormal():
 
 ####################################################################################
 def test_negativeBinomial():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     n = np.random.randint(100)
     p = np.random.rand()
@@ -178,7 +178,7 @@ def test_nonCentralChiSquared():
     if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     k, lambda_ = np.random.randint(1, 100, [2, ])
     assert np.array_equal(NumCpp.nonCentralChiSquared(
@@ -188,7 +188,7 @@ def test_nonCentralChiSquared():
 
 ####################################################################################
 def test_normal():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     mean, sigma = np.random.randint(1, 100, [2, ])
     assert np.array_equal(NumCpp.normal(
@@ -199,7 +199,7 @@ def test_normal():
 ####################################################################################
 def test_permutation():
     size = np.random.randint(50, 100)
-    permutation = NumCpp.permutationScaler(size).flatten()
+    permutation = NumCpp.permutationScalar(size).flatten()
     assert permutation.size == size
     assert np.array_equal(np.sort(permutation), np.arange(size).astype(float))
 
@@ -214,7 +214,7 @@ def test_permutation():
 
 ####################################################################################
 def test_poisson():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     mean, sigma = np.random.randint(1, 100, [2, ])
     assert np.array_equal(NumCpp.normal(
@@ -224,7 +224,7 @@ def test_poisson():
 
 ####################################################################################
 def test_rand():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     randValues = NumCpp.rand(inShape).getNumpyArray()
     assert np.array_equal(randValues.shape, shapeInput)
@@ -234,7 +234,7 @@ def test_rand():
 
 ####################################################################################
 def test_randFloat():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     low, high = np.sort(np.random.randint(1, 100, [2, ]))
     randValues = NumCpp.randFloat(inShape, low, high).getNumpyArray()
@@ -245,7 +245,7 @@ def test_randFloat():
 
 ####################################################################################
 def test_randInt():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     low, high = np.sort(np.random.randint(1, 100, [2, ]))
     randValues = NumCpp.randInt(inShape, low, high).getNumpyArray()
@@ -256,7 +256,7 @@ def test_randInt():
 
 ####################################################################################
 def test_randN():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     assert np.array_equal(NumCpp.randN(
         inShape).getNumpyArray().shape, shapeInput)
@@ -268,7 +268,7 @@ def test_seed():
     seed = np.random.randint(0, 100000)
     NumCpp.seed(seed)
 
-    shapeInput = np.random.randint(1, 100, [2, ])
+    shapeInput = np.random.randint(2, 100, [2, ])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item() + 1)
     values = np.random.randint(1, 100, [2, ])
     values.sort()
@@ -295,7 +295,7 @@ def test_shuffle():
 
 ####################################################################################
 def test_standardNormal():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     assert np.array_equal(NumCpp.standardNormal(
         inShape).getNumpyArray().shape, shapeInput)
@@ -304,7 +304,7 @@ def test_standardNormal():
 
 ####################################################################################
 def test_studentT():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     dof = np.random.randint(1, 100)
     assert np.array_equal(NumCpp.studentT(
@@ -317,7 +317,7 @@ def test_triangle():
     if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     a, b, c = np.sort(np.random.randint(1, 100, [3, ]))
     assert np.array_equal(NumCpp.triangle(
@@ -327,7 +327,7 @@ def test_triangle():
 
 ####################################################################################
 def test_uniform():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     low, high = np.sort(np.random.randint(1, 100, [2, ]))
     randValues = NumCpp.uniform(inShape, low, high).getNumpyArray()
@@ -349,7 +349,7 @@ def test_uniformOnSphere():
 
 ####################################################################################
 def test_weibull():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     a, b = np.random.randint(1, 100, [2, ])
     assert np.array_equal(NumCpp.weibull(
@@ -359,7 +359,7 @@ def test_weibull():
 
 ####################################################################################
 def test_RNG_bernoulli():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     p = np.random.rand()
     rng = NumCpp.RNG()
@@ -372,7 +372,7 @@ def test_RNG_beta():
     if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     alpha, beta = np.random.randint(1, 100, [2, ]).astype(float)
     rng = NumCpp.RNG()
@@ -382,7 +382,7 @@ def test_RNG_beta():
 
 ####################################################################################
 def test_RNG_binomial():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     n = np.random.randint(100)
     p = np.random.rand(1)
@@ -393,7 +393,7 @@ def test_RNG_binomial():
 
 ####################################################################################
 def test_RNG_cauchy():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     mean, sigma = np.random.randint(1, 100, [2, ]).astype(float)
     rng = NumCpp.RNG()
@@ -403,7 +403,7 @@ def test_RNG_cauchy():
 
 ####################################################################################
 def test_RNG_chiSquare():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     dof = np.random.randint(1, 100)
     rng = NumCpp.RNG()
@@ -413,7 +413,7 @@ def test_RNG_chiSquare():
 
 ####################################################################################
 def test_RNG_choice():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     cArray = NumCpp.NdArray(inShape)
     data = np.random.randint(0, 100, shapeInput)
@@ -429,7 +429,7 @@ def test_RNG_choice():
 
 ####################################################################################
 def test_RNG_discrete():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     cWeights = NumCpp.NdArray(inShape)
     weights = np.random.randint(0, 100, shapeInput)
@@ -441,7 +441,7 @@ def test_RNG_discrete():
 
 ####################################################################################
 def test_RNG_exponential():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     scaleValue = np.random.randint(1, 100)
     rng = NumCpp.RNG()
@@ -452,7 +452,7 @@ def test_RNG_exponential():
 
 ####################################################################################
 def test_RNG_extremeValue():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     a, b = np.random.randint(1, 100, [2, ])
     rng = NumCpp.RNG()
@@ -462,7 +462,7 @@ def test_RNG_extremeValue():
 
 ####################################################################################
 def test_RNG_f():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     dof_n, dof_d = np.random.randint(1, 100, [2, ])
     rng = NumCpp.RNG()
@@ -472,7 +472,7 @@ def test_RNG_f():
 
 ####################################################################################
 def test_RNG_gamma():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     gamma_shape, scale_value = np.random.randint(1, 100, [2, ])
     rng = NumCpp.RNG()
@@ -483,7 +483,7 @@ def test_RNG_gamma():
 
 ####################################################################################
 def test_RNG_geometric():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     p = np.random.rand()
     rng = NumCpp.RNG()
@@ -496,7 +496,7 @@ def test_RNG_laplace():
     if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     loc, scale = np.random.randint(1, 100, [2, ])
     rng = NumCpp.RNG()
@@ -506,7 +506,7 @@ def test_RNG_laplace():
 
 ####################################################################################
 def test_RNG_lognormal():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     mean, sigma = np.random.randint(1, 100, [2, ])
     rng = NumCpp.RNG()
@@ -517,7 +517,7 @@ def test_RNG_lognormal():
 
 ####################################################################################
 def test_RNG_negativeBinomial():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     n = np.random.randint(100)
     p = np.random.rand()
@@ -532,7 +532,7 @@ def test_RNG_nonCentralChiSquared():
     if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     k, lambda_ = np.random.randint(1, 100, [2, ])
     rng = NumCpp.RNG()
@@ -543,7 +543,7 @@ def test_RNG_nonCentralChiSquared():
 
 ####################################################################################
 def test_RNG_normal():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     mean, sigma = np.random.randint(1, 100, [2, ])
     rng = NumCpp.RNG()
@@ -570,7 +570,7 @@ def test_RNG_permutation():
 
 ####################################################################################
 def test_RNG_poisson():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     mean, sigma = np.random.randint(1, 100, [2, ])
     rng = NumCpp.RNG()
@@ -580,7 +580,7 @@ def test_RNG_poisson():
 
 ####################################################################################
 def test_RNG_rand():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     rng = NumCpp.RNG()
     randValues = rng.rand(inShape)
@@ -591,7 +591,7 @@ def test_RNG_rand():
 
 ####################################################################################
 def test_RNG_randFloat():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     low, high = np.sort(np.random.randint(1, 100, [2, ]))
     rng = NumCpp.RNG()
@@ -603,7 +603,7 @@ def test_RNG_randFloat():
 
 ####################################################################################
 def test_RNG_randInt():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     low, high = np.sort(np.random.randint(1, 100, [2, ]))
     rng = NumCpp.RNG()
@@ -615,7 +615,7 @@ def test_RNG_randInt():
 
 ####################################################################################
 def test_RNG_randN():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     rng = NumCpp.RNG()
     assert np.array_equal(rng.randN(inShape).shape, shapeInput)
@@ -628,7 +628,7 @@ def test_RNG_seed():
     rng = NumCpp.RNG()
     rng.seed(seed)
 
-    shapeInput = np.random.randint(1, 100, [2, ])
+    shapeInput = np.random.randint(2, 100, [2, ])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item() + 1)
     values = np.random.randint(1, 100, [2, ])
     values.sort()
@@ -654,7 +654,7 @@ def test_RNG_shuffle():
 
 ####################################################################################
 def test_RNG_standardNormal():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     rng = NumCpp.RNG()
     assert np.array_equal(rng.standardNormal(inShape).shape, shapeInput)
@@ -663,7 +663,7 @@ def test_RNG_standardNormal():
 
 ####################################################################################
 def test_RNG_studentT():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     dof = np.random.randint(1, 100)
     rng = NumCpp.RNG()
@@ -676,7 +676,7 @@ def test_RNG_triangle():
     if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     a, b, c = np.sort(np.random.randint(1, 100, [3, ]))
     rng = NumCpp.RNG()
@@ -686,7 +686,7 @@ def test_RNG_triangle():
 
 ####################################################################################
 def test_RNG_uniform():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     low, high = np.sort(np.random.randint(1, 100, [2, ]))
     rng = NumCpp.RNG()
@@ -710,7 +710,7 @@ def test_RNG_uniformOnSphere():
 
 ####################################################################################
 def test_RNG_weibull():
-    shapeInput = np.random.randint(1, 100, [2, ]).flatten()
+    shapeInput = np.random.randint(2, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     a, b = np.random.randint(1, 100, [2, ])
     rng = NumCpp.RNG()

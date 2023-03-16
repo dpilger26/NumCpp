@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -133,7 +137,7 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aff0f97e94666284100b584e13d27def3"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename... Params, nc::enable_if_t&lt; is_arithmetic_v&lt; dtype &gt;, int &gt;  = 0, nc::enable_if_t&lt; all_arithmetic_v&lt; Params... &gt;, int &gt;  = 0, nc::enable_if_t&lt; all_same_v&lt; dtype, Params... &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:aff0f97e94666284100b584e13d27def3"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename... Params, std::enable_if_t&lt; std::is_arithmetic_v&lt; dtype &gt;, int &gt;  = 0, std::enable_if_t&lt; all_arithmetic_v&lt; Params... &gt;, int &gt;  = 0, std::enable_if_t&lt; all_same_v&lt; dtype, Params... &gt;, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:aff0f97e94666284100b584e13d27def3"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; NdArray&lt; double &gt;, double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a> (const uint32 numIterations, const NdArray&lt; dtype &gt; &amp;coordinates, const NdArray&lt; dtype &gt; &amp;measurements, const std::function&lt; dtype(const NdArray&lt; dtype &gt; &amp;, const NdArray&lt; dtype &gt; &amp;)&gt; &amp;function, const std::array&lt; std::function&lt; dtype(const NdArray&lt; dtype &gt; &amp;, const NdArray&lt; dtype &gt; &amp;)&gt;, sizeof...(Params)&gt; &amp;derivatives, Params... initialGuess)</td></tr>
 <tr class="separator:aff0f97e94666284100b584e13d27def3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -116,47 +120,45 @@ $(document).ready(function(){initNavTree('take_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">//============================================================================</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;             <span class="keyword">typename</span> Indices,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;             enable_if_t&lt;is_same_v&lt;Indices, NdArray&lt;int32&gt;&gt; || is_same_v&lt;Indices, NdArray&lt;uint32&gt;&gt;, <span class="keywordtype">int</span>&gt; = 0&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacenc.html#aab2dfd68c2d22ec51f55f9ddcba21b0c">   50</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#aab2dfd68c2d22ec51f55f9ddcba21b0c">take</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <span class="keyword">const</span> Indices&amp; inIndices, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis = <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">switch</span> (inAxis)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">return</span> inArray[inIndices];</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">Axis::ROW</a>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">return</span> inArray(inIndices, inArray.<a class="code" href="classnc_1_1_nd_array.html#a29eabba849b35a3095cd341fa1c7b123">cSlice</a>());</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05">Axis::COL</a>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">return</span> inArray(inArray.<a class="code" href="classnc_1_1_nd_array.html#af0fb0a32e08456603964206487aebc88">rSlice</a>(), inIndices);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;Unimplemented axis type.&quot;</span>);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordflow">return</span> {}; <span class="comment">// get rid of compiler warning</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">typename</span> Indices, type_traits::ndarray_<span class="keywordtype">int</span>_concept&lt;Indices&gt; = 0&gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespacenc.html#aab2dfd68c2d22ec51f55f9ddcba21b0c">   48</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#aab2dfd68c2d22ec51f55f9ddcba21b0c">take</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <span class="keyword">const</span> Indices&amp; inIndices, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis = <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">switch</span> (inAxis)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">return</span> inArray[inIndices];</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">Axis::ROW</a>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordflow">return</span> inArray(inIndices, inArray.<a class="code" href="classnc_1_1_nd_array.html#af03b916770d04f63d82f46110d294cd8">cSlice</a>());</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05">Axis::COL</a>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordflow">return</span> inArray(inArray.<a class="code" href="classnc_1_1_nd_array.html#a7fc9a782b280bbc4443b5b7a37ff1af0">rSlice</a>(), inIndices);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;Unimplemented axis type.&quot;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">return</span> {}; <span class="comment">// get rid of compiler warning</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
-<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:36</div></div>
+<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:37</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a29eabba849b35a3095cd341fa1c7b123"><div class="ttname"><a href="classnc_1_1_nd_array.html#a29eabba849b35a3095cd341fa1c7b123">nc::NdArray::cSlice</a></div><div class="ttdeci">Slice cSlice(int32 inStartIdx=0, uint32 inStepSize=1) const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:969</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_af0fb0a32e08456603964206487aebc88"><div class="ttname"><a href="classnc_1_1_nd_array.html#af0fb0a32e08456603964206487aebc88">nc::NdArray::rSlice</a></div><div class="ttdeci">Slice rSlice(int32 inStartIdx=0, uint32 inStepSize=1) const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:983</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a7fc9a782b280bbc4443b5b7a37ff1af0"><div class="ttname"><a href="classnc_1_1_nd_array.html#a7fc9a782b280bbc4443b5b7a37ff1af0">nc::NdArray::rSlice</a></div><div class="ttdeci">Slice rSlice(index_type inStartIdx=0, size_type inStepSize=1) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:965</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_af03b916770d04f63d82f46110d294cd8"><div class="ttname"><a href="classnc_1_1_nd_array.html#af03b916770d04f63d82f46110d294cd8">nc::NdArray::cSlice</a></div><div class="ttdeci">Slice cSlice(index_type inStartIdx=0, size_type inStepSize=1) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:951</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">nc::Axis</a></div><div class="ttdeci">Axis</div><div class="ttdoc">Enum To describe an axis.</div><div class="ttdef"><b>Definition:</b> Types.hpp:47</div></div>
 <div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a></div><div class="ttdeci">@ ROW</div></div>
 <div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05">nc::Axis::COL</a></div><div class="ttdeci">@ COL</div></div>
 <div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">nc::Axis::NONE</a></div><div class="ttdeci">@ NONE</div></div>
-<div class="ttc" id="anamespacenc_html_aab2dfd68c2d22ec51f55f9ddcba21b0c"><div class="ttname"><a href="namespacenc.html#aab2dfd68c2d22ec51f55f9ddcba21b0c">nc::take</a></div><div class="ttdeci">NdArray&lt; dtype &gt; take(const NdArray&lt; dtype &gt; &amp;inArray, const Indices &amp;inIndices, Axis inAxis=Axis::NONE)</div><div class="ttdef"><b>Definition:</b> take.hpp:50</div></div>
+<div class="ttc" id="anamespacenc_html_aab2dfd68c2d22ec51f55f9ddcba21b0c"><div class="ttname"><a href="namespacenc.html#aab2dfd68c2d22ec51f55f9ddcba21b0c">nc::take</a></div><div class="ttdeci">NdArray&lt; dtype &gt; take(const NdArray&lt; dtype &gt; &amp;inArray, const Indices &amp;inIndices, Axis inAxis=Axis::NONE)</div><div class="ttdef"><b>Definition:</b> take.hpp:48</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

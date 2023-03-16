@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -118,13 +122,13 @@ $(document).ready(function(){initNavTree('argwhere_8hpp_source.html',''); initRe
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
 <div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespacenc.html#aeddef72feba83e0c7d053093c74ed686">   45</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;uint32&gt;</a> <a class="code" href="namespacenc.html#aeddef72feba83e0c7d053093c74ed686">argwhere</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> inArray.<a class="code" href="classnc_1_1_nd_array.html#a91687e040d05ac06b389d389facff3c9">flatnonzero</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> inArray.<a class="code" href="classnc_1_1_nd_array.html#ab2f5c78816bb3984d6b21601eb786a38">flatnonzero</a>();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a91687e040d05ac06b389d389facff3c9"><div class="ttname"><a href="classnc_1_1_nd_array.html#a91687e040d05ac06b389d389facff3c9">nc::NdArray::flatnonzero</a></div><div class="ttdeci">NdArray&lt; uint32 &gt; flatnonzero() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2622</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_ab2f5c78816bb3984d6b21601eb786a38"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab2f5c78816bb3984d6b21601eb786a38">nc::NdArray::flatnonzero</a></div><div class="ttdeci">NdArray&lt; size_type &gt; flatnonzero() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2744</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="anamespacenc_html_aeddef72feba83e0c7d053093c74ed686"><div class="ttname"><a href="namespacenc.html#aeddef72feba83e0c7d053093c74ed686">nc::argwhere</a></div><div class="ttdeci">NdArray&lt; uint32 &gt; argwhere(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> argwhere.hpp:45</div></div>
 </div><!-- fragment --></div><!-- contents -->

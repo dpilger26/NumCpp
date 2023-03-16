@@ -23,3 +23,4 @@ runs:
       run: |
         sudo apt update
         sudo apt install -y libboost-all-dev
+        sudo apt install -y clang --install-suggests

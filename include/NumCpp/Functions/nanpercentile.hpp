@@ -105,7 +105,7 @@ namespace nc
                                                              Axis::NONE,
                                                              inInterpMethod);
 
-                    if (outValue.size() == 1)
+                    if (outValue.isscalar())
                     {
                         returnArray[row] = outValue.item();
                     }

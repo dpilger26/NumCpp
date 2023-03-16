@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -113,39 +117,37 @@ $(document).ready(function(){initNavTree('centroid_clusters_8hpp_source.html',''
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_centroid_8hpp.html">NumCpp/ImageProcessing/Centroid.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_cluster_8hpp.html">NumCpp/ImageProcessing/Cluster.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">namespace </span>imageProcessing</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacenc_1_1image_processing.html#a58e67b838292067af9c1a9d5e9028d09">   50</a></span>&#160;        std::vector&lt;Centroid&lt;dtype&gt;&gt; <a class="code" href="namespacenc_1_1image_processing.html#a58e67b838292067af9c1a9d5e9028d09">centroidClusters</a>(<span class="keyword">const</span> std::vector&lt;<a class="code" href="classnc_1_1image_processing_1_1_cluster.html">Cluster&lt;dtype&gt;</a>&gt;&amp; inClusters)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            std::vector&lt;Centroid&lt;dtype&gt;&gt; centroids;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            centroids.reserve(inClusters.size());</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; cluster : inClusters)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                centroids.emplace_back(cluster);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> centroids;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    } <span class="comment">// namespace imageProcessing</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_stl_algorithms_8hpp.html">NumCpp/Core/Internal/StlAlgorithms.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_centroid_8hpp.html">NumCpp/ImageProcessing/Centroid.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_cluster_8hpp.html">NumCpp/ImageProcessing/Cluster.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc_1_1image_processing.html">nc::imageProcessing</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="namespacenc_1_1image_processing.html#a58e67b838292067af9c1a9d5e9028d09">   49</a></span>&#160;    std::vector&lt;Centroid&lt;dtype&gt;&gt; <a class="code" href="namespacenc_1_1image_processing.html#a58e67b838292067af9c1a9d5e9028d09">centroidClusters</a>(<span class="keyword">const</span> std::vector&lt;<a class="code" href="classnc_1_1image_processing_1_1_cluster.html">Cluster&lt;dtype&gt;</a>&gt;&amp; inClusters)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        std::vector&lt;Centroid&lt;dtype&gt;&gt; centroids(inClusters.size());</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">stl_algorithms::transform</a>(inClusters.begin(),</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                  inClusters.end(),</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                  centroids.begin(),</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                  [](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; cluster) -&gt; <a class="code" href="classnc_1_1image_processing_1_1_centroid.html">Centroid&lt;dtype&gt;</a> { return Centroid&lt;dtype&gt;(cluster); });</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> centroids;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace nc::imageProcessing</span></div>
 <div class="ttc" id="a_centroid_8hpp_html"><div class="ttname"><a href="_centroid_8hpp.html">Centroid.hpp</a></div></div>
 <div class="ttc" id="a_cluster_8hpp_html"><div class="ttname"><a href="_cluster_8hpp.html">Cluster.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:37</div></div>
-<div class="ttc" id="aclassnc_1_1image_processing_1_1_cluster_html"><div class="ttname"><a href="classnc_1_1image_processing_1_1_cluster.html">nc::imageProcessing::Cluster</a></div><div class="ttdoc">Holds the information for a cluster of pixels.</div><div class="ttdef"><b>Definition:</b> Cluster.hpp:55</div></div>
-<div class="ttc" id="anamespacenc_1_1image_processing_html_a58e67b838292067af9c1a9d5e9028d09"><div class="ttname"><a href="namespacenc_1_1image_processing.html#a58e67b838292067af9c1a9d5e9028d09">nc::imageProcessing::centroidClusters</a></div><div class="ttdeci">std::vector&lt; Centroid&lt; dtype &gt; &gt; centroidClusters(const std::vector&lt; Cluster&lt; dtype &gt;&gt; &amp;inClusters)</div><div class="ttdef"><b>Definition:</b> centroidClusters.hpp:50</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:39</div></div>
+<div class="ttc" id="a_stl_algorithms_8hpp_html"><div class="ttname"><a href="_stl_algorithms_8hpp.html">StlAlgorithms.hpp</a></div></div>
+<div class="ttc" id="aclassnc_1_1image_processing_1_1_centroid_html"><div class="ttname"><a href="classnc_1_1image_processing_1_1_centroid.html">nc::imageProcessing::Centroid</a></div><div class="ttdoc">holds the information for a centroid</div><div class="ttdef"><b>Definition:</b> Centroid.hpp:50</div></div>
+<div class="ttc" id="aclassnc_1_1image_processing_1_1_cluster_html"><div class="ttname"><a href="classnc_1_1image_processing_1_1_cluster.html">nc::imageProcessing::Cluster</a></div><div class="ttdoc">Holds the information for a cluster of pixels.</div><div class="ttdef"><b>Definition:</b> Cluster.hpp:53</div></div>
+<div class="ttc" id="anamespacenc_1_1image_processing_html"><div class="ttname"><a href="namespacenc_1_1image_processing.html">nc::imageProcessing</a></div><div class="ttdef"><b>Definition:</b> applyThreshold.hpp:34</div></div>
+<div class="ttc" id="anamespacenc_1_1image_processing_html_a58e67b838292067af9c1a9d5e9028d09"><div class="ttname"><a href="namespacenc_1_1image_processing.html#a58e67b838292067af9c1a9d5e9028d09">nc::imageProcessing::centroidClusters</a></div><div class="ttdeci">std::vector&lt; Centroid&lt; dtype &gt; &gt; centroidClusters(const std::vector&lt; Cluster&lt; dtype &gt;&gt; &amp;inClusters)</div><div class="ttdef"><b>Definition:</b> centroidClusters.hpp:49</div></div>
+<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a616d5dabd547326285946d0014361ab4"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">nc::stl_algorithms::transform</a></div><div class="ttdeci">OutputIt transform(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction)</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:775</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

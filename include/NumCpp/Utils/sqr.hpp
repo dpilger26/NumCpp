@@ -29,23 +29,20 @@
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
-namespace nc
+namespace nc::utils
 {
-    namespace utils
+    //============================================================================
+    /// Squares in input value
+    ///
+    /// @param inValue
+    ///
+    /// @return squared value
+    ///
+    template<typename dtype>
+    constexpr dtype sqr(dtype inValue) noexcept
     {
-        //============================================================================
-        /// Squares in input value
-        ///
-        /// @param inValue
-        ///
-        /// @return squared value
-        ///
-        template<typename dtype>
-        constexpr dtype sqr(dtype inValue) noexcept
-        {
-            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            return inValue * inValue;
-        }
-    } // namespace utils
-} // namespace nc
+        return inValue * inValue;
+    }
+} // namespace nc::utils

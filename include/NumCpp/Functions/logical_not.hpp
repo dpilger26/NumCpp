@@ -52,7 +52,7 @@ namespace nc
         stl_algorithms::transform(inArray.cbegin(),
                                   inArray.cend(),
                                   returnArray.begin(),
-                                  [](dtype inValue) -> bool { return inValue == dtype{ 0 }; });
+                                  [](dtype inValue) -> bool { return utils::essentiallyEqual(inValue, dtype{ 0 }); });
 
         return returnArray;
     }

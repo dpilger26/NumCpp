@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -111,13 +115,13 @@ $(document).ready(function(){initNavTree('namespacenc_1_1linalg_1_1detail.html',
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac2169a5439fe9005c882f0faaa573bd7"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:ac2169a5439fe9005c882f0faaa573bd7"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg_1_1detail.html#ac2169a5439fe9005c882f0faaa573bd7">det</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, <a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> order) -&gt; std::conditional_t&lt; <a class="el" href="namespacenc.html#a157cdac039a66a88d2aa922781d060f6">is_integral_v</a>&lt; dtype &gt;, <a class="el" href="namespacenc.html#a6223a7f3b0f7886036f64276f36c921e">int64</a>, double &gt;</td></tr>
-<tr class="separator:ac2169a5439fe9005c882f0faaa573bd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a636d3082932ef8a13aaf9c4201bf8f9d"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a636d3082932ef8a13aaf9c4201bf8f9d"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg_1_1detail.html#a636d3082932ef8a13aaf9c4201bf8f9d">det</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, <a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> order) -&gt; std::conditional_t&lt; std::is_integral_v&lt; dtype &gt;, <a class="el" href="namespacenc.html#a6223a7f3b0f7886036f64276f36c921e">int64</a>, double &gt;</td></tr>
+<tr class="separator:a636d3082932ef8a13aaf9c4201bf8f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac2169a5439fe9005c882f0faaa573bd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2169a5439fe9005c882f0faaa573bd7">&#9670;&nbsp;</a></span>det()</h2>
+<a id="a636d3082932ef8a13aaf9c4201bf8f9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a636d3082932ef8a13aaf9c4201bf8f9d">&#9670;&nbsp;</a></span>det()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -139,8 +143,8 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> -&gt; std::conditional_t&lt;<a class="el" href="namespacenc.html#a157cdac039a66a88d2aa922781d060f6">is_integral_v</a>&lt;dtype&gt;, <a class="el" href="namespacenc.html#a6223a7f3b0f7886036f64276f36c921e">int64</a>, double&gt;
-            </td>
+          <td></td><td> -&gt; std::conditional_t&lt;std::is_integral_v&lt;dtype&gt;, <a class="el" href="namespacenc.html#a6223a7f3b0f7886036f64276f36c921e">int64</a>, double&gt;
+        </td>
         </tr>
       </table>
 </div><div class="memdoc">

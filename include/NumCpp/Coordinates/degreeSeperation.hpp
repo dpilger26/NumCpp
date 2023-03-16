@@ -30,36 +30,33 @@
 #include "NumCpp/Coordinates/Coordinate.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::coordinates
 {
-    namespace coordinates
+    //============================================================================
+    /// Returns the degree seperation between the two Coordinates
+    ///
+    /// @param inCoordinate1
+    /// @param inCoordinate2
+    ///
+    /// @return degrees
+    ///
+    inline double degreeSeperation(const Coordinate& inCoordinate1, const Coordinate& inCoordinate2)
     {
-        //============================================================================
-        /// Returns the degree seperation between the two Coordinates
-        ///
-        /// @param inCoordinate1
-        /// @param inCoordinate2
-        ///
-        /// @return degrees
-        ///
-        inline double degreeSeperation(const Coordinate& inCoordinate1, const Coordinate& inCoordinate2)
-        {
-            return inCoordinate1.degreeSeperation(inCoordinate2);
-        }
+        return inCoordinate1.degreeSeperation(inCoordinate2);
+    }
 
-        //============================================================================
-        /// Returns the degree seperation between the Coordinate
-        /// and the input vector
-        ///
-        /// @param inVector1
-        /// @param inVector2
-        ///
-        /// @return degrees
-        ///
-        inline double degreeSeperation(const NdArray<double>& inVector1, const NdArray<double>& inVector2)
-        {
-            const Coordinate inCoord1(inVector1);
-            return inCoord1.degreeSeperation(inVector2);
-        }
-    } // namespace coordinates
-} // namespace nc
+    //============================================================================
+    /// Returns the degree seperation between the Coordinate
+    /// and the input vector
+    ///
+    /// @param inVector1
+    /// @param inVector2
+    ///
+    /// @return degrees
+    ///
+    inline double degreeSeperation(const NdArray<double>& inVector1, const NdArray<double>& inVector2)
+    {
+        const Coordinate inCoord1(inVector1);
+        return inCoord1.degreeSeperation(inVector2);
+    }
+} // namespace nc::coordinates

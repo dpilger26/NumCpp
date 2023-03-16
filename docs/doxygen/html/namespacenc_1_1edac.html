@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -117,7 +121,7 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa24d4f99fd0739df7480845e96668e0f"><td class="memTemplParams" colspan="2">template&lt;std::size_t DataBits, std::size_t EncodedBits, enable_if_t&lt; greaterThan_v&lt; EncodedBits, DataBits &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:aa24d4f99fd0739df7480845e96668e0f"><td class="memTemplParams" colspan="2">template&lt;std::size_t DataBits, std::size_t EncodedBits, std::enable_if_t&lt; greaterThan_v&lt; EncodedBits, DataBits &gt;, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:aa24d4f99fd0739df7480845e96668e0f"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1edac.html#aa24d4f99fd0739df7480845e96668e0f">decode</a> (std::bitset&lt; EncodedBits &gt; encodedBits, std::bitset&lt; DataBits &gt; &amp;decodedBits)</td></tr>
 <tr class="separator:aa24d4f99fd0739df7480845e96668e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5c36a1f2c74d632192cf9fe29cc5f03"><td class="memTemplParams" colspan="2">template&lt;std::size_t DataBits&gt; </td></tr>
@@ -131,7 +135,7 @@ Functions</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t DataBits, std::size_t EncodedBits, enable_if_t&lt; greaterThan_v&lt; EncodedBits, DataBits &gt;, int &gt;  = 0&gt; </div>
+template&lt;std::size_t DataBits, std::size_t EncodedBits, std::enable_if_t&lt; greaterThan_v&lt; EncodedBits, DataBits &gt;, int &gt;  = 0&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int nc::edac::decode </td>

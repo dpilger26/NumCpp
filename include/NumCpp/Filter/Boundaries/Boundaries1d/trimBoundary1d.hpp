@@ -32,30 +32,24 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::filter::boundary
 {
-    namespace filter
+    //============================================================================
+    // Method Description:
+    /// trims the boundary off to make the image back to the original size
+    ///
+    /// @param inImageWithBoundary
+    /// @param inSize
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> trimBoundary1d(const NdArray<dtype>& inImageWithBoundary, uint32 inSize)
     {
-        namespace boundary
-        {
-            //============================================================================
-            // Method Description:
-            /// trims the boundary off to make the image back to the original size
-            ///
-            /// @param inImageWithBoundary
-            /// @param inSize
-            /// @return NdArray
-            ///
-            template<typename dtype>
-            NdArray<dtype> trimBoundary1d(const NdArray<dtype>& inImageWithBoundary, uint32 inSize)
-            {
-                STATIC_ASSERT_ARITHMETIC(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
-                uint32 boundarySize = inSize / 2; // integer division
-                uint32 imageSize    = inImageWithBoundary.size() - boundarySize * 2;
+        uint32 boundarySize = inSize / 2; // integer division
+        uint32 imageSize    = inImageWithBoundary.size() - boundarySize * 2;
 
-                return inImageWithBoundary[Slice(boundarySize, boundarySize + imageSize)];
-            }
-        } // namespace boundary
-    }     // namespace filter
-} // namespace nc
+        return inImageWithBoundary[Slice(boundarySize, boundarySize + imageSize)];
+    }
+} // namespace nc::filter::boundary

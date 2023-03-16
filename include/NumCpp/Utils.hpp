@@ -36,4 +36,5 @@
 #include "NumCpp/Utils/power.hpp"
 #include "NumCpp/Utils/powerf.hpp"
 #include "NumCpp/Utils/sqr.hpp"
+#include "NumCpp/Utils/timeit.hpp"
 #include "NumCpp/Utils/value2str.hpp"

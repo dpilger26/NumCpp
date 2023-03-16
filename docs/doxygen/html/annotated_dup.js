@@ -6,9 +6,6 @@ var annotated_dup =
         [ "Dec", "classnc_1_1coordinates_1_1_dec.html", "classnc_1_1coordinates_1_1_dec" ],
         [ "RA", "classnc_1_1coordinates_1_1_r_a.html", "classnc_1_1coordinates_1_1_r_a" ]
       ] ],
-      [ "filesystem", "namespacenc_1_1filesystem.html", [
-        [ "File", "classnc_1_1filesystem_1_1_file.html", "classnc_1_1filesystem_1_1_file" ]
-      ] ],
       [ "imageProcessing", "namespacenc_1_1image_processing.html", [
         [ "Centroid", "classnc_1_1image_processing_1_1_centroid.html", "classnc_1_1image_processing_1_1_centroid" ],
         [ "Cluster", "classnc_1_1image_processing_1_1_cluster.html", "classnc_1_1image_processing_1_1_cluster" ],
@@ -39,6 +36,17 @@ var annotated_dup =
         [ "DCM", "classnc_1_1rotations_1_1_d_c_m.html", "classnc_1_1rotations_1_1_d_c_m" ],
         [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html", "classnc_1_1rotations_1_1_quaternion" ]
       ] ],
+      [ "type_traits", "namespacenc_1_1type__traits.html", [
+        [ "is_ndarray_int", "structnc_1_1type__traits_1_1is__ndarray__int.html", null ],
+        [ "is_ndarray_int< NdArray< dtype, Allocator > >", "structnc_1_1type__traits_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html", "structnc_1_1type__traits_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4" ],
+        [ "is_ndarray_signed_int", "structnc_1_1type__traits_1_1is__ndarray__signed__int.html", null ],
+        [ "is_ndarray_signed_int< NdArray< dtype, Allocator > >", "structnc_1_1type__traits_1_1is__ndarray__signed__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html", "structnc_1_1type__traits_1_1is__ndarray__signed__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4" ]
+      ] ],
+      [ "utils", "namespacenc_1_1utils.html", [
+        [ "timeit_detail", "namespacenc_1_1utils_1_1timeit__detail.html", [
+          [ "Result", "structnc_1_1utils_1_1timeit__detail_1_1_result.html", "structnc_1_1utils_1_1timeit__detail_1_1_result" ]
+        ] ]
+      ] ],
       [ "all_arithmetic", "structnc_1_1all__arithmetic.html", null ],
       [ "all_arithmetic< Head, Tail... >", "structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4.html", "structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4" ],
       [ "all_arithmetic< T >", "structnc_1_1all__arithmetic_3_01_t_01_4.html", "structnc_1_1all__arithmetic_3_01_t_01_4" ],
@@ -52,6 +60,8 @@ var annotated_dup =
       [ "greaterThan", "structnc_1_1greater_than.html", "structnc_1_1greater_than" ],
       [ "is_complex", "structnc_1_1is__complex.html", "structnc_1_1is__complex" ],
       [ "is_complex< std::complex< T > >", "structnc_1_1is__complex_3_01std_1_1complex_3_01_t_01_4_01_4.html", "structnc_1_1is__complex_3_01std_1_1complex_3_01_t_01_4_01_4" ],
+      [ "is_ndarray_int", "structnc_1_1is__ndarray__int.html", null ],
+      [ "is_ndarray_int< NdArray< dtype, Allocator > >", "structnc_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html", "structnc_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4" ],
       [ "is_valid_dtype", "structnc_1_1is__valid__dtype.html", "structnc_1_1is__valid__dtype" ],
       [ "NdArray", "classnc_1_1_nd_array.html", "classnc_1_1_nd_array" ],
       [ "NdArrayColumnIterator", "classnc_1_1_nd_array_column_iterator.html", "classnc_1_1_nd_array_column_iterator" ],

@@ -28,12 +28,14 @@
 #pragma once
 
 #include <cmath>
+#include <complex>
 #include <string>
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/NdArray/NdArrayBroadcast.hpp"
 
 namespace nc
 {
@@ -42,6 +44,7 @@ namespace nc
     /// Element-wise minimum of array elements.
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.minimum.html
+    ///
     ///
     /// @param inArray1
     /// @param inArray2
@@ -53,21 +56,47 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (inArray1.shape() != inArray2.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
-        }
+        const auto comparitor = [](const dtype& lhs, const dtype& rhs) noexcept -> bool { return lhs < rhs; };
+        return broadcast::broadcaster<dtype>(inArray1,
+                                             inArray2,
+                                             [&comparitor](const dtype& value1, const dtype& value2)
+                                             { return std::min(value1, value2, comparitor); });
+    }
 
-        const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool { return lhs < rhs; };
+    //============================================================================
+    // Method Description:
+    /// Element-wise minimum of array elements.
+    ///
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.minimum.html
+    ///
+    ///
+    /// @param inArray
+    /// @param inScalar
+    ///
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> minimum(const NdArray<dtype>& inArray, const dtype& inScalar)
+    {
+        const NdArray<dtype> inArray2 = { inScalar };
+        return minimum(inArray, inArray2);
+    }
 
-        NdArray<dtype> returnArray(inArray1.shape());
-        stl_algorithms::transform(inArray1.cbegin(),
-                                  inArray1.cend(),
-                                  inArray2.cbegin(),
-                                  returnArray.begin(),
-                                  [comparitor](dtype inValue1, dtype inValue2) -> dtype
-                                  { return std::min(inValue1, inValue2, comparitor); });
-
-        return returnArray;
+    //============================================================================
+    // Method Description:
+    /// Element-wise minimum of array elements.
+    ///
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.minimum.html
+    ///
+    ///
+    /// @param inScalar
+    /// @param inArray
+    ///
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> minimum(const dtype& inScalar, const NdArray<dtype>& inArray)
+    {
+        return minimum(inArray, inScalar);
     }
 } // namespace nc

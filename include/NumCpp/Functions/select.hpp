@@ -33,6 +33,7 @@
 #include <vector>
 
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -140,19 +141,17 @@ namespace nc
                           const std::vector<NdArray<dtype>>& choiceList,
                           dtype                              defaultValue = dtype{ 0 })
     {
-        std::vector<const NdArray<bool>*> condVec;
-        condVec.reserve(condList.size());
-        for (auto& cond : condList)
-        {
-            condVec.push_back(&cond);
-        }
+        std::vector<const NdArray<bool>*> condVec(condList.size());
+        stl_algorithms::transform(condList.begin(),
+                                  condList.end(),
+                                  condVec.begin(),
+                                  [](auto& cond) noexcept -> const NdArray<bool>* { return &cond; });
 
-        std::vector<const NdArray<dtype>*> choiceVec;
-        choiceVec.reserve(choiceList.size());
-        for (auto& choice : choiceList)
-        {
-            choiceVec.push_back(&choice);
-        }
+        std::vector<const NdArray<dtype>*> choiceVec(choiceList.size());
+        stl_algorithms::transform(choiceList.begin(),
+                                  choiceList.end(),
+                                  choiceVec.begin(),
+                                  [](auto& choice) noexcept -> const NdArray<dtype>* { return &choice; });
 
         return select(condVec, choiceVec, defaultValue);
     }

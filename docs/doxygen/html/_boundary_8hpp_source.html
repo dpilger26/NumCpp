@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -108,29 +112,26 @@ $(document).ready(function(){initNavTree('_boundary_8hpp_source.html',''); initR
 <div class="contents">
 <a href="_boundary_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc_1_1filter.html">nc::filter</a></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">namespace </span>filter</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="comment">//================================================================================</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">// Enum Description:</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">   37</a></span>&#160;<span class="comment"></span>        <span class="keyword">enum class</span> <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">Boundary</a></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df">REFLECT</a> = 0,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6a8d6b5cada83510220f59e00ce86d4d92">CONSTANT</a>,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6aad135772d7cf93dd0ccf9d2474b34e6a">NEAREST</a>,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6a72a92ae9c1d172cdda196686278fbfc6">MIRROR</a>,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae1c8555fcf0ea2bb648a6fd527d658c0">WRAP</a></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        };</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    } <span class="comment">// namespace filter</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} <span class="comment">// namespace nc</span></div>
-<div class="ttc" id="anamespacenc_1_1filter_html_ada517a46ea965fa51ed51101135c6ac6"><div class="ttname"><a href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">nc::filter::Boundary</a></div><div class="ttdeci">Boundary</div><div class="ttdoc">Boundary condition to apply to the image filter.</div><div class="ttdef"><b>Definition:</b> Boundary.hpp:38</div></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">//================================================================================</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Enum Description:</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">   35</a></span>&#160;<span class="comment"></span>    <span class="keyword">enum class</span> <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">Boundary</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df">REFLECT</a> = 0,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6a8d6b5cada83510220f59e00ce86d4d92">CONSTANT</a>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6aad135772d7cf93dd0ccf9d2474b34e6a">NEAREST</a>,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6a72a92ae9c1d172cdda196686278fbfc6">MIRROR</a>,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae1c8555fcf0ea2bb648a6fd527d658c0">WRAP</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    };</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <span class="comment">// namespace nc::filter</span></div>
+<div class="ttc" id="anamespacenc_1_1filter_html"><div class="ttname"><a href="namespacenc_1_1filter.html">nc::filter</a></div><div class="ttdef"><b>Definition:</b> addBoundary1d.hpp:44</div></div>
+<div class="ttc" id="anamespacenc_1_1filter_html_ada517a46ea965fa51ed51101135c6ac6"><div class="ttname"><a href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">nc::filter::Boundary</a></div><div class="ttdeci">Boundary</div><div class="ttdoc">Boundary condition to apply to the image filter.</div><div class="ttdef"><b>Definition:</b> Boundary.hpp:36</div></div>
 <div class="ttc" id="anamespacenc_1_1filter_html_ada517a46ea965fa51ed51101135c6ac6a72a92ae9c1d172cdda196686278fbfc6"><div class="ttname"><a href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6a72a92ae9c1d172cdda196686278fbfc6">nc::filter::Boundary::MIRROR</a></div><div class="ttdeci">@ MIRROR</div></div>
 <div class="ttc" id="anamespacenc_1_1filter_html_ada517a46ea965fa51ed51101135c6ac6a8d6b5cada83510220f59e00ce86d4d92"><div class="ttname"><a href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6a8d6b5cada83510220f59e00ce86d4d92">nc::filter::Boundary::CONSTANT</a></div><div class="ttdeci">@ CONSTANT</div></div>
 <div class="ttc" id="anamespacenc_1_1filter_html_ada517a46ea965fa51ed51101135c6ac6aad135772d7cf93dd0ccf9d2474b34e6a"><div class="ttname"><a href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6aad135772d7cf93dd0ccf9d2474b34e6a">nc::filter::Boundary::NEAREST</a></div><div class="ttdeci">@ NEAREST</div></div>
 <div class="ttc" id="anamespacenc_1_1filter_html_ada517a46ea965fa51ed51101135c6ac6ae1c8555fcf0ea2bb648a6fd527d658c0"><div class="ttname"><a href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae1c8555fcf0ea2bb648a6fd527d658c0">nc::filter::Boundary::WRAP</a></div><div class="ttdeci">@ WRAP</div></div>
 <div class="ttc" id="anamespacenc_1_1filter_html_ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df"><div class="ttname"><a href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df">nc::filter::Boundary::REFLECT</a></div><div class="ttdeci">@ REFLECT</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

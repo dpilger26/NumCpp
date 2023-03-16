@@ -37,87 +37,84 @@
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 
-namespace nc
+namespace nc::roots
 {
-    namespace roots
+    //================================================================================
+    // Class Description:
+    /// ABC for iteration classes to derive from
+    class Iteration
     {
-        //================================================================================
-        // Class Description:
-        /// ABC for iteration classes to derive from
-        class Iteration
+    public:
+        //============================================================================
+        // Method Description:
+        /// Constructor
+        ///
+        /// @param epsilon: the epsilon value
+        ///
+        explicit Iteration(double epsilon) noexcept :
+            epsilon_(epsilon)
         {
-        public:
-            //============================================================================
-            // Method Description:
-            /// Constructor
-            ///
-            /// @param epsilon: the epsilon value
-            ///
-            explicit Iteration(double epsilon) noexcept :
-                epsilon_(epsilon)
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Constructor
+        ///
+        /// @param epsilon: the epsilon value
+        /// @param maxNumIterations: the maximum number of iterations to perform
+        ///
+        Iteration(double epsilon, uint32 maxNumIterations) noexcept :
+            epsilon_(epsilon),
+            maxNumIterations_(maxNumIterations)
+        {
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Destructor
+        ///
+        virtual ~Iteration() noexcept = default;
+
+        //============================================================================
+        // Method Description:
+        /// Returns the number of iterations
+        ///
+        /// @return: number of iterations
+        ///
+        [[nodiscard]] uint32 numIterations() const noexcept
+        {
+            return numIterations_;
+        }
+
+    protected:
+        //============================================================================
+        // Method Description:
+        /// Resets the number of iterations
+        ///
+        void resetNumberOfIterations() noexcept
+        {
+            numIterations_ = 0;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Incraments the number of iterations
+        ///
+        /// @return the number of iterations prior to incramenting
+        ///
+        void incrementNumberOfIterations()
+        {
+            ++numIterations_;
+            if (numIterations_ > maxNumIterations_)
             {
+                THROW_RUNTIME_ERROR(
+                    "Maximum number of iterations has been reached; no root has been found within epsilon.");
             }
+        }
 
-            //============================================================================
-            // Method Description:
-            /// Constructor
-            ///
-            /// @param epsilon: the epsilon value
-            /// @param maxNumIterations: the maximum number of iterations to perform
-            ///
-            Iteration(double epsilon, uint32 maxNumIterations) noexcept :
-                epsilon_(epsilon),
-                maxNumIterations_(maxNumIterations)
-            {
-            }
-
-            //============================================================================
-            // Method Description:
-            /// Destructor
-            ///
-            virtual ~Iteration() noexcept = default;
-
-            //============================================================================
-            // Method Description:
-            /// Returns the number of iterations
-            ///
-            /// @return: number of iterations
-            ///
-            uint32 numIterations() const noexcept
-            {
-                return numIterations_;
-            }
-
-        protected:
-            //============================================================================
-            // Method Description:
-            /// Resets the number of iterations
-            ///
-            void resetNumberOfIterations() noexcept
-            {
-                numIterations_ = 0;
-            }
-
-            //============================================================================
-            // Method Description:
-            /// Incraments the number of iterations
-            ///
-            /// @return the number of iterations prior to incramenting
-            ///
-            void incrementNumberOfIterations()
-            {
-                ++numIterations_;
-                if (numIterations_ > maxNumIterations_)
-                {
-                    THROW_RUNTIME_ERROR(
-                        "Maximum number of iterations has been reached; no root has been found within epsilon.");
-                }
-            }
-
-            //====================================Attributes==============================
-            const double epsilon_;
-            uint32       maxNumIterations_{ 1000 };
-            uint32       numIterations_{ 0 };
-        };
-    } // namespace roots
-} // namespace nc
+        //====================================Attributes==============================
+        const double epsilon_;
+        uint32       maxNumIterations_{ 1000 };
+        uint32       numIterations_{ 0 };
+    };
+} // namespace nc::roots

@@ -31,26 +31,23 @@
 
 #include "NumCpp/Utils/sqr.hpp"
 
-namespace nc
+namespace nc::utils
 {
-    namespace utils
+    //============================================================================
+    // Method Description:
+    /// samples a 1D gaussian of input mean and sigma
+    ///
+    /// @param inX
+    /// @param inMu
+    /// @param inSigma
+    ///
+    /// @return dtype
+    ///
+    inline double gaussian1d(double inX, double inMu, double inSigma) noexcept
     {
-        //============================================================================
-        // Method Description:
-        /// samples a 1D gaussian of input mean and sigma
-        ///
-        /// @param inX
-        /// @param inMu
-        /// @param inSigma
-        ///
-        /// @return dtype
-        ///
-        inline double gaussian1d(double inX, double inMu, double inSigma) noexcept
-        {
-            double exponent = sqr(inX - inMu);
-            exponent /= 2;
-            exponent /= sqr(inSigma);
-            return std::exp(-exponent);
-        }
-    } // namespace utils
-} // namespace nc
+        double exponent = sqr(inX - inMu);
+        exponent /= 2;
+        exponent /= sqr(inSigma);
+        return std::exp(-exponent);
+    }
+} // namespace nc::utils

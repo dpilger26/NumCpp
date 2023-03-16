@@ -38,8 +38,10 @@
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
 #include "NumCpp/Functions/complex.hpp"
+#include "NumCpp/NdArray/NdArrayBroadcast.hpp"
 #include "NumCpp/NdArray/NdArrayCore.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
+#include "NumCpp/Utils/essentiallyEqualComplex.hpp"
 
 namespace nc
 {
@@ -56,14 +58,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), std::plus<dtype>());
-
-        return lhs;
+        return broadcast::broadcaster(lhs, rhs, std::plus<dtype>());
     }
 
     //============================================================================
@@ -79,21 +74,14 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        const auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype> { return val1 + val2; };
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), function);
-
-        return lhs;
+        const auto function = [](const std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
+        { return val1 + val2; };
+        return broadcast::broadcaster(lhs, rhs, function);
     }
 
     //============================================================================
     // Method Description:
-    /// Adds the scaler to the array (3)
+    /// Adds the scalar to the array (3)
     ///
     /// @param lhs
     /// @param rhs
@@ -113,7 +101,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Adds the scaler to the array (4)
+    /// Adds the scalar to the array (4)
     ///
     /// @param lhs
     /// @param rhs
@@ -144,16 +132,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        NdArray<dtype> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), std::plus<dtype>());
-
-        return returnArray;
+        return broadcast::broadcaster<dtype>(lhs, rhs, std::plus<dtype>());
     }
 
     //============================================================================
@@ -169,19 +148,8 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        const auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
-        { return val1 + val2; };
-
-        NdArray<std::complex<dtype>> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
-
-        return returnArray;
+        const auto function = [](const auto& val1, const auto& val2) -> std::complex<dtype> { return val1 + val2; };
+        return broadcast::broadcaster<std::complex<dtype>>(lhs, rhs, function);
     }
 
     //============================================================================
@@ -200,29 +168,22 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Adds the scaler to the array (4)
+    /// Adds the scalar to the array (4)
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator+(const NdArray<dtype>& lhs, dtype rhs)
+    NdArray<dtype> operator+(NdArray<dtype> lhs, dtype rhs)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
-        const auto function = [rhs](dtype value) -> dtype { return value + rhs; };
-
-        NdArray<dtype> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
-
-        return returnArray;
+        lhs += rhs;
+        return lhs;
     }
 
     //============================================================================
     // Method Description:
-    /// Adds the scaler to the array (5)
+    /// Adds the scalar to the array (5)
     ///
     /// @param lhs
     /// @param rhs
@@ -236,7 +197,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Adds the scaler to the array (6)
+    /// Adds the scalar to the array (6)
     ///
     /// @param lhs
     /// @param rhs
@@ -258,7 +219,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Adds the scaler to the array (7)
+    /// Adds the scalar to the array (7)
     ///
     /// @param lhs
     /// @param rhs
@@ -272,29 +233,22 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Adds the scaler to the array (8)
+    /// Adds the scalar to the array (8)
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> operator+(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    NdArray<std::complex<dtype>> operator+(NdArray<std::complex<dtype>> lhs, dtype rhs)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
-        const auto function = [rhs](std::complex<dtype> value) -> std::complex<dtype> { return value + rhs; };
-
-        NdArray<std::complex<dtype>> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
-
-        return returnArray;
+        lhs += rhs;
+        return lhs;
     }
 
     //============================================================================
     // Method Description:
-    /// Adds the scaler to the array (9)
+    /// Adds the scalar to the array (9)
     ///
     /// @param lhs
     /// @param rhs
@@ -319,14 +273,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), std::minus<dtype>());
-
-        return lhs;
+        return broadcast::broadcaster(lhs, rhs, std::minus<dtype>());
     }
 
     //============================================================================
@@ -342,21 +289,14 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        const auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype> { return val1 - val2; };
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), function);
-
-        return lhs;
+        const auto function = [](const std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
+        { return val1 - val2; };
+        return broadcast::broadcaster(lhs, rhs, function);
     }
 
     //============================================================================
     // Method Description:
-    /// Subtracts the scaler from the array (3)
+    /// Subtracts the scalar from the array (3)
     ///
     /// @param lhs
     /// @param rhs
@@ -376,7 +316,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Subtracts the scaler from the array (4)
+    /// Subtracts the scalar from the array (4)
     ///
     /// @param lhs
     /// @param rhs
@@ -407,16 +347,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        NdArray<dtype> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), std::minus<dtype>());
-
-        return returnArray;
+        return broadcast::broadcaster<dtype>(lhs, rhs, std::minus<dtype>());
     }
 
     //============================================================================
@@ -432,19 +363,8 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        const auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
-        { return val1 - val2; };
-
-        NdArray<std::complex<dtype>> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
-
-        return returnArray;
+        const auto function = [](const auto& val1, const auto& val2) -> std::complex<dtype> { return val1 - val2; };
+        return broadcast::broadcaster<std::complex<dtype>>(lhs, rhs, function);
     }
 
     //============================================================================
@@ -460,46 +380,28 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        const auto function = [](const std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
-        { return val1 - val2; };
-
-        NdArray<std::complex<dtype>> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
-
-        return returnArray;
+        const auto function = [](const auto& val1, const auto& val2) -> std::complex<dtype> { return val1 - val2; };
+        return broadcast::broadcaster<std::complex<dtype>>(lhs, rhs, function);
     }
 
     //============================================================================
     // Method Description:
-    /// Subtracts the scaler from the array (4)
+    /// Subtracts the scalar from the array (4)
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator-(const NdArray<dtype>& lhs, dtype rhs)
+    NdArray<dtype> operator-(NdArray<dtype> lhs, dtype rhs)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
-        const auto function = [rhs](dtype value) -> dtype { return value - rhs; };
-
-        NdArray<dtype> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
-
-        return returnArray;
+        lhs -= rhs;
+        return lhs;
     }
 
     //============================================================================
     // Method Description:
-    /// Subtracts the scaler from the array (5)
+    /// Subtracts the scalar from the array (5)
     ///
     /// @param lhs
     /// @param rhs
@@ -521,7 +423,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Subtracts the scaler from the array (6)
+    /// Subtracts the scalar from the array (6)
     ///
     /// @param lhs
     /// @param rhs
@@ -543,7 +445,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Subtracts the scaler from the array (7)
+    /// Subtracts the scalar from the array (7)
     ///
     /// @param lhs
     /// @param rhs
@@ -565,29 +467,22 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Subtracts the scaler from the array (8)
+    /// Subtracts the scalar from the array (8)
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> operator-(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    NdArray<std::complex<dtype>> operator-(NdArray<std::complex<dtype>> lhs, dtype rhs)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
-        const auto function = [rhs](std::complex<dtype> value) -> std::complex<dtype> { return value - rhs; };
-
-        NdArray<std::complex<dtype>> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
-
-        return returnArray;
+        lhs -= rhs;
+        return lhs;
     }
 
     //============================================================================
     // Method Description:
-    /// Subtracts the scaler from the array (9)
+    /// Subtracts the scalar from the array (9)
     ///
     /// @param lhs
     /// @param rhs
@@ -636,14 +531,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), std::multiplies<dtype>());
-
-        return lhs;
+        return broadcast::broadcaster(lhs, rhs, std::multiplies<dtype>());
     }
 
     //============================================================================
@@ -659,21 +547,14 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        const auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype> { return val1 * val2; };
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), function);
-
-        return lhs;
+        const auto function = [](const std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
+        { return val1 * val2; };
+        return broadcast::broadcaster(lhs, rhs, function);
     }
 
     //============================================================================
     // Method Description:
-    /// Multiplies the scaler to the array (3)
+    /// Multiplies the scalar to the array (3)
     ///
     /// @param lhs
     /// @param rhs
@@ -693,7 +574,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Multiplies the scaler to the array (4)
+    /// Multiplies the scalar to the array (4)
     ///
     /// @param lhs
     /// @param rhs
@@ -724,20 +605,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        NdArray<dtype> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(),
-                                  lhs.cend(),
-                                  rhs.cbegin(),
-                                  returnArray.begin(),
-                                  std::multiplies<dtype>());
-
-        return returnArray;
+        return broadcast::broadcaster<dtype>(lhs, rhs, std::multiplies<dtype>());
     }
 
     //============================================================================
@@ -753,19 +621,8 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        const auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
-        { return val1 * val2; };
-
-        NdArray<std::complex<dtype>> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
-
-        return returnArray;
+        const auto function = [](const auto& val1, const auto& val2) -> std::complex<dtype> { return val1 * val2; };
+        return broadcast::broadcaster<std::complex<dtype>>(lhs, rhs, function);
     }
 
     //============================================================================
@@ -784,29 +641,22 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Multiplies the scaler to the array (4)
+    /// Multiplies the scalar to the array (4)
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator*(const NdArray<dtype>& lhs, dtype rhs)
+    NdArray<dtype> operator*(NdArray<dtype> lhs, dtype rhs)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
-        const auto function = [rhs](dtype value) -> dtype { return value * rhs; };
-
-        NdArray<dtype> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
-
-        return returnArray;
+        lhs *= rhs;
+        return lhs;
     }
 
     //============================================================================
     // Method Description:
-    /// Multiplies the scaler to the array (5)
+    /// Multiplies the scalar to the array (5)
     ///
     /// @param lhs
     /// @param rhs
@@ -820,7 +670,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Multiplies the scaler to the array (6)
+    /// Multiplies the scalar to the array (6)
     ///
     /// @param lhs
     /// @param rhs
@@ -842,7 +692,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Multiplies the scaler to the array (7)
+    /// Multiplies the scalar to the array (7)
     ///
     /// @param lhs
     /// @param rhs
@@ -856,29 +706,22 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Multiplies the scaler to the array (8)
+    /// Multiplies the scalar to the array (8)
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> operator*(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    NdArray<std::complex<dtype>> operator*(NdArray<std::complex<dtype>> lhs, dtype rhs)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
-        const auto function = [rhs](std::complex<dtype> value) -> std::complex<dtype> { return value * rhs; };
-
-        NdArray<std::complex<dtype>> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
-
-        return returnArray;
+        lhs *= rhs;
+        return lhs;
     }
 
     //============================================================================
     // Method Description:
-    /// Multiplies the scaler to the array (9)
+    /// Multiplies the scalar to the array (9)
     ///
     /// @param lhs
     /// @param rhs
@@ -903,14 +746,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), std::divides<dtype>());
-
-        return lhs;
+        return broadcast::broadcaster(lhs, rhs, std::divides<dtype>());
     }
 
     //============================================================================
@@ -926,21 +762,14 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        const auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype> { return val1 / val2; };
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), function);
-
-        return lhs;
+        const auto function = [](const std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
+        { return val1 / val2; };
+        return broadcast::broadcaster(lhs, rhs, function);
     }
 
     //============================================================================
     // Method Description:
-    /// Divides the scaler from the array (3)
+    /// Divides the scalar from the array (3)
     ///
     /// @param lhs
     /// @param rhs
@@ -960,7 +789,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Divides the scaler from the array (4)
+    /// Divides the scalar from the array (4)
     ///
     /// @param lhs
     /// @param rhs
@@ -991,16 +820,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        NdArray<dtype> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), std::divides<dtype>());
-
-        return returnArray;
+        return broadcast::broadcaster<dtype>(lhs, rhs, std::divides<dtype>());
     }
 
     //============================================================================
@@ -1016,19 +836,8 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        NdArray<std::complex<dtype>> returnArray(lhs.shape());
-
-        const auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
-        { return val1 / val2; };
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
-
-        return returnArray;
+        const auto function = [](const auto& val1, const auto& val2) -> std::complex<dtype> { return val1 / val2; };
+        return broadcast::broadcaster<std::complex<dtype>>(lhs, rhs, function);
     }
 
     //============================================================================
@@ -1044,46 +853,28 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        const auto function = [](const std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
-        { return val1 / val2; };
-
-        NdArray<std::complex<dtype>> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
-
-        return returnArray;
+        const auto function = [](const auto& val1, const auto& val2) -> std::complex<dtype> { return val1 / val2; };
+        return broadcast::broadcaster<std::complex<dtype>>(lhs, rhs, function);
     }
 
     //============================================================================
     // Method Description:
-    /// Divides the scaler from the array (4)
+    /// Divides the scalar from the array (4)
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator/(const NdArray<dtype>& lhs, dtype rhs)
+    NdArray<dtype> operator/(NdArray<dtype> lhs, dtype rhs)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
-        const auto function = [rhs](dtype value) -> dtype { return value / rhs; };
-
-        NdArray<dtype> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
-
-        return returnArray;
+        lhs /= rhs;
+        return lhs;
     }
 
     //============================================================================
     // Method Description:
-    /// Divides the scaler from the array (5)
+    /// Divides the scalar from the array (5)
     ///
     /// @param lhs
     /// @param rhs
@@ -1105,7 +896,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Divides the scaler from the array (6)
+    /// Divides the scalar from the array (6)
     ///
     /// @param lhs
     /// @param rhs
@@ -1127,7 +918,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Divides the scaler from the array (7)
+    /// Divides the scalar from the array (7)
     ///
     /// @param lhs
     /// @param rhs
@@ -1149,29 +940,22 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Divides the scaler from the array (8)
+    /// Divides the scalar from the array (8)
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> operator/(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    NdArray<std::complex<dtype>> operator/(NdArray<std::complex<dtype>> lhs, dtype rhs)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
-        const auto function = [rhs](std::complex<dtype> value) -> std::complex<dtype> { return value / rhs; };
-
-        NdArray<std::complex<dtype>> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
-
-        return returnArray;
+        lhs /= rhs;
+        return lhs;
     }
 
     //============================================================================
     // Method Description:
-    /// Divides the scaler from the array (9)
+    /// Divides the scalar from the array (9)
     ///
     /// @param lhs
     /// @param rhs
@@ -1182,7 +966,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [lhs](std::complex<dtype> value) -> std::complex<dtype> { return lhs / value; };
+        const auto function = [lhs](const std::complex<dtype>& value) -> std::complex<dtype> { return lhs / value; };
 
         NdArray<std::complex<dtype>> returnArray(rhs.shape());
 
@@ -1199,74 +983,42 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, enable_if_t<std::is_integral<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype> || std::is_floating_point_v<dtype>, int> = 0>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        if (lhs.shape() != rhs.shape())
+        if constexpr (std::is_integral_v<dtype>)
         {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+            return broadcast::broadcaster(lhs, rhs, std::modulus<dtype>());
         }
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), std::modulus<dtype>());
-
-        return lhs;
+        else
+        {
+            const auto function = [](const dtype value1, const dtype value2) -> dtype
+            { return std::fmod(value1, value2); };
+            return broadcast::broadcaster(lhs, rhs, function);
+        }
     }
 
     //============================================================================
     // Method Description:
-    /// Modulus the elements of two arrays
+    /// Modulus the scalar to the array
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
-    NdArray<dtype>& operator%=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
-    {
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        const auto function = [](const dtype value1, const dtype value2) -> dtype { return std::fmod(value1, value2); };
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), function);
-
-        return lhs;
-    }
-
-    //============================================================================
-    // Method Description:
-    /// Modulus the scaler to the array
-    ///
-    /// @param lhs
-    /// @param rhs
-    /// @return NdArray
-    ///
-    template<typename dtype, enable_if_t<std::is_integral<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype> || std::is_floating_point_v<dtype>, int> = 0>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, dtype rhs)
     {
-        const auto function = [rhs](dtype& value) -> dtype { return value %= rhs; };
-
-        stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
-
-        return lhs;
-    }
-
-    //============================================================================
-    // Method Description:
-    /// Modulus the scaler to the array
-    ///
-    /// @param lhs
-    /// @param rhs
-    /// @return NdArray
-    ///
-    template<typename dtype, enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
-    NdArray<dtype>& operator%=(NdArray<dtype>& lhs, dtype rhs)
-    {
-        const auto function = [rhs](dtype& value) -> void { value = std::fmod(value, rhs); };
-
-        stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
+        if constexpr (std::is_integral_v<dtype>)
+        {
+            const auto function = [rhs](dtype& value) -> dtype { return value %= rhs; };
+            stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
+        }
+        else
+        {
+            const auto function = [rhs](dtype& value) -> void { value = std::fmod(value, rhs); };
+            stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
+        }
 
         return lhs;
     }
@@ -1279,39 +1031,44 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype> || std::is_floating_point_v<dtype>, int> = 0>
     NdArray<dtype> operator%(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        auto returnArray = NdArray<dtype>(lhs);
-        returnArray %= rhs;
-        return returnArray;
+        if constexpr (std::is_integral_v<dtype>)
+        {
+            return broadcast::broadcaster<dtype>(lhs, rhs, std::modulus<dtype>());
+        }
+        else
+        {
+            const auto function = [](dtype value1, dtype value2) -> dtype { return std::fmod(value1, value2); };
+            return broadcast::broadcaster<dtype>(lhs, rhs, function);
+        }
     }
 
     //============================================================================
     // Method Description:
-    /// Modulus of the array and the scaler
+    /// Modulus of the array and the scalar
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator%(const NdArray<dtype>& lhs, dtype rhs)
+    NdArray<dtype> operator%(NdArray<dtype> lhs, dtype rhs)
     {
-        auto returnArray = NdArray<dtype>(lhs);
-        returnArray %= rhs;
-        return returnArray;
+        lhs %= rhs;
+        return lhs;
     }
 
     //============================================================================
     // Method Description:
-    /// Modulus of the scaler and the array
+    /// Modulus of the scalar and the array
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, enable_if_t<std::is_integral<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype>, int> = 0>
     NdArray<dtype> operator%(dtype lhs, const NdArray<dtype>& rhs)
     {
         NdArray<dtype> returnArray(rhs.shape());
@@ -1325,13 +1082,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Modulus of the scaler and the array
+    /// Modulus of the scalar and the array
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_floating_point_v<dtype>, int> = 0>
     NdArray<dtype> operator%(dtype lhs, const NdArray<dtype>& rhs)
     {
         NdArray<dtype> returnArray(rhs.shape());
@@ -1356,19 +1113,12 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), std::bit_or<dtype>());
-
-        return lhs;
+        return broadcast::broadcaster(lhs, rhs, std::bit_or<dtype>());
     }
 
     //============================================================================
     // Method Description:
-    /// Bitwise or the scaler to the array
+    /// Bitwise or the scalar to the array
     ///
     /// @param lhs
     /// @param rhs
@@ -1397,25 +1147,24 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> operator|(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        auto returnArray = NdArray<dtype>(lhs);
-        returnArray |= rhs;
-        return returnArray;
+        STATIC_ASSERT_INTEGER(dtype);
+
+        return broadcast::broadcaster<dtype>(lhs, rhs, std::bit_or<dtype>());
     }
 
     //============================================================================
     // Method Description:
-    /// Takes the bitwise or of the array and the scaler
+    /// Takes the bitwise or of the array and the scalar
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator|(const NdArray<dtype>& lhs, dtype rhs)
+    NdArray<dtype> operator|(NdArray<dtype> lhs, dtype rhs)
     {
-        auto returnArray = NdArray<dtype>(lhs);
-        returnArray |= rhs;
-        return returnArray;
+        lhs |= rhs;
+        return lhs;
     }
 
     //============================================================================
@@ -1445,19 +1194,12 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), std::bit_and<dtype>());
-
-        return lhs;
+        return broadcast::broadcaster(lhs, rhs, std::bit_and<dtype>());
     }
 
     //============================================================================
     // Method Description:
-    /// Bitwise and the scaler to the array
+    /// Bitwise and the scalar to the array
     ///
     /// @param lhs
     /// @param rhs
@@ -1486,25 +1228,24 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> operator&(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        auto returnArray = NdArray<dtype>(lhs);
-        returnArray &= rhs;
-        return returnArray;
+        STATIC_ASSERT_INTEGER(dtype);
+
+        return broadcast::broadcaster<dtype>(lhs, rhs, std::bit_and<dtype>());
     }
 
     //============================================================================
     // Method Description:
-    /// Takes the bitwise and of the array and the scaler
+    /// Takes the bitwise and of the array and the scalar
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator&(const NdArray<dtype>& lhs, dtype rhs)
+    NdArray<dtype> operator&(NdArray<dtype> lhs, dtype rhs)
     {
-        auto returnArray = NdArray<dtype>(lhs);
-        returnArray &= rhs;
-        return returnArray;
+        lhs &= rhs;
+        return lhs;
     }
 
     //============================================================================
@@ -1534,19 +1275,12 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), std::bit_xor<dtype>());
-
-        return lhs;
+        return broadcast::broadcaster(lhs, rhs, std::bit_xor<dtype>());
     }
 
     //============================================================================
     // Method Description:
-    /// Bitwise xor the scaler to the array
+    /// Bitwise xor the scalar to the array
     ///
     /// @param lhs
     /// @param rhs
@@ -1575,25 +1309,24 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> operator^(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        auto returnArray = NdArray<dtype>(lhs);
-        returnArray ^= rhs;
-        return returnArray;
+        STATIC_ASSERT_INTEGER(dtype);
+
+        return broadcast::broadcaster<dtype>(lhs, rhs, std::bit_xor<dtype>());
     }
 
     //============================================================================
     // Method Description:
-    /// Takes the bitwise xor of the array and the scaler
+    /// Takes the bitwise xor of the array and the scalar
     ///
     /// @param lhs
     /// @param rhs
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator^(const NdArray<dtype>& lhs, dtype rhs)
+    NdArray<dtype> operator^(NdArray<dtype> lhs, dtype rhs)
     {
-        auto returnArray = NdArray<dtype>(lhs);
-        returnArray ^= rhs;
-        return returnArray;
+        lhs ^= rhs;
+        return lhs;
     }
 
     //============================================================================
@@ -1644,22 +1377,15 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
+        const auto function = [](dtype value1, dtype value2) -> bool
+        { return !utils::essentiallyEqual(value1, dtype{ 0 }) && !utils::essentiallyEqual(value2, dtype{ 0 }); };
 
-        const auto function = [](dtype value1, dtype value2) -> bool { return value1 && value2; };
-
-        NdArray<bool> returnArray(lhs.shape());
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
-
-        return returnArray;
+        return broadcast::broadcaster<bool>(lhs, rhs, function);
     }
 
     //============================================================================
     // Method Description:
-    /// Takes the and of the array and the scaler
+    /// Takes the and of the array and the scalar
     ///
     /// @param lhs
     /// @param rhs
@@ -1681,7 +1407,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Takes the and of the array and the scaler
+    /// Takes the and of the array and the scalar
     ///
     /// @param lhs
     /// @param rhs
@@ -1706,22 +1432,15 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
+        const auto function = [](dtype value1, dtype value2) -> bool
+        { return !utils::essentiallyEqual(value1, dtype{ 0 }) || !utils::essentiallyEqual(value2, dtype{ 0 }); };
 
-        const auto function = [](dtype value1, dtype value2) -> bool { return value1 || value2; };
-
-        NdArray<bool> returnArray(lhs.shape());
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
-
-        return returnArray;
+        return broadcast::broadcaster<bool>(lhs, rhs, function);
     }
 
     //============================================================================
     // Method Description:
-    /// Takes the or of the array and the scaler
+    /// Takes the or of the array and the scalar
     ///
     /// @param lhs
     /// @param rhs
@@ -1743,7 +1462,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Takes the or of the array and the scaler
+    /// Takes the or of the array and the scalar
     ///
     /// @param lhs
     /// @param rhs
@@ -1788,24 +1507,16 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator==(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
+        const auto equalTo = [](dtype lhs_, dtype rhs_) noexcept -> bool
+        { return utils::essentiallyEqual(lhs_, rhs_); };
 
-        const auto equalTo = [](dtype lhs, dtype rhs) noexcept -> bool { return utils::essentiallyEqual(lhs, rhs); };
-
-        NdArray<bool> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), equalTo);
-
-        return returnArray;
+        return broadcast::broadcaster<bool>(lhs, rhs, equalTo);
     }
 
     //============================================================================
     // Method Description:
     /// Returns an array of booleans of element wise comparison
-    /// an array and a scaler
+    /// an array and a scalar
     ///
     /// @param lhs
     /// @param inValue
@@ -1827,7 +1538,7 @@ namespace nc
     //============================================================================
     // Method Description:
     /// Returns an array of booleans of element wise comparison
-    /// an array and a scaler
+    /// an array and a scalar
     ///
     /// @param inValue
     /// @param inArray
@@ -1851,25 +1562,16 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator!=(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
+        const auto notEqualTo = [](dtype lhs_, dtype rhs_) noexcept -> bool
+        { return !utils::essentiallyEqual(lhs_, rhs_); };
 
-        const auto notEqualTo = [](dtype lhs, dtype rhs) noexcept -> bool
-        { return !utils::essentiallyEqual(lhs, rhs); };
-
-        NdArray<bool> returnArray(lhs.shape());
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), notEqualTo);
-
-        return returnArray;
+        return broadcast::broadcaster<bool>(lhs, rhs, notEqualTo);
     }
 
     //============================================================================
     // Method Description:
     /// Returns an array of booleans of element wise comparison
-    /// an array and a scaler
+    /// an array and a scalar
     ///
     /// @param lhs
     /// @param inValue
@@ -1891,7 +1593,7 @@ namespace nc
     //============================================================================
     // Method Description:
     /// Returns an array of booleans of element wise comparison
-    /// an array and a scaler
+    /// an array and a scalar
     ///
     /// @param inValue
     /// @param inArray
@@ -1917,24 +1619,14 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        NdArray<bool> returnArray(lhs.shape());
-
-        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool { return lhs < rhs; };
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
-
-        return returnArray;
+        const auto function = [](dtype lhs_, dtype rhs_) noexcept -> bool { return lhs_ < rhs_; };
+        return broadcast::broadcaster<bool>(lhs, rhs, function);
     }
 
     //============================================================================
     // Method Description:
     /// Returns an array of booleans of element wise comparison
-    /// the array and a scaler
+    /// the array and a scalar
     ///
     /// @param lhs
     /// @param inValue
@@ -1957,7 +1649,7 @@ namespace nc
     //============================================================================
     // Method Description:
     /// Returns an array of booleans of element wise comparison
-    /// the array and a scaler
+    /// the array and a scalar
     ///
     /// @param inValue
     /// @param inArray
@@ -1991,26 +1683,14 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        NdArray<bool> returnArray(lhs.shape());
-
-        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool { return lhs > rhs; };
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
-
-        return returnArray;
+        const auto function = [](dtype lhs_, dtype rhs_) noexcept -> bool { return lhs_ > rhs_; };
+        return broadcast::broadcaster<bool>(lhs, rhs, function);
     }
 
     //============================================================================
     // Method Description:
     /// Returns an array of booleans of element wise comparison
-    /// the array and a scaler
+    /// the array and a scalar
     ///
     /// @param lhs
     /// @param inValue
@@ -2033,7 +1713,7 @@ namespace nc
     //============================================================================
     // Method Description:
     /// Returns an array of booleans of element wise comparison
-    /// the array and a scaler
+    /// the array and a scalar
     ///
     /// @param inValue
     /// @param inArray
@@ -2067,24 +1747,14 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        NdArray<bool> returnArray(lhs.shape());
-
-        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool { return lhs <= rhs; };
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
-
-        return returnArray;
+        const auto function = [](dtype lhs_, dtype rhs_) noexcept -> bool { return lhs_ <= rhs_; };
+        return broadcast::broadcaster<bool>(lhs, rhs, function);
     }
 
     //============================================================================
     // Method Description:
     /// Returns an array of booleans of element wise comparison
-    /// the array and a scaler
+    /// the array and a scalar
     ///
     /// @param lhs
     /// @param inValue
@@ -2107,7 +1777,7 @@ namespace nc
     //============================================================================
     // Method Description:
     /// Returns an array of booleans of element wise comparison
-    /// the array and a scaler
+    /// the array and a scalar
     ///
     /// @param inValue
     /// @param inArray
@@ -2141,24 +1811,14 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (lhs.shape() != rhs.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
-        }
-
-        NdArray<bool> returnArray(lhs.shape());
-
-        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool { return lhs >= rhs; };
-
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
-
-        return returnArray;
+        const auto function = [](dtype lhs_, dtype rhs_) noexcept -> bool { return lhs_ >= rhs_; };
+        return broadcast::broadcaster<bool>(lhs, rhs, function);
     }
 
     //============================================================================
     // Method Description:
     /// Returns an array of booleans of element wise comparison
-    /// the array and a scaler
+    /// the array and a scalar
     ///
     /// @param lhs
     /// @param inValue
@@ -2181,7 +1841,7 @@ namespace nc
     //============================================================================
     // Method Description:
     /// Returns an array of booleans of element wise comparison
-    /// the array and a scaler
+    /// the array and a scalar
     ///
     /// @param inValue
     /// @param inArray

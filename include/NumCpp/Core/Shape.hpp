@@ -101,7 +101,7 @@ namespace nc
         ///
         /// @return size
         ///
-        uint32 size() const noexcept
+        [[nodiscard]] uint32 size() const noexcept
         {
             return rows * cols;
         }
@@ -112,7 +112,7 @@ namespace nc
         ///
         /// @return bool
         ///
-        bool isnull() const noexcept
+        [[nodiscard]] bool isnull() const noexcept
         {
             return rows == 0 && cols == 0;
         }
@@ -122,7 +122,7 @@ namespace nc
         ///
         /// @return bool
         ///
-        bool issquare() const noexcept
+        [[nodiscard]] bool issquare() const noexcept
         {
             return rows == cols;
         }
@@ -132,7 +132,7 @@ namespace nc
         ///
         /// @return std::string
         ///
-        std::string str() const
+        [[nodiscard]] std::string str() const
         {
             std::string out = "[" + utils::num2str(rows) + ", " + utils::num2str(cols) + "]\n";
             return out;

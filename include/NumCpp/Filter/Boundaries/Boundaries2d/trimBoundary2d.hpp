@@ -33,34 +33,28 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::filter::boundary
 {
-    namespace filter
+    //============================================================================
+    // Method Description:
+    /// trims the boundary off to make the image back to the original size
+    ///
+    /// @param inImageWithBoundary
+    /// @param inSize
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> trimBoundary2d(const NdArray<dtype>& inImageWithBoundary, uint32 inSize)
     {
-        namespace boundary
-        {
-            //============================================================================
-            // Method Description:
-            /// trims the boundary off to make the image back to the original size
-            ///
-            /// @param inImageWithBoundary
-            /// @param inSize
-            /// @return NdArray
-            ///
-            template<typename dtype>
-            NdArray<dtype> trimBoundary2d(const NdArray<dtype>& inImageWithBoundary, uint32 inSize)
-            {
-                STATIC_ASSERT_ARITHMETIC(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
-                Shape  inShape      = inImageWithBoundary.shape();
-                uint32 boundarySize = inSize / 2; /// integer division
+        Shape  inShape      = inImageWithBoundary.shape();
+        uint32 boundarySize = inSize / 2; /// integer division
 
-                inShape.rows -= boundarySize * 2;
-                inShape.cols -= boundarySize * 2;
+        inShape.rows -= boundarySize * 2;
+        inShape.cols -= boundarySize * 2;
 
-                return inImageWithBoundary(Slice(boundarySize, boundarySize + inShape.rows),
-                                           Slice(boundarySize, boundarySize + inShape.cols));
-            }
-        } // namespace boundary
-    }     // namespace filter
-} // namespace nc
+        return inImageWithBoundary(Slice(boundarySize, boundarySize + inShape.rows),
+                                   Slice(boundarySize, boundarySize + inShape.cols));
+    }
+} // namespace nc::filter::boundary

@@ -1,3 +1,5 @@
+import time
+
 import numpy as np
 
 import NumCppPy as NumCpp  # noqa E402
@@ -64,3 +66,20 @@ def test_powerf():
     value = np.complex128(complex(real, imag))
     assert np.round(NumCpp.powerf_complex(value, power),
                     5) == np.round(np.float_power(value, power), 5)
+
+
+####################################################################################
+def test_timeit():
+    value1 = 666
+    value2 = 357
+
+    def function1(value1_: int, value2_: int) -> None:
+        time.sleep(1 / 10000000)
+
+    NumCpp.timeit(1000, True, function1, value1, value2)
+
+    def function2(value1_: int, value2_: int) -> int:
+        time.sleep(1 / 10000000)
+        return value1 + value2
+
+    NumCpp.timeit(1000, True, function2, value1, value2)

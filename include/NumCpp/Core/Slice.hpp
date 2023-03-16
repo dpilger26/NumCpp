@@ -31,6 +31,7 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -118,7 +119,7 @@ namespace nc
         ///
         /// @return std::string
         ///
-        std::string str() const
+        [[nodiscard]] std::string str() const
         {
             std::string out =
                 "[" + utils::num2str(start) + ":" + utils::num2str(stop) + ":" + utils::num2str(step) + "]\n";
@@ -143,23 +144,21 @@ namespace nc
             /// convert the start value
             if (start < 0)
             {
-                start += inArraySize;
+                start += static_cast<int32>(inArraySize);
             }
             if (start > static_cast<int32>(inArraySize - 1))
             {
-                THROW_INVALID_ARGUMENT_ERROR("Invalid start value for array of size " + utils::num2str(inArraySize) +
-                                             ".");
+                THROW_INVALID_ARGUMENT_ERROR("Invalid start value for array of size " + utils::num2str(inArraySize));
             }
 
             /// convert the stop value
             if (stop < 0)
             {
-                stop += inArraySize;
+                stop += static_cast<int32>(inArraySize);
             }
             if (stop > static_cast<int32>(inArraySize))
             {
-                THROW_INVALID_ARGUMENT_ERROR("Invalid stop value for array of size " + utils::num2str(inArraySize) +
-                                             ".");
+                THROW_INVALID_ARGUMENT_ERROR("Invalid stop value for array of size " + utils::num2str(inArraySize));
             }
 
             /// do some error checking
@@ -203,6 +202,24 @@ namespace nc
                 ++num;
             }
             return num;
+        }
+
+        //============================================================================
+        /// Returns the indices that coorespond to the slice
+        /// be aware that this method will also make the slice all
+        /// positive!
+        ///
+        /// @param inArrayDimSize: the size of the dimension that is being sliced
+        ///
+        std::vector<uint32> toIndices(uint32 inArrayDimSize)
+        {
+            std::vector<uint32> indices;
+            indices.reserve(numElements(inArrayDimSize));
+            for (int32 i = start; i < stop; i += step)
+            {
+                indices.push_back(static_cast<uint32>(i));
+            }
+            return indices;
         }
 
         //============================================================================

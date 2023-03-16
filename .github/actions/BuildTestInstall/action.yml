@@ -33,7 +33,7 @@ runs:
 
     - name: Build
       shell: ${{inputs.shell}}
-      run: cmake --build ${{github.workspace}}/build --config Release -j16
+      run: cmake --build ${{github.workspace}}/build --config Release -j8
 
     - name: Test
       shell: ${{inputs.shell}}

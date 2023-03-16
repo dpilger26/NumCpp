@@ -1,10 +1,11 @@
 #include "NumCpp.hpp"
-#include <Eigen/Dense>
 
+#include <Eigen/Dense>
 #include <iostream>
 
+
 typedef Eigen::Matrix<int, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor> EigenIntMatrix;
-typedef Eigen::Map<EigenIntMatrix> EigenIntMatrixMap;
+typedef Eigen::Map<EigenIntMatrix>                                          EigenIntMatrixMap;
 
 int main()
 {
@@ -15,7 +16,7 @@ int main()
     std::cout << "ncA:\n" << ncA << std::endl;
     std::cout << "ncB:\n" << ncB << std::endl;
 
-    // map the arrays to Eigen 
+    // map the arrays to Eigen
     auto eigenA = EigenIntMatrixMap(ncA.data(), ncA.numRows(), ncA.numCols());
     auto eigenB = EigenIntMatrixMap(ncB.data(), ncB.numRows(), ncB.numCols());
 
@@ -26,11 +27,11 @@ int main()
     auto ncC = ncA + ncB;
 
     // convert the Eigen result back to NumCpp
-    int* dataPtr = new int[eigenC.rows() * eigenC.cols()];
+    int* dataPtr                                             = new int[eigenC.rows() * eigenC.cols()];
     EigenIntMatrixMap(dataPtr, eigenC.rows(), eigenC.cols()) = eigenC;
 
     constexpr bool takeOwnership = true;
-    auto ncCeigen = nc::NdArray<int>(dataPtr, eigenC.rows(), eigenC.cols(), takeOwnership);
+    auto           ncCeigen      = nc::NdArray<int>(dataPtr, eigenC.rows(), eigenC.cols(), takeOwnership);
 
     // compare the two outputs
     if (nc::array_equal(ncC, ncCeigen))

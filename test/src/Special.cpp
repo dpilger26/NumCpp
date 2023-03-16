@@ -8,7 +8,7 @@ namespace SpecialInterface
 {
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype airy_ai_Scaler(dtype inValue)
+    dtype airy_ai_Scalar(dtype inValue)
     {
         return special::airy_ai(inValue);
     }
@@ -28,7 +28,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype airy_ai_prime_Scaler(dtype inValue)
+    dtype airy_ai_prime_Scalar(dtype inValue)
     {
         return special::airy_ai_prime(inValue);
     }
@@ -48,7 +48,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype airy_bi_Scaler(dtype inValue)
+    dtype airy_bi_Scalar(dtype inValue)
     {
         return special::airy_bi(inValue);
     }
@@ -68,7 +68,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype airy_bi_prime_Scaler(dtype inValue)
+    dtype airy_bi_prime_Scalar(dtype inValue)
     {
         return special::airy_bi_prime(inValue);
     }
@@ -87,7 +87,7 @@ namespace SpecialInterface
     //================================================================================
 
 #ifndef NUMCPP_NO_USE_BOOST
-    double bernoulli_Scaler(uint32 n)
+    double bernoulli_Scalar(uint32 n)
     {
         return special::bernoilli(n);
     }
@@ -106,7 +106,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype bessel_in_Scaler(dtype inV, dtype inValue)
+    dtype bessel_in_Scalar(dtype inV, dtype inValue)
     {
         return special::bessel_in(inV, inValue);
     }
@@ -126,7 +126,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype bessel_in_prime_Scaler(dtype inV, dtype inValue)
+    dtype bessel_in_prime_Scalar(dtype inV, dtype inValue)
     {
         return special::bessel_in_prime(inV, inValue);
     }
@@ -146,7 +146,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype bessel_jn_Scaler(dtype inV, dtype inValue)
+    dtype bessel_jn_Scalar(dtype inV, dtype inValue)
     {
         return special::bessel_jn(inV, inValue);
     }
@@ -166,7 +166,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype bessel_jn_prime_Scaler(dtype inV, dtype inValue)
+    dtype bessel_jn_prime_Scalar(dtype inV, dtype inValue)
     {
         return special::bessel_jn_prime(inV, inValue);
     }
@@ -186,7 +186,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype bessel_kn_Scaler(dtype inV, dtype inValue)
+    dtype bessel_kn_Scalar(dtype inV, dtype inValue)
     {
         return special::bessel_kn(inV, inValue);
     }
@@ -206,7 +206,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype bessel_kn_prime_Scaler(dtype inV, dtype inValue)
+    dtype bessel_kn_prime_Scalar(dtype inV, dtype inValue)
     {
         return special::bessel_kn_prime(inV, inValue);
     }
@@ -226,7 +226,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype bessel_yn_Scaler(dtype inV, dtype inValue)
+    dtype bessel_yn_Scalar(dtype inV, dtype inValue)
     {
         return special::bessel_yn(inV, inValue);
     }
@@ -246,7 +246,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype bessel_yn_prime_Scaler(dtype inV, dtype inValue)
+    dtype bessel_yn_prime_Scalar(dtype inV, dtype inValue)
     {
         return special::bessel_yn_prime(inV, inValue);
     }
@@ -266,7 +266,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype beta_Scaler(dtype a, dtype b)
+    dtype beta_Scalar(dtype a, dtype b)
     {
         return special::beta(a, b);
     }
@@ -286,7 +286,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype comp_ellint_1_Scaler(dtype k)
+    dtype comp_ellint_1_Scalar(dtype k)
     {
         return special::comp_ellint_1(k);
     }
@@ -306,7 +306,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype comp_ellint_2_Scaler(dtype k)
+    dtype comp_ellint_2_Scalar(dtype k)
     {
         return special::comp_ellint_2(k);
     }
@@ -326,7 +326,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype comp_ellint_3_Scaler(dtype k, dtype v)
+    dtype comp_ellint_3_Scalar(dtype k, dtype v)
     {
         return special::comp_ellint_3(k, v);
     }
@@ -346,7 +346,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    std::complex<dtype> cyclic_hankel_1_Scaler(dtype v, dtype x)
+    std::complex<dtype> cyclic_hankel_1_Scalar(dtype v, dtype x)
     {
         return special::cyclic_hankel_1(v, x);
     }
@@ -366,7 +366,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    std::complex<dtype> cyclic_hankel_2_Scaler(dtype v, dtype x)
+    std::complex<dtype> cyclic_hankel_2_Scalar(dtype v, dtype x)
     {
         return special::cyclic_hankel_2(v, x);
     }
@@ -386,7 +386,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype ellint_1_Scaler(dtype k, dtype p)
+    dtype ellint_1_Scalar(dtype k, dtype p)
     {
         return special::ellint_1(k, p);
     }
@@ -406,7 +406,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype ellint_2_Scaler(dtype k, dtype p)
+    dtype ellint_2_Scalar(dtype k, dtype p)
     {
         return special::ellint_2(k, p);
     }
@@ -426,7 +426,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype ellint_3_Scaler(dtype k, dtype v, dtype p)
+    dtype ellint_3_Scalar(dtype k, dtype v, dtype p)
     {
         return special::ellint_3(k, v, p);
     }
@@ -446,7 +446,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype expint_Scaler(dtype k)
+    dtype expint_Scalar(dtype k)
     {
         return special::expint(k);
     }
@@ -466,7 +466,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype digamma_Scaler(dtype inValue)
+    dtype digamma_Scalar(dtype inValue)
     {
         return special::digamma(inValue);
     }
@@ -486,7 +486,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype erf_Scaler(dtype inValue)
+    dtype erf_Scalar(dtype inValue)
     {
         return special::erf(inValue);
     }
@@ -506,7 +506,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype erf_inv_Scaler(dtype inValue)
+    dtype erf_inv_Scalar(dtype inValue)
     {
         return special::erf_inv(inValue);
     }
@@ -526,7 +526,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype erfc_Scaler(dtype inValue)
+    dtype erfc_Scalar(dtype inValue)
     {
         return special::erfc(inValue);
     }
@@ -546,7 +546,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype erfc_inv_Scaler(dtype inValue)
+    dtype erfc_inv_Scalar(dtype inValue)
     {
         return special::erfc_inv(inValue);
     }
@@ -564,7 +564,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-    double factorial_Scaler(uint32 inValue)
+    double factorial_Scalar(uint32 inValue)
     {
         return special::factorial(inValue);
     }
@@ -580,7 +580,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype gamma_Scaler(dtype inValue)
+    dtype gamma_Scalar(dtype inValue)
     {
         return special::gamma(inValue);
     }
@@ -600,7 +600,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype gamma1pm1_Scaler(dtype inValue)
+    dtype gamma1pm1_Scalar(dtype inValue)
     {
         return special::gamma1pm1(inValue);
     }
@@ -620,7 +620,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype log_gamma_Scaler(dtype inValue)
+    dtype log_gamma_Scalar(dtype inValue)
     {
         return special::log_gamma(inValue);
     }
@@ -640,7 +640,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype polygamma_Scaler(uint32 n, dtype inValue)
+    dtype polygamma_Scalar(uint32 n, dtype inValue)
     {
         return special::polygamma(n, inValue);
     }
@@ -659,7 +659,7 @@ namespace SpecialInterface
     //================================================================================
 
 #ifndef NUMCPP_NO_USE_BOOST
-    double prime_Scaler(uint32 inValue)
+    double prime_Scalar(uint32 inValue)
     {
         return special::prime(inValue);
     }
@@ -678,7 +678,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype riemann_zeta_Scaler(dtype inValue)
+    dtype riemann_zeta_Scalar(dtype inValue)
     {
         return special::riemann_zeta(inValue);
     }
@@ -706,7 +706,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype spherical_bessel_jn_Scaler(uint32 inV, dtype inValue)
+    dtype spherical_bessel_jn_Scalar(uint32 inV, dtype inValue)
     {
         return special::spherical_bessel_jn(inV, inValue);
     }
@@ -726,7 +726,7 @@ namespace SpecialInterface
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype spherical_bessel_yn_Scaler(uint32 inV, dtype inValue)
+    dtype spherical_bessel_yn_Scalar(uint32 inV, dtype inValue)
     {
         return special::spherical_bessel_yn(inV, inValue);
     }
@@ -746,7 +746,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    std::complex<dtype> spherical_hankel_1_Scaler(dtype v, dtype x)
+    std::complex<dtype> spherical_hankel_1_Scalar(dtype v, dtype x)
     {
         return special::spherical_hankel_1(v, x);
     }
@@ -766,7 +766,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    std::complex<dtype> spherical_hankel_2_Scaler(dtype v, dtype x)
+    std::complex<dtype> spherical_hankel_2_Scalar(dtype v, dtype x)
     {
         return special::spherical_hankel_2(v, x);
     }
@@ -786,7 +786,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype trigamma_Scaler(dtype inValue)
+    dtype trigamma_Scalar(dtype inValue)
     {
         return special::trigamma(inValue);
     }
@@ -809,166 +809,166 @@ void initSpecial(pb11::module& m)
 {
 // Special.hpp
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("airy_ai_Scaler", &SpecialInterface::airy_ai_Scaler<double>);
+    m.def("airy_ai_Scalar", &SpecialInterface::airy_ai_Scalar<double>);
     m.def("airy_ai_Array", &SpecialInterface::airy_ai_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("airy_ai_prime_Scaler", &SpecialInterface::airy_ai_prime_Scaler<double>);
+    m.def("airy_ai_prime_Scalar", &SpecialInterface::airy_ai_prime_Scalar<double>);
     m.def("airy_ai_prime_Array", &SpecialInterface::airy_ai_prime_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("airy_bi_Scaler", &SpecialInterface::airy_bi_Scaler<double>);
+    m.def("airy_bi_Scalar", &SpecialInterface::airy_bi_Scalar<double>);
     m.def("airy_bi_Array", &SpecialInterface::airy_bi_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("airy_bi_prime_Scaler", &SpecialInterface::airy_bi_prime_Scaler<double>);
+    m.def("airy_bi_prime_Scalar", &SpecialInterface::airy_bi_prime_Scalar<double>);
     m.def("airy_bi_prime_Array", &SpecialInterface::airy_bi_prime_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("bernoulli_Scaler", &SpecialInterface::bernoulli_Scaler);
+    m.def("bernoulli_Scalar", &SpecialInterface::bernoulli_Scalar);
     m.def("bernoulli_Array", &SpecialInterface::bernoulli_Array);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("bessel_in_Scaler", &SpecialInterface::bessel_in_Scaler<double>);
+    m.def("bessel_in_Scalar", &SpecialInterface::bessel_in_Scalar<double>);
     m.def("bessel_in_Array", &SpecialInterface::bessel_in_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("bessel_in_prime_Scaler", &SpecialInterface::bessel_in_prime_Scaler<double>);
+    m.def("bessel_in_prime_Scalar", &SpecialInterface::bessel_in_prime_Scalar<double>);
     m.def("bessel_in_prime_Array", &SpecialInterface::bessel_in_prime_Array<double>);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("bessel_jn_Scaler", &SpecialInterface::bessel_jn_Scaler<double>);
+    m.def("bessel_jn_Scalar", &SpecialInterface::bessel_jn_Scalar<double>);
     m.def("bessel_jn_Array", &SpecialInterface::bessel_jn_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("bessel_jn_prime_Scaler", &SpecialInterface::bessel_jn_prime_Scaler<double>);
+    m.def("bessel_jn_prime_Scalar", &SpecialInterface::bessel_jn_prime_Scalar<double>);
     m.def("bessel_jn_prime_Array", &SpecialInterface::bessel_jn_prime_Array<double>);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("bessel_kn_Scaler", &SpecialInterface::bessel_kn_Scaler<double>);
+    m.def("bessel_kn_Scalar", &SpecialInterface::bessel_kn_Scalar<double>);
     m.def("bessel_kn_Array", &SpecialInterface::bessel_kn_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("bessel_kn_prime_Scaler", &SpecialInterface::bessel_kn_prime_Scaler<double>);
+    m.def("bessel_kn_prime_Scalar", &SpecialInterface::bessel_kn_prime_Scalar<double>);
     m.def("bessel_kn_prime_Array", &SpecialInterface::bessel_kn_prime_Array<double>);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("bessel_yn_Scaler", &SpecialInterface::bessel_yn_Scaler<double>);
+    m.def("bessel_yn_Scalar", &SpecialInterface::bessel_yn_Scalar<double>);
     m.def("bessel_yn_Array", &SpecialInterface::bessel_yn_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("bessel_yn_prime_Scaler", &SpecialInterface::bessel_yn_prime_Scaler<double>);
+    m.def("bessel_yn_prime_Scalar", &SpecialInterface::bessel_yn_prime_Scalar<double>);
     m.def("bessel_yn_prime_Array", &SpecialInterface::bessel_yn_prime_Array<double>);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("beta_Scaler", &SpecialInterface::beta_Scaler<double>);
+    m.def("beta_Scalar", &SpecialInterface::beta_Scalar<double>);
     m.def("beta_Array", &SpecialInterface::beta_Array<double>);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("comp_ellint_1_Scaler", &SpecialInterface::comp_ellint_1_Scaler<double>);
+    m.def("comp_ellint_1_Scalar", &SpecialInterface::comp_ellint_1_Scalar<double>);
     m.def("comp_ellint_1_Array", &SpecialInterface::comp_ellint_1_Array<double>);
 #endif
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("comp_ellint_2_Scaler", &SpecialInterface::comp_ellint_2_Scaler<double>);
+    m.def("comp_ellint_2_Scalar", &SpecialInterface::comp_ellint_2_Scalar<double>);
     m.def("comp_ellint_2_Array", &SpecialInterface::comp_ellint_2_Array<double>);
 #endif
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("comp_ellint_3_Scaler", &SpecialInterface::comp_ellint_3_Scaler<double>);
+    m.def("comp_ellint_3_Scalar", &SpecialInterface::comp_ellint_3_Scalar<double>);
     m.def("comp_ellint_3_Array", &SpecialInterface::comp_ellint_3_Array<double, double>);
 #endif
     m.def("cnr", &special::cnr);
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("cyclic_hankel_1_Scaler", &SpecialInterface::cyclic_hankel_1_Scaler<double>);
+    m.def("cyclic_hankel_1_Scalar", &SpecialInterface::cyclic_hankel_1_Scalar<double>);
     m.def("cyclic_hankel_1_Array", &SpecialInterface::cyclic_hankel_1_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("cyclic_hankel_2_Scaler", &SpecialInterface::cyclic_hankel_2_Scaler<double>);
+    m.def("cyclic_hankel_2_Scalar", &SpecialInterface::cyclic_hankel_2_Scalar<double>);
     m.def("cyclic_hankel_2_Array", &SpecialInterface::cyclic_hankel_2_Array<double>);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("ellint_1_Scaler", &SpecialInterface::ellint_1_Scaler<double>);
+    m.def("ellint_1_Scalar", &SpecialInterface::ellint_1_Scalar<double>);
     m.def("ellint_1_Array", &SpecialInterface::ellint_1_Array<double, double>);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("ellint_2_Scaler", &SpecialInterface::ellint_2_Scaler<double>);
+    m.def("ellint_2_Scalar", &SpecialInterface::ellint_2_Scalar<double>);
     m.def("ellint_2_Array", &SpecialInterface::ellint_2_Array<double, double>);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("ellint_3_Scaler", &SpecialInterface::ellint_3_Scaler<double>);
+    m.def("ellint_3_Scalar", &SpecialInterface::ellint_3_Scalar<double>);
     m.def("ellint_3_Array", &SpecialInterface::ellint_3_Array<double, double, double>);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("expint_Scaler", &SpecialInterface::expint_Scaler<double>);
+    m.def("expint_Scalar", &SpecialInterface::expint_Scalar<double>);
     m.def("expint_Array", &SpecialInterface::expint_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("digamma_Scaler", &SpecialInterface::digamma_Scaler<double>);
+    m.def("digamma_Scalar", &SpecialInterface::digamma_Scalar<double>);
     m.def("digamma_Array", &SpecialInterface::digamma_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("erf_Scaler", &SpecialInterface::erf_Scaler<double>);
+    m.def("erf_Scalar", &SpecialInterface::erf_Scalar<double>);
     m.def("erf_Array", &SpecialInterface::erf_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("erf_inv_Scaler", &SpecialInterface::erf_inv_Scaler<double>);
+    m.def("erf_inv_Scalar", &SpecialInterface::erf_inv_Scalar<double>);
     m.def("erf_inv_Array", &SpecialInterface::erf_inv_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("erfc_Scaler", &SpecialInterface::erfc_Scaler<double>);
+    m.def("erfc_Scalar", &SpecialInterface::erfc_Scalar<double>);
     m.def("erfc_Array", &SpecialInterface::erfc_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("erfc_inv_Scaler", &SpecialInterface::erfc_inv_Scaler<double>);
+    m.def("erfc_inv_Scalar", &SpecialInterface::erfc_inv_Scalar<double>);
     m.def("erfc_inv_Array", &SpecialInterface::erfc_inv_Array<double>);
 #endif
-    m.def("factorial_Scaler", &SpecialInterface::factorial_Scaler);
+    m.def("factorial_Scalar", &SpecialInterface::factorial_Scalar);
     m.def("factorial_Array", &SpecialInterface::factorial_Array);
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("gamma_Scaler", &SpecialInterface::gamma_Scaler<double>);
+    m.def("gamma_Scalar", &SpecialInterface::gamma_Scalar<double>);
     m.def("gamma_Array", &SpecialInterface::gamma_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("gamma1pm1_Scaler", &SpecialInterface::gamma1pm1_Scaler<double>);
+    m.def("gamma1pm1_Scalar", &SpecialInterface::gamma1pm1_Scalar<double>);
     m.def("gamma1pm1_Array", &SpecialInterface::gamma1pm1_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("log_gamma_Scaler", &SpecialInterface::log_gamma_Scaler<double>);
+    m.def("log_gamma_Scalar", &SpecialInterface::log_gamma_Scalar<double>);
     m.def("log_gamma_Array", &SpecialInterface::log_gamma_Array<double>);
 #endif
     m.def("pnr", &special::pnr);
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("polygamma_Scaler", &SpecialInterface::polygamma_Scaler<double>);
+    m.def("polygamma_Scalar", &SpecialInterface::polygamma_Scalar<double>);
     m.def("polygamma_Array", &SpecialInterface::polygamma_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("prime_Scaler", &SpecialInterface::prime_Scaler);
+    m.def("prime_Scalar", &SpecialInterface::prime_Scalar);
     m.def("prime_Array", &SpecialInterface::prime_Array);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("riemann_zeta_Scaler", &SpecialInterface::riemann_zeta_Scaler<double>);
+    m.def("riemann_zeta_Scalar", &SpecialInterface::riemann_zeta_Scalar<double>);
     m.def("riemann_zeta_Array", &SpecialInterface::riemann_zeta_Array<double>);
 #endif
     m.def("softmax", &SpecialInterface::softmax<double>);
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("spherical_bessel_jn_Scaler", &SpecialInterface::spherical_bessel_jn_Scaler<double>);
+    m.def("spherical_bessel_jn_Scalar", &SpecialInterface::spherical_bessel_jn_Scalar<double>);
     m.def("spherical_bessel_jn_Array", &SpecialInterface::spherical_bessel_jn_Array<double>);
 #endif
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("spherical_bessel_yn_Scaler", &SpecialInterface::spherical_bessel_yn_Scaler<double>);
+    m.def("spherical_bessel_yn_Scalar", &SpecialInterface::spherical_bessel_yn_Scalar<double>);
     m.def("spherical_bessel_yn_Array", &SpecialInterface::spherical_bessel_yn_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("spherical_hankel_1_Scaler", &SpecialInterface::spherical_hankel_1_Scaler<double>);
+    m.def("spherical_hankel_1_Scalar", &SpecialInterface::spherical_hankel_1_Scalar<double>);
     m.def("spherical_hankel_1_Array", &SpecialInterface::spherical_hankel_1_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("spherical_hankel_2_Scaler", &SpecialInterface::spherical_hankel_2_Scaler<double>);
+    m.def("spherical_hankel_2_Scalar", &SpecialInterface::spherical_hankel_2_Scalar<double>);
     m.def("spherical_hankel_2_Array", &SpecialInterface::spherical_hankel_2_Array<double>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
-    m.def("trigamma_Scaler", &SpecialInterface::trigamma_Scaler<double>);
+    m.def("trigamma_Scalar", &SpecialInterface::trigamma_Scalar<double>);
     m.def("trigamma_Array", &SpecialInterface::trigamma_Array<double>);
 #endif
 }

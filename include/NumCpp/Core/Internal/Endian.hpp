@@ -27,58 +27,57 @@
 ///
 #pragma once
 
+#include <array>
 #include <climits>
 
 #include "NumCpp/Core/Types.hpp"
 
-namespace nc
+namespace nc::endian
 {
-    namespace endian
+    //============================================================================
+    // Function Description:
+    /// Determines the endianess of the system
+    ///
+    /// @return bool true if the system is little endian
+    ///
+    inline bool isLittleEndian() noexcept
     {
-        //============================================================================
-        // Function Description:
-        /// Determines the endianess of the system
-        ///
-        /// @return bool true if the system is little endian
-        ///
-        inline bool isLittleEndian() noexcept
+        union
         {
-            union
-            {
-                uint32 i;
-                char   c[4];
-            } fourBytes = { 0x01020304 };
+            uint32              i{};
+            std::array<char, 4> c;
+        } fourBytes = { 0x01020304 }; // NOLINT(cppcoreguidelines-avoid-magic-numbers)
 
-            return fourBytes.c[0] == 4;
+        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+        return fourBytes.c[0] == 4;
+    }
+
+    //============================================================================
+    // Function Description:
+    /// Swaps the bytes of the input value
+    ///
+    /// @param value
+    /// @return byte swapped value
+    ///
+    template<typename dtype>
+    dtype byteSwap(dtype value) noexcept
+    {
+        STATIC_ASSERT_INTEGER(dtype);
+        static_assert(CHAR_BIT == 8, "CHAR_BIT != 8"); // NOLINT(cppcoreguidelines-avoid-magic-numbers)
+
+        union
+        {
+            dtype                            value;
+            std::array<uint8, sizeof(dtype)> value8;
+        } source, dest;
+
+        source.value = value;
+
+        for (std::size_t k = 0; k < sizeof(dtype); ++k)
+        {
+            dest.value8[k] = source.value8[sizeof(dtype) - k - 1];
         }
 
-        //============================================================================
-        // Function Description:
-        /// Swaps the bytes of the input value
-        ///
-        /// @param value
-        /// @return byte swapped value
-        ///
-        template<typename dtype>
-        dtype byteSwap(dtype value) noexcept
-        {
-            STATIC_ASSERT_INTEGER(dtype);
-            static_assert(CHAR_BIT == 8, "CHAR_BIT != 8");
-
-            union
-            {
-                dtype value;
-                uint8 value8[sizeof(dtype)];
-            } source, dest;
-
-            source.value = value;
-
-            for (size_t k = 0; k < sizeof(dtype); ++k)
-            {
-                dest.value8[k] = source.value8[sizeof(dtype) - k - 1];
-            }
-
-            return dest.value;
-        }
-    } // namespace endian
-} // namespace nc
+        return dest.value;
+    }
+} // namespace nc::endian

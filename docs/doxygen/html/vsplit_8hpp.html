@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -122,9 +126,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a560df959ab12b877917689eb3618d2c0"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a560df959ab12b877917689eb3618d2c0"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; NdArray&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a560df959ab12b877917689eb3618d2c0">nc::vsplit</a> (const NdArray&lt; dtype &gt; &amp;inArray, const NdArray&lt; int32 &gt; &amp;indices)</td></tr>
-<tr class="separator:a560df959ab12b877917689eb3618d2c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a561f55a97e52eaf2004f3a0f93bc662c"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename Indices , type_traits::ndarray_int_concept&lt; Indices &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a561f55a97e52eaf2004f3a0f93bc662c"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; NdArray&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a561f55a97e52eaf2004f3a0f93bc662c">nc::vsplit</a> (const NdArray&lt; dtype &gt; &amp;inArray, const Indices &amp;indices)</td></tr>
+<tr class="separator:a561f55a97e52eaf2004f3a0f93bc662c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>David Pilger <a href="#" onclick="location.href='mai'+'lto:'+'dpi'+'lg'+'er2'+'6@'+'gma'+'il'+'.co'+'m'; return false;">dpilg<span style="display: none;">.nosp@m.</span>er26<span style="display: none;">.nosp@m.</span>@gmai<span style="display: none;">.nosp@m.</span>l.co<span style="display: none;">.nosp@m.</span>m</a> <a href="https://github.com/dpilger26/NumCpp">GitHub Repository</a></dd></dl>

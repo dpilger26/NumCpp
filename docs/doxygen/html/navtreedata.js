@@ -65,21 +65,22 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_bisection_8hpp.html",
-"_newton_8hpp.html",
-"allclose_8hpp.html",
-"classnc_1_1_data_cube.html#a8164f497dd44a89d1c5a1aeb7ca92e55",
-"classnc_1_1_nd_array.html#ade07629d4094244f1dfca863af67e7c0",
-"classnc_1_1coordinates_1_1_coordinate.html#afb451d6e6c10d1f6cacd98bea67850a2",
-"classnc_1_1roots_1_1_newton.html#ab3192d0f9de4b8b27b23013c65489e5a",
-"dump_8hpp_source.html",
-"gaussian_filter_8hpp.html#a91c9fcd09a78eba8a42c5166ebb7709b",
-"median_8hpp.html",
-"namespacenc.html#a3fa4e582cdeef0716309ad51378f2983",
-"namespacenc.html#aa31a10ae8201c637ab3d203844b81904",
-"namespacenc_1_1edac_1_1detail.html#abde37c852253de171988da5e4b775273",
-"namespacenc_1_1special.html#a3b24e9dde5d68f19d8a29de419e32024",
-"percentile_filter_8hpp.html#a357d5be7b2dc0b511d398acc4c8af1fd",
-"sqrt_8hpp.html"
+"_nd_array_operators_8hpp.html#af4f34a2e6e8b9011cb2d2fc5c564e10a",
+"all_8hpp_source.html",
+"classnc_1_1_data_cube.html#a7dd2ceb0e7935647c31993c5db1d1d20",
+"classnc_1_1_nd_array.html#acadf6ded9a6eb2638d975da9dbbfe38c",
+"classnc_1_1_vec3.html#adb18c9ba29affb8b712bb22a83e38e09",
+"classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136",
+"discrete_8hpp_source.html",
+"functions_w.html",
+"logspace_8hpp.html#af246d9406fec4a9ff47efad150cb6ca4",
+"namespacenc.html#a2cdc1c791ab98eb708ba5662ffb82b39",
+"namespacenc.html#a8c8a7dbf208bb2d31983140598e7cebe",
+"namespacenc.html#af09d0c6363ef9dc8e661e9254bcf109f",
+"namespacenc_1_1random_1_1detail.html#a116977f73650034faaa5d33b55819ef5",
+"nanvar_8hpp.html",
+"riemann__zeta_8hpp.html#a8d31d086f833496ad7eb98c5bd6304a2",
+"trim__zeros_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

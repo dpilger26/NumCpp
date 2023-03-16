@@ -35,52 +35,49 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::special
 {
-    namespace special
+    //============================================================================
+    // Method Description:
+    /// Both return the nth Bernoulli number B2n.
+    /// NOTE: Use of this function requires using the Boost includes.
+    ///
+    /// @param n
+    /// @return double
+    ///
+    inline double bernoilli(uint32 n)
     {
-        //============================================================================
-        // Method Description:
-        /// Both return the nth Bernoulli number B2n.
-        /// NOTE: Use of this function requires using the Boost includes.
-        ///
-        /// @param n
-        /// @return double
-        ///
-        inline double bernoilli(uint32 n)
+        if (n == 1)
         {
-            if (n == 1)
-            {
-                return 0.5;
-            }
-            if (n % 2 != 0)
-            {
-                return 0.;
-            }
-
-            return boost::math::bernoulli_b2n<double>(n / 2);
+            return 0.5;
+        }
+        if (n % 2 != 0)
+        {
+            return 0.;
         }
 
-        //============================================================================
-        // Method Description:
-        /// Both return the nth Bernoulli number B2n.
-        /// NOTE: Use of this function requires using the Boost includes.
-        ///
-        /// @param inArray
-        /// @return NdArray<double>
-        ///
-        inline NdArray<double> bernoilli(const NdArray<uint32>& inArray)
-        {
-            NdArray<double> returnArray(inArray.shape());
+        return boost::math::bernoulli_b2n<double>(n / 2);
+    }
 
-            stl_algorithms::transform(inArray.cbegin(),
-                                      inArray.cend(),
-                                      returnArray.begin(),
-                                      [](uint32 inValue) -> double { return bernoilli(inValue); });
+    //============================================================================
+    // Method Description:
+    /// Both return the nth Bernoulli number B2n.
+    /// NOTE: Use of this function requires using the Boost includes.
+    ///
+    /// @param inArray
+    /// @return NdArray<double>
+    ///
+    inline NdArray<double> bernoilli(const NdArray<uint32>& inArray)
+    {
+        NdArray<double> returnArray(inArray.shape());
 
-            return returnArray;
-        }
-    } // namespace special
-} // namespace nc
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](uint32 inValue) -> double { return bernoilli(inValue); });
+
+        return returnArray;
+    }
+} // namespace nc::special
 
 #endif // #ifndef NUMCPP_NO_USE_BOOST

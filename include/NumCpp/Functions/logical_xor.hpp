@@ -52,19 +52,11 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (inArray1.shape() != inArray2.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
-        }
-
-        NdArray<bool> returnArray(inArray1.shape());
-        stl_algorithms::transform(inArray1.cbegin(),
-                                  inArray1.cend(),
-                                  inArray2.cbegin(),
-                                  returnArray.begin(),
-                                  [](dtype inValue1, dtype inValue2) -> bool
-                                  { return (inValue1 != dtype{ 0 }) != (inValue2 != dtype{ 0 }); });
-
-        return returnArray;
+        return broadcast::broadcaster<bool>(inArray1,
+                                            inArray2,
+                                            [](dtype inValue1, dtype inValue2) -> bool {
+                                                return !utils::essentiallyEqual(inValue1, dtype{ 0 }) !=
+                                                       !utils::essentiallyEqual(inValue2, dtype{ 0 });
+                                            });
     }
 } // namespace nc

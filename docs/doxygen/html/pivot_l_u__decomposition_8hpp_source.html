@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -119,101 +123,97 @@ $(document).ready(function(){initNavTree('pivot_l_u__decomposition_8hpp_source.h
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="essentially_equal_8hpp.html">NumCpp/Utils/essentiallyEqual.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc_1_1linalg.html">nc::linalg</a></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">namespace </span>linalg</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        std::tuple&lt;NdArray&lt;double&gt;, NdArray&lt;double&gt;, NdArray&lt;double&gt;&gt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="namespacenc_1_1linalg.html#a390c3d32ed4b8ed7e718cbe121025ebd">   60</a></span>&#160;            <a class="code" href="namespacenc_1_1linalg.html#a390c3d32ed4b8ed7e718cbe121025ebd">pivotLU_decomposition</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inMatrix)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a> = inMatrix.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#a939dd0ab6edf83b7abaf8b8c93a99152">issquare</a>())</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <a class="code" href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">THROW_RUNTIME_ERROR</a>(<span class="stringliteral">&quot;Input matrix should be square.&quot;</span>);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> lMatrix = zeros_like&lt;double&gt;(inMatrix);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> uMatrix = inMatrix.template astype&lt;double&gt;();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> pMatrix = eye&lt;double&gt;(<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> k = 0; k &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>; ++k)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordtype">double</span> <a class="code" href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">max</a> = 0.;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> pk  = 0;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = k; i &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>; ++i)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespacenc_1_1linalg.html#a390c3d32ed4b8ed7e718cbe121025ebd">   57</a></span>&#160;    std::tuple&lt;NdArray&lt;double&gt;, <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a>, <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a>&gt; <a class="code" href="namespacenc_1_1linalg.html#a390c3d32ed4b8ed7e718cbe121025ebd">pivotLU_decomposition</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inMatrix)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a> = inMatrix.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#a939dd0ab6edf83b7abaf8b8c93a99152">issquare</a>())</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <a class="code" href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">THROW_RUNTIME_ERROR</a>(<span class="stringliteral">&quot;Input matrix should be square.&quot;</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> lMatrix = zeros_like&lt;double&gt;(inMatrix);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> uMatrix = inMatrix.template astype&lt;double&gt;();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> pMatrix = eye&lt;double&gt;(<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> k = 0; k &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>; ++k)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordtype">double</span> <a class="code" href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">max</a> = 0.;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> pk  = 0;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = k; i &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>; ++i)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordtype">double</span> s = 0.;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> = k; <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>; ++<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>)</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    <span class="keywordtype">double</span> s = 0.;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> = k; <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>; ++<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        s += std::fabs(uMatrix(i, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>));</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">double</span> q = std::fabs(uMatrix(i, k)) / s;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    <span class="keywordflow">if</span> (q &gt; <a class="code" href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">max</a>)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                        <a class="code" href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">max</a> = q;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                        pk  = i;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(<a class="code" href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">max</a>, <span class="keywordtype">double</span>{ 0. }))</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                    <a class="code" href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">THROW_RUNTIME_ERROR</a>(<span class="stringliteral">&quot;Division by 0.&quot;</span>);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="keywordflow">if</span> (pk != k)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                    <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> = 0; <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>; ++<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                    {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        <a class="code" href="namespacenc.html#a39da0502565b913855379ea1439047e1">std::swap</a>(pMatrix(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>), pMatrix(pk, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>));</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        <a class="code" href="namespacenc.html#a39da0502565b913855379ea1439047e1">std::swap</a>(lMatrix(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>), lMatrix(pk, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>));</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                        <a class="code" href="namespacenc.html#a39da0502565b913855379ea1439047e1">std::swap</a>(uMatrix(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>), uMatrix(pk, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>));</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = k + 1; i &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>; ++i)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                {</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    lMatrix(i, k) = uMatrix(i, k) / uMatrix(k, k);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> = k; <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>; ++<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                        uMatrix(i, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) = uMatrix(i, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) - lMatrix(i, k) * uMatrix(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    }</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            }</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> k = 0; k &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>; ++k)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                lMatrix(k, k) = 1.;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="keywordflow">return</span> std::make_tuple(lMatrix, uMatrix, pMatrix);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    } <span class="comment">// namespace linalg</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    s += std::fabs(uMatrix(i, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>));</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> q = std::fabs(uMatrix(i, k)) / s;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordflow">if</span> (q &gt; <a class="code" href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">max</a>)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    <a class="code" href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">max</a> = q;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    pk  = i;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(<a class="code" href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">max</a>, <span class="keywordtype">double</span>{ 0. }))</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <a class="code" href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">THROW_RUNTIME_ERROR</a>(<span class="stringliteral">&quot;Division by 0.&quot;</span>);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordflow">if</span> (pk != k)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> = 0; <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>; ++<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    <a class="code" href="namespacenc.html#a39da0502565b913855379ea1439047e1">std::swap</a>(pMatrix(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>), pMatrix(pk, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>));</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                    <a class="code" href="namespacenc.html#a39da0502565b913855379ea1439047e1">std::swap</a>(lMatrix(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>), lMatrix(pk, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>));</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                    <a class="code" href="namespacenc.html#a39da0502565b913855379ea1439047e1">std::swap</a>(uMatrix(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>), uMatrix(pk, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>));</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = k + 1; i &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>; ++i)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                lMatrix(i, k) = uMatrix(i, k) / uMatrix(k, k);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> = k; <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>; ++<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    uMatrix(i, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) = uMatrix(i, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) - lMatrix(i, k) * uMatrix(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> k = 0; k &lt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>; ++k)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            lMatrix(k, k) = 1.;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">return</span> std::make_tuple(lMatrix, uMatrix, pMatrix);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;} <span class="comment">// namespace nc::linalg</span></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
-<div class="ttc" id="a_error_8hpp_html_a0f0ce4acf1fd6032112a06ebc50bb05a"><div class="ttname"><a href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">THROW_RUNTIME_ERROR</a></div><div class="ttdeci">#define THROW_RUNTIME_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:38</div></div>
+<div class="ttc" id="a_error_8hpp_html_a0f0ce4acf1fd6032112a06ebc50bb05a"><div class="ttname"><a href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">THROW_RUNTIME_ERROR</a></div><div class="ttdeci">#define THROW_RUNTIME_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:40</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:37</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:39</div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4092</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4402</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_a6f89f699dea6eb89eef19e00c92b223a"><div class="ttname"><a href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">nc::Shape::rows</a></div><div class="ttdeci">uint32 rows</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:44</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_a939dd0ab6edf83b7abaf8b8c93a99152"><div class="ttname"><a href="classnc_1_1_shape.html#a939dd0ab6edf83b7abaf8b8c93a99152">nc::Shape::issquare</a></div><div class="ttdeci">bool issquare() const noexcept</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:125</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_aae1a3c997648aacaefb60d0e6d0bf10d"><div class="ttname"><a href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">nc::Shape::cols</a></div><div class="ttdeci">uint32 cols</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:45</div></div>
 <div class="ttc" id="aessentially_equal_8hpp_html"><div class="ttname"><a href="essentially_equal_8hpp.html">essentiallyEqual.hpp</a></div></div>
 <div class="ttc" id="aeye_8hpp_html"><div class="ttname"><a href="eye_8hpp.html">eye.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_1_1constants_html_a0e933571f05ee6af915fc327260517e9"><div class="ttname"><a href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">nc::constants::j</a></div><div class="ttdeci">constexpr auto j</div><div class="ttdef"><b>Definition:</b> Constants.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_1_1linalg_html_a390c3d32ed4b8ed7e718cbe121025ebd"><div class="ttname"><a href="namespacenc_1_1linalg.html#a390c3d32ed4b8ed7e718cbe121025ebd">nc::linalg::pivotLU_decomposition</a></div><div class="ttdeci">std::tuple&lt; NdArray&lt; double &gt;, NdArray&lt; double &gt;, NdArray&lt; double &gt; &gt; pivotLU_decomposition(const NdArray&lt; dtype &gt; &amp;inMatrix)</div><div class="ttdef"><b>Definition:</b> pivotLU_decomposition.hpp:60</div></div>
-<div class="ttc" id="anamespacenc_1_1utils_html_a963b90e7c9a3b057a924298750ddf74c"><div class="ttname"><a href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">nc::utils::essentiallyEqual</a></div><div class="ttdeci">bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept</div><div class="ttdef"><b>Definition:</b> essentiallyEqual.hpp:51</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="anamespacenc_1_1constants_html_a0e933571f05ee6af915fc327260517e9"><div class="ttname"><a href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">nc::constants::j</a></div><div class="ttdeci">constexpr auto j</div><div class="ttdef"><b>Definition:</b> Constants.hpp:41</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_html"><div class="ttname"><a href="namespacenc_1_1linalg.html">nc::linalg</a></div><div class="ttdef"><b>Definition:</b> cholesky.hpp:41</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_html_a390c3d32ed4b8ed7e718cbe121025ebd"><div class="ttname"><a href="namespacenc_1_1linalg.html#a390c3d32ed4b8ed7e718cbe121025ebd">nc::linalg::pivotLU_decomposition</a></div><div class="ttdeci">std::tuple&lt; NdArray&lt; double &gt;, NdArray&lt; double &gt;, NdArray&lt; double &gt; &gt; pivotLU_decomposition(const NdArray&lt; dtype &gt; &amp;inMatrix)</div><div class="ttdef"><b>Definition:</b> pivotLU_decomposition.hpp:57</div></div>
+<div class="ttc" id="anamespacenc_1_1utils_html_a963b90e7c9a3b057a924298750ddf74c"><div class="ttname"><a href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">nc::utils::essentiallyEqual</a></div><div class="ttdeci">bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept</div><div class="ttdef"><b>Definition:</b> essentiallyEqual.hpp:48</div></div>
 <div class="ttc" id="anamespacenc_html_a39da0502565b913855379ea1439047e1"><div class="ttname"><a href="namespacenc.html#a39da0502565b913855379ea1439047e1">nc::swap</a></div><div class="ttdeci">void swap(NdArray&lt; dtype &gt; &amp;inArray1, NdArray&lt; dtype &gt; &amp;inArray2) noexcept</div><div class="ttdef"><b>Definition:</b> swap.hpp:42</div></div>
 <div class="ttc" id="anamespacenc_html_a4d5872f22ac07aeba503857cb5948bc1"><div class="ttname"><a href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">nc::max</a></div><div class="ttdeci">NdArray&lt; dtype &gt; max(const NdArray&lt; dtype &gt; &amp;inArray, Axis inAxis=Axis::NONE)</div><div class="ttdef"><b>Definition:</b> max.hpp:44</div></div>
 <div class="ttc" id="anamespacenc_html_ae2b224742bc8263190d451a44ebe5e34"><div class="ttname"><a href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">nc::shape</a></div><div class="ttdeci">Shape shape(const NdArray&lt; dtype &gt; &amp;inArray) noexcept</div><div class="ttdef"><b>Definition:</b> Functions/Shape.hpp:42</div></div>

@@ -28,18 +28,17 @@
 #pragma once
 
 #include "NdArrayIterators.hpp"
-#include "Types.hpp"
+#include "NumCpp.hpp"
 #include "TypeTraits.hpp"
+#include "Types.hpp"
 #include "Utils.hpp"
 
-#include "NumCpp.hpp"
-
-#include <array>
 #include <algorithm>
+#include <array>
 #include <cstdlib>
 #include <functional>
-#include <iostream>
 #include <initializer_list>
+#include <iostream>
 #include <iterator>
 #include <memory>
 #include <numeric>
@@ -47,41 +46,51 @@
 #include <string>
 #include <type_traits>
 
+
 namespace nc_develop
 {
     //================================================================================
     // Class Description:
     ///	The main work horse of the NumCpp library
-    template<typename dtype, class Allocator = std::allocator<dtype>,
-        std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0, // DP NOTE: remove nc:: when integrating
-        std::enable_if_t<std::is_same_v<dtype, typename Allocator::value_type>, int> = 0>
+    template<typename dtype,
+             class Allocator                                = std::allocator<dtype>,
+             std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0, // DP NOTE: remove nc:: when integrating
+             std::enable_if_t<std::is_same_v<dtype, typename Allocator::value_type>, int> = 0>
     class NdArray
     {
     private:
-        using AllocType     = typename std::allocator_traits<Allocator>::template rebind_alloc<dtype>;
-        using AllocTraits   = std::allocator_traits<AllocType>;
+        using AllocType   = typename std::allocator_traits<Allocator>::template rebind_alloc<dtype>;
+        using AllocTraits = std::allocator_traits<AllocType>;
 
-        struct PrivateTag {};
-        struct ErrorCheckingTag {};
-        struct NoErrorCheckingTag {};
+        struct PrivateTag
+        {
+        };
+
+        struct ErrorCheckingTag
+        {
+        };
+
+        struct NoErrorCheckingTag
+        {
+        };
 
     public:
-        //Type alliases=============================================================
-        using value_type                = dtype;
-        using allocator_type            = Allocator;
-        using pointer                   = typename AllocTraits::pointer;
-        using const_pointer             = typename AllocTraits::const_pointer;
-        using reference                 = dtype&;
-        using const_reference           = const dtype&;
-        using size_type                 = std::size_t;
-        using difference_type           = typename AllocTraits::difference_type;
-        using shared_ptr                = std::shared_ptr<dtype>;
-        using const_shared_ptr          = const shared_ptr;
+        // Type alliases=============================================================
+        using value_type       = dtype;
+        using allocator_type   = Allocator;
+        using pointer          = typename AllocTraits::pointer;
+        using const_pointer    = typename AllocTraits::const_pointer;
+        using reference        = dtype&;
+        using const_reference  = const dtype&;
+        using size_type        = std::size_t;
+        using difference_type  = typename AllocTraits::difference_type;
+        using shared_ptr       = std::shared_ptr<dtype>;
+        using const_shared_ptr = const shared_ptr;
 
-        using iterator                  = NdArrayIterator<dtype, pointer, difference_type>;
-        using const_iterator            = NdArrayConstIterator<dtype, const_pointer, difference_type>;
-        using reverse_iterator          = std::reverse_iterator<iterator>;
-        using const_reverse_iterator    = std::reverse_iterator<const_iterator>;
+        using iterator               = NdArrayIterator<dtype, pointer, difference_type>;
+        using const_iterator         = NdArrayConstIterator<dtype, const_pointer, difference_type>;
+        using reverse_iterator       = std::reverse_iterator<iterator>;
+        using const_reverse_iterator = std::reverse_iterator<const_iterator>;
 
         //============================================================================
         // Method Description:
@@ -94,31 +103,32 @@ namespace nc_develop
         ///	Constructor, constructs an empty array of the input shape
         /// @param dimSizes: the sizes of the dimensions of the array
         ///
-        template<typename ... DimSizes,
-            std::enable_if_t<greater_than_zero_v<sizeof...(DimSizes)>, int> = 0,
-            std::enable_if_t<all_convertable_v<size_type, DimSizes...>, int> = 0>
-            NdArray(DimSizes ... dimSizes) :
+        template<typename... DimSizes,
+                 std::enable_if_t<greater_than_zero_v<sizeof...(DimSizes)>, int>  = 0,
+                 std::enable_if_t<all_convertable_v<size_type, DimSizes...>, int> = 0>
+        NdArray(DimSizes... dimSizes) :
             NdArray((... * dimSizes), { static_cast<size_type>(dimSizes)... })
-        {}
+        {
+        }
 
         //============================================================================
         // Method Description:
         ///	Constructor, constructs an empty array of the input shape
         /// @param shape: container with the sizes of the dimensions of the array
         ///
-        template<typename ContainerType,
-            std::enable_if_t<is_conforming_container_v<ContainerType>, int> = 0>
-            NdArray(const ContainerType& shape) :
-            NdArray(std::accumulate(shape.begin(), shape.end(), size_type{ 1 }, std::multiplies<size_type>()), 
-                shape_t{shape.begin(), shape.end()})
-        {}
+        template<typename ContainerType, std::enable_if_t<is_conforming_container_v<ContainerType>, int> = 0>
+        NdArray(const ContainerType& shape) :
+            NdArray(std::accumulate(shape.begin(), shape.end(), size_type{ 1 }, std::multiplies<size_type>()),
+                    shape_t{ shape.begin(), shape.end() })
+        {
+        }
 
         //============================================================================
         // Method Description:
         ///	1D Array Constructor
         /// @param listArray
         ///
-        NdArray(std::initializer_list<dtype> listArray) : 
+        NdArray(std::initializer_list<dtype> listArray) :
             NdArray(listArray.size(), { listArray.size() })
         {
             // DP NOTE: remove nc:: when integrating
@@ -133,7 +143,7 @@ namespace nc_develop
         NdArray(std::initializer_list<std::initializer_list<dtype>> listArray)
         {
             const auto dim0Size = listArray.size();
-            size_type dim1Size = 0;
+            size_type  dim1Size = 0;
 
             for (const auto& dim1List : listArray)
             {
@@ -143,7 +153,8 @@ namespace nc_develop
                 }
                 else if (dim1List.size() != dim1Size)
                 {
-                    THROW_INVALID_ARGUMENT_ERROR("All rows of the initializer listArray must have the same number of elements");
+                    THROW_INVALID_ARGUMENT_ERROR(
+                        "All rows of the initializer listArray must have the same number of elements");
                 }
             }
 
@@ -172,8 +183,8 @@ namespace nc_develop
         NdArray(std::initializer_list<std::initializer_list<std::initializer_list<dtype>>> listArray)
         {
             const auto dim0Size = listArray.size();
-            size_type dim1Size = 0;
-            size_type dim2Size = 0;
+            size_type  dim1Size = 0;
+            size_type  dim2Size = 0;
 
             for (const auto& dim1List : listArray)
             {
@@ -183,7 +194,8 @@ namespace nc_develop
                 }
                 else if (dim1List.size() != dim1Size)
                 {
-                    THROW_INVALID_ARGUMENT_ERROR("All rows of the initializer listArray must have the same number of elements");
+                    THROW_INVALID_ARGUMENT_ERROR(
+                        "All rows of the initializer listArray must have the same number of elements");
                 }
 
                 for (const auto& dim2List : dim1List)
@@ -194,7 +206,8 @@ namespace nc_develop
                     }
                     else if (dim2List.size() != dim2Size)
                     {
-                        THROW_INVALID_ARGUMENT_ERROR("All columns of the initializer listArray must have the same number of elements");
+                        THROW_INVALID_ARGUMENT_ERROR(
+                            "All columns of the initializer listArray must have the same number of elements");
                     }
                 }
             }
@@ -254,9 +267,9 @@ namespace nc_develop
             ownsPtr_(inOtherArray.ownsPtr_)
         {
             inOtherArray.shape_.rows = inOtherArray.shape_.cols = 0;
-            inOtherArray.size_ = 0;
-            inOtherArray.ownsPtr_ = false;
-            inOtherArray.array_ = nullptr;
+            inOtherArray.size_                                  = 0;
+            inOtherArray.ownsPtr_                               = false;
+            inOtherArray.array_                                 = nullptr;
         }
 
         //============================================================================
@@ -280,7 +293,7 @@ namespace nc_develop
         ///	Const flattened index operator with no bounds checking
         /// @param index: the flattened index
         /// @return const reference to value
-        const_reference operator[](size_type index) const noexcept 
+        const_reference operator[](size_type index) const noexcept
         {
             return data_.get()[index];
         }
@@ -290,10 +303,10 @@ namespace nc_develop
         /// Dimension index operator with no bounds checking
         /// @param indices: the dimension indices
         /// @return reference to value
-        template<typename ... Indices,
-            std::enable_if_t<greater_than_zero_v<sizeof...(Indices)>, int> = 0,
-            std::enable_if_t<all_convertable_v<size_type, Indices...>, int> = 0>
-        reference operator()(Indices ... indices)
+        template<typename... Indices,
+                 std::enable_if_t<greater_than_zero_v<sizeof...(Indices)>, int>  = 0,
+                 std::enable_if_t<all_convertable_v<size_type, Indices...>, int> = 0>
+        reference operator()(Indices... indices)
         {
             return operator[](flatIndex(NoErrorCheckingTag{}, indices...));
         }
@@ -303,10 +316,10 @@ namespace nc_develop
         /// Const dimension index operator with no bounds checking
         /// @param indices: the dimension indices
         /// @return const reference to value
-        template<typename ... Indices,
-            std::enable_if_t<greater_than_zero_v<sizeof...(Indices)>, int> = 0,
-            std::enable_if_t<all_convertable_v<size_type, Indices...>, int> = 0>
-        const_reference operator()(Indices ... indices) const
+        template<typename... Indices,
+                 std::enable_if_t<greater_than_zero_v<sizeof...(Indices)>, int>  = 0,
+                 std::enable_if_t<all_convertable_v<size_type, Indices...>, int> = 0>
+        const_reference operator()(Indices... indices) const
         {
             return operator[](flatIndex(NoErrorCheckingTag{}, indices...));
         }
@@ -316,10 +329,10 @@ namespace nc_develop
         /// Dimension index operator with bounds checking
         /// @param indices: the dimension indices
         /// @return reference to value
-        template<typename ... Indices,
-            std::enable_if_t<greater_than_zero_v<sizeof...(Indices)>, int> = 0,
-            std::enable_if_t<all_convertable_v<size_type, Indices...>, int> = 0>
-            reference at(Indices ... indices)
+        template<typename... Indices,
+                 std::enable_if_t<greater_than_zero_v<sizeof...(Indices)>, int>  = 0,
+                 std::enable_if_t<all_convertable_v<size_type, Indices...>, int> = 0>
+        reference at(Indices... indices)
         {
             return operator[](flatIndex(ErrorCheckingTag{}, indices...));
         }
@@ -329,10 +342,10 @@ namespace nc_develop
         /// Const dimension index operator with bounds checking
         /// @param indices: the dimension indices
         /// @return const reference to value
-        template<typename ... Indices,
-            std::enable_if_t<greater_than_zero_v<sizeof...(Indices)>, int> = 0,
-            std::enable_if_t<all_convertable_v<size_type, Indices...>, int> = 0>
-            const_reference at(Indices ... indices) const
+        template<typename... Indices,
+                 std::enable_if_t<greater_than_zero_v<sizeof...(Indices)>, int>  = 0,
+                 std::enable_if_t<all_convertable_v<size_type, Indices...>, int> = 0>
+        const_reference at(Indices... indices) const
         {
             return operator[](flatIndex(ErrorCheckingTag{}, indices...));
         }
@@ -340,20 +353,20 @@ namespace nc_develop
         // DP NOTE: on operator()
         // DP NOTE: this class is responsible for supplying the correct position of the begining and end pointers to the
         //          iterator classes
-        // DP NOTE: this class is responsible for multiplying the strides by the slice steps before passing to the 
+        // DP NOTE: this class is responsible for multiplying the strides by the slice steps before passing to the
         //          iterator classes.
-        // DP NOTE: if number of indices < number of dimensions then return new array.  Memory slice instead of copy would be nice... but how?
-        //          use non-owning shell functionality, would require reference counting though so that underlying data doesn't go out of scope?
+        // DP NOTE: if number of indices < number of dimensions then return new array.  Memory slice instead of copy
+        // would be nice... but how?
+        //          use non-owning shell functionality, would require reference counting though so that underlying data
+        //          doesn't go out of scope?
         // DP NOTE: if number of indices > number of dimensions then throw exception
-        // DP NOTE: if number of indices == number of dimensions then return reference scaler
-
-
+        // DP NOTE: if number of indices == number of dimensions then return reference scalar
 
         //============================================================================
         // Method Description:
         ///	iterator to the beginning of the flattened array
         /// @return iterator
-        iterator begin() noexcept 
+        iterator begin() noexcept
         {
             return iterator(data_);
         }
@@ -362,7 +375,7 @@ namespace nc_develop
         // Method Description:
         ///	const iterator to the beginning of the flattened array
         /// @return const_iterator
-        const_iterator begin() const noexcept 
+        const_iterator begin() const noexcept
         {
             return cbegin();
         }
@@ -371,7 +384,7 @@ namespace nc_develop
         // Method Description:
         ///	const iterator to the beginning of the flattened array
         /// @return const_iterator
-        const_iterator cbegin() const noexcept 
+        const_iterator cbegin() const noexcept
         {
             return const_iterator(data_);
         }
@@ -380,7 +393,7 @@ namespace nc_develop
         // Method Description:
         ///	iterator to 1 past the end of the flattened array
         /// @return iterator
-        iterator end() noexcept 
+        iterator end() noexcept
         {
             return begin() += size();
         }
@@ -389,7 +402,7 @@ namespace nc_develop
         // Method Description:
         ///	const iterator to 1 past the end of the flattened array
         /// @return const_iterator
-        const_iterator end() const noexcept 
+        const_iterator end() const noexcept
         {
             return cend();
         }
@@ -398,7 +411,7 @@ namespace nc_develop
         // Method Description:
         ///	const iterator to 1 past the end of the flattened array
         /// @return const_iterator
-        const_iterator cend() const noexcept 
+        const_iterator cend() const noexcept
         {
             return cbegin() += size();
         }
@@ -428,12 +441,7 @@ namespace nc_develop
         strides_t strides() const noexcept
         {
             auto strides = strides_;
-            std::for_each(strides.begin(), strides.end(),
-                [](auto& value) -> void
-                {
-                    value *= sizeof(dtype);
-                }
-            );
+            std::for_each(strides.begin(), strides.end(), [](auto& value) -> void { value *= sizeof(dtype); });
             return strides;
         }
 
@@ -459,10 +467,10 @@ namespace nc_develop
         // Method Description:
         ///	Reshapes the array
         /// @param dimSizes: the new dimension sizes of the array
-        template<typename ... DimSizes,
-            std::enable_if_t<greater_than_zero_v<sizeof...(DimSizes)>, int> = 0,
-            std::enable_if_t<all_convertable_v<size_type, DimSizes...>, int> = 0>
-        void reshape(DimSizes ... dimSizes)
+        template<typename... DimSizes,
+                 std::enable_if_t<greater_than_zero_v<sizeof...(DimSizes)>, int>  = 0,
+                 std::enable_if_t<all_convertable_v<size_type, DimSizes...>, int> = 0>
+        void reshape(DimSizes... dimSizes)
         {
             reshape({ static_cast<size_type>(dimSizes)... }, PrivateTag{});
         }
@@ -471,11 +479,10 @@ namespace nc_develop
         // Method Description:
         ///	Reshapes the array
         /// @param shape: the new shape of the array
-        template<typename ContainerType,
-            std::enable_if_t<is_conforming_container_v<ContainerType>, int> = 0>
+        template<typename ContainerType, std::enable_if_t<is_conforming_container_v<ContainerType>, int> = 0>
         void reshape(const ContainerType& shape)
         {
-            reshape(shape_t{shape.begin(), shape.end()}, PrivateTag{});
+            reshape(shape_t{ shape.begin(), shape.end() }, PrivateTag{});
         }
 
         //============================================================================
@@ -509,12 +516,14 @@ namespace nc_develop
         /// @param errorChecking: tag to provide error checking
         /// @param indices: the array indices
         /// @return flattened index
-        template<typename ErrorChecking, typename ... Indices,
-            std::enable_if_t<greater_than_zero_v<sizeof...(Indices)>, int> = 0,
-            std::enable_if_t<all_convertable_v<size_type, Indices...>, int> = 0>
-        size_type flatIndex(ErrorChecking errorChecking, Indices ... indices) const
+        template<typename ErrorChecking,
+                 typename... Indices,
+                 std::enable_if_t<greater_than_zero_v<sizeof...(Indices)>, int>  = 0,
+                 std::enable_if_t<all_convertable_v<size_type, Indices...>, int> = 0>
+        size_type flatIndex(ErrorChecking errorChecking, Indices... indices) const
         {
-            return flatIndex(errorChecking, std::array<size_type, (sizeof...(indices))>{ static_cast<size_type>(indices)... });
+            return flatIndex(errorChecking,
+                             std::array<size_type, (sizeof...(indices))>{ static_cast<size_type>(indices)... });
         }
 
         //============================================================================
@@ -522,8 +531,9 @@ namespace nc_develop
         ///	Calculates the flattened array index for the input indices
         /// @param indices: the array indices
         /// @return flattened index
-        template<typename ErrorChecking, typename ContainerType,
-            std::enable_if_t<is_conforming_container_v<ContainerType>, int> = 0>
+        template<typename ErrorChecking,
+                 typename ContainerType,
+                 std::enable_if_t<is_conforming_container_v<ContainerType>, int> = 0>
         size_type flatIndex(ErrorChecking, const ContainerType&& indices) const
         {
             size_type flatIndex = indices.front();
@@ -537,15 +547,16 @@ namespace nc_develop
                 }
 
                 flatIndex *= strides_.front();
-                flatIndex += std::inner_product(indices.begin() + 1, indices.end(), strides_.begin() + 1, size_type{ 0 });
+                flatIndex +=
+                    std::inner_product(indices.begin() + 1, indices.end(), strides_.begin() + 1, size_type{ 0 });
             }
 
             if constexpr (std::is_same_v<ErrorChecking, ErrorCheckingTag>)
             {
                 if (flatIndex >= allocator_.size())
                 {
-                    std::string errStr = "invalid index " + std::to_string(flatIndex) + " for array of size " + 
-                        std::to_string(allocator_.size());
+                    std::string errStr = "invalid index " + std::to_string(flatIndex) + " for array of size " +
+                                         std::to_string(allocator_.size());
                     throw std::invalid_argument(errStr);
                 }
             }
@@ -559,11 +570,12 @@ namespace nc_develop
         /// @param shape: the new shape of the array
         void reshape(shape_t&& shape, PrivateTag)
         {
-            const auto newSize = std::accumulate(shape.begin(), shape.end(), size_type{ 1 }, std::multiplies<size_type>());
+            const auto newSize =
+                std::accumulate(shape.begin(), shape.end(), size_type{ 1 }, std::multiplies<size_type>());
             if (newSize != allocator_.size())
             {
-                std::string errStr = "cannot reshape array of size " + std::to_string(allocator_.size()) + 
-                    " into shape " + utils::stringifyContainer(shape);
+                std::string errStr = "cannot reshape array of size " + std::to_string(allocator_.size()) +
+                                     " into shape " + utils::stringifyContainer(shape);
                 throw std::invalid_argument(errStr);
             }
 
@@ -616,12 +628,13 @@ namespace nc_develop
             //============================================================================
             // Method Description:
             ///	Constructor
-            /// @param allocator: the allocator 
+            /// @param allocator: the allocator
             /// @param size: the size of the memory to allocate
-            AllocatorDeleter(allocator_type&& allocator, size_type size) : 
+            AllocatorDeleter(allocator_type&& allocator, size_type size) :
                 allocator_(std::move(allocator)),
                 size_(size)
-            {}
+            {
+            }
 
             //============================================================================
             // Method Description:
@@ -661,14 +674,14 @@ namespace nc_develop
 
         private:
             // Attributes ================================================================
-            allocator_type  allocator_{};
-            size_type       size_{0};
+            allocator_type allocator_{};
+            size_type      size_{ 0 };
         };
 
         // Attributes ====================================================================
-        AllocatorDeleter        allocator_{ allocator_type{}, 0 };
-        shape_t                 shape_{};
-        strides_t               strides_{};
-        shared_ptr              data_{ nullptr };
+        AllocatorDeleter allocator_{ allocator_type{}, 0 };
+        shape_t          shape_{};
+        strides_t        strides_{};
+        shared_ptr       data_{ nullptr };
     };
-}
+} // namespace nc_develop

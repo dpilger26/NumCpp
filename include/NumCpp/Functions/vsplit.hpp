@@ -45,18 +45,30 @@ namespace nc
     ///
     /// @return NdArray
     ///
-    template<typename dtype>
-    std::vector<NdArray<dtype>> vsplit(const NdArray<dtype>& inArray, const NdArray<int32>& indices)
+    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    std::vector<NdArray<dtype>> vsplit(const NdArray<dtype>& inArray, const Indices& indices)
     {
-        const auto numRows       = inArray.numRows();
-        auto       uniqueIndices = unique(indices);
-        for (auto& index : uniqueIndices)
-        {
-            if (index < 0)
-            {
-                index += numRows;
-            }
-        }
+        const auto     numRows = static_cast<int32>(inArray.numRows());
+        NdArray<int32> uniqueIndices(1, indices.size());
+        stl_algorithms::transform(indices.begin(),
+                                  indices.end(),
+                                  uniqueIndices.begin(),
+                                  [numRows](auto index) noexcept -> int32
+                                  {
+                                      if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                      {
+                                          if (index < 0)
+                                          {
+                                              index = std::max(index + numRows, int32{ 0 });
+                                          }
+                                      }
+                                      if (index > numRows - 1)
+                                      {
+                                          index = numRows - 1;
+                                      }
+
+                                      return static_cast<int32>(index);
+                                  });
         uniqueIndices = unique(uniqueIndices);
 
         std::vector<NdArray<dtype>> splits{};
@@ -66,18 +78,26 @@ namespace nc
         int32      lowerIdx = 0;
         for (const auto index : uniqueIndices)
         {
-            if (static_cast<uint32>(index) > numRows)
+            if (index == 0)
             {
-                break;
+                splits.push_back(NdArray<dtype>(Shape(0, inArray.numCols())));
+                continue;
+            }
+            else
+            {
+                splits.push_back(inArray(Slice(lowerIdx, index), cSlice));
             }
 
-            splits.push_back(inArray({ lowerIdx, index }, cSlice));
             lowerIdx = index;
         }
 
-        if (static_cast<uint32>(lowerIdx) < numRows)
+        if (lowerIdx < numRows - 1)
         {
-            splits.push_back(inArray({ lowerIdx, static_cast<int32>(numRows) }, cSlice));
+            splits.push_back(inArray(Slice(lowerIdx, numRows), cSlice));
+        }
+        else
+        {
+            splits.push_back(inArray(-1, cSlice));
         }
 
         return splits;

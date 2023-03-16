@@ -35,6 +35,7 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/NdArray/NdArrayBroadcast.hpp"
 
 namespace nc
 {
@@ -77,20 +78,50 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> fmin(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        if (inArray1.shape() != inArray2.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
-        }
+        return broadcast::broadcaster<dtype>(inArray1,
+                                             inArray2,
+                                             [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                                             { return fmin(inValue1, inValue2); });
+    }
 
-        NdArray<dtype> returnArray(inArray1.shape());
+    //============================================================================
+    // Method Description:
+    /// Element-wise minimum of array elements.
+    ///
+    /// Compare two arrays and returns a new array containing the
+    /// element - wise minima
+    ///
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
+    ///
+    /// @param inArray
+    /// @param inScalar
+    ///
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> fmin(const NdArray<dtype>& inArray, const dtype& inScalar)
+    {
+        const NdArray<dtype> inArray2 = { inScalar };
+        return fmin(inArray, inArray2);
+    }
 
-        stl_algorithms::transform(inArray1.cbegin(),
-                                  inArray1.cend(),
-                                  inArray2.cbegin(),
-                                  returnArray.begin(),
-                                  [](dtype inValue1, dtype inValue2) noexcept -> dtype
-                                  { return fmin(inValue1, inValue2); });
-
-        return returnArray;
+    //============================================================================
+    // Method Description:
+    /// Element-wise minimum of array elements.
+    ///
+    /// Compare two arrays and returns a new array containing the
+    /// element - wise minima
+    ///
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
+    ///
+    /// @param inScalar
+    /// @param inArray
+    ///
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> fmin(const dtype& inScalar, const NdArray<dtype>& inArray)
+    {
+        return fmin(inArray, inScalar);
     }
 } // namespace nc

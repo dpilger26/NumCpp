@@ -77,20 +77,50 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> fmax(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        if (inArray1.shape() != inArray2.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
-        }
+        return broadcast::broadcaster<dtype>(inArray1,
+                                             inArray2,
+                                             [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                                             { return fmax(inValue1, inValue2); });
+    }
 
-        NdArray<dtype> returnArray(inArray1.shape());
+    //============================================================================
+    // Method Description:
+    /// Element-wise maximum of array elements.
+    ///
+    /// Compare two arrays and returns a new array containing the
+    /// element - wise maxima
+    ///
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmax.html
+    ///
+    /// @param inArray
+    /// @param inScalar
+    ///
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> fmax(const NdArray<dtype>& inArray, const dtype& inScalar)
+    {
+        const NdArray<dtype> inArray2 = { inScalar };
+        return fmax(inArray, inArray2);
+    }
 
-        stl_algorithms::transform(inArray1.cbegin(),
-                                  inArray1.cend(),
-                                  inArray2.cbegin(),
-                                  returnArray.begin(),
-                                  [](dtype inValue1, dtype inValue2) noexcept -> dtype
-                                  { return fmax(inValue1, inValue2); });
-
-        return returnArray;
+    //============================================================================
+    // Method Description:
+    /// Element-wise maximum of array elements.
+    ///
+    /// Compare two arrays and returns a new array containing the
+    /// element - wise maxima
+    ///
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmax.html
+    ///
+    /// @param inScalar
+    /// @param inArray
+    ///
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> fmax(const dtype& inScalar, const NdArray<dtype>& inArray)
+    {
+        return fmax(inArray, inScalar);
     }
 } // namespace nc

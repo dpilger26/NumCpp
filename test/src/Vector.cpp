@@ -2,7 +2,6 @@
 
 #include "BindingsIncludes.hpp"
 
-
 //================================================================================
 
 namespace Vec2Interface
@@ -14,9 +13,9 @@ namespace Vec2Interface
 
     //================================================================================
 
-    Vec2& plusEqualScaler(Vec2& self, double scaler)
+    Vec2& plusEqualScalar(Vec2& self, double scalar)
     {
-        return self += scaler;
+        return self += scalar;
     }
 
     //================================================================================
@@ -28,9 +27,9 @@ namespace Vec2Interface
 
     //================================================================================
 
-    Vec2& minusEqualScaler(Vec2& self, double scaler)
+    Vec2& minusEqualScalar(Vec2& self, double scalar)
     {
-        return self -= scaler;
+        return self -= scalar;
     }
 
     //================================================================================
@@ -49,16 +48,16 @@ namespace Vec2Interface
 
     //================================================================================
 
-    Vec2 addVec2Scaler(const Vec2& vec1, double scaler)
+    Vec2 addVec2Scalar(const Vec2& vec1, double scalar)
     {
-        return vec1 + scaler;
+        return vec1 + scalar;
     }
 
     //================================================================================
 
-    Vec2 addScalerVec2(const Vec2& vec1, double scaler)
+    Vec2 addScalarVec2(const Vec2& vec1, double scalar)
     {
-        return scaler + vec1;
+        return scalar + vec1;
     }
 
     //================================================================================
@@ -70,37 +69,37 @@ namespace Vec2Interface
 
     //================================================================================
 
-    Vec2 minusVec2Scaler(const Vec2& vec1, double scaler)
+    Vec2 minusVec2Scalar(const Vec2& vec1, double scalar)
     {
-        return vec1 - scaler;
+        return vec1 - scalar;
     }
 
     //================================================================================
 
-    Vec2 minusScalerVec2(const Vec2& vec1, double scaler)
+    Vec2 minusScalarVec2(const Vec2& vec1, double scalar)
     {
-        return scaler - vec1;
+        return scalar - vec1;
     }
 
     //================================================================================
 
-    Vec2 multVec2Scaler(const Vec2& vec1, double scaler)
+    Vec2 multVec2Scalar(const Vec2& vec1, double scalar)
     {
-        return vec1 * scaler;
+        return vec1 * scalar;
     }
 
     //================================================================================
 
-    Vec2 multScalerVec2(const Vec2& vec1, double scaler)
+    Vec2 multScalarVec2(const Vec2& vec1, double scalar)
     {
-        return scaler * vec1;
+        return scalar * vec1;
     }
 
     //================================================================================
 
-    Vec2 divVec2Scaler(const Vec2& vec1, double scaler)
+    Vec2 divVec2Scalar(const Vec2& vec1, double scalar)
     {
-        return vec1 / scaler;
+        return vec1 / scalar;
     }
 
     //================================================================================
@@ -120,9 +119,9 @@ namespace Vec3Interface
 
     //================================================================================
 
-    Vec3& plusEqualScaler(Vec3& self, double scaler)
+    Vec3& plusEqualScalar(Vec3& self, double scalar)
     {
-        return self += scaler;
+        return self += scalar;
     }
 
     //================================================================================
@@ -134,9 +133,9 @@ namespace Vec3Interface
 
     //================================================================================
 
-    Vec3& minusEqualScaler(Vec3& self, double scaler)
+    Vec3& minusEqualScalar(Vec3& self, double scalar)
     {
-        return self -= scaler;
+        return self -= scalar;
     }
 
     //================================================================================
@@ -155,16 +154,16 @@ namespace Vec3Interface
 
     //================================================================================
 
-    Vec3 addVec3Scaler(const Vec3& vec1, double scaler)
+    Vec3 addVec3Scalar(const Vec3& vec1, double scalar)
     {
-        return vec1 + scaler;
+        return vec1 + scalar;
     }
 
     //================================================================================
 
-    Vec3 addScalerVec3(const Vec3& vec1, double scaler)
+    Vec3 addScalarVec3(const Vec3& vec1, double scalar)
     {
-        return vec1 + scaler;
+        return vec1 + scalar;
     }
 
     //================================================================================
@@ -176,37 +175,37 @@ namespace Vec3Interface
 
     //================================================================================
 
-    Vec3 minusVec3Scaler(const Vec3& vec1, double scaler)
+    Vec3 minusVec3Scalar(const Vec3& vec1, double scalar)
     {
-        return vec1 - scaler;
+        return vec1 - scalar;
     }
 
     //================================================================================
 
-    Vec3 minusScalerVec3(const Vec3& vec1, double scaler)
+    Vec3 minusScalarVec3(const Vec3& vec1, double scalar)
     {
-        return scaler - vec1;
+        return scalar - vec1;
     }
 
     //================================================================================
 
-    Vec3 multVec3Scaler(const Vec3& vec1, double scaler)
+    Vec3 multVec3Scalar(const Vec3& vec1, double scalar)
     {
-        return vec1 * scaler;
+        return vec1 * scalar;
     }
 
     //================================================================================
 
-    Vec3 multScalerVec3(const Vec3& vec1, double scaler)
+    Vec3 multScalarVec3(const Vec3& vec1, double scalar)
     {
-        return vec1 * scaler;
+        return vec1 * scalar;
     }
 
     //================================================================================
 
-    Vec3 divVec3Scaler(const Vec3& vec1, double scaler)
+    Vec3 divVec3Scalar(const Vec3& vec1, double scalar)
     {
-        return vec1 / scaler;
+        return vec1 / scalar;
     }
 
     //================================================================================
@@ -244,22 +243,22 @@ void initVector(pb11::module& m)
         .def_static("up", &Vec2::up)
         .def("__eq__", &Vec2::operator==)
         .def("__ne__", &Vec2::operator!=)
-        .def("__iadd__", &Vec2Interface::plusEqualScaler, pb11::return_value_policy::reference)
+        .def("__iadd__", &Vec2Interface::plusEqualScalar, pb11::return_value_policy::reference)
         .def("__iadd__", &Vec2Interface::plusEqualVec2, pb11::return_value_policy::reference)
         .def("__isub__", &Vec2Interface::minusEqualVec2, pb11::return_value_policy::reference)
-        .def("__isub__", &Vec2Interface::minusEqualScaler, pb11::return_value_policy::reference)
+        .def("__isub__", &Vec2Interface::minusEqualScalar, pb11::return_value_policy::reference)
         .def("__imul__", &Vec2::operator*=, pb11::return_value_policy::reference)
         .def("__itruediv__", &Vec2::operator/=, pb11::return_value_policy::reference);
 
     m.def("Vec2_addVec2", &Vec2Interface::addVec2);
-    m.def("Vec2_addVec2Scaler", &Vec2Interface::addVec2Scaler);
-    m.def("Vec2_addScalerVec2", &Vec2Interface::addScalerVec2);
+    m.def("Vec2_addVec2Scalar", &Vec2Interface::addVec2Scalar);
+    m.def("Vec2_addScalarVec2", &Vec2Interface::addScalarVec2);
     m.def("Vec2_minusVec2", &Vec2Interface::minusVec2);
-    m.def("Vec2_minusVec2Scaler", &Vec2Interface::minusVec2Scaler);
-    m.def("Vec2_minusScalerVec2", &Vec2Interface::minusScalerVec2);
-    m.def("Vec2_multVec2Scaler", &Vec2Interface::multVec2Scaler);
-    m.def("Vec2_multScalerVec2", &Vec2Interface::multScalerVec2);
-    m.def("Vec2_divVec2Scaler", &Vec2Interface::divVec2Scaler);
+    m.def("Vec2_minusVec2Scalar", &Vec2Interface::minusVec2Scalar);
+    m.def("Vec2_minusScalarVec2", &Vec2Interface::minusScalarVec2);
+    m.def("Vec2_multVec2Scalar", &Vec2Interface::multVec2Scalar);
+    m.def("Vec2_multScalarVec2", &Vec2Interface::multScalarVec2);
+    m.def("Vec2_divVec2Scalar", &Vec2Interface::divVec2Scalar);
     m.def("Vec2_print", &Vec2Interface::print);
 
     // Vec3.hpp
@@ -289,21 +288,21 @@ void initVector(pb11::module& m)
         .def_static("up", &Vec3::up)
         .def("__eq__", &Vec3::operator==)
         .def("__ne__", &Vec3::operator!=)
-        .def("__iadd__", &Vec3Interface::plusEqualScaler, pb11::return_value_policy::reference)
+        .def("__iadd__", &Vec3Interface::plusEqualScalar, pb11::return_value_policy::reference)
         .def("__iadd__", &Vec3Interface::plusEqualVec3, pb11::return_value_policy::reference)
-        .def("__isub__", &Vec3Interface::minusEqualScaler, pb11::return_value_policy::reference)
+        .def("__isub__", &Vec3Interface::minusEqualScalar, pb11::return_value_policy::reference)
         .def("__isub__", &Vec3Interface::minusEqualVec3, pb11::return_value_policy::reference)
         .def("__imul__", &Vec3::operator*=, pb11::return_value_policy::reference)
         .def("__itruediv__", &Vec3::operator/=, pb11::return_value_policy::reference);
 
     m.def("Vec3_addVec3", &Vec3Interface::addVec3);
-    m.def("Vec3_addVec3Scaler", &Vec3Interface::addVec3Scaler);
-    m.def("Vec3_addScalerVec3", &Vec3Interface::addScalerVec3);
+    m.def("Vec3_addVec3Scalar", &Vec3Interface::addVec3Scalar);
+    m.def("Vec3_addScalarVec3", &Vec3Interface::addScalarVec3);
     m.def("Vec3_minusVec3", &Vec3Interface::minusVec3);
-    m.def("Vec3_minusVec3Scaler", &Vec3Interface::minusVec3Scaler);
-    m.def("Vec3_minusScalerVec3", &Vec3Interface::minusScalerVec3);
-    m.def("Vec3_multVec3Scaler", &Vec3Interface::multVec3Scaler);
-    m.def("Vec3_multScalerVec3", &Vec3Interface::multScalerVec3);
-    m.def("Vec3_divVec3Scaler", &Vec3Interface::divVec3Scaler);
+    m.def("Vec3_minusVec3Scalar", &Vec3Interface::minusVec3Scalar);
+    m.def("Vec3_minusScalarVec3", &Vec3Interface::minusScalarVec3);
+    m.def("Vec3_multVec3Scalar", &Vec3Interface::multVec3Scalar);
+    m.def("Vec3_multScalarVec3", &Vec3Interface::multScalarVec3);
+    m.def("Vec3_divVec3Scalar", &Vec3Interface::divVec3Scalar);
     m.def("Vec3_print", &Vec3Interface::print);
 }

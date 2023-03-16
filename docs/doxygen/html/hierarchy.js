@@ -13,7 +13,6 @@ var hierarchy =
     [ "nc::DateTime", "classnc_1_1_date_time.html", null ],
     [ "nc::DtypeInfo< dtype >", "classnc_1_1_dtype_info.html", null ],
     [ "nc::DtypeInfo< std::complex< dtype > >", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html", null ],
-    [ "nc::filesystem::File", "classnc_1_1filesystem_1_1_file.html", null ],
     [ "nc::greaterThan< Value1, Value2 >", "structnc_1_1greater_than.html", null ],
     [ "nc::imageProcessing::Centroid< dtype >", "classnc_1_1image_processing_1_1_centroid.html", null ],
     [ "nc::imageProcessing::Cluster< dtype >", "classnc_1_1image_processing_1_1_cluster.html", null ],
@@ -22,6 +21,7 @@ var hierarchy =
     [ "nc::integrate::LegendrePolynomial", "classnc_1_1integrate_1_1_legendre_polynomial.html", null ],
     [ "nc::is_complex< T >", "structnc_1_1is__complex.html", null ],
     [ "nc::is_complex< std::complex< T > >", "structnc_1_1is__complex_3_01std_1_1complex_3_01_t_01_4_01_4.html", null ],
+    [ "nc::is_ndarray_int< NdArray< dtype, Allocator > >", "structnc_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html", null ],
     [ "nc::is_valid_dtype< dtype >", "structnc_1_1is__valid__dtype.html", null ],
     [ "nc::linalg::SVD", "classnc_1_1linalg_1_1_s_v_d.html", null ],
     [ "nc::NdArray< dtype, Allocator >", "classnc_1_1_nd_array.html", null ],
@@ -45,8 +45,16 @@ var hierarchy =
     [ "nc::Shape", "classnc_1_1_shape.html", null ],
     [ "nc::Slice", "classnc_1_1_slice.html", null ],
     [ "nc::Timer< TimeUnit >", "classnc_1_1_timer.html", null ],
+    [ "nc::type_traits::is_ndarray_int< NdArray< dtype, Allocator > >", "structnc_1_1type__traits_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html", null ],
+    [ "nc::type_traits::is_ndarray_signed_int< NdArray< dtype, Allocator > >", "structnc_1_1type__traits_1_1is__ndarray__signed__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html", null ],
+    [ "nc::utils::timeit_detail::Result< TimeUnit >", "structnc_1_1utils_1_1timeit__detail_1_1_result.html", null ],
     [ "nc::Vec2", "classnc_1_1_vec2.html", null ],
     [ "nc::Vec3", "classnc_1_1_vec3.html", null ],
     [ "nc::NdArray< bool >", "classnc_1_1_nd_array.html", null ],
-    [ "nc::NdArray< double >", "classnc_1_1_nd_array.html", null ]
+    [ "nc::NdArray< double >", "classnc_1_1_nd_array.html", null ],
+    [ "std::false_type", null, [
+      [ "nc::is_ndarray_int< typename >", "structnc_1_1is__ndarray__int.html", null ],
+      [ "nc::type_traits::is_ndarray_int< typename >", "structnc_1_1type__traits_1_1is__ndarray__int.html", null ],
+      [ "nc::type_traits::is_ndarray_signed_int< typename >", "structnc_1_1type__traits_1_1is__ndarray__signed__int.html", null ]
+    ] ]
 ];

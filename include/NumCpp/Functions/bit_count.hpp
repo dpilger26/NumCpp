@@ -49,7 +49,7 @@ namespace nc
         int count = 0;
         for (int bit = 0; bit < DtypeInfo<dtype>::bits(); ++bit)
         {
-            count += (inValue & (dtype{ 1 } << bit)) >> bit;
+            count += static_cast<int>((inValue & (dtype{ 1 } << bit)) >> bit);
         }
 
         return count;

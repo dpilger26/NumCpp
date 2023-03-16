@@ -27,12 +27,12 @@
 ///
 #pragma once
 
+#include <filesystem>
 #include <limits>
 #include <string>
 #include <vector>
 
 #include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Internal/Filesystem.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -84,7 +84,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        const NdArray<dtype>& at(uint32 inIndex) const
+        [[nodiscard]] const NdArray<dtype>& at(uint32 inIndex) const
         {
             return cube_.at(inIndex);
         }
@@ -104,7 +104,7 @@ namespace nc
         ///
         /// @return iterator
         ///
-        iterator begin() noexcept
+        [[nodiscard]] iterator begin() noexcept
         {
             return cube_.begin();
         }
@@ -114,7 +114,17 @@ namespace nc
         ///
         /// @return const_iterator
         ///
-        const_iterator cbegin() const noexcept
+        [[nodiscard]] const_iterator begin() const noexcept
+        {
+            return cube_.cbegin();
+        }
+
+        //============================================================================
+        /// Returns an const_iterator to the first 2d z "slice" of the cube.
+        ///
+        /// @return const_iterator
+        ///
+        [[nodiscard]] const_iterator cbegin() const noexcept
         {
             return cube_.cbegin();
         }
@@ -126,13 +136,13 @@ namespace nc
         ///
         void dump(const std::string& inFilename) const
         {
-            filesystem::File f(inFilename);
-            if (!f.hasExt())
+            std::filesystem::path f(inFilename);
+            if (!f.has_extension())
             {
-                f.withExt("bin");
+                f.replace_extension("bin");
             }
 
-            std::ofstream ofile(f.fullName().c_str(), std::ios::binary);
+            std::ofstream ofile(f.c_str(), std::ios::binary);
             if (!ofile.good())
             {
                 THROW_RUNTIME_ERROR("Could not open the input file:\n\t" + inFilename);
@@ -161,7 +171,7 @@ namespace nc
         ///
         /// @return iterator
         ///
-        iterator end() noexcept
+        [[nodiscard]] iterator end() noexcept
         {
             return cube_.end();
         }
@@ -171,7 +181,17 @@ namespace nc
         ///
         /// @return const_iterator
         ///
-        const_iterator cend() const noexcept
+        [[nodiscard]] const_iterator end() const noexcept
+        {
+            return cube_.cend();
+        }
+
+        //============================================================================
+        /// Returns an const_iterator to 1 past the last 2d z "slice" of the cube.
+        ///
+        /// @return const_iterator
+        ///
+        [[nodiscard]] const_iterator cend() const noexcept
         {
             return cube_.cend();
         }
@@ -191,7 +211,7 @@ namespace nc
         ///
         /// @return Shape
         ///
-        const Shape& shape() const noexcept
+        [[nodiscard]] const Shape& shape() const noexcept
         {
             return elementShape_;
         }
@@ -201,7 +221,7 @@ namespace nc
         ///
         /// @return size
         ///
-        uint32 sizeZ() const noexcept
+        [[nodiscard]] uint32 sizeZ() const noexcept
         {
             return static_cast<uint32>(cube_.size());
         }
@@ -244,7 +264,7 @@ namespace nc
         /// @param inIndex: the flattend 2d index (row, col) to slice
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAll(int32 inIndex) const
+        [[nodiscard]] NdArray<dtype> sliceZAll(int32 inIndex) const
         {
             if (inIndex < 0)
             {
@@ -268,7 +288,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZ(int32 inIndex, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZ(int32 inIndex, Slice inSliceZ) const
         {
             if (inIndex < 0)
             {
@@ -293,7 +313,7 @@ namespace nc
         /// @param inCol
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAll(int32 inRow, int32 inCol) const
+        [[nodiscard]] NdArray<dtype> sliceZAll(int32 inRow, int32 inCol) const
         {
             if (inRow < 0)
             {
@@ -323,7 +343,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZ(int32 inRow, int32 inCol, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZ(int32 inRow, int32 inCol, Slice inSliceZ) const
         {
             if (inRow < 0)
             {
@@ -353,7 +373,7 @@ namespace nc
         /// @param inCol
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAll(Slice inRow, int32 inCol) const
+        [[nodiscard]] NdArray<dtype> sliceZAll(Slice inRow, int32 inCol) const
         {
             if (inCol < 0)
             {
@@ -377,7 +397,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZ(Slice inRow, int32 inCol, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZ(Slice inRow, int32 inCol, Slice inSliceZ) const
         {
             if (inCol < 0)
             {
@@ -401,7 +421,7 @@ namespace nc
         /// @param inCol
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAll(int32 inRow, Slice inCol) const
+        [[nodiscard]] NdArray<dtype> sliceZAll(int32 inRow, Slice inCol) const
         {
             if (inRow < 0)
             {
@@ -425,7 +445,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZ(int32 inRow, Slice inCol, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZ(int32 inRow, Slice inCol, Slice inSliceZ) const
         {
             if (inRow < 0)
             {
@@ -485,7 +505,7 @@ namespace nc
         /// @param inIndex: the flattend 2d index (row, col) to slice
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAllat(int32 inIndex) const
+        [[nodiscard]] NdArray<dtype> sliceZAllat(int32 inIndex) const
         {
             if (inIndex < 0)
             {
@@ -507,7 +527,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZat(int32 inIndex, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZat(int32 inIndex, Slice inSliceZ) const
         {
             if (inIndex < 0)
             {
@@ -535,7 +555,7 @@ namespace nc
         /// @param inCol
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAllat(int32 inRow, int32 inCol) const
+        [[nodiscard]] NdArray<dtype> sliceZAllat(int32 inRow, int32 inCol) const
         {
             if (inRow < 0)
             {
@@ -568,7 +588,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZat(int32 inRow, int32 inCol, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZat(int32 inRow, int32 inCol, Slice inSliceZ) const
         {
             if (inRow < 0)
             {
@@ -605,7 +625,7 @@ namespace nc
         /// @param inCol
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAllat(Slice inRow, int32 inCol) const
+        [[nodiscard]] NdArray<dtype> sliceZAllat(Slice inRow, int32 inCol) const
         {
             auto numRows = inRow.numElements(elementShape_.rows);
             if (numRows > elementShape_.rows)
@@ -634,7 +654,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZat(Slice inRow, int32 inCol, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZat(Slice inRow, int32 inCol, Slice inSliceZ) const
         {
             auto numRows = inRow.numElements(elementShape_.rows);
             if (numRows > elementShape_.rows)
@@ -668,7 +688,7 @@ namespace nc
         /// @param inCol
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAllat(int32 inRow, Slice inCol) const
+        [[nodiscard]] NdArray<dtype> sliceZAllat(int32 inRow, Slice inCol) const
         {
             auto numCols = inCol.numElements(elementShape_.cols);
             if (numCols > elementShape_.cols)
@@ -697,7 +717,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZat(int32 inRow, Slice inCol, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZat(int32 inRow, Slice inCol, Slice inSliceZ) const
         {
             auto numCols = inCol.numElements(elementShape_.cols);
             if (numCols > elementShape_.cols)

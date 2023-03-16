@@ -2,7 +2,6 @@
 
 #include "BindingsIncludes.hpp"
 
-
 //================================================================================
 
 namespace DataCubeInterface
@@ -56,7 +55,7 @@ namespace DataCubeInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric sliceZSliceScalerAll(const DataCube<dtype>& self, const Slice& inRow, int32 inCol)
+    pbArrayGeneric sliceZSliceScalarAll(const DataCube<dtype>& self, const Slice& inRow, int32 inCol)
     {
         return nc2pybind(self.sliceZAll(inRow, inCol));
     }
@@ -64,7 +63,7 @@ namespace DataCubeInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric sliceZSliceScaler(const DataCube<dtype>& self, const Slice& inRow, int32 inCol, const Slice& inSlice)
+    pbArrayGeneric sliceZSliceScalar(const DataCube<dtype>& self, const Slice& inRow, int32 inCol, const Slice& inSlice)
     {
         return nc2pybind(self.sliceZ(inRow, inCol, inSlice));
     }
@@ -72,7 +71,7 @@ namespace DataCubeInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric sliceZScalerSliceAll(const DataCube<dtype>& self, int32 inRow, const Slice& inCol)
+    pbArrayGeneric sliceZScalarSliceAll(const DataCube<dtype>& self, int32 inRow, const Slice& inCol)
     {
         return nc2pybind(self.sliceZAll(inRow, inCol));
     }
@@ -80,7 +79,7 @@ namespace DataCubeInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric sliceZScalerSlice(const DataCube<dtype>& self, int32 inRow, const Slice& inCol, const Slice& inSlice)
+    pbArrayGeneric sliceZScalarSlice(const DataCube<dtype>& self, int32 inRow, const Slice& inCol, const Slice& inSlice)
     {
         return nc2pybind(self.sliceZ(inRow, inCol, inSlice));
     }
@@ -137,7 +136,7 @@ namespace DataCubeInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric sliceZAtSliceScalerAll(const DataCube<dtype>& self, const Slice& inRow, int32 inCol)
+    pbArrayGeneric sliceZAtSliceScalarAll(const DataCube<dtype>& self, const Slice& inRow, int32 inCol)
     {
         return nc2pybind(self.sliceZAllat(inRow, inCol));
     }
@@ -146,7 +145,7 @@ namespace DataCubeInterface
 
     template<typename dtype>
     pbArrayGeneric
-        sliceZAtSliceScaler(const DataCube<dtype>& self, const Slice& inRow, int32 inCol, const Slice& inSlice)
+        sliceZAtSliceScalar(const DataCube<dtype>& self, const Slice& inRow, int32 inCol, const Slice& inSlice)
     {
         return nc2pybind(self.sliceZat(inRow, inCol, inSlice));
     }
@@ -154,7 +153,7 @@ namespace DataCubeInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric sliceZAtScalerSliceAll(const DataCube<dtype>& self, int32 inRow, const Slice& inCol)
+    pbArrayGeneric sliceZAtScalarSliceAll(const DataCube<dtype>& self, int32 inRow, const Slice& inCol)
     {
         return nc2pybind(self.sliceZAllat(inRow, inCol));
     }
@@ -163,7 +162,7 @@ namespace DataCubeInterface
 
     template<typename dtype>
     pbArrayGeneric
-        sliceZAtScalerSlice(const DataCube<dtype>& self, int32 inRow, const Slice& inCol, const Slice& inSlice)
+        sliceZAtScalarSlice(const DataCube<dtype>& self, int32 inRow, const Slice& inCol, const Slice& inSlice)
     {
         return nc2pybind(self.sliceZat(inRow, inCol, inSlice));
     }
@@ -209,20 +208,20 @@ void initDataCube(pb11::module& m)
         .def("sliceZ", &DataCubeInterface::sliceZIndex<double>)
         .def("sliceZAll", &DataCubeInterface::sliceZRowColAll<double>)
         .def("sliceZ", &DataCubeInterface::sliceZRowCol<double>)
-        .def("sliceZAll", &DataCubeInterface::sliceZSliceScalerAll<double>)
-        .def("sliceZ", &DataCubeInterface::sliceZSliceScaler<double>)
-        .def("sliceZAll", &DataCubeInterface::sliceZScalerSliceAll<double>)
-        .def("sliceZ", &DataCubeInterface::sliceZScalerSlice<double>)
+        .def("sliceZAll", &DataCubeInterface::sliceZSliceScalarAll<double>)
+        .def("sliceZ", &DataCubeInterface::sliceZSliceScalar<double>)
+        .def("sliceZAll", &DataCubeInterface::sliceZScalarSliceAll<double>)
+        .def("sliceZ", &DataCubeInterface::sliceZScalarSlice<double>)
         .def("sliceZAll", &DataCubeInterface::sliceZSliceSliceAll<double>)
         .def("sliceZ", &DataCubeInterface::sliceZSliceSlice<double>)
         .def("sliceZAllat", &DataCubeInterface::sliceZAtIndexAll<double>)
         .def("sliceZat", &DataCubeInterface::sliceZAtIndex<double>)
         .def("sliceZAllat", &DataCubeInterface::sliceZAtRowColAll<double>)
         .def("sliceZat", &DataCubeInterface::sliceZAtRowCol<double>)
-        .def("sliceZAllat", &DataCubeInterface::sliceZAtSliceScalerAll<double>)
-        .def("sliceZat", &DataCubeInterface::sliceZAtSliceScaler<double>)
-        .def("sliceZAllat", &DataCubeInterface::sliceZAtScalerSliceAll<double>)
-        .def("sliceZat", &DataCubeInterface::sliceZAtScalerSlice<double>)
+        .def("sliceZAllat", &DataCubeInterface::sliceZAtSliceScalarAll<double>)
+        .def("sliceZat", &DataCubeInterface::sliceZAtSliceScalar<double>)
+        .def("sliceZAllat", &DataCubeInterface::sliceZAtScalarSliceAll<double>)
+        .def("sliceZat", &DataCubeInterface::sliceZAtScalarSlice<double>)
         .def("sliceZAllat", &DataCubeInterface::sliceZAtSliceSliceAll<double>)
         .def("sliceZat", &DataCubeInterface::sliceZAtSliceSlice<double>);
 }

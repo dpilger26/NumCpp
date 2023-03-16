@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -138,6 +142,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a24c1eb77b94d3120bb02868cc965c058"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8bc3bb19b48fd09c769fd1fa9860ed5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_slice.html#af8bc3bb19b48fd09c769fd1fa9860ed5">str</a> () const</td></tr>
 <tr class="separator:af8bc3bb19b48fd09c769fd1fa9860ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2df7160b36a6273db7c1074a03c3b60b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_slice.html#a2df7160b36a6273db7c1074a03c3b60b">toIndices</a> (<a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> inArrayDimSize)</td></tr>
+<tr class="separator:a2df7160b36a6273db7c1074a03c3b60b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -495,6 +501,39 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Prints the shape to the console</p>
 <dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
+
+</div>
+</div>
+<a id="a2df7160b36a6273db7c1074a03c3b60b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2df7160b36a6273db7c1074a03c3b60b">&#9670;&nbsp;</a></span>toIndices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a>&gt; nc::Slice::toIndices </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a>&#160;</td>
+          <td class="paramname"><em>inArrayDimSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the indices that coorespond to the slice be aware that this method will also make the slice all positive!</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inArrayDimSize</td><td>the size of the dimension that is being sliced </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
