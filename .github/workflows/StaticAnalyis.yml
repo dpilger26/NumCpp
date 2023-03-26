@@ -1,0 +1,22 @@
+name: Static analysis
+
+on:
+  push:
+  pull_request:
+    branches: ["master", "develop"]
+
+jobs:
+  static_analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure Environment
+      uses: ./.github/actions/LinuxEnvironmentSetup
+
+    - name: Run static analysis
+      uses: JacobDomagala/StaticAnalysis@master
+      with:
+        exclude_dir: test
+        force_console_print: true
