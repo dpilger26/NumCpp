@@ -10,10 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
-    - name: Configure Environment
-      uses: ./.github/actions/LinuxEnvironmentSetup
+    - name: Install Dependency libs
+      shell: bash -l {0}
+      run: |
+        sudo apt update
+        sudo apt install -y libboost-all-dev
 
     - name: Run static analysis
       uses: JacobDomagala/StaticAnalysis@master

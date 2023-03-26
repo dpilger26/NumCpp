@@ -11,7 +11,7 @@ var indexSectionsWithContent =
   8: "bclmnprw",
   9: "o",
   10: "cst",
-  11: "bcir"
+  11: "bfir"
 };
 
 var indexSectionNames =

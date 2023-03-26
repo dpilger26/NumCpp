@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9" />
     <meta name="generator" content="Doxygen 1.9.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NumCpp: Compiler Flags</title>
+    <title>NumCpp: Flags</title>
     <link href="tabs.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="dynsections.js"></script>
@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.10.0</span>
+                                &#160;<span id="projectnumber">2.10.1</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -107,16 +107,22 @@ $(document).ready(function(){initNavTree('md__home_dpilger__github__num_cpp_docs
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Compiler Flags </div>  </div>
+<div class="title">Flags </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><ul>
+<div class="textblock"><h1>Compiler Flags</h1>
+<ul>
 <li><code>NUMCPP_NO_USE_BOOST</code>: disables all <b>NumCpp</b> features that require the <b>Boost</b> libraries as a dependency. When this compiler flag is defined <b>NumCpp</b> will have no external dependancies and is completely standalone</li>
 <li><code>NUMCPP_USE_MULTITHREAD</code>: enables STL parallel execution policies throughout the library. Using multi-threaded algorithms can have negative performace impact for "small" array operations and should usually only be used when dealing with large array operations. Benchmarking should be performed with your system and build tools to determine which works best for your setup and application</li>
 <li><code>NUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE</code>: includes the <b>PyBind11</b> Python interface helper functions</li>
-<li><code>NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE</code>: includes the <b>Boost</b> Python interface helper functions </li>
+<li><code>NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE</code>: includes the <b>Boost</b> Python interface helper functions</li>
 </ul>
-</div></div><!-- contents -->
+<h1>CMake flags</h1>
+<p>The above compiler flags can also be set via CMake for an installed NumCpp target using <code>find_package</code>. e.g.</p>
+<div class="fragment"><div class="line">&gt;&gt; mkdir build</div>
+<div class="line">&gt;&gt; cd build</div>
+<div class="line">&gt;&gt; cmake -DNUMCPP_NO_USE_BOOST=ON -DNUMCPP_USE_MULTITHREAD ..</div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

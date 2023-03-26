@@ -60,7 +60,7 @@ if(NOT TARGET @PROJECT_NAME@::@PROJECT_NAME@)
             Development.Module
         )
 
-        set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND
+        set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@
             PROPERTY
             POSITION_INDEPENDENT_CODE ON
         )

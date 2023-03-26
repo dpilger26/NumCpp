@@ -28,7 +28,7 @@ var NAVTREE =
     [ "Release Notes", "md__home_dpilger__github__num_cpp_docs_markdown__release_notes.html", null ],
     [ "Installation", "md__home_dpilger__github__num_cpp_docs_markdown__installation.html", null ],
     [ "Building", "md__home_dpilger__github__num_cpp_docs_markdown__building.html", null ],
-    [ "Compiler Flags", "md__home_dpilger__github__num_cpp_docs_markdown__compiler_flags.html", null ],
+    [ "Flags", "md__home_dpilger__github__num_cpp_docs_markdown__compiler_flags.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
