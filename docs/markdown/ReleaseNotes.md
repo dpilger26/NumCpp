@@ -1,5 +1,9 @@
 # Release Notes
 
+## Version 2.10.1
+
+* fixed an error in installed cmake target when using `NUMCPP_NO_USE_BOOST`
+
 ## Version 2.10.0
 
 * added broadcasting for all `NdArray` operators for **Issue #147** and **Issue #174**

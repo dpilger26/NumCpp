@@ -21,13 +21,86 @@ if(NOT TARGET @PROJECT_NAME@::@PROJECT_NAME@)
     set_and_check(@PROJECT_NAME@_INCLUDE_DIR "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_INCLUDEDIR@")
     check_required_components("@PROJECT_NAME@")
 
-    find_package(Boost REQUIRED COMPONENTS date_time)
-    set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND 
-        PROPERTY 
-        INTERFACE_LINK_LIBRARIES 
-        Boost::boost 
-        $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::date_time>
-    )
+    if(NUMCPP_NO_USE_BOOST)
+        set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND 
+            PROPERTY 
+            INTERFACE_COMPILE_DEFINITIONS
+            NUMCPP_NO_USE_BOOST
+        )
+    else()
+        find_package(Boost 1.68.0 REQUIRED COMPONENTS date_time)
+        set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND 
+            PROPERTY 
+            INTERFACE_LINK_LIBRARIES 
+            Boost::boost 
+            $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::date_time>
+        )
+    endif()
+
+    if(NUMCPP_USE_MULTITHREAD)
+        set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND 
+            PROPERTY 
+            INTERFACE_COMPILE_DEFINITIONS
+            NUMCPP_USE_MULTITHREAD
+        )
+        if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+            find_package(TBB REQUIRED)
+        endif()
+        set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND 
+            PROPERTY 
+            INTERFACE_LINK_LIBRARIES  
+            $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:TBB::tbb>
+        )
+    endif()
+
+    if(NUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE OR NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE)
+        find_package(Python REQUIRED
+            COMPONENTS
+            Interpreter
+            Development.Module
+        )
+
+        set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@
+            PROPERTY
+            POSITION_INDEPENDENT_CODE ON
+        )
+
+        if(NUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE)
+            find_package(pybind11 CONFIG REQUIRED)
+            set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND 
+                PROPERTY 
+                INTERFACE_COMPILE_DEFINITIONS
+                NUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE
+            )
+            set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND 
+                PROPERTY 
+                INTERFACE_LINK_LIBRARIES
+                pybind11::module
+            )
+        endif()
+
+        if(NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE)
+            find_package(Boost 1.68.0 REQUIRED COMPONENTS python numpy)
+            set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND 
+                PROPERTY 
+                INTERFACE_COMPILE_DEFINITIONS
+                NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE
+            )
+            set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND 
+                PROPERTY 
+                INTERFACE_LINK_LIBRARIES 
+                Boost::boost 
+                $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::python>
+                $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::numpy>
+            )
+        endif()
+
+        set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND 
+            PROPERTY 
+            INTERFACE_LINK_LIBRARIES
+            Python::Module
+        )
+    endif()
 
     message(STATUS "Found NumCpp: ${@PROJECT_NAME@_INCLUDE_DIR} (found version ${@PROJECT_NAME@_VERSION})")
 endif()

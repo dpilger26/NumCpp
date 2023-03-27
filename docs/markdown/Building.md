@@ -32,7 +32,7 @@ project("HelloWorld" CXX)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-find_package(NumCpp 2.9.0 REQUIRED)
+find_package(NumCpp 2.10.1 REQUIRED)
 target_link_libraries(${PROJECT_NAME}
     NumCpp::NumCpp
 )
@@ -40,7 +40,7 @@ target_link_libraries(${PROJECT_NAME}
 
 Alternative using cmake fetch content
 
-```cmake 
+```cmake
 cmake_minimum_required(VERSION 3.20)
 
 project("HelloWorld" CXX)
