@@ -16,6 +16,7 @@ jobs:
       uses: JacobDomagala/StaticAnalysis@master
       with:
         exclude_dir: test
-        use_cmake: true
         apt_pckgs: libboost-all-dev
         force_console_print: true
+        use_cmake: true
+        cmake_args: -DBUILD_TESTS=ON
