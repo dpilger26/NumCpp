@@ -12,11 +12,23 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: setup init_script
+      shell: bash
+      run: |
+        echo "#!/bin/bash
+
+        # Input args provided by StaticAnalysis action
+        root_dir=\${1}
+
+        rm -rf \${root_dir}\develop
+        rm -rf \${root_dir}\docs
+        rm -rf \${root_dir}\examples" > init_script.sh
+
     - name: Run static analysis
       uses: JacobDomagala/StaticAnalysis@master
       with:
-        exclude_dir: test
         apt_pckgs: libboost-all-dev
         force_console_print: true
         use_cmake: true
         cmake_args: -DBUILD_TESTS=ON
+        init_script: init_script.sh
