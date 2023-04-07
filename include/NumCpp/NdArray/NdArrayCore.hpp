@@ -625,6 +625,16 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        /// Cast to bool operator
+        /// @returns bool false if empty, otherwise true
+        ///
+        explicit operator bool() const noexcept
+        {
+            return isempty();
+        }
+
+        //============================================================================
+        // Method Description:
         /// Assignment operator, performs a deep copy
         ///
         /// @param rhs

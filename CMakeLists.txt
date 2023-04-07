@@ -134,8 +134,12 @@ add_subdirectory(examples)
 add_library(${PROJECT_NAME} INTERFACE)
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
+if(NOT PROJECT_IS_TOP_LEVEL)
+    set(WARNING_GUARD SYSTEM)
+endif()
+
 include(GNUInstallDirs)
-target_include_directories(${PROJECT_NAME} INTERFACE 
+target_include_directories(${PROJECT_NAME} ${WARNING_GUARD} INTERFACE 
     $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
@@ -172,6 +176,12 @@ install(TARGETS ${PROJECT_NAME}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+
+add_custom_target(format
+    COMMAND clang-format -i -style=file:${CMAKE_CURRENT_SOURCE_DIR}/.clang-format `git ls-files *.hpp`
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+
+add_custom_target(tidy COMMAND run-clang-tidy -p ${CMAKE_BINARY_DIR})
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file("${PROJECT_NAME}ConfigVersion.cmake"

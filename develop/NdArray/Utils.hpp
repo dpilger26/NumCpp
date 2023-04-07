@@ -1,11 +1,12 @@
 #pragma once
 
-#include "NumCpp/Utils.hpp"
 #include "TypeTraits.hpp"
 
 #include <algorithm>
 #include <iostream>
 #include <string>
+
+#include "NumCpp/Utils.hpp"
 
 namespace nc_develop
 {
@@ -14,12 +15,9 @@ namespace nc_develop
         template<typename ContainerType>
         void printContainer(const ContainerType& container)
         {
-            std::for_each(container.begin(), container.end(),
-                [](const auto value) -> void
-                {
-                    std::cout << value << ' ';
-                }
-            );
+            std::for_each(container.begin(),
+                          container.end(),
+                          [](const auto value) -> void { std::cout << value << ' '; });
 
             std::cout << '\n';
         }
@@ -28,14 +26,11 @@ namespace nc_develop
         std::string stringifyContainer(const ContainerType& container)
         {
             std::string returnStr = "[";
-            std::for_each(container.begin(), container.end(),
-                [&returnStr](const auto value) -> void
-                {
-                    returnStr += std::to_string(value) + ", ";
-                }
-            );
+            std::for_each(container.begin(),
+                          container.end(),
+                          [&returnStr](const auto value) -> void { returnStr += std::to_string(value) + ", "; });
             returnStr += ']';
             return returnStr;
         }
-    }
-}
+    } // namespace utils
+} // namespace nc_develop
