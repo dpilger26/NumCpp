@@ -181,7 +181,7 @@ add_custom_target(format
     COMMAND clang-format -i -style=file:${CMAKE_CURRENT_SOURCE_DIR}/.clang-format `git ls-files *.hpp`
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
-add_custom_target(tidy COMMAND run-clang-tidy -p ${CMAKE_BINARY_DIR})
+add_custom_target(tidy COMMAND run-clang-tidy -p ${CMAKE_BINARY_DIR} -extra-arg=-std=c++${CMAKE_CXX_STANDARD})
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file("${PROJECT_NAME}ConfigVersion.cmake"
