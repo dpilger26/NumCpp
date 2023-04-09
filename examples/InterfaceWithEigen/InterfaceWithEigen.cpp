@@ -3,9 +3,8 @@
 #include <Eigen/Dense>
 #include <iostream>
 
-
-typedef Eigen::Matrix<int, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor> EigenIntMatrix;
-typedef Eigen::Map<EigenIntMatrix>                                          EigenIntMatrixMap;
+using EigenIntMatrix    = Eigen::Matrix<int, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>;
+using EigenIntMatrixMap = Eigen::Map<EigenIntMatrix>;
 
 int main()
 {

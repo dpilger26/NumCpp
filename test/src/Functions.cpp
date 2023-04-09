@@ -430,7 +430,7 @@ namespace FunctionsInterface
     template<typename dtype>
     pbArrayGeneric asarrayPointerIterators(dtype inValue1, dtype inValue2)
     {
-        auto ptr = std::make_unique<dtype[]>(2);
+        auto ptr = std::make_unique<dtype[]>(2); // NOLINT(modernize-avoid-c-arrays)
         ptr[0]   = inValue1;
         ptr[1]   = inValue2;
         auto a   = asarray(ptr.get(), ptr.get() + 2);
@@ -442,7 +442,7 @@ namespace FunctionsInterface
     template<typename dtype>
     pbArrayGeneric asarrayPointer(dtype inValue1, dtype inValue2)
     {
-        auto ptr = std::make_unique<dtype[]>(2);
+        auto ptr = std::make_unique<dtype[]>(2); // NOLINT(modernize-avoid-c-arrays)
         ptr[0]   = inValue1;
         ptr[1]   = inValue2;
         auto a   = asarray(ptr.release(), uint32{ 2 });
@@ -454,7 +454,7 @@ namespace FunctionsInterface
     template<typename dtype>
     pbArrayGeneric asarrayPointer2D(dtype inValue1, dtype inValue2)
     {
-        auto ptr = std::make_unique<dtype[]>(4);
+        auto ptr = std::make_unique<dtype[]>(4); // NOLINT(modernize-avoid-c-arrays)
         ptr[0]   = inValue1;
         ptr[1]   = inValue2;
         ptr[2]   = inValue1;
@@ -468,7 +468,7 @@ namespace FunctionsInterface
     template<typename dtype>
     pbArrayGeneric asarrayPointerShell(dtype inValue1, dtype inValue2)
     {
-        auto ptr = std::make_unique<dtype[]>(2);
+        auto ptr = std::make_unique<dtype[]>(2); // NOLINT(modernize-avoid-c-arrays)
         ptr[0]   = inValue1;
         ptr[1]   = inValue2;
         auto a   = asarray(ptr.get(), uint32{ 2 }, false);
@@ -480,7 +480,7 @@ namespace FunctionsInterface
     template<typename dtype>
     pbArrayGeneric asarrayPointerShell2D(dtype inValue1, dtype inValue2)
     {
-        auto ptr = std::make_unique<dtype[]>(4);
+        auto ptr = std::make_unique<dtype[]>(4); // NOLINT(modernize-avoid-c-arrays)
         ptr[0]   = inValue1;
         ptr[1]   = inValue2;
         ptr[2]   = inValue1;
@@ -494,7 +494,7 @@ namespace FunctionsInterface
     template<typename dtype>
     pbArrayGeneric asarrayPointerShellTakeOwnership(dtype inValue1, dtype inValue2)
     {
-        auto ptr = std::make_unique<dtype[]>(2);
+        auto ptr = std::make_unique<dtype[]>(2); // NOLINT(modernize-avoid-c-arrays)
         ptr[0]   = inValue1;
         ptr[1]   = inValue2;
         auto a   = asarray(ptr.release(), 2, true);
@@ -506,7 +506,7 @@ namespace FunctionsInterface
     template<typename dtype>
     pbArrayGeneric asarrayPointerShell2DTakeOwnership(dtype inValue1, dtype inValue2)
     {
-        auto ptr = std::make_unique<dtype[]>(4);
+        auto ptr = std::make_unique<dtype[]>(4); // NOLINT(modernize-avoid-c-arrays)
         ptr[0]   = inValue1;
         ptr[1]   = inValue2;
         ptr[2]   = inValue1;
