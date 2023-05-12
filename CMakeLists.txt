@@ -159,7 +159,7 @@ if (BUILD_DOCS)
 
             configure_file(${DOXYFILE_IN} ${DOXYFILE_OUT} @ONLY)
 
-            add_custom_target( docs ALL
+            add_custom_target( docs
                 COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYFILE_OUT}
                 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
                 COMMENT "Generating API documentation with Doxygen"

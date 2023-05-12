@@ -1,5 +1,8 @@
 # Release Notes
 
+## Version 2.10.2
+
+
 ## Version 2.10.1
 
 * fixed an error in installed cmake target when using `NUMCPP_NO_USE_BOOST`

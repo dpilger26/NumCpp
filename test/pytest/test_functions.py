@@ -6586,7 +6586,7 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert (NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.NONE, 'lower').item() ==
-            np.nanpercentile(data, percentile, axis=None, interpolation='lower'))
+            np.nanpercentile(data, percentile, axis=None, method='lower'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6598,7 +6598,7 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert (NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.NONE, 'higher').item() ==
-            np.nanpercentile(data, percentile, axis=None, interpolation='higher'))
+            np.nanpercentile(data, percentile, axis=None, method='higher'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6610,7 +6610,7 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert (NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.NONE, 'nearest').item() ==
-            np.nanpercentile(data, percentile, axis=None, interpolation='nearest'))
+            np.nanpercentile(data, percentile, axis=None, method='nearest'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6622,7 +6622,7 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert (NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.NONE, 'midpoint').item() ==
-            np.nanpercentile(data, percentile, axis=None, interpolation='midpoint'))
+            np.nanpercentile(data, percentile, axis=None, method='midpoint'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6634,7 +6634,7 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert (NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.NONE, 'linear').item() ==
-            np.nanpercentile(data, percentile, axis=None, interpolation='linear'))
+            np.nanpercentile(data, percentile, axis=None, method='linear'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6646,7 +6646,7 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, 'lower').getNumpyArray().flatten(),
-                          np.nanpercentile(data, percentile, axis=0, interpolation='lower'))
+                          np.nanpercentile(data, percentile, axis=0, method='lower'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6658,7 +6658,7 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, 'higher').getNumpyArray().flatten(),
-                          np.nanpercentile(data, percentile, axis=0, interpolation='higher'))
+                          np.nanpercentile(data, percentile, axis=0, method='higher'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6673,7 +6673,7 @@ def test_nanpercentile():
                                                percentile,
                                                NumCpp.Axis.ROW,
                                                'nearest').getNumpyArray().flatten(),
-                          np.nanpercentile(data, percentile, axis=0, interpolation='nearest'))
+                          np.nanpercentile(data, percentile, axis=0, method='nearest'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6689,7 +6689,7 @@ def test_nanpercentile():
                                       percentile,
                                       NumCpp.Axis.ROW,
                                       'midpoint').getNumpyArray().flatten(), 9),
-        np.round(np.nanpercentile(data, percentile, axis=0, interpolation='midpoint'), 9))
+        np.round(np.nanpercentile(data, percentile, axis=0, method='midpoint'), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6704,7 +6704,7 @@ def test_nanpercentile():
                                                         percentile,
                                                         NumCpp.Axis.ROW,
                                                         'linear').getNumpyArray().flatten(), 9),
-                          np.round(np.nanpercentile(data, percentile, axis=0, interpolation='linear'), 9))
+                          np.round(np.nanpercentile(data, percentile, axis=0, method='linear'), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6716,7 +6716,7 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, 'lower').getNumpyArray().flatten(),
-                          np.nanpercentile(data, percentile, axis=1, interpolation='lower'))
+                          np.nanpercentile(data, percentile, axis=1, method='lower'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6728,7 +6728,7 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, 'higher').getNumpyArray().flatten(),
-                          np.nanpercentile(data, percentile, axis=1, interpolation='higher'))
+                          np.nanpercentile(data, percentile, axis=1, method='higher'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6743,7 +6743,7 @@ def test_nanpercentile():
                                                percentile,
                                                NumCpp.Axis.COL,
                                                'nearest').getNumpyArray().flatten(),
-                          np.nanpercentile(data, percentile, axis=1, interpolation='nearest'))
+                          np.nanpercentile(data, percentile, axis=1, method='nearest'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6759,7 +6759,7 @@ def test_nanpercentile():
                                       percentile,
                                       NumCpp.Axis.COL,
                                       'midpoint').getNumpyArray().flatten(), 9),
-        np.round(np.nanpercentile(data, percentile, axis=1, interpolation='midpoint'), 9))
+        np.round(np.nanpercentile(data, percentile, axis=1, method='midpoint'), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6773,7 +6773,7 @@ def test_nanpercentile():
     assert np.array_equal(
         np.round(NumCpp.nanpercentile(cArray, percentile,
                  NumCpp.Axis.COL, 'linear').getNumpyArray().flatten(), 9),
-        np.round(np.nanpercentile(data, percentile, axis=1, interpolation='linear'), 9))
+        np.round(np.nanpercentile(data, percentile, axis=1, method='linear'), 9))
 
 
 ####################################################################################
@@ -7452,7 +7452,7 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert (NumCpp.percentile(cArray, percentile, NumCpp.Axis.NONE, 'lower').item() ==
-            np.percentile(data, percentile, axis=None, interpolation='lower'))
+            np.percentile(data, percentile, axis=None, method='lower'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7461,7 +7461,7 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert (NumCpp.percentile(cArray, percentile, NumCpp.Axis.NONE, 'higher').item() ==
-            np.percentile(data, percentile, axis=None, interpolation='higher'))
+            np.percentile(data, percentile, axis=None, method='higher'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7470,7 +7470,7 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert (NumCpp.percentile(cArray, percentile, NumCpp.Axis.NONE, 'nearest').item() ==
-            np.percentile(data, percentile, axis=None, interpolation='nearest'))
+            np.percentile(data, percentile, axis=None, method='nearest'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7479,7 +7479,7 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert (NumCpp.percentile(cArray, percentile, NumCpp.Axis.NONE, 'midpoint').item() ==
-            np.percentile(data, percentile, axis=None, interpolation='midpoint'))
+            np.percentile(data, percentile, axis=None, method='midpoint'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7488,7 +7488,7 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert (NumCpp.percentile(cArray, percentile, NumCpp.Axis.NONE, 'linear').item() ==
-            np.percentile(data, percentile, axis=None, interpolation='linear'))
+            np.percentile(data, percentile, axis=None, method='linear'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7497,7 +7497,7 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, 'lower').getNumpyArray().flatten(),
-                          np.percentile(data, percentile, axis=0, interpolation='lower'))
+                          np.percentile(data, percentile, axis=0, method='lower'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7506,7 +7506,7 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, 'higher').getNumpyArray().flatten(),
-                          np.percentile(data, percentile, axis=0, interpolation='higher'))
+                          np.percentile(data, percentile, axis=0, method='higher'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7515,7 +7515,7 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, 'nearest').getNumpyArray().flatten(),
-                          np.percentile(data, percentile, axis=0, interpolation='nearest'))
+                          np.percentile(data, percentile, axis=0, method='nearest'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7527,7 +7527,7 @@ def test_percentile():
                                                      percentile,
                                                      NumCpp.Axis.ROW,
                                                      'midpoint').getNumpyArray().flatten(), 9),
-                          np.round(np.percentile(data, percentile, axis=0, interpolation='midpoint'), 9))
+                          np.round(np.percentile(data, percentile, axis=0, method='midpoint'), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7539,7 +7539,7 @@ def test_percentile():
                                                      percentile,
                                                      NumCpp.Axis.ROW,
                                                      'linear').getNumpyArray().flatten(), 9),
-                          np.round(np.percentile(data, percentile, axis=0, interpolation='linear'), 9))
+                          np.round(np.percentile(data, percentile, axis=0, method='linear'), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7548,7 +7548,7 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, 'lower').getNumpyArray().flatten(),
-                          np.percentile(data, percentile, axis=1, interpolation='lower'))
+                          np.percentile(data, percentile, axis=1, method='lower'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7557,7 +7557,7 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, 'higher').getNumpyArray().flatten(),
-                          np.percentile(data, percentile, axis=1, interpolation='higher'))
+                          np.percentile(data, percentile, axis=1, method='higher'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7566,7 +7566,7 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, 'nearest').getNumpyArray().flatten(),
-                          np.percentile(data, percentile, axis=1, interpolation='nearest'))
+                          np.percentile(data, percentile, axis=1, method='nearest'))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7578,7 +7578,7 @@ def test_percentile():
                                                      percentile,
                                                      NumCpp.Axis.COL,
                                                      'midpoint').getNumpyArray().flatten(), 9),
-                          np.round(np.percentile(data, percentile, axis=1, interpolation='midpoint'), 9))
+                          np.round(np.percentile(data, percentile, axis=1, method='midpoint'), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7590,7 +7590,7 @@ def test_percentile():
                                                      percentile,
                                                      NumCpp.Axis.COL,
                                                      'linear').getNumpyArray().flatten(), 9),
-                          np.round(np.percentile(data, percentile, axis=1, interpolation='linear'), 9))
+                          np.round(np.percentile(data, percentile, axis=1, method='linear'), 9))
 
 
 ####################################################################################
