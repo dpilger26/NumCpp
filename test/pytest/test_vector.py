@@ -38,8 +38,7 @@ def test_Vec2_angle():
     vec2_2py = vectormath.Vector2(*components2)
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_2cpp = NumCpp.Vec2(*components2)
-    assert round(vec2_1py.angle(vec2_2py), DECIMALS_TO_ROUND) == \
-        round(vec2_1cpp.angle(vec2_2cpp), DECIMALS_TO_ROUND)
+    assert round(vec2_1py.angle(vec2_2py), DECIMALS_TO_ROUND) == round(vec2_1cpp.angle(vec2_2cpp), DECIMALS_TO_ROUND)
 
 
 ####################################################################################
@@ -73,12 +72,17 @@ def test_Vec2_left():
 ####################################################################################
 def test_Vec2_clampMagnitude():
     components = np.random.rand(2) + 10
-    clampMag = np.random.randint(1, 10, [1, ]).item()
+    clampMag = np.random.randint(
+        1,
+        10,
+        [
+            1,
+        ],
+    ).item()
     vec2 = NumCpp.Vec2(*components)
     clampedVec = vec2.clampMagnitude(float(clampMag))
     assert np.round(clampedVec.norm(), DECIMALS_TO_ROUND) == clampMag
-    assert np.round(vec2.dot(clampedVec) / vec2.norm() /
-                    clampedVec.norm(), DECIMALS_TO_ROUND) == 1
+    assert np.round(vec2.dot(clampedVec) / vec2.norm() / clampedVec.norm(), DECIMALS_TO_ROUND) == 1
 
 
 ####################################################################################
@@ -89,8 +93,9 @@ def test_Vec2_distance():
     vec2_2py = vectormath.Vector2(*components2)
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_2cpp = NumCpp.Vec2(*components2)
-    assert round((vec2_2py - vec2_1py).length, DECIMALS_TO_ROUND) == \
-        round(vec2_1cpp.distance(vec2_2cpp), DECIMALS_TO_ROUND)
+    assert round((vec2_2py - vec2_1py).length, DECIMALS_TO_ROUND) == round(
+        vec2_1cpp.distance(vec2_2cpp), DECIMALS_TO_ROUND
+    )
 
 
 ####################################################################################
@@ -101,8 +106,7 @@ def test_Vec2_dot():
     vec2_2py = vectormath.Vector2(*components2)
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_2cpp = NumCpp.Vec2(*components2)
-    assert round(vec2_1py.dot(vec2_2py), DECIMALS_TO_ROUND) == \
-        round(vec2_1cpp.dot(vec2_2cpp), DECIMALS_TO_ROUND)
+    assert round(vec2_1py.dot(vec2_2py), DECIMALS_TO_ROUND) == round(vec2_1cpp.dot(vec2_2cpp), DECIMALS_TO_ROUND)
 
 
 ####################################################################################
@@ -110,8 +114,7 @@ def test_Vec2_norm():
     components = np.random.rand(2)
     vec2py = vectormath.Vector2(*components)
     vec2cpp = NumCpp.Vec2(*components)
-    assert round(vec2py.length, DECIMALS_TO_ROUND) == \
-        round(vec2cpp.norm(), DECIMALS_TO_ROUND)
+    assert round(vec2py.length, DECIMALS_TO_ROUND) == round(vec2cpp.norm(), DECIMALS_TO_ROUND)
 
 
 ####################################################################################
@@ -119,8 +122,10 @@ def test_Vec2_normalize():
     components = np.random.rand(2)
     vec2py = vectormath.Vector2(*components)
     vec2cpp = NumCpp.Vec2(*components)
-    assert np.array_equal(np.round(vec2py.normalize(), DECIMALS_TO_ROUND),
-                          np.round(vec2cpp.normalize().toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2py.normalize(), DECIMALS_TO_ROUND),
+        np.round(vec2cpp.normalize().toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
 
 ####################################################################################
@@ -141,16 +146,18 @@ def test_Vec2_addition_assignment_operator():
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_2cpp = NumCpp.Vec2(*components2)
     vec2_1cpp += vec2_2cpp
-    assert np.array_equal(np.round(vec2_1py + vec2_2py, DECIMALS_TO_ROUND),
-                          np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2_1py + vec2_2py, DECIMALS_TO_ROUND), np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)
+    )
 
     components1 = np.random.rand(2)
     scalar = np.random.rand(1).item()
     vec2_1py = vectormath.Vector2(*components1)
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_1cpp += scalar
-    assert np.array_equal(np.round(vec2_1py + scalar, DECIMALS_TO_ROUND),
-                          np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2_1py + scalar, DECIMALS_TO_ROUND), np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)
+    )
 
 
 ####################################################################################
@@ -162,16 +169,18 @@ def test_Vec2_subtraction_assignment_operator():
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_2cpp = NumCpp.Vec2(*components2)
     vec2_1cpp -= vec2_2cpp
-    assert np.array_equal(np.round(vec2_1py - vec2_2py, DECIMALS_TO_ROUND),
-                          np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2_1py - vec2_2py, DECIMALS_TO_ROUND), np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)
+    )
 
     components1 = np.random.rand(2)
     scalar = np.random.rand(1).item()
     vec2_1py = vectormath.Vector2(*components1)
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_1cpp -= scalar
-    assert np.array_equal(np.round(vec2_1py - scalar, DECIMALS_TO_ROUND),
-                          np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2_1py - scalar, DECIMALS_TO_ROUND), np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)
+    )
 
 
 ####################################################################################
@@ -181,8 +190,9 @@ def test_Vec2_multiply_assignment_operator():
     vec2_1py = vectormath.Vector2(*components1)
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_1cpp *= scalar
-    assert np.array_equal(np.round(vec2_1py * scalar, DECIMALS_TO_ROUND),
-                          np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2_1py * scalar, DECIMALS_TO_ROUND), np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)
+    )
 
 
 ####################################################################################
@@ -192,8 +202,9 @@ def test_Vec2_division_assignment_operator():
     vec2_1py = vectormath.Vector2(*components1)
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_1cpp /= scalar
-    assert np.array_equal(np.round(vec2_1py / scalar, DECIMALS_TO_ROUND),
-                          np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2_1py / scalar, DECIMALS_TO_ROUND), np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)
+    )
 
 
 ####################################################################################
@@ -204,25 +215,28 @@ def test_Vec2_addition_operator():
     vec2_2py = vectormath.Vector2(*components2)
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_2cpp = NumCpp.Vec2(*components2)
-    assert np.array_equal(np.round(vec2_1py + vec2_2py, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec2_addVec2(vec2_1cpp, vec2_2cpp)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2_1py + vec2_2py, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec2_addVec2(vec2_1cpp, vec2_2cpp)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
     components = np.random.rand(2)
     scalar = np.random.rand(1).item()
     vec2py = vectormath.Vector2(*components)
     vec2cpp = NumCpp.Vec2(*components)
-    assert np.array_equal(np.round(vec2py + scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec2_addVec2Scalar(vec2cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2py + scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec2_addVec2Scalar(vec2cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
     components = np.random.rand(2)
     scalar = np.random.rand(1).item()
     vec2py = vectormath.Vector2(*components)
     vec2cpp = NumCpp.Vec2(*components)
-    assert np.array_equal(np.round(vec2py + scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec2_addScalarVec2(vec2cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2py + scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec2_addScalarVec2(vec2cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
 
 ####################################################################################
@@ -233,25 +247,28 @@ def test_Vec2_subtraction_operator():
     vec2_2py = vectormath.Vector2(*components2)
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_2cpp = NumCpp.Vec2(*components2)
-    assert np.array_equal(np.round(vec2_1py - vec2_2py, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec2_minusVec2(vec2_1cpp, vec2_2cpp)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2_1py - vec2_2py, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec2_minusVec2(vec2_1cpp, vec2_2cpp)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
     components = np.random.rand(2)
     scalar = np.random.rand(1).item()
     vec2py = vectormath.Vector2(*components)
     vec2cpp = NumCpp.Vec2(*components)
-    assert np.array_equal(np.round(vec2py - scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec2_minusVec2Scalar(vec2cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2py - scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec2_minusVec2Scalar(vec2cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
     components = np.random.rand(2)
     scalar = np.random.rand(1).item()
     vec2py = vectormath.Vector2(*components)
     vec2cpp = NumCpp.Vec2(*components)
-    assert np.array_equal(np.round(-vec2py + scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec2_minusScalarVec2(vec2cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(-vec2py + scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec2_minusScalarVec2(vec2cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
 
 ####################################################################################
@@ -260,17 +277,19 @@ def test_Vec2_multiplication_operator():
     scalar = np.random.rand(1).item()
     vec2py = vectormath.Vector2(*components)
     vec2cpp = NumCpp.Vec2(*components)
-    assert np.array_equal(np.round(vec2py * scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec2_multVec2Scalar(vec2cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2py * scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec2_multVec2Scalar(vec2cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
     components = np.random.rand(2)
     scalar = np.random.rand(1).item()
     vec2py = vectormath.Vector2(*components)
     vec2cpp = NumCpp.Vec2(*components)
-    assert np.array_equal(np.round(vec2py * scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec2_multScalarVec2(vec2cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2py * scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec2_multScalarVec2(vec2cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
 
 ####################################################################################
@@ -279,9 +298,10 @@ def test_Vec2_division_operator():
     scalar = np.random.rand(1).item()
     vec2py = vectormath.Vector2(*components)
     vec2cpp = NumCpp.Vec2(*components)
-    assert np.array_equal(np.round(vec2py / scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec2_divVec2Scalar(vec2cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec2py / scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec2_divVec2Scalar(vec2cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
 
 ####################################################################################
@@ -325,8 +345,7 @@ def test_Vec3_angle():
     vec3_2py = vectormath.Vector3(*components2)
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_2cpp = NumCpp.Vec3(*components2)
-    assert (round(vec3_1py.angle(vec3_2py), DECIMALS_TO_ROUND) ==
-            round(vec3_1cpp.angle(vec3_2cpp), DECIMALS_TO_ROUND))
+    assert round(vec3_1py.angle(vec3_2py), DECIMALS_TO_ROUND) == round(vec3_1cpp.angle(vec3_2cpp), DECIMALS_TO_ROUND)
 
 
 ####################################################################################
@@ -380,12 +399,17 @@ def test_Vec3_back():
 ####################################################################################
 def test_Vec3_clampedVec():
     components = np.random.rand(3) + 10
-    clampMag = np.random.randint(1, 10, [1, ]).item()
+    clampMag = np.random.randint(
+        1,
+        10,
+        [
+            1,
+        ],
+    ).item()
     vec3 = NumCpp.Vec3(*components)
     clampedVec = vec3.clampMagnitude(float(clampMag))
     assert np.round(clampedVec.norm(), DECIMALS_TO_ROUND) == clampMag
-    assert np.round(vec3.dot(clampedVec) / vec3.norm() /
-                    clampedVec.norm(), DECIMALS_TO_ROUND) == 1
+    assert np.round(vec3.dot(clampedVec) / vec3.norm() / clampedVec.norm(), DECIMALS_TO_ROUND) == 1
 
 
 ####################################################################################
@@ -396,8 +420,9 @@ def test_Vec3_distance():
     vec3_2py = vectormath.Vector3(*components2)
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_2cpp = NumCpp.Vec3(*components2)
-    assert (round((vec3_2py - vec3_1py).length, DECIMALS_TO_ROUND) ==
-            round(vec3_1cpp.distance(vec3_2cpp), DECIMALS_TO_ROUND))
+    assert round((vec3_2py - vec3_1py).length, DECIMALS_TO_ROUND) == round(
+        vec3_1cpp.distance(vec3_2cpp), DECIMALS_TO_ROUND
+    )
 
 
 ####################################################################################
@@ -408,8 +433,7 @@ def test_Vec3_dot():
     vec3_2py = vectormath.Vector3(*components2)
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_2cpp = NumCpp.Vec3(*components2)
-    assert (round(vec3_1py.dot(vec3_2py), DECIMALS_TO_ROUND) ==
-            round(vec3_1cpp.dot(vec3_2cpp), DECIMALS_TO_ROUND))
+    assert round(vec3_1py.dot(vec3_2py), DECIMALS_TO_ROUND) == round(vec3_1cpp.dot(vec3_2cpp), DECIMALS_TO_ROUND)
 
 
 ####################################################################################
@@ -420,8 +444,10 @@ def test_Vec3_cross():
     vec3_2py = vectormath.Vector3(*components2)
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_2cpp = NumCpp.Vec3(*components2)
-    assert np.array_equal(np.round(vec3_1py.cross(vec3_2py), DECIMALS_TO_ROUND),
-                          np.round(vec3_1cpp.cross(vec3_2cpp).toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3_1py.cross(vec3_2py), DECIMALS_TO_ROUND),
+        np.round(vec3_1cpp.cross(vec3_2cpp).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
 
 ####################################################################################
@@ -429,8 +455,7 @@ def test_Vec3_norm():
     components = np.random.rand(3)
     vec3py = vectormath.Vector3(*components)
     vec3cpp = NumCpp.Vec3(*components)
-    assert (round(vec3py.length, DECIMALS_TO_ROUND) ==
-            round(vec3cpp.norm(), DECIMALS_TO_ROUND))
+    assert round(vec3py.length, DECIMALS_TO_ROUND) == round(vec3cpp.norm(), DECIMALS_TO_ROUND)
 
 
 ####################################################################################
@@ -438,8 +463,10 @@ def test_Vec3_normalize():
     components = np.random.rand(3)
     vec3py = vectormath.Vector3(*components)
     vec3cpp = NumCpp.Vec3(*components)
-    assert np.array_equal(np.round(vec3py.normalize(), DECIMALS_TO_ROUND),
-                          np.round(vec3cpp.normalize().toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3py.normalize(), DECIMALS_TO_ROUND),
+        np.round(vec3cpp.normalize().toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
 
 ####################################################################################
@@ -460,16 +487,18 @@ def test_Vec3_addition_assignment_operator():
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_2cpp = NumCpp.Vec3(*components2)
     vec3_1cpp += vec3_2cpp
-    assert np.array_equal(np.round(vec3_1py + vec3_2py, DECIMALS_TO_ROUND),
-                          np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3_1py + vec3_2py, DECIMALS_TO_ROUND), np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)
+    )
 
     components1 = np.random.rand(3)
     scalar = np.random.rand(1).item()
     vec3_1py = vectormath.Vector3(*components1)
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_1cpp += scalar
-    assert np.array_equal(np.round(vec3_1py + scalar, DECIMALS_TO_ROUND),
-                          np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3_1py + scalar, DECIMALS_TO_ROUND), np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)
+    )
 
 
 ####################################################################################
@@ -481,16 +510,18 @@ def test_Vec3_subtraction_assignment_operator():
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_2cpp = NumCpp.Vec3(*components2)
     vec3_1cpp -= vec3_2cpp
-    assert np.array_equal(np.round(vec3_1py - vec3_2py, DECIMALS_TO_ROUND),
-                          np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3_1py - vec3_2py, DECIMALS_TO_ROUND), np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)
+    )
 
     components1 = np.random.rand(3)
     scalar = np.random.rand(1).item()
     vec3_1py = vectormath.Vector3(*components1)
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_1cpp -= scalar
-    assert np.array_equal(np.round(vec3_1py - scalar, DECIMALS_TO_ROUND),
-                          np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3_1py - scalar, DECIMALS_TO_ROUND), np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)
+    )
 
 
 ####################################################################################
@@ -500,8 +531,9 @@ def test_Vec3_multiplication_assignment_operator():
     vec3_1py = vectormath.Vector3(*components1)
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_1cpp *= scalar
-    assert np.array_equal(np.round(vec3_1py * scalar, DECIMALS_TO_ROUND),
-                          np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3_1py * scalar, DECIMALS_TO_ROUND), np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)
+    )
 
 
 ####################################################################################
@@ -511,8 +543,9 @@ def test_Vec3_division_assignment_operator():
     vec3_1py = vectormath.Vector3(*components1)
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_1cpp /= scalar
-    assert np.array_equal(np.round(vec3_1py / scalar, DECIMALS_TO_ROUND),
-                          np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3_1py / scalar, DECIMALS_TO_ROUND), np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)
+    )
 
 
 ####################################################################################
@@ -523,25 +556,28 @@ def test_Vec3_addition_operator():
     vec3_2py = vectormath.Vector3(*components2)
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_2cpp = NumCpp.Vec3(*components2)
-    assert np.array_equal(np.round(vec3_1py + vec3_2py, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec3_addVec3(vec3_1cpp, vec3_2cpp)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3_1py + vec3_2py, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec3_addVec3(vec3_1cpp, vec3_2cpp)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
     components = np.random.rand(3)
     scalar = np.random.rand(1).item()
     vec3py = vectormath.Vector3(*components)
     vec3cpp = NumCpp.Vec3(*components)
-    assert np.array_equal(np.round(vec3py + scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec3_addVec3Scalar(vec3cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3py + scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec3_addVec3Scalar(vec3cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
     components = np.random.rand(3)
     scalar = np.random.rand(1).item()
     vec3py = vectormath.Vector3(*components)
     vec3cpp = NumCpp.Vec3(*components)
-    assert np.array_equal(np.round(vec3py + scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec3_addScalarVec3(vec3cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3py + scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec3_addScalarVec3(vec3cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
 
 ####################################################################################
@@ -552,25 +588,28 @@ def test_Vec3_subtraction_operator():
     vec3_2py = vectormath.Vector3(*components2)
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_2cpp = NumCpp.Vec3(*components2)
-    assert np.array_equal(np.round(vec3_1py - vec3_2py, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec3_minusVec3(vec3_1cpp, vec3_2cpp)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3_1py - vec3_2py, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec3_minusVec3(vec3_1cpp, vec3_2cpp)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
     components = np.random.rand(3)
     scalar = np.random.rand(1).item()
     vec3py = vectormath.Vector3(*components)
     vec3cpp = NumCpp.Vec3(*components)
-    assert np.array_equal(np.round(vec3py - scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec3_minusVec3Scalar(vec3cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3py - scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec3_minusVec3Scalar(vec3cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
     components = np.random.rand(3)
     scalar = np.random.rand(1).item()
     vec3py = vectormath.Vector3(*components)
     vec3cpp = NumCpp.Vec3(*components)
-    assert np.array_equal(np.round(-vec3py + scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec3_minusScalarVec3(vec3cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(-vec3py + scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec3_minusScalarVec3(vec3cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
 
 ####################################################################################
@@ -579,17 +618,19 @@ def test_Vec3_multiplication_operator():
     scalar = np.random.rand(1).item()
     vec3py = vectormath.Vector3(*components)
     vec3cpp = NumCpp.Vec3(*components)
-    assert np.array_equal(np.round(vec3py * scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec3_multVec3Scalar(vec3cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3py * scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec3_multVec3Scalar(vec3cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
     components = np.random.rand(3)
     scalar = np.random.rand(1).item()
     vec3py = vectormath.Vector3(*components)
     vec3cpp = NumCpp.Vec3(*components)
-    assert np.array_equal(np.round(vec3py * scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec3_multScalarVec3(vec3cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3py * scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec3_multScalarVec3(vec3cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
 
 ####################################################################################
@@ -598,9 +639,10 @@ def test_Vec3_division_operator():
     scalar = np.random.rand(1).item()
     vec3py = vectormath.Vector3(*components)
     vec3cpp = NumCpp.Vec3(*components)
-    assert np.array_equal(np.round(vec3py / scalar, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec3_divVec3Scalar(vec3cpp, scalar)).toNdArray().flatten(),
-                                   DECIMALS_TO_ROUND))
+    assert np.array_equal(
+        np.round(vec3py / scalar, DECIMALS_TO_ROUND),
+        np.round((NumCpp.Vec3_divVec3Scalar(vec3cpp, scalar)).toNdArray().flatten(), DECIMALS_TO_ROUND),
+    )
 
 
 ####################################################################################

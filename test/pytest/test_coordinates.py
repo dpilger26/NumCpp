@@ -28,8 +28,22 @@ def test_ra_degrees_constructor():
 
 ####################################################################################
 def test_ra_hms_constructor():
-    hours = np.random.randint(0, 24, [1, ], dtype=np.uint8).item()
-    minutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
+    hours = np.random.randint(
+        0,
+        24,
+        [
+            1,
+        ],
+        dtype=np.uint8,
+    ).item()
+    minutes = np.random.randint(
+        0,
+        60,
+        [
+            1,
+        ],
+        dtype=np.uint8,
+    ).item()
     seconds = np.random.rand(1).astype(float).item() * 60
     ra = NumCpp.Ra(hours, minutes, seconds)
     degreesPy = (hours + minutes / 60 + seconds / 3600) * 15
@@ -87,10 +101,23 @@ def test_dec_degree_constructor():
 
 ####################################################################################
 def test_dec_hms_constructor():
-    sign = NumCpp.Sign.POSITIVE if np.random.randint(
-        -1, 1) == 0 else NumCpp.Sign.NEGATIVE
-    degrees = np.random.randint(0, 91, [1, ], dtype=np.uint8).item()
-    minutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
+    sign = NumCpp.Sign.POSITIVE if np.random.randint(-1, 1) == 0 else NumCpp.Sign.NEGATIVE
+    degrees = np.random.randint(
+        0,
+        91,
+        [
+            1,
+        ],
+        dtype=np.uint8,
+    ).item()
+    minutes = np.random.randint(
+        0,
+        60,
+        [
+            1,
+        ],
+        dtype=np.uint8,
+    ).item()
     seconds = np.random.rand(1).astype(float).item() * 60
     dec = NumCpp.Dec(sign, degrees, minutes, seconds)
     degreesPy = degrees + minutes / 60 + seconds / 3600
@@ -174,8 +201,7 @@ def test_coord_cartesian_constructor():
     decDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(decDegrees)
     pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
-    cCoord = NumCpp.Coordinate(
-        pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value)
+    cCoord = NumCpp.Coordinate(pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value)
     assert round(cCoord.ra().degrees(), 9) == round(ra.degrees(), 9)
     assert round(cCoord.dec().degrees(), 9) == round(dec.degrees(), 9)
     assert round(cCoord.x(), 9) == round(pyCoord.cartesian.x.value, 9)
@@ -190,8 +216,7 @@ def test_coord_cartesian_vector_constructor():
     decDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(decDegrees)
     pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
-    vec = np.asarray([pyCoord.cartesian.x.value,
-                     pyCoord.cartesian.y.value, pyCoord.cartesian.z.value])
+    vec = np.asarray([pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value])
     cVec = NumCpp.NdArray(1, 3)
     cVec.setArray(vec)
     cCoord = NumCpp.Coordinate(cVec)
@@ -204,22 +229,48 @@ def test_coord_cartesian_vector_constructor():
 
 ####################################################################################
 def test_coord_rms_constructor():
-    raHours = np.random.randint(0, 24, [1, ], dtype=np.uint8).item()
-    raMinutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
+    raHours = np.random.randint(
+        0,
+        24,
+        [
+            1,
+        ],
+        dtype=np.uint8,
+    ).item()
+    raMinutes = np.random.randint(
+        0,
+        60,
+        [
+            1,
+        ],
+        dtype=np.uint8,
+    ).item()
     raSeconds = np.random.rand(1).astype(float).item() * 60
     raDegreesPy = (raHours + raMinutes / 60 + raSeconds / 3600) * 15
 
-    decSign = NumCpp.Sign.POSITIVE if np.random.randint(
-        -1, 1) == 0 else NumCpp.Sign.NEGATIVE
-    decDegrees = np.random.randint(0, 90, [1, ], dtype=np.uint8).item()
-    decMinutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
+    decSign = NumCpp.Sign.POSITIVE if np.random.randint(-1, 1) == 0 else NumCpp.Sign.NEGATIVE
+    decDegrees = np.random.randint(
+        0,
+        90,
+        [
+            1,
+        ],
+        dtype=np.uint8,
+    ).item()
+    decMinutes = np.random.randint(
+        0,
+        60,
+        [
+            1,
+        ],
+        dtype=np.uint8,
+    ).item()
     decSeconds = np.random.rand(1).astype(float).item() * 60
     decDegreesPy = decDegrees + decMinutes / 60 + decSeconds / 3600
     if decSign == NumCpp.Sign.NEGATIVE:
         decDegreesPy *= -1
 
-    cCoord = NumCpp.Coordinate(
-        raHours, raMinutes, raSeconds, decSign, decDegrees, decMinutes, decSeconds)
+    cCoord = NumCpp.Coordinate(raHours, raMinutes, raSeconds, decSign, decDegrees, decMinutes, decSeconds)
     cRa = cCoord.ra()
     cDec = cCoord.dec()
     pyCoord = SkyCoord(raDegreesPy, decDegreesPy, unit=u.deg)  # noqa
@@ -306,8 +357,7 @@ def test_coord_degreeSeperation_vec():
     pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)  # noqa
     pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)  # noqa
 
-    vec2 = np.asarray(
-        [pyCoord2.cartesian.x, pyCoord2.cartesian.y, pyCoord2.cartesian.z])
+    vec2 = np.asarray([pyCoord2.cartesian.x, pyCoord2.cartesian.y, pyCoord2.cartesian.z])
     cArray = NumCpp.NdArray(1, 3)
     cArray.setArray(vec2)
     cDegSep = cCoord.degreeSeperation(cArray)
@@ -326,8 +376,7 @@ def test_coord_radianSeperation_vec():
     pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)  # noqa
     pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)  # noqa
 
-    vec2 = np.asarray(
-        [pyCoord2.cartesian.x, pyCoord2.cartesian.y, pyCoord2.cartesian.z])
+    vec2 = np.asarray([pyCoord2.cartesian.x, pyCoord2.cartesian.y, pyCoord2.cartesian.z])
     cArray = NumCpp.NdArray(1, 3)
     cArray.setArray(vec2)
     cRadSep = cCoord.radianSeperation(cArray)

@@ -9,14 +9,13 @@ NUM_DECIMALS_ROUND = 10
 
 ####################################################################################
 def test_version():
-    version_file = (Path(__file__).parent /
-                    r'../../include/NumCpp/Core/Internal/Version.hpp')
-    with open(version_file, 'r') as fid:
+    version_file = Path(__file__).parent / r"../../include/NumCpp/Core/Internal/Version.hpp"
+    with open(version_file, "r") as fid:
         version_contents = fid.read()
 
-    version_re = re.compile('constexpr[ ]char[ ]VERSION\\[\\][ ]=[ ]\"(.+)\"')  # noqa
+    version_re = re.compile('constexpr[ ]char[ ]VERSION\\[\\][ ]=[ ]"(.+)"')  # noqa
     version_toks = version_re.findall(version_contents)
-    assert len(version_toks) == 1, 'Unable to parse the version number'
+    assert len(version_toks) == 1, "Unable to parse the version number"
     assert NumCpp.VERSION == version_toks[0]
 
 

@@ -14,14 +14,26 @@ def test_default_constructor():
 
 ####################################################################################
 def test_size_constructor():
-    size = np.random.randint(10, 20, [1, ]).item()
+    size = np.random.randint(
+        10,
+        20,
+        [
+            1,
+        ],
+    ).item()
     dataCube = NumCpp.DataCube(size)
     assert dataCube.sizeZ() == 0
 
 
 ####################################################################################
 def test_methods():
-    shape = np.random.randint(10, 100, [3, ])
+    shape = np.random.randint(
+        10,
+        100,
+        [
+            3,
+        ],
+    )
     cShape = NumCpp.Shape(shape[0].item(), shape[1].item())
     data = np.random.randint(0, 100, shape)
     dataCube = NumCpp.DataCube()
@@ -49,10 +61,10 @@ def test_methods():
             break
     assert allPass
 
-    tempDir = r'C:\Temp'
+    tempDir = r"C:\Temp"
     if not os.path.exists(tempDir):
         os.mkdir(tempDir)
-    tempFile = os.path.join(tempDir, 'DataCube.bin')
+    tempFile = os.path.join(tempDir, "DataCube.bin")
     dataCube.dump(tempFile)
     if os.path.exists(tempFile):
         filesize = os.path.getsize(tempFile)
@@ -76,7 +88,14 @@ def test_methods():
 
 
 def test_z_slices():
-    shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
+    shape = np.random.randint(
+        30,
+        100,
+        [
+            3,
+        ],
+        dtype=np.uint32,
+    )
     data = np.random.randint(0, 100, shape)
     dataCube = NumCpp.DataCube(shape[-1])
     cArray = NumCpp.NdArray(dataCube.shape())
@@ -88,10 +107,16 @@ def test_z_slices():
     colIdx = np.random.randint(0, shape[1])
     idx = int(rowIdx * shape[1] + colIdx)
 
-    assert np.array_equal(dataCube.sliceZAllat(
-        idx).flatten(), data[rowIdx, colIdx, :])
+    assert np.array_equal(dataCube.sliceZAllat(idx).flatten(), data[rowIdx, colIdx, :])
 
-    shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
+    shape = np.random.randint(
+        30,
+        100,
+        [
+            3,
+        ],
+        dtype=np.uint32,
+    )
     data = np.random.randint(0, 100, shape)
     dataCube = NumCpp.DataCube(shape[-1])
     cArray = NumCpp.NdArray(dataCube.shape())
@@ -108,10 +133,16 @@ def test_z_slices():
     zStep = 3
     zSlice = NumCpp.Slice(zStart, zEnd, zStep)
 
-    assert np.array_equal(dataCube.sliceZat(idx, zSlice).flatten(),
-                          data[rowIdx, colIdx, zStart:zEnd:zStep])
+    assert np.array_equal(dataCube.sliceZat(idx, zSlice).flatten(), data[rowIdx, colIdx, zStart:zEnd:zStep])
 
-    shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
+    shape = np.random.randint(
+        30,
+        100,
+        [
+            3,
+        ],
+        dtype=np.uint32,
+    )
     data = np.random.randint(0, 100, shape)
     dataCube = NumCpp.DataCube(shape[-1])
     cArray = NumCpp.NdArray(dataCube.shape())
@@ -122,10 +153,16 @@ def test_z_slices():
     rowIdx = np.random.randint(0, shape[0])
     colIdx = np.random.randint(0, shape[1])
 
-    assert np.array_equal(dataCube.sliceZAllat(
-        rowIdx, colIdx).flatten(), data[rowIdx, colIdx, :])
+    assert np.array_equal(dataCube.sliceZAllat(rowIdx, colIdx).flatten(), data[rowIdx, colIdx, :])
 
-    shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
+    shape = np.random.randint(
+        30,
+        100,
+        [
+            3,
+        ],
+        dtype=np.uint32,
+    )
     data = np.random.randint(0, 100, shape)
     dataCube = NumCpp.DataCube(shape[-1])
     cArray = NumCpp.NdArray(dataCube.shape())
@@ -141,10 +178,16 @@ def test_z_slices():
     zStep = 3
     zSlice = NumCpp.Slice(zStart, zEnd, zStep)
 
-    assert np.array_equal(dataCube.sliceZat(rowIdx, colIdx, zSlice).flatten(),
-                          data[rowIdx, colIdx, zStart:zEnd:zStep])
+    assert np.array_equal(dataCube.sliceZat(rowIdx, colIdx, zSlice).flatten(), data[rowIdx, colIdx, zStart:zEnd:zStep])
 
-    shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
+    shape = np.random.randint(
+        30,
+        100,
+        [
+            3,
+        ],
+        dtype=np.uint32,
+    )
     data = np.random.randint(0, 100, shape)
     dataCube = NumCpp.DataCube(shape[-1])
     cArray = NumCpp.NdArray(dataCube.shape())
@@ -158,10 +201,16 @@ def test_z_slices():
     rowSlice = NumCpp.Slice(rowStart, rowEnd, rowStep)
     colIdx = np.random.randint(0, shape[1])
 
-    assert np.array_equal(dataCube.sliceZAllat(
-        rowSlice, colIdx), data[rowStart:rowEnd:rowStep, colIdx, :])
+    assert np.array_equal(dataCube.sliceZAllat(rowSlice, colIdx), data[rowStart:rowEnd:rowStep, colIdx, :])
 
-    shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
+    shape = np.random.randint(
+        30,
+        100,
+        [
+            3,
+        ],
+        dtype=np.uint32,
+    )
     data = np.random.randint(0, 100, shape)
     dataCube = NumCpp.DataCube(shape[-1])
     cArray = NumCpp.NdArray(dataCube.shape())
@@ -180,10 +229,18 @@ def test_z_slices():
     zStep = 3
     zSlice = NumCpp.Slice(zStart, zEnd, zStep)
 
-    assert np.array_equal(dataCube.sliceZat(rowSlice, colIdx, zSlice),
-                          data[rowStart:rowEnd:rowStep, colIdx, zStart:zEnd:zStep])
+    assert np.array_equal(
+        dataCube.sliceZat(rowSlice, colIdx, zSlice), data[rowStart:rowEnd:rowStep, colIdx, zStart:zEnd:zStep]
+    )
 
-    shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
+    shape = np.random.randint(
+        30,
+        100,
+        [
+            3,
+        ],
+        dtype=np.uint32,
+    )
     data = np.random.randint(0, 100, shape)
     dataCube = NumCpp.DataCube(shape[-1])
     cArray = NumCpp.NdArray(dataCube.shape())
@@ -197,10 +254,16 @@ def test_z_slices():
     colStep = 3
     colSlice = NumCpp.Slice(colStart, colEnd, colStep)
 
-    assert np.array_equal(dataCube.sliceZAllat(
-        rowIdx, colSlice), data[rowIdx, colStart:colEnd:colStep, :])
+    assert np.array_equal(dataCube.sliceZAllat(rowIdx, colSlice), data[rowIdx, colStart:colEnd:colStep, :])
 
-    shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
+    shape = np.random.randint(
+        30,
+        100,
+        [
+            3,
+        ],
+        dtype=np.uint32,
+    )
     data = np.random.randint(0, 100, shape)
     dataCube = NumCpp.DataCube(shape[-1])
     cArray = NumCpp.NdArray(dataCube.shape())
@@ -219,10 +282,18 @@ def test_z_slices():
     zStep = 3
     zSlice = NumCpp.Slice(zStart, zEnd, zStep)
 
-    assert np.array_equal(dataCube.sliceZat(rowIdx, colSlice, zSlice),
-                          data[rowIdx, colStart:colEnd:colStep, zStart:zEnd:zStep])
+    assert np.array_equal(
+        dataCube.sliceZat(rowIdx, colSlice, zSlice), data[rowIdx, colStart:colEnd:colStep, zStart:zEnd:zStep]
+    )
 
-    shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
+    shape = np.random.randint(
+        30,
+        100,
+        [
+            3,
+        ],
+        dtype=np.uint32,
+    )
     data = np.random.randint(0, 100, shape)
     dataCube = NumCpp.DataCube(shape[-1])
     cArray = NumCpp.NdArray(dataCube.shape())
@@ -241,10 +312,16 @@ def test_z_slices():
 
     zSlice = dataCube.sliceZAllat(rowSlice, colSlice)
     for z in range(shape[-1]):
-        assert np.array_equal(zSlice[z].getNumpyArray(
-        ), data[rowStart:rowEnd:rowStep, colStart:colEnd:colStep, z])
+        assert np.array_equal(zSlice[z].getNumpyArray(), data[rowStart:rowEnd:rowStep, colStart:colEnd:colStep, z])
 
-    shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
+    shape = np.random.randint(
+        30,
+        100,
+        [
+            3,
+        ],
+        dtype=np.uint32,
+    )
     data = np.random.randint(0, 100, shape)
     dataCube = NumCpp.DataCube(shape[-1])
     cArray = NumCpp.NdArray(dataCube.shape())
@@ -267,10 +344,8 @@ def test_z_slices():
     zSlice = NumCpp.Slice(zStart, zEnd, zStep)
 
     zSliceDataNC = dataCube.sliceZat(rowSlice, colSlice, zSlice)
-    zSliceData = data[rowStart:rowEnd:rowStep,
-                      colStart:colEnd:colStep, zStart:zEnd:zStep]
+    zSliceData = data[rowStart:rowEnd:rowStep, colStart:colEnd:colStep, zStart:zEnd:zStep]
 
     assert zSliceDataNC.sizeZ() == zSliceData.shape[-1]
     for z in range(zSliceDataNC.sizeZ()):
-        assert np.array_equal(
-            zSliceDataNC[z].getNumpyArray(), zSliceData[:, :, z])
+        assert np.array_equal(zSliceDataNC[z].getNumpyArray(), zSliceData[:, :, z])
