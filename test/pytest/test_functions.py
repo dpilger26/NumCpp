@@ -16,7 +16,7 @@ def factors(n):
 
 ####################################################################################
 def test_seed():
-    np.random.seed(26)
+    np.random.seed(667)
 
 
 ####################################################################################
@@ -8826,11 +8826,11 @@ def test_logspace():
     base = np.random.rand(1) * 10
     assert np.array_equal(
         np.round(NumCpp.logspace(start, stop, num, True, base).flatten(), 8),
-        np.round(np.logspace(start=start, stop=stop, num=num, endpoint=True, base=base), 9),
-    )
+        np.round(np.logspace(start=start, stop=stop, num=num, endpoint=True, base=base), 8),
+    ), f"{np.max(np.abs(np.round(NumCpp.logspace(start, stop, num, True, base).flatten(), 8) - np.round(np.logspace(start=start, stop=stop, num=num, endpoint=True, base=base), 8)))}"
     assert np.array_equal(
         np.round(NumCpp.logspace(start, stop, num, False, base).flatten(), 8),
-        np.round(np.logspace(start=start, stop=stop, num=num, endpoint=False, base=base), 9),
+        np.round(np.logspace(start=start, stop=stop, num=num, endpoint=False, base=base), 8),
     )
 
 
