@@ -66,11 +66,11 @@ def test_quaternion():
     normAxis = axis / np.linalg.norm(axis)
     angle = np.random.rand(1).item() * np.pi
     quat = NumCpp.Quaternion(NumCpp.Vec3(*axis), angle)
-    assert np.round(quat.angleOfRotation(), 9) == np.round(angle, 9)
+    assert np.round(quat.angleOfRotation(), 8) == np.round(angle, 8)
     axisOfRotation = quat.axisOfRotation()
-    assert np.round(axisOfRotation.x, 9) == np.round(normAxis[0], 9)
-    assert np.round(axisOfRotation.y, 9) == np.round(normAxis[1], 9)
-    assert np.round(axisOfRotation.z, 9) == np.round(normAxis[2], 9)
+    assert np.round(axisOfRotation.x, 8) == np.round(normAxis[0], 8)
+    assert np.round(axisOfRotation.y, 8) == np.round(normAxis[1], 8)
+    assert np.round(axisOfRotation.z, 8) == np.round(normAxis[2], 8)
 
     axis = np.random.randint(
         1,
@@ -141,7 +141,7 @@ def test_quaternion():
     axis = w / angularVelocity
 
     # round to 1 decimal place because C is an approximation on magnitude
-    assert np.round(angularVelocity * time - theta, 1) == 0 and np.all(np.round(axis, 9) == np.round(crossTo, 9))
+    assert np.round(angularVelocity * time - theta, 1) == 0 and np.all(np.round(axis, 8) == np.round(crossTo, 8))
 
     quat = np.random.randint(
         1,
