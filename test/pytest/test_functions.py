@@ -2252,7 +2252,7 @@ def test_averageWeighted():
     cArray.setArray(data)
     cWeights.setArray(weights)
     assert np.round(NumCpp.averageWeighted(cArray, cWeights, NumCpp.Axis.NONE).item(), 8) == np.round(
-        np.average(data, weights=weights), 9
+        np.average(data, weights=weights), 8)
     )
 
     shapeInput = np.random.randint(
@@ -2272,7 +2272,7 @@ def test_averageWeighted():
     cArray.setArray(data)
     cWeights.setArray(weights)
     assert np.round(NumCpp.averageWeighted(cArray, cWeights, NumCpp.Axis.NONE).item(), 8) == np.round(
-        np.average(data, weights=weights), 9
+        np.average(data, weights=weights), 8)
     )
 
     shapeInput = np.random.randint(
@@ -4034,7 +4034,7 @@ def test_deleteIndices():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     indices = NumCpp.Slice(0, 100, 4)
-    indicesPy = slice(0, 99, 4)
+    indicesPy = slice(0, 8)9, 4)
     cArray.setArray(data)
     assert np.array_equal(
         NumCpp.deleteIndicesSlice(cArray, indices, NumCpp.Axis.NONE).flatten(), np.delete(data, indicesPy, axis=None)
@@ -4046,7 +4046,7 @@ def test_deleteIndices():
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     indices = NumCpp.Slice(0, 100, 4)
-    indicesPy = slice(0, 99, 4)
+    indicesPy = slice(0, 8)9, 4)
     assert np.array_equal(
         NumCpp.deleteIndicesSlice(cArray, indices, NumCpp.Axis.ROW), np.delete(data, indicesPy, axis=0)
     )
@@ -4057,7 +4057,7 @@ def test_deleteIndices():
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     indices = NumCpp.Slice(0, 100, 4)
-    indicesPy = slice(0, 99, 4)
+    indicesPy = slice(0, 8)9, 4)
     assert np.array_equal(
         NumCpp.deleteIndicesSlice(cArray, indices, NumCpp.Axis.COL), np.delete(data, indicesPy, axis=1)
     )
@@ -6655,7 +6655,7 @@ def test_hypot():
     value2 = np.random.randn(1).item() * 100 + 1000
     value3 = np.random.randn(1).item() * 100 + 1000
     assert np.round(NumCpp.hypotScalarTriple(value1, value2, value3), 8) == np.round(
-        np.sqrt(value1**2 + value2**2 + value3**2), 9
+        np.sqrt(value1**2 + value2**2 + value3**2), 8)
     )
 
     shapeInput = np.random.randint(
@@ -9664,7 +9664,7 @@ def test_mean():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     assert np.round(NumCpp.mean(cArray, NumCpp.Axis.NONE).getNumpyArray().item(), 8) == np.round(
-        np.mean(data, axis=None).item(), 9
+        np.mean(data, axis=None).item(), 8)
     )
 
     shapeInput = np.random.randint(
@@ -9681,7 +9681,7 @@ def test_mean():
     data = real + 1j * imag
     cArray.setArray(data)
     assert np.round(NumCpp.mean(cArray, NumCpp.Axis.NONE).getNumpyArray().item(), 8) == np.round(
-        np.mean(data, axis=None).item(), 9
+        np.mean(data, axis=None).item(), 8)
     )
 
     shapeInput = np.random.randint(
@@ -16190,7 +16190,7 @@ def test_rms():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     assert np.round(NumCpp.rms(cArray, NumCpp.Axis.NONE).getNumpyArray().flatten().item(), 8) == np.round(
-        np.sqrt(np.mean(np.square(data), axis=None)).item(), 9
+        np.sqrt(np.mean(np.square(data), axis=None)).item(), 8)
     )
 
     shapeInput = np.random.randint(
@@ -16207,7 +16207,7 @@ def test_rms():
     data = real + 1j * imag
     cArray.setArray(data)
     assert np.round(NumCpp.rms(cArray, NumCpp.Axis.NONE).getNumpyArray().flatten().item(), 8) == np.round(
-        np.sqrt(np.mean(np.square(data), axis=None)).item(), 9
+        np.sqrt(np.mean(np.square(data), axis=None)).item(), 8)
     )
 
     shapeInput = np.random.randint(
