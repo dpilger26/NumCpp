@@ -83,11 +83,18 @@ def test_poly1D_fit():
     cX.setArray(xValues)
     cY.setArray(yValues)
 
-    poly = Polynomial.fit(xValues, yValues.flatten(), polyOrder).convert().coef  # noqa
-    polyC = NumCpp.Poly1d.fit(
-        cX, cY, polyOrder).coefficients().getNumpyArray().flatten()
+    poly = Polynomial.fit(xValues, yValues.flatten(), polyOrder)
+    polyC = NumCpp.Poly1d.fit( cX, cY, polyOrder)
+    
+    polyCoeffs = poly.convert().coef  # noqa
+    polyCcoeffs = polyC.coefficients().getNumpyArray().flatten()
 
-    assert np.array_equal(np.round(poly, 5), np.round(polyC, 5))
+    assert np.array_equal(np.round(polyCoeffs, 5), np.round(polyCcoeffs, 5))
+
+    polyEval = poly(xs)
+    polyCeval = polyC.eval(cX).getNumpyArray().flatten()
+
+    assert np.array_equal(np.round(polyEval, 5), np.round(polyCeval, 5))
 
 
 ####################################################################################
