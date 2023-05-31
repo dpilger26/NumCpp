@@ -29,6 +29,7 @@
 
 #include <initializer_list>
 #include <string>
+#include <iostream>
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
@@ -46,7 +47,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> row_stack(const std::initializer_list<NdArray<dtype>>& inArrayList)
+    NdArray<dtype> row_stack(const std::list<NdArray<dtype>>& inArrayList)
     {
         // first loop through to calculate the final size of the array
         Shape finalShape;
@@ -65,7 +66,7 @@ namespace nc
                 finalShape.rows += ndarray.shape().rows;
             }
         }
-
+        
         // now that we know the final size, contruct the output array
         NdArray<dtype> returnArray(finalShape);
         uint32         rowStart = 0;

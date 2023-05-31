@@ -46,7 +46,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> hstack(std::initializer_list<NdArray<dtype>> inArrayList)
+    NdArray<dtype> hstack(std::list<NdArray<dtype>> inArrayList)
     {
         return column_stack(inArrayList);
     }
