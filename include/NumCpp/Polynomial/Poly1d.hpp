@@ -425,7 +425,7 @@ namespace nc::polynomial
         ///
         NdArray<dtype> eval(const NdArray<dtype>& xValues) const noexcept
         {
-            return operator(xValues);
+            return operator()(xValues);
         }
         
         //============================================================================
@@ -437,12 +437,13 @@ namespace nc::polynomial
         ///
         NdArray<dtype> operator()(const NdArray<dtype>& xValues) const noexcept
         {
-            NdArray<dtype> returnArray;
+            std::vector<dtype> tmp;
+            
             for(auto& xValue : xValues)
             {
-                returnArray.append(operator(xValue));
+                tmp.push_back(operator()(xValue));
             }
-            return returnArray;
+            return NdArray<dtype>(tmp);
         }
         
 
