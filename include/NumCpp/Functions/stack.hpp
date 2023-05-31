@@ -35,6 +35,7 @@
 #include "NumCpp/Functions/column_stack.hpp"
 #include "NumCpp/Functions/row_stack.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Converters.hpp"
 
 namespace nc
 {
@@ -47,9 +48,26 @@ namespace nc
     /// @param inArrayList: {list} of arrays to stack
     /// @param inAxis: axis to stack the input NdArrays
     /// @return NdArray
-    ///
+    ///    
     template<typename dtype>
     NdArray<dtype> stack(std::initializer_list<NdArray<dtype>> inArrayList, Axis inAxis = Axis::NONE)
+    {
+        return stack(convert_initializer_list_2_list(inArrayList), inAxis);
+    }
+
+
+    //============================================================================
+    // Method Description:
+    /// Compute the variance along the specified axis.
+    ///
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.stack.html
+    ///
+    /// @param inArrayList: {list} of arrays to stack
+    /// @param inAxis: axis to stack the input NdArrays
+    /// @return NdArray
+    ///    
+    template<typename dtype>
+    NdArray<dtype> stack(std::list<NdArray<dtype>> inArrayList, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
         {

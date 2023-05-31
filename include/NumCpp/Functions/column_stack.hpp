@@ -46,7 +46,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> column_stack(const std::initializer_list<NdArray<dtype>>& inArrayList)
+    NdArray<dtype> column_stack(const std::list<NdArray<dtype>>& inArrayList)
     {
         // first loop through to calculate the final size of the array
         Shape finalShape;

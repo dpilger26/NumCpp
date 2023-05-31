@@ -1,9 +1,9 @@
 /// @file
-/// @author David Pilger <dpilger26@gmail.com>
+/// @author Levente Torok <toroklev@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2023 David Pilger
+/// Copyright 2018-2023 Levente Torok
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -28,45 +28,23 @@
 #pragma once
 
 #include <initializer_list>
+#include <string>
 
-#include "NumCpp/Functions/row_stack.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Converters.hpp"
-
 
 namespace nc
 {
-
-    
-    //============================================================================
-    // Method Description:
-    /// Compute the variance along the specified axis.
-    ///
-    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.vstack.html
-    ///
-    /// @param inArrayList: {list} of arrays to stack
-    ///
-    /// @return NdArray
-    ///
     template<typename dtype>
-    NdArray<dtype> vstack(std::initializer_list<NdArray<dtype>> inArrayList)
+    std::list<NdArray<dtype>> convert_initializer_list_2_list(std::initializer_list<NdArray<dtype>> inArrayList)
     {
-        return row_stack(convert_initializer_list_2_list(inArrayList));
+        std::list<NdArray<dtype>> returnArrayList;
+        
+        for (auto& ndarray : inArrayList)
+        {
+            returnArrayList.push_front(ndarray);
+        }
+        return returnArrayList;
     }
-
-    //============================================================================
-    // Method Description:
-    /// Compute the variance along the specified axis.
-    ///
-    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.vstack.html
-    ///
-    /// @param inArrayList: {list} of arrays to stack
-    ///
-    /// @return NdArray
-    ///
-    template<typename dtype>
-    NdArray<dtype> vstack(std::list<NdArray<dtype>> inArrayList)
-    {
-        return row_stack(inArrayList);
-    }
-} // namespace nc
+}

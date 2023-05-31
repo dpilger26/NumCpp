@@ -31,6 +31,8 @@
 
 #include "NumCpp/Functions/column_stack.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Converters.hpp"
+
 
 namespace nc
 {
@@ -47,6 +49,23 @@ namespace nc
     ///
     template<typename dtype>
     NdArray<dtype> hstack(std::initializer_list<NdArray<dtype>> inArrayList)
+    {
+        return column_stack(convert_initializer_list_2_list(inArrayList));
+    }
+
+    //============================================================================
+    // Method Description:
+    /// Stack arrays in sequence horizontally (column wise).
+    ///
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hstack.html
+    ///
+    ///
+    /// @param inArrayList: {list} of arrays to stack
+    ///
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> hstack(std::list<NdArray<dtype>> inArrayList)
     {
         return column_stack(inArrayList);
     }
