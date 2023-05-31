@@ -29,6 +29,7 @@
 
 #include <iostream>
 #include <string>
+#include <cassert>
 
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Utils/num2str.hpp"
@@ -94,6 +95,20 @@ namespace nc
         bool operator!=(const Shape& inOtherShape) const noexcept
         {
             return !(*this == inOtherShape);
+        }
+
+        //============================================================================
+        /// index on shape "vector"
+        ///
+        /// @param index
+        ///
+        /// @return uint32
+        ///
+        uint32 operator[](uint32 index) const
+        {
+            assert(index < 2);
+            
+            return index == 0 ? rows : cols;
         }
 
         //============================================================================
