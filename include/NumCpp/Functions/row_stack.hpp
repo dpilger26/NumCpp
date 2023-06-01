@@ -53,6 +53,10 @@ namespace nc
         Shape finalShape;
         for (auto& ndarray : inArrayList)
         {
+            if (ndarray.shape().isnull())
+            {
+                continue;
+            }
             if (finalShape.isnull())
             {
                 finalShape = ndarray.shape();
@@ -72,6 +76,10 @@ namespace nc
         uint32         rowStart = 0;
         for (auto& ndarray : inArrayList)
         {
+            if (ndarray.shape().isnull())
+            {
+                continue;
+            }
             const Shape theShape = ndarray.shape();
             for (uint32 row = 0; row < theShape.rows; ++row)
             {
