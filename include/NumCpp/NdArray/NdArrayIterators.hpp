@@ -29,7 +29,6 @@
 
 #include <iterator>
 
-#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 
 namespace nc
@@ -62,13 +61,9 @@ namespace nc
         ///
         /// @param ptr: the iterator pointer
         ///
-        explicit NdArrayConstIterator(pointer ptr) :
+        explicit NdArrayConstIterator(pointer ptr) noexcept :
             ptr_(ptr)
         {
-            if (ptr == nullptr)
-            {
-                THROW_RUNTIME_ERROR("NdArray has not been initialized.");
-            }
         }
 
         //============================================================================
