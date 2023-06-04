@@ -2,6 +2,9 @@
 
 ## Version 2.11.0
 
+* `stack`/`vstack`/`hstack`/`row_stack`/`col_stack` should take in a `std::vector`, ISSUE #196
+* incorporate new utilities under `/develop`
+
 * run clang-tidy
 * run cppcheck
 * rebuild documentation
