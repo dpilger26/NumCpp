@@ -4193,9 +4193,13 @@ namespace nc
         /// can be -1. In this case, the value is inferred from the length of the
         /// array and remaining dimensions.
         ///
+        /// NOTE: array shape is modified. If a copy is desired then the user should call the copy method:
+        /// auto aNew = a.reshape(newSize).copy()
+        ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///
         /// @param inSize
+        /// @returns reference to self
         ///
         self_type& reshape(size_type inSize)
         {
@@ -4219,10 +4223,14 @@ namespace nc
         /// can be -1. In this case, the value is inferred from the length of the
         /// array and remaining dimensions.
         ///
+        /// NOTE: array shape is modified. If a copy is desired then the user should call the copy method:
+        /// auto aNew = a.reshape(newRows, newCols).copy()
+        ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///
         /// @param inNumRows
         /// @param inNumCols
+        /// @returns reference to self
         ///
         self_type& reshape(index_type inNumRows, index_type inNumCols)
         {
@@ -4270,9 +4278,13 @@ namespace nc
         /// can be -1. In this case, the value is inferred from the length of the
         /// array and remaining dimensions.
         ///
+        /// NOTE: array shape is modified. If a copy is desired then the user should call the copy method:
+        /// auto aNew = a.reshape(newShape).copy()
+        ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///
         /// @param inShape
+        /// @returns reference to self
         ///
         self_type& reshape(const Shape& inShape)
         {
