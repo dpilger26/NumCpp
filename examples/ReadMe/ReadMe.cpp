@@ -1,8 +1,7 @@
 #include "NumCpp.hpp"
 
+#include <filesystem>
 #include <iostream>
-
-#include "boost/filesystem.hpp"
 
 int main()
 {
@@ -120,7 +119,7 @@ int main()
     a.print();
     std::cout << a << std::endl;
 
-    auto tempDir = boost::filesystem::temp_directory_path();
+    auto tempDir = std::filesystem::temp_directory_path();
     auto tempTxt = (tempDir / "temp.txt").string();
     a.tofile(tempTxt, '\n');
     auto a50 = nc::fromfile<int>(tempTxt, '\n');
