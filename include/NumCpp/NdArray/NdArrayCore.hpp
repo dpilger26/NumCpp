@@ -4421,7 +4421,7 @@ namespace nc
         ///
         /// @return Shape
         ///
-        [[nodiscard]] Shape shape() const noexcept
+        [[nodiscard]] const Shape& shape() const noexcept
         {
             return shape_;
         }
