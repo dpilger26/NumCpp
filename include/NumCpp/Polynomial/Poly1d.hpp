@@ -177,6 +177,30 @@ namespace nc::polynomial
 
         //============================================================================
         // Method Description:
+        /// Evaluates the Poly1D object for the input value
+        ///
+        /// @param xValues
+        /// @return predicted yValues
+        ///
+        dtype eval(dtype xValue) const noexcept
+        {
+            return operator()(xValue);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Evaluates the Poly1D object for the input value
+        ///
+        /// @param xValues
+        /// @return predicted yValues
+        ///
+        NdArray<dtype> eval(const NdArray<dtype>& xValues) const noexcept
+        {
+            return operator()(xValues);
+        }
+
+        //============================================================================
+        // Method Description:
         /// Polynomial linear least squares regression: Ax = b
         ///
         /// @param xValues: the x measurements [1, n] or [n, 1] array
@@ -403,7 +427,7 @@ namespace nc::polynomial
         /// Evaluates the Poly1D object for the input value
         ///
         /// @param inValue
-        /// @return Poly1d
+        /// @return dtype scalar
         ///
         dtype operator()(dtype inValue) const noexcept
         {
@@ -413,6 +437,24 @@ namespace nc::polynomial
                                    dtype{ 0 },
                                    [&power, inValue](dtype polyValue, const auto& coefficient) noexcept -> dtype
                                    { return polyValue + coefficient * utils::power(inValue, power++); });
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Evaluates the Poly1D object for the input value
+        ///
+        /// @param xValues
+        /// @return predicted yValues
+        ///
+        NdArray<dtype> operator()(const NdArray<dtype>& xValues) const noexcept
+        {
+            NdArray<dtype> returnArray(xValues.shape());
+
+            stl_algorithms::transform(xValues.begin(),
+                                      xValues.end(),
+                                      returnArray.begin(),
+                                      [this](const auto xValue) { return operator()(xValue); });
+            return returnArray;
         }
 
         //============================================================================

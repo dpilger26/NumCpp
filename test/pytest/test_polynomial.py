@@ -65,6 +65,44 @@ def test_poly1D_roots_constructor():
 
 
 ####################################################################################
+def test_poly1D_eval():
+    numRoots = np.random.randint(
+        3,
+        10,
+        [
+            1,
+        ],
+    ).item()
+    roots = np.random.randint(
+        -20,
+        20,
+        [
+            numRoots,
+        ],
+    )
+    rootsC = NumCpp.NdArray(1, numRoots)
+    rootsC.setArray(roots)
+    poly = np.poly1d(roots, True)
+    polyC = NumCpp.Poly1d(rootsC, True)
+    assert np.array_equal(
+        np.fliplr(polyC.coefficients().getNumpyArray()).flatten().astype(int), poly.coefficients
+    )  # noqa
+
+    # single value
+    xValue = np.random.rand() * 2
+    assert np.round(polyC.eval(xValue), 5) == np.round(poly(xValue), 5)
+
+    # array of values
+    xValues = (np.random.rand(100) * 2).reshape(20, 5)
+    xCValues = NumCpp.NdArray(1, xValues.size)
+    xCValues.setArray(xValues)
+
+    assert np.array_equal(
+        np.round(polyC.eval(xCValues).getNumpyArray(), 5), np.round(np.vstack(list(map(lambda x: poly(x), xValues))), 5)
+    )
+
+
+####################################################################################
 def test_poly1D_integ_deriv_area_order():
     numRoots = np.random.randint(
         3,
