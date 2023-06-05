@@ -62,6 +62,7 @@ void initConstants(pb11::module &m)
     m.attr("e")                       = constants::e;
     m.attr("inf")                     = constants::inf;
     m.attr("pi")                      = constants::pi;
+    m.attr("twoPi")                   = constants::twoPi;
     m.attr("nan")                     = constants::nan;
     m.attr("j")                       = constants::j;
     m.attr("DAYS_PER_WEEK")           = constants::DAYS_PER_WEEK;

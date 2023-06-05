@@ -284,5 +284,7 @@
 #include "NumCpp/Functions/vsplit.hpp"
 #include "NumCpp/Functions/vstack.hpp"
 #include "NumCpp/Functions/where.hpp"
+#include "NumCpp/Functions/wrap.hpp"
+#include "NumCpp/Functions/wrap2Pi.hpp"
 #include "NumCpp/Functions/zeros.hpp"
 #include "NumCpp/Functions/zeros_like.hpp"

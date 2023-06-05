@@ -29,7 +29,7 @@
 /// **C++ Standards:**
 /// C++14
 /// C++17
-/// C++2a
+/// C++20
 ///
 /// **Compilers:**
 /// Visual Studio: 2017, 2019
@@ -49,6 +49,7 @@
 #include "NumCpp/ImageProcessing.hpp"
 #include "NumCpp/Integrate.hpp"
 #include "NumCpp/Linalg.hpp"
+#include "NumCpp/Logging.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Polynomial.hpp"
 #include "NumCpp/PythonInterface.hpp"

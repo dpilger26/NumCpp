@@ -41,6 +41,11 @@ def test_pi():
 
 
 ####################################################################################
+def test_twoPi():
+    assert round(NumCpp.twoPi, NUM_DECIMALS_ROUND) == round(np.pi * 2, 10)
+
+
+####################################################################################
 def test_nan():
     assert np.isnan(NumCpp.nan)
 

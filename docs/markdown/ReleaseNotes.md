@@ -2,7 +2,13 @@
 
 ## Version 2.11.0
 
-* new utils
+* Fixed Issue #190
+* Fixed Issue #194
+* Fixed Issue #196
+* Added `wrap` and `wrap2Pi` functions
+* Added `Logger` and `BinaryLogger` classes for logging data
+* Added `coordinates::reference_frames` and `coordinates::transforms` namespaces for converting between various coordinate systems
+* various performance improvements and bug fixes
 
 ## Version 2.10.1
 

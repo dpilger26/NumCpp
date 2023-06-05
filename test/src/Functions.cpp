@@ -3774,6 +3774,10 @@ void initFunctions(pb11::module& m)
     m.def("where", &FunctionsInterface::whereScalarArray<ComplexDouble>);
     m.def("where", &FunctionsInterface::whereScalarScalar<double>);
     m.def("where", &FunctionsInterface::whereScalarScalar<ComplexDouble>);
+    m.def("wrap", [](double value) { return nc::wrap(value); });
+    m.def("wrap", [](const NdArray<double>& values) { return nc::wrap(values); });
+    m.def("wrap2Pi", [](double value) { return nc::wrap2Pi(value); });
+    m.def("wrap2Pi", [](const NdArray<double>& values) { return nc::wrap2Pi(values); });
 
     m.def("zerosSquare", &FunctionsInterface::zerosSquare<double>);
     m.def("zerosSquareComplex", &FunctionsInterface::zerosSquare<ComplexDouble>);

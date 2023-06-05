@@ -30,6 +30,7 @@ add_library(${TARGET_NAME} SHARED
   ImageProcessing.cpp 
   Integrate.cpp 
   Linalg.cpp 
+  Logger.cpp
   Misc.cpp 
   NdArray.cpp 
   Polynomial.cpp 
