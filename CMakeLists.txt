@@ -72,9 +72,9 @@ else()
     set(Boost_USE_STATIC_LIBS ON)
     target_link_libraries(${ALL_INTERFACE_TARGET} INTERFACE 
         Boost::boost
-        $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::date_time>
-        $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::log>
-        $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::log_setup>
+        Boost::date_time
+        Boost::log
+        Boost::log_setup
     )
 endif()
 

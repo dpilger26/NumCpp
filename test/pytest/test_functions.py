@@ -18929,12 +18929,33 @@ def test_where():
 
 ####################################################################################
 def test_wrap():
-    pass
+    assert np.round(NumCpp.wrap(0.1), 9) == np.round(0.1, 9)
+    assert np.round(NumCpp.wrap(NumCpp.pi - 0.1), 9) == np.round(NumCpp.pi - 0.1, 9)
+    assert np.round(NumCpp.wrap(NumCpp.pi + 0.1), 9) == np.round(-NumCpp.pi + 0.1, 9)
+    assert np.round(NumCpp.wrap(NumCpp.twoPi - 0.1), 9) == np.round(-0.1, 9)
+
+    for _ in range(1000):
+        value = np.random.rand() * 20 - 10
+        wrappedValue = NumCpp.wrap(value)
+        assert wrappedValue >= -np.pi and wrappedValue <= np.pi
 
 
 ####################################################################################
 def test_wrap2Pi():
-    pass
+    assert np.round(NumCpp.wrap2Pi(0.1), 9) == np.round(0.1, 9)
+    assert np.round(NumCpp.wrap2Pi(NumCpp.pi - 0.1), 9) == np.round(NumCpp.pi - 0.1, 9)
+    assert np.round(NumCpp.wrap2Pi(NumCpp.pi + 0.1), 9) == np.round(NumCpp.pi + 0.1, 9)
+    assert np.round(NumCpp.wrap2Pi(NumCpp.twoPi - 0.1), 9) == np.round(NumCpp.twoPi - 0.1, 9)
+
+    assert np.round(NumCpp.wrap2Pi(NumCpp.twoPi + 0.1), 9) == np.round(0.1, 9)
+    assert np.round(NumCpp.wrap2Pi(NumCpp.twoPi + NumCpp.pi - 0.1), 9) == np.round(NumCpp.pi - 0.1, 9)
+    assert np.round(NumCpp.wrap2Pi(NumCpp.twoPi + NumCpp.pi + 0.1), 9) == np.round(NumCpp.pi + 0.1, 9)
+    assert np.round(NumCpp.wrap2Pi(NumCpp.twoPi + NumCpp.twoPi - 0.1), 9) == np.round(NumCpp.twoPi - 0.1, 9)
+
+    for _ in range(1000):
+        value = np.random.rand() * 20 - 10
+        wrappedValue = NumCpp.wrap2Pi(value)
+        assert wrappedValue >= 0 and wrappedValue <= np.pi * 2
 
 
 ####################################################################################
