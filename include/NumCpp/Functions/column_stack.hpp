@@ -46,11 +46,11 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> column_stack(const std::list<NdArray<dtype>>& inArrayList)
+    NdArray<dtype> column_stack(const std::vector<NdArray<dtype>>& inArrayVector)
     {
         // first loop through to calculate the final size of the array
         Shape finalShape;
-        for (auto& ndarray : inArrayList)
+        for (auto& ndarray : inArrayVector)
         {
             if (ndarray.shape().isnull())
             {
@@ -73,7 +73,7 @@ namespace nc
         // now that we know the final size, contruct the output array
         NdArray<dtype> returnArray(finalShape);
         uint32         colStart = 0;
-        for (auto& ndarray : inArrayList)
+        for (auto& ndarray : inArrayVector)
         {
             if (ndarray.shape().isnull())
             {

@@ -35,7 +35,7 @@
 #include "NumCpp/Functions/column_stack.hpp"
 #include "NumCpp/Functions/row_stack.hpp"
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Converters.hpp"
+#include "NumCpp/Core/Internal/Converters.hpp"
 
 namespace nc
 {
@@ -52,7 +52,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> stack(std::initializer_list<NdArray<dtype>> inArrayList, Axis inAxis = Axis::NONE)
     {
-        return stack(convert_initializer_list_2_list(inArrayList), inAxis);
+        auto inArrayVect = ConvertInitializerList2Vector(inArrayList);
+        return stack(inArrayVect, inAxis);
     }
 
 
@@ -67,17 +68,17 @@ namespace nc
     /// @return NdArray
     ///    
     template<typename dtype>
-    NdArray<dtype> stack(std::list<NdArray<dtype>> inArrayList, Axis inAxis = Axis::NONE)
+    NdArray<dtype> stack(std::vector<NdArray<dtype>>& inArrayVector, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
         {
             case Axis::ROW:
             {
-                return row_stack(inArrayList);
+                return row_stack(inArrayVector);
             }
             case Axis::COL:
             {
-                return column_stack(inArrayList);
+                return column_stack(inArrayVector);
             }
             default:
             {

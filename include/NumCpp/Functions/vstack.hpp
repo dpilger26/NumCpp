@@ -31,7 +31,7 @@
 
 #include "NumCpp/Functions/row_stack.hpp"
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Converters.hpp"
+#include "NumCpp/Core/Internal/Converters.hpp"
 
 
 namespace nc
@@ -51,7 +51,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> vstack(std::initializer_list<NdArray<dtype>> inArrayList)
     {
-        return row_stack(convert_initializer_list_2_list(inArrayList));
+        return row_stack(ConvertInitializerList2Vector(inArrayList));
     }
 
     //============================================================================
@@ -65,8 +65,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> vstack(std::list<NdArray<dtype>> inArrayList)
+    NdArray<dtype> vstack(std::vector<NdArray<dtype>>& inArrayVector)
     {
-        return row_stack(inArrayList);
+        return row_stack(inArrayVector);
     }
 } // namespace nc

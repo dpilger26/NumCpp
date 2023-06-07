@@ -28,7 +28,7 @@
 #pragma once
 
 #include <initializer_list>
-#include <string>
+#include <vector>
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -37,13 +37,13 @@
 namespace nc
 {
     template<typename dtype>
-    std::list<NdArray<dtype>> convert_initializer_list_2_list(std::initializer_list<NdArray<dtype>> inArrayList)
+    std::vector<NdArray<dtype>> ConvertInitializerList2Vector(std::initializer_list<NdArray<dtype>>& inArrayList)
     {
-        std::list<NdArray<dtype>> returnArrayList;
-        
-        for (auto& ndarray : inArrayList)
+        std::vector<NdArray<dtype>> returnArrayList;
+
+        for (const auto& ndarray : inArrayList)
         {
-            returnArrayList.push_front(ndarray);
+            returnArrayList.push_back(ndarray);
         }
         return returnArrayList;
     }
