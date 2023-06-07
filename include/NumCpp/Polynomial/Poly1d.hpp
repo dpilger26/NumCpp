@@ -417,6 +417,34 @@ namespace nc::polynomial
 
         //============================================================================
         // Method Description:
+        /// Evaluates the Poly1D object for the input array
+        ///
+        /// @param inValue
+        /// @return Poly1d
+        ///
+        NdArray<dtype> operator()(const NdArray<dtype>& xValues) const noexcept
+        {
+            NdArray<dtype> yValues = xValues.copy();
+        
+            if (!xValues.isflat())
+            {
+                THROW_INVALID_ARGUMENT_ERROR("Input x must be a flattened [1, n] or [n, 1] array.");
+            }
+
+
+            for (uint32 row = 0; row < xValues.shape().rows; ++row)
+            {
+                for (uint32 col = 0; col < xValues.shape().cols; ++col)
+                {
+                    yValues(row, col) = operator()(xValues(row, col));
+                }
+            }
+            return yValues;
+
+        }
+
+        //============================================================================
+        // Method Description:
         /// Adds the two Poly1d objects
         ///
         /// @param inOtherPoly
