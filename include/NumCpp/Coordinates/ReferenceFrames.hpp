@@ -26,3 +26,13 @@
 /// Coordinate reference frame functions
 ///
 #pragma once
+
+#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/Cartesian.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/Celestial/Coordinate.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/Celestial/Dec.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/Celestial/RA.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ENU.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/NED.hpp"

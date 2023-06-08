@@ -23,50 +23,28 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// Description
-/// NdArray Functions
+/// Coordinate Transforms
 ///
 #pragma once
 
-#include <cmath>
+#include "NumCpp/Coordinates/Euler.h"
+#include "NumCpp/Coordinates/Orientation.h"
+#include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
+#include "NumCpp/Coordinates/Transforms/ECEFEulerToNEDRollPitchYaw.hpp"
 
-#include "NumCpp/Core/Constants.hpp"
-
-namespace nc
+namespace nc::coordinates::transforms
 {
     /**
-     * @brief Wrap the input angle to [0, 2*pi]
+     * @brief Converts ECEF euler angles to body roll/pitch/yaw
      *
-     * @params: inAngle: in radians
-     * @returns Wrapped angle
+     * @param location: the ecef location
+     * @param orientation: ecef euler angles
+     * @return Orientation
      */
-    template<typename dtype>
-    double wrap2Pi(dtype inAngle) noexcept
+    [[nodiscard]] inline Orientation ECEFEulerToENURollPitchYaw(const reference_frames::ECEF& location,
+                                                                const Euler&                  orientation) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
-        auto angle = std::fmod(static_cast<double>(inAngle), constants::twoPi);
-        if (angle < 0.)
-        {
-            angle += constants::twoPi;
-        }
-
-        return angle;
+        const auto nedOrientation = ECEFEulerToNEDRollPitchYaw(location, orientation);
+        return { nedOrientation.pitch(), nedOrientation.roll(), -nedOrientation.yaw() };
     }
-
-    /**
-     * @brief Wrap the input angle to [0, 2*pi]
-     *
-     * @params: inAngles: in radians
-     * @returns Wrapped angles
-     */
-    template<typename dtype>
-    NdArray<double> wrap2Pi(const NdArray<dtype>& inAngles) noexcept
-    {
-        NdArray<double> returnArray(inAngles.size());
-        stl_algorithms::transform(inAngles.begin(),
-                                  inAngles.end(),
-                                  returnArray.begin(),
-                                  [](const auto angle) noexcept -> double { return wrap2Pi(angle); });
-        return returnArray;
-    }
-} // namespace nc
+} // namespace nc::coordinates::transforms

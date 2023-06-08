@@ -23,50 +23,38 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// Description
-/// NdArray Functions
+/// Coordinate Transforms
 ///
 #pragma once
 
 #include <cmath>
 
-#include "NumCpp/Core/Constants.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
+#include "NumCpp/Coordinates/Transforms/ECEFtoLLA.hpp"
+#include "NumCpp/Vector/Vec3.hpp"
 
-namespace nc
+namespace nc::coordinates::transforms
 {
     /**
-     * @brief Wrap the input angle to [0, 2*pi]
+     * @brief get the local NED unit vectors wrt the ECEF coordinate system
+     *        https://gssc.esa.int/navipedia/index.php/Transformations_between_ECEF_and_ENU_coordinates
      *
-     * @params: inAngle: in radians
-     * @returns Wrapped angle
+     * @param location: the ECEF location
+     * @return std::array<Vec3, 3>
      */
-    template<typename dtype>
-    double wrap2Pi(dtype inAngle) noexcept
+    [[nodiscard]] inline std::array<Vec3, 3> NEDUnitVecsInECEF(const reference_frames::ECEF& location) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        const auto lla = ECEFtoLLA(location);
 
-        auto angle = std::fmod(static_cast<double>(inAngle), constants::twoPi);
-        if (angle < 0.)
-        {
-            angle += constants::twoPi;
-        }
+        const auto sinLat = std::sin(lla.latitude());
+        const auto cosLat = std::cos(lla.latitude());
+        const auto sinLon = std::sin(lla.longitude());
+        const auto cosLon = std::cos(lla.longitude());
 
-        return angle;
+        const auto xHat = Vec3{ -cosLon * sinLat, -sinLon * sinLat, cosLat };
+        const auto yHat = Vec3{ -sinLon, cosLon, 0. };
+        const auto zHat = Vec3{ -cosLon * cosLat, -sinLon * cosLat, -sinLat };
+
+        return { xHat, yHat, zHat };
     }
-
-    /**
-     * @brief Wrap the input angle to [0, 2*pi]
-     *
-     * @params: inAngles: in radians
-     * @returns Wrapped angles
-     */
-    template<typename dtype>
-    NdArray<double> wrap2Pi(const NdArray<dtype>& inAngles) noexcept
-    {
-        NdArray<double> returnArray(inAngles.size());
-        stl_algorithms::transform(inAngles.begin(),
-                                  inAngles.end(),
-                                  returnArray.begin(),
-                                  [](const auto angle) noexcept -> double { return wrap2Pi(angle); });
-        return returnArray;
-    }
-} // namespace nc
+} // namespace nc::coordinates::transforms

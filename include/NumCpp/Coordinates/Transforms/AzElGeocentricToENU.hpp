@@ -23,50 +23,28 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// Description
-/// NdArray Functions
+/// Coordinate Transforms
 ///
 #pragma once
 
-#include <cmath>
+#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/NED.hpp"
+#include "NumCpp/Coordinates/Transforms/AzElGeocentricToNED.hpp"
+#include "NumCpp/Coordinates/Transforms/NEDtoENU.hpp"
 
-#include "NumCpp/Core/Constants.hpp"
-
-namespace nc
+namespace nc::coordinates::transforms
 {
     /**
-     * @brief Wrap the input angle to [0, 2*pi]
+     * @brief Converts the spherical inertial coordinates (NED) to Cartesian XYZ (NED).
+     *        NOTE: positive elevation is defined as the positive z (up) direction
      *
-     * @params: inAngle: in radians
-     * @returns Wrapped angle
+     * @param azEl 2D Inertial azimuth and elevation
+     * @param range Optional range
+     * @return NED
      */
-    template<typename dtype>
-    double wrap2Pi(dtype inAngle) noexcept
+    [[nodiscard]] inline reference_frames::NED AzElGeocentricToENU(const reference_frames::AzEl azEl,
+                                                                   double                       range = 1.0) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
-        auto angle = std::fmod(static_cast<double>(inAngle), constants::twoPi);
-        if (angle < 0.)
-        {
-            angle += constants::twoPi;
-        }
-
-        return angle;
+        return NEDtoENU(AzElGeocentricToNED(azEl, range));
     }
-
-    /**
-     * @brief Wrap the input angle to [0, 2*pi]
-     *
-     * @params: inAngles: in radians
-     * @returns Wrapped angles
-     */
-    template<typename dtype>
-    NdArray<double> wrap2Pi(const NdArray<dtype>& inAngles) noexcept
-    {
-        NdArray<double> returnArray(inAngles.size());
-        stl_algorithms::transform(inAngles.begin(),
-                                  inAngles.end(),
-                                  returnArray.begin(),
-                                  [](const auto angle) noexcept -> double { return wrap2Pi(angle); });
-        return returnArray;
-    }
-} // namespace nc
+} // namespace nc::coordinates::transforms

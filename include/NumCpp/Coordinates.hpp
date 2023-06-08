@@ -27,10 +27,6 @@
 ///
 #pragma once
 
-#include "NumCpp/Coordinates/Cartesian.hpp"
-#include "NumCpp/Coordinates/Coordinate.hpp"
-#include "NumCpp/Coordinates/Dec.hpp"
-#include "NumCpp/Coordinates/RA.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames.hpp"
 #include "NumCpp/Coordinates/Transforms.hpp"
 #include "NumCpp/Coordinates/degreeSeperation.hpp"

@@ -1,3 +1,30 @@
+/// @file
+/// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
+///
+/// License
+/// Copyright 2018-2023 David Pilger
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy of this
+/// software and associated documentation files(the "Software"), to deal in the Software
+/// without restriction, including without limitation the rights to use, copy, modify,
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+/// permit persons to whom the Software is furnished to do so, subject to the following
+/// conditions :
+///
+/// The above copyright notice and this permission notice shall be included in all copies
+/// or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+/// DEALINGS IN THE SOFTWARE.
+///
+/// Description
+/// Cartesian Object
+///
 #pragma once
 
 #include <cmath>
@@ -6,7 +33,7 @@
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 
-namespace nc::coordinates
+namespace nc::coordinates::reference_frames
 {
     /**
      * @brief Cartensian coordinates
@@ -14,6 +41,10 @@ namespace nc::coordinates
     class Cartesian
     {
     public:
+        double x{ 0. };
+        double y{ 0. };
+        double z{ 0. };
+
         /**
          * @brief Default Constructor
          */
@@ -26,10 +57,10 @@ namespace nc::coordinates
          * @param: y: the y component
          * @param: z: the z component
          */
-        constexpr Cartesian(double x, double y, double z = 0.0) noexcept :
-            x_(x),
-            y_(y),
-            z_(z)
+        constexpr Cartesian(double x, double y, double z = 0.) noexcept :
+            x(x),
+            y(y),
+            z(z)
         {
         }
 
@@ -67,73 +98,13 @@ namespace nc::coordinates
         Cartesian& operator=(Cartesian&& other) noexcept = default;
 
         /**
-         * @brief x getter
-         *
-         * @return x
-         */
-        [[nodiscard]] double x() const noexcept
-        {
-            return x_;
-        }
-
-        /**
-         * @brief z setter
-         *
-         * @param z: z value
-         */
-        void setX(double x) noexcept
-        {
-            x_ = x;
-        }
-
-        /**
-         * @brief y getter
-         *
-         * @return y
-         */
-        [[nodiscard]] double y() const noexcept
-        {
-            return y_;
-        }
-
-        /**
-         * @brief y setter
-         *
-         * @param y: y value
-         */
-        void setY(double y) noexcept
-        {
-            y_ = y;
-        }
-
-        /**
-         * @brief z getter
-         *
-         * @return z
-         */
-        [[nodiscard]] double z() const noexcept
-        {
-            return z_;
-        }
-
-        /**
-         * @brief z setter
-         *
-         * @param z: z value
-         */
-        void setZ(double z) noexcept
-        {
-            z_ = z;
-        }
-
-        /**
          * @brief x Unit Vector
          *
          * @returns unit vector in x direction
          */
         [[nodiscard]] static Cartesian xHat() noexcept
         {
-            return Cartesian{ 1, 0, 0 };
+            return { 1., 0., 0. };
         }
 
         /**
@@ -143,7 +114,7 @@ namespace nc::coordinates
          */
         [[nodiscard]] static Cartesian yHat() noexcept
         {
-            return Cartesian{ 0, 1, 0 };
+            return { 0., 1., 0. };
         }
 
         /**
@@ -153,21 +124,7 @@ namespace nc::coordinates
          */
         [[nodiscard]] static Cartesian zHat() noexcept
         {
-            return Cartesian{ 0, 0, 1 };
-        }
-
-        /**
-         * @brief Creates a  unit-vector in NED Cartesian coordinates from azimuth and elevation.
-         *
-         * @param azimuth: The azimuth spherical coordinate.
-         * @param elevation: The elevation spherical coordinate.
-         *
-         * @returns unit vector in pointed towards the given azimuth/elevation.
-         */
-        static Cartesian nedFromAzEl(double azimuth, double elevation) noexcept
-        {
-            double cel = cos(elevation);
-            return Cartesian(cel * cos(azimuth), cel * sin(azimuth), sin(-elevation));
+            return { 0., 0., 1. };
         }
 
         /**
@@ -178,8 +135,8 @@ namespace nc::coordinates
          */
         bool operator==(const Cartesian& other) const noexcept
         {
-            return utils::essentiallyEqual(x_, other.x_) && utils::essentiallyEqual(y_, other.y_) &&
-                   utils::essentiallyEqual(z_, other.z_);
+            return utils::essentiallyEqual(x, other.x) && utils::essentiallyEqual(y, other.y) &&
+                   utils::essentiallyEqual(z, other.z);
         }
 
         /**
@@ -192,11 +149,6 @@ namespace nc::coordinates
         {
             return !(*this == other);
         }
-
-    protected:
-        double x_{ 0 };
-        double y_{ 0 };
-        double z_{ 0 };
     };
 
     /**
@@ -207,7 +159,7 @@ namespace nc::coordinates
      */
     [[nodiscard]] inline Cartesian operator+(const Cartesian& lhs, const Cartesian& rhs) noexcept
     {
-        return Cartesian{ lhs.x() + rhs.x(), lhs.y() + rhs.y(), lhs.z() + rhs.z() };
+        return { lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z };
     }
 
     /**
@@ -218,7 +170,7 @@ namespace nc::coordinates
      */
     [[nodiscard]] inline Cartesian operator-(const Cartesian& lhs, const Cartesian& rhs) noexcept
     {
-        return Cartesian{ lhs.x() - rhs.x(), lhs.y() - rhs.y(), lhs.z() - rhs.z() };
+        return { lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z };
     }
 
     /**
@@ -229,7 +181,7 @@ namespace nc::coordinates
      */
     [[nodiscard]] inline double operator*(const Cartesian& lhs, const Cartesian& rhs) noexcept
     {
-        return lhs.x() * rhs.x() + lhs.y() * rhs.y() + lhs.z() * rhs.z();
+        return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
     }
 
     /**
@@ -240,7 +192,7 @@ namespace nc::coordinates
      */
     [[nodiscard]] inline Cartesian operator*(double scalar, const Cartesian& vec) noexcept
     {
-        return Cartesian(vec.x() * scalar, vec.y() * scalar, vec.z() * scalar);
+        return { vec.x * scalar, vec.y * scalar, vec.z * scalar };
     }
 
     /**
@@ -271,9 +223,9 @@ namespace nc::coordinates
      * @param: os: the output stream
      * @param: vec: the cartesian vector
      */
-    inline std::ostream& operator<<(std::ostream& os, const Cartesian& vec)
+    [[nodiscard]] inline std::ostream& operator<<(std::ostream& os, const Cartesian& vec)
     {
-        os << "Cartesian(x=" << vec.x() << ", y=" << vec.y() << ", z=" << vec.z() << ")\n";
+        os << "Cartesian(x=" << vec.x << ", y=" << vec.y << ", z=" << vec.z << ")\n";
         return os;
     }
 
@@ -286,9 +238,9 @@ namespace nc::coordinates
      */
     [[nodiscard]] inline Cartesian Cross(const Cartesian& vec1, const Cartesian& vec2) noexcept
     {
-        return Cartesian{ vec1.y() * vec2.z() - vec1.z() * vec2.y(),
-                          -(vec1.x() * vec2.z() - vec1.z() * vec2.x()),
-                          vec1.x() * vec2.y() - vec1.y() * vec2.x() };
+        return { vec1.y * vec2.z - vec1.z * vec2.y,
+                 -(vec1.x * vec2.z - vec1.z * vec2.x),
+                 vec1.x * vec2.y - vec1.y * vec2.x };
     }
 
     /**
@@ -299,7 +251,7 @@ namespace nc::coordinates
      */
     [[nodiscard]] inline double Norm(const Cartesian& vec) noexcept
     {
-        return std::hypot(vec.x(), vec.y(), vec.z());
+        return std::hypot(vec.x, vec.y, vec.z);
     }
 
     /**
@@ -312,4 +264,4 @@ namespace nc::coordinates
     {
         return vec / Norm(vec);
     }
-} // namespace nc::coordinates
+} // namespace nc::coordinates::reference_frames

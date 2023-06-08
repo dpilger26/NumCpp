@@ -6,6 +6,7 @@
 * incorporate new utilities under `/develop`
   * reference_frames
   * transforms
+    * combine RA/Dec/Coordinate into a single file called Celestial.hpp
   * Logger
   * BinaryLogger
 * mixing of floats and ints in NdArray operators?

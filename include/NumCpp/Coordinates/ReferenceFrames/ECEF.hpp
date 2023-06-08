@@ -23,50 +23,31 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// Description
-/// NdArray Functions
+/// ECEF Object
 ///
 #pragma once
 
-#include <cmath>
+#include <iostream>
 
-#include "NumCpp/Core/Constants.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/Cartesian.hpp"
 
-namespace nc
+namespace nc::coordinates::reference_frames
 {
     /**
-     * @brief Wrap the input angle to [0, 2*pi]
-     *
-     * @params: inAngle: in radians
-     * @returns Wrapped angle
+     * @brief ECEF coordinates
      */
-    template<typename dtype>
-    double wrap2Pi(dtype inAngle) noexcept
+    class ECEF final : public Cartesian
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+    public:
+        using Cartesian::Cartesian;
 
-        auto angle = std::fmod(static_cast<double>(inAngle), constants::twoPi);
-        if (angle < 0.)
+        /**
+         * @brief Constructor
+         * @param cartesian: cartesian vector
+         */
+        constexpr ECEF(const Cartesian& cartesian) noexcept :
+            Cartesian(cartesian)
         {
-            angle += constants::twoPi;
         }
-
-        return angle;
-    }
-
-    /**
-     * @brief Wrap the input angle to [0, 2*pi]
-     *
-     * @params: inAngles: in radians
-     * @returns Wrapped angles
-     */
-    template<typename dtype>
-    NdArray<double> wrap2Pi(const NdArray<dtype>& inAngles) noexcept
-    {
-        NdArray<double> returnArray(inAngles.size());
-        stl_algorithms::transform(inAngles.begin(),
-                                  inAngles.end(),
-                                  returnArray.begin(),
-                                  [](const auto angle) noexcept -> double { return wrap2Pi(angle); });
-        return returnArray;
-    }
-} // namespace nc
+    };
+} // namespace nc::coordinates::reference_frames

@@ -23,50 +23,35 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// Description
-/// NdArray Functions
+/// Coordinate Transforms
 ///
 #pragma once
 
 #include <cmath>
+#include <iostream>
 
+#include "NumCpp/Coordinates/Euler.h"
+#include "NumCpp/Coordinates/Orientation.h"
+#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/Cartesian.hpp"
 #include "NumCpp/Core/Constants.hpp"
+#include "NumCpp/Functions/sign.hpp"
+#include "NumCpp/Functions/wrap.hpp"
+#include "NumCpp/Functions/wrap2pi.hpp"
+#include "NumCpp/Rotations/Quaternion.hpp"
+#include "NumCpp/Utils/sqr.hpp"
+#include "NumCpp/Vector/Vec3.hpp"
 
-namespace nc
+namespace nc::coordinates::transforms
 {
     /**
-     * @brief Wrap the input angle to [0, 2*pi]
+     * @brief Converts ENU to NED
      *
-     * @params: inAngle: in radians
-     * @returns Wrapped angle
+     * @param enu: the ENU coordinates
+     * @returns NED
      */
-    template<typename dtype>
-    double wrap2Pi(dtype inAngle) noexcept
+    [[nodiscard]] inline reference_frames::NED ENUtoNED(const reference_frames::ENU& point) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
-        auto angle = std::fmod(static_cast<double>(inAngle), constants::twoPi);
-        if (angle < 0.)
-        {
-            angle += constants::twoPi;
-        }
-
-        return angle;
+        return { point.north(), point.east(), -point.up() };
     }
-
-    /**
-     * @brief Wrap the input angle to [0, 2*pi]
-     *
-     * @params: inAngles: in radians
-     * @returns Wrapped angles
-     */
-    template<typename dtype>
-    NdArray<double> wrap2Pi(const NdArray<dtype>& inAngles) noexcept
-    {
-        NdArray<double> returnArray(inAngles.size());
-        stl_algorithms::transform(inAngles.begin(),
-                                  inAngles.end(),
-                                  returnArray.begin(),
-                                  [](const auto angle) noexcept -> double { return wrap2Pi(angle); });
-        return returnArray;
-    }
-} // namespace nc
+} // namespace nc::coordinates::transforms

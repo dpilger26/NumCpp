@@ -46,7 +46,7 @@ namespace nc::coordinates
     }
 
     //============================================================================
-    /// Returns the degree seperation between the Coordinate
+    /// Returns the degree seperation between the Vectors
     /// and the input vector
     ///
     /// @param inVector1
@@ -55,6 +55,21 @@ namespace nc::coordinates
     /// @return degrees
     ///
     inline double degreeSeperation(const NdArray<double>& inVector1, const NdArray<double>& inVector2)
+    {
+        const Coordinate inCoord1(inVector1);
+        return inCoord1.degreeSeperation(inVector2);
+    }
+
+    //============================================================================
+    /// Returns the degree seperation between the Vectors
+    /// and the input vector
+    ///
+    /// @param inVector1
+    /// @param inVector2
+    ///
+    /// @return degrees
+    ///
+    inline double degreeSeperation(const Cartesian& inVector1, const Cartesian& inVector2)
     {
         const Coordinate inCoord1(inVector1);
         return inCoord1.degreeSeperation(inVector2);
