@@ -28,19 +28,14 @@
 #pragma once
 
 #include <cmath>
-#include <iostream>
 
-#include "NumCpp/Coordinates/Euler.h"
-#include "NumCpp/Coordinates/Orientation.h"
-#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/Cartesian.hpp"
-#include "NumCpp/Core/Constants.hpp"
-#include "NumCpp/Functions/sign.hpp"
-#include "NumCpp/Functions/wrap.hpp"
-#include "NumCpp/Functions/wrap2pi.hpp"
-#include "NumCpp/Rotations/Quaternion.hpp"
-#include "NumCpp/Utils/sqr.hpp"
-#include "NumCpp/Vector/Vec3.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/NED.hpp"
+#include "NumCpp/Coordinates/Transforms/LLAtoECEF.hpp"
+#include "NumCpp/Coordinates/Transforms/NEDtoECEF.hpp"
+#include "NumCpp/Functions/dot.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc::coordinates::transforms
 {
@@ -59,12 +54,12 @@ namespace nc::coordinates::transforms
     {
         const auto referencePointLLA = ECEFtoLLA(referencePoint);
 
-        const auto sinLat = std::sin(referencePointLLA.latitude());
-        const auto cosLat = std::cos(referencePointLLA.latitude());
-        const auto sinLon = std::sin(referencePointLLA.longitude());
-        const auto cosLon = std::cos(referencePointLLA.longitude());
+        const auto sinLat = std::sin(referencePointLLA.latitude);
+        const auto cosLat = std::cos(referencePointLLA.latitude);
+        const auto sinLon = std::sin(referencePointLLA.longitude);
+        const auto cosLon = std::cos(referencePointLLA.longitude);
 
-        auto rotationMatrix  = Matrix<double, 3, 3>{};
+        auto rotationMatrix  = NdArray<double>(3, 3);
         rotationMatrix(0, 0) = -sinLat * cosLon;
         rotationMatrix(1, 0) = -sinLat * sinLon;
         rotationMatrix(2, 0) = cosLat;
@@ -75,17 +70,17 @@ namespace nc::coordinates::transforms
         rotationMatrix(1, 2) = -cosLat * sinLon;
         rotationMatrix(2, 2) = -sinLat;
 
-        auto targetVec = Vector<double, 3>{};
+        auto targetVec = NdArray<double>(3, 1);
         targetVec[0]   = target.north();
         targetVec[1]   = target.east();
         targetVec[2]   = target.down();
 
-        auto referencePointVec = Vector<double, 3>{};
-        referencePointVec[0]   = referencePoint.x();
-        referencePointVec[1]   = referencePoint.y();
-        referencePointVec[2]   = referencePoint.z();
+        auto referencePointVec = NdArray<double>(3, 1);
+        referencePointVec[0]   = referencePoint.x;
+        referencePointVec[1]   = referencePoint.y;
+        referencePointVec[2]   = referencePoint.z;
 
-        const auto targetECEFVec = (rotationMatrix * targetVec) + referencePointVec;
+        const auto targetECEFVec = dot(rotationMatrix, targetVec) + referencePointVec;
         return { targetECEFVec[0], targetECEFVec[1], targetECEFVec[2] };
     }
 

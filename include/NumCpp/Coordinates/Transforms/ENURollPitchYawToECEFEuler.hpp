@@ -27,25 +27,15 @@
 ///
 #pragma once
 
-#include <cmath>
-#include <iostream>
-
-#include "NumCpp/Coordinates/Euler.h"
-#include "NumCpp/Coordinates/Orientation.h"
-#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/Cartesian.hpp"
-#include "NumCpp/Core/Constants.hpp"
-#include "NumCpp/Functions/sign.hpp"
-#include "NumCpp/Functions/wrap.hpp"
-#include "NumCpp/Functions/wrap2pi.hpp"
-#include "NumCpp/Rotations/Quaternion.hpp"
-#include "NumCpp/Utils/sqr.hpp"
-#include "NumCpp/Vector/Vec3.hpp"
+#include "NumCpp/Coordinates/Euler.hpp"
+#include "NumCpp/Coordinates/Orientation.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
+#include "NumCpp/Coordinates/Transforms/NEDRollPitchYawToECEFEuler.hpp"
 
 namespace nc::coordinates::transforms
 {
     /**
-     * @brief Converts ECEF euler angles to body roll/pitch/yaw
+     * @brief Converts ENU body roll/pitch/yaw to ECEF euler angles
      *
      * @param location: the ecef location
      * @param orientation: ned euler angles
@@ -54,5 +44,8 @@ namespace nc::coordinates::transforms
     [[nodiscard]] inline Euler ENURollPitchYawToECEFEuler(const reference_frames::ECEF& location,
                                                           const Orientation&            orientation) noexcept
     {
+        const auto nedOrientation = Orientation{ orientation.pitch, orientation.roll, -orientation.yaw };
+        const auto nedEuler       = NEDRollPitchYawToECEFEuler(location, nedOrientation);
+        return { nedEuler.theta, nedEuler.psi, -nedEuler.phi };
     }
 } // namespace nc::coordinates::transforms

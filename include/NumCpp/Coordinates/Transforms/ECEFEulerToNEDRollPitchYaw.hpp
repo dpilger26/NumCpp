@@ -29,8 +29,8 @@
 
 #include <cmath>
 
-#include "NumCpp/Coordinates/Euler.h"
-#include "NumCpp/Coordinates/Orientation.h"
+#include "NumCpp/Coordinates/Euler.hpp"
+#include "NumCpp/Coordinates/Orientation.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDUnitVecsInECEF.hpp"
 #include "NumCpp/Functions/wrap.hpp"
@@ -44,7 +44,7 @@ namespace nc::coordinates::transforms
      *
      * @param location: the ecef location
      * @param orientation: ecef euler angles
-     * @return Orientation
+     * @return NED Orientation
      */
     [[nodiscard]] inline Orientation ECEFEulerToNEDRollPitchYaw(const reference_frames::ECEF& location,
                                                                 const Euler&                  orientation) noexcept
@@ -54,21 +54,21 @@ namespace nc::coordinates::transforms
         const auto z0 = Vec3::forward();
 
         // first rotation array, z0 by psi
-        const auto quatPsi = rotations::Quaternion{ z0, orientation.psi() };
+        const auto quatPsi = rotations::Quaternion{ z0, orientation.psi };
 
         // rotate
         const auto x1 = quatPsi * x0;
         const auto y1 = quatPsi * y0;
 
         // second rotation array, y1 by theta
-        const auto quatTheta = rotations::Quaternion{ y1, orientation.theta() };
+        const auto quatTheta = rotations::Quaternion{ y1, orientation.theta };
 
         // rotate
         const auto x2 = quatTheta * x1;
         const auto y2 = quatTheta * y1;
 
         // third rotation array, x2 by phi
-        const auto quatPhi = rotations::Quaternion{ x2, orientation.phi() };
+        const auto quatPhi = rotations::Quaternion{ x2, orientation.phi };
 
         // rotate
         const auto x3 = quatPhi * x2;
@@ -86,6 +86,6 @@ namespace nc::coordinates::transforms
         const auto zHat2 = (rotations::Quaternion{ yHat2, pitch } * zHat0);
         const auto roll  = std::atan2(y3.dot(zHat2), y3.dot(yHat2));
 
-        return { utils::Wrap(yaw), pitch, utils::Wrap(roll) };
+        return { wrap(roll), pitch, wrap(yaw) };
     }
 } // namespace nc::coordinates::transforms

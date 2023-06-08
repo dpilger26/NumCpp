@@ -28,19 +28,13 @@
 #pragma once
 
 #include <cmath>
-#include <iostream>
 
-#include "NumCpp/Coordinates/Euler.h"
-#include "NumCpp/Coordinates/Orientation.h"
-#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/Cartesian.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/Constants.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
 #include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/Functions/sign.hpp"
-#include "NumCpp/Functions/wrap.hpp"
-#include "NumCpp/Functions/wrap2pi.hpp"
-#include "NumCpp/Rotations/Quaternion.hpp"
 #include "NumCpp/Utils/sqr.hpp"
-#include "NumCpp/Vector/Vec3.hpp"
 
 namespace nc::coordinates::transforms
 {
@@ -50,23 +44,23 @@ namespace nc::coordinates::transforms
      *
      * @param ecef the point of interest
      * @param tol Tolerance for the convergence of altitude (overriden if 10 iterations are processed)
-     * @return reference_frames::LLA
+     * @return LLA
      */
     [[nodiscard]] inline reference_frames::LLA ECEFtoLLA(const reference_frames::ECEF& ecef, double tol = 1e-8) noexcept
     {
         constexpr int  MAX_ITER = 10;
-        constexpr auto E_SQR    = 1 - Sqr(constants::EARTH_POLAR_RADIUS / constants::EARTH_EQUATORIAL_RADIUS);
+        constexpr auto E_SQR    = 1 - sqr(constants::EARTH_POLAR_RADIUS / constants::EARTH_EQUATORIAL_RADIUS);
 
-        const auto p   = std::hypot(ecef.x(), ecef.y());
-        const auto lon = std::atan2(ecef.y(), ecef.x());
+        const auto p   = std::hypot(ecef.x, ecef.y);
+        const auto lon = std::atan2(ecef.y, ecef.x);
 
         double alt = 0.0;
         double lat = 0.0;
 
         if (p < tol)
         {
-            lat = boost::math::sign(ecef.z()) * boost::math::constants::half_pi<double>();
-            alt = std::abs(ecef.z()) - constants::EARTH_POLAR_RADIUS;
+            lat = sign(ecef.z) * constants::pi / 2.;
+            alt = std::abs(ecef.z) - constants::EARTH_POLAR_RADIUS;
         }
         else
         {
@@ -77,14 +71,14 @@ namespace nc::coordinates::transforms
             int    iter = 0;
             while (err > tol && iter < MAX_ITER)
             {
-                double N      = constants::EARTH_EQUATORIAL_RADIUS / std::sqrt(1 - E_SQR * Sqr(std::sin(lat)));
-                lat           = std::atan((ecef.z() / p) / (1 - (N * E_SQR / (N + alt))));
+                double N      = constants::EARTH_EQUATORIAL_RADIUS / std::sqrt(1 - E_SQR * sqr(std::sin(lat)));
+                lat           = std::atan((ecef.z / p) / (1 - (N * E_SQR / (N + alt))));
                 double newAlt = (p / std::cos(lat)) - N;
                 err           = std::abs(alt - newAlt);
                 alt           = newAlt;
                 iter++;
             }
         }
-        return reference_frames::LLA{ lat, lon, alt };
+        return { lat, lon, alt };
     }
 } // namespace nc::coordinates::transforms

@@ -27,50 +27,44 @@
 ///
 #pragma once
 
-#include <cmath>
-#include <iostream>
-
-#include "NumCpp/Coordinates/Euler.h"
-#include "NumCpp/Coordinates/Orientation.h"
-#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/Cartesian.hpp"
-#include "NumCpp/Core/Constants.hpp"
-#include "NumCpp/Functions/sign.hpp"
-#include "NumCpp/Functions/wrap.hpp"
-#include "NumCpp/Functions/wrap2pi.hpp"
-#include "NumCpp/Rotations/Quaternion.hpp"
-#include "NumCpp/Utils/sqr.hpp"
-#include "NumCpp/Vector/Vec3.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ENU.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
+#include "NumCpp/Coordinates/Transforms/ENUtoNED.hpp"
+#include "NumCpp/Coordinates/Transforms/LLAtoECEF.hpp"
+#include "NumCpp/Coordinates/Transforms/NEDtoLLA.hpp"
 
 namespace nc::coordinates::transforms
 {
     /**
-     * @brief Converts the NED coordinates to LLA
+     * @brief Converts the ENU coordinates to LLA
      *        https://apps.dtic.mil/sti/pdfs/AD1170763.pdf
      *        Figure 11 https://apps.dtic.mil/sti/pdfs/AD1170763.pdf for a helpful diagram
      *        https://en.wikipedia.org/wiki/Local_tangent_plane_coordinates
      *
      * @param target: the target of interest
      * @param referencePoint: the referencePoint location
-     * @returns NED
+     * @returns ENU
      */
-    [[nodiscard]] inline reference_frames::LLA ENUtoLLA(const reference_frames::NED&  target,
+    [[nodiscard]] inline reference_frames::LLA ENUtoLLA(const reference_frames::ENU&  target,
                                                         const reference_frames::ECEF& referencePoint) noexcept
     {
+        return NEDtoLLA(ENUtoNED(target), referencePoint);
     }
 
     /**
-     * @brief Converts the NED coordinates to LLA
+     * @brief Converts the ENU coordinates to LLA
      *        https://apps.dtic.mil/sti/pdfs/AD1170763.pdf
      *        Figure 11 https://apps.dtic.mil/sti/pdfs/AD1170763.pdf for a helpful diagram
      *        https://en.wikipedia.org/wiki/Local_tangent_plane_coordinates
      *
      * @param target: the target of interest
      * @param referencePoint: the referencePoint location
-     * @returns NED
+     * @returns ENU
      */
-    [[nodiscard]] inline reference_frames::LLA ENUtoLLA(const reference_frames::NED& target,
+    [[nodiscard]] inline reference_frames::LLA ENUtoLLA(const reference_frames::ENU& target,
                                                         const reference_frames::LLA& referencePoint) noexcept
     {
+        return ENUtoLLA(target, LLAtoECEF(referencePoint));
     }
 } // namespace nc::coordinates::transforms

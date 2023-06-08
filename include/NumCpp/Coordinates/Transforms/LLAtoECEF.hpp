@@ -28,19 +28,11 @@
 #pragma once
 
 #include <cmath>
-#include <iostream>
 
-#include "NumCpp/Coordinates/Euler.h"
-#include "NumCpp/Coordinates/Orientation.h"
-#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/Cartesian.hpp"
-#include "NumCpp/Core/Constants.hpp"
-#include "NumCpp/Functions/sign.hpp"
-#include "NumCpp/Functions/wrap.hpp"
-#include "NumCpp/Functions/wrap2pi.hpp"
-#include "NumCpp/Rotations/Quaternion.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/Constants.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
 #include "NumCpp/Utils/sqr.hpp"
-#include "NumCpp/Vector/Vec3.hpp"
 
 namespace nc::coordinates::transforms
 {
@@ -53,19 +45,19 @@ namespace nc::coordinates::transforms
      */
     [[nodiscard]] inline reference_frames::ECEF LLAtoECEF(const reference_frames::LLA& point) noexcept
     {
-        constexpr auto B2_DIV_A2 = Sqr(constants::EARTH_POLAR_RADIUS / constants::EARTH_EQUATORIAL_RADIUS);
+        constexpr auto B2_DIV_A2 = sqr(constants::EARTH_POLAR_RADIUS / constants::EARTH_EQUATORIAL_RADIUS);
         constexpr auto E_SQR     = 1. - B2_DIV_A2;
 
-        const auto sinLat = std::sin(point.latitude());
-        const auto cosLat = std::cos(point.latitude());
-        const auto sinLon = std::sin(point.longitude());
-        const auto cosLon = std::cos(point.longitude());
+        const auto sinLat = std::sin(point.latitude);
+        const auto cosLat = std::cos(point.latitude);
+        const auto sinLon = std::sin(point.longitude);
+        const auto cosLon = std::cos(point.longitude);
 
         // prime vertical meridian
-        const auto pvm = constants::EARTH_EQUATORIAL_RADIUS / std::sqrt(1. - E_SQR * Sqr(sinLat));
+        const auto pvm = constants::EARTH_EQUATORIAL_RADIUS / std::sqrt(1. - E_SQR * sqr(sinLat));
 
-        return reference_frames::ECEF{ (pvm + point.altitude()) * cosLat * cosLon,
-                                       (pvm + point.altitude()) * cosLat * sinLon,
-                                       (B2_DIV_A2 * pvm + point.altitude()) * sinLat };
+        return reference_frames::ECEF{ (pvm + point.altitude) * cosLat * cosLon,
+                                       (pvm + point.altitude) * cosLat * sinLon,
+                                       (B2_DIV_A2 * pvm + point.altitude) * sinLat };
     }
 } // namespace nc::coordinates::transforms

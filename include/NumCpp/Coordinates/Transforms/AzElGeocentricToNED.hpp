@@ -48,6 +48,6 @@ namespace nc::coordinates::transforms
         const auto north = range * std::cos(-azEl.el) * std::cos(azEl.az);
         const auto east  = range * std::cos(-azEl.el) * std::sin(azEl.az);
         const auto down  = range * std::sin(-azEl.el);
-        return reference_frames::NED{ north, east, down };
+        return { north, east, down };
     }
 } // namespace nc::coordinates::transforms

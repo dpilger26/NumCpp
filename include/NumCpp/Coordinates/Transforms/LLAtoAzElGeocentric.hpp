@@ -32,8 +32,8 @@
 #include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
-#include "NumCpp/Coordinates/Transforms/ECEFToLLA.hpp"
 #include "NumCpp/Coordinates/Transforms/ECEFtoAzElGeocentric.hpp"
+#include "NumCpp/Coordinates/Transforms/ECEFtoLLA.hpp"
 
 namespace nc::coordinates::transforms
 {

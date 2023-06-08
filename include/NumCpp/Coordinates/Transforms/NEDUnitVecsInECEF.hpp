@@ -46,10 +46,10 @@ namespace nc::coordinates::transforms
     {
         const auto lla = ECEFtoLLA(location);
 
-        const auto sinLat = std::sin(lla.latitude());
-        const auto cosLat = std::cos(lla.latitude());
-        const auto sinLon = std::sin(lla.longitude());
-        const auto cosLon = std::cos(lla.longitude());
+        const auto sinLat = std::sin(lla.latitude);
+        const auto cosLat = std::cos(lla.latitude);
+        const auto sinLon = std::sin(lla.longitude);
+        const auto cosLon = std::cos(lla.longitude);
 
         const auto xHat = Vec3{ -cosLon * sinLat, -sinLon * sinLat, cosLat };
         const auto yHat = Vec3{ -sinLon, cosLon, 0. };

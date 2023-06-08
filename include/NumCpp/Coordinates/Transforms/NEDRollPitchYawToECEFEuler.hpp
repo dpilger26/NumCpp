@@ -28,25 +28,19 @@
 #pragma once
 
 #include <cmath>
-#include <iostream>
 
-#include "NumCpp/Coordinates/Euler.h"
-#include "NumCpp/Coordinates/Orientation.h"
-#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/Cartesian.hpp"
+#include "NumCpp/Coordinates/Euler.hpp"
+#include "NumCpp/Coordinates/Orientation.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDUnitVecsInECEF.hpp"
-#include "NumCpp/Core/Constants.hpp"
-#include "NumCpp/Functions/sign.hpp"
 #include "NumCpp/Functions/wrap.hpp"
-#include "NumCpp/Functions/wrap2pi.hpp"
 #include "NumCpp/Rotations/Quaternion.hpp"
-#include "NumCpp/Utils/sqr.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
 
 namespace nc::coordinates::transforms
 {
     /**
-     * @brief Converts ECEF euler angles to body roll/pitch/yaw
+     * @brief Converts NED body roll/pitch/yaw to ECEF euler angles
      *
      * @param location: the ecef location
      * @param orientation: ned euler angles
@@ -59,21 +53,21 @@ namespace nc::coordinates::transforms
         const auto& [x0, y0, z0] = NEDUnitVecsInECEF(location);
 
         // first rotation array, z0 by yaw
-        const auto quatYaw = Quaternion{ z0, orientation.yaw() };
+        const auto quatYaw = rotations::Quaternion{ z0, orientation.yaw };
 
         // rotate
         const auto x1 = quatYaw * x0;
         const auto y1 = quatYaw * y0;
 
         // second rotation array, y1 by pitch
-        const auto quatPitch = Quaternion{ y1, orientation.pitch() };
+        const auto quatPitch = rotations::Quaternion{ y1, orientation.pitch };
 
         // rotate
         const auto x2 = quatPitch * x1;
         const auto y2 = quatPitch * y1;
 
         // third rotation array, x2 by roll
-        const auto quatRoll = Quaternion{ x2, orientation.roll() };
+        const auto quatRoll = rotations::Quaternion{ x2, orientation.roll };
 
         // rotate
         const auto x3 = quatRoll * x2;
@@ -88,10 +82,10 @@ namespace nc::coordinates::transforms
         const auto theta = std::atan(-x3.dot(zHat0) / std::hypot(x3.dot(xHat0), x3.dot(yHat0)));
 
         // calculate phi
-        const auto yHat2 = (Quaternion{ zHat0, psi } * yHat0);
-        const auto zHat2 = (Quaternion{ yHat2, theta } * zHat0);
+        const auto yHat2 = (rotations::Quaternion{ zHat0, psi } * yHat0);
+        const auto zHat2 = (rotations::Quaternion{ yHat2, theta } * zHat0);
         const auto phi   = std::atan2(y3.dot(zHat2), y3.dot(yHat2));
 
-        return { utils::Wrap(psi), theta, utils::Wrap(phi) };
+        return { wrap(psi), theta, wrap(phi) };
     }
 } // namespace nc::coordinates::transforms

@@ -27,33 +27,23 @@
 ///
 #pragma once
 
-#include <cmath>
-#include <iostream>
-
-#include "NumCpp/Coordinates/Euler.h"
-#include "NumCpp/Coordinates/Orientation.h"
 #include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/Cartesian.hpp"
-#include "NumCpp/Core/Constants.hpp"
-#include "NumCpp/Functions/sign.hpp"
-#include "NumCpp/Functions/wrap.hpp"
-#include "NumCpp/Functions/wrap2pi.hpp"
-#include "NumCpp/Rotations/Quaternion.hpp"
-#include "NumCpp/Utils/sqr.hpp"
-#include "NumCpp/Vector/Vec3.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ENU.hpp"
+#include "NumCpp/Coordinates/Transforms/ENUtoNED.hpp"
+#include "NumCpp/Coordinates/Transforms/NEDtoAzEl.hpp"
 
 namespace nc::coordinates::transforms
 {
     /**
-     * @brief Converts the Cartesian XYZ (NED) coordinates to 2d speherical inertial coordinates.
+     * @brief Converts the ENU coordinates to 2d speherical inertial coordinates.
      *        Range is not used.
-     *        NOTE: positive elevation is defined as the negative z (up) direction
+     *        NOTE: positive elevation is defined as the positive z (up) direction
      *
      * @param cartesian: coordinates to convert
      * @returns AzEl
      */
-    [[nodiscard]] inline AzEl ENUtoAzEl(const Cartesian& cartesian) noexcept
+    [[nodiscard]] inline reference_frames::AzEl ENUtoAzEl(const reference_frames::ENU& target) noexcept
     {
-        return NEDtoAzEl(ENUtoNED(cartesian));
+        return NEDtoAzEl(ENUtoNED(target));
     }
 } // namespace nc::coordinates::transforms

@@ -32,7 +32,7 @@
 #include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
-#include "NumCpp/Functions/wrap2pi.hpp"
+#include "NumCpp/Functions/wrap2Pi.hpp"
 
 namespace nc::coordinates::transforms
 {
@@ -54,7 +54,7 @@ namespace nc::coordinates::transforms
         const auto eHat   = Normalize(Cross(Cartesian::zHat(), uHat));
         const auto nHat   = Normalize(Cross(uHat, eHat));
 
-        return reference_frames::AzEl{ Wrap2Pi(std::atan2(rhoHat * eHat, rhoHat * nHat)), std::asin(rhoHat * uHat) };
+        return { wrap2Pi(std::atan2(rhoHat * eHat, rhoHat * nHat)), std::asin(rhoHat * uHat) };
     }
 
     /**

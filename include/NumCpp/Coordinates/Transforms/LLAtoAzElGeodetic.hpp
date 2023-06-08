@@ -27,20 +27,11 @@
 ///
 #pragma once
 
-#include <cmath>
-#include <iostream>
-
-#include "NumCpp/Coordinates/Euler.h"
-#include "NumCpp/Coordinates/Orientation.h"
 #include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/Cartesian.hpp"
-#include "NumCpp/Core/Constants.hpp"
-#include "NumCpp/Functions/sign.hpp"
-#include "NumCpp/Functions/wrap.hpp"
-#include "NumCpp/Functions/wrap2pi.hpp"
-#include "NumCpp/Rotations/Quaternion.hpp"
-#include "NumCpp/Utils/sqr.hpp"
-#include "NumCpp/Vector/Vec3.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
+#include "NumCpp/Coordinates/Transforms/ECEFtoAzElGeodetic.hpp"
+#include "NumCpp/Coordinates/Transforms/ECEFtoLLA.hpp"
 
 namespace nc::coordinates::transforms
 {
@@ -69,5 +60,6 @@ namespace nc::coordinates::transforms
     [[nodiscard]] inline reference_frames::AzEl LLAtoAzElGeodetic(const reference_frames::LLA&  target,
                                                                   const reference_frames::ECEF& referencePoint) noexcept
     {
+        LLAtoAzElGeodetic(target, ECEFtoLLA(referencePoint));
     }
 } // namespace nc::coordinates::transforms

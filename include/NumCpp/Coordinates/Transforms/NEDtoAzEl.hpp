@@ -28,19 +28,10 @@
 #pragma once
 
 #include <cmath>
-#include <iostream>
 
-#include "NumCpp/Coordinates/Euler.h"
-#include "NumCpp/Coordinates/Orientation.h"
 #include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/Cartesian.hpp"
-#include "NumCpp/Core/Constants.hpp"
-#include "NumCpp/Functions/sign.hpp"
-#include "NumCpp/Functions/wrap.hpp"
-#include "NumCpp/Functions/wrap2pi.hpp"
-#include "NumCpp/Rotations/Quaternion.hpp"
-#include "NumCpp/Utils/sqr.hpp"
-#include "NumCpp/Vector/Vec3.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/NED.hpp"
+#include "NumCpp/Functions/wrap2Pi.hpp"
 
 namespace nc::coordinates::transforms
 {
@@ -52,14 +43,11 @@ namespace nc::coordinates::transforms
      * @param cartesian: coordinates to convert
      * @returns AzEl
      */
-    [[nodiscard]] inline AzEl NEDtoAzEl(const Cartesian& cartesian) noexcept
+    [[nodiscard]] inline reference_frames::AzEl NEDtoAzEl(const reference_frames::NED& target) noexcept
     {
-        const auto hypotXy = std::hypot(cartesian.x(), cartesian.y());
-        const auto elAxis  = InertialAxis(-std::atan2(cartesian.z(), hypotXy));
-        const auto azAxis  = InertialAxis(Wrap2Pi(std::atan2(cartesian.y(), cartesian.x())));
-        auto       point   = AzEl();
-        point.setAz(azAxis);
-        point.setEl(elAxis);
-        return point;
+        const auto hypotXy = std::hypot(target.x, target.y);
+        const auto el      = -std::atan2(target.z, hypotXy);
+        const auto az      = wrap2Pi(std::atan2(target.y, target.x));
+        return { az, el };
     }
 } // namespace nc::coordinates::transforms
