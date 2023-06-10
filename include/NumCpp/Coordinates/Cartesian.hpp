@@ -315,7 +315,7 @@ namespace nc::coordinates
      * @param vec2: cartesian vector
      * @returns unit vector in x direction
      */
-    [[nodiscard]] double angle(const Cartesian& vec1, const Cartesian& vec2) noexcept
+    [[nodiscard]] inline double angle(const Cartesian& vec1, const Cartesian& vec2) noexcept
     {
         return std::acos(normalize(vec1) * normalize(vec2));
     }
