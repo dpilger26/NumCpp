@@ -33,6 +33,7 @@
 #include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
 #include "NumCpp/Coordinates/Transforms/ECEFtoENU.hpp"
+#include "NumCpp/Coordinates/Transforms/ECEFtoLLA.hpp"
 #include "NumCpp/Functions/wrap2Pi.hpp"
 
 namespace nc::coordinates::transforms
@@ -49,11 +50,11 @@ namespace nc::coordinates::transforms
                                                                    const reference_frames::LLA& referencePoint) noexcept
     {
         const auto targetENU = ECEFtoENU(target, referencePoint);
-        const auto targetENUNormalizedCart =
-            Normalize(Cartesian{ targetENU.east(), targetENU.north(), targetENU.up() });
-        const auto& east  = targetENUNormalizedCart.x;
-        const auto& north = targetENUNormalizedCart.y;
-        const auto& up    = targetENUNormalizedCart.z;
+        const auto targetENUnormalizedCart =
+            normalize(Cartesian{ targetENU.east(), targetENU.north(), targetENU.up() });
+        const auto& east  = targetENUnormalizedCart.x;
+        const auto& north = targetENUnormalizedCart.y;
+        const auto& up    = targetENUnormalizedCart.z;
 
         return { wrap2Pi(std::atan2(east, north)), std::asin(up) };
     }

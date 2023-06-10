@@ -49,7 +49,7 @@ namespace nc::coordinates::transforms
     [[nodiscard]] inline reference_frames::ECEF ENUtoECEF(const reference_frames::ENU&  target,
                                                           const reference_frames::ECEF& referencePoint) noexcept
     {
-        return NEDtoECEF(ENUtoNED(target), referencePoint));
+        return NEDtoECEF(ENUtoNED(target), referencePoint);
     }
 
     /**

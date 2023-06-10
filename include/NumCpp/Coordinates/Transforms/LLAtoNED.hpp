@@ -63,6 +63,6 @@ namespace nc::coordinates::transforms
     [[nodiscard]] inline reference_frames::NED LLAtoNED(const reference_frames::LLA&  target,
                                                         const reference_frames::ECEF& referencePoint) noexcept
     {
-        return LLAoNED(target, ECEFtoLLA(referencePoint));
+        return LLAtoNED(target, ECEFtoLLA(referencePoint));
     }
 } // namespace nc::coordinates::transforms

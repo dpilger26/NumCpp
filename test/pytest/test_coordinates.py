@@ -158,7 +158,7 @@ def test_dec_print():
 
 ####################################################################################
 def test_coord_default_constructor():
-    coord = NumCpp.Coordinate()
+    coord = NumCpp.Celestial()
     assert coord
 
 
@@ -170,7 +170,7 @@ def test_coord_degree_constructor():
     dec = NumCpp.Dec(decDegrees)
 
     pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
-    cCoord = NumCpp.Coordinate(raDegrees, decDegrees)
+    cCoord = NumCpp.Celestial(raDegrees, decDegrees)
     assert cCoord.ra() == ra
     assert cCoord.dec() == dec
     assert round(cCoord.x(), 10) == round(pyCoord.cartesian.x.value, 10)
@@ -186,7 +186,7 @@ def test_coord_radec_constructor():
     dec = NumCpp.Dec(decDegrees)
 
     pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
-    cCoord = NumCpp.Coordinate(ra, dec)
+    cCoord = NumCpp.Celestial(ra, dec)
     assert cCoord.ra() == ra
     assert cCoord.dec() == dec
     assert round(cCoord.x(), 10) == round(pyCoord.cartesian.x.value, 10)
@@ -201,7 +201,7 @@ def test_coord_cartesian_constructor():
     decDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(decDegrees)
     pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
-    cCoord = NumCpp.Coordinate(pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value)
+    cCoord = NumCpp.Celestial(pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value)
     assert round(cCoord.ra().degrees(), 8) == round(ra.degrees(), 8)
     assert round(cCoord.dec().degrees(), 8) == round(dec.degrees(), 8)
     assert round(cCoord.x(), 8) == round(pyCoord.cartesian.x.value, 8)
@@ -219,7 +219,7 @@ def test_coord_cartesian_vector_constructor():
     vec = np.asarray([pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value])
     cVec = NumCpp.NdArray(1, 3)
     cVec.setArray(vec)
-    cCoord = NumCpp.Coordinate(cVec)
+    cCoord = NumCpp.Celestial(cVec)
     assert round(cCoord.ra().degrees(), 8) == round(ra.degrees(), 8)
     assert round(cCoord.dec().degrees(), 8) == round(dec.degrees(), 8)
     assert round(cCoord.x(), 8) == round(pyCoord.cartesian.x.value, 8)
@@ -270,7 +270,7 @@ def test_coord_rms_constructor():
     if decSign == NumCpp.Sign.NEGATIVE:
         decDegreesPy *= -1
 
-    cCoord = NumCpp.Coordinate(raHours, raMinutes, raSeconds, decSign, decDegrees, decMinutes, decSeconds)
+    cCoord = NumCpp.Celestial(raHours, raMinutes, raSeconds, decSign, decDegrees, decMinutes, decSeconds)
     cRa = cCoord.ra()
     cDec = cCoord.dec()
     pyCoord = SkyCoord(raDegreesPy, decDegreesPy, unit=u.deg)  # noqa
@@ -290,36 +290,36 @@ def test_coord_rms_constructor():
 
 ####################################################################################
 def test_coord_copy_constructor_and_equality_operator():
-    cCoord = NumCpp.Coordinate()
+    cCoord = NumCpp.Celestial()
     assert cCoord
-    cCoord2 = NumCpp.Coordinate(cCoord)
+    cCoord2 = NumCpp.Celestial(cCoord)
     assert cCoord2 == cCoord
 
 
 ####################################################################################
 def test_coord_not_equality_operator():
-    cCoord = NumCpp.Coordinate()
+    cCoord = NumCpp.Celestial()
 
     raDegrees = np.random.rand(1).item() * 360
     decDegrees = np.random.rand(1).item() * 180 - 90
-    cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
+    cCoord2 = NumCpp.Celestial(raDegrees, decDegrees)
     assert cCoord2 != cCoord
 
 
 ####################################################################################
 def test_coord_xyz():
-    cCoord = NumCpp.Coordinate()
+    cCoord = NumCpp.Celestial()
     xyz = [cCoord.x(), cCoord.y(), cCoord.z()]
     assert np.array_equal(cCoord.xyz().getNumpyArray().flatten(), xyz)
 
 
 ####################################################################################
 def test_coord_degreeSeperation():
-    cCoord = NumCpp.Coordinate()
+    cCoord = NumCpp.Celestial()
 
     raDegrees = np.random.rand(1).item() * 360
     decDegrees = np.random.rand(1).item() * 180 - 90
-    cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
+    cCoord2 = NumCpp.Celestial(raDegrees, decDegrees)
 
     pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)  # noqa
     pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)  # noqa
@@ -331,11 +331,11 @@ def test_coord_degreeSeperation():
 
 ####################################################################################
 def test_coord_radianSeperation():
-    cCoord = NumCpp.Coordinate()
+    cCoord = NumCpp.Celestial()
 
     raDegrees = np.random.rand(1).item() * 360
     decDegrees = np.random.rand(1).item() * 180 - 90
-    cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
+    cCoord2 = NumCpp.Celestial(raDegrees, decDegrees)
 
     pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)  # noqa
     pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)  # noqa
@@ -348,11 +348,11 @@ def test_coord_radianSeperation():
 
 ####################################################################################
 def test_coord_degreeSeperation_vec():
-    cCoord = NumCpp.Coordinate()
+    cCoord = NumCpp.Celestial()
 
     raDegrees = np.random.rand(1).item() * 360
     decDegrees = np.random.rand(1).item() * 180 - 90
-    cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
+    cCoord2 = NumCpp.Celestial(raDegrees, decDegrees)
 
     pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)  # noqa
     pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)  # noqa
@@ -367,11 +367,11 @@ def test_coord_degreeSeperation_vec():
 
 ####################################################################################
 def test_coord_radianSeperation_vec():
-    cCoord = NumCpp.Coordinate()
+    cCoord = NumCpp.Celestial()
 
     raDegrees = np.random.rand(1).item() * 360
     decDegrees = np.random.rand(1).item() * 180 - 90
-    cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
+    cCoord2 = NumCpp.Celestial(raDegrees, decDegrees)
 
     pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)  # noqa
     pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)  # noqa
@@ -386,5 +386,5 @@ def test_coord_radianSeperation_vec():
 
 ####################################################################################
 def test_coorc_print():
-    cCoord = NumCpp.Coordinate()
+    cCoord = NumCpp.Celestial()
     cCoord.print()

@@ -50,6 +50,5 @@
 #include "NumCpp/Coordinates/Transforms/NEDRollPitchYawToECEFEuler.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDUnitVecsInECEF.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDtoAzEl.hpp"
-#include "NumCpp/Coordinates/Transforms/NEDtoECEF.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDtoENU.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDtoLLA.hpp"

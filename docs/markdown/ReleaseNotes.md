@@ -2,13 +2,16 @@
 
 ## Version 2.11.0
 
-* Fixed Issue #190
-* Fixed Issue #194
-* Fixed Issue #196
-* Added `wrap` and `wrap2Pi` functions
-* Added `Logger` and `BinaryLogger` classes for logging data
-* Added `coordinates::reference_frames` and `coordinates::transforms` namespaces for converting between various coordinate systems
-* various performance improvements and bug fixes
+* fixed Issue #190
+* fixed Issue #194
+* fixed Issue #196
+* added `rows` and `columns` methods to `NdArray`
+* added `wrap` and `wrap2Pi` functions
+* added `normalize` function for `NdArray`s
+* added `Logger` and `BinaryLogger` classes for logging data
+* added new `coordinates::Cartesian` class
+* added `coordinates::reference_frames` and `coordinates::transforms` namespaces for converting between various coordinate systems
+* various improvements and bug fixes
 
 ## Version 2.10.1
 

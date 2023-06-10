@@ -49,7 +49,8 @@ namespace nc::coordinates::transforms
     [[nodiscard]] inline reference_frames::LLA ECEFtoLLA(const reference_frames::ECEF& ecef, double tol = 1e-8) noexcept
     {
         constexpr int  MAX_ITER = 10;
-        constexpr auto E_SQR    = 1 - sqr(constants::EARTH_POLAR_RADIUS / constants::EARTH_EQUATORIAL_RADIUS);
+        constexpr auto E_SQR    = 1. - utils::sqr(reference_frames::constants::EARTH_POLAR_RADIUS /
+                                               reference_frames::constants::EARTH_EQUATORIAL_RADIUS);
 
         const auto p   = std::hypot(ecef.x, ecef.y);
         const auto lon = std::atan2(ecef.y, ecef.x);
@@ -60,7 +61,7 @@ namespace nc::coordinates::transforms
         if (p < tol)
         {
             lat = sign(ecef.z) * constants::pi / 2.;
-            alt = std::abs(ecef.z) - constants::EARTH_POLAR_RADIUS;
+            alt = std::abs(ecef.z) - reference_frames::constants::EARTH_POLAR_RADIUS;
         }
         else
         {
@@ -71,7 +72,8 @@ namespace nc::coordinates::transforms
             int    iter = 0;
             while (err > tol && iter < MAX_ITER)
             {
-                double N      = constants::EARTH_EQUATORIAL_RADIUS / std::sqrt(1 - E_SQR * sqr(std::sin(lat)));
+                double N = reference_frames::constants::EARTH_EQUATORIAL_RADIUS /
+                           std::sqrt(1 - E_SQR * utils::sqr(std::sin(lat)));
                 lat           = std::atan((ecef.z / p) / (1 - (N * E_SQR / (N + alt))));
                 double newAlt = (p / std::cos(lat)) - N;
                 err           = std::abs(alt - newAlt);

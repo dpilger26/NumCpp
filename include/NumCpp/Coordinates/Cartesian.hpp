@@ -30,10 +30,13 @@
 #include <cmath>
 #include <iostream>
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/sqr.hpp"
+#include "NumCpp/Vector/Vec2.hpp"
+#include "NumCpp/Vector/Vec3.hpp"
 
-namespace nc::coordinates::reference_frames
+namespace nc::coordinates
 {
     /**
      * @brief Cartensian coordinates
@@ -53,15 +56,55 @@ namespace nc::coordinates::reference_frames
         /**
          * @brief Constructor
          *
-         * @param: x: the x component
-         * @param: y: the y component
-         * @param: z: the z component
+         * @param: inX: the x component
+         * @param: inY: the y component
+         * @param: inZ: the z component
          */
-        constexpr Cartesian(double x, double y, double z = 0.) noexcept :
-            x(x),
-            y(y),
-            z(z)
+        constexpr Cartesian(double inX, double inY, double inZ = 0.) noexcept :
+            x(inX),
+            y(inY),
+            z(inZ)
         {
+        }
+
+        /**
+         * @brief Default Constructor
+         *
+         * @param inCartesianVector
+         */
+        Cartesian(const Vec2& inCartesianVector) :
+            x(inCartesianVector.x),
+            y(inCartesianVector.y)
+        {
+        }
+
+        /**
+         * @brief Default Constructor
+         *
+         * @param inCartesianVector
+         */
+        Cartesian(const Vec3& inCartesianVector) :
+            x(inCartesianVector.x),
+            y(inCartesianVector.y),
+            z(inCartesianVector.z)
+        {
+        }
+
+        //============================================================================
+        /// Constructor
+        ///
+        /// @param inCartesianVector
+        ///
+        Cartesian(const NdArray<double>& inCartesianVector)
+        {
+            if (inCartesianVector.size() != 3)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("NdArray input must be of length 3.");
+            }
+
+            x = inCartesianVector[0];
+            y = inCartesianVector[1];
+            z = inCartesianVector[2];
         }
 
         /**
@@ -236,7 +279,7 @@ namespace nc::coordinates::reference_frames
      * @param: vec2: cartesian vector
      * @returns: the vector cross product
      */
-    [[nodiscard]] inline Cartesian Cross(const Cartesian& vec1, const Cartesian& vec2) noexcept
+    [[nodiscard]] inline Cartesian cross(const Cartesian& vec1, const Cartesian& vec2) noexcept
     {
         return { vec1.y * vec2.z - vec1.z * vec2.y,
                  -(vec1.x * vec2.z - vec1.z * vec2.x),
@@ -249,19 +292,31 @@ namespace nc::coordinates::reference_frames
      * @param: vec: the cartesian vector
      * @returns: the vector norm
      */
-    [[nodiscard]] inline double Norm(const Cartesian& vec) noexcept
+    [[nodiscard]] inline double norm(const Cartesian& vec) noexcept
     {
         return std::hypot(vec.x, vec.y, vec.z);
     }
 
     /**
-     * @brief Normalize the input vector
+     * @brief normalize the input vector
      *
      * @param: vec: the cartesian vector
      * @returns: normalized vector
      */
-    [[nodiscard]] inline Cartesian Normalize(const Cartesian& vec) noexcept
+    [[nodiscard]] inline Cartesian normalize(const Cartesian& vec) noexcept
     {
-        return vec / Norm(vec);
+        return vec / norm(vec);
     }
-} // namespace nc::coordinates::reference_frames
+
+    /**
+     * @brief angle between the two vectors
+     *
+     * @param vec1: cartesian vector
+     * @param vec2: cartesian vector
+     * @returns unit vector in x direction
+     */
+    [[nodiscard]] double angle(const Cartesian& vec1, const Cartesian& vec2) noexcept
+    {
+        return std::acos(normalize(vec1) * normalize(vec2));
+    }
+} // namespace nc::coordinates

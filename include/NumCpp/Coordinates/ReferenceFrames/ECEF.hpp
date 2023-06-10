@@ -29,7 +29,7 @@
 
 #include <iostream>
 
-#include "NumCpp/Coordinates/ReferenceFrames/Cartesian.hpp"
+#include "NumCpp/Coordinates/Cartesian.hpp"
 
 namespace nc::coordinates::reference_frames
 {

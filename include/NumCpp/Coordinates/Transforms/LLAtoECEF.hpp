@@ -45,7 +45,8 @@ namespace nc::coordinates::transforms
      */
     [[nodiscard]] inline reference_frames::ECEF LLAtoECEF(const reference_frames::LLA& point) noexcept
     {
-        constexpr auto B2_DIV_A2 = sqr(constants::EARTH_POLAR_RADIUS / constants::EARTH_EQUATORIAL_RADIUS);
+        constexpr auto B2_DIV_A2 = utils::sqr(reference_frames::constants::EARTH_POLAR_RADIUS /
+                                              reference_frames::constants::EARTH_EQUATORIAL_RADIUS);
         constexpr auto E_SQR     = 1. - B2_DIV_A2;
 
         const auto sinLat = std::sin(point.latitude);
@@ -54,7 +55,8 @@ namespace nc::coordinates::transforms
         const auto cosLon = std::cos(point.longitude);
 
         // prime vertical meridian
-        const auto pvm = constants::EARTH_EQUATORIAL_RADIUS / std::sqrt(1. - E_SQR * sqr(sinLat));
+        const auto pvm =
+            reference_frames::constants::EARTH_EQUATORIAL_RADIUS / std::sqrt(1. - E_SQR * utils::sqr(sinLat));
 
         return reference_frames::ECEF{ (pvm + point.altitude) * cosLat * cosLon,
                                        (pvm + point.altitude) * cosLat * sinLon,

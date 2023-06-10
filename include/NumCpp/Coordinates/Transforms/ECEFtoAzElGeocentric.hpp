@@ -32,6 +32,7 @@
 #include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
+#include "NumCpp/Coordinates/Transforms/LLAtoECEF.hpp"
 #include "NumCpp/Functions/wrap2Pi.hpp"
 
 namespace nc::coordinates::transforms
@@ -49,10 +50,10 @@ namespace nc::coordinates::transforms
         ECEFtoAzElGeocentric(const reference_frames::ECEF& target,
                              const reference_frames::ECEF& referencePoint) noexcept
     {
-        const auto rhoHat = Normalize(target - referencePoint);
-        const auto uHat   = Normalize(referencePoint);
-        const auto eHat   = Normalize(Cross(Cartesian::zHat(), uHat));
-        const auto nHat   = Normalize(Cross(uHat, eHat));
+        const auto rhoHat = normalize(target - referencePoint);
+        const auto uHat   = normalize(referencePoint);
+        const auto eHat   = normalize(cross(Cartesian::zHat(), uHat));
+        const auto nHat   = normalize(cross(uHat, eHat));
 
         return { wrap2Pi(std::atan2(rhoHat * eHat, rhoHat * nHat)), std::asin(rhoHat * uHat) };
     }
@@ -69,6 +70,6 @@ namespace nc::coordinates::transforms
     [[nodiscard]] inline reference_frames::AzEl
         ECEFtoAzElGeocentric(const reference_frames::ECEF& target, const reference_frames::LLA& referencePoint) noexcept
     {
-        return ECEFtoAzElGeocentric(target, ECEFtoLLA(referencePoint));
+        return ECEFtoAzElGeocentric(target, LLAtoECEF(referencePoint));
     }
 } // namespace nc::coordinates::transforms

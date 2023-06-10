@@ -51,14 +51,14 @@ namespace nc::coordinates
         /**
          * @brief Constructor
          *
-         * @param: psi: the psi component
-         * @param: theta: the theta component
-         * @param: phi: the phi component
+         * @param: inPsi: the psi component
+         * @param: inTheta: the theta component
+         * @param: inPhi: the phi component
          */
-        constexpr Euler(double psi, double theta, double phi) noexcept :
-            psi(psi),
-            theta(theta),
-            phi(phi)
+        constexpr Euler(double inPsi, double inTheta, double inPhi) noexcept :
+            psi(inPsi),
+            theta(inTheta),
+            phi(inPhi)
         {
         }
 

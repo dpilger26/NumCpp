@@ -7,6 +7,10 @@
   * reference_frames
   * transforms
     * combine RA/Dec/Coordinate into a single file called Celestial.hpp
+    * unit tests for new constructors for Coordinate
+    * tests for new Vec3 overload
+    * tests for new normalize function
+    * tests for new NdArray rows(), and columns() methods
   * Logger
   * BinaryLogger
 * mixing of floats and ints in NdArray operators?

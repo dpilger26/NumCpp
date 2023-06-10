@@ -33,7 +33,7 @@
 #include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
 #include "NumCpp/Coordinates/Transforms/ECEFtoAzElGeocentric.hpp"
-#include "NumCpp/Coordinates/Transforms/ECEFtoLLA.hpp"
+#include "NumCpp/Coordinates/Transforms/LLAtoECEF.hpp"
 
 namespace nc::coordinates::transforms
 {
@@ -49,7 +49,7 @@ namespace nc::coordinates::transforms
     [[nodiscard]] inline reference_frames::AzEl
         LLAtoAzElGeocentric(const reference_frames::LLA& target, const reference_frames::ECEF& referencePoint) noexcept
     {
-        return LLAtoAzElGeocentric(LLAtoECEF(target), referencePoint);
+        return ECEFtoAzElGeocentric(LLAtoECEF(target), referencePoint);
     }
 
     /**
@@ -64,6 +64,6 @@ namespace nc::coordinates::transforms
     [[nodiscard]] inline reference_frames::AzEl
         LLAtoAzElGeocentric(const reference_frames::LLA& target, const reference_frames::LLA& referencePoint) noexcept
     {
-        return LLAtoAzElGeocentric(target, ECEFToLLA(referencePoint));
+        return LLAtoAzElGeocentric(target, LLAtoECEF(referencePoint));
     }
 } // namespace nc::coordinates::transforms

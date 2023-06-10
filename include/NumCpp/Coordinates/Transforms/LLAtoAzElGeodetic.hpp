@@ -60,6 +60,6 @@ namespace nc::coordinates::transforms
     [[nodiscard]] inline reference_frames::AzEl LLAtoAzElGeodetic(const reference_frames::LLA&  target,
                                                                   const reference_frames::ECEF& referencePoint) noexcept
     {
-        LLAtoAzElGeodetic(target, ECEFtoLLA(referencePoint));
+        return LLAtoAzElGeodetic(target, ECEFtoLLA(referencePoint));
     }
 } // namespace nc::coordinates::transforms

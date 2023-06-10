@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "NumCpp/Utils/essentiallyEqual.hpp"
+
 namespace nc::coordinates::reference_frames
 {
     /**
@@ -21,13 +23,13 @@ namespace nc::coordinates::reference_frames
 
         /**
          * @brief Constructor
-         * @param az: az value in radians
-         * @param el: el value in radians
+         * @param inAz: az value in radians
+         * @param inEl: el value in radians
          */
         // NOTLINTNEXTLINE(bugprone-easily-swappable-parameters)
-        constexpr AzEl(double az, double el) noexcept :
-            az(az),
-            el(el)
+        constexpr AzEl(double inAz, double inEl) noexcept :
+            az(inAz),
+            el(inEl)
         {
         }
 
@@ -39,7 +41,7 @@ namespace nc::coordinates::reference_frames
          */
         bool operator==(const AzEl& other) const noexcept
         {
-            return az == other.az && el == other.el;
+            return utils::essentiallyEqual(az, other.az) && utils::essentiallyEqual(el, other.el);
         }
 
         /**

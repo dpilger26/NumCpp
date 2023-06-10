@@ -51,14 +51,14 @@ namespace nc::coordinates
         /**
          * @brief Constructor
          *
-         * @param: roll: the roll component
-         * @param: pitch: the pitch component
-         * @param: yaw: the yaw component
+         * @param: inRoll: the roll component
+         * @param: inPitch: the pitch component
+         * @param: inYaw: the yaw component
          */
-        constexpr Orientation(double roll, double pitch, double yaw) noexcept :
-            roll(roll),
-            pitch(pitch),
-            yaw(yaw)
+        constexpr Orientation(double inRoll, double inPitch, double inYaw) noexcept :
+            roll(inRoll),
+            pitch(inPitch),
+            yaw(inYaw)
         {
         }
 

@@ -2359,12 +2359,30 @@ namespace nc
         // Method Description:
         /// Returns the full column of the array
         ///
-        ///
-        /// @return Shape
+        /// @param inColumn: the column index
+        /// @return self_type
         ///
         [[nodiscard]] self_type column(size_type inColumn)
         {
             return operator()(rSlice(), inColumn);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Returns the full column of the array
+        ///
+        /// @param inRows: the column indices
+        /// @return self_type
+        ///
+        [[nodiscard]] self_type columns(const NdArray<size_type>& inCols) const
+        {
+            auto       returnArray = self_type(shape_.rows, inCols.size());
+            const auto rSlice      = returnArray.rSlice();
+            for (size_type i = 0; i < inCols.size(); ++i)
+            {
+                returnArray.put(rSlice, i, column(i));
+            }
+            return returnArray;
         }
 
         //============================================================================
@@ -4405,12 +4423,30 @@ namespace nc
         // Method Description:
         /// Returns the full row of the array
         ///
+        /// @param inRow: the row index
+        /// @return self_type
         ///
-        /// @return Shape
-        ///
-        [[nodiscard]] self_type row(size_type inRow)
+        [[nodiscard]] self_type row(size_type inRow) const
         {
             return self_type(cbegin(inRow), cend(inRow));
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Returns the full row of the array
+        ///
+        /// @param inRows: the row indices
+        /// @return self_type
+        ///
+        [[nodiscard]] self_type rows(const NdArray<size_type>& inRows) const
+        {
+            auto       returnArray = self_type(inRows.size(), shape_.cols);
+            const auto cSlice      = returnArray.cSlice();
+            for (size_type i = 0; i < inRows.size(); ++i)
+            {
+                returnArray.put(i, cSlice, row(i));
+            }
+            return returnArray;
         }
 
         //============================================================================

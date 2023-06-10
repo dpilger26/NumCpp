@@ -29,6 +29,8 @@
 
 #include <iostream>
 
+#include "NumCpp/Utils/essentiallyEqual.hpp"
+
 namespace nc::coordinates::reference_frames
 {
     /**
@@ -48,15 +50,15 @@ namespace nc::coordinates::reference_frames
 
         /**
          * @brief Constructor
-         * @param latitude: latitude value in radians
-         * @param longitude: longitude value in radians
-         * @param altitude: altitude value in meters
+         * @param inLatitude: latitude value in radians
+         * @param inLongitude: longitude value in radians
+         * @param inAltitude: altitude value in meters
          */
         // NOTLINTNEXTLINE(bugprone-easily-swappable-parameters)
-        constexpr LLA(double latitude, double longitude, double altitude = 0.) noexcept :
-            latitude(latitude),
-            longitude(longitude),
-            altitude(altitude)
+        constexpr LLA(double inLatitude, double inLongitude, double inAltitude = 0.) noexcept :
+            latitude(inLatitude),
+            longitude(inLongitude),
+            altitude(inAltitude)
         {
         }
 
@@ -66,9 +68,11 @@ namespace nc::coordinates::reference_frames
          * @param other: other object
          * @return bool true if not equal equal
          */
-        constexpr bool operator==(const LLA& other) const noexcept
+        bool operator==(const LLA& other) const noexcept
         {
-            return latitude == other.latitude && longitude == other.longitude && altitude == other.altitude;
+            return utils::essentiallyEqual(latitude, other.latitude) &&
+                   utils::essentiallyEqual(longitude, other.longitude) &&
+                   utils::essentiallyEqual(altitude, other.altitude);
         }
 
         /**
@@ -77,7 +81,7 @@ namespace nc::coordinates::reference_frames
          * @param other: other object
          * @return bool true if not equal equal
          */
-        constexpr bool operator!=(const LLA& other) const noexcept
+        bool operator!=(const LLA& other) const noexcept
         {
             return !(*this == other);
         }
