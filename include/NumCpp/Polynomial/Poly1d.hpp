@@ -453,7 +453,7 @@ namespace nc::polynomial
             stl_algorithms::transform(xValues.begin(),
                                       xValues.end(),
                                       returnArray.begin(),
-                                      [](const auto xValue) { return this->operator()(xValue); });
+                                      [this](const auto xValue) { return this->operator()(xValue); });
             return returnArray;
         }
 
