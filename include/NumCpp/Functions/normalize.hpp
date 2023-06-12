@@ -57,21 +57,22 @@ namespace nc
         {
             case Axis::NONE:
             {
-                return inArray / norm(inArray);
+                return inArray / norm(inArray, Axis::NONE);
             }
             case Axis::COL:
             {
-                NdArray<double> returnArray(1, inArray.numRows());
+                NdArray<double> returnArray(inArray.shape());
+                const auto      cSlice = returnArray.cSlice();
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
-                    returnArray(0, row) = normalize(inArray.row(), Axis::NONE);
+                    returnArray.put(row, cSlice, normalize(inArray.row(row), Axis::NONE));
                 }
 
                 return returnArray;
             }
             case Axis::ROW:
             {
-                return norm(inArray.transpose(), Axis::COL);
+                return normalize(inArray.transpose(), Axis::COL).transpose();
             }
             default:
             {
@@ -91,7 +92,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> norm(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<std::complex<double>> normalize(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -99,21 +100,22 @@ namespace nc
         {
             case Axis::NONE:
             {
-                return inArray / norm(inArray);
+                return inArray / norm(inArray, Axis::NONE);
             }
             case Axis::COL:
             {
-                NdArray<double> returnArray(1, inArray.numRows());
+                NdArray<std::complex<double>> returnArray(inArray.shape());
+                const auto                    cSlice = returnArray.cSlice();
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
-                    returnArray(0, row) = normalize(inArray.row(row), Axis::NONE);
+                    returnArray.put(row, cSlice, normalize(inArray.row(row), Axis::NONE));
                 }
 
                 return returnArray;
             }
             case Axis::ROW:
             {
-                return norm(inArray.transpose(), Axis::COL);
+                return normalize(inArray.transpose(), Axis::COL).transpose();
             }
             default:
             {

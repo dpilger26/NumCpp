@@ -45,8 +45,8 @@ namespace nc::coordinates::transforms
     [[nodiscard]] inline reference_frames::NED AzElGeocentricToNED(const reference_frames::AzEl azEl,
                                                                    double                       range = 1.0) noexcept
     {
-        const auto north = range * std::cos(-azEl.el) * std::cos(azEl.az);
-        const auto east  = range * std::cos(-azEl.el) * std::sin(azEl.az);
+        const auto north = range * std::cos(azEl.el) * std::cos(azEl.az);
+        const auto east  = range * std::cos(azEl.el) * std::sin(azEl.az);
         const auto down  = range * std::sin(-azEl.el);
         return { north, east, down };
     }

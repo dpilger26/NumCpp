@@ -205,6 +205,7 @@
 #include "NumCpp/Functions/none.hpp"
 #include "NumCpp/Functions/nonzero.hpp"
 #include "NumCpp/Functions/norm.hpp"
+#include "NumCpp/Functions/normalize.hpp"
 #include "NumCpp/Functions/not_equal.hpp"
 #include "NumCpp/Functions/nth_root.hpp"
 #include "NumCpp/Functions/ones.hpp"

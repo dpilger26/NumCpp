@@ -3524,6 +3524,10 @@ void initFunctions(pb11::module& m)
     m.def("norm", normDouble);
     NdArray<ComplexDouble> (*normComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &norm<double>;
     m.def("norm", normComplexDouble);
+    NdArray<double> (*normalizeDouble)(const NdArray<double>&, Axis) = &normalize<double>;
+    m.def("normalize", normalizeDouble);
+    NdArray<ComplexDouble> (*normalizeComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &normalize<double>;
+    m.def("normalize", normalizeComplexDouble);
     m.def("not_equal", &not_equal<double>);
     m.def("not_equal", &not_equal<ComplexDouble>);
 

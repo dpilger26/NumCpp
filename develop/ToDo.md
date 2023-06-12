@@ -7,8 +7,6 @@
   * reference_frames
   * transforms
     * tests for new constructors for Celestial
-    * tests for new Vec3 overload
-    * tests for new normalize function
     * tests for new NdArray rows(), and columns() methods
   * Logger
   * BinaryLogger

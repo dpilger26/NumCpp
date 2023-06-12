@@ -338,6 +338,15 @@ def test_Vec3_array_constructor():
 
 
 ####################################################################################
+def test_Vec3_Vec2_constructor():
+    x, y = np.random.rand(2)
+    vec3 = NumCpp.Vec3(NumCpp.Vec2(x, y))
+    assert vec3.x == x
+    assert vec3.y == y
+    assert vec3.z == 0
+
+
+####################################################################################
 def test_Vec3_angle():
     components1 = np.random.rand(3)
     components2 = np.random.rand(3)
