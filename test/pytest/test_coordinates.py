@@ -9,6 +9,172 @@ np.random.seed(666)
 
 
 ####################################################################################
+def test_cartesian_default_constructor():
+    c = NumCpp.Cartesian()
+    assert c.x == 0
+    assert c.y == 0
+    assert c.z == 0
+
+
+####################################################################################
+def test_cartesian_component_constructor():
+    x, y, z = np.random.rand(3) * 10
+    c = NumCpp.Cartesian(x, y, z)
+    assert c.x == x
+    assert c.y == y
+    assert c.z == z
+
+
+####################################################################################
+def test_cartesian_vec2_constructor():
+    x, y = np.random.rand(2) * 10
+    vec2 = NumCpp.Vec2(x, y)
+    c = NumCpp.Cartesian(vec2)
+    assert c.x == x
+    assert c.y == y
+    assert c.z == 0
+
+
+####################################################################################
+def test_cartesian_vec3_constructor():
+    x, y, z = np.random.rand(3) * 10
+    vec3 = NumCpp.Vec3(x, y, z)
+    c = NumCpp.Cartesian(vec3)
+    assert c.x == x
+    assert c.y == y
+    assert c.z == z
+
+
+####################################################################################
+def test_cartesian_ndarray_constructor():
+    components = np.random.rand(3) * 10
+    cArray = NumCpp.NdArray(3, 1)
+    cArray.setArray(components)
+    c = NumCpp.Cartesian(cArray)
+    assert c.x == components[0]
+    assert c.y == components[1]
+    assert c.z == components[2]
+
+
+####################################################################################
+def test_cartesian_xHat():
+    c = NumCpp.Cartesian.xHat()
+    assert c.x == 1
+    assert c.y == 0
+    assert c.z == 0
+
+
+####################################################################################
+def test_cartesian_yHat():
+    c = NumCpp.Cartesian.yHat()
+    assert c.x == 0
+    assert c.y == 1
+    assert c.z == 0
+
+
+####################################################################################
+def test_cartesian_zHat():
+    c = NumCpp.Cartesian.zHat()
+    assert c.x == 0
+    assert c.y == 0
+    assert c.z == 1
+
+
+####################################################################################
+def test_cartesian_eq():
+    c1 = NumCpp.Cartesian.xHat()
+    c2 = NumCpp.Cartesian.xHat()
+    assert c1 == c2
+
+
+####################################################################################
+def test_cartesian_ne():
+    c1 = NumCpp.Cartesian.xHat()
+    c2 = NumCpp.Cartesian.zHat()
+    assert c1 != c2
+
+
+####################################################################################
+def test_cartesian_add():
+    c1 = NumCpp.Cartesian.xHat()
+    c2 = NumCpp.Cartesian.zHat()
+    c = c1 + c2
+    assert c.x == 1
+    assert c.y == 0
+    assert c.z == 1
+
+
+####################################################################################
+def test_cartesian_sub():
+    c1 = NumCpp.Cartesian.xHat()
+    c2 = NumCpp.Cartesian.zHat()
+    c = c1 - c2
+    assert c.x == 1
+    assert c.y == 0
+    assert c.z == -1
+
+
+####################################################################################
+def test_cartesian_mul():
+    c = NumCpp.Cartesian.xHat() * 10
+    assert c.x == 10
+    assert c.y == 0
+    assert c.z == 0
+
+
+####################################################################################
+def test_cartesian_div():
+    c = NumCpp.Cartesian.xHat() / 10
+    assert c.x == 0.1
+    assert c.y == 0
+    assert c.z == 0
+
+
+####################################################################################
+def test_cartesian_print():
+    c = NumCpp.Cartesian.xHat()
+    c.print()
+
+
+####################################################################################
+def test_cartesian_cross():
+    c1 = NumCpp.Cartesian.xHat()
+    c2 = NumCpp.Cartesian.yHat()
+    c = NumCpp.cross(c1, c2)
+    assert c == NumCpp.Cartesian.zHat()
+
+
+####################################################################################
+def test_cartesian_norm():
+    x, y, z = np.random.rand(3) * 100
+    c = NumCpp.Cartesian(x, y, z)
+    assert np.round(NumCpp.norm(c), 9) == np.round(np.linalg.norm([x, y, z]), 9)
+
+
+####################################################################################
+def test_cartesian_normalize():
+    x, y, z = np.random.rand(3) * 100
+    c = NumCpp.normalize(NumCpp.Cartesian(x, y, z))
+    assert NumCpp.norm(c) == 1
+
+
+####################################################################################
+def test_cartesian_angle():
+    x1, y1, z1 = np.random.rand(3) * 100
+    x2, y2, z2 = np.random.rand(3) * 100
+    c1 = NumCpp.Cartesian(x1, y1, z1)
+    c2 = NumCpp.Cartesian(x2, y2, z2)
+
+    a1 = np.array([x1, y1, z1])
+    a1 = a1 / np.linalg.norm(a1)
+    a2 = np.array([x2, y2, z2])
+    a2 = a2 / np.linalg.norm(a2)
+    angle = np.arccos(np.dot(a1, a2))
+
+    assert np.round(NumCpp.angle(c1, c2), 9) == np.round(angle, 9)
+
+
+####################################################################################
 def test_ra_default_constructor():
     ra = NumCpp.Ra()
     assert ra
@@ -210,7 +376,7 @@ def test_coord_cartesian_constructor():
 
 
 ####################################################################################
-def test_coord_cartesian_vector_constructor():
+def test_coord_ndarray_constructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -220,6 +386,38 @@ def test_coord_cartesian_vector_constructor():
     cVec = NumCpp.NdArray(1, 3)
     cVec.setArray(vec)
     cCoord = NumCpp.Celestial(cVec)
+    assert round(cCoord.ra().degrees(), 8) == round(ra.degrees(), 8)
+    assert round(cCoord.dec().degrees(), 8) == round(dec.degrees(), 8)
+    assert round(cCoord.x(), 8) == round(pyCoord.cartesian.x.value, 8)
+    assert round(cCoord.y(), 8) == round(pyCoord.cartesian.y.value, 8)
+    assert round(cCoord.z(), 8) == round(pyCoord.cartesian.z.value, 8)
+
+
+####################################################################################
+def test_coord_cartesian_constructor():
+    raDegrees = np.random.rand(1).item() * 360
+    ra = NumCpp.Ra(raDegrees)
+    decDegrees = np.random.rand(1).item() * 180 - 90
+    dec = NumCpp.Dec(decDegrees)
+    pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
+    cartesian = NumCpp.Cartesian(pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value)
+    cCoord = NumCpp.Celestial(cartesian)
+    assert round(cCoord.ra().degrees(), 8) == round(ra.degrees(), 8)
+    assert round(cCoord.dec().degrees(), 8) == round(dec.degrees(), 8)
+    assert round(cCoord.x(), 8) == round(pyCoord.cartesian.x.value, 8)
+    assert round(cCoord.y(), 8) == round(pyCoord.cartesian.y.value, 8)
+    assert round(cCoord.z(), 8) == round(pyCoord.cartesian.z.value, 8)
+
+
+####################################################################################
+def test_coord_vec3_constructor():
+    raDegrees = np.random.rand(1).item() * 360
+    ra = NumCpp.Ra(raDegrees)
+    decDegrees = np.random.rand(1).item() * 180 - 90
+    dec = NumCpp.Dec(decDegrees)
+    pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
+    vec3 = NumCpp.Vec3(pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value)
+    cCoord = NumCpp.Celestial(vec3)
     assert round(cCoord.ra().degrees(), 8) == round(ra.degrees(), 8)
     assert round(cCoord.dec().degrees(), 8) == round(dec.degrees(), 8)
     assert round(cCoord.x(), 8) == round(pyCoord.cartesian.x.value, 8)

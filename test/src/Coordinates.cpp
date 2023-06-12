@@ -7,6 +7,35 @@
 void initCoordinates(pb11::module& m)
 {
     // Coordinates.hpp
+    pb11::class_<coordinates::Cartesian>(m, "Cartesian")
+        .def(pb11::init<>())
+        .def(pb11::init<double, double, double>())
+        .def(pb11::init<const Vec2&>())
+        .def(pb11::init<const Vec3&>())
+        .def(pb11::init<const NdArray<double>&>())
+        .def_readwrite("x", &coordinates::Cartesian::x)
+        .def_readwrite("y", &coordinates::Cartesian::y)
+        .def_readwrite("z", &coordinates::Cartesian::z)
+        .def_static("xHat", &coordinates::Cartesian::xHat)
+        .def_static("yHat", &coordinates::Cartesian::yHat)
+        .def_static("zHat", &coordinates::Cartesian::zHat)
+        .def("__eq__", &coordinates::Cartesian::operator==)
+        .def("__ne__", &coordinates::Cartesian::operator!=)
+        .def("__add__",
+             [](const coordinates::Cartesian& self, const coordinates::Cartesian& other) { return self + other; })
+        .def("__sub__",
+             [](const coordinates::Cartesian& self, const coordinates::Cartesian& other) { return self - other; })
+        .def("__mul__",
+             [](const coordinates::Cartesian& self, const coordinates::Cartesian& other) { return self * other; })
+        .def("__mul__", [](const coordinates::Cartesian& self, double scalar) { return self * scalar; })
+        .def("__truediv__", [](const coordinates::Cartesian& self, double scalar) { return self / scalar; })
+        .def("print", [](const coordinates::Cartesian& self) { std::cout << self; });
+
+    m.def("cross", &coordinates::cross);
+    m.def("norm", &coordinates::norm);
+    m.def("normalize", &coordinates::normalize);
+    m.def("angle", &coordinates::angle);
+
     pb11::class_<coordinates::reference_frames::RA>(m, "Ra")
         .def(pb11::init<>())
         .def(pb11::init<double>())
@@ -48,9 +77,11 @@ void initCoordinates(pb11::module& m)
         .def(pb11::init<>())
         .def(pb11::init<double, double>())
         .def(pb11::init<uint8, uint8, double, coordinates::reference_frames::Dec::Sign, uint8, uint8, double>())
-        .def(pb11::init<double, double, double>())
         .def(pb11::init<coordinates::reference_frames::RA, coordinates::reference_frames::Dec>())
+        .def(pb11::init<double, double, double>())
         .def(pb11::init<NdArrayDouble>())
+        .def(pb11::init<coordinates::Cartesian>())
+        .def(pb11::init<Vec3>())
         .def(pb11::init<coordinates::reference_frames::Celestial>())
         .def("dec", &coordinates::reference_frames::Celestial::dec, pb11::return_value_policy::reference)
         .def("ra", &coordinates::reference_frames::Celestial::ra, pb11::return_value_policy::reference)

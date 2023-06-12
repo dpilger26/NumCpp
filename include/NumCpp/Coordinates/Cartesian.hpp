@@ -266,7 +266,7 @@ namespace nc::coordinates
      * @param: os: the output stream
      * @param: vec: the cartesian vector
      */
-    [[nodiscard]] inline std::ostream& operator<<(std::ostream& os, const Cartesian& vec)
+    inline std::ostream& operator<<(std::ostream& os, const Cartesian& vec)
     {
         os << "Cartesian(x=" << vec.x << ", y=" << vec.y << ", z=" << vec.z << ")\n";
         return os;
