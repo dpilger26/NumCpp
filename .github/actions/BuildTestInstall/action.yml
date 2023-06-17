@@ -35,10 +35,15 @@ runs:
       shell: ${{inputs.shell}}
       run: cmake --build ${{github.workspace}}/build --config Release -j8
 
-    - name: Test
+    - name: pytest
       shell: ${{inputs.shell}}
       working-directory: ${{github.workspace}}/test/pytest
       run: pytest
+
+    - name: gtest
+      shell: ${{inputs.shell}}
+      working-directory: ${{github.workspace}}/test/gtest
+      run: NumCpp_tests
 
     - name: Install
       shell: ${{inputs.shell}}
