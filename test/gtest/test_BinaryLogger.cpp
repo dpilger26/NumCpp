@@ -1,5 +1,7 @@
 // UNCLASSIFIED
 
+#ifndef NUMCPP_NO_USE_BOOST
+
 #include "gtest/gtest.h"
 
 #include <chrono>
@@ -180,5 +182,7 @@ namespace nc::logger
         ASSERT_EQ(std::filesystem::file_size(typeLogger.filepath()), expectedSizeBytes);
     }
 } // namespace nc::logger
+
+#endif // #ifndef NUMCPP_NO_USE_BOOST
 
 // UNCLASSIFIED

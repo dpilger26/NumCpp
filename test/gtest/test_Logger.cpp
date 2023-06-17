@@ -1,5 +1,7 @@
 // UNCLASSIFIED
 
+#ifndef NUMCPP_NO_USE_BOOST
+
 #include "gtest/gtest.h"
 
 #include <filesystem>
@@ -99,5 +101,7 @@ namespace nc::logger
         ASSERT_TRUE(fs::is_regular_file(newLogFile));
     }
 } // namespace nc::logger
+
+#endif // #ifndef NUMCPP_NO_USE_BOOST
 
 // UNCLASSIFIED
