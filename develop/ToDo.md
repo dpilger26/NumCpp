@@ -6,8 +6,7 @@
 * incorporate new utilities under `/develop`
   * reference_frames
   * transforms
-    * tests for new constructors for Celestial
-    * tests for new NdArray rows(), and columns() methods
+  * tests for new constructors for Celestial
   * Logger
   * BinaryLogger
 * mixing of floats and ints in NdArray operators?

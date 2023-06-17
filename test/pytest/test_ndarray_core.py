@@ -4603,6 +4603,22 @@ def test_column():
 
 
 ####################################################################################
+def test_columns():
+    shapeInput = np.random.randint(
+        50,
+        100,
+        [
+            2,
+        ],
+    )
+    array = np.random.randint(0, 100, shapeInput)
+    cArray = NumCpp.NdArray(*array.shape)
+    cArray.setArray(array)
+    colIndices = np.unique(np.random.randint(0, shapeInput[1], [shapeInput[1] // 4, ])).astype(np.uint32)
+    assert np.array_equal(cArray.columns(colIndices), array[:, colIndices])
+
+
+####################################################################################
 def test_contains():
     shapeInput = np.random.randint(
         2,
@@ -10598,6 +10614,22 @@ def test_row():
         ],
     ).item()
     assert np.array_equal(cArray.row(rowIdx).getNumpyArray().flatten(), data[rowIdx, :].flatten())
+
+
+####################################################################################
+def test_rows():
+    shapeInput = np.random.randint(
+        50,
+        100,
+        [
+            2,
+        ],
+    )
+    array = np.random.randint(0, 100, shapeInput)
+    cArray = NumCpp.NdArray(*array.shape)
+    cArray.setArray(array)
+    rowIndices = np.unique(np.random.randint(0, shapeInput[0], [shapeInput[0] // 4, ])).astype(np.uint32)
+    assert np.array_equal(cArray.rows(rowIndices), array[rowIndices, :])
 
 
 ####################################################################################

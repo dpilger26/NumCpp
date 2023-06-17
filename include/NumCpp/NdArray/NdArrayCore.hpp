@@ -2362,7 +2362,7 @@ namespace nc
         /// @param inColumn: the column index
         /// @return self_type
         ///
-        [[nodiscard]] self_type column(size_type inColumn)
+        [[nodiscard]] self_type column(size_type inColumn) const
         {
             return operator()(rSlice(), inColumn);
         }
@@ -2378,10 +2378,12 @@ namespace nc
         {
             auto       returnArray = self_type(shape_.rows, inCols.size());
             const auto rSlice      = returnArray.rSlice();
+
             for (size_type i = 0; i < inCols.size(); ++i)
             {
-                returnArray.put(rSlice, i, column(i));
+                returnArray.put(rSlice, i, column(inCols[i]));
             }
+
             return returnArray;
         }
 
@@ -4442,10 +4444,12 @@ namespace nc
         {
             auto       returnArray = self_type(inRows.size(), shape_.cols);
             const auto cSlice      = returnArray.cSlice();
+
             for (size_type i = 0; i < inRows.size(); ++i)
             {
-                returnArray.put(i, cSlice, row(i));
+                returnArray.put(i, cSlice, row(inRows[i]));
             }
+
             return returnArray;
         }
 
