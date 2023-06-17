@@ -42,8 +42,8 @@ runs:
 
     - name: gtest
       shell: ${{inputs.shell}}
-      working-directory: ${{github.workspace}}/test/gtest
-      run: NumCpp_tests
+      working-directory: ${{github.workspace}}/build
+      run: ctest
 
     - name: Install
       shell: ${{inputs.shell}}

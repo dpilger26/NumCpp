@@ -82,16 +82,16 @@ namespace nc::logger
      */
     TEST_F(LoggerTestSuite, TestFileLogger)
     {
-        namespace fs               = std::filesystem;
-        const fs::path currentPath = fs::current_path();
-        fs::path       loggerFile  = currentPath / "TestLog.log";
+        namespace fs              = std::filesystem;
+        const fs::path tempPath   = fs::temp_directory_path();
+        fs::path       loggerFile = tempPath / "TestLog.log";
         addOutputFileLog(loggerFile);
 
         logAllSeverities();
         ASSERT_TRUE(fs::exists(loggerFile));
         ASSERT_TRUE(fs::is_regular_file(loggerFile));
 
-        fs::path newLogFile = currentPath / "another/dir/newLog.log";
+        fs::path newLogFile = tempPath / "another/dir/newLog.log";
         addOutputFileLog(newLogFile);
 
         logAllSeverities();

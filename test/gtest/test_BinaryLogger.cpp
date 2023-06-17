@@ -72,7 +72,7 @@ namespace nc::logger
         ASSERT_THROW(defaultDataLogger.log(dataVec.data(), dataVec.size()), std::runtime_error);
 
         namespace fs                   = std::filesystem;
-        const fs::path validPath       = fs::current_path();
+        const fs::path validPath       = fs::temp_directory_path();
         auto           validDataLogger = detail::BinaryDataLogger<BaseDataType>(validPath);
         // Valid filepath, logging should succeed
         ASSERT_NO_THROW(validDataLogger.log(data));

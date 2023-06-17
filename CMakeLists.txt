@@ -13,6 +13,8 @@ project("NumCpp"
     LANGUAGES CXX
 )
 
+enable_testing()
+
 message(STATUS "Building ${PROJECT_NAME} version ${VERSION_STRING}")
 
 if(NOT CMAKE_BUILD_TYPE)

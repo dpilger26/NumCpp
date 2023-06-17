@@ -6,8 +6,6 @@
 * unit tests for new reference_frames
 * unit tests for new transforms
 * unit tests for new constructors for Celestial
-* unit tests for new Logger
-* unit tests for new BinaryLogger
 
 * run clang-tidy
 * run cppcheck
