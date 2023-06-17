@@ -1,5 +1,6 @@
 import numpy as np
 import os
+import tempfile
 
 import NumCppPy as NumCpp  # noqa E402
 
@@ -61,22 +62,20 @@ def test_methods():
             break
     assert allPass
 
-    tempDir = r"C:\Temp"
-    if not os.path.exists(tempDir):
-        os.mkdir(tempDir)
-    tempFile = os.path.join(tempDir, "DataCube.bin")
-    dataCube.dump(tempFile)
-    if os.path.exists(tempFile):
-        filesize = os.path.getsize(tempFile)
-        assert filesize == data.size * 8
-    else:
-        assert False
-    os.remove(tempFile)
+    with tempfile.TemporaryDirectory() as tempDir:
+        tempFile = os.path.join(tempDir, "DataCube.bin")
+        dataCube.dump(tempFile)
+        if os.path.exists(tempFile):
+            filesize = os.path.getsize(tempFile)
+            assert filesize == data.size * 8
+        else:
+            assert False
+        os.remove(tempFile)
 
     sizeInitial = dataCube.sizeZ()
     sizeNow = sizeInitial
     allPass = True
-    for idx in range(sizeInitial):
+    for _ in range(sizeInitial):
         dataCube.pop_back()
         sizeNow -= 1
 

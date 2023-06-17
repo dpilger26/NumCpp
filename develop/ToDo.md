@@ -3,13 +3,11 @@
 ## Version 2.11.0
 
 * `stack`/`vstack`/`hstack`/`row_stack`/`col_stack` should take in a `std::vector`, ISSUE #196
-* incorporate new utilities under `/develop`
-  * reference_frames
-  * transforms
-  * tests for new constructors for Celestial
-  * Logger
-  * BinaryLogger
-* mixing of floats and ints in NdArray operators?
+* unit tests for new reference_frames
+* unit tests for new transforms
+* unit tests for new constructors for Celestial
+* unit tests for new Logger
+* unit tests for new BinaryLogger
 
 * run clang-tidy
 * run cppcheck

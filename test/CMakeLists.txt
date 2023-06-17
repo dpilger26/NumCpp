@@ -1,6 +1,7 @@
 if(BUILD_TESTS)
     message(STATUS "Configuring Unit Tests")
-    add_subdirectory(src)
+    add_subdirectory(gtest)
+    add_subdirectory(pytest)
 endif()
 
 if(BUILD_MULTIPLE_TEST)

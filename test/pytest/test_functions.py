@@ -5760,15 +5760,13 @@ def test_fromfile():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(float)
     cArray.setArray(data)
-    tempDir = r"C:\Temp"
-    if not os.path.exists(tempDir):
-        os.mkdir(tempDir)
-    tempFile = os.path.join(tempDir, "NdArrayDump.bin")
-    NumCpp.tofile(cArray, tempFile)
-    assert os.path.isfile(tempFile)
-    data2 = NumCpp.fromfile(tempFile).reshape(shapeInput)
-    assert np.array_equal(data, data2)
-    os.remove(tempFile)
+    with tempfile.TemporaryDirectory() as tempDir:
+        tempFile = os.path.join(tempDir, "NdArrayDump.bin")
+        NumCpp.tofile(cArray, tempFile)
+        assert os.path.isfile(tempFile)
+        data2 = NumCpp.fromfile(tempFile).reshape(shapeInput)
+        assert np.array_equal(data, data2)
+        os.remove(tempFile)
 
     # delimiter = ' '
     shapeInput = np.random.randint(

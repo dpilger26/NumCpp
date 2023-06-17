@@ -5196,17 +5196,15 @@ def test_dump():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
-    tempDir = r"C:\Temp"
-    if not os.path.exists(tempDir):
-        os.mkdir(tempDir)
-    tempFile = os.path.join(tempDir, "NdArrayDump.bin")
-    cArray.dump(tempFile)
-    if os.path.exists(tempFile):
-        filesize = os.path.getsize(tempFile)
-        assert filesize == data.size * 8
-    else:
-        assert False
-    os.remove(tempFile)
+    with tempfile.TemporaryDirectory() as tempDir:
+        tempFile = os.path.join(tempDir, "NdArrayDump.bin")
+        cArray.dump(tempFile)
+        if os.path.exists(tempFile):
+            filesize = os.path.getsize(tempFile)
+            assert filesize == data.size * 8
+        else:
+            assert False
+        os.remove(tempFile)
 
     shapeInput = np.random.randint(
         2,
@@ -5221,17 +5219,15 @@ def test_dump():
     imag = np.random.randint(1, 100, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    tempDir = r"C:\Temp"
-    if not os.path.exists(tempDir):
-        os.mkdir(tempDir)
-    tempFile = os.path.join(tempDir, "NdArrayDump.bin")
-    cArray.dump(tempFile)
-    if os.path.exists(tempFile):
-        filesize = os.path.getsize(tempFile)
-        assert filesize == data.size * 16
-    else:
-        assert False
-    os.remove(tempFile)
+    with tempfile.TemporaryDirectory() as tempDir:
+        tempFile = os.path.join(tempDir, "NdArrayDump.bin")
+        cArray.dump(tempFile)
+        if os.path.exists(tempFile):
+            filesize = os.path.getsize(tempFile)
+            assert filesize == data.size * 16
+        else:
+            assert False
+        os.remove(tempFile)
 
 
 ####################################################################################
