@@ -771,136 +771,275 @@ def test_celestial_radianSeperation_vec():
 
 
 ####################################################################################
-def test_coorc_print():
+def test_celestial_print():
     cCelestial = NumCpp.Celestial()
     cCelestial.print()
 
 
 ####################################################################################
-def test_NEDtoECEF():
-    pass
-
-
-####################################################################################
-def test_NEDtoLLA():
-    pass
-
-
-####################################################################################
-def test_LLAtoECEF():
-    pass
-
-
-####################################################################################
-def test_NEDUnitVecsInECEF():
-    pass
-
-
-####################################################################################
-def test_ENUtoLLA():
-    pass
-
-
-####################################################################################
-def test_LLAtoENU():
-    pass
-
-
-####################################################################################
-def test_LLAtoNED():
-    pass
-
-
-####################################################################################
-def test_ECEFtoENU():
-    pass
-
-
-####################################################################################
-def test_ENUtoNED():
-    pass
-
-
-####################################################################################
-def test_ENURollPitchYawToECEFEuler():
-    pass
-
-
-####################################################################################
-def test_ECEFtoAzElGeocentric():
-    pass
-
-
-####################################################################################
-def test_ECEFEulerToNEDRollPitchYaw():
-    pass
-
-
-####################################################################################
-def test_LLAtoAzElGeodetic():
-    pass
-
-
-####################################################################################
-def test_ECEFEulerToENURollPitchYaw():
-    pass
-
-
-####################################################################################
 def test_AzElGeocentricToENU():
-    pass
-
-
-####################################################################################
-def test_NEDRollPitchYawToECEFEuler():
-    pass
-
-
-####################################################################################
-def test_ENUtoECEF():
-    pass
-
-
-####################################################################################
-def test_LLAtoAzElGeocentric():
-    pass
+    az, el, range = np.random.rand(3) * np.pi / 4
+    azEl = NumCpp.AzEl(az, el)
+    enu = NumCpp.AzElGeocentricToENU(azEl, range)
 
 
 ####################################################################################
 def test_AzElGeocentricToNED():
-    pass
+    az, el, range = np.random.rand(3) * np.pi / 4
+    azEl = NumCpp.AzEl(az, el)
+    ned = NumCpp.AzElGeocentricToNED(azEl, range)
 
 
 ####################################################################################
-def test_NEDtoAzEl():
-    pass
+def test_ECEFEulerToENURollPitchYaw():
+    x, y, z = np.random.rand(3) * 10000
+    ecef = NumCpp.ECEF(x, y, z)
+    psi, theta, phi = np.random.rand(3)
+    euler = NumCpp.Euler(psi, theta, phi)
+    orientation = NumCpp.ECEFEulerToENURollPitchYaw(ecef, euler)
+
 
 
 ####################################################################################
-def test_ECEFtoLLA():
-    pass
+def test_ECEFEulerToNEDRollPitchYaw():
+    x, y, z = np.random.rand(3) * 10000
+    ecef = NumCpp.ECEF(x, y, z)
+    psi, theta, phi = np.random.rand(3)
+    euler = NumCpp.Euler(psi, theta, phi)
+    orientation = NumCpp.ECEFEulerToNEDRollPitchYaw(ecef, euler)
 
 
 ####################################################################################
-def test_ECEFtoNED():
-    pass
+def test_ECEFtoAzElGeocentric():
+    x1, y1, z1 = np.random.rand(3) * 10000
+    target = NumCpp.ECEF(x1, y1, z1)
+    x2, y2, z2 = np.random.rand(3) * 10000
+    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    azEl = NumCpp.ECEFtoAzElGeocentric(target, referencePoint)
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat, lon, alt)
+    azEl = NumCpp.ECEFtoAzElGeocentric(target, referencePoint)
 
 
 ####################################################################################
 def test_ECEFtoAzElGeodetic():
-    pass
+    x1, y1, z1 = np.random.rand(3) * 10000
+    target = NumCpp.ECEF(x1, y1, z1)
+    x2, y2, z2 = np.random.rand(3) * 10000
+    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    azEl = NumCpp.ECEFtoAzElGeodetic(target, referencePoint)
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat, lon, alt)
+    azEl = NumCpp.ECEFtoAzElGeodetic(target, referencePoint)
+
+
+####################################################################################
+def test_ECEFtoENU():
+    x1, y1, z1 = np.random.rand(3) * 10000
+    target = NumCpp.ECEF(x1, y1, z1)
+    x2, y2, z2 = np.random.rand(3) * 10000
+    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    enu = NumCpp.ECEFtoENU(target, referencePoint)
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat, lon, alt)
+    enu = NumCpp.ECEFtoENU(target, referencePoint)
+
+
+####################################################################################
+def test_ECEFtoLLA():
+    x1, y1, z1 = np.random.rand(3) * 10000
+    ecef = NumCpp.ECEF(x1, y1, z1)
+    lla = NumCpp.ECEFtoLLA(ecef, 1e-8)
+
+
+####################################################################################
+def test_ECEFtoNED():
+    x1, y1, z1 = np.random.rand(3) * 10000
+    target = NumCpp.ECEF(x1, y1, z1)
+    x2, y2, z2 = np.random.rand(3) * 10000
+    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    ned = NumCpp.ECEFtoNED(target, referencePoint)
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat, lon, alt)
+    ned = NumCpp.ECEFtoNED(target, referencePoint)
+
+
+####################################################################################
+def test_ENURollPitchYawToECEFEuler():
+    x, y, z = np.random.rand(3) * 10000
+    ecef = NumCpp.ECEF(x, y, z)
+    roll, pitch, yaw = np.random.rand(3)
+    orientation = NumCpp.Orientation(roll, pitch, yaw)
+    euler = NumCpp.ENURollPitchYawToECEFEuler(ecef, orientation)
 
 
 ####################################################################################
 def test_ENUUnitVecsInECEF():
-    pass
-
-
-####################################################################################
-def test_NEDtoENU():
-    pass
+    x, y, z = np.random.rand(3) * 10000
+    ecef = NumCpp.ECEF(x, y, z)
+    xHat, yHat, zHat = NumCpp.ENUUnitVecsInECEF(ecef)
 
 
 ####################################################################################
 def test_ENUtoAzEl():
-    pass
+    east, north, up = np.random.rand(3) * 1000
+    enu = NumCpp.ENU(east, north, up)
+    azEl = NumCpp.ENUtoAzEl(enu)
+
+
+####################################################################################
+def test_ENUtoECEF():
+    east, north, up = np.random.rand(3) * 1000
+    target = NumCpp.ENU(east, north, up)
+    x2, y2, z2 = np.random.rand(3) * 10000
+    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    ecef = NumCpp.ENUtoECEF(target, referencePoint)
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat, lon, alt)
+    ecef = NumCpp.ENUtoECEF(target, referencePoint)
+
+
+####################################################################################
+def test_ENUtoLLA():
+    east, north, up = np.random.rand(3) * 1000
+    target = NumCpp.ENU(east, north, up)
+    x2, y2, z2 = np.random.rand(3) * 10000
+    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    lla = NumCpp.ENUtoLLA(target, referencePoint)
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat, lon, alt)
+    lla = NumCpp.ENUtoLLA(target, referencePoint)
+
+
+####################################################################################
+def test_ENUtoNED():
+    east, north, up = np.random.rand(3) * 1000
+    enu = NumCpp.ENU(east, north, up)
+    ned = NumCpp.ENUtoNED(enu)
+    assert ned.north == enu.north
+    assert ned.east == enu.east
+    assert ned.down == -enu.up
+
+
+####################################################################################
+def test_LLAtoAzElGeocentric():
+    lat, lon, alt = np.random.rand(3) * 1000
+    target = NumCpp.LLA(lat, lon, alt)
+    x2, y2, z2 = np.random.rand(3) * 10000
+    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    azEl = NumCpp.LLAtoAzElGeocentric(target, referencePoint)
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat, lon, alt)
+    azEl = NumCpp.LLAtoAzElGeocentric(target, referencePoint)
+
+
+####################################################################################
+def test_LLAtoAzElGeodetic():
+    lat, lon, alt = np.random.rand(3) * 1000
+    target = NumCpp.LLA(lat, lon, alt)
+    x2, y2, z2 = np.random.rand(3) * 10000
+    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    azEl = NumCpp.LLAtoAzElGeodetic(target, referencePoint)
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat, lon, alt)
+    azEl = NumCpp.LLAtoAzElGeodetic(target, referencePoint)
+
+
+####################################################################################
+def test_LLAtoECEF():
+    lat, lon, alt = np.random.rand(3) * 1000
+    lla = NumCpp.LLA(lat, lon, alt)
+    ecef = NumCpp.LLAtoECEF(lla)
+
+
+####################################################################################
+def test_LLAtoENU():
+    lat, lon, alt = np.random.rand(3) * 1000
+    target = NumCpp.LLA(lat, lon, alt)
+    x2, y2, z2 = np.random.rand(3) * 10000
+    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    enu = NumCpp.LLAtoENU(target, referencePoint)
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat, lon, alt)
+    enu = NumCpp.LLAtoENU(target, referencePoint)
+
+
+####################################################################################
+def test_LLAtoNED():
+    lat, lon, alt = np.random.rand(3) * 1000
+    target = NumCpp.LLA(lat, lon, alt)
+    x2, y2, z2 = np.random.rand(3) * 10000
+    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    ned = NumCpp.LLAtoNED(target, referencePoint)
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat, lon, alt)
+    ned = NumCpp.LLAtoNED(target, referencePoint)
+
+
+####################################################################################
+def test_NEDRollPitchYawToECEFEuler():
+    x, y, z = np.random.rand(3) * 10000
+    ecef = NumCpp.ECEF(x, y, z)
+    roll, pitch, yaw = np.random.rand(3) * np.pi / 4
+    orientation = NumCpp.Orientation(roll, pitch, yaw)
+    euler = NumCpp.NEDRollPitchYawToECEFEuler(ecef, orientation)
+
+
+####################################################################################
+def test_NEDUnitVecsInECEF():
+    x, y, z = np.random.rand(3) * 10000
+    ecef = NumCpp.ECEF(x, y, z)
+    xHat, yHat, zHat = NumCpp.NEDUnitVecsInECEF(ecef)
+
+
+####################################################################################
+def test_NEDtoAzEl():
+    north, east, down = np.random.rand(3) * 1000
+    ned = NumCpp.NED(north, east, down)
+    azEl = NumCpp.NEDtoAzEl(ned)
+
+
+####################################################################################
+def test_NEDtoECEF():
+    north, east, down = np.random.rand(3) * 1000
+    target = NumCpp.NED(north, east, down)
+    x2, y2, z2 = np.random.rand(3) * 10000
+    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    ecef = NumCpp.NEDtoECEF(target, referencePoint)
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat, lon, alt)
+    ecef = NumCpp.NEDtoECEF(target, referencePoint)
+
+
+####################################################################################
+def test_NEDtoENU():
+    north, east, down = np.random.rand(3) * 1000
+    ned = NumCpp.NED(north, east, down)
+    enu = NumCpp.NEDtoENU(ned)
+    assert enu.east == ned.east
+    assert enu.north == ned.north
+    assert enu.up == -ned.down
+
+
+###################################################################################
+def test_NEDtoLLA():
+    north, east, down = np.random.rand(3) * 1000
+    target = NumCpp.NED(north, east, down)
+    x2, y2, z2 = np.random.rand(3) * 10000
+    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    lla = NumCpp.NEDtoLLA(target, referencePoint)
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat, lon, alt)
+    lla = NumCpp.NEDtoLLA(target, referencePoint)

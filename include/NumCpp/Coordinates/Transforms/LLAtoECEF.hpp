@@ -54,12 +54,11 @@ namespace nc::coordinates::transforms
         const auto sinLon = std::sin(point.longitude);
         const auto cosLon = std::cos(point.longitude);
 
-        // prime vertical meridian
-        const auto pvm =
+        const auto primeVerticalMeridian =
             reference_frames::constants::EARTH_EQUATORIAL_RADIUS / std::sqrt(1. - E_SQR * utils::sqr(sinLat));
 
-        return reference_frames::ECEF{ (pvm + point.altitude) * cosLat * cosLon,
-                                       (pvm + point.altitude) * cosLat * sinLon,
-                                       (B2_DIV_A2 * pvm + point.altitude) * sinLat };
+        return reference_frames::ECEF{ (primeVerticalMeridian + point.altitude) * cosLat * cosLon,
+                                       (primeVerticalMeridian + point.altitude) * cosLat * sinLon,
+                                       (B2_DIV_A2 * primeVerticalMeridian + point.altitude) * sinLat };
     }
 } // namespace nc::coordinates::transforms
