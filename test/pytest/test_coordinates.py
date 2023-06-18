@@ -175,6 +175,145 @@ def test_cartesian_angle():
 
 
 ####################################################################################
+def test_azel():
+    azEl = NumCpp.AzEl()
+    assert azEl.az == 0.
+    assert azEl.el == 0.
+
+    az, el = np.random.rand(2) * np.pi / 4
+    azEl = NumCpp.AzEl(az, el)
+    assert azEl.az == az
+    assert azEl.el == el
+
+    azEl2 = NumCpp.AzEl(az, el)
+    assert azEl == azEl2
+
+    azEl2 = NumCpp.AzEl(el, az)
+    assert azEl != azEl2
+
+    azEl.print()
+
+
+####################################################################################
+def test_enu():
+    enu = NumCpp.ENU()
+    assert enu.x == 0.
+    assert enu.y == 0.
+    assert enu.z == 0.
+    assert enu.east == 0.
+    assert enu.north == 0.
+    assert enu.up == 0.
+
+    east, north, up = np.random.rand(3)
+    enu = NumCpp.ENU(east, north, up)
+    assert enu.x == east
+    assert enu.y == north
+    assert enu.z == up
+    assert enu.east == east
+    assert enu.north == north
+    assert enu.up == up
+
+    enu = NumCpp.ENU()
+    enu.east = east
+    enu.north = north
+    enu.up = up
+    assert enu.x == east
+    assert enu.y == north
+    assert enu.z == up
+    assert enu.east == east
+    assert enu.north == north
+    assert enu.up == up
+
+    enu2 = NumCpp.ENU(east, north, up)
+    assert enu == enu2
+
+    enu2 = NumCpp.ENU(north, east, up)
+    assert enu != enu2
+
+    enu.print()
+
+
+####################################################################################
+def test_ned():
+    ned = NumCpp.NED()
+    assert ned.x == 0.
+    assert ned.y == 0.
+    assert ned.z == 0.
+    assert ned.north == 0.
+    assert ned.east == 0.
+    assert ned.down == 0.
+
+    north, east, down = np.random.rand(3)
+    ned = NumCpp.NED(north, east, down)
+    assert ned.x == north
+    assert ned.y == east
+    assert ned.z == down
+    assert ned.north == north
+    assert ned.east == east
+    assert ned.down == down
+
+    ned = NumCpp.NED()
+    ned.north = north
+    ned.east = east
+    ned.down = down
+    assert ned.x == north
+    assert ned.y == east
+    assert ned.z == down
+    assert ned.north == north
+    assert ned.east == east
+    assert ned.down == down
+
+    ned2 = NumCpp.NED(north, east, down)
+    assert ned == ned2
+
+    ned2 = NumCpp.NED(east, north, down)
+    assert ned != ned2
+
+    ned.print()
+
+
+####################################################################################
+def test_lla():
+    lla = NumCpp.LLA()
+    assert lla.latitude == 0.
+    assert lla.longitude == 0.
+    assert lla.altitude == 0.
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    lla = NumCpp.LLA(lat, lon, alt)
+    assert lla.latitude == lat
+    assert lla.longitude == lon
+    assert lla.altitude == alt
+
+    lla2 = NumCpp.LLA(lat, lon, alt)
+    assert lla == lla2
+
+    lla2 = NumCpp.LLA(lon, lat, alt)
+    assert lla != lla2
+
+    lla.print()
+
+
+####################################################################################
+def test_azel():
+    azEl = NumCpp.AzEl()
+    assert azEl.az == 0.
+    assert azEl.el == 0.
+
+    az, el = np.random.rand(2) * np.pi / 4
+    azEl = NumCpp.AzEl(az, el)
+    assert azEl.az == az
+    assert azEl.el == el
+
+    azEl2 = NumCpp.AzEl(az, el)
+    assert azEl == azEl2
+
+    azEl2 = NumCpp.AzEl(el, az)
+    assert azEl != azEl2
+
+    azEl.print()
+
+####################################################################################
 def test_ra_default_constructor():
     ra = NumCpp.Ra()
     assert ra

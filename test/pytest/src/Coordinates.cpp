@@ -7,6 +7,9 @@
 void initCoordinates(pb11::module& m)
 {
     // Coordinates.hpp
+    m.attr("EARTH_POLAR_RADIUS")      = coordinates::reference_frames::constants::EARTH_POLAR_RADIUS;
+    m.attr("EARTH_EQUATORIAL_RADIUS") = coordinates::reference_frames::constants::EARTH_EQUATORIAL_RADIUS;
+
     pb11::class_<coordinates::Cartesian>(m, "Cartesian")
         .def(pb11::init<>())
         .def(pb11::init<double, double, double>())
@@ -35,6 +38,69 @@ void initCoordinates(pb11::module& m)
     m.def("norm", &coordinates::norm);
     m.def("normalize", &coordinates::normalize);
     m.def("angle", &coordinates::angle);
+
+    pb11::class_<coordinates::reference_frames::AzEl>(m, "AzEl")
+        .def(pb11::init<>())
+        .def(pb11::init<double, double>())
+        .def_readwrite("az", &coordinates::reference_frames::AzEl::az)
+        .def_readwrite("el", &coordinates::reference_frames::AzEl::el)
+        .def("__eq__",
+             [](const coordinates::reference_frames::AzEl& self, const coordinates::reference_frames::AzEl& other)
+             { return self == other; })
+        .def("__ne__",
+             [](const coordinates::reference_frames::AzEl& self, const coordinates::reference_frames::AzEl& other)
+             { return self != other; })
+        .def("print", [](const coordinates::reference_frames::AzEl& self) { std::cout << self; });
+
+    pb11::class_<coordinates::reference_frames::ECEF, coordinates::Cartesian>(m, "ECEF")
+        .def(pb11::init<>())
+        .def(pb11::init<double, double, double>())
+        .def(pb11::init<const Vec2&>())
+        .def(pb11::init<const Vec3&>())
+        .def(pb11::init<const NdArray<double>&>())
+        .def(pb11::init<const coordinates::Cartesian&>());
+
+    pb11::class_<coordinates::reference_frames::ENU, coordinates::Cartesian>(m, "ENU")
+        .def(pb11::init<>())
+        .def(pb11::init<double, double, double>())
+        .def(pb11::init<const Vec2&>())
+        .def(pb11::init<const Vec3&>())
+        .def(pb11::init<const NdArray<double>&>())
+        .def(pb11::init<const coordinates::Cartesian&>())
+        .def_property("east", &coordinates::reference_frames::ENU::east, &coordinates::reference_frames::ENU::setEast)
+        .def_property("north",
+                      &coordinates::reference_frames::ENU::north,
+                      &coordinates::reference_frames::ENU::setNorth)
+        .def_property("up", &coordinates::reference_frames::ENU::up, &coordinates::reference_frames::ENU::setUp)
+        .def("print", [](const coordinates::reference_frames::ENU& self) { std::cout << self; });
+
+    pb11::class_<coordinates::reference_frames::NED, coordinates::Cartesian>(m, "NED")
+        .def(pb11::init<>())
+        .def(pb11::init<double, double, double>())
+        .def(pb11::init<const Vec2&>())
+        .def(pb11::init<const Vec3&>())
+        .def(pb11::init<const NdArray<double>&>())
+        .def(pb11::init<const coordinates::Cartesian&>())
+        .def_property("north",
+                      &coordinates::reference_frames::NED::north,
+                      &coordinates::reference_frames::NED::setNorth)
+        .def_property("east", &coordinates::reference_frames::NED::east, &coordinates::reference_frames::NED::setEast)
+        .def_property("down", &coordinates::reference_frames::NED::down, &coordinates::reference_frames::NED::setDown)
+        .def("print", [](const coordinates::reference_frames::NED& self) { std::cout << self; });
+
+    pb11::class_<coordinates::reference_frames::LLA>(m, "LLA")
+        .def(pb11::init<>())
+        .def(pb11::init<double, double, double>())
+        .def_readwrite("latitude", &coordinates::reference_frames::LLA::latitude)
+        .def_readwrite("longitude", &coordinates::reference_frames::LLA::longitude)
+        .def_readwrite("altitude", &coordinates::reference_frames::LLA::altitude)
+        .def("__eq__",
+             [](const coordinates::reference_frames::LLA& self, const coordinates::reference_frames::LLA& other)
+             { return self == other; })
+        .def("__ne__",
+             [](const coordinates::reference_frames::LLA& self, const coordinates::reference_frames::LLA& other)
+             { return self != other; })
+        .def("print", [](const coordinates::reference_frames::LLA& self) { std::cout << self; });
 
     pb11::class_<coordinates::reference_frames::RA>(m, "Ra")
         .def(pb11::init<>())
