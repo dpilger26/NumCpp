@@ -125,7 +125,7 @@ namespace nc::coordinates
      * @param: os: the output stream
      * @param: vec: the cartesian vector
      */
-    [[nodiscard]] inline std::ostream& operator<<(std::ostream& os, const Orientation& orientation)
+    inline std::ostream& operator<<(std::ostream& os, const Orientation& orientation)
     {
         os << "Orientation(roll=" << orientation.roll << ", pitch=" << orientation.pitch << ", yaw=" << orientation.yaw
            << ")\n";

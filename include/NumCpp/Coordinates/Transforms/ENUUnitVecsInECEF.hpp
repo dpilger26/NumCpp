@@ -42,7 +42,7 @@ namespace nc::coordinates::transforms
      * @param location: the ECEF location
      * @return std::array<Vec3, 3>
      */
-    [[nodiscard]] inline std::array<Vec3, 3> ECUUnitVecsInECEF(const reference_frames::ECEF& location) noexcept
+    [[nodiscard]] inline std::array<Vec3, 3> ENUUnitVecsInECEF(const reference_frames::ECEF& location) noexcept
     {
         const auto& [xHat, yHat, zHat] = NEDUnitVecsInECEF(location);
         return { yHat, xHat, -zHat };

@@ -39,6 +39,28 @@ void initCoordinates(pb11::module& m)
     m.def("normalize", &coordinates::normalize);
     m.def("angle", &coordinates::angle);
 
+    pb11::class_<coordinates::Euler>(m, "Euler")
+        .def(pb11::init<>())
+        .def(pb11::init<double, double, double>())
+        .def_readwrite("psi", &coordinates::Euler::psi)
+        .def_readwrite("theta", &coordinates::Euler::theta)
+        .def_readwrite("phi", &coordinates::Euler::phi)
+        .def("__eq__", [](const coordinates::Euler& self, const coordinates::Euler& other) { return self == other; })
+        .def("__ne__", [](const coordinates::Euler& self, const coordinates::Euler& other) { return self != other; })
+        .def("print", [](const coordinates::Euler& self) { std::cout << self; });
+
+    pb11::class_<coordinates::Orientation>(m, "Orientation")
+        .def(pb11::init<>())
+        .def(pb11::init<double, double, double>())
+        .def_readwrite("roll", &coordinates::Orientation::roll)
+        .def_readwrite("pitch", &coordinates::Orientation::pitch)
+        .def_readwrite("yaw", &coordinates::Orientation::yaw)
+        .def("__eq__",
+             [](const coordinates::Orientation& self, const coordinates::Orientation& other) { return self == other; })
+        .def("__ne__",
+             [](const coordinates::Orientation& self, const coordinates::Orientation& other) { return self != other; })
+        .def("print", [](const coordinates::Orientation& self) { std::cout << self; });
+
     pb11::class_<coordinates::reference_frames::AzEl>(m, "AzEl")
         .def(pb11::init<>())
         .def(pb11::init<double, double>())
@@ -174,4 +196,31 @@ void initCoordinates(pb11::module& m)
         .def("__eq__", &coordinates::reference_frames::Celestial::operator==)
         .def("__ne__", &coordinates::reference_frames::Celestial::operator!=)
         .def("print", &coordinates::reference_frames::Celestial::print);
+
+    m.def("AzElGeocentricToENU", &coordinates::transforms::AzElGeocentricToENU);
+    m.def("AzElGeocentricToNED", &coordinates::transforms::AzElGeocentricToNED);
+    m.def("ECEFEulerToENURollPitchYaw", &coordinates::transforms::ECEFEulerToENURollPitchYaw);
+    m.def("ECEFEulerToNEDRollPitchYaw", &coordinates::transforms::ECEFEulerToNEDRollPitchYaw);
+    //     m.def("ECEFtoAzElGeocentric", &coordinates::transforms::ECEFtoAzElGeocentric); //
+    //     m.def("ECEFtoAzElGeodetic", &coordinates::transforms::ECEFtoAzElGeodetic); //
+    //     m.def("ECEFtoENU", &coordinates::transforms::ECEFtoENU); //
+    m.def("ECEFtoLLA", &coordinates::transforms::ECEFtoLLA);
+    //     m.def("ECEFtoNED", &coordinates::transforms::ECEFtoNED); //
+    m.def("ENURollPitchYawToECEFEuler", &coordinates::transforms::ENURollPitchYawToECEFEuler);
+    m.def("ENUtoAzEl", &coordinates::transforms::ENUtoAzEl);
+    //     m.def("ENUtoECEF", &coordinates::transforms::ENUtoECEF); //
+    //     m.def("ENUtoLLA", &coordinates::transforms::ENUtoLLA); //
+    m.def("ENUtoNED", &coordinates::transforms::ENUtoNED);
+    //     m.def("ENUUnitVecsInECEF", &coordinates::transforms::ENUUnitVecsInECEF); //
+    //     m.def("LLAtoAzElGeocentric", &coordinates::transforms::LLAtoAzElGeocentric); //
+    //     m.def("LLAtoAzElGeodetic", &coordinates::transforms::LLAtoAzElGeodetic); //
+    m.def("LLAtoECEF", &coordinates::transforms::LLAtoECEF);
+    //     m.def("LLAtoENU", &coordinates::transforms::LLAtoENU); //
+    //     m.def("LLAtoNED", &coordinates::transforms::LLAtoNED); //
+    m.def("NEDRollPitchYawToECEFEuler", &coordinates::transforms::NEDRollPitchYawToECEFEuler);
+    m.def("NEDtoAzEl", &coordinates::transforms::NEDtoAzEl);
+    //     m.def("NEDtoECEF", &coordinates::transforms::NEDtoECEF); //
+    m.def("NEDtoENU", &coordinates::transforms::NEDtoENU);
+    //     m.def("NEDtoLLA", &coordinates::transforms::NEDtoLLA); //
+    m.def("NEDUnitVecsInECEF", &coordinates::transforms::NEDUnitVecsInECEF);
 }

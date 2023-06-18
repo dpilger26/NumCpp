@@ -125,7 +125,7 @@ namespace nc::coordinates
      * @param: os: the output stream
      * @param: vec: the cartesian vector
      */
-    [[nodiscard]] inline std::ostream& operator<<(std::ostream& os, const Euler& Euler)
+    inline std::ostream& operator<<(std::ostream& os, const Euler& Euler)
     {
         os << "Euler(psi=" << Euler.psi << ", theta=" << Euler.theta << ", phi=" << Euler.phi << ")\n";
         return os;

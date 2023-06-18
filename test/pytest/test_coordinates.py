@@ -175,6 +175,50 @@ def test_cartesian_angle():
 
 
 ####################################################################################
+def test_euler():
+    euler = NumCpp.Euler()
+    assert euler.psi == 0.
+    assert euler.theta == 0.
+    assert euler.phi == 0.
+
+    psi, theta, phi = np.random.rand(3) * np.pi / 4
+    euler = NumCpp.Euler(psi, theta, phi)
+    assert euler.psi == psi
+    assert euler.theta == theta
+    assert euler.phi == phi
+
+    euler2 = NumCpp.Euler(psi, theta, phi)
+    assert euler == euler2
+
+    euler2 = NumCpp.Euler(theta, psi, phi)
+    assert euler != euler2
+
+    euler.print()
+
+
+####################################################################################
+def test_orientation():
+    orientation = NumCpp.Orientation()
+    assert orientation.roll == 0.
+    assert orientation.pitch == 0.
+    assert orientation.yaw == 0.
+
+    roll, pitch, yaw = np.random.rand(3) * np.pi / 4
+    orientation = NumCpp.Orientation(roll, pitch, yaw)
+    assert orientation.roll == roll
+    assert orientation.pitch == pitch
+    assert orientation.yaw == yaw
+
+    orientation2 = NumCpp.Orientation(roll, pitch, yaw)
+    assert orientation == orientation2
+
+    orientation2 = NumCpp.Orientation(pitch, roll, yaw)
+    assert orientation != orientation2
+
+    orientation.print()
+
+
+####################################################################################
 def test_azel():
     azEl = NumCpp.AzEl()
     assert azEl.az == 0.
