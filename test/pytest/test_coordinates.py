@@ -177,9 +177,9 @@ def test_cartesian_angle():
 ####################################################################################
 def test_euler():
     euler = NumCpp.Euler()
-    assert euler.psi == 0.
-    assert euler.theta == 0.
-    assert euler.phi == 0.
+    assert euler.psi == 0.0
+    assert euler.theta == 0.0
+    assert euler.phi == 0.0
 
     psi, theta, phi = np.random.rand(3) * np.pi / 4
     euler = NumCpp.Euler(psi, theta, phi)
@@ -199,9 +199,9 @@ def test_euler():
 ####################################################################################
 def test_orientation():
     orientation = NumCpp.Orientation()
-    assert orientation.roll == 0.
-    assert orientation.pitch == 0.
-    assert orientation.yaw == 0.
+    assert orientation.roll == 0.0
+    assert orientation.pitch == 0.0
+    assert orientation.yaw == 0.0
 
     roll, pitch, yaw = np.random.rand(3) * np.pi / 4
     orientation = NumCpp.Orientation(roll, pitch, yaw)
@@ -221,8 +221,8 @@ def test_orientation():
 ####################################################################################
 def test_azel():
     azEl = NumCpp.AzEl()
-    assert azEl.az == 0.
-    assert azEl.el == 0.
+    assert azEl.az == 0.0
+    assert azEl.el == 0.0
 
     az, el = np.random.rand(2) * np.pi / 4
     azEl = NumCpp.AzEl(az, el)
@@ -241,12 +241,12 @@ def test_azel():
 ####################################################################################
 def test_enu():
     enu = NumCpp.ENU()
-    assert enu.x == 0.
-    assert enu.y == 0.
-    assert enu.z == 0.
-    assert enu.east == 0.
-    assert enu.north == 0.
-    assert enu.up == 0.
+    assert enu.x == 0.0
+    assert enu.y == 0.0
+    assert enu.z == 0.0
+    assert enu.east == 0.0
+    assert enu.north == 0.0
+    assert enu.up == 0.0
 
     east, north, up = np.random.rand(3)
     enu = NumCpp.ENU(east, north, up)
@@ -280,12 +280,12 @@ def test_enu():
 ####################################################################################
 def test_ned():
     ned = NumCpp.NED()
-    assert ned.x == 0.
-    assert ned.y == 0.
-    assert ned.z == 0.
-    assert ned.north == 0.
-    assert ned.east == 0.
-    assert ned.down == 0.
+    assert ned.x == 0.0
+    assert ned.y == 0.0
+    assert ned.z == 0.0
+    assert ned.north == 0.0
+    assert ned.east == 0.0
+    assert ned.down == 0.0
 
     north, east, down = np.random.rand(3)
     ned = NumCpp.NED(north, east, down)
@@ -319,9 +319,9 @@ def test_ned():
 ####################################################################################
 def test_lla():
     lla = NumCpp.LLA()
-    assert lla.latitude == 0.
-    assert lla.longitude == 0.
-    assert lla.altitude == 0.
+    assert lla.latitude == 0.0
+    assert lla.longitude == 0.0
+    assert lla.altitude == 0.0
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     lla = NumCpp.LLA(lat, lon, alt)
@@ -341,8 +341,8 @@ def test_lla():
 ####################################################################################
 def test_azel():
     azEl = NumCpp.AzEl()
-    assert azEl.az == 0.
-    assert azEl.el == 0.
+    assert azEl.az == 0.0
+    assert azEl.el == 0.0
 
     az, el = np.random.rand(2) * np.pi / 4
     azEl = NumCpp.AzEl(az, el)
@@ -356,6 +356,7 @@ def test_azel():
     assert azEl != azEl2
 
     azEl.print()
+
 
 ####################################################################################
 def test_ra_default_constructor():
@@ -550,7 +551,9 @@ def test_celestial_cartesian_component_constructor():
     decDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(decDegrees)
     pycelestial = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
-    cCelestial = NumCpp.Celestial(pycelestial.cartesian.x.value, pycelestial.cartesian.y.value, pycelestial.cartesian.z.value)
+    cCelestial = NumCpp.Celestial(
+        pycelestial.cartesian.x.value, pycelestial.cartesian.y.value, pycelestial.cartesian.z.value
+    )
     assert round(cCelestial.ra().degrees(), 8) == round(ra.degrees(), 8)
     assert round(cCelestial.dec().degrees(), 8) == round(dec.degrees(), 8)
     assert round(cCelestial.x(), 8) == round(pycelestial.cartesian.x.value, 8)
@@ -565,7 +568,9 @@ def test_celestial_cartesian_constructor():
     decDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(decDegrees)
     pycelestial = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
-    cartesian = NumCpp.Cartesian(pycelestial.cartesian.x.value, pycelestial.cartesian.y.value, pycelestial.cartesian.z.value)
+    cartesian = NumCpp.Cartesian(
+        pycelestial.cartesian.x.value, pycelestial.cartesian.y.value, pycelestial.cartesian.z.value
+    )
     cCelestial = NumCpp.Celestial(cartesian)
     assert round(cCelestial.ra().degrees(), 8) == round(ra.degrees(), 8)
     assert round(cCelestial.dec().degrees(), 8) == round(dec.degrees(), 8)
@@ -769,3 +774,133 @@ def test_celestial_radianSeperation_vec():
 def test_coorc_print():
     cCelestial = NumCpp.Celestial()
     cCelestial.print()
+
+
+####################################################################################
+def test_NEDtoECEF():
+    pass
+
+
+####################################################################################
+def test_NEDtoLLA():
+    pass
+
+
+####################################################################################
+def test_LLAtoECEF():
+    pass
+
+
+####################################################################################
+def test_NEDUnitVecsInECEF():
+    pass
+
+
+####################################################################################
+def test_ENUtoLLA():
+    pass
+
+
+####################################################################################
+def test_LLAtoENU():
+    pass
+
+
+####################################################################################
+def test_LLAtoNED():
+    pass
+
+
+####################################################################################
+def test_ECEFtoENU():
+    pass
+
+
+####################################################################################
+def test_ENUtoNED():
+    pass
+
+
+####################################################################################
+def test_ENURollPitchYawToECEFEuler():
+    pass
+
+
+####################################################################################
+def test_ECEFtoAzElGeocentric():
+    pass
+
+
+####################################################################################
+def test_ECEFEulerToNEDRollPitchYaw():
+    pass
+
+
+####################################################################################
+def test_LLAtoAzElGeodetic():
+    pass
+
+
+####################################################################################
+def test_ECEFEulerToENURollPitchYaw():
+    pass
+
+
+####################################################################################
+def test_AzElGeocentricToENU():
+    pass
+
+
+####################################################################################
+def test_NEDRollPitchYawToECEFEuler():
+    pass
+
+
+####################################################################################
+def test_ENUtoECEF():
+    pass
+
+
+####################################################################################
+def test_LLAtoAzElGeocentric():
+    pass
+
+
+####################################################################################
+def test_AzElGeocentricToNED():
+    pass
+
+
+####################################################################################
+def test_NEDtoAzEl():
+    pass
+
+
+####################################################################################
+def test_ECEFtoLLA():
+    pass
+
+
+####################################################################################
+def test_ECEFtoNED():
+    pass
+
+
+####################################################################################
+def test_ECEFtoAzElGeodetic():
+    pass
+
+
+####################################################################################
+def test_ENUUnitVecsInECEF():
+    pass
+
+
+####################################################################################
+def test_NEDtoENU():
+    pass
+
+
+####################################################################################
+def test_ENUtoAzEl():
+    pass
