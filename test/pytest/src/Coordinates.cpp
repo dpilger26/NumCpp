@@ -201,26 +201,102 @@ void initCoordinates(pb11::module& m)
     m.def("AzElGeocentricToNED", &coordinates::transforms::AzElGeocentricToNED);
     m.def("ECEFEulerToENURollPitchYaw", &coordinates::transforms::ECEFEulerToENURollPitchYaw);
     m.def("ECEFEulerToNEDRollPitchYaw", &coordinates::transforms::ECEFEulerToNEDRollPitchYaw);
-    //     m.def("ECEFtoAzElGeocentric", &coordinates::transforms::ECEFtoAzElGeocentric); //
-    //     m.def("ECEFtoAzElGeodetic", &coordinates::transforms::ECEFtoAzElGeodetic); //
-    //     m.def("ECEFtoENU", &coordinates::transforms::ECEFtoENU); //
+    m.def(
+        "ECEFtoAzElGeocentric",
+        [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::ECEF& referencePoint)
+        { return coordinates::transforms::ECEFtoAzElGeocentric(target, referencePoint); });
+    m.def(
+        "ECEFtoAzElGeocentric",
+        [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::LLA& referencePoint)
+        { return coordinates::transforms::ECEFtoAzElGeocentric(target, referencePoint); });
+    m.def(
+        "ECEFtoAzElGeodetic",
+        [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::ECEF& referencePoint)
+        { return coordinates::transforms::ECEFtoAzElGeodetic(target, referencePoint); });
+    m.def(
+        "ECEFtoAzElGeodetic",
+        [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::LLA& referencePoint)
+        { return coordinates::transforms::ECEFtoAzElGeodetic(target, referencePoint); });
+    m.def(
+        "ECEFtoENU",
+        [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::ECEF& referencePoint)
+        { return coordinates::transforms::ECEFtoENU(target, referencePoint); });
+    m.def(
+        "ECEFtoENU",
+        [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::LLA& referencePoint)
+        { return coordinates::transforms::ECEFtoENU(target, referencePoint); });
     m.def("ECEFtoLLA", &coordinates::transforms::ECEFtoLLA);
-    //     m.def("ECEFtoNED", &coordinates::transforms::ECEFtoNED); //
+    m.def(
+        "ECEFtoNED",
+        [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::ECEF& referencePoint)
+        { return coordinates::transforms::ECEFtoNED(target, referencePoint); });
+    m.def(
+        "ECEFtoNED",
+        [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::LLA& referencePoint)
+        { return coordinates::transforms::ECEFtoNED(target, referencePoint); });
     m.def("ENURollPitchYawToECEFEuler", &coordinates::transforms::ENURollPitchYawToECEFEuler);
     m.def("ENUtoAzEl", &coordinates::transforms::ENUtoAzEl);
-    //     m.def("ENUtoECEF", &coordinates::transforms::ENUtoECEF); //
-    //     m.def("ENUtoLLA", &coordinates::transforms::ENUtoLLA); //
+    m.def(
+        "ENUtoECEF",
+        [](const coordinates::reference_frames::ENU& target, const coordinates::reference_frames::ECEF& referencePoint)
+        { return coordinates::transforms::ENUtoECEF(target, referencePoint); });
+    m.def("ENUtoECEF",
+          [](const coordinates::reference_frames::ENU& target, const coordinates::reference_frames::LLA& referencePoint)
+          { return coordinates::transforms::ENUtoECEF(target, referencePoint); });
+    m.def(
+        "ENUtoLLA",
+        [](const coordinates::reference_frames::ENU& target, const coordinates::reference_frames::ECEF& referencePoint)
+        { return coordinates::transforms::ENUtoLLA(target, referencePoint); });
+    m.def("ENUtoLLA",
+          [](const coordinates::reference_frames::ENU& target, const coordinates::reference_frames::LLA& referencePoint)
+          { return coordinates::transforms::ENUtoLLA(target, referencePoint); });
     m.def("ENUtoNED", &coordinates::transforms::ENUtoNED);
-    //     m.def("ENUUnitVecsInECEF", &coordinates::transforms::ENUUnitVecsInECEF); //
-    //     m.def("LLAtoAzElGeocentric", &coordinates::transforms::LLAtoAzElGeocentric); //
-    //     m.def("LLAtoAzElGeodetic", &coordinates::transforms::LLAtoAzElGeodetic); //
+    m.def("ENUUnitVecsInECEF", &coordinates::transforms::ENUUnitVecsInECEF);
+    m.def(
+        "LLAtoAzElGeocentric",
+        [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::ECEF& referencePoint)
+        { return coordinates::transforms::LLAtoAzElGeocentric(target, referencePoint); });
+    m.def("LLAtoAzElGeocentric",
+          [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::LLA& referencePoint)
+          { return coordinates::transforms::LLAtoAzElGeocentric(target, referencePoint); });
+    m.def(
+        "LLAtoAzElGeodetic",
+        [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::ECEF& referencePoint)
+        { return coordinates::transforms::LLAtoAzElGeodetic(target, referencePoint); });
+    m.def("LLAtoAzElGeodetic",
+          [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::LLA& referencePoint)
+          { return coordinates::transforms::LLAtoAzElGeodetic(target, referencePoint); });
     m.def("LLAtoECEF", &coordinates::transforms::LLAtoECEF);
-    //     m.def("LLAtoENU", &coordinates::transforms::LLAtoENU); //
-    //     m.def("LLAtoNED", &coordinates::transforms::LLAtoNED); //
+    m.def(
+        "LLAtoENU",
+        [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::ECEF& referencePoint)
+        { return coordinates::transforms::LLAtoENU(target, referencePoint); });
+    m.def("LLAtoENU",
+          [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::LLA& referencePoint)
+          { return coordinates::transforms::LLAtoENU(target, referencePoint); });
+    m.def(
+        "LLAtoNED",
+        [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::ECEF& referencePoint)
+        { return coordinates::transforms::LLAtoNED(target, referencePoint); });
+    m.def("LLAtoNED",
+          [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::LLA& referencePoint)
+          { return coordinates::transforms::LLAtoNED(target, referencePoint); });
     m.def("NEDRollPitchYawToECEFEuler", &coordinates::transforms::NEDRollPitchYawToECEFEuler);
     m.def("NEDtoAzEl", &coordinates::transforms::NEDtoAzEl);
-    //     m.def("NEDtoECEF", &coordinates::transforms::NEDtoECEF); //
+    m.def(
+        "NEDtoECEF",
+        [](const coordinates::reference_frames::NED& target, const coordinates::reference_frames::ECEF& referencePoint)
+        { return coordinates::transforms::NEDtoECEF(target, referencePoint); });
+    m.def("NEDtoECEF",
+          [](const coordinates::reference_frames::NED& target, const coordinates::reference_frames::LLA& referencePoint)
+          { return coordinates::transforms::NEDtoECEF(target, referencePoint); });
     m.def("NEDtoENU", &coordinates::transforms::NEDtoENU);
-    //     m.def("NEDtoLLA", &coordinates::transforms::NEDtoLLA); //
+    m.def(
+        "NEDtoLLA",
+        [](const coordinates::reference_frames::NED& target, const coordinates::reference_frames::ECEF& referencePoint)
+        { return coordinates::transforms::NEDtoLLA(target, referencePoint); });
+    m.def("NEDtoLLA",
+          [](const coordinates::reference_frames::NED& target, const coordinates::reference_frames::LLA& referencePoint)
+          { return coordinates::transforms::NEDtoLLA(target, referencePoint); });
     m.def("NEDUnitVecsInECEF", &coordinates::transforms::NEDUnitVecsInECEF);
 }
