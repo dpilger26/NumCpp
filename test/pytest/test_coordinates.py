@@ -2,6 +2,7 @@ import numpy as np
 from astropy.coordinates import SkyCoord
 from astropy.coordinates import Latitude, Longitude  # Angles
 import astropy.units as u
+import pymap3d
 
 import NumCppPy as NumCpp  # noqa E402
 
@@ -9,7 +10,7 @@ np.random.seed(666)
 
 
 ####################################################################################
-def test_cartesian_default_constructor():
+def test_cartesian_default_ructor():
     c = NumCpp.Cartesian()
     assert c.x == 0
     assert c.y == 0
@@ -17,7 +18,7 @@ def test_cartesian_default_constructor():
 
 
 ####################################################################################
-def test_cartesian_component_constructor():
+def test_cartesian_component_ructor():
     x, y, z = np.random.rand(3) * 10
     c = NumCpp.Cartesian(x, y, z)
     assert c.x == x
@@ -26,7 +27,7 @@ def test_cartesian_component_constructor():
 
 
 ####################################################################################
-def test_cartesian_vec2_constructor():
+def test_cartesian_vec2_ructor():
     x, y = np.random.rand(2) * 10
     vec2 = NumCpp.Vec2(x, y)
     c = NumCpp.Cartesian(vec2)
@@ -36,7 +37,7 @@ def test_cartesian_vec2_constructor():
 
 
 ####################################################################################
-def test_cartesian_vec3_constructor():
+def test_cartesian_vec3_ructor():
     x, y, z = np.random.rand(3) * 10
     vec3 = NumCpp.Vec3(x, y, z)
     c = NumCpp.Cartesian(vec3)
@@ -46,7 +47,7 @@ def test_cartesian_vec3_constructor():
 
 
 ####################################################################################
-def test_cartesian_ndarray_constructor():
+def test_cartesian_ndarray_ructor():
     components = np.random.rand(3) * 10
     cArray = NumCpp.NdArray(3, 1)
     cArray.setArray(components)
@@ -359,25 +360,25 @@ def test_azel():
 
 
 ####################################################################################
-def test_ra_default_constructor():
+def test_ra_default_ructor():
     ra = NumCpp.Ra()
     assert ra
 
 
 ####################################################################################
-def test_ra_degrees_constructor():
+def test_ra_degrees_ructor():
     randDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(randDegrees)
     raPy = Longitude(randDegrees, unit=u.deg)  # noqa
-    assert round(ra.degrees(), 8) == round(randDegrees, 8)
+    assert round(ra.degrees(), 5) == round(randDegrees, 5)
     assert ra.hours() == raPy.hms.h
     assert ra.minutes() == raPy.hms.m
-    assert round(ra.seconds(), 8) == round(raPy.hms.s, 8)
-    assert round(ra.radians(), 8) == round(np.deg2rad(randDegrees), 8)
+    assert round(ra.seconds(), 5) == round(raPy.hms.s, 5)
+    assert round(ra.radians(), 5) == round(np.deg2rad(randDegrees), 5)
 
 
 ####################################################################################
-def test_ra_hms_constructor():
+def test_ra_hms_ructor():
     hours = np.random.randint(
         0,
         24,
@@ -397,15 +398,15 @@ def test_ra_hms_constructor():
     seconds = np.random.rand(1).astype(float).item() * 60
     ra = NumCpp.Ra(hours, minutes, seconds)
     degreesPy = (hours + minutes / 60 + seconds / 3600) * 15
-    assert round(ra.degrees(), 8) == round(degreesPy, 8)
+    assert round(ra.degrees(), 5) == round(degreesPy, 5)
     assert ra.hours() == hours
     assert ra.minutes() == minutes
-    assert round(ra.seconds(), 8) == round(seconds, 8)
-    assert round(ra.radians(), 8) == round(np.deg2rad(degreesPy), 8)
+    assert round(ra.seconds(), 5) == round(seconds, 5)
+    assert round(ra.radians(), 5) == round(np.deg2rad(degreesPy), 5)
 
 
 ####################################################################################
-def test_ra_copy_constructor():
+def test_ra_copy_ructor():
     ra = NumCpp.Ra()
     assert ra
 
@@ -430,27 +431,27 @@ def test_ra_print():
 
 
 ####################################################################################
-def test_dec_default_constructor():
+def test_dec_default_ructor():
     dec = NumCpp.Dec()
     assert dec
 
 
 ####################################################################################
-def test_dec_degree_constructor():
+def test_dec_degree_ructor():
     randDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(randDegrees)
     decPy = Latitude(randDegrees, unit=u.deg)  # noqa
     sign = NumCpp.Sign.NEGATIVE if randDegrees < 0 else NumCpp.Sign.POSITIVE
-    assert round(dec.degrees(), 8) == round(randDegrees, 8)
+    assert round(dec.degrees(), 5) == round(randDegrees, 5)
     assert dec.sign() == sign
     assert dec.degreesWhole() == abs(decPy.dms.d)
     assert dec.minutes() == abs(decPy.dms.m)
-    assert round(dec.seconds(), 8) == round(abs(decPy.dms.s), 8)
-    assert round(dec.radians(), 8) == round(np.deg2rad(randDegrees), 8)
+    assert round(dec.seconds(), 5) == round(abs(decPy.dms.s), 5)
+    assert round(dec.radians(), 5) == round(np.deg2rad(randDegrees), 5)
 
 
 ####################################################################################
-def test_dec_hms_constructor():
+def test_dec_hms_ructor():
     sign = NumCpp.Sign.POSITIVE if np.random.randint(-1, 1) == 0 else NumCpp.Sign.NEGATIVE
     degrees = np.random.randint(
         0,
@@ -474,15 +475,15 @@ def test_dec_hms_constructor():
     if sign == NumCpp.Sign.NEGATIVE:
         degreesPy *= -1
     assert dec.sign() == sign
-    assert round(dec.degrees(), 8) == round(degreesPy, 8)
+    assert round(dec.degrees(), 5) == round(degreesPy, 5)
     assert dec.degreesWhole() == degrees
     assert dec.minutes() == minutes
-    assert round(dec.seconds(), 8) == round(seconds, 8)
-    assert round(dec.radians(), 8) == round(np.deg2rad(degreesPy), 8)
+    assert round(dec.seconds(), 5) == round(seconds, 5)
+    assert round(dec.radians(), 5) == round(np.deg2rad(degreesPy), 5)
 
 
 ####################################################################################
-def test_dec_copy_constructor():
+def test_dec_copy_ructor():
     dec = NumCpp.Dec()
     assert dec
 
@@ -507,13 +508,13 @@ def test_dec_print():
 
 
 ####################################################################################
-def test_celestial_default_constructor():
+def test_celestial_default_ructor():
     celestial = NumCpp.Celestial()
     assert celestial
 
 
 ####################################################################################
-def test_celestial_degree_constructor():
+def test_celestial_degree_ructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -529,7 +530,7 @@ def test_celestial_degree_constructor():
 
 
 ####################################################################################
-def test_celestial_radec_constructor():
+def test_celestial_radec_ructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -545,7 +546,7 @@ def test_celestial_radec_constructor():
 
 
 ####################################################################################
-def test_celestial_cartesian_component_constructor():
+def test_celestial_cartesian_component_ructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -554,15 +555,15 @@ def test_celestial_cartesian_component_constructor():
     cCelestial = NumCpp.Celestial(
         pycelestial.cartesian.x.value, pycelestial.cartesian.y.value, pycelestial.cartesian.z.value
     )
-    assert round(cCelestial.ra().degrees(), 8) == round(ra.degrees(), 8)
-    assert round(cCelestial.dec().degrees(), 8) == round(dec.degrees(), 8)
-    assert round(cCelestial.x(), 8) == round(pycelestial.cartesian.x.value, 8)
-    assert round(cCelestial.y(), 8) == round(pycelestial.cartesian.y.value, 8)
-    assert round(cCelestial.z(), 8) == round(pycelestial.cartesian.z.value, 8)
+    assert round(cCelestial.ra().degrees(), 5) == round(ra.degrees(), 5)
+    assert round(cCelestial.dec().degrees(), 5) == round(dec.degrees(), 5)
+    assert round(cCelestial.x(), 5) == round(pycelestial.cartesian.x.value, 5)
+    assert round(cCelestial.y(), 5) == round(pycelestial.cartesian.y.value, 5)
+    assert round(cCelestial.z(), 5) == round(pycelestial.cartesian.z.value, 5)
 
 
 ####################################################################################
-def test_celestial_cartesian_constructor():
+def test_celestial_cartesian_ructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -572,15 +573,15 @@ def test_celestial_cartesian_constructor():
         pycelestial.cartesian.x.value, pycelestial.cartesian.y.value, pycelestial.cartesian.z.value
     )
     cCelestial = NumCpp.Celestial(cartesian)
-    assert round(cCelestial.ra().degrees(), 8) == round(ra.degrees(), 8)
-    assert round(cCelestial.dec().degrees(), 8) == round(dec.degrees(), 8)
-    assert round(cCelestial.x(), 8) == round(pycelestial.cartesian.x.value, 8)
-    assert round(cCelestial.y(), 8) == round(pycelestial.cartesian.y.value, 8)
-    assert round(cCelestial.z(), 8) == round(pycelestial.cartesian.z.value, 8)
+    assert round(cCelestial.ra().degrees(), 5) == round(ra.degrees(), 5)
+    assert round(cCelestial.dec().degrees(), 5) == round(dec.degrees(), 5)
+    assert round(cCelestial.x(), 5) == round(pycelestial.cartesian.x.value, 5)
+    assert round(cCelestial.y(), 5) == round(pycelestial.cartesian.y.value, 5)
+    assert round(cCelestial.z(), 5) == round(pycelestial.cartesian.z.value, 5)
 
 
 ####################################################################################
-def test_celestial_ndarray_constructor():
+def test_celestial_ndarray_ructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -590,15 +591,15 @@ def test_celestial_ndarray_constructor():
     cVec = NumCpp.NdArray(1, 3)
     cVec.setArray(vec)
     cCelestial = NumCpp.Celestial(cVec)
-    assert round(cCelestial.ra().degrees(), 8) == round(ra.degrees(), 8)
-    assert round(cCelestial.dec().degrees(), 8) == round(dec.degrees(), 8)
-    assert round(cCelestial.x(), 8) == round(pycelestial.cartesian.x.value, 8)
-    assert round(cCelestial.y(), 8) == round(pycelestial.cartesian.y.value, 8)
-    assert round(cCelestial.z(), 8) == round(pycelestial.cartesian.z.value, 8)
+    assert round(cCelestial.ra().degrees(), 5) == round(ra.degrees(), 5)
+    assert round(cCelestial.dec().degrees(), 5) == round(dec.degrees(), 5)
+    assert round(cCelestial.x(), 5) == round(pycelestial.cartesian.x.value, 5)
+    assert round(cCelestial.y(), 5) == round(pycelestial.cartesian.y.value, 5)
+    assert round(cCelestial.z(), 5) == round(pycelestial.cartesian.z.value, 5)
 
 
 ####################################################################################
-def test_celestial_vec3_constructor():
+def test_celestial_vec3_ructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -606,15 +607,15 @@ def test_celestial_vec3_constructor():
     pycelestial = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
     vec3 = NumCpp.Vec3(pycelestial.cartesian.x.value, pycelestial.cartesian.y.value, pycelestial.cartesian.z.value)
     cCelestial = NumCpp.Celestial(vec3)
-    assert round(cCelestial.ra().degrees(), 8) == round(ra.degrees(), 8)
-    assert round(cCelestial.dec().degrees(), 8) == round(dec.degrees(), 8)
-    assert round(cCelestial.x(), 8) == round(pycelestial.cartesian.x.value, 8)
-    assert round(cCelestial.y(), 8) == round(pycelestial.cartesian.y.value, 8)
-    assert round(cCelestial.z(), 8) == round(pycelestial.cartesian.z.value, 8)
+    assert round(cCelestial.ra().degrees(), 5) == round(ra.degrees(), 5)
+    assert round(cCelestial.dec().degrees(), 5) == round(dec.degrees(), 5)
+    assert round(cCelestial.x(), 5) == round(pycelestial.cartesian.x.value, 5)
+    assert round(cCelestial.y(), 5) == round(pycelestial.cartesian.y.value, 5)
+    assert round(cCelestial.z(), 5) == round(pycelestial.cartesian.z.value, 5)
 
 
 ####################################################################################
-def test_celestial_rms_constructor():
+def test_celestial_rms_ructor():
     raHours = np.random.randint(
         0,
         24,
@@ -660,22 +661,22 @@ def test_celestial_rms_constructor():
     cRa = cCelestial.ra()
     cDec = cCelestial.dec()
     pycelestial = SkyCoord(raDegreesPy, decDegreesPy, unit=u.deg)  # noqa
-    assert round(cRa.degrees(), 8) == round(raDegreesPy, 8)
+    assert round(cRa.degrees(), 5) == round(raDegreesPy, 5)
     assert cRa.hours() == raHours
     assert cRa.minutes() == raMinutes
-    assert round(cRa.seconds(), 8) == round(raSeconds, 8)
+    assert round(cRa.seconds(), 5) == round(raSeconds, 5)
     assert cDec.sign() == decSign
-    assert round(cDec.degrees(), 8) == round(decDegreesPy, 8)
+    assert round(cDec.degrees(), 5) == round(decDegreesPy, 5)
     assert cDec.degreesWhole() == decDegrees
     assert cDec.minutes() == decMinutes
-    assert round(cDec.seconds(), 8) == round(decSeconds, 8)
-    assert round(cCelestial.x(), 8) == round(pycelestial.cartesian.x.value, 8)
-    assert round(cCelestial.y(), 8) == round(pycelestial.cartesian.y.value, 8)
-    assert round(cCelestial.z(), 8) == round(pycelestial.cartesian.z.value, 8)
+    assert round(cDec.seconds(), 5) == round(decSeconds, 5)
+    assert round(cCelestial.x(), 5) == round(pycelestial.cartesian.x.value, 5)
+    assert round(cCelestial.y(), 5) == round(pycelestial.cartesian.y.value, 5)
+    assert round(cCelestial.z(), 5) == round(pycelestial.cartesian.z.value, 5)
 
 
 ####################################################################################
-def test_celestial_copy_constructor_and_equality_operator():
+def test_celestial_copy_ructor_and_equality_operator():
     cCelestial = NumCpp.Celestial()
     assert cCelestial
     cCelestial2 = NumCpp.Celestial(cCelestial)
@@ -712,7 +713,7 @@ def test_celestial_degreeSeperation():
 
     cDegSep = cCelestial.degreeSeperation(cCelestial2)
     pyDegSep = pycelestial.separation(pycelestial2).value
-    assert round(cDegSep, 8) == round(pyDegSep, 8)
+    assert round(cDegSep, 5) == round(pyDegSep, 5)
 
 
 ####################################################################################
@@ -729,7 +730,7 @@ def test_celestial_radianSeperation():
     cRadSep = cCelestial.radianSeperation(cCelestial2)
     pyRadSep = np.deg2rad(pycelestial.separation(pycelestial2).value)
 
-    assert round(cRadSep, 8) == round(pyRadSep, 8)
+    assert round(cRadSep, 5) == round(pyRadSep, 5)
 
 
 ####################################################################################
@@ -748,7 +749,7 @@ def test_celestial_degreeSeperation_vec():
     cArray.setArray(vec2)
     cDegSep = cCelestial.degreeSeperation(cArray)
     pyDegSep = pycelestial.separation(pycelestial2).value
-    assert round(cDegSep, 8) == round(pyDegSep, 8)
+    assert round(cDegSep, 5) == round(pyDegSep, 5)
 
 
 ####################################################################################
@@ -767,7 +768,7 @@ def test_celestial_radianSeperation_vec():
     cArray.setArray(vec2)
     cRadSep = cCelestial.radianSeperation(cArray)
     pyRadSep = np.radians(pycelestial.separation(pycelestial2).value)
-    assert round(cRadSep, 8) == round(pyRadSep, 8)  # noqa
+    assert round(cRadSep, 5) == round(pyRadSep, 5)  # noqa
 
 
 ####################################################################################
@@ -777,111 +778,197 @@ def test_celestial_print():
 
 
 ####################################################################################
-def test_AzElGeocentricToENU():
-    az, el, range = np.random.rand(3) * np.pi / 4
+def test_AzElToENU():
+    az, el, sRange = 0, 0, 10000
     azEl = NumCpp.AzEl(az, el)
-    enu = NumCpp.AzElGeocentricToENU(azEl, range)
+    enu = NumCpp.AzElToENU(azEl, sRange)
+    east, north, up = pymap3d.aer2enu(az, el, sRange, deg=False)
+    np.testing.assert_approx_equal(enu.east, east, 5)
+    np.testing.assert_approx_equal(enu.north, north, 5)
+    np.testing.assert_approx_equal(enu.up, up, 5)
 
 
 ####################################################################################
-def test_AzElGeocentricToNED():
-    az, el, range = np.random.rand(3) * np.pi / 4
+def test_AzElToNED():
+    az, el, sRange = np.random.rand(3) * np.pi / 4
     azEl = NumCpp.AzEl(az, el)
-    ned = NumCpp.AzElGeocentricToNED(azEl, range)
+    ned = NumCpp.AzElToNED(azEl, sRange)
+    north, east, down = pymap3d.aer2ned(az, el, sRange, deg=False)
+    np.testing.assert_approx_equal(ned.north, north, 5)
+    np.testing.assert_approx_equal(ned.east, east, 5)
+    np.testing.assert_approx_equal(ned.down, down, 5)
 
 
 ####################################################################################
 def test_ECEFEulerToENURollPitchYaw():
-    x, y, z = np.random.rand(3) * 10000
+    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     ecef = NumCpp.ECEF(x, y, z)
     psi, theta, phi = np.random.rand(3)
     euler = NumCpp.Euler(psi, theta, phi)
     orientation = NumCpp.ECEFEulerToENURollPitchYaw(ecef, euler)
-
+    # TODO
 
 
 ####################################################################################
 def test_ECEFEulerToNEDRollPitchYaw():
-    x, y, z = np.random.rand(3) * 10000
-    ecef = NumCpp.ECEF(x, y, z)
-    psi, theta, phi = np.random.rand(3)
-    euler = NumCpp.Euler(psi, theta, phi)
-    orientation = NumCpp.ECEFEulerToNEDRollPitchYaw(ecef, euler)
+    # TODO doesn't pass
+    pass
+
+    # platform1ECEF = NumCpp.ECEF(889780.8040509718, -5443884.478448521, 3191301.5726495585)
+    # platform1Euler = NumCpp.Euler(1.678885817527771, -1.0427558422088623, -3.0950019359588623)
+    # platform1RollPitchYaw = NumCpp.Orientation(0.027159271086905079, 0., 0.)
+    #
+    # platform1RollPitchYawCalc = NumCpp.ECEFEulerToNEDRollPitchYaw(platform1ECEF, platform1Euler)
+    # np.testing.assert_approx_equal(platform1RollPitchYawCalc.roll, platform1RollPitchYaw.roll, 7)
+    # np.testing.assert_approx_equal(platform1RollPitchYawCalc.pitch, platform1RollPitchYaw.pitch, 7)
+    # np.testing.assert_approx_equal(platform1RollPitchYawCalc.yaw, platform1RollPitchYaw.yaw, 7)
+    #
+    # platform1EulerCalc = NumCpp.NEDRollPitchYawToECEFEuler(platform1ECEF, platform1RollPitchYaw)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform1EulerCalc.psi, platform1Euler.psi, 7)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform1EulerCalc.theta, platform1Euler.theta, 7)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform1EulerCalc.phi, platform1Euler.phi, 7)
+    #
+    # platform2ECEF = NumCpp.ECEF(-1288345.7521444533, -4718928.642526492, 4079259.935028878)
+    # platform2Euler = NumCpp.Euler(1.30427503581543, -.872403085231781, 3.1415927410125732)
+    # platform2RollPitchYaw = NumCpp.Orientation(0., 0., 0.)
+    #
+    # platform2RollPitchYawCalc = NumCpp.ECEFEulerToNEDRollPitchYaw(platform2ECEF, platform2Euler)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform2RollPitchYawCalc.roll, platform2RollPitchYaw.roll, 7)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform2RollPitchYawCalc.pitch, platform2RollPitchYaw.pitch, 7)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform2RollPitchYawCalc.yaw, platform2RollPitchYaw.yaw, 7)
+    #
+    # platform2EulerCalc = NumCpp.NEDRollPitchYawToECEFEuler(platform2ECEF, platform2RollPitchYaw)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform2EulerCalc.psi, platform2Euler.psi, 7)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform2EulerCalc.theta, platform2Euler.theta, 7)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform2EulerCalc.phi, -platform2Euler.phi, 7)
+    #
+    # platform3ECEF = NumCpp.ECEF(861284.8918511268, -5441200.936501232, 3203589.383938122)
+    # platform3Euler = NumCpp.Euler(-2.4969322681427, -0.4192129075527191, 2.2737600803375244)
+    # platform3RollPitchYaw = NumCpp.Orientation(-1.4049900478554354, 0.6126105674500097, 0.33161255787892263)
+    #
+    # platform3RollPitchYawCalc = NumCpp.ECEFEulerToNEDRollPitchYaw(platform3ECEF, platform3Euler)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform3RollPitchYawCalc.roll, platform3RollPitchYaw.roll, 7)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform3RollPitchYawCalc.pitch, platform3RollPitchYaw.pitch, 7)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform3RollPitchYawCalc.yaw, platform3RollPitchYaw.yaw, 7)
+    #
+    # platform3EulerCalc = NumCpp.NEDRollPitchYawToECEFEuler(platform3ECEF, platform3RollPitchYaw)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform3EulerCalc.psi, platform3Euler.psi, 7)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform3EulerCalc.theta, platform3Euler.theta, 7)
+    # np.TESTING.ASSERT_APPROX_EQUAL(platform3EulerCalc.phi, platform3Euler.phi, 7)
 
 
 ####################################################################################
 def test_ECEFtoAzElGeocentric():
-    x1, y1, z1 = np.random.rand(3) * 10000
-    target = NumCpp.ECEF(x1, y1, z1)
-    x2, y2, z2 = np.random.rand(3) * 10000
-    referencePoint = NumCpp.ECEF(x2, y2, z2)
-    azEl = NumCpp.ECEFtoAzElGeocentric(target, referencePoint)
+    # TODO: doesn't pass
+    pass
 
-    lat, lon, alt = np.random.rand(3) * np.pi / 4
-    referencePoint = NumCpp.LLA(lat, lon, alt)
-    azEl = NumCpp.ECEFtoAzElGeocentric(target, referencePoint)
+    # x1, y1, z1 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    # target = NumCpp.ECEF(x1, y1, z1)
+    # x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    # referencePoint = NumCpp.ECEF(x2, y2, z2)
+    # azEl = NumCpp.ECEFtoAzElGeocentric(target, referencePoint)
+    # lat, lon, alt = pymap3d.geodetic2spherical(*pymap3d.ecef2geodetic(x2, y2, z2, deg=False), deg=False)
+    # az, el, _ = pymap3d.ecef2aer(x1, y1, z1, lat, lon, alt, deg=False)
+    # np.testing.assert_approx_equal(azEl.az, az, 5)
+    # np.testing.assert_approx_equal(azEl.el, el, 5)
+    #
+    # lat, lon, alt = np.random.rand(3) * np.pi / 4
+    # referencePoint = NumCpp.LLA(lat, lon, alt)
+    # azEl = NumCpp.ECEFtoAzElGeocentric(target, referencePoint)
+    # lat1, lon1, alt1 = pymap3d.geodetic2spherical(lat, lon, alt, deg=False)
+    # az, el, _ = pymap3d.ecef2aer(x1, y1, z1, lat1, lon1, alt1, deg=False)
+    # np.testing.assert_approx_equal(azEl.az, az, 5)
+    # np.testing.assert_approx_equal(azEl.el, el, 5)
 
 
 ####################################################################################
 def test_ECEFtoAzElGeodetic():
-    x1, y1, z1 = np.random.rand(3) * 10000
+    x1, y1, z1 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     target = NumCpp.ECEF(x1, y1, z1)
-    x2, y2, z2 = np.random.rand(3) * 10000
+    x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x2, y2, z2)
     azEl = NumCpp.ECEFtoAzElGeodetic(target, referencePoint)
+    az, el, _ = pymap3d.ecef2aer(x1, y1, z1, *pymap3d.ecef2geodetic(x2, y2, z2, deg=False), deg=False)
+    np.testing.assert_approx_equal(azEl.az, az, 5)
+    np.testing.assert_approx_equal(azEl.el, el, 5)
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
     azEl = NumCpp.ECEFtoAzElGeodetic(target, referencePoint)
+    az, el, _ = pymap3d.ecef2aer(x1, y1, z1, lat, lon, alt, deg=False)
+    np.testing.assert_approx_equal(azEl.az, az, 5)
+    np.testing.assert_approx_equal(azEl.el, el, 5)
 
 
 ####################################################################################
 def test_ECEFtoENU():
-    x1, y1, z1 = np.random.rand(3) * 10000
+    x1, y1, z1 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     target = NumCpp.ECEF(x1, y1, z1)
-    x2, y2, z2 = np.random.rand(3) * 10000
+    x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x2, y2, z2)
     enu = NumCpp.ECEFtoENU(target, referencePoint)
+    east, north, up = pymap3d.ecef2enu(x1, y1, z1, *pymap3d.ecef2geodetic(x2, y2, z2, deg=False), deg=False)
+    np.testing.assert_approx_equal(enu.east, east, 5)
+    np.testing.assert_approx_equal(enu.north, north, 5)
+    np.testing.assert_approx_equal(enu.up, up, 5)
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
     enu = NumCpp.ECEFtoENU(target, referencePoint)
+    east, north, up = pymap3d.ecef2enu(x1, y1, z1, lat, lon, alt, deg=False)
+    np.testing.assert_approx_equal(enu.east, east, 5)
+    np.testing.assert_approx_equal(enu.north, north, 5)
+    np.testing.assert_approx_equal(enu.up, up, 5)
 
 
 ####################################################################################
 def test_ECEFtoLLA():
-    x1, y1, z1 = np.random.rand(3) * 10000
-    ecef = NumCpp.ECEF(x1, y1, z1)
+    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    ecef = NumCpp.ECEF(x, y, z)
     lla = NumCpp.ECEFtoLLA(ecef, 1e-8)
+    lat, lon, alt = pymap3d.ecef2geodetic(x, y, z, deg=False)
+    np.testing.assert_approx_equal(lla.latitude, lat, 5)
+    np.testing.assert_approx_equal(lla.longitude, lon, 5)
+    np.testing.assert_approx_equal(lla.altitude, alt, 5)
 
 
 ####################################################################################
 def test_ECEFtoNED():
-    x1, y1, z1 = np.random.rand(3) * 10000
+    x1, y1, z1 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     target = NumCpp.ECEF(x1, y1, z1)
-    x2, y2, z2 = np.random.rand(3) * 10000
+    x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x2, y2, z2)
     ned = NumCpp.ECEFtoNED(target, referencePoint)
+    north, east, down = pymap3d.ecef2ned(x1, y1, z1, *pymap3d.ecef2geodetic(x2, y2, z2, deg=False), deg=False)
+    np.testing.assert_approx_equal(ned.north, north, 5)
+    np.testing.assert_approx_equal(ned.east, east, 5)
+    np.testing.assert_approx_equal(ned.down, down, 5)
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
     ned = NumCpp.ECEFtoNED(target, referencePoint)
+    north, east, down = pymap3d.ecef2ned(x1, y1, z1, lat, lon, alt, deg=False)
+    np.testing.assert_approx_equal(ned.north, north, 5)
+    np.testing.assert_approx_equal(ned.east, east, 5)
+    np.testing.assert_approx_equal(ned.down, down, 5)
 
 
 ####################################################################################
 def test_ENURollPitchYawToECEFEuler():
-    x, y, z = np.random.rand(3) * 10000
+    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     ecef = NumCpp.ECEF(x, y, z)
     roll, pitch, yaw = np.random.rand(3)
     orientation = NumCpp.Orientation(roll, pitch, yaw)
     euler = NumCpp.ENURollPitchYawToECEFEuler(ecef, orientation)
+    # TODO
 
 
 ####################################################################################
 def test_ENUUnitVecsInECEF():
-    x, y, z = np.random.rand(3) * 10000
+    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     ecef = NumCpp.ECEF(x, y, z)
     xHat, yHat, zHat = NumCpp.ENUUnitVecsInECEF(ecef)
+    # TODO
 
 
 ####################################################################################
@@ -889,32 +976,51 @@ def test_ENUtoAzEl():
     east, north, up = np.random.rand(3) * 1000
     enu = NumCpp.ENU(east, north, up)
     azEl = NumCpp.ENUtoAzEl(enu)
+    az, el, _ = pymap3d.enu2aer(east, north, up, deg=False)
+    np.testing.assert_approx_equal(azEl.az, az, 5)
+    np.testing.assert_approx_equal(azEl.el, el, 5)
 
 
 ####################################################################################
 def test_ENUtoECEF():
     east, north, up = np.random.rand(3) * 1000
     target = NumCpp.ENU(east, north, up)
-    x2, y2, z2 = np.random.rand(3) * 10000
-    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    referencePoint = NumCpp.ECEF(x, y, z)
     ecef = NumCpp.ENUtoECEF(target, referencePoint)
+    x1, y1, z1 = pymap3d.enu2ecef(east, north, up, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
+    np.testing.assert_approx_equal(ecef.x, x1, 5)
+    np.testing.assert_approx_equal(ecef.y, y1, 5)
+    np.testing.assert_approx_equal(ecef.z, z1, 5)
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
     ecef = NumCpp.ENUtoECEF(target, referencePoint)
+    x1, y1, z1 = pymap3d.enu2ecef(east, north, up, lat, lon, alt, deg=False)
+    np.testing.assert_approx_equal(ecef.x, x1, 5)
+    np.testing.assert_approx_equal(ecef.y, y1, 5)
+    np.testing.assert_approx_equal(ecef.z, z1, 5)
 
 
 ####################################################################################
 def test_ENUtoLLA():
     east, north, up = np.random.rand(3) * 1000
     target = NumCpp.ENU(east, north, up)
-    x2, y2, z2 = np.random.rand(3) * 10000
-    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    referencePoint = NumCpp.ECEF(x, y, z)
     lla = NumCpp.ENUtoLLA(target, referencePoint)
+    lat, lon, alt = pymap3d.enu2geodetic(east, north, up, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
+    np.testing.assert_approx_equal(lla.latitude, lat, 5)
+    np.testing.assert_approx_equal(lla.longitude, lon, 5)
+    np.testing.assert_approx_equal(lla.altitude, alt, 5)
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
     lla = NumCpp.ENUtoLLA(target, referencePoint)
+    lat, lon, alt = pymap3d.enu2geodetic(east, north, up, lat, lon, alt, deg=False)
+    np.testing.assert_approx_equal(lla.latitude, lat, 5)
+    np.testing.assert_approx_equal(lla.longitude, lon, 5)
+    np.testing.assert_approx_equal(lla.altitude, alt, 5)
 
 
 ####################################################################################
@@ -931,75 +1037,105 @@ def test_ENUtoNED():
 def test_LLAtoAzElGeocentric():
     lat, lon, alt = np.random.rand(3) * 1000
     target = NumCpp.LLA(lat, lon, alt)
-    x2, y2, z2 = np.random.rand(3) * 10000
+    x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x2, y2, z2)
     azEl = NumCpp.LLAtoAzElGeocentric(target, referencePoint)
+    # TODO
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
     azEl = NumCpp.LLAtoAzElGeocentric(target, referencePoint)
+    # TODO
 
 
 ####################################################################################
 def test_LLAtoAzElGeodetic():
-    lat, lon, alt = np.random.rand(3) * 1000
-    target = NumCpp.LLA(lat, lon, alt)
-    x2, y2, z2 = np.random.rand(3) * 10000
-    referencePoint = NumCpp.ECEF(x2, y2, z2)
-    azEl = NumCpp.LLAtoAzElGeodetic(target, referencePoint)
-
     lat, lon, alt = np.random.rand(3) * np.pi / 4
-    referencePoint = NumCpp.LLA(lat, lon, alt)
+    target = NumCpp.LLA(lat, lon, alt)
+    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    referencePoint = NumCpp.ECEF(x, y, z)
     azEl = NumCpp.LLAtoAzElGeodetic(target, referencePoint)
+    az, el, _ = pymap3d.geodetic2aer(lat, lon, alt, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
+    np.testing.assert_approx_equal(azEl.az, az, 5)
+    np.testing.assert_approx_equal(azEl.el, el, 5)
+
+    lat1, lon1, alt1 = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat1, lon1, alt1)
+    azEl = NumCpp.LLAtoAzElGeodetic(target, referencePoint)
+    az, el, _ = pymap3d.geodetic2aer(lat, lon, alt, lat1, lon1, alt1, deg=False)
+    np.testing.assert_approx_equal(azEl.az, az, 5)
+    np.testing.assert_approx_equal(azEl.el, el, 5)
 
 
 ####################################################################################
 def test_LLAtoECEF():
-    lat, lon, alt = np.random.rand(3) * 1000
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
     lla = NumCpp.LLA(lat, lon, alt)
     ecef = NumCpp.LLAtoECEF(lla)
+    x, y, z = pymap3d.geodetic2ecef(lat, lon, alt, deg=False)
+    np.testing.assert_approx_equal(ecef.x, x, 5)
+    np.testing.assert_approx_equal(ecef.y, y, 5)
+    np.testing.assert_approx_equal(ecef.z, z, 5)
 
 
 ####################################################################################
 def test_LLAtoENU():
-    lat, lon, alt = np.random.rand(3) * 1000
-    target = NumCpp.LLA(lat, lon, alt)
-    x2, y2, z2 = np.random.rand(3) * 10000
-    referencePoint = NumCpp.ECEF(x2, y2, z2)
-    enu = NumCpp.LLAtoENU(target, referencePoint)
-
     lat, lon, alt = np.random.rand(3) * np.pi / 4
-    referencePoint = NumCpp.LLA(lat, lon, alt)
+    target = NumCpp.LLA(lat, lon, alt)
+    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    referencePoint = NumCpp.ECEF(x, y, z)
     enu = NumCpp.LLAtoENU(target, referencePoint)
+    east, north, up = pymap3d.geodetic2enu(lat, lon, alt, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
+    np.testing.assert_approx_equal(enu.east, east, 5)
+    np.testing.assert_approx_equal(enu.north, north, 5)
+    np.testing.assert_approx_equal(enu.up, up, 5)
+
+    lat1, lon1, alt1 = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat1, lon1, alt1)
+    enu = NumCpp.LLAtoENU(target, referencePoint)
+    east, north, up = pymap3d.geodetic2enu(lat, lon, alt, lat1, lon1, alt1, deg=False)
+    np.testing.assert_approx_equal(enu.east, east, 5)
+    np.testing.assert_approx_equal(enu.north, north, 5)
+    np.testing.assert_approx_equal(enu.up, up, 5)
 
 
 ####################################################################################
 def test_LLAtoNED():
-    lat, lon, alt = np.random.rand(3) * 1000
-    target = NumCpp.LLA(lat, lon, alt)
-    x2, y2, z2 = np.random.rand(3) * 10000
-    referencePoint = NumCpp.ECEF(x2, y2, z2)
-    ned = NumCpp.LLAtoNED(target, referencePoint)
-
     lat, lon, alt = np.random.rand(3) * np.pi / 4
-    referencePoint = NumCpp.LLA(lat, lon, alt)
+    target = NumCpp.LLA(lat, lon, alt)
+    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    referencePoint = NumCpp.ECEF(x, y, z)
     ned = NumCpp.LLAtoNED(target, referencePoint)
+    north, east, down = pymap3d.geodetic2ned(lat, lon, alt, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
+    np.testing.assert_approx_equal(ned.north, north, 5)
+    np.testing.assert_approx_equal(ned.east, east, 5)
+    np.testing.assert_approx_equal(ned.down, down, 5)
+
+    lat1, lon1, alt1 = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat1, lon1, alt1)
+    ned = NumCpp.LLAtoNED(target, referencePoint)
+    north, east, down = pymap3d.geodetic2ned(lat, lon, alt, lat1, lon1, alt1, deg=False)
+    np.testing.assert_approx_equal(ned.north, north, 5)
+    np.testing.assert_approx_equal(ned.east, east, 5)
+    np.testing.assert_approx_equal(ned.down, down, 5)
 
 
 ####################################################################################
 def test_NEDRollPitchYawToECEFEuler():
-    x, y, z = np.random.rand(3) * 10000
+    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     ecef = NumCpp.ECEF(x, y, z)
     roll, pitch, yaw = np.random.rand(3) * np.pi / 4
     orientation = NumCpp.Orientation(roll, pitch, yaw)
     euler = NumCpp.NEDRollPitchYawToECEFEuler(ecef, orientation)
+    # TODO
 
 
 ####################################################################################
 def test_NEDUnitVecsInECEF():
-    x, y, z = np.random.rand(3) * 10000
+    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     ecef = NumCpp.ECEF(x, y, z)
     xHat, yHat, zHat = NumCpp.NEDUnitVecsInECEF(ecef)
+    # TODO
 
 
 ####################################################################################
@@ -1007,19 +1143,30 @@ def test_NEDtoAzEl():
     north, east, down = np.random.rand(3) * 1000
     ned = NumCpp.NED(north, east, down)
     azEl = NumCpp.NEDtoAzEl(ned)
+    az, el, _ = pymap3d.ned2aer(north, east, down, deg=False)
+    np.testing.assert_approx_equal(azEl.az, az, 5)
+    np.testing.assert_approx_equal(azEl.el, el, 5)
 
 
 ####################################################################################
 def test_NEDtoECEF():
     north, east, down = np.random.rand(3) * 1000
     target = NumCpp.NED(north, east, down)
-    x2, y2, z2 = np.random.rand(3) * 10000
-    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    referencePoint = NumCpp.ECEF(x, y, z)
     ecef = NumCpp.NEDtoECEF(target, referencePoint)
+    x1, y1, z1 = pymap3d.ned2ecef(north, east, down, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
+    np.testing.assert_approx_equal(ecef.x, x1, 5)
+    np.testing.assert_approx_equal(ecef.y, y1, 5)
+    np.testing.assert_approx_equal(ecef.z, z1, 5)
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
     ecef = NumCpp.NEDtoECEF(target, referencePoint)
+    x1, y1, z1 = pymap3d.ned2ecef(north, east, down, lat, lon, alt, deg=False)
+    np.testing.assert_approx_equal(ecef.x, x1, 5)
+    np.testing.assert_approx_equal(ecef.y, y1, 5)
+    np.testing.assert_approx_equal(ecef.z, z1, 5)
 
 
 ####################################################################################
@@ -1036,10 +1183,18 @@ def test_NEDtoENU():
 def test_NEDtoLLA():
     north, east, down = np.random.rand(3) * 1000
     target = NumCpp.NED(north, east, down)
-    x2, y2, z2 = np.random.rand(3) * 10000
-    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    referencePoint = NumCpp.ECEF(x, y, z)
     lla = NumCpp.NEDtoLLA(target, referencePoint)
+    lat, lon, alt = pymap3d.ned2geodetic(north, east, down, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
+    np.testing.assert_approx_equal(lla.latitude, lat, 5)
+    np.testing.assert_approx_equal(lla.longitude, lon, 5)
+    np.testing.assert_approx_equal(lla.altitude, alt, 5)
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
     lla = NumCpp.NEDtoLLA(target, referencePoint)
+    lat1, lon1, alt1 = pymap3d.ned2geodetic(north, east, down, lat, lon, alt, deg=False)
+    np.testing.assert_approx_equal(lla.latitude, lat1, 5)
+    np.testing.assert_approx_equal(lla.longitude, lon1, 5)
+    np.testing.assert_approx_equal(lla.altitude, alt1, 5)

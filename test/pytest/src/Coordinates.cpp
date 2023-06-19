@@ -197,8 +197,8 @@ void initCoordinates(pb11::module& m)
         .def("__ne__", &coordinates::reference_frames::Celestial::operator!=)
         .def("print", &coordinates::reference_frames::Celestial::print);
 
-    m.def("AzElGeocentricToENU", &coordinates::transforms::AzElGeocentricToENU);
-    m.def("AzElGeocentricToNED", &coordinates::transforms::AzElGeocentricToNED);
+    m.def("AzElToENU", &coordinates::transforms::AzElToENU);
+    m.def("AzElToNED", &coordinates::transforms::AzElToNED);
     m.def("ECEFEulerToENURollPitchYaw", &coordinates::transforms::ECEFEulerToENURollPitchYaw);
     m.def("ECEFEulerToNEDRollPitchYaw", &coordinates::transforms::ECEFEulerToNEDRollPitchYaw);
     m.def(

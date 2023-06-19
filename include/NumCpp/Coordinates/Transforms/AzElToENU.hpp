@@ -29,7 +29,7 @@
 
 #include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/NED.hpp"
-#include "NumCpp/Coordinates/Transforms/AzElGeocentricToNED.hpp"
+#include "NumCpp/Coordinates/Transforms/AzElToNED.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDtoENU.hpp"
 
 namespace nc::coordinates::transforms
@@ -42,9 +42,8 @@ namespace nc::coordinates::transforms
      * @param range Optional range
      * @return ENU
      */
-    [[nodiscard]] inline reference_frames::ENU AzElGeocentricToENU(const reference_frames::AzEl azEl,
-                                                                   double                       range = 1.0) noexcept
+    [[nodiscard]] inline reference_frames::ENU AzElToENU(const reference_frames::AzEl azEl, double range = 1.0) noexcept
     {
-        return NEDtoENU(AzElGeocentricToNED(azEl, range));
+        return NEDtoENU(AzElToNED(azEl, range));
     }
 } // namespace nc::coordinates::transforms
