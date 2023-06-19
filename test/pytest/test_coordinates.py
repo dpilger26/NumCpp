@@ -10,7 +10,7 @@ np.random.seed(666)
 
 
 ####################################################################################
-def test_cartesian_default_ructor():
+def test_cartesian_default_constructor():
     c = NumCpp.Cartesian()
     assert c.x == 0
     assert c.y == 0
@@ -18,7 +18,7 @@ def test_cartesian_default_ructor():
 
 
 ####################################################################################
-def test_cartesian_component_ructor():
+def test_cartesian_component_constructor():
     x, y, z = np.random.rand(3) * 10
     c = NumCpp.Cartesian(x, y, z)
     assert c.x == x
@@ -27,7 +27,7 @@ def test_cartesian_component_ructor():
 
 
 ####################################################################################
-def test_cartesian_vec2_ructor():
+def test_cartesian_vec2_constructor():
     x, y = np.random.rand(2) * 10
     vec2 = NumCpp.Vec2(x, y)
     c = NumCpp.Cartesian(vec2)
@@ -37,7 +37,7 @@ def test_cartesian_vec2_ructor():
 
 
 ####################################################################################
-def test_cartesian_vec3_ructor():
+def test_cartesian_vec3_constructor():
     x, y, z = np.random.rand(3) * 10
     vec3 = NumCpp.Vec3(x, y, z)
     c = NumCpp.Cartesian(vec3)
@@ -47,7 +47,7 @@ def test_cartesian_vec3_ructor():
 
 
 ####################################################################################
-def test_cartesian_ndarray_ructor():
+def test_cartesian_ndarray_constructor():
     components = np.random.rand(3) * 10
     cArray = NumCpp.NdArray(3, 1)
     cArray.setArray(components)
@@ -360,13 +360,13 @@ def test_azel():
 
 
 ####################################################################################
-def test_ra_default_ructor():
+def test_ra_default_constructor():
     ra = NumCpp.Ra()
     assert ra
 
 
 ####################################################################################
-def test_ra_degrees_ructor():
+def test_ra_degrees_constructor():
     randDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(randDegrees)
     raPy = Longitude(randDegrees, unit=u.deg)  # noqa
@@ -378,7 +378,7 @@ def test_ra_degrees_ructor():
 
 
 ####################################################################################
-def test_ra_hms_ructor():
+def test_ra_hms_constructor():
     hours = np.random.randint(
         0,
         24,
@@ -406,7 +406,7 @@ def test_ra_hms_ructor():
 
 
 ####################################################################################
-def test_ra_copy_ructor():
+def test_ra_copy_constructor():
     ra = NumCpp.Ra()
     assert ra
 
@@ -431,13 +431,13 @@ def test_ra_print():
 
 
 ####################################################################################
-def test_dec_default_ructor():
+def test_dec_default_constructor():
     dec = NumCpp.Dec()
     assert dec
 
 
 ####################################################################################
-def test_dec_degree_ructor():
+def test_dec_degree_constructor():
     randDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(randDegrees)
     decPy = Latitude(randDegrees, unit=u.deg)  # noqa
@@ -451,7 +451,7 @@ def test_dec_degree_ructor():
 
 
 ####################################################################################
-def test_dec_hms_ructor():
+def test_dec_hms_constructor():
     sign = NumCpp.Sign.POSITIVE if np.random.randint(-1, 1) == 0 else NumCpp.Sign.NEGATIVE
     degrees = np.random.randint(
         0,
@@ -483,7 +483,7 @@ def test_dec_hms_ructor():
 
 
 ####################################################################################
-def test_dec_copy_ructor():
+def test_dec_copy_constructor():
     dec = NumCpp.Dec()
     assert dec
 
@@ -508,13 +508,13 @@ def test_dec_print():
 
 
 ####################################################################################
-def test_celestial_default_ructor():
+def test_celestial_default_constructor():
     celestial = NumCpp.Celestial()
     assert celestial
 
 
 ####################################################################################
-def test_celestial_degree_ructor():
+def test_celestial_degree_constructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -530,7 +530,7 @@ def test_celestial_degree_ructor():
 
 
 ####################################################################################
-def test_celestial_radec_ructor():
+def test_celestial_radec_constructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -546,7 +546,7 @@ def test_celestial_radec_ructor():
 
 
 ####################################################################################
-def test_celestial_cartesian_component_ructor():
+def test_celestial_cartesian_component_constructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -563,7 +563,7 @@ def test_celestial_cartesian_component_ructor():
 
 
 ####################################################################################
-def test_celestial_cartesian_ructor():
+def test_celestial_cartesian_constructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -581,7 +581,7 @@ def test_celestial_cartesian_ructor():
 
 
 ####################################################################################
-def test_celestial_ndarray_ructor():
+def test_celestial_ndarray_constructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -599,7 +599,7 @@ def test_celestial_ndarray_ructor():
 
 
 ####################################################################################
-def test_celestial_vec3_ructor():
+def test_celestial_vec3_constructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -615,7 +615,7 @@ def test_celestial_vec3_ructor():
 
 
 ####################################################################################
-def test_celestial_rms_ructor():
+def test_celestial_rms_constructor():
     raHours = np.random.randint(
         0,
         24,
@@ -676,7 +676,7 @@ def test_celestial_rms_ructor():
 
 
 ####################################################################################
-def test_celestial_copy_ructor_and_equality_operator():
+def test_celestial_copy_constructor_and_equality_operator():
     cCelestial = NumCpp.Celestial()
     assert cCelestial
     cCelestial2 = NumCpp.Celestial(cCelestial)
@@ -859,26 +859,17 @@ def test_ECEFEulerToNEDRollPitchYaw():
 
 ####################################################################################
 def test_ECEFtoAzElGeocentric():
-    # TODO: doesn't pass
-    pass
+    x1, y1, z1 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    target = NumCpp.ECEF(x1, y1, z1)
+    x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    referencePoint = NumCpp.ECEF(x2, y2, z2)
+    azEl = NumCpp.ECEFtoAzElGeocentric(target, referencePoint)
+    # TODO
 
-    # x1, y1, z1 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
-    # target = NumCpp.ECEF(x1, y1, z1)
-    # x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
-    # referencePoint = NumCpp.ECEF(x2, y2, z2)
-    # azEl = NumCpp.ECEFtoAzElGeocentric(target, referencePoint)
-    # lat, lon, alt = pymap3d.geodetic2spherical(*pymap3d.ecef2geodetic(x2, y2, z2, deg=False), deg=False)
-    # az, el, _ = pymap3d.ecef2aer(x1, y1, z1, lat, lon, alt, deg=False)
-    # np.testing.assert_approx_equal(azEl.az, az, 5)
-    # np.testing.assert_approx_equal(azEl.el, el, 5)
-    #
-    # lat, lon, alt = np.random.rand(3) * np.pi / 4
-    # referencePoint = NumCpp.LLA(lat, lon, alt)
-    # azEl = NumCpp.ECEFtoAzElGeocentric(target, referencePoint)
-    # lat1, lon1, alt1 = pymap3d.geodetic2spherical(lat, lon, alt, deg=False)
-    # az, el, _ = pymap3d.ecef2aer(x1, y1, z1, lat1, lon1, alt1, deg=False)
-    # np.testing.assert_approx_equal(azEl.az, az, 5)
-    # np.testing.assert_approx_equal(azEl.el, el, 5)
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    referencePoint = NumCpp.LLA(lat, lon, alt)
+    azEl = NumCpp.ECEFtoAzElGeocentric(target, referencePoint)
+    # TODO
 
 
 ####################################################################################
