@@ -197,7 +197,27 @@ void initCoordinates(pb11::module& m)
         .def("__ne__", &coordinates::reference_frames::Celestial::operator!=)
         .def("print", &coordinates::reference_frames::Celestial::print);
 
+    m.def("AzElToECEF",
+          [](const coordinates::reference_frames::AzEl& target,
+             double                                     targetRange,
+             const coordinates::reference_frames::ECEF& referencePoint)
+          { return coordinates::transforms::AzElToECEF(target, targetRange, referencePoint); });
+    m.def("AzElToECEF",
+          [](const coordinates::reference_frames::AzEl& target,
+             double                                     targetRange,
+             const coordinates::reference_frames::LLA&  referencePoint)
+          { return coordinates::transforms::AzElToECEF(target, targetRange, referencePoint); });
     m.def("AzElToENU", &coordinates::transforms::AzElToENU);
+    m.def("AzElToLLA",
+          [](const coordinates::reference_frames::AzEl& target,
+             double                                     targetRange,
+             const coordinates::reference_frames::ECEF& referencePoint)
+          { return coordinates::transforms::AzElToLLA(target, targetRange, referencePoint); });
+    m.def("AzElToLLA",
+          [](const coordinates::reference_frames::AzEl& target,
+             double                                     targetRange,
+             const coordinates::reference_frames::LLA&  referencePoint)
+          { return coordinates::transforms::AzElToLLA(target, targetRange, referencePoint); });
     m.def("AzElToNED", &coordinates::transforms::AzElToNED);
     m.def("ECEFEulerToENURollPitchYaw", &coordinates::transforms::ECEFEulerToENURollPitchYaw);
     m.def("ECEFEulerToNEDRollPitchYaw", &coordinates::transforms::ECEFEulerToNEDRollPitchYaw);

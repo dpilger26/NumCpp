@@ -27,7 +27,9 @@
 ///
 #pragma once
 
+#include "NumCpp/Coordinates/Transforms/AzElToECEF.hpp"
 #include "NumCpp/Coordinates/Transforms/AzElToENU.hpp"
+#include "NumCpp/Coordinates/Transforms/AzElToLLA.hpp"
 #include "NumCpp/Coordinates/Transforms/AzElToNED.hpp"
 #include "NumCpp/Coordinates/Transforms/ECEFEulerToENURollPitchYaw.hpp"
 #include "NumCpp/Coordinates/Transforms/ECEFEulerToNEDRollPitchYaw.hpp"

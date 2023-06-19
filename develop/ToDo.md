@@ -4,9 +4,9 @@
 
 * `stack`/`vstack`/`hstack`/`row_stack`/`col_stack` should take in a `std::vector`, ISSUE #196
 * unit tests for new transforms
-* AzEl should be AzElRange
-* other transforms (see pymap3d)
-* adaptive cfar function into ImageProcessing
+* `AzEl` should be `AzElRange`
+* figure out `test_ECEFEulerToNEDRollPitchYaw` test
+* adaptive cfar function into `ImageProcessing`
 
 * run clang-tidy
 * run cppcheck

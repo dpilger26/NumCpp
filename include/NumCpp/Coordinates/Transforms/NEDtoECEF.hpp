@@ -32,6 +32,7 @@
 #include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/NED.hpp"
+#include "NumCpp/Coordinates/Transforms/ECEFtoLLA.hpp"
 #include "NumCpp/Coordinates/Transforms/LLAtoECEF.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDtoECEF.hpp"
 #include "NumCpp/Functions/dot.hpp"
