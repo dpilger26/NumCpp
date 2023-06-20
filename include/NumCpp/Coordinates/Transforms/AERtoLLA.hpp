@@ -41,15 +41,13 @@ namespace nc::coordinates::transforms
      *        NOTE: positive elevation is defined as the positive z (up) direction
      *
      * @param target: the target position
-     * @param targetRange; the target range
      * @param referencePoint: the reference position
      * @return LLA
      */
     [[nodiscard]] inline reference_frames::LLA AERtoLLA(const reference_frames::AER   target,
-                                                        double                        targetRange,
                                                         const reference_frames::ECEF& referencePoint) noexcept
     {
-        return ECEFtoLLA(AERtoECEF(target, targetRange, referencePoint));
+        return ECEFtoLLA(AERtoECEF(target, referencePoint));
     }
 
     /**
@@ -57,14 +55,12 @@ namespace nc::coordinates::transforms
      *        NOTE: positive elevation is defined as the positive z (up) direction
      *
      * @param target: the target position
-     * @param targetRange; the target range
      * @param referencePoint: the reference position
      * @return LLA
      */
     [[nodiscard]] inline reference_frames::LLA AERtoLLA(const reference_frames::AER  target,
-                                                        double                       targetRange,
                                                         const reference_frames::LLA& referencePoint) noexcept
     {
-        return ECEFtoLLA(AERtoECEF(target, targetRange, referencePoint));
+        return ECEFtoLLA(AERtoECEF(target, referencePoint));
     }
 } // namespace nc::coordinates::transforms

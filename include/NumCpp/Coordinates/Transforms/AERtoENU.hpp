@@ -38,12 +38,11 @@ namespace nc::coordinates::transforms
      * @brief Converts the spherical inertial coordinates (NED) to Cartesian XYZ (ENU).
      *        NOTE: positive elevation is defined as the positive z (up) direction
      *
-     * @param azEl 2D Inertial azimuth and elevation
-     * @param range Optional range
+     * @param aer 2D Inertial azimuth and elevation
      * @return ENU
      */
-    [[nodiscard]] inline reference_frames::ENU AERtoENU(const reference_frames::AER azEl, double range = 1.0) noexcept
+    [[nodiscard]] inline reference_frames::ENU AERtoENU(const reference_frames::AER aer) noexcept
     {
-        return NEDtoENU(AERtoNED(azEl, range));
+        return NEDtoENU(AERtoNED(aer));
     }
 } // namespace nc::coordinates::transforms

@@ -38,15 +38,15 @@ namespace nc::coordinates::transforms
      * @brief Converts the spherical inertial coordinates (NED) to Cartesian XYZ (NED).
      *        NOTE: positive elevation is defined as the negative z (up) direction
      *
-     * @param azEl 2D Inertial azimuth and elevation
+     * @param aer 2D Inertial azimuth and elevation
      * @param range Optional range
      * @return NED
      */
-    [[nodiscard]] inline reference_frames::NED AERtoNED(const reference_frames::AER azEl, double range = 1.0) noexcept
+    [[nodiscard]] inline reference_frames::NED AERtoNED(const reference_frames::AER aer) noexcept
     {
-        const auto north = range * std::cos(azEl.el) * std::cos(azEl.az);
-        const auto east  = range * std::cos(azEl.el) * std::sin(azEl.az);
-        const auto down  = range * std::sin(-azEl.el);
+        const auto north = aer.range * std::cos(aer.el) * std::cos(aer.az);
+        const auto east  = aer.range * std::cos(aer.el) * std::sin(aer.az);
+        const auto down  = aer.range * std::sin(-aer.el);
         return { north, east, down };
     }
 } // namespace nc::coordinates::transforms

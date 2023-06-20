@@ -782,10 +782,10 @@ def test_celestial_print():
 ####################################################################################
 def test_AERtoECEF():
     az, el, sRange = np.random.rand(3) * np.pi / 4
-    target = NumCpp.AER(az, el)
+    target = NumCpp.AER(az, el, sRange)
     x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x, y, z)
-    ecef = NumCpp.AERtoECEF(target, sRange, referencePoint)
+    ecef = NumCpp.AERtoECEF(target, referencePoint)
     x1, y1, z1 = pymap3d.aer2ecef(az, el, sRange, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
     np.testing.assert_approx_equal(ecef.x, x1, 5)
     np.testing.assert_approx_equal(ecef.y, y1, 5)
@@ -793,7 +793,7 @@ def test_AERtoECEF():
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
-    ecef = NumCpp.AERtoECEF(target, sRange, referencePoint)
+    ecef = NumCpp.AERtoECEF(target, referencePoint)
     x1, y1, z1 = pymap3d.aer2ecef(az, el, sRange, lat, lon, alt, deg=False)
     np.testing.assert_approx_equal(ecef.x, x1, 5)
     np.testing.assert_approx_equal(ecef.y, y1, 5)
@@ -803,8 +803,8 @@ def test_AERtoECEF():
 ####################################################################################
 def test_AERtoENU():
     az, el, sRange = np.random.rand(3) * np.pi / 4
-    azEl = NumCpp.AER(az, el)
-    enu = NumCpp.AERtoENU(azEl, sRange)
+    aer = NumCpp.AER(az, el, sRange)
+    enu = NumCpp.AERtoENU(aer)
     east, north, up = pymap3d.aer2enu(az, el, sRange, deg=False)
     np.testing.assert_approx_equal(enu.east, east, 5)
     np.testing.assert_approx_equal(enu.north, north, 5)
@@ -814,10 +814,10 @@ def test_AERtoENU():
 ####################################################################################
 def test_AERtoLLA():
     az, el, sRange = np.random.rand(3) * np.pi / 4
-    target = NumCpp.AER(az, el)
+    target = NumCpp.AER(az, el, sRange)
     x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x, y, z)
-    lla = NumCpp.AERtoLLA(target, sRange, referencePoint)
+    lla = NumCpp.AERtoLLA(target, referencePoint)
     lat, lon, alt = pymap3d.aer2geodetic(az, el, sRange, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
     np.testing.assert_approx_equal(lla.latitude, lat, 5)
     np.testing.assert_approx_equal(lla.longitude, lon, 5)
@@ -825,7 +825,7 @@ def test_AERtoLLA():
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
-    lla = NumCpp.AERtoLLA(target, sRange, referencePoint)
+    lla = NumCpp.AERtoLLA(target, referencePoint)
     lat1, lon1, alt1 = pymap3d.aer2geodetic(az, el, sRange, lat, lon, alt, deg=False)
     np.testing.assert_approx_equal(lla.latitude, lat1, 5)
     np.testing.assert_approx_equal(lla.longitude, lon1, 5)
@@ -835,8 +835,8 @@ def test_AERtoLLA():
 ####################################################################################
 def test_AERtoNED():
     az, el, sRange = np.random.rand(3) * np.pi / 4
-    azEl = NumCpp.AER(az, el)
-    ned = NumCpp.AERtoNED(azEl, sRange)
+    aer = NumCpp.AER(az, el, sRange)
+    ned = NumCpp.AERtoNED(aer)
     north, east, down = pymap3d.aer2ned(az, el, sRange, deg=False)
     np.testing.assert_approx_equal(ned.north, north, 5)
     np.testing.assert_approx_equal(ned.east, east, 5)
@@ -907,12 +907,12 @@ def test_ECEFtoAERGeocentric():
     target = NumCpp.ECEF(x1, y1, z1)
     x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x2, y2, z2)
-    azEl = NumCpp.ECEFtoAERGeocentric(target, referencePoint)
+    aer = NumCpp.ECEFtoAERGeocentric(target, referencePoint)
     # TODO
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
-    azEl = NumCpp.ECEFtoAERGeocentric(target, referencePoint)
+    aer = NumCpp.ECEFtoAERGeocentric(target, referencePoint)
     # TODO
 
 
@@ -922,17 +922,17 @@ def test_ECEFtoAERGeodetic():
     target = NumCpp.ECEF(x1, y1, z1)
     x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x2, y2, z2)
-    azEl = NumCpp.ECEFtoAERGeodetic(target, referencePoint)
+    aer = NumCpp.ECEFtoAERGeodetic(target, referencePoint)
     az, el, _ = pymap3d.ecef2aer(x1, y1, z1, *pymap3d.ecef2geodetic(x2, y2, z2, deg=False), deg=False)
-    np.testing.assert_approx_equal(azEl.az, az, 5)
-    np.testing.assert_approx_equal(azEl.el, el, 5)
+    np.testing.assert_approx_equal(aer.az, az, 5)
+    np.testing.assert_approx_equal(aer.el, el, 5)
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
-    azEl = NumCpp.ECEFtoAERGeodetic(target, referencePoint)
+    aer = NumCpp.ECEFtoAERGeodetic(target, referencePoint)
     az, el, _ = pymap3d.ecef2aer(x1, y1, z1, lat, lon, alt, deg=False)
-    np.testing.assert_approx_equal(azEl.az, az, 5)
-    np.testing.assert_approx_equal(azEl.el, el, 5)
+    np.testing.assert_approx_equal(aer.az, az, 5)
+    np.testing.assert_approx_equal(aer.el, el, 5)
 
 
 ####################################################################################
@@ -1010,10 +1010,10 @@ def test_ENUUnitVecsInECEF():
 def test_ENUtoAER():
     east, north, up = np.random.rand(3) * 1000
     enu = NumCpp.ENU(east, north, up)
-    azEl = NumCpp.ENUtoAER(enu)
+    aer = NumCpp.ENUtoAER(enu)
     az, el, _ = pymap3d.enu2aer(east, north, up, deg=False)
-    np.testing.assert_approx_equal(azEl.az, az, 5)
-    np.testing.assert_approx_equal(azEl.el, el, 5)
+    np.testing.assert_approx_equal(aer.az, az, 5)
+    np.testing.assert_approx_equal(aer.el, el, 5)
 
 
 ####################################################################################
@@ -1095,12 +1095,12 @@ def test_LLAtoAERGeocentric():
     target = NumCpp.LLA(lat, lon, alt)
     x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x2, y2, z2)
-    azEl = NumCpp.LLAtoAERGeocentric(target, referencePoint)
+    aer = NumCpp.LLAtoAERGeocentric(target, referencePoint)
     # TODO
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
-    azEl = NumCpp.LLAtoAERGeocentric(target, referencePoint)
+    aer = NumCpp.LLAtoAERGeocentric(target, referencePoint)
     # TODO
 
 
@@ -1110,17 +1110,17 @@ def test_LLAtoAERGeodetic():
     target = NumCpp.LLA(lat, lon, alt)
     x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x, y, z)
-    azEl = NumCpp.LLAtoAERGeodetic(target, referencePoint)
+    aer = NumCpp.LLAtoAERGeodetic(target, referencePoint)
     az, el, _ = pymap3d.geodetic2aer(lat, lon, alt, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
-    np.testing.assert_approx_equal(azEl.az, az, 5)
-    np.testing.assert_approx_equal(azEl.el, el, 5)
+    np.testing.assert_approx_equal(aer.az, az, 5)
+    np.testing.assert_approx_equal(aer.el, el, 5)
 
     lat1, lon1, alt1 = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat1, lon1, alt1)
-    azEl = NumCpp.LLAtoAERGeodetic(target, referencePoint)
+    aer = NumCpp.LLAtoAERGeodetic(target, referencePoint)
     az, el, _ = pymap3d.geodetic2aer(lat, lon, alt, lat1, lon1, alt1, deg=False)
-    np.testing.assert_approx_equal(azEl.az, az, 5)
-    np.testing.assert_approx_equal(azEl.el, el, 5)
+    np.testing.assert_approx_equal(aer.az, az, 5)
+    np.testing.assert_approx_equal(aer.el, el, 5)
 
 
 ####################################################################################
@@ -1198,10 +1198,10 @@ def test_NEDUnitVecsInECEF():
 def test_NEDtoAER():
     north, east, down = np.random.rand(3) * 1000
     ned = NumCpp.NED(north, east, down)
-    azEl = NumCpp.NEDtoAER(ned)
+    aer = NumCpp.NEDtoAER(ned)
     az, el, _ = pymap3d.ned2aer(north, east, down, deg=False)
-    np.testing.assert_approx_equal(azEl.az, az, 5)
-    np.testing.assert_approx_equal(azEl.el, el, 5)
+    np.testing.assert_approx_equal(aer.az, az, 5)
+    np.testing.assert_approx_equal(aer.el, el, 5)
 
 
 ####################################################################################
