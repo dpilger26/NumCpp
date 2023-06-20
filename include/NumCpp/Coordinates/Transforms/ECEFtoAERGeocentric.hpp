@@ -29,47 +29,46 @@
 
 #include <cmath>
 
-#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/AER.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
-#include "NumCpp/Coordinates/Transforms/ECEFtoENU.hpp"
-#include "NumCpp/Coordinates/Transforms/ECEFtoLLA.hpp"
+#include "NumCpp/Coordinates/Transforms/LLAtoECEF.hpp"
 #include "NumCpp/Functions/wrap2Pi.hpp"
 
 namespace nc::coordinates::transforms
 {
     /**
-     * @brief Converts the LLA coordinates to Az El with geodedic up
-     *        https://geospace-code.github.io/matmap3d/enu2aer.html
+     * @brief Converts the LLA coordinates to Az El with geocentric up
+     *        https://gssc.esa.int/navipedia/index.php/Transformations_between_ECEF_and_ENU_coordinates
+     *        Figure 11 https://apps.dtic.mil/sti/pdfs/AD1170763.pdf for a helpful diagram
      *
      * @param target: the target of interest
      * @param referencePoint: the referencePoint
-     * @returns AzEl
+     * @returns AER
      */
-    [[nodiscard]] inline reference_frames::AzEl ECEFtoAzElGeodetic(const reference_frames::ECEF& target,
-                                                                   const reference_frames::LLA& referencePoint) noexcept
+    [[nodiscard]] inline reference_frames::AER
+        ECEFtoAERGeocentric(const reference_frames::ECEF& target, const reference_frames::ECEF& referencePoint) noexcept
     {
-        const auto targetENU = ECEFtoENU(target, referencePoint);
-        const auto targetENUnormalizedCart =
-            normalize(Cartesian{ targetENU.east(), targetENU.north(), targetENU.up() });
-        const auto& east  = targetENUnormalizedCart.x;
-        const auto& north = targetENUnormalizedCart.y;
-        const auto& up    = targetENUnormalizedCart.z;
+        const auto rhoHat = normalize(target - referencePoint);
+        const auto uHat   = normalize(referencePoint);
+        const auto eHat   = normalize(cross(Cartesian::zHat(), uHat));
+        const auto nHat   = normalize(cross(uHat, eHat));
 
-        return { wrap2Pi(std::atan2(east, north)), std::asin(up) };
+        return { wrap2Pi(std::atan2(rhoHat * eHat, rhoHat * nHat)), std::asin(rhoHat * uHat) };
     }
 
     /**
-     * @brief Converts the LLA coordinates to Az El with geodedic up
-     *        https://geospace-code.github.io/matmap3d/enu2aer.html
+     * @brief Converts the LLA coordinates to Az El with geocentric up
+     *        https://gssc.esa.int/navipedia/index.php/Transformations_between_ECEF_and_ENU_coordinates
+     *        Figure 11 https://apps.dtic.mil/sti/pdfs/AD1170763.pdf for a helpful diagram
      *
      * @param target: the target of interest
      * @param referencePoint: the referencePoint
-     * @returns AzEl
+     * @returns AER
      */
-    [[nodiscard]] inline reference_frames::AzEl
-        ECEFtoAzElGeodetic(const reference_frames::ECEF& target, const reference_frames::ECEF& referencePoint) noexcept
+    [[nodiscard]] inline reference_frames::AER ECEFtoAERGeocentric(const reference_frames::ECEF& target,
+                                                                   const reference_frames::LLA& referencePoint) noexcept
     {
-        return ECEFtoAzElGeodetic(target, ECEFtoLLA(referencePoint));
+        return ECEFtoAERGeocentric(target, LLAtoECEF(referencePoint));
     }
 } // namespace nc::coordinates::transforms

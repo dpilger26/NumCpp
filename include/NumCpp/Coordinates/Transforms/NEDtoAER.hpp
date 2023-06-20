@@ -27,23 +27,27 @@
 ///
 #pragma once
 
-#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/ENU.hpp"
-#include "NumCpp/Coordinates/Transforms/ENUtoNED.hpp"
-#include "NumCpp/Coordinates/Transforms/NEDtoAzEl.hpp"
+#include <cmath>
+
+#include "NumCpp/Coordinates/ReferenceFrames/AER.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/NED.hpp"
+#include "NumCpp/Functions/wrap2Pi.hpp"
 
 namespace nc::coordinates::transforms
 {
     /**
-     * @brief Converts the ENU coordinates to 2d speherical inertial coordinates.
+     * @brief Converts the Cartesian XYZ (NED) coordinates to 2d speherical inertial coordinates.
      *        Range is not used.
-     *        NOTE: positive elevation is defined as the positive z (up) direction
+     *        NOTE: positive elevation is defined as the negative z (up) direction
      *
      * @param cartesian: coordinates to convert
-     * @returns AzEl
+     * @returns AER
      */
-    [[nodiscard]] inline reference_frames::AzEl ENUtoAzEl(const reference_frames::ENU& target) noexcept
+    [[nodiscard]] inline reference_frames::AER NEDtoAER(const reference_frames::NED& target) noexcept
     {
-        return NEDtoAzEl(ENUtoNED(target));
+        const auto hypotXy = std::hypot(target.x, target.y);
+        const auto el      = -std::atan2(target.z, hypotXy);
+        const auto az      = wrap2Pi(std::atan2(target.y, target.x));
+        return { az, el };
     }
 } // namespace nc::coordinates::transforms

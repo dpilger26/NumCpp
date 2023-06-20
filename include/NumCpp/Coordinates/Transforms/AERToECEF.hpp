@@ -27,10 +27,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/AER.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
-#include "NumCpp/Coordinates/Transforms/AzElToNED.hpp"
+#include "NumCpp/Coordinates/Transforms/AERToNED.hpp"
 #include "NumCpp/Coordinates/Transforms/LLAtoECEF.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDtoECEF.hpp"
 
@@ -45,11 +45,11 @@ namespace nc::coordinates::transforms
      * @param referencePoint: the reference position
      * @return ECEF
      */
-    [[nodiscard]] inline reference_frames::ECEF AzElToECEF(const reference_frames::AzEl  target,
-                                                           double                        targetRange,
-                                                           const reference_frames::ECEF& referencePoint) noexcept
+    [[nodiscard]] inline reference_frames::ECEF AERToECEF(const reference_frames::AER   target,
+                                                          double                        targetRange,
+                                                          const reference_frames::ECEF& referencePoint) noexcept
     {
-        return NEDtoECEF(AzElToNED(target, targetRange), referencePoint);
+        return NEDtoECEF(AERToNED(target, targetRange), referencePoint);
     }
 
     /**
@@ -61,10 +61,10 @@ namespace nc::coordinates::transforms
      * @param referencePoint: the reference position
      * @return ECEF
      */
-    [[nodiscard]] inline reference_frames::ECEF AzElToECEF(const reference_frames::AzEl target,
-                                                           double                       targetRange,
-                                                           const reference_frames::LLA& referencePoint) noexcept
+    [[nodiscard]] inline reference_frames::ECEF AERToECEF(const reference_frames::AER  target,
+                                                          double                       targetRange,
+                                                          const reference_frames::LLA& referencePoint) noexcept
     {
-        return AzElToECEF(target, targetRange, LLAtoECEF(referencePoint));
+        return AERToECEF(target, targetRange, LLAtoECEF(referencePoint));
     }
 } // namespace nc::coordinates::transforms

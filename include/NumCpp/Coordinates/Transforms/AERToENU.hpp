@@ -27,39 +27,23 @@
 ///
 #pragma once
 
-#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
-#include "NumCpp/Coordinates/Transforms/ECEFtoAzElGeodetic.hpp"
-#include "NumCpp/Coordinates/Transforms/ECEFtoLLA.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/AER.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/NED.hpp"
+#include "NumCpp/Coordinates/Transforms/AERToNED.hpp"
+#include "NumCpp/Coordinates/Transforms/NEDtoENU.hpp"
 
 namespace nc::coordinates::transforms
 {
     /**
-     * @brief Converts the LLA coordinates to Az El with geodedic up
-     *        https://geospace-code.github.io/matmap3d/enu2aer.html
+     * @brief Converts the spherical inertial coordinates (NED) to Cartesian XYZ (ENU).
+     *        NOTE: positive elevation is defined as the positive z (up) direction
      *
-     * @param target: the target of interest
-     * @param referencePoint: the referencePoint
-     * @returns AzEl
+     * @param azEl 2D Inertial azimuth and elevation
+     * @param range Optional range
+     * @return ENU
      */
-    [[nodiscard]] inline reference_frames::AzEl LLAtoAzElGeodetic(const reference_frames::LLA& target,
-                                                                  const reference_frames::LLA& referencePoint) noexcept
+    [[nodiscard]] inline reference_frames::ENU AERToENU(const reference_frames::AER azEl, double range = 1.0) noexcept
     {
-        return ECEFtoAzElGeodetic(LLAtoECEF(target), referencePoint);
-    }
-
-    /**
-     * @brief Converts the LLA coordinates to Az El with geodedic up
-     *        https://geospace-code.github.io/matmap3d/enu2aer.html
-     *
-     * @param target: the target of interest
-     * @param referencePoint: the referencePoint
-     * @returns AzEl
-     */
-    [[nodiscard]] inline reference_frames::AzEl LLAtoAzElGeodetic(const reference_frames::LLA&  target,
-                                                                  const reference_frames::ECEF& referencePoint) noexcept
-    {
-        return LLAtoAzElGeodetic(target, ECEFtoLLA(referencePoint));
+        return NEDtoENU(AERToNED(azEl, range));
     }
 } // namespace nc::coordinates::transforms

@@ -61,18 +61,19 @@ void initCoordinates(pb11::module& m)
              [](const coordinates::Orientation& self, const coordinates::Orientation& other) { return self != other; })
         .def("print", [](const coordinates::Orientation& self) { std::cout << self; });
 
-    pb11::class_<coordinates::reference_frames::AzEl>(m, "AzEl")
+    pb11::class_<coordinates::reference_frames::AER>(m, "AER")
         .def(pb11::init<>())
         .def(pb11::init<double, double>())
-        .def_readwrite("az", &coordinates::reference_frames::AzEl::az)
-        .def_readwrite("el", &coordinates::reference_frames::AzEl::el)
+        .def_readwrite("az", &coordinates::reference_frames::AER::az)
+        .def_readwrite("el", &coordinates::reference_frames::AER::el)
+        .def_readwrite("range", &coordinates::reference_frames::AER::range)
         .def("__eq__",
-             [](const coordinates::reference_frames::AzEl& self, const coordinates::reference_frames::AzEl& other)
+             [](const coordinates::reference_frames::AER& self, const coordinates::reference_frames::AER& other)
              { return self == other; })
         .def("__ne__",
-             [](const coordinates::reference_frames::AzEl& self, const coordinates::reference_frames::AzEl& other)
+             [](const coordinates::reference_frames::AER& self, const coordinates::reference_frames::AER& other)
              { return self != other; })
-        .def("print", [](const coordinates::reference_frames::AzEl& self) { std::cout << self; });
+        .def("print", [](const coordinates::reference_frames::AER& self) { std::cout << self; });
 
     pb11::class_<coordinates::reference_frames::ECEF, coordinates::Cartesian>(m, "ECEF")
         .def(pb11::init<>())
@@ -211,46 +212,46 @@ void initCoordinates(pb11::module& m)
         .def("__ne__", &coordinates::reference_frames::Celestial::operator!=)
         .def("print", &coordinates::reference_frames::Celestial::print);
 
-    m.def("AzElToECEF",
-          [](const coordinates::reference_frames::AzEl& target,
+    m.def("AERToECEF",
+          [](const coordinates::reference_frames::AER&  target,
              double                                     targetRange,
              const coordinates::reference_frames::ECEF& referencePoint)
-          { return coordinates::transforms::AzElToECEF(target, targetRange, referencePoint); });
-    m.def("AzElToECEF",
-          [](const coordinates::reference_frames::AzEl& target,
-             double                                     targetRange,
-             const coordinates::reference_frames::LLA&  referencePoint)
-          { return coordinates::transforms::AzElToECEF(target, targetRange, referencePoint); });
-    m.def("AzElToENU", &coordinates::transforms::AzElToENU);
-    m.def("AzElToLLA",
-          [](const coordinates::reference_frames::AzEl& target,
+          { return coordinates::transforms::AERToECEF(target, targetRange, referencePoint); });
+    m.def("AERToECEF",
+          [](const coordinates::reference_frames::AER& target,
+             double                                    targetRange,
+             const coordinates::reference_frames::LLA& referencePoint)
+          { return coordinates::transforms::AERToECEF(target, targetRange, referencePoint); });
+    m.def("AERToENU", &coordinates::transforms::AERToENU);
+    m.def("AERToLLA",
+          [](const coordinates::reference_frames::AER&  target,
              double                                     targetRange,
              const coordinates::reference_frames::ECEF& referencePoint)
-          { return coordinates::transforms::AzElToLLA(target, targetRange, referencePoint); });
-    m.def("AzElToLLA",
-          [](const coordinates::reference_frames::AzEl& target,
-             double                                     targetRange,
-             const coordinates::reference_frames::LLA&  referencePoint)
-          { return coordinates::transforms::AzElToLLA(target, targetRange, referencePoint); });
-    m.def("AzElToNED", &coordinates::transforms::AzElToNED);
+          { return coordinates::transforms::AERToLLA(target, targetRange, referencePoint); });
+    m.def("AERToLLA",
+          [](const coordinates::reference_frames::AER& target,
+             double                                    targetRange,
+             const coordinates::reference_frames::LLA& referencePoint)
+          { return coordinates::transforms::AERToLLA(target, targetRange, referencePoint); });
+    m.def("AERToNED", &coordinates::transforms::AERToNED);
     m.def("ECEFEulerToENURollPitchYaw", &coordinates::transforms::ECEFEulerToENURollPitchYaw);
     m.def("ECEFEulerToNEDRollPitchYaw", &coordinates::transforms::ECEFEulerToNEDRollPitchYaw);
     m.def(
-        "ECEFtoAzElGeocentric",
+        "ECEFtoAERGeocentric",
         [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::ECEF& referencePoint)
-        { return coordinates::transforms::ECEFtoAzElGeocentric(target, referencePoint); });
+        { return coordinates::transforms::ECEFtoAERGeocentric(target, referencePoint); });
     m.def(
-        "ECEFtoAzElGeocentric",
+        "ECEFtoAERGeocentric",
         [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::LLA& referencePoint)
-        { return coordinates::transforms::ECEFtoAzElGeocentric(target, referencePoint); });
+        { return coordinates::transforms::ECEFtoAERGeocentric(target, referencePoint); });
     m.def(
-        "ECEFtoAzElGeodetic",
+        "ECEFtoAERGeodetic",
         [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::ECEF& referencePoint)
-        { return coordinates::transforms::ECEFtoAzElGeodetic(target, referencePoint); });
+        { return coordinates::transforms::ECEFtoAERGeodetic(target, referencePoint); });
     m.def(
-        "ECEFtoAzElGeodetic",
+        "ECEFtoAERGeodetic",
         [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::LLA& referencePoint)
-        { return coordinates::transforms::ECEFtoAzElGeodetic(target, referencePoint); });
+        { return coordinates::transforms::ECEFtoAERGeodetic(target, referencePoint); });
     m.def(
         "ECEFtoENU",
         [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::ECEF& referencePoint)
@@ -269,7 +270,7 @@ void initCoordinates(pb11::module& m)
         [](const coordinates::reference_frames::ECEF& target, const coordinates::reference_frames::LLA& referencePoint)
         { return coordinates::transforms::ECEFtoNED(target, referencePoint); });
     m.def("ENURollPitchYawToECEFEuler", &coordinates::transforms::ENURollPitchYawToECEFEuler);
-    m.def("ENUtoAzEl", &coordinates::transforms::ENUtoAzEl);
+    m.def("ENUtoAER", &coordinates::transforms::ENUtoAER);
     m.def(
         "ENUtoECEF",
         [](const coordinates::reference_frames::ENU& target, const coordinates::reference_frames::ECEF& referencePoint)
@@ -290,19 +291,19 @@ void initCoordinates(pb11::module& m)
     m.def("geocentricToGeodetic", &coordinates::transforms::geocentricToGeodetic);
     m.def("geodeticToGeocentric", &coordinates::transforms::geodeticToGeocentric);
     m.def(
-        "LLAtoAzElGeocentric",
+        "LLAtoAERGeocentric",
         [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::ECEF& referencePoint)
-        { return coordinates::transforms::LLAtoAzElGeocentric(target, referencePoint); });
-    m.def("LLAtoAzElGeocentric",
+        { return coordinates::transforms::LLAtoAERGeocentric(target, referencePoint); });
+    m.def("LLAtoAERGeocentric",
           [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::LLA& referencePoint)
-          { return coordinates::transforms::LLAtoAzElGeocentric(target, referencePoint); });
+          { return coordinates::transforms::LLAtoAERGeocentric(target, referencePoint); });
     m.def(
-        "LLAtoAzElGeodetic",
+        "LLAtoAERGeodetic",
         [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::ECEF& referencePoint)
-        { return coordinates::transforms::LLAtoAzElGeodetic(target, referencePoint); });
-    m.def("LLAtoAzElGeodetic",
+        { return coordinates::transforms::LLAtoAERGeodetic(target, referencePoint); });
+    m.def("LLAtoAERGeodetic",
           [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::LLA& referencePoint)
-          { return coordinates::transforms::LLAtoAzElGeodetic(target, referencePoint); });
+          { return coordinates::transforms::LLAtoAERGeodetic(target, referencePoint); });
     m.def("LLAtoECEF", &coordinates::transforms::LLAtoECEF);
     m.def(
         "LLAtoENU",
@@ -319,7 +320,7 @@ void initCoordinates(pb11::module& m)
           [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::LLA& referencePoint)
           { return coordinates::transforms::LLAtoNED(target, referencePoint); });
     m.def("NEDRollPitchYawToECEFEuler", &coordinates::transforms::NEDRollPitchYawToECEFEuler);
-    m.def("NEDtoAzEl", &coordinates::transforms::NEDtoAzEl);
+    m.def("NEDtoAER", &coordinates::transforms::NEDtoAER);
     m.def(
         "NEDtoECEF",
         [](const coordinates::reference_frames::NED& target, const coordinates::reference_frames::ECEF& referencePoint)

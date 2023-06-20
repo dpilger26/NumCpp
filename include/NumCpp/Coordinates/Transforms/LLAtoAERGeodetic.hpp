@@ -27,27 +27,39 @@
 ///
 #pragma once
 
-#include <cmath>
-
-#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/NED.hpp"
-#include "NumCpp/Functions/wrap2Pi.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/AER.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
+#include "NumCpp/Coordinates/Transforms/ECEFtoAERGeodetic.hpp"
+#include "NumCpp/Coordinates/Transforms/ECEFtoLLA.hpp"
 
 namespace nc::coordinates::transforms
 {
     /**
-     * @brief Converts the Cartesian XYZ (NED) coordinates to 2d speherical inertial coordinates.
-     *        Range is not used.
-     *        NOTE: positive elevation is defined as the negative z (up) direction
+     * @brief Converts the LLA coordinates to Az El with geodedic up
+     *        https://geospace-code.github.io/matmap3d/enu2aer.html
      *
-     * @param cartesian: coordinates to convert
-     * @returns AzEl
+     * @param target: the target of interest
+     * @param referencePoint: the referencePoint
+     * @returns AER
      */
-    [[nodiscard]] inline reference_frames::AzEl NEDtoAzEl(const reference_frames::NED& target) noexcept
+    [[nodiscard]] inline reference_frames::AER LLAtoAERGeodetic(const reference_frames::LLA& target,
+                                                                const reference_frames::LLA& referencePoint) noexcept
     {
-        const auto hypotXy = std::hypot(target.x, target.y);
-        const auto el      = -std::atan2(target.z, hypotXy);
-        const auto az      = wrap2Pi(std::atan2(target.y, target.x));
-        return { az, el };
+        return ECEFtoAERGeodetic(LLAtoECEF(target), referencePoint);
+    }
+
+    /**
+     * @brief Converts the LLA coordinates to Az El with geodedic up
+     *        https://geospace-code.github.io/matmap3d/enu2aer.html
+     *
+     * @param target: the target of interest
+     * @param referencePoint: the referencePoint
+     * @returns AER
+     */
+    [[nodiscard]] inline reference_frames::AER LLAtoAERGeodetic(const reference_frames::LLA&  target,
+                                                                const reference_frames::ECEF& referencePoint) noexcept
+    {
+        return LLAtoAERGeodetic(target, ECEFtoLLA(referencePoint));
     }
 } // namespace nc::coordinates::transforms

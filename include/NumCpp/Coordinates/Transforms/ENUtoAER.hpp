@@ -27,23 +27,23 @@
 ///
 #pragma once
 
-#include "NumCpp/Coordinates/ReferenceFrames/AzEl.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/NED.hpp"
-#include "NumCpp/Coordinates/Transforms/AzElToNED.hpp"
-#include "NumCpp/Coordinates/Transforms/NEDtoENU.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/AER.hpp"
+#include "NumCpp/Coordinates/ReferenceFrames/ENU.hpp"
+#include "NumCpp/Coordinates/Transforms/ENUtoNED.hpp"
+#include "NumCpp/Coordinates/Transforms/NEDtoAER.hpp"
 
 namespace nc::coordinates::transforms
 {
     /**
-     * @brief Converts the spherical inertial coordinates (NED) to Cartesian XYZ (ENU).
+     * @brief Converts the ENU coordinates to 2d speherical inertial coordinates.
+     *        Range is not used.
      *        NOTE: positive elevation is defined as the positive z (up) direction
      *
-     * @param azEl 2D Inertial azimuth and elevation
-     * @param range Optional range
-     * @return ENU
+     * @param cartesian: coordinates to convert
+     * @returns AER
      */
-    [[nodiscard]] inline reference_frames::ENU AzElToENU(const reference_frames::AzEl azEl, double range = 1.0) noexcept
+    [[nodiscard]] inline reference_frames::AER ENUtoAER(const reference_frames::ENU& target) noexcept
     {
-        return NEDtoENU(AzElToNED(azEl, range));
+        return NEDtoAER(ENUtoNED(target));
     }
 } // namespace nc::coordinates::transforms
