@@ -48,6 +48,8 @@ namespace nc::coordinates::transforms
         const auto hypotXy = std::hypot(target.x, target.y);
         const auto el      = -std::atan2(target.z, hypotXy);
         const auto az      = wrap2Pi(std::atan2(target.y, target.x));
-        return { az, el };
+        const auto r       = std::hypot(target.x, target.y);
+        const auto range   = std::hypot(r, target.z);
+        return { az, el, range };
     }
 } // namespace nc::coordinates::transforms

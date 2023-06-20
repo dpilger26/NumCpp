@@ -56,7 +56,10 @@ namespace nc::coordinates::transforms
         const auto& north = targetENUnormalizedCart.y;
         const auto& up    = targetENUnormalizedCart.z;
 
-        return { wrap2Pi(std::atan2(east, north)), std::asin(up) };
+        const auto referencePointECEF = LLAtoECEF(referencePoint);
+        const auto range              = norm(target - referencePointECEF);
+
+        return { wrap2Pi(std::atan2(east, north)), std::asin(up), range };
     }
 
     /**
