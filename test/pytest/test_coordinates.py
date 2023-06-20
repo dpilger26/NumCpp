@@ -318,6 +318,28 @@ def test_ned():
 
 
 ####################################################################################
+def test_geocentric():
+    geocentric = NumCpp.Geocentric()
+    assert geocentric.latitude == 0.0
+    assert geocentric.longitude == 0.0
+    assert geocentric.radius == 0.0
+
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    geocentric = NumCpp.LLA(lat, lon, alt)
+    assert geocentric.latitude == lat
+    assert geocentric.longitude == lon
+    assert geocentric.radius == alt
+
+    geocentric2 = NumCpp.LLA(lat, lon, alt)
+    assert geocentric == geocentric2
+
+    geocentric2 = NumCpp.LLA(lon, lat, alt)
+    assert geocentric != geocentric2
+
+    geocentric.print()
+
+
+####################################################################################
 def test_lla():
     lla = NumCpp.LLA()
     assert lla.latitude == 0.0
@@ -1064,6 +1086,27 @@ def test_ENUtoNED():
     assert ned.north == enu.north
     assert ned.east == enu.east
     assert ned.down == -enu.up
+
+
+####################################################################################
+def test_geocentricToGeodetic():
+    lat, lon, radius = np.random.rand(3) * np.pi / 4
+    radius += NumCpp.EARTH_EQUATORIAL_RADIUS
+    geodetic = NumCpp.geocentricToGeodetic(NumCpp.Geocentric(lat, lon, radius))
+    lat1, lon1, alt1 = pymap3d.spherical2geodetic(lat, lon, radius, deg=False)
+    np.testing.assert_approx_equal(geodetic.latitude, lat1, 5)
+    np.testing.assert_approx_equal(geodetic.longitude, lon1, 5)
+    np.testing.assert_approx_equal(geodetic.altitude, alt1, 5)
+
+
+####################################################################################
+def test_geodeticToGeocentric():
+    lat, lon, alt = np.random.rand(3) * np.pi / 4
+    geocentric = NumCpp.geodeticToGeocentric(NumCpp.LLA(lat, lon, alt))
+    lat1, lon1, radius1 = pymap3d.geodetic2spherical(lat, lon, alt, deg=False)
+    np.testing.assert_approx_equal(geocentric.latitude, lat1, 5)
+    np.testing.assert_approx_equal(geocentric.longitude, lon1, 5)
+    np.testing.assert_approx_equal(geocentric.radius, radius1, 5)
 
 
 ####################################################################################

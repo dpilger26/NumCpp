@@ -110,6 +110,20 @@ void initCoordinates(pb11::module& m)
         .def_property("down", &coordinates::reference_frames::NED::down, &coordinates::reference_frames::NED::setDown)
         .def("print", [](const coordinates::reference_frames::NED& self) { std::cout << self; });
 
+    pb11::class_<coordinates::reference_frames::Geocentric>(m, "Geocentric")
+        .def(pb11::init<>())
+        .def(pb11::init<double, double, double>())
+        .def_readwrite("latitude", &coordinates::reference_frames::Geocentric::latitude)
+        .def_readwrite("longitude", &coordinates::reference_frames::Geocentric::longitude)
+        .def_readwrite("radius", &coordinates::reference_frames::Geocentric::radius)
+        .def("__eq__",
+             [](const coordinates::reference_frames::Geocentric& self,
+                const coordinates::reference_frames::Geocentric& other) { return self == other; })
+        .def("__ne__",
+             [](const coordinates::reference_frames::Geocentric& self,
+                const coordinates::reference_frames::Geocentric& other) { return self != other; })
+        .def("print", [](const coordinates::reference_frames::Geocentric& self) { std::cout << self; });
+
     pb11::class_<coordinates::reference_frames::LLA>(m, "LLA")
         .def(pb11::init<>())
         .def(pb11::init<double, double, double>())
@@ -272,6 +286,9 @@ void initCoordinates(pb11::module& m)
           { return coordinates::transforms::ENUtoLLA(target, referencePoint); });
     m.def("ENUtoNED", &coordinates::transforms::ENUtoNED);
     m.def("ENUUnitVecsInECEF", &coordinates::transforms::ENUUnitVecsInECEF);
+    m.def("geocentricRadius", &coordinates::transforms::geocentricRadius);
+    m.def("geocentricToGeodetic", &coordinates::transforms::geocentricToGeodetic);
+    m.def("geodeticToGeocentric", &coordinates::transforms::geodeticToGeocentric);
     m.def(
         "LLAtoAzElGeocentric",
         [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::ECEF& referencePoint)

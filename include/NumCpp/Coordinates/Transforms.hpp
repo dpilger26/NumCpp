@@ -54,3 +54,6 @@
 #include "NumCpp/Coordinates/Transforms/NEDtoAzEl.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDtoENU.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDtoLLA.hpp"
+#include "NumCpp/Coordinates/Transforms/geocentricRadius.hpp"
+#include "NumCpp/Coordinates/Transforms/geocentricToGeodetic.hpp"
+#include "NumCpp/Coordinates/Transforms/geodeticToGeocentric.hpp"
