@@ -27,10 +27,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Coordinates/Transforms/AERToECEF.hpp"
-#include "NumCpp/Coordinates/Transforms/AERToENU.hpp"
-#include "NumCpp/Coordinates/Transforms/AERToLLA.hpp"
-#include "NumCpp/Coordinates/Transforms/AERToNED.hpp"
+#include "NumCpp/Coordinates/Transforms/AERtoECEF.hpp"
+#include "NumCpp/Coordinates/Transforms/AERtoENU.hpp"
+#include "NumCpp/Coordinates/Transforms/AERtoLLA.hpp"
+#include "NumCpp/Coordinates/Transforms/AERtoNED.hpp"
 #include "NumCpp/Coordinates/Transforms/ECEFEulerToENURollPitchYaw.hpp"
 #include "NumCpp/Coordinates/Transforms/ECEFEulerToNEDRollPitchYaw.hpp"
 #include "NumCpp/Coordinates/Transforms/ECEFtoAERGeocentric.hpp"

@@ -30,7 +30,7 @@
 #include "NumCpp/Coordinates/ReferenceFrames/AER.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
-#include "NumCpp/Coordinates/Transforms/AERToECEF.hpp"
+#include "NumCpp/Coordinates/Transforms/AERtoECEF.hpp"
 #include "NumCpp/Coordinates/Transforms/ECEFtoLLA.hpp"
 #include "NumCpp/Coordinates/Transforms/LLAtoECEF.hpp"
 
@@ -45,11 +45,11 @@ namespace nc::coordinates::transforms
      * @param referencePoint: the reference position
      * @return LLA
      */
-    [[nodiscard]] inline reference_frames::LLA AERToLLA(const reference_frames::AER   target,
+    [[nodiscard]] inline reference_frames::LLA AERtoLLA(const reference_frames::AER   target,
                                                         double                        targetRange,
                                                         const reference_frames::ECEF& referencePoint) noexcept
     {
-        return ECEFtoLLA(AERToECEF(target, targetRange, referencePoint));
+        return ECEFtoLLA(AERtoECEF(target, targetRange, referencePoint));
     }
 
     /**
@@ -61,10 +61,10 @@ namespace nc::coordinates::transforms
      * @param referencePoint: the reference position
      * @return LLA
      */
-    [[nodiscard]] inline reference_frames::LLA AERToLLA(const reference_frames::AER  target,
+    [[nodiscard]] inline reference_frames::LLA AERtoLLA(const reference_frames::AER  target,
                                                         double                       targetRange,
                                                         const reference_frames::LLA& referencePoint) noexcept
     {
-        return ECEFtoLLA(AERToECEF(target, targetRange, referencePoint));
+        return ECEFtoLLA(AERtoECEF(target, targetRange, referencePoint));
     }
 } // namespace nc::coordinates::transforms
