@@ -902,27 +902,12 @@ def test_ECEFEulerToNEDRollPitchYaw():
 
 
 ####################################################################################
-def test_ECEFtoAERGeocentric():
+def test_ECEFtoAER():
     x1, y1, z1 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     target = NumCpp.ECEF(x1, y1, z1)
     x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x2, y2, z2)
-    aer = NumCpp.ECEFtoAERGeocentric(target, referencePoint)
-    # TODO
-
-    lat, lon, alt = np.random.rand(3) * np.pi / 4
-    referencePoint = NumCpp.LLA(lat, lon, alt)
-    aer = NumCpp.ECEFtoAERGeocentric(target, referencePoint)
-    # TODO
-
-
-####################################################################################
-def test_ECEFtoAERGeodetic():
-    x1, y1, z1 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
-    target = NumCpp.ECEF(x1, y1, z1)
-    x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
-    referencePoint = NumCpp.ECEF(x2, y2, z2)
-    aer = NumCpp.ECEFtoAERGeodetic(target, referencePoint)
+    aer = NumCpp.ECEFtoAER(target, referencePoint)
     az, el, sRange = pymap3d.ecef2aer(x1, y1, z1, *pymap3d.ecef2geodetic(x2, y2, z2, deg=False), deg=False)
     np.testing.assert_approx_equal(aer.az, az, 5)
     np.testing.assert_approx_equal(aer.el, el, 5)
@@ -930,7 +915,7 @@ def test_ECEFtoAERGeodetic():
 
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat, lon, alt)
-    aer = NumCpp.ECEFtoAERGeodetic(target, referencePoint)
+    aer = NumCpp.ECEFtoAER(target, referencePoint)
     az, el, sRange = pymap3d.ecef2aer(x1, y1, z1, lat, lon, alt, deg=False)
     np.testing.assert_approx_equal(aer.az, az, 5)
     np.testing.assert_approx_equal(aer.el, el, 5)
@@ -1093,27 +1078,12 @@ def test_LLAtoGeocentric():
 
 
 ####################################################################################
-def test_LLAtoAERGeocentric():
-    lat, lon, alt = np.random.rand(3) * 1000
-    target = NumCpp.LLA(lat, lon, alt)
-    x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
-    referencePoint = NumCpp.ECEF(x2, y2, z2)
-    aer = NumCpp.LLAtoAERGeocentric(target, referencePoint)
-    # TODO
-
-    lat, lon, alt = np.random.rand(3) * np.pi / 4
-    referencePoint = NumCpp.LLA(lat, lon, alt)
-    aer = NumCpp.LLAtoAERGeocentric(target, referencePoint)
-    # TODO
-
-
-####################################################################################
-def test_LLAtoAERGeodetic():
+def test_LLAtoAER():
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     target = NumCpp.LLA(lat, lon, alt)
     x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x, y, z)
-    aer = NumCpp.LLAtoAERGeodetic(target, referencePoint)
+    aer = NumCpp.LLAtoAER(target, referencePoint)
     az, el, sRange = pymap3d.geodetic2aer(lat, lon, alt, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
     np.testing.assert_approx_equal(aer.az, az, 5)
     np.testing.assert_approx_equal(aer.el, el, 5)
@@ -1121,7 +1091,7 @@ def test_LLAtoAERGeodetic():
 
     lat1, lon1, alt1 = np.random.rand(3) * np.pi / 4
     referencePoint = NumCpp.LLA(lat1, lon1, alt1)
-    aer = NumCpp.LLAtoAERGeodetic(target, referencePoint)
+    aer = NumCpp.LLAtoAER(target, referencePoint)
     az, el, sRange = pymap3d.geodetic2aer(lat, lon, alt, lat1, lon1, alt1, deg=False)
     np.testing.assert_approx_equal(aer.az, az, 5)
     np.testing.assert_approx_equal(aer.el, el, 5)
