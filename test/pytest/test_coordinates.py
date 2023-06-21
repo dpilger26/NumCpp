@@ -1072,10 +1072,10 @@ def test_ENUtoNED():
 
 
 ####################################################################################
-def test_geocentricToGeodetic():
+def test_geocentricToLLA():
     lat, lon, radius = np.random.rand(3) * np.pi / 4
     radius += NumCpp.EARTH_EQUATORIAL_RADIUS
-    geodetic = NumCpp.geocentricToGeodetic(NumCpp.Geocentric(lat, lon, radius))
+    geodetic = NumCpp.geocentricToLLA(NumCpp.Geocentric(lat, lon, radius))
     lat1, lon1, alt1 = pymap3d.spherical2geodetic(lat, lon, radius, deg=False)
     np.testing.assert_approx_equal(geodetic.latitude, lat1, 5)
     np.testing.assert_approx_equal(geodetic.longitude, lon1, 5)
@@ -1083,9 +1083,9 @@ def test_geocentricToGeodetic():
 
 
 ####################################################################################
-def test_geodeticToGeocentric():
+def test_LLAtoGeocentric():
     lat, lon, alt = np.random.rand(3) * np.pi / 4
-    geocentric = NumCpp.geodeticToGeocentric(NumCpp.LLA(lat, lon, alt))
+    geocentric = NumCpp.LLAtoGeocentric(NumCpp.LLA(lat, lon, alt))
     lat1, lon1, radius1 = pymap3d.geodetic2spherical(lat, lon, alt, deg=False)
     np.testing.assert_approx_equal(geocentric.latitude, lat1, 5)
     np.testing.assert_approx_equal(geocentric.longitude, lon1, 5)

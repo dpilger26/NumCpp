@@ -283,8 +283,8 @@ void initCoordinates(pb11::module& m)
     m.def("ENUtoNED", &coordinates::transforms::ENUtoNED);
     m.def("ENUUnitVecsInECEF", &coordinates::transforms::ENUUnitVecsInECEF);
     m.def("geocentricRadius", &coordinates::transforms::geocentricRadius);
-    m.def("geocentricToGeodetic", &coordinates::transforms::geocentricToGeodetic);
-    m.def("geodeticToGeocentric", &coordinates::transforms::geodeticToGeocentric);
+    m.def("geocentricToLLA", &coordinates::transforms::geocentricToLLA);
+    m.def("LLAtoGeocentric", &coordinates::transforms::LLAtoGeocentric);
     m.def(
         "LLAtoAERGeocentric",
         [](const coordinates::reference_frames::LLA& target, const coordinates::reference_frames::ECEF& referencePoint)

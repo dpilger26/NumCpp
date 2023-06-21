@@ -38,17 +38,20 @@
 namespace nc::coordinates::transforms
 {
     /**
-     * @brief Converts from geodetic to geocentric
+     * @brief Converts from geocentric to geodetic
      *
      * @param point: the point of interest
-     * @returns geocentric
+     * @returns geodetic
      */
-    [[nodiscard]] inline reference_frames::Geocentric geodeticToGeocentric(const reference_frames::LLA& point) noexcept
+    [[nodiscard]] inline reference_frames::LLA geocentricToLLA(const reference_frames::Geocentric& point) noexcept
     {
         constexpr auto flatteningFactor =
             (reference_frames::constants::EARTH_EQUATORIAL_RADIUS - reference_frames::constants::EARTH_POLAR_RADIUS) /
             reference_frames::constants::EARTH_EQUATORIAL_RADIUS;
-        const auto geocentricLatitude = atan(utils::sqr(1. - flatteningFactor) * std::tan(point.latitude));
-        return reference_frames::Geocentric{ geocentricLatitude, point.longitude, geocentricRadius(point) };
+
+        const auto geodeticLatitude = std::atan((1. / utils::sqr(1. - flatteningFactor)) * std::tan(point.latitude));
+        auto       geodetic         = reference_frames::LLA{ geodeticLatitude, point.longitude, 0. };
+        geodetic.altitude           = point.radius - geocentricRadius(geodetic);
+        return geodetic;
     }
 } // namespace nc::coordinates::transforms
