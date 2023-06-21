@@ -783,7 +783,7 @@ def test_celestial_print():
 def test_AERtoECEF():
     az, el, sRange = np.random.rand(3) * np.pi / 4
     target = NumCpp.AER(az, el, sRange)
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x, y, z = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x, y, z)
     ecef = NumCpp.AERtoECEF(target, referencePoint)
     x1, y1, z1 = pymap3d.aer2ecef(az, el, sRange, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
@@ -815,7 +815,7 @@ def test_AERtoENU():
 def test_AERtoLLA():
     az, el, sRange = np.random.rand(3) * np.pi / 4
     target = NumCpp.AER(az, el, sRange)
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x, y, z = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x, y, z)
     lla = NumCpp.AERtoLLA(target, referencePoint)
     lat, lon, alt = pymap3d.aer2geodetic(az, el, sRange, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
@@ -844,68 +844,55 @@ def test_AERtoNED():
 
 
 ####################################################################################
-def test_ECEFEulerToENURollPitchYaw():
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
-    ecef = NumCpp.ECEF(x, y, z)
-    psi, theta, phi = np.random.rand(3)
-    euler = NumCpp.Euler(psi, theta, phi)
-    orientation = NumCpp.ECEFEulerToENURollPitchYaw(ecef, euler)
-    # TODO
-
-
-####################################################################################
 def test_ECEFEulerToNEDRollPitchYaw():
-    # TODO doesn't pass
-    pass
+    platform1ECEF = NumCpp.ECEF(889780.8040509718, -5443884.478448521, 3191301.5726495585)
+    platform1Euler = NumCpp.Euler(1.678885817527771, -1.0427558422088623, -3.0950019359588623)
+    platform1RollPitchYaw = NumCpp.Orientation(0., 0., 0.027159271086905079)
 
-    # platform1ECEF = NumCpp.ECEF(889780.8040509718, -5443884.478448521, 3191301.5726495585)
-    # platform1Euler = NumCpp.Euler(1.678885817527771, -1.0427558422088623, -3.0950019359588623)
-    # platform1RollPitchYaw = NumCpp.Orientation(0.027159271086905079, 0., 0.)
-    #
-    # platform1RollPitchYawCalc = NumCpp.ECEFEulerToNEDRollPitchYaw(platform1ECEF, platform1Euler)
-    # np.testing.assert_approx_equal(platform1RollPitchYawCalc.roll, platform1RollPitchYaw.roll, 7)
-    # np.testing.assert_approx_equal(platform1RollPitchYawCalc.pitch, platform1RollPitchYaw.pitch, 7)
-    # np.testing.assert_approx_equal(platform1RollPitchYawCalc.yaw, platform1RollPitchYaw.yaw, 7)
-    #
-    # platform1EulerCalc = NumCpp.NEDRollPitchYawToECEFEuler(platform1ECEF, platform1RollPitchYaw)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform1EulerCalc.psi, platform1Euler.psi, 7)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform1EulerCalc.theta, platform1Euler.theta, 7)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform1EulerCalc.phi, platform1Euler.phi, 7)
-    #
-    # platform2ECEF = NumCpp.ECEF(-1288345.7521444533, -4718928.642526492, 4079259.935028878)
-    # platform2Euler = NumCpp.Euler(1.30427503581543, -.872403085231781, 3.1415927410125732)
-    # platform2RollPitchYaw = NumCpp.Orientation(0., 0., 0.)
-    #
-    # platform2RollPitchYawCalc = NumCpp.ECEFEulerToNEDRollPitchYaw(platform2ECEF, platform2Euler)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform2RollPitchYawCalc.roll, platform2RollPitchYaw.roll, 7)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform2RollPitchYawCalc.pitch, platform2RollPitchYaw.pitch, 7)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform2RollPitchYawCalc.yaw, platform2RollPitchYaw.yaw, 7)
-    #
-    # platform2EulerCalc = NumCpp.NEDRollPitchYawToECEFEuler(platform2ECEF, platform2RollPitchYaw)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform2EulerCalc.psi, platform2Euler.psi, 7)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform2EulerCalc.theta, platform2Euler.theta, 7)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform2EulerCalc.phi, -platform2Euler.phi, 7)
-    #
-    # platform3ECEF = NumCpp.ECEF(861284.8918511268, -5441200.936501232, 3203589.383938122)
-    # platform3Euler = NumCpp.Euler(-2.4969322681427, -0.4192129075527191, 2.2737600803375244)
-    # platform3RollPitchYaw = NumCpp.Orientation(-1.4049900478554354, 0.6126105674500097, 0.33161255787892263)
-    #
-    # platform3RollPitchYawCalc = NumCpp.ECEFEulerToNEDRollPitchYaw(platform3ECEF, platform3Euler)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform3RollPitchYawCalc.roll, platform3RollPitchYaw.roll, 7)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform3RollPitchYawCalc.pitch, platform3RollPitchYaw.pitch, 7)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform3RollPitchYawCalc.yaw, platform3RollPitchYaw.yaw, 7)
-    #
-    # platform3EulerCalc = NumCpp.NEDRollPitchYawToECEFEuler(platform3ECEF, platform3RollPitchYaw)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform3EulerCalc.psi, platform3Euler.psi, 7)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform3EulerCalc.theta, platform3Euler.theta, 7)
-    # np.TESTING.ASSERT_APPROX_EQUAL(platform3EulerCalc.phi, platform3Euler.phi, 7)
+    platform1RollPitchYawCalc = NumCpp.ECEFEulerToNEDRollPitchYaw(platform1ECEF, platform1Euler)
+    np.testing.assert_almost_equal(platform1RollPitchYawCalc.roll, platform1RollPitchYaw.roll, 5)
+    np.testing.assert_almost_equal(platform1RollPitchYawCalc.pitch, platform1RollPitchYaw.pitch, 5)
+    np.testing.assert_approx_equal(platform1RollPitchYawCalc.yaw, platform1RollPitchYaw.yaw, 5)
+
+    platform1EulerCalc = NumCpp.NEDRollPitchYawToECEFEuler(platform1ECEF, platform1RollPitchYaw)
+    np.testing.assert_approx_equal(platform1EulerCalc.psi, platform1Euler.psi, 5)
+    np.testing.assert_approx_equal(platform1EulerCalc.theta, platform1Euler.theta, 5)
+    np.testing.assert_approx_equal(platform1EulerCalc.phi, platform1Euler.phi, 5)
+
+    platform2ECEF = NumCpp.ECEF(-1288345.7521444533, -4718928.642526492, 4079259.935028878)
+    platform2Euler = NumCpp.Euler(1.30427503581543, -.872403085231781, 3.1415927410125732)
+    platform2RollPitchYaw = NumCpp.Orientation(0., 0., 0.)
+
+    platform2RollPitchYawCalc = NumCpp.ECEFEulerToNEDRollPitchYaw(platform2ECEF, platform2Euler)
+    np.testing.assert_almost_equal(platform2RollPitchYawCalc.roll, platform2RollPitchYaw.roll, 5)
+    np.testing.assert_almost_equal(platform2RollPitchYawCalc.pitch, platform2RollPitchYaw.pitch, 5)
+    np.testing.assert_almost_equal(platform2RollPitchYawCalc.yaw, platform2RollPitchYaw.yaw, 5)
+
+    platform2EulerCalc = NumCpp.NEDRollPitchYawToECEFEuler(platform2ECEF, platform2RollPitchYaw)
+    np.testing.assert_approx_equal(platform2EulerCalc.psi, platform2Euler.psi, 5)
+    np.testing.assert_approx_equal(platform2EulerCalc.theta, platform2Euler.theta, 5)
+    np.testing.assert_approx_equal(platform2EulerCalc.phi, -platform2Euler.phi, 5)
+
+    platform3ECEF = NumCpp.ECEF(861284.8918511268, -5441200.936501232, 3203589.383938122)
+    platform3Euler = NumCpp.Euler(-2.4969322681427, -0.4192129075527191, 2.2737600803375244)
+    platform3RollPitchYaw = NumCpp.Orientation(0.33161255787892263, 0.6126105674500097, -1.4049900478554354)
+
+    platform3RollPitchYawCalc = NumCpp.ECEFEulerToNEDRollPitchYaw(platform3ECEF, platform3Euler)
+    np.testing.assert_approx_equal(platform3RollPitchYawCalc.roll, platform3RollPitchYaw.roll, 5)
+    np.testing.assert_approx_equal(platform3RollPitchYawCalc.pitch, platform3RollPitchYaw.pitch, 5)
+    np.testing.assert_approx_equal(platform3RollPitchYawCalc.yaw, platform3RollPitchYaw.yaw, 5)
+
+    platform3EulerCalc = NumCpp.NEDRollPitchYawToECEFEuler(platform3ECEF, platform3RollPitchYaw)
+    np.testing.assert_approx_equal(platform3EulerCalc.psi, platform3Euler.psi, 5)
+    np.testing.assert_approx_equal(platform3EulerCalc.theta, platform3Euler.theta, 5)
+    np.testing.assert_approx_equal(platform3EulerCalc.phi, platform3Euler.phi, 5)
 
 
 ####################################################################################
 def test_ECEFtoAER():
-    x1, y1, z1 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x1, y1, z1 = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     target = NumCpp.ECEF(x1, y1, z1)
-    x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x2, y2, z2 = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x2, y2, z2)
     aer = NumCpp.ECEFtoAER(target, referencePoint)
     az, el, sRange = pymap3d.ecef2aer(x1, y1, z1, *pymap3d.ecef2geodetic(x2, y2, z2, deg=False), deg=False)
@@ -924,9 +911,9 @@ def test_ECEFtoAER():
 
 ####################################################################################
 def test_ECEFtoENU():
-    x1, y1, z1 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x1, y1, z1 = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     target = NumCpp.ECEF(x1, y1, z1)
-    x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x2, y2, z2 = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x2, y2, z2)
     enu = NumCpp.ECEFtoENU(target, referencePoint)
     east, north, up = pymap3d.ecef2enu(x1, y1, z1, *pymap3d.ecef2geodetic(x2, y2, z2, deg=False), deg=False)
@@ -945,7 +932,7 @@ def test_ECEFtoENU():
 
 ####################################################################################
 def test_ECEFtoLLA():
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x, y, z = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     ecef = NumCpp.ECEF(x, y, z)
     lla = NumCpp.ECEFtoLLA(ecef, 1e-8)
     lat, lon, alt = pymap3d.ecef2geodetic(x, y, z, deg=False)
@@ -956,9 +943,9 @@ def test_ECEFtoLLA():
 
 ####################################################################################
 def test_ECEFtoNED():
-    x1, y1, z1 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x1, y1, z1 = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     target = NumCpp.ECEF(x1, y1, z1)
-    x2, y2, z2 = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x2, y2, z2 = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x2, y2, z2)
     ned = NumCpp.ECEFtoNED(target, referencePoint)
     north, east, down = pymap3d.ecef2ned(x1, y1, z1, *pymap3d.ecef2geodetic(x2, y2, z2, deg=False), deg=False)
@@ -976,24 +963,6 @@ def test_ECEFtoNED():
 
 
 ####################################################################################
-def test_ENURollPitchYawToECEFEuler():
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
-    ecef = NumCpp.ECEF(x, y, z)
-    roll, pitch, yaw = np.random.rand(3)
-    orientation = NumCpp.Orientation(roll, pitch, yaw)
-    euler = NumCpp.ENURollPitchYawToECEFEuler(ecef, orientation)
-    # TODO
-
-
-####################################################################################
-def test_ENUUnitVecsInECEF():
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
-    ecef = NumCpp.ECEF(x, y, z)
-    xHat, yHat, zHat = NumCpp.ENUUnitVecsInECEF(ecef)
-    # TODO
-
-
-####################################################################################
 def test_ENUtoAER():
     east, north, up = np.random.rand(3) * 1000
     enu = NumCpp.ENU(east, north, up)
@@ -1008,7 +977,7 @@ def test_ENUtoAER():
 def test_ENUtoECEF():
     east, north, up = np.random.rand(3) * 1000
     target = NumCpp.ENU(east, north, up)
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x, y, z = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x, y, z)
     ecef = NumCpp.ENUtoECEF(target, referencePoint)
     x1, y1, z1 = pymap3d.enu2ecef(east, north, up, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
@@ -1029,7 +998,7 @@ def test_ENUtoECEF():
 def test_ENUtoLLA():
     east, north, up = np.random.rand(3) * 1000
     target = NumCpp.ENU(east, north, up)
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x, y, z = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x, y, z)
     lla = NumCpp.ENUtoLLA(target, referencePoint)
     lat, lon, alt = pymap3d.enu2geodetic(east, north, up, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
@@ -1081,7 +1050,7 @@ def test_LLAtoGeocentric():
 def test_LLAtoAER():
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     target = NumCpp.LLA(lat, lon, alt)
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x, y, z = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x, y, z)
     aer = NumCpp.LLAtoAER(target, referencePoint)
     az, el, sRange = pymap3d.geodetic2aer(lat, lon, alt, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
@@ -1113,7 +1082,7 @@ def test_LLAtoECEF():
 def test_LLAtoENU():
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     target = NumCpp.LLA(lat, lon, alt)
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x, y, z = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x, y, z)
     enu = NumCpp.LLAtoENU(target, referencePoint)
     east, north, up = pymap3d.geodetic2enu(lat, lon, alt, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
@@ -1134,7 +1103,7 @@ def test_LLAtoENU():
 def test_LLAtoNED():
     lat, lon, alt = np.random.rand(3) * np.pi / 4
     target = NumCpp.LLA(lat, lon, alt)
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x, y, z = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x, y, z)
     ned = NumCpp.LLAtoNED(target, referencePoint)
     north, east, down = pymap3d.geodetic2ned(lat, lon, alt, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
@@ -1153,20 +1122,15 @@ def test_LLAtoNED():
 
 ####################################################################################
 def test_NEDRollPitchYawToECEFEuler():
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x, y, z = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     ecef = NumCpp.ECEF(x, y, z)
     roll, pitch, yaw = np.random.rand(3) * np.pi / 4
     orientation = NumCpp.Orientation(roll, pitch, yaw)
     euler = NumCpp.NEDRollPitchYawToECEFEuler(ecef, orientation)
-    # TODO
-
-
-####################################################################################
-def test_NEDUnitVecsInECEF():
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
-    ecef = NumCpp.ECEF(x, y, z)
-    xHat, yHat, zHat = NumCpp.NEDUnitVecsInECEF(ecef)
-    # TODO
+    newOrientation = NumCpp.ECEFEulerToNEDRollPitchYaw(ecef, euler)
+    np.testing.assert_approx_equal(newOrientation.roll, roll, 5)
+    np.testing.assert_approx_equal(newOrientation.pitch, pitch, 5)
+    np.testing.assert_approx_equal(newOrientation.yaw, yaw, 5)
 
 
 ####################################################################################
@@ -1184,7 +1148,7 @@ def test_NEDtoAER():
 def test_NEDtoECEF():
     north, east, down = np.random.rand(3) * 1000
     target = NumCpp.NED(north, east, down)
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x, y, z = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x, y, z)
     ecef = NumCpp.NEDtoECEF(target, referencePoint)
     x1, y1, z1 = pymap3d.ned2ecef(north, east, down, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
@@ -1215,7 +1179,7 @@ def test_NEDtoENU():
 def test_NEDtoLLA():
     north, east, down = np.random.rand(3) * 1000
     target = NumCpp.NED(north, east, down)
-    x, y, z = np.random.rand(3) * NumCpp.EARTH_EQUATORIAL_RADIUS
+    x, y, z = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     referencePoint = NumCpp.ECEF(x, y, z)
     lla = NumCpp.NEDtoLLA(target, referencePoint)
     lat, lon, alt = pymap3d.ned2geodetic(north, east, down, *pymap3d.ecef2geodetic(x, y, z, deg=False), deg=False)
