@@ -1,8 +1,9 @@
 # TODO
 
-## Version 2.11.0
+## Version 2.12.0
 
-* run clang-tidy
-* run cppcheck
-* rebuild documentation
-* merge to main / tag / create release
+* `ImageProcessing`
+  * adaptive cfar
+* `Filters`
+  * mean filter
+  * complementary mean filter

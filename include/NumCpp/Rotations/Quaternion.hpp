@@ -846,11 +846,17 @@ namespace nc::rotations
                 THROW_INVALID_ARGUMENT_ERROR("input vector must be a cartesion vector of length = 3.");
             }
 
+            const auto vecNorm = norm(inVec).item();
+            if (utils::essentiallyEqual(vecNorm, 0.))
+            {
+                return inVec;
+            }
+
             const auto p      = Quaternion(inVec[0], inVec[1], inVec[2], 0.);
             const auto pPrime = *this * p * this->inverse();
 
             NdArray<double> rotatedVec = { pPrime.i(), pPrime.j(), pPrime.k() };
-            rotatedVec *= norm(inVec).item();
+            rotatedVec *= vecNorm;
             return rotatedVec;
         }
 

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['row_2559',['row',['../classnc_1_1image_processing_1_1_pixel.html#a6e712ef3b6547f5cafb6e8db1349658e',1,'nc::imageProcessing::Pixel']]],
-  ['rows_2560',['rows',['../classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a',1,'nc::Shape']]]
+  ['output_5flog_5ffile_5fext_2852',['OUTPUT_LOG_FILE_EXT',['../namespacenc_1_1logger_1_1detail.html#af82047f715f0ec872ea97837827597f2',1,'nc::logger::detail']]]
 ];

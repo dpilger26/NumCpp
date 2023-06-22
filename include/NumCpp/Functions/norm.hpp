@@ -130,16 +130,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<std::complex<dtype>>  transposedArray = inArray.transpose();
-                NdArray<std::complex<double>> returnArray(1, transposedArray.numRows());
-                for (uint32 row = 0; row < transposedArray.numRows(); ++row)
-                {
-                    sumOfSquares = std::complex<double>(0., 0.);
-                    std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
-                    returnArray(0, row) = std::sqrt(sumOfSquares);
-                }
-
-                return returnArray;
+                return norm(inArray.transpose(), Axis::COL);
             }
             default:
             {

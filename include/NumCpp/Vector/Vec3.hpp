@@ -38,6 +38,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/interp.hpp"
+#include "NumCpp/Vector/Vec2.hpp"
 
 //====================================================================================
 
@@ -91,6 +92,18 @@ namespace nc
             x = *inList.begin();
             y = *(inList.begin() + 1);
             z = *(inList.begin() + 2);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Constructor
+        ///
+        /// @param vec2: 2d vector
+        ///
+        constexpr Vec3(const Vec2& vec2) noexcept :
+            x(vec2.x),
+            y(vec2.y)
+        {
         }
 
         //============================================================================

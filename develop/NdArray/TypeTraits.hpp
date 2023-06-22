@@ -1,9 +1,9 @@
 #pragma once
 
-#include "NumCpp/Core/Internal/TypeTraits.hpp"
-
 #include <initializer_list>
 #include <type_traits>
+
+#include "NumCpp/Core/Internal/TypeTraits.hpp"
 
 namespace nc_develop
 {
@@ -12,14 +12,18 @@ namespace nc_develop
     ///	Template class for determining if type is std::initializer_list<>
     ///
     template<class T>
-    struct is_initializer_list : public std::false_type {};
+    struct is_initializer_list : public std::false_type
+    {
+    };
 
     //============================================================================
     // Class Description:
     ///	Template class specialization for determining if type is std::initializer_list<>
     ///
     template<class T>
-    struct is_initializer_list<std::initializer_list<T>> : public std::true_type {};
+    struct is_initializer_list<std::initializer_list<T>> : public std::true_type
+    {
+    };
 
     //============================================================================
     // Class Description:
@@ -33,20 +37,14 @@ namespace nc_develop
     ///	Template class for determining if dtype is a valid dtype for NdArray
     ///
     template<typename dtype>
-    struct is_valid_dtype 
+    struct is_valid_dtype
     {
-        static constexpr bool value = std::is_default_constructible<dtype>::value &&
-            std::is_nothrow_copy_constructible<dtype>::value &&
-            std::is_nothrow_move_constructible<dtype>::value &&
-            std::is_nothrow_copy_assignable<dtype>::value &&
-            std::is_nothrow_move_assignable<dtype>::value &&
-            std::is_nothrow_destructible<dtype>::value &&
-            !std::is_void<dtype>::value &&
-            !std::is_pointer<dtype>::value &&
-            !is_initializer_list_v<dtype> &&
-            !std::is_array<dtype>::value &&
-            !std::is_union<dtype>::value &&
-            !std::is_function<dtype>::value &&
+        static constexpr bool value =
+            std::is_default_constructible<dtype>::value && std::is_nothrow_copy_constructible<dtype>::value &&
+            std::is_nothrow_move_constructible<dtype>::value && std::is_nothrow_copy_assignable<dtype>::value &&
+            std::is_nothrow_move_assignable<dtype>::value && std::is_nothrow_destructible<dtype>::value &&
+            !std::is_void<dtype>::value && !std::is_pointer<dtype>::value && !is_initializer_list_v<dtype> &&
+            !std::is_array<dtype>::value && !std::is_union<dtype>::value && !std::is_function<dtype>::value &&
             !std::is_abstract<dtype>::value;
     };
 
@@ -61,14 +59,14 @@ namespace nc_develop
     // Class Description:
     ///	Template class for determining if all of the types are convertable to a type
     ///
-    template <typename ToType, typename... Ts>
+    template<typename ToType, typename... Ts>
     struct all_convertable;
 
     //============================================================================
     // Class Description:
     ///	Template class specialization for determining if all of the types are convertable to std::size_t
     ///
-    template <typename ToType, typename Head, typename... Tail>
+    template<typename ToType, typename Head, typename... Tail>
     struct all_convertable<ToType, Head, Tail...>
     {
         static constexpr bool value = std::is_convertible_v<Head, ToType> && all_convertable<ToType, Tail...>::value;
@@ -78,7 +76,7 @@ namespace nc_develop
     // Class Description:
     ///	Template class specialization for determining if all of the types are convertable to std::size_t
     ///
-    template <typename ToType, typename T>
+    template<typename ToType, typename T>
     struct all_convertable<ToType, T>
     {
         static constexpr bool value = std::is_convertible_v<T, ToType>;
@@ -102,25 +100,41 @@ namespace nc_develop
     // Class Description:
     ///	Checks if container is an STL conforming container
     ///
-    template <typename ContainerType>
+    template<typename ContainerType>
     class is_conforming_container
     {
-        struct no {};
-        struct yes {};
+        struct no
+        {
+        };
 
-        template <typename T,
-            std::enable_if_t<std::is_convertible_v<typename T::value_type, std::size_t>, int> = 0,
-            std::enable_if_t<std::is_same_v<typename T::const_iterator, decltype(std::declval<const T>().begin())>, int> = 0,
-            std::enable_if_t<std::is_same_v<typename T::const_iterator, decltype(std::declval<const T>().end())>, int> = 0>
-            static yes test(int) { return yes{}; }
+        struct yes
+        {
+        };
 
-        template <typename T>
-        static no test(...) { return no{}; }
+        template<typename T,
+                 std::enable_if_t<std::is_convertible_v<typename T::value_type, std::size_t>, int> = 0,
+                 std::enable_if_t<std::is_same_v<typename T::const_iterator, decltype(std::declval<const T>().begin())>,
+                                  int>                                                             = 0,
+                 std::enable_if_t<std::is_same_v<typename T::const_iterator, decltype(std::declval<const T>().end())>,
+                                  int>                                                             = 0>
+        static yes test(int)
+        {
+            return yes{};
+        }
+
+        template<typename T>
+        static no test(...)
+        {
+            return no{};
+        }
 
     public:
-        enum { value = std::is_same<yes, decltype(test<ContainerType>(0))>::value };
+        enum
+        {
+            value = std::is_same<yes, decltype(test<ContainerType>(0))>::value
+        };
     };
 
     template<typename ContainerType>
     inline constexpr bool is_conforming_container_v = is_conforming_container<ContainerType>::value;
-}
+} // namespace nc_develop

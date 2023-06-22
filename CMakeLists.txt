@@ -13,14 +13,16 @@ project("NumCpp"
     LANGUAGES CXX
 )
 
+enable_testing()
+
 message(STATUS "Building ${PROJECT_NAME} version ${VERSION_STRING}")
 
 if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Release)
+    set(CMAKE_BUILD_TYPE Release)
 endif()
 
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 17)
+    set(CMAKE_CXX_STANDARD 17)
 endif()
 message(STATUS "Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
 
@@ -66,10 +68,15 @@ else()
     find_package(Boost 1.68.0 REQUIRED 
         COMPONENTS 
         date_time
+        log 
+        log_setup
     )
+    set(Boost_USE_STATIC_LIBS ON)
     target_link_libraries(${ALL_INTERFACE_TARGET} INTERFACE 
         Boost::boost
-        $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::date_time>
+        Boost::date_time
+        Boost::log
+        Boost::log_setup
     )
 endif()
 
@@ -134,8 +141,12 @@ add_subdirectory(examples)
 add_library(${PROJECT_NAME} INTERFACE)
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
+if(NOT PROJECT_IS_TOP_LEVEL)
+    set(WARNING_GUARD SYSTEM)
+endif()
+
 include(GNUInstallDirs)
-target_include_directories(${PROJECT_NAME} INTERFACE 
+target_include_directories(${PROJECT_NAME} ${WARNING_GUARD} INTERFACE 
     $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
@@ -155,7 +166,7 @@ if (BUILD_DOCS)
 
             configure_file(${DOXYFILE_IN} ${DOXYFILE_OUT} @ONLY)
 
-            add_custom_target( docs ALL
+            add_custom_target( docs
                 COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYFILE_OUT}
                 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
                 COMMENT "Generating API documentation with Doxygen"
@@ -172,6 +183,12 @@ install(TARGETS ${PROJECT_NAME}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+
+add_custom_target(format
+    COMMAND clang-format -i -style=file:${CMAKE_CURRENT_SOURCE_DIR}/.clang-format `git ls-files *.hpp`
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+
+add_custom_target(tidy COMMAND run-clang-tidy -p ${CMAKE_BINARY_DIR} -extra-arg=-std=c++${CMAKE_CXX_STANDARD})
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file("${PROJECT_NAME}ConfigVersion.cmake"

@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.10.1</span>
+                                &#160;<span id="projectnumber">2.11.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -132,8 +132,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abc31b5e093fd3ce5b2c14eade8d346a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06b9fb8a31de37a067c9ed54af6295d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1polynomial_1_1_poly1d.html">Poly1d</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1polynomial_1_1_poly1d.html#a06b9fb8a31de37a067c9ed54af6295d2">deriv</a> () const</td></tr>
 <tr class="separator:a06b9fb8a31de37a067c9ed54af6295d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeca418ab833de85302121be9a3d4825"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1polynomial_1_1_poly1d.html#abeca418ab833de85302121be9a3d4825">eval</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;xValues) const noexcept</td></tr>
+<tr class="separator:abeca418ab833de85302121be9a3d4825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fb68aababcddb6da10c9b1ffc29f727"><td class="memItemLeft" align="right" valign="top">dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1polynomial_1_1_poly1d.html#a2fb68aababcddb6da10c9b1ffc29f727">eval</a> (dtype xValue) const noexcept</td></tr>
+<tr class="separator:a2fb68aababcddb6da10c9b1ffc29f727"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c2902780c89054a6ca436a72ac77119"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1polynomial_1_1_poly1d.html">Poly1d</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1polynomial_1_1_poly1d.html#a4c2902780c89054a6ca436a72ac77119">integ</a> () const</td></tr>
 <tr class="separator:a4c2902780c89054a6ca436a72ac77119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e381f3fc1db6092712e96923fdf7fe8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1polynomial_1_1_poly1d.html#a6e381f3fc1db6092712e96923fdf7fe8">operator()</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;xValues) const noexcept</td></tr>
+<tr class="separator:a6e381f3fc1db6092712e96923fdf7fe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac82910d648a2a3cfd2301e12907414dd"><td class="memItemLeft" align="right" valign="top">dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1polynomial_1_1_poly1d.html#ac82910d648a2a3cfd2301e12907414dd">operator()</a> (dtype inValue) const noexcept</td></tr>
 <tr class="separator:ac82910d648a2a3cfd2301e12907414dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab8cce6bf7a9400862d98684de8ef355"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1polynomial_1_1_poly1d.html">Poly1d</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1polynomial_1_1_poly1d.html#aab8cce6bf7a9400862d98684de8ef355">operator*</a> (const <a class="el" href="classnc_1_1polynomial_1_1_poly1d.html">Poly1d</a>&lt; dtype &gt; &amp;inOtherPoly) const</td></tr>
@@ -388,6 +394,78 @@ template&lt;typename dtype &gt; </div>
 
 </div>
 </div>
+<a id="abeca418ab833de85302121be9a3d4825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeca418ab833de85302121be9a3d4825">&#9670;&nbsp;</a></span>eval() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="classnc_1_1polynomial_1_1_poly1d.html">nc::polynomial::Poly1d</a>&lt; dtype &gt;::eval </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>xValues</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Evaluates the Poly1D object for the input value</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xValues</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>predicted yValues </dd></dl>
+
+</div>
+</div>
+<a id="a2fb68aababcddb6da10c9b1ffc29f727"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fb68aababcddb6da10c9b1ffc29f727">&#9670;&nbsp;</a></span>eval() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dtype <a class="el" href="classnc_1_1polynomial_1_1_poly1d.html">nc::polynomial::Poly1d</a>&lt; dtype &gt;::eval </td>
+          <td>(</td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>xValue</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Evaluates the Poly1D object for the input value</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xValue</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>predicted yValue </dd></dl>
+
+</div>
+</div>
 <a id="a1526585db421bbf96dfb88d99870c201"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1526585db421bbf96dfb88d99870c201">&#9670;&nbsp;</a></span>fit() <span class="overload">[1/2]</span></h2>
 
@@ -532,8 +610,44 @@ template&lt;typename dtype &gt; </div>
 
 </div>
 </div>
+<a id="a6e381f3fc1db6092712e96923fdf7fe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e381f3fc1db6092712e96923fdf7fe8">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="classnc_1_1polynomial_1_1_poly1d.html">nc::polynomial::Poly1d</a>&lt; dtype &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>xValues</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Evaluates the Poly1D object for the input value</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xValues</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>predicted yValues </dd></dl>
+
+</div>
+</div>
 <a id="ac82910d648a2a3cfd2301e12907414dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac82910d648a2a3cfd2301e12907414dd">&#9670;&nbsp;</a></span>operator()()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac82910d648a2a3cfd2301e12907414dd">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -564,7 +678,7 @@ template&lt;typename dtype &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1polynomial_1_1_poly1d.html">Poly1d</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>dtype scalar </dd></dl>
 
 </div>
 </div>

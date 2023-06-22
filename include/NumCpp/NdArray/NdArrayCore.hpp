@@ -625,6 +625,16 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        /// Cast to bool operator
+        /// @returns bool false if empty, otherwise true
+        ///
+        explicit operator bool() const noexcept
+        {
+            return isempty();
+        }
+
+        //============================================================================
+        // Method Description:
         /// Assignment operator, performs a deep copy
         ///
         /// @param rhs
@@ -2349,12 +2359,32 @@ namespace nc
         // Method Description:
         /// Returns the full column of the array
         ///
+        /// @param inColumn: the column index
+        /// @return self_type
         ///
-        /// @return Shape
-        ///
-        [[nodiscard]] self_type column(size_type inColumn)
+        [[nodiscard]] self_type column(size_type inColumn) const
         {
             return operator()(rSlice(), inColumn);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Returns the full column of the array
+        ///
+        /// @param inCols: the column indices
+        /// @return self_type
+        ///
+        [[nodiscard]] self_type columns(const NdArray<size_type>& inCols) const
+        {
+            auto       returnArray = self_type(shape_.rows, inCols.size());
+            const auto rSlice      = returnArray.rSlice();
+
+            for (size_type i = 0; i < inCols.size(); ++i)
+            {
+                returnArray.put(rSlice, i, column(inCols[i]));
+            }
+
+            return returnArray;
         }
 
         //============================================================================
@@ -4183,9 +4213,13 @@ namespace nc
         /// can be -1. In this case, the value is inferred from the length of the
         /// array and remaining dimensions.
         ///
+        /// NOTE: array shape is modified. If a copy is desired then the user should call the copy method:
+        /// auto aNew = a.reshape(newSize).copy()
+        ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///
         /// @param inSize
+        /// @returns reference to self
         ///
         self_type& reshape(size_type inSize)
         {
@@ -4209,10 +4243,14 @@ namespace nc
         /// can be -1. In this case, the value is inferred from the length of the
         /// array and remaining dimensions.
         ///
+        /// NOTE: array shape is modified. If a copy is desired then the user should call the copy method:
+        /// auto aNew = a.reshape(newRows, newCols).copy()
+        ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///
         /// @param inNumRows
         /// @param inNumCols
+        /// @returns reference to self
         ///
         self_type& reshape(index_type inNumRows, index_type inNumCols)
         {
@@ -4260,9 +4298,13 @@ namespace nc
         /// can be -1. In this case, the value is inferred from the length of the
         /// array and remaining dimensions.
         ///
+        /// NOTE: array shape is modified. If a copy is desired then the user should call the copy method:
+        /// auto aNew = a.reshape(newShape).copy()
+        ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///
         /// @param inShape
+        /// @returns reference to self
         ///
         self_type& reshape(const Shape& inShape)
         {
@@ -4383,12 +4425,32 @@ namespace nc
         // Method Description:
         /// Returns the full row of the array
         ///
+        /// @param inRow: the row index
+        /// @return self_type
         ///
-        /// @return Shape
-        ///
-        [[nodiscard]] self_type row(size_type inRow)
+        [[nodiscard]] self_type row(size_type inRow) const
         {
             return self_type(cbegin(inRow), cend(inRow));
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Returns the full row of the array
+        ///
+        /// @param inRows: the row indices
+        /// @return self_type
+        ///
+        [[nodiscard]] self_type rows(const NdArray<size_type>& inRows) const
+        {
+            auto       returnArray = self_type(inRows.size(), shape_.cols);
+            const auto cSlice      = returnArray.cSlice();
+
+            for (size_type i = 0; i < inRows.size(); ++i)
+            {
+                returnArray.put(i, cSlice, row(inRows[i]));
+            }
+
+            return returnArray;
         }
 
         //============================================================================
@@ -4399,7 +4461,7 @@ namespace nc
         ///
         /// @return Shape
         ///
-        [[nodiscard]] Shape shape() const noexcept
+        [[nodiscard]] const Shape& shape() const noexcept
         {
             return shape_;
         }

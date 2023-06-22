@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.10.1</span>
+                                &#160;<span id="projectnumber">2.11.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -131,13 +131,13 @@ $(document).ready(function(){initNavTree('wahbas_problem_8hpp_source.html',''); 
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> wkShape = wk.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> wkShape = wk.<a class="code" href="classnc_1_1_nd_array.html#aef6445181c6055aab108382af382ba24">shape</a>();</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">if</span> (wkShape.cols != 3)</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;wk matrix must be of shape [n, 3]&quot;</span>);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> vkShape = vk.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> vkShape = vk.<a class="code" href="classnc_1_1_nd_array.html#aef6445181c6055aab108382af382ba24">shape</a>();</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">if</span> (vkShape.cols != 3)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        {</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;vk matrix must be of shape [n, 3]&quot;</span>);</div>
@@ -181,7 +181,7 @@ $(document).ready(function(){initNavTree('wahbas_problem_8hpp_source.html',''); 
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
 <div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="namespacenc_1_1rotations.html#a6da89864a9512bbe69c848dad18220b4">  125</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> <a class="code" href="namespacenc_1_1rotations.html#a84a42f4e7f09b7c0e1a9307cb5b6f281">wahbasProblem</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; wk, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; vk)</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> ak = ones&lt;dtype&gt;({ 1, wk.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>().rows });</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> ak = ones&lt;dtype&gt;({ 1, wk.<a class="code" href="classnc_1_1_nd_array.html#aef6445181c6055aab108382af382ba24">shape</a>().rows });</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1rotations.html#a84a42f4e7f09b7c0e1a9307cb5b6f281">wahbasProblem</a>(wk, vk, ak);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;} <span class="comment">// namespace nc::rotations</span></div>
@@ -191,10 +191,10 @@ $(document).ready(function(){initNavTree('wahbas_problem_8hpp_source.html',''); 
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:39</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4415</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a29c62da7ad489f4fc0bc706800820807"><div class="ttname"><a href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807">nc::NdArray::transpose</a></div><div class="ttdeci">self_type transpose() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4775</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4402</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_af03b916770d04f63d82f46110d294cd8"><div class="ttname"><a href="classnc_1_1_nd_array.html#af03b916770d04f63d82f46110d294cd8">nc::NdArray::cSlice</a></div><div class="ttdeci">Slice cSlice(index_type inStartIdx=0, size_type inStepSize=1) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:951</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4477</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a29c62da7ad489f4fc0bc706800820807"><div class="ttname"><a href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807">nc::NdArray::transpose</a></div><div class="ttdeci">self_type transpose() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4837</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_aef6445181c6055aab108382af382ba24"><div class="ttname"><a href="classnc_1_1_nd_array.html#aef6445181c6055aab108382af382ba24">nc::NdArray::shape</a></div><div class="ttdeci">const Shape &amp; shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4464</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_af03b916770d04f63d82f46110d294cd8"><div class="ttname"><a href="classnc_1_1_nd_array.html#af03b916770d04f63d82f46110d294cd8">nc::NdArray::cSlice</a></div><div class="ttdeci">Slice cSlice(index_type inStartIdx=0, size_type inStepSize=1) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:961</div></div>
 <div class="ttc" id="adet_8hpp_html"><div class="ttname"><a href="det_8hpp.html">det.hpp</a></div></div>
 <div class="ttc" id="adot_8hpp_html"><div class="ttname"><a href="dot_8hpp.html">dot.hpp</a></div></div>
 <div class="ttc" id="aeye_8hpp_html"><div class="ttname"><a href="eye_8hpp.html">eye.hpp</a></div></div>

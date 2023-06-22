@@ -52,6 +52,15 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> append(const NdArray<dtype>& inArray, const NdArray<dtype>& inAppendValues, Axis inAxis = Axis::NONE)
     {
+        if (inArray.shape().isnull())
+        {
+            return inAppendValues;
+        }
+        else if (inAppendValues.shape().isnull())
+        {
+            return inArray;
+        }
+
         switch (inAxis)
         {
             case Axis::NONE:

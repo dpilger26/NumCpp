@@ -1,5 +1,18 @@
 # Release Notes
 
+## Version 2.11.0
+
+* fixed Issue #191
+* fixed Issue #194
+* fixed Issue #196
+* added `rows` and `columns` methods to `NdArray`
+* added `wrap` and `wrap2Pi` functions
+* added `normalize` function for `NdArray`s
+* added `Logger` and `BinaryLogger` classes for logging data
+* added `coordinates::Cartesian` class
+* added `coordinates::reference_frames` and `coordinates::transforms` namespaces for converting between various coordinate systems
+* various improvements and bug fixes
+
 ## Version 2.10.1
 
 * fixed an error in installed cmake target when using `NUMCPP_NO_USE_BOOST`

@@ -48,6 +48,7 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
+        [ "Enumerations", "functions_enum.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -64,23 +65,25 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_bisection_8hpp.html",
-"_nd_array_operators_8hpp.html#af4f34a2e6e8b9011cb2d2fc5c564e10a",
-"all_8hpp_source.html",
-"classnc_1_1_data_cube.html#a7dd2ceb0e7935647c31993c5db1d1d20",
-"classnc_1_1_nd_array.html#acadf6ded9a6eb2638d975da9dbbfe38c",
-"classnc_1_1_vec3.html#adb18c9ba29affb8b712bb22a83e38e09",
-"classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136",
-"discrete_8hpp_source.html",
-"functions_w.html",
-"logspace_8hpp.html#af246d9406fec4a9ff47efad150cb6ca4",
-"namespacenc.html#a2cdc1c791ab98eb708ba5662ffb82b39",
-"namespacenc.html#a8c8a7dbf208bb2d31983140598e7cebe",
-"namespacenc.html#af09d0c6363ef9dc8e661e9254bcf109f",
-"namespacenc_1_1random_1_1detail.html#a116977f73650034faaa5d33b55819ef5",
-"nanvar_8hpp.html",
-"riemann__zeta_8hpp.html#a8d31d086f833496ad7eb98c5bd6304a2",
-"trim__zeros_8hpp.html"
+"_a_e_r_8hpp.html",
+"_logger_8hpp.html#af7abc145380f1916838e42f9272aa0f6",
+"_stl_algorithms_8hpp.html#a2804ccb14980f96c7680838adc3b2762",
+"asarray_8hpp.html#aab50ba883dd36c374c2b0d34c22f7bc1",
+"classnc_1_1_nd_array.html#a1c08b88afe9d81acc6f99faaae90f20c",
+"classnc_1_1_nd_array_const_column_iterator.html#ac096213e50279dc023bbf6270c31969a",
+"classnc_1_1coordinates_1_1reference__frames_1_1_dec.html#adc60c3122b832fa69069e29f1eb97874",
+"classnc_1_1random_1_1_r_n_g.html#a23f3e5fc32a71376bd7c46b0d53976e3",
+"copy_sign_8hpp.html",
+"fmin_8hpp.html#a7ff960220d7e01e1e415fd4931dc6cb4",
+"isposinf_8hpp.html#a7229b43ce1e19fb560d461b6beda24af",
+"namespacenc.html#a07c69919a1dc382fd2ae3ebf1b358319",
+"namespacenc.html#a626089b225be4978da275ef9a7ecf451",
+"namespacenc.html#ac2bcb04348f201141d8f465e461269cc",
+"namespacenc_1_1edac_1_1detail.html#ad4328ffa9ba9949a9c4b494592496055",
+"namespacenc_1_1special.html#a132b29cd86870cdd360652baeb54c663",
+"ones__like_8hpp_source.html",
+"sinh_8hpp_source.html",
+"wahbas_problem_8hpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

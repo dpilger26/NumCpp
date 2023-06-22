@@ -28,8 +28,7 @@ def test_datetime():
     second = 6
     fractionalSecond = 0.7
 
-    d = NumCpp.DateTime(year, month, day, hour, minute,
-                        second, fractionalSecond)
+    d = NumCpp.DateTime(year, month, day, hour, minute, second, fractionalSecond)
     assert d.year == year
     assert d.month == month
     assert d.day == day

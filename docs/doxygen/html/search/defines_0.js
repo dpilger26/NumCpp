@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['conditional_5fno_5fexcept_2624',['CONDITIONAL_NO_EXCEPT',['../_stl_algorithms_8hpp.html#a328745b2b79b264770ec2783aa489f26',1,'StlAlgorithms.hpp']]]
+  ['boost_5flogger_2932',['BOOST_LOGGER',['../_logger_8hpp.html#a758197003cd3b1d0ae825df015c19a5b',1,'Logger.hpp']]]
 ];

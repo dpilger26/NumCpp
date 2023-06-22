@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pixel_1337',['Pixel',['../classnc_1_1image_processing_1_1_pixel.html',1,'nc::imageProcessing']]],
-  ['poly1d_1338',['Poly1d',['../classnc_1_1polynomial_1_1_poly1d.html',1,'nc::polynomial']]]
+  ['legendrepolynomial_1489',['LegendrePolynomial',['../classnc_1_1integrate_1_1_legendre_polynomial.html',1,'nc::integrate']]],
+  ['lla_1490',['LLA',['../classnc_1_1coordinates_1_1reference__frames_1_1_l_l_a.html',1,'nc::coordinates::reference_frames']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sign_2609',['Sign',['../namespacenc_1_1coordinates.html#a07a05f0462e5f74f05cbd04664c4ca94',1,'nc::coordinates']]]
+  ['sign_2917',['Sign',['../classnc_1_1coordinates_1_1reference__frames_1_1_dec.html#afcdc0ed1532a94a817d44eaaa1fc5a9c',1,'nc::coordinates::reference_frames::Dec']]]
 ];

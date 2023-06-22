@@ -46,7 +46,6 @@
 #include <string>
 #include <type_traits>
 
-
 namespace nc_develop
 {
     //================================================================================

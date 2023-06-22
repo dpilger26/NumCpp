@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.10.1</span>
+                                &#160;<span id="projectnumber">2.11.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -116,9 +116,8 @@ $(document).ready(function(){initNavTree('_interface_with_eigen_8cpp-example.htm
 <div class="line"><span class="preprocessor">#include &lt;Eigen/Dense&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"> </div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">typedef</span> Eigen::Matrix&lt;int, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor&gt; EigenIntMatrix;</div>
-<div class="line"><span class="keyword">typedef</span> Eigen::Map&lt;EigenIntMatrix&gt;                                          EigenIntMatrixMap;</div>
+<div class="line"><span class="keyword">using</span> EigenIntMatrix    = Eigen::Matrix&lt;int, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor&gt;;</div>
+<div class="line"><span class="keyword">using</span> EigenIntMatrixMap = Eigen::Map&lt;EigenIntMatrix&gt;;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>

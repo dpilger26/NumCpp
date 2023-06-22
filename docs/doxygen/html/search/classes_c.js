@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timer_1347',['Timer',['../classnc_1_1_timer.html',1,'nc']]]
+  ['quaternion_1503',['Quaternion',['../classnc_1_1rotations_1_1_quaternion.html',1,'nc::rotations']]]
 ];
