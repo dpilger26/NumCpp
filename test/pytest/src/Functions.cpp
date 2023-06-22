@@ -723,6 +723,17 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric column_stack_vec(const NdArray<dtype>& inArray1,
+                                    const NdArray<dtype>& inArray2,
+                                    const NdArray<dtype>& inArray3,
+                                    const NdArray<dtype>& inArray4)
+    {
+        return nc2pybind(nc::column_stack(std::vector{ inArray1, inArray2, inArray3, inArray4 }));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     std::complex<dtype> complexScalarSingle(dtype inReal)
     {
         return nc::complex(inReal);
@@ -778,6 +789,18 @@ namespace FunctionsInterface
                                Axis                  inAxis)
     {
         return nc2pybind(nc::concatenate({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric concatenate_vec(const NdArray<dtype>& inArray1,
+                                   const NdArray<dtype>& inArray2,
+                                   const NdArray<dtype>& inArray3,
+                                   const NdArray<dtype>& inArray4,
+                                   Axis                  inAxis)
+    {
+        return nc2pybind(nc::concatenate(std::vector{ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
 
     //================================================================================
@@ -1426,6 +1449,17 @@ namespace FunctionsInterface
                           const NdArray<dtype>& inArray4)
     {
         return nc2pybind(nc::hstack({ inArray1, inArray2, inArray3, inArray4 }));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric hstack_vec(const NdArray<dtype>& inArray1,
+                              const NdArray<dtype>& inArray2,
+                              const NdArray<dtype>& inArray3,
+                              const NdArray<dtype>& inArray4)
+    {
+        return nc2pybind(nc::hstack(std::vector{ inArray1, inArray2, inArray3, inArray4 }));
     }
 
     //================================================================================
@@ -2612,6 +2646,17 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric row_stack_vec(const NdArray<dtype>& inArray1,
+                                 const NdArray<dtype>& inArray2,
+                                 const NdArray<dtype>& inArray3,
+                                 const NdArray<dtype>& inArray4)
+    {
+        return nc2pybind(nc::row_stack(std::vector{ inArray1, inArray2, inArray3, inArray4 }));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     int8 signScalar(dtype inValue)
     {
         return sign(inValue);
@@ -2745,6 +2790,18 @@ namespace FunctionsInterface
                          nc::Axis              inAxis)
     {
         return nc2pybind(nc::stack({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric stack_vec(const NdArray<dtype>& inArray1,
+                             const NdArray<dtype>& inArray2,
+                             const NdArray<dtype>& inArray3,
+                             const NdArray<dtype>& inArray4,
+                             nc::Axis              inAxis)
+    {
+        return nc2pybind(nc::stack(std::vector{ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
 
     //================================================================================
@@ -2989,6 +3046,17 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric vstack_vec(const NdArray<dtype>& inArray1,
+                              const NdArray<dtype>& inArray2,
+                              const NdArray<dtype>& inArray3,
+                              const NdArray<dtype>& inArray4)
+    {
+        return nc2pybind(nc::vstack(std::vector{ inArray1, inArray2, inArray3, inArray4 }));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric whereArrayArray(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB)
     {
         return nc2pybind(nc::where(inMask, inA, inB));
@@ -3206,6 +3274,7 @@ void initFunctions(pb11::module& m)
     m.def("clipArray", &FunctionsInterface::clipArray<double>);
     m.def("clipArray", &FunctionsInterface::clipArray<ComplexDouble>);
     m.def("column_stack", &FunctionsInterface::column_stack<double>);
+    m.def("column_stack_vec", &FunctionsInterface::column_stack_vec<double>);
     m.def("complexScalar", &FunctionsInterface::complexScalarSingle<double>);
     m.def("complexScalar", &FunctionsInterface::complexScalar<double>);
     m.def("complexArray", &FunctionsInterface::complexArraySingle<double>);
@@ -3213,6 +3282,7 @@ void initFunctions(pb11::module& m)
     m.def("conjScalar", &FunctionsInterface::conjScalar<double>);
     m.def("conjArray", &FunctionsInterface::conjArray<double>);
     m.def("concatenate", &FunctionsInterface::concatenate<double>);
+    m.def("concatenate_vec", &FunctionsInterface::concatenate_vec<double>);
     m.def("contains", &contains<double>);
     m.def("contains", &contains<ComplexDouble>);
     m.def("copy", &FunctionsInterface::copy<double>);
@@ -3373,6 +3443,7 @@ void initFunctions(pb11::module& m)
     m.def("histogram", &FunctionsInterface::histogramWithEdges<double>);
     m.def("hsplit", &FunctionsInterface::hsplit<double>);
     m.def("hstack", &FunctionsInterface::hstack<double>);
+    m.def("hstack_vec", &FunctionsInterface::hstack_vec<double>);
     m.def("hypotScalar", &FunctionsInterface::hypotScalar<double>);
     m.def("hypotScalarTriple", &FunctionsInterface::hypotScalarTriple<double>);
     m.def("hypotArray", &FunctionsInterface::hypotArray<double>);
@@ -3648,6 +3719,7 @@ void initFunctions(pb11::module& m)
     m.def("roundScalar", &FunctionsInterface::roundScalar<double>);
     m.def("roundArray", &FunctionsInterface::roundArray<double>);
     m.def("row_stack", &FunctionsInterface::row_stack<double>);
+    m.def("row_stack_vec", &FunctionsInterface::row_stack_vec<double>);
 
     m.def("select", &FunctionsInterface::select<double>);
     m.def("selectVector", &FunctionsInterface::selectVector<double>);
@@ -3683,6 +3755,7 @@ void initFunctions(pb11::module& m)
     m.def("squareArray", &FunctionsInterface::squareArray<double>);
     m.def("squareArray", &FunctionsInterface::squareArray<ComplexDouble>);
     m.def("stack", &FunctionsInterface::stack<double>);
+    m.def("stack_vec", &FunctionsInterface::stack_vec<double>);
     NdArray<double> (*stdevDouble)(const NdArray<double>&, Axis) = &stdev<double>;
     m.def("stdev", stdevDouble);
     NdArray<ComplexDouble> (*stdevComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &stdev<double>;
@@ -3769,6 +3842,7 @@ void initFunctions(pb11::module& m)
     m.def("var", varComplexDouble);
     m.def("vsplit", &FunctionsInterface::vsplit<double>);
     m.def("vstack", &FunctionsInterface::vstack<double>);
+    m.def("vstack_vec", &FunctionsInterface::vstack_vec<double>);
 
     m.def("where", &FunctionsInterface::whereArrayArray<double>);
     m.def("where", &FunctionsInterface::whereArrayArray<ComplexDouble>);

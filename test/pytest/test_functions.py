@@ -2858,6 +2858,9 @@ def test_column_stack():
     assert np.array_equal(
         NumCpp.column_stack(cArray1, cArray2, cArray3, cArray4), np.column_stack([data1, data2, data3, data4])
     )
+    assert np.array_equal(
+        NumCpp.column_stack_vec(cArray1, cArray2, cArray3, cArray4), np.column_stack([data1, data2, data3, data4])
+    )
 
 
 ####################################################################################
@@ -2959,6 +2962,10 @@ def test_concatenate():
         NumCpp.concatenate(cArray1, cArray2, cArray3, cArray4, NumCpp.Axis.NONE).flatten(),
         np.concatenate([data1.flatten(), data2.flatten(), data3.flatten(), data4.flatten()]),
     )
+    assert np.array_equal(
+        NumCpp.concatenate_vec(cArray1, cArray2, cArray3, cArray4, NumCpp.Axis.NONE).flatten(),
+        np.concatenate([data1.flatten(), data2.flatten(), data3.flatten(), data4.flatten()]),
+    )
 
     shapeInput = np.random.randint(
         20,
@@ -3017,6 +3024,10 @@ def test_concatenate():
         NumCpp.concatenate(cArray1, cArray2, cArray3, cArray4, NumCpp.Axis.ROW),
         np.concatenate([data1, data2, data3, data4], axis=0),
     )
+    assert np.array_equal(
+        NumCpp.concatenate_vec(cArray1, cArray2, cArray3, cArray4, NumCpp.Axis.ROW),
+        np.concatenate([data1, data2, data3, data4], axis=0),
+    )
 
     shapeInput = np.random.randint(
         20,
@@ -3073,6 +3084,10 @@ def test_concatenate():
     cArray4.setArray(data4)
     assert np.array_equal(
         NumCpp.concatenate(cArray1, cArray2, cArray3, cArray4, NumCpp.Axis.COL),
+        np.concatenate([data1, data2, data3, data4], axis=1),
+    )
+    assert np.array_equal(
+        NumCpp.concatenate_vec(cArray1, cArray2, cArray3, cArray4, NumCpp.Axis.COL),
         np.concatenate([data1, data2, data3, data4], axis=1),
     )
 
@@ -6641,6 +6656,7 @@ def test_hstack():
     cArray3.setArray(data3)
     cArray4.setArray(data4)
     assert np.array_equal(NumCpp.hstack(cArray1, cArray2, cArray3, cArray4), np.hstack([data1, data2, data3, data4]))
+    assert np.array_equal(NumCpp.hstack_vec(cArray1, cArray2, cArray3, cArray4), np.hstack([data1, data2, data3, data4]))
 
 
 ####################################################################################
@@ -16552,6 +16568,9 @@ def test_row_stack():
     assert np.array_equal(
         NumCpp.row_stack(cArray1, cArray2, cArray3, cArray4), np.row_stack([data1, data2, data3, data4])
     )
+    assert np.array_equal(
+        NumCpp.row_stack_vec(cArray1, cArray2, cArray3, cArray4), np.row_stack([data1, data2, data3, data4])
+    )
 
 
 ####################################################################################
@@ -17099,6 +17118,9 @@ def test_stack():
     assert np.array_equal(
         NumCpp.stack(cArray1, cArray2, cArray3, cArray4, NumCpp.Axis.ROW), np.vstack([data1, data2, data3, data4])
     )
+    assert np.array_equal(
+        NumCpp.stack_vec(cArray1, cArray2, cArray3, cArray4, NumCpp.Axis.ROW), np.vstack([data1, data2, data3, data4])
+    )
 
     shapeInput = np.random.randint(
         20,
@@ -17122,6 +17144,9 @@ def test_stack():
     cArray4.setArray(data4)
     assert np.array_equal(
         NumCpp.stack(cArray1, cArray2, cArray3, cArray4, NumCpp.Axis.COL), np.hstack([data1, data2, data3, data4])
+    )
+    assert np.array_equal(
+        NumCpp.stack_vec(cArray1, cArray2, cArray3, cArray4, NumCpp.Axis.COL), np.hstack([data1, data2, data3, data4])
     )
 
 
@@ -18878,6 +18903,7 @@ def test_vstack():
     cArray3.setArray(data3)
     cArray4.setArray(data4)
     assert np.array_equal(NumCpp.vstack(cArray1, cArray2, cArray3, cArray4), np.vstack([data1, data2, data3, data4]))
+    assert np.array_equal(NumCpp.vstack_vec(cArray1, cArray2, cArray3, cArray4), np.vstack([data1, data2, data3, data4]))
 
 
 ####################################################################################

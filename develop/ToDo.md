@@ -1,9 +1,14 @@
 # TODO
 
-## Version 2.11.0
+## Version 2.12.0
 
-* `stack`/`vstack`/`hstack`/`row_stack`/`col_stack` should take in a `std::vector`, ISSUE #196
-* adaptive cfar function into `ImageProcessing`
+* `ImageProcessing`
+  * adaptive cfar
+* `Filters`
+  * mean filter
+  * complementary mean filter
+
+## Version 2.11.0
 
 * run clang-tidy
 * run cppcheck
