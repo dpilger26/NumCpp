@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.10.1</span>
+                                &#160;<span id="projectnumber">2.11.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -115,6 +115,12 @@ $(document).ready(function(){initNavTree('namespacenc_1_1detail.html',''); initR
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a694c881b9c7b4393c080b816feb08592"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename Iterator &gt; </td></tr>
+<tr class="memitem:a694c881b9c7b4393c080b816feb08592"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1detail.html#a694c881b9c7b4393c080b816feb08592">column_stack</a> (Iterator begin, Iterator end)</td></tr>
+<tr class="separator:a694c881b9c7b4393c080b816feb08592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc426c7071d16e21c9ea83f4b93f8f1f"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename Iterator &gt; </td></tr>
+<tr class="memitem:acc426c7071d16e21c9ea83f4b93f8f1f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1detail.html#acc426c7071d16e21c9ea83f4b93f8f1f">concatenate</a> (Iterator begin, Iterator end, <a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis=<a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>)</td></tr>
+<tr class="separator:acc426c7071d16e21c9ea83f4b93f8f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c89c0477c20bb9b990f060b447e2ebd"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename Indices , type_traits::ndarray_int_concept&lt; Indices &gt;  = 0&gt; </td></tr>
 <tr class="memitem:a4c89c0477c20bb9b990f060b447e2ebd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1detail.html#a4c89c0477c20bb9b990f060b447e2ebd">deleteColumnIndices</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, Indices inIndices)</td></tr>
 <tr class="separator:a4c89c0477c20bb9b990f060b447e2ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,8 +130,101 @@ Functions</h2></td></tr>
 <tr class="memitem:af2a363e18b4cfd6c32d267b8610acb90"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename Indices , type_traits::ndarray_int_concept&lt; Indices &gt;  = 0&gt; </td></tr>
 <tr class="memitem:af2a363e18b4cfd6c32d267b8610acb90"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1detail.html#af2a363e18b4cfd6c32d267b8610acb90">deleteRowIndices</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, Indices inIndices)</td></tr>
 <tr class="separator:af2a363e18b4cfd6c32d267b8610acb90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58fb8039f3ebf7bb2514632384947f4c"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename Iterator &gt; </td></tr>
+<tr class="memitem:a58fb8039f3ebf7bb2514632384947f4c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1detail.html#a58fb8039f3ebf7bb2514632384947f4c">row_stack</a> (Iterator begin, Iterator end)</td></tr>
+<tr class="separator:a58fb8039f3ebf7bb2514632384947f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa742d7b637335a5a5fa65295eb73b62a"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename Iterator &gt; </td></tr>
+<tr class="memitem:aa742d7b637335a5a5fa65295eb73b62a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1detail.html#aa742d7b637335a5a5fa65295eb73b62a">stack</a> (Iterator begin, Iterator end, <a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis)</td></tr>
+<tr class="separator:aa742d7b637335a5a5fa65295eb73b62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a694c881b9c7b4393c080b816feb08592"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a694c881b9c7b4393c080b816feb08592">&#9670;&nbsp;</a></span>column_stack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype , typename Iterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; nc::detail::column_stack </td>
+          <td>(</td>
+          <td class="paramtype">Iterator&#160;</td>
+          <td class="paramname"><em>begin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Iterator&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stack 1-D arrays as columns into a 2-D array.</p>
+<p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.column_stack.html">https://www.numpy.org/devdocs/reference/generated/numpy.column_stack.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">begin</td><td>iterator to the beginning of the span </td></tr>
+    <tr><td class="paramname">end</td><td>iterator to one past the end of the span </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="acc426c7071d16e21c9ea83f4b93f8f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc426c7071d16e21c9ea83f4b93f8f1f">&#9670;&nbsp;</a></span>concatenate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype , typename Iterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; nc::detail::concatenate </td>
+          <td>(</td>
+          <td class="paramtype">Iterator&#160;</td>
+          <td class="paramname"><em>begin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Iterator&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Join a sequence of arrays along an existing axis.</p>
+<p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.concatenate.html">https://www.numpy.org/devdocs/reference/generated/numpy.concatenate.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">begin</td><td>the begin iterator </td></tr>
+    <tr><td class="paramname">end</td><td>the end iterator </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
+
+</div>
+</div>
 <a id="a4c89c0477c20bb9b990f060b447e2ebd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c89c0477c20bb9b990f060b447e2ebd">&#9670;&nbsp;</a></span>deleteColumnIndices()</h2>
 
@@ -236,6 +335,92 @@ template&lt;typename dtype , typename Indices , type_traits::ndarray_int_concept
   <table class="params">
     <tr><td class="paramname">inArray</td><td></td></tr>
     <tr><td class="paramname">inIndices</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="a58fb8039f3ebf7bb2514632384947f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58fb8039f3ebf7bb2514632384947f4c">&#9670;&nbsp;</a></span>row_stack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype , typename Iterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; nc::detail::row_stack </td>
+          <td>(</td>
+          <td class="paramtype">Iterator&#160;</td>
+          <td class="paramname"><em>begin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Iterator&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stack arrays in sequence vertically (row wise).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">begin</td><td>iterator to the beginning of the span </td></tr>
+    <tr><td class="paramname">end</td><td>iterator to one past the end of the span</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="aa742d7b637335a5a5fa65295eb73b62a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa742d7b637335a5a5fa65295eb73b62a">&#9670;&nbsp;</a></span>stack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype , typename Iterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; nc::detail::stack </td>
+          <td>(</td>
+          <td class="paramtype">Iterator&#160;</td>
+          <td class="paramname"><em>begin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Iterator&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Compute the variance along the specified axis.</p>
+<p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.stack.html">https://www.numpy.org/devdocs/reference/generated/numpy.stack.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">begin</td><td>iterator to the beginning of the span </td></tr>
+    <tr><td class="paramname">end</td><td>iterator to one past the end of the span </td></tr>
+    <tr><td class="paramname">inAxis</td><td>the axis to stack </td></tr>
   </table>
   </dd>
 </dl>

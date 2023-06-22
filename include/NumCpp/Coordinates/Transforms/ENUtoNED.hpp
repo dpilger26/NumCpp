@@ -35,7 +35,7 @@ namespace nc::coordinates::transforms
     /**
      * @brief Converts ENU to NED
      *
-     * @param enu: the ENU coordinates
+     * @param point: the ENU coordinates
      * @returns NED
      */
     [[nodiscard]] inline reference_frames::NED ENUtoNED(const reference_frames::ENU& point) noexcept

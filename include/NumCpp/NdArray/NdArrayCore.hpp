@@ -2371,7 +2371,7 @@ namespace nc
         // Method Description:
         /// Returns the full column of the array
         ///
-        /// @param inRows: the column indices
+        /// @param inCols: the column indices
         /// @return self_type
         ///
         [[nodiscard]] self_type columns(const NdArray<size_type>& inCols) const

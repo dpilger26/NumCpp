@@ -183,7 +183,7 @@ namespace nc::logger
     /**
      * @brief Function to set the severity level to report back to console and log file
      *
-     * @param logLevel level at which to report the logs
+     * @param level: level at which to report the logs
      */
     inline void setLogLevel(boost::log::trivial::severity_level level)
     {

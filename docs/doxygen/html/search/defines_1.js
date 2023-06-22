@@ -1,10 +1,4 @@
 var searchData=
 [
-  ['static_5fassert_5farithmetic_2625',['STATIC_ASSERT_ARITHMETIC',['../_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92',1,'StaticAsserts.hpp']]],
-  ['static_5fassert_5farithmetic_5for_5fcomplex_2626',['STATIC_ASSERT_ARITHMETIC_OR_COMPLEX',['../_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96',1,'StaticAsserts.hpp']]],
-  ['static_5fassert_5fcomplex_2627',['STATIC_ASSERT_COMPLEX',['../_static_asserts_8hpp.html#a1cd1b98c2b918cbd369afc12c11a0597',1,'StaticAsserts.hpp']]],
-  ['static_5fassert_5ffloat_2628',['STATIC_ASSERT_FLOAT',['../_static_asserts_8hpp.html#a0cd8e186da549fbdd918111d0302d973',1,'StaticAsserts.hpp']]],
-  ['static_5fassert_5finteger_2629',['STATIC_ASSERT_INTEGER',['../_static_asserts_8hpp.html#a187660686583e9047c0cf4424259ad10',1,'StaticAsserts.hpp']]],
-  ['static_5fassert_5funsigned_5finteger_2630',['STATIC_ASSERT_UNSIGNED_INTEGER',['../_static_asserts_8hpp.html#a9ecf7af203df0a11dace37b1fb3e4980',1,'StaticAsserts.hpp']]],
-  ['static_5fassert_5fvalid_5fdtype_2631',['STATIC_ASSERT_VALID_DTYPE',['../_static_asserts_8hpp.html#a00cfe1ea01e56fe28ffe3d6ce5cae468',1,'StaticAsserts.hpp']]]
+  ['conditional_5fno_5fexcept_2933',['CONDITIONAL_NO_EXCEPT',['../_stl_algorithms_8hpp.html#a328745b2b79b264770ec2783aa489f26',1,'StlAlgorithms.hpp']]]
 ];

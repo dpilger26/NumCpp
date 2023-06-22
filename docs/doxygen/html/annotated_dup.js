@@ -2,9 +2,20 @@ var annotated_dup =
 [
     [ "nc", "namespacenc.html", [
       [ "coordinates", "namespacenc_1_1coordinates.html", [
-        [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html", "classnc_1_1coordinates_1_1_coordinate" ],
-        [ "Dec", "classnc_1_1coordinates_1_1_dec.html", "classnc_1_1coordinates_1_1_dec" ],
-        [ "RA", "classnc_1_1coordinates_1_1_r_a.html", "classnc_1_1coordinates_1_1_r_a" ]
+        [ "reference_frames", "namespacenc_1_1coordinates_1_1reference__frames.html", [
+          [ "AER", "classnc_1_1coordinates_1_1reference__frames_1_1_a_e_r.html", "classnc_1_1coordinates_1_1reference__frames_1_1_a_e_r" ],
+          [ "Celestial", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial" ],
+          [ "Dec", "classnc_1_1coordinates_1_1reference__frames_1_1_dec.html", "classnc_1_1coordinates_1_1reference__frames_1_1_dec" ],
+          [ "ECEF", "classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html", "classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f" ],
+          [ "ENU", "classnc_1_1coordinates_1_1reference__frames_1_1_e_n_u.html", "classnc_1_1coordinates_1_1reference__frames_1_1_e_n_u" ],
+          [ "Geocentric", "classnc_1_1coordinates_1_1reference__frames_1_1_geocentric.html", "classnc_1_1coordinates_1_1reference__frames_1_1_geocentric" ],
+          [ "LLA", "classnc_1_1coordinates_1_1reference__frames_1_1_l_l_a.html", "classnc_1_1coordinates_1_1reference__frames_1_1_l_l_a" ],
+          [ "NED", "classnc_1_1coordinates_1_1reference__frames_1_1_n_e_d.html", "classnc_1_1coordinates_1_1reference__frames_1_1_n_e_d" ],
+          [ "RA", "classnc_1_1coordinates_1_1reference__frames_1_1_r_a.html", "classnc_1_1coordinates_1_1reference__frames_1_1_r_a" ]
+        ] ],
+        [ "Cartesian", "classnc_1_1coordinates_1_1_cartesian.html", "classnc_1_1coordinates_1_1_cartesian" ],
+        [ "Euler", "classnc_1_1coordinates_1_1_euler.html", "classnc_1_1coordinates_1_1_euler" ],
+        [ "Orientation", "classnc_1_1coordinates_1_1_orientation.html", "classnc_1_1coordinates_1_1_orientation" ]
       ] ],
       [ "imageProcessing", "namespacenc_1_1image_processing.html", [
         [ "Centroid", "classnc_1_1image_processing_1_1_centroid.html", "classnc_1_1image_processing_1_1_centroid" ],
@@ -17,6 +28,16 @@ var annotated_dup =
       ] ],
       [ "linalg", "namespacenc_1_1linalg.html", [
         [ "SVD", "classnc_1_1linalg_1_1_s_v_d.html", "classnc_1_1linalg_1_1_s_v_d" ]
+      ] ],
+      [ "logger", "namespacenc_1_1logger.html", [
+        [ "detail", "namespacenc_1_1logger_1_1detail.html", [
+          [ "type_traits", "namespacenc_1_1logger_1_1detail_1_1type__traits.html", [
+            [ "has_serialize", "classnc_1_1logger_1_1detail_1_1type__traits_1_1has__serialize.html", "classnc_1_1logger_1_1detail_1_1type__traits_1_1has__serialize" ],
+            [ "has_serialize< DataType, std::void_t< std::enable_if_t< std::is_same_v< serialize_t< DataType >, std::string >, int > > >", "classnc_1_1logger_1_1detail_1_1type__traits_1_1has__serialize_3_01_data_type_00_01std_1_1void__te6ccce939d7e8d93862519645c528e31.html", "classnc_1_1logger_1_1detail_1_1type__traits_1_1has__serialize_3_01_data_type_00_01std_1_1void__te6ccce939d7e8d93862519645c528e31" ]
+          ] ],
+          [ "BinaryDataLogger", "classnc_1_1logger_1_1detail_1_1_binary_data_logger.html", "classnc_1_1logger_1_1detail_1_1_binary_data_logger" ]
+        ] ],
+        [ "BinaryLogger", "classnc_1_1logger_1_1_binary_logger.html", "classnc_1_1logger_1_1_binary_logger" ]
       ] ],
       [ "polynomial", "namespacenc_1_1polynomial.html", [
         [ "Poly1d", "classnc_1_1polynomial_1_1_poly1d.html", "classnc_1_1polynomial_1_1_poly1d" ]

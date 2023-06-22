@@ -39,7 +39,7 @@ namespace nc::coordinates::transforms
      *        Range is not used.
      *        NOTE: positive elevation is defined as the positive z (up) direction
      *
-     * @param cartesian: coordinates to convert
+     * @param target: coordinates to convert
      * @returns AER
      */
     [[nodiscard]] inline reference_frames::AER ENUtoAER(const reference_frames::ENU& target) noexcept

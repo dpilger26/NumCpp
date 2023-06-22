@@ -46,7 +46,8 @@ namespace nc
         ///
         /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.concatenate.html
         ///
-        /// @param inArrayList
+        /// @param begin: the begin iterator
+        /// @param end: the end iterator
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///

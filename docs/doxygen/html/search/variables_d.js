@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['seconds_5fper_5fday_2561',['SECONDS_PER_DAY',['../namespacenc_1_1constants.html#a766ec3bf1f6fb57f586f943cea1946c3',1,'nc::constants']]],
-  ['seconds_5fper_5fhour_2562',['SECONDS_PER_HOUR',['../namespacenc_1_1constants.html#ad635a54557e853e1ee098d0ead5f1902',1,'nc::constants']]],
-  ['seconds_5fper_5fminute_2563',['SECONDS_PER_MINUTE',['../namespacenc_1_1constants.html#ad89620cbdf9102f40ec7c0fd52c16a5e',1,'nc::constants']]],
-  ['seconds_5fper_5fweek_2564',['SECONDS_PER_WEEK',['../namespacenc_1_1constants.html#ac36cac5f19ce5f81b2acc562f247f0be',1,'nc::constants']]],
-  ['start_2565',['start',['../classnc_1_1_slice.html#a36ddb261d9057db4a9794b4fc46e9d3f',1,'nc::Slice']]],
-  ['step_2566',['step',['../classnc_1_1_slice.html#a112855a11aa1737b7859e3d63feb09c4',1,'nc::Slice']]],
-  ['stop_2567',['stop',['../classnc_1_1_slice.html#ac2d72f4ca003ed645bc82efcafee87f5',1,'nc::Slice']]]
+  ['phi_2853',['phi',['../classnc_1_1coordinates_1_1_euler.html#a1516925a2f04d722355c6fa32dcfbece',1,'nc::coordinates::Euler']]],
+  ['pi_2854',['pi',['../namespacenc_1_1constants.html#a2f1219a120c9cc1434486d9de75a8221',1,'nc::constants']]],
+  ['pitch_2855',['pitch',['../classnc_1_1coordinates_1_1_orientation.html#a819f4482cc856e67b9b8d8d9269ae3cf',1,'nc::coordinates::Orientation']]],
+  ['psi_2856',['psi',['../classnc_1_1coordinates_1_1_euler.html#ab6e8553cb29e3b38932353c7808df47d',1,'nc::coordinates::Euler']]]
 ];

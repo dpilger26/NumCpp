@@ -91,8 +91,8 @@ namespace nc::coordinates::reference_frames
     /**
      * @brief Stream operator
      *
-     * @param: os: the output stream
-     * @param: point: the AER point
+     * @param os: the output stream
+     * @param point: the AER point
      */
     inline std::ostream& operator<<(std::ostream& os, const AER& point)
     {

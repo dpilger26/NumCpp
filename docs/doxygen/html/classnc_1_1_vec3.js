@@ -3,6 +3,7 @@ var classnc_1_1_vec3 =
     [ "Vec3", "classnc_1_1_vec3.html#adb18c9ba29affb8b712bb22a83e38e09", null ],
     [ "Vec3", "classnc_1_1_vec3.html#a6b0bc18cc9594a7d81361c518d543130", null ],
     [ "Vec3", "classnc_1_1_vec3.html#a4056d1e369726710d6f1049b277486dd", null ],
+    [ "Vec3", "classnc_1_1_vec3.html#a317d66ff62f645b69571905c210ae833", null ],
     [ "Vec3", "classnc_1_1_vec3.html#a4668419f4c870900466d4aa198247767", null ],
     [ "angle", "classnc_1_1_vec3.html#a523ca42cbdd088851cc5a299da988cee", null ],
     [ "back", "classnc_1_1_vec3.html#a44e50b4b49011ec94548558600c0b17c", null ],

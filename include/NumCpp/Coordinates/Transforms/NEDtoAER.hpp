@@ -40,7 +40,7 @@ namespace nc::coordinates::transforms
      *        Range is not used.
      *        NOTE: positive elevation is defined as the negative z (up) direction
      *
-     * @param cartesian: coordinates to convert
+     * @param target: coordinates to convert
      * @returns AER
      */
     [[nodiscard]] inline reference_frames::AER NEDtoAER(const reference_frames::NED& target) noexcept

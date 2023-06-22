@@ -49,6 +49,7 @@ namespace nc
         ///
         /// @param begin: iterator to the beginning of the span
         /// @param end: iterator to one past the end of the span
+        /// @param inAxis: the axis to stack
         /// @return NdArray
         ///
         template<typename dtype, typename Iterator>

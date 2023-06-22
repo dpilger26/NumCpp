@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.10.1</span>
+                                &#160;<span id="projectnumber">2.11.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -126,7 +126,7 @@ $(document).ready(function(){initNavTree('pad_8hpp_source.html',''); initResizab
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a> inShape = inArray.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a> inShape = inArray.<a class="code" href="classnc_1_1_nd_array.html#aef6445181c6055aab108382af382ba24">shape</a>();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="classnc_1_1_shape.html">Shape</a>       outShape(inShape);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        outShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a> += 2 * inPadWidth;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        outShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a> += 2 * inPadWidth;</div>
@@ -146,14 +146,14 @@ $(document).ready(function(){initNavTree('pad_8hpp_source.html',''); initResizab
 <div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:56</div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a03bcf391fa77f43b66e58bfb90156f3f"><div class="ttname"><a href="classnc_1_1_nd_array.html#a03bcf391fa77f43b66e58bfb90156f3f">nc::NdArray::fill</a></div><div class="ttdeci">self_type &amp; fill(value_type inFillValue) noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2731</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a1b2b23021908e0f8fb6957493587f708"><div class="ttname"><a href="classnc_1_1_nd_array.html#a1b2b23021908e0f8fb6957493587f708">nc::NdArray::put</a></div><div class="ttdeci">self_type &amp; put(index_type inIndex, const value_type &amp;inValue)</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:3616</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4402</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a03bcf391fa77f43b66e58bfb90156f3f"><div class="ttname"><a href="classnc_1_1_nd_array.html#a03bcf391fa77f43b66e58bfb90156f3f">nc::NdArray::fill</a></div><div class="ttdeci">self_type &amp; fill(value_type inFillValue) noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2761</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a1b2b23021908e0f8fb6957493587f708"><div class="ttname"><a href="classnc_1_1_nd_array.html#a1b2b23021908e0f8fb6957493587f708">nc::NdArray::put</a></div><div class="ttdeci">self_type &amp; put(index_type inIndex, const value_type &amp;inValue)</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:3646</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_aef6445181c6055aab108382af382ba24"><div class="ttname"><a href="classnc_1_1_nd_array.html#aef6445181c6055aab108382af382ba24">nc::NdArray::shape</a></div><div class="ttdeci">const Shape &amp; shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4464</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html"><div class="ttname"><a href="classnc_1_1_shape.html">nc::Shape</a></div><div class="ttdoc">A Shape Class for NdArrays.</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:41</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_a6f89f699dea6eb89eef19e00c92b223a"><div class="ttname"><a href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">nc::Shape::rows</a></div><div class="ttdeci">uint32 rows</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:44</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_aae1a3c997648aacaefb60d0e6d0bf10d"><div class="ttname"><a href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">nc::Shape::cols</a></div><div class="ttdeci">uint32 cols</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:45</div></div>
 <div class="ttc" id="aclassnc_1_1_slice_html"><div class="ttname"><a href="classnc_1_1_slice.html">nc::Slice</a></div><div class="ttdoc">A Class for slicing into NdArrays.</div><div class="ttdef"><b>Definition:</b> Slice.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Cartesian.hpp:40</div></div>
 <div class="ttc" id="anamespacenc_html_a54ebb23ac2a5fef9013f82afd8efd143"><div class="ttname"><a href="namespacenc.html#a54ebb23ac2a5fef9013f82afd8efd143">nc::pad</a></div><div class="ttdeci">NdArray&lt; dtype &gt; pad(const NdArray&lt; dtype &gt; &amp;inArray, uint16 inPadWidth, dtype inPadValue)</div><div class="ttdef"><b>Definition:</b> pad.hpp:49</div></div>
 <div class="ttc" id="anamespacenc_html_a8146518cf6c6a8029c3d84a376167793"><div class="ttname"><a href="namespacenc.html#a8146518cf6c6a8029c3d84a376167793">nc::uint16</a></div><div class="ttdeci">std::uint16_t uint16</div><div class="ttdef"><b>Definition:</b> Types.hpp:41</div></div>
 </div><!-- fragment --></div><!-- contents -->

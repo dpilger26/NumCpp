@@ -98,9 +98,7 @@ namespace nc
         // Method Description:
         /// Constructor
         ///
-        /// @param inX: the x component
-        /// @param inY: the y component
-        /// @param inZ: the y component
+        /// @param vec2: 2d vector
         ///
         constexpr Vec3(const Vec2& vec2) noexcept :
             x(vec2.x),

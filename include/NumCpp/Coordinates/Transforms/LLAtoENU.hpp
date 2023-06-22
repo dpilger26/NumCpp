@@ -42,6 +42,7 @@ namespace nc::coordinates::transforms
      *        Figure 11 https://apps.dtic.mil/sti/pdfs/AD1170763.pdf for a helpful diagram
      *
      * @param target: the target of interest
+     * @param referencePoint: the reference point
      * @returns ENU
      */
     [[nodiscard]] inline reference_frames::ENU LLAtoENU(const reference_frames::LLA& target,
@@ -56,6 +57,7 @@ namespace nc::coordinates::transforms
      *        Figure 11 https://apps.dtic.mil/sti/pdfs/AD1170763.pdf for a helpful diagram
      *
      * @param target: the target of interest
+     * @param referencePoint: the reference point
      * @returns ENU
      */
     [[nodiscard]] inline reference_frames::ENU LLAtoENU(const reference_frames::LLA&  target,

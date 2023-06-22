@@ -126,8 +126,8 @@ namespace nc::coordinates::reference_frames
     /**
      * @brief Stream operator
      *
-     * @param: os: the output stream
-     * @param: point: the ENU point
+     * @param os: the output stream
+     * @param point: the ENU point
      */
     inline std::ostream& operator<<(std::ostream& os, const ENU& point)
     {

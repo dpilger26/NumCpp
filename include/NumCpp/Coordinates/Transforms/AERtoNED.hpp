@@ -38,8 +38,7 @@ namespace nc::coordinates::transforms
      * @brief Converts the spherical inertial coordinates (NED) to Cartesian XYZ (NED).
      *        NOTE: positive elevation is defined as the negative z (up) direction
      *
-     * @param aer 2D Inertial azimuth and elevation
-     * @param range Optional range
+     * @param aer: 2D Inertial azimuth and elevation
      * @return NED
      */
     [[nodiscard]] inline reference_frames::NED AERtoNED(const reference_frames::AER aer) noexcept

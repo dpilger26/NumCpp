@@ -36,7 +36,7 @@ namespace nc
     /**
      * @brief Wrap the input angle to [0, 2*pi]
      *
-     * @params: inAngle: in radians
+     * @param inAngle: in radians
      * @returns Wrapped angle
      */
     template<typename dtype>
@@ -56,7 +56,7 @@ namespace nc
     /**
      * @brief Wrap the input angle to [0, 2*pi]
      *
-     * @params: inAngles: in radians
+     * @param inAngles: in radians
      * @returns Wrapped angles
      */
     template<typename dtype>

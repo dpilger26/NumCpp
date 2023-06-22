@@ -56,9 +56,9 @@ namespace nc::coordinates
         /**
          * @brief Constructor
          *
-         * @param: inX: the x component
-         * @param: inY: the y component
-         * @param: inZ: the z component
+         * @param inX: the x component
+         * @param inY: the y component
+         * @param inZ: the z component
          */
         constexpr Cartesian(double inX, double inY, double inZ = 0.) noexcept :
             x(inX),
@@ -110,14 +110,14 @@ namespace nc::coordinates
         /**
          * @brief Copy Constructor
          *
-         * @param: other: the other Cartesian instance
+         * @param other: the other Cartesian instance
          */
         Cartesian(const Cartesian& other) noexcept = default;
 
         /**
          * @brief Move Constructor
          *
-         * @param: other: the other Cartesian instance
+         * @param other: the other Cartesian instance
          */
         Cartesian(Cartesian&& other) noexcept = default;
 
@@ -129,21 +129,21 @@ namespace nc::coordinates
         /**
          * @brief Copy Assignement Operator
          *
-         * @param: other: the other Cartesian instance
+         * @param other: the other Cartesian instance
          */
         Cartesian& operator=(const Cartesian& other) noexcept = default;
 
         /**
          * @brief Move Assignement Operator
          *
-         * @param: other: the other Cartesian instance
+         * @param other: the other Cartesian instance
          */
         Cartesian& operator=(Cartesian&& other) noexcept = default;
 
         /**
          * @brief x Unit Vector
          *
-         * @returns unit vector in x direction
+         * @return unit vector in x direction
          */
         [[nodiscard]] static Cartesian xHat() noexcept
         {
@@ -153,7 +153,7 @@ namespace nc::coordinates
         /**
          * @brief y Unit Vector
          *
-         * @returns unit vector in y direction
+         * @return unit vector in y direction
          */
         [[nodiscard]] static Cartesian yHat() noexcept
         {
@@ -163,7 +163,7 @@ namespace nc::coordinates
         /**
          * @brief z Unit Vector
          *
-         * @returns unit vector in z direction
+         * @return unit vector in z direction
          */
         [[nodiscard]] static Cartesian zHat() noexcept
         {
@@ -197,8 +197,8 @@ namespace nc::coordinates
     /**
      * @brief Addition of two cartesian points
      *
-     * @param: lhs: the left hand side object
-     * @param: rhs: the right hand side object
+     * @param lhs: the left hand side object
+     * @param rhs: the right hand side object
      */
     [[nodiscard]] inline Cartesian operator+(const Cartesian& lhs, const Cartesian& rhs) noexcept
     {
@@ -208,8 +208,8 @@ namespace nc::coordinates
     /**
      * @brief Subtraction of two cartesian points
      *
-     * @param: lhs: the left hand side object
-     * @param: rhs: the right hand side object
+     * @param lhs: the left hand side object
+     * @param rhs: the right hand side object
      */
     [[nodiscard]] inline Cartesian operator-(const Cartesian& lhs, const Cartesian& rhs) noexcept
     {
@@ -219,8 +219,8 @@ namespace nc::coordinates
     /**
      * @brief Dot product of two cartesian points
      *
-     * @param: lhs: the left hand side object
-     * @param: rhs: the right hand side object
+     * @param lhs: the left hand side object
+     * @param rhs: the right hand side object
      */
     [[nodiscard]] inline double operator*(const Cartesian& lhs, const Cartesian& rhs) noexcept
     {
@@ -230,8 +230,8 @@ namespace nc::coordinates
     /**
      * @brief Vector scalar multiplication
      *
-     * @param: scalar: the the scalar value
-     * @param: vec: the cartesian vector
+     * @param scalar: the the scalar value
+     * @param vec: the cartesian vector
      */
     [[nodiscard]] inline Cartesian operator*(double scalar, const Cartesian& vec) noexcept
     {
@@ -241,8 +241,8 @@ namespace nc::coordinates
     /**
      * @brief Vector scalar multiplication
      *
-     * @param: vec: the cartesian vector
-     * @param: scalar: the the scalar value
+     * @param vec: the cartesian vector
+     * @param scalar: the the scalar value
      */
     [[nodiscard]] inline Cartesian operator*(const Cartesian& vec, double scalar) noexcept
     {
@@ -252,8 +252,8 @@ namespace nc::coordinates
     /**
      * @brief Scalar Division a cartesian point
      *
-     * @param: vec: the cartesian vector
-     * @param: denominator: the the scalar value
+     * @param vec: the cartesian vector
+     * @param denominator: the the scalar value
      */
     [[nodiscard]] inline Cartesian operator/(const Cartesian& vec, double denominator) noexcept
     {
@@ -263,8 +263,8 @@ namespace nc::coordinates
     /**
      * @brief Stream operator
      *
-     * @param: os: the output stream
-     * @param: vec: the cartesian vector
+     * @param os: the output stream
+     * @param vec: the cartesian vector
      */
     inline std::ostream& operator<<(std::ostream& os, const Cartesian& vec)
     {
@@ -275,9 +275,9 @@ namespace nc::coordinates
     /**
      * @brief Vector cross product
      *
-     * @param: vec1: cartesian vector
-     * @param: vec2: cartesian vector
-     * @returns: the vector cross product
+     * @param vec1: cartesian vector
+     * @param vec2: cartesian vector
+     * @return: the vector cross product
      */
     [[nodiscard]] inline Cartesian cross(const Cartesian& vec1, const Cartesian& vec2) noexcept
     {
@@ -289,8 +289,8 @@ namespace nc::coordinates
     /**
      * @brief Vector norm
      *
-     * @param: vec: the cartesian vector
-     * @returns: the vector norm
+     * @param vec: the cartesian vector
+     * @return: the vector norm
      */
     [[nodiscard]] inline double norm(const Cartesian& vec) noexcept
     {
@@ -300,8 +300,8 @@ namespace nc::coordinates
     /**
      * @brief normalize the input vector
      *
-     * @param: vec: the cartesian vector
-     * @returns: normalized vector
+     * @param vec: the cartesian vector
+     * @return: normalized vector
      */
     [[nodiscard]] inline Cartesian normalize(const Cartesian& vec) noexcept
     {
@@ -313,7 +313,7 @@ namespace nc::coordinates
      *
      * @param vec1: cartesian vector
      * @param vec2: cartesian vector
-     * @returns unit vector in x direction
+     * @return unit vector in x direction
      */
     [[nodiscard]] inline double angle(const Cartesian& vec1, const Cartesian& vec2) noexcept
     {

@@ -51,9 +51,9 @@ namespace nc::coordinates
         /**
          * @brief Constructor
          *
-         * @param: inRoll: the roll component
-         * @param: inPitch: the pitch component
-         * @param: inYaw: the yaw component
+         * @param inRoll: the roll component
+         * @param inPitch: the pitch component
+         * @param inYaw: the yaw component
          */
         constexpr Orientation(double inRoll, double inPitch, double inYaw) noexcept :
             roll(inRoll),
@@ -65,14 +65,14 @@ namespace nc::coordinates
         /**
          * @brief Copy Constructor
          *
-         * @param: other: the other Orientation instance
+         * @param other: the other Orientation instance
          */
         Orientation(const Orientation& other) noexcept = default;
 
         /**
          * @brief Move Orientation
          *
-         * @param: other: the other Orientation instance
+         * @param other: the other Orientation instance
          */
         Orientation(Orientation&& other) noexcept = default;
 
@@ -84,14 +84,14 @@ namespace nc::coordinates
         /**
          * @brief Copy Assignement Operator
          *
-         * @param: other: the other Orientation instance
+         * @param other: the other Orientation instance
          */
         Orientation& operator=(const Orientation& other) noexcept = default;
 
         /**
          * @brief Move Assignement Operator
          *
-         * @param: other: the other Orientation instance
+         * @param other: the other Orientation instance
          */
         Orientation& operator=(Orientation&& other) noexcept = default;
 
@@ -122,8 +122,8 @@ namespace nc::coordinates
     /**
      * @brief Stream operator
      *
-     * @param: os: the output stream
-     * @param: vec: the cartesian vector
+     * @param os: the output stream
+     * @param orientation: the roll/pitch/yaw angles
      */
     inline std::ostream& operator<<(std::ostream& os, const Orientation& orientation)
     {

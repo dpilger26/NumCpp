@@ -89,8 +89,8 @@ namespace nc::coordinates::reference_frames
     /**
      * @brief Stream operator
      *
-     * @param: os: the output stream
-     * @param: point: the Geocentric point
+     * @param os: the output stream
+     * @param point: the Geocentric point
      */
     inline std::ostream& operator<<(std::ostream& os, const Geocentric& point)
     {

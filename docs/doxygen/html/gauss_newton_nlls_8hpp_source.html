@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.10.1</span>
+                                &#160;<span id="projectnumber">2.11.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -146,7 +146,7 @@ $(document).ready(function(){initNavTree('gauss_newton_nlls_8hpp_source.html',''
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> coordinatesShape = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> coordinatesShape = coordinates.<a class="code" href="classnc_1_1_nd_array.html#aef6445181c6055aab108382af382ba24">shape</a>();</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span> (coordinatesShape.rows != measurements.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>())</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        {</div>
@@ -203,10 +203,10 @@ $(document).ready(function(){initNavTree('gauss_newton_nlls_8hpp_source.html',''
 <div class="ttc" id="a_type_traits_8hpp_html"><div class="ttname"><a href="_type_traits_8hpp.html">TypeTraits.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4415</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a29c62da7ad489f4fc0bc706800820807"><div class="ttname"><a href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807">nc::NdArray::transpose</a></div><div class="ttdeci">self_type transpose() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4775</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4402</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_af03b916770d04f63d82f46110d294cd8"><div class="ttname"><a href="classnc_1_1_nd_array.html#af03b916770d04f63d82f46110d294cd8">nc::NdArray::cSlice</a></div><div class="ttdeci">Slice cSlice(index_type inStartIdx=0, size_type inStepSize=1) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:951</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4477</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a29c62da7ad489f4fc0bc706800820807"><div class="ttname"><a href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807">nc::NdArray::transpose</a></div><div class="ttdeci">self_type transpose() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4837</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_aef6445181c6055aab108382af382ba24"><div class="ttname"><a href="classnc_1_1_nd_array.html#aef6445181c6055aab108382af382ba24">nc::NdArray::shape</a></div><div class="ttdeci">const Shape &amp; shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4464</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_af03b916770d04f63d82f46110d294cd8"><div class="ttname"><a href="classnc_1_1_nd_array.html#af03b916770d04f63d82f46110d294cd8">nc::NdArray::cSlice</a></div><div class="ttdeci">Slice cSlice(index_type inStartIdx=0, size_type inStepSize=1) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:961</div></div>
 <div class="ttc" id="ainv_8hpp_html"><div class="ttname"><a href="inv_8hpp.html">inv.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_1_1linalg_html"><div class="ttname"><a href="namespacenc_1_1linalg.html">nc::linalg</a></div><div class="ttdef"><b>Definition:</b> cholesky.hpp:41</div></div>
 <div class="ttc" id="anamespacenc_1_1linalg_html_ae36553eb100d8f2c2167e8ecadf2a9fc"><div class="ttname"><a href="namespacenc_1_1linalg.html#ae36553eb100d8f2c2167e8ecadf2a9fc">nc::linalg::inv</a></div><div class="ttdeci">NdArray&lt; double &gt; inv(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> inv.hpp:54</div></div>

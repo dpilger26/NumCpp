@@ -179,8 +179,8 @@ namespace nc::polynomial
         // Method Description:
         /// Evaluates the Poly1D object for the input value
         ///
-        /// @param xValues
-        /// @return predicted yValues
+        /// @param xValue
+        /// @return predicted yValue
         ///
         dtype eval(dtype xValue) const noexcept
         {

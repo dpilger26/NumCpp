@@ -90,8 +90,8 @@ namespace nc::coordinates::reference_frames
     /**
      * @brief Stream operator
      *
-     * @param: os: the output stream
-     * @param: point: the LLA point
+     * @param os: the output stream
+     * @param point: the LLA point
      */
     inline std::ostream& operator<<(std::ostream& os, const LLA& point)
     {

@@ -38,8 +38,8 @@ namespace nc
     /**
      * @brief Wrap the input angle to [-pi, pi]
      *
-     * @params: inAngle: in radians
-     * @returns Wrapped angle
+     * @param inAngle: in radians
+     * @return Wrapped angle
      */
     template<typename dtype>
     double wrap(dtype inAngle) noexcept
@@ -58,8 +58,8 @@ namespace nc
     /**
      * @brief Wrap the input angle to [-pi, pi]
      *
-     * @params: inAngles: in radians
-     * @returns Wrapped angles
+     * @param inAngles: in radians
+     * @return Wrapped angles
      */
     template<typename dtype>
     NdArray<double> wrap(const NdArray<dtype>& inAngles) noexcept
