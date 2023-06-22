@@ -1,6 +1,6 @@
 # Release Notes
 
-## Version 2.11.0
+## Version 2.12.0
 
 * fixed Issue #191
 * fixed Issue #194
