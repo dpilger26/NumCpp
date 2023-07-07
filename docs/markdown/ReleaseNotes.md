@@ -2,6 +2,11 @@
 
 ## Version 2.12.0
 
+* added `meanFilter` to `Filters`
+* added `complementaryMeanFilter` to `Filters`
+
+## Version 2.11.0
+
 * fixed Issue #191
 * fixed Issue #194
 * fixed Issue #196

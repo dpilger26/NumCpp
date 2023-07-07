@@ -15,7 +15,55 @@ modes = {
 
 ####################################################################################
 def test_seed():
-    np.random.seed(4)
+    np.random.seed(6)
+
+
+####################################################################################
+def test_complementaryMeanFilter1d():
+    for mode in modes.keys():
+        size = np.random.randint(
+            1000,
+            2000,
+            [
+                1,
+            ],
+        ).item()
+        cShape = NumCpp.Shape(1, size)
+        cArray = NumCpp.NdArray(cShape)
+        data = np.random.randint(
+            100,
+            1000,
+            [
+                size,
+            ],
+        )
+        cArray.setArray(data)
+        kernalSize = 0
+        while kernalSize % 2 == 0:
+            kernalSize = np.random.randint(5, 15)
+        # only actually needed for constant boundary condition
+        constantValue = np.random.randint(
+            0,
+            5,
+            [
+                1,
+            ],
+        ).item()
+        dataOutC = (
+            NumCpp.complementaryMeanFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
+        )
+        dataOutPy = data - ndimage.generic_filter(
+            data.astype(float),
+            np.mean,
+            footprint=np.ones(
+                [
+                    kernalSize,
+                ]
+            ),
+            mode=mode,
+            cval=constantValue,
+        )
+        assert np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8))
 
 
 ####################################################################################
@@ -41,7 +89,7 @@ def test_complementaryMedianFilter1d():
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -98,7 +146,7 @@ def test_convolve1d():
         )
         cWeights = NumCpp.NdArray(1, kernalSize)
         cWeights.setArray(weights)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -135,7 +183,7 @@ def test_gaussianFilter1d():
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         sigma = np.random.rand(1).item() * 2
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -171,7 +219,7 @@ def test_maximumFilter1d():
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -192,6 +240,52 @@ def test_maximumFilter1d():
             cval=constantValue,
         )
         assert np.array_equal(dataOutC, dataOutPy)
+
+
+####################################################################################
+def test_meanFilter1d():
+    for mode in modes.keys():
+        size = np.random.randint(
+            1000,
+            2000,
+            [
+                1,
+            ],
+        ).item()
+        cShape = NumCpp.Shape(1, size)
+        cArray = NumCpp.NdArray(cShape)
+        data = np.random.randint(
+            100,
+            1000,
+            [
+                size,
+            ],
+        )
+        cArray.setArray(data)
+        kernalSize = 0
+        while kernalSize % 2 == 0:
+            kernalSize = np.random.randint(5, 15)
+        # only actually needed for constant boundary condition
+        constantValue = np.random.randint(
+            0,
+            5,
+            [
+                1,
+            ],
+        ).item()
+        dataOutC = NumCpp.meanFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutPy = ndimage.generic_filter(
+            data.astype(float),
+            np.mean,
+            footprint=np.ones(
+                [
+                    kernalSize,
+                ]
+            ),
+            mode=mode,
+            cval=constantValue,
+        )
+        assert np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8))
 
 
 ####################################################################################
@@ -217,7 +311,7 @@ def test_medianFilter1d():
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -263,7 +357,7 @@ def test_minumumFilter1d():
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -316,7 +410,7 @@ def test_percentileFilter1d():
                 1,
             ],
         ).item()
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -374,7 +468,7 @@ def test_rankFilter1d():
                 1,
             ],
         ).item()
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -420,7 +514,7 @@ def test_uniformFilter1d():
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -444,6 +538,44 @@ def test_uniformFilter1d():
 
 
 ####################################################################################
+def test_complementaryMeanFilter():
+    for mode in modes.keys():
+        shape = np.random.randint(
+            100,
+            200,
+            [
+                2,
+            ],
+        ).tolist()
+        cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
+        cArray = NumCpp.NdArray(cShape)
+        data = np.random.randint(100, 1000, shape)  # noqa
+        cArray.setArray(data)
+        kernalSize = 0
+        while kernalSize % 2 == 0:
+            kernalSize = np.random.randint(5, 15)
+        # only actually needed for constant boundary condition
+        constantValue = np.random.randint(
+            0,
+            5,
+            [
+                1,
+            ],
+        ).item()
+        dataOutC = NumCpp.complementaryMeanFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutPy = data - ndimage.generic_filter(
+            data.astype(float),
+            np.mean,
+            footprint=np.ones(
+                [kernalSize, kernalSize],
+            ),
+            mode=mode,
+            cval=constantValue,
+        )
+        assert np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8))
+
+
+####################################################################################
 def test_complementaryMedianFilter():
     for mode in modes.keys():
         shape = np.random.randint(
@@ -460,7 +592,7 @@ def test_complementaryMedianFilter():
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -490,7 +622,7 @@ def test_convolve():
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -520,7 +652,7 @@ def test_gaussianFilter():
         cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape).astype(float)  # noqa
         cArray.setArray(data)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -548,7 +680,7 @@ def test_laplaceFilter():
         cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape).astype(float)  # noqa
         cArray.setArray(data)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -578,7 +710,7 @@ def test_maximumFilter():
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -589,6 +721,44 @@ def test_maximumFilter():
         dataOutC = NumCpp.maximumFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
         dataOutPy = ndimage.maximum_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
+
+
+####################################################################################
+def test_mean_filter():
+    for mode in modes.keys():
+        shape = np.random.randint(
+            100,
+            200,
+            [
+                2,
+            ],
+        ).tolist()
+        cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
+        cArray = NumCpp.NdArray(cShape)
+        data = np.random.randint(100, 1000, shape)  # noqa
+        cArray.setArray(data)
+        kernalSize = 0
+        while kernalSize % 2 == 0:
+            kernalSize = np.random.randint(5, 15)
+        # only actually needed for constant boundary condition
+        constantValue = np.random.randint(
+            0,
+            5,
+            [
+                1,
+            ],
+        ).item()
+        dataOutC = NumCpp.meanFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutPy = ndimage.generic_filter(
+            data.astype(float),
+            np.mean,
+            footprint=np.ones(
+                [kernalSize, kernalSize],
+            ),
+            mode=mode,
+            cval=constantValue,
+        )
+        assert np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8))
 
 
 ####################################################################################
@@ -608,7 +778,7 @@ def test_median_filter():
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -638,7 +808,7 @@ def test_minimum_filter():
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -675,7 +845,7 @@ def test_percentileFilter():
                 1,
             ],
         ).item()
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -712,7 +882,7 @@ def test_rankFilter():
                 1,
             ],
         ).item()
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,
@@ -742,7 +912,7 @@ def test_uniform_filter():
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
-        # only actaully needed for constant boundary condition
+        # only actually needed for constant boundary condition
         constantValue = np.random.randint(
             0,
             5,

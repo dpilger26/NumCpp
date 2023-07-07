@@ -50,7 +50,7 @@ add_executable(${PROJECT_NAME} main.cpp)
 include(FetchContent)
 FetchContent_Declare(NumCpp
         GIT_REPOSITORY https://github.com/dpilger26/NumCpp
-        GIT_TAG Version_2.10.2)
+        GIT_TAG Version_2.12.0)
 FetchContent_MakeAvailable(NumCpp)
 
 target_link_libraries(${PROJECT_NAME}
