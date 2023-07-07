@@ -8846,7 +8846,7 @@ def test_logspace():
     ), f"{np.max(np.abs(np.round(NumCpp.logspace(start, stop, num, True, base).flatten(), 8) - np.round(np.logspace(start=start, stop=stop, num=num, endpoint=True, base=base), 8)))}"
     assert np.array_equal(
         np.round(NumCpp.logspace(start, stop, num, False, base).flatten(), 8),
-        np.round(np.logspace(start=start, stop=stop, num=num, endpoint=False, base=base), 8),
+        np.round(np.logspace(start=start, stop=stop, num=num, endpoint=False, base=base).flatten(), 8),
     )
 
 
