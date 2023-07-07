@@ -115,7 +115,13 @@ def test_constructors():
     cArray = NumCpp.test1dArrayConstructor(values[0].item(), values[1].item())
     assert np.array_equal(cArray.flatten(), values)
 
-    values = np.random.randint(0, 100, [2,]) + 1j * np.random.randint(
+    values = np.random.randint(
+        0,
+        100,
+        [
+            2,
+        ],
+    ) + 1j * np.random.randint(
         0,
         100,
         [
@@ -135,7 +141,13 @@ def test_constructors():
     cArray = NumCpp.test2dArrayConstructor(values[0].item(), values[1].item())
     assert np.array_equal(cArray, np.vstack([values, values]))
 
-    values = np.random.randint(0, 100, [2,]) + 1j * np.random.randint(
+    values = np.random.randint(
+        0,
+        100,
+        [
+            2,
+        ],
+    ) + 1j * np.random.randint(
         0,
         100,
         [
@@ -4614,7 +4626,15 @@ def test_columns():
     array = np.random.randint(0, 100, shapeInput)
     cArray = NumCpp.NdArray(*array.shape)
     cArray.setArray(array)
-    colIndices = np.unique(np.random.randint(0, shapeInput[1], [shapeInput[1] // 4, ])).astype(np.uint32)
+    colIndices = np.unique(
+        np.random.randint(
+            0,
+            shapeInput[1],
+            [
+                shapeInput[1] // 4,
+            ],
+        )
+    ).astype(np.uint32)
     assert np.array_equal(cArray.columns(colIndices), array[:, colIndices])
 
 
@@ -6974,7 +6994,13 @@ def test_put():
     inputIndices = np.arange(start, stop, step).astype(np.int32)
     cIndices = NumCpp.NdArrayInt32(1, inputIndices.size)
     cIndices.setArray(inputIndices)
-    randomValues = np.random.randint(1, 500, [inputIndices.size,]) + 1j * np.random.randint(
+    randomValues = np.random.randint(
+        1,
+        500,
+        [
+            inputIndices.size,
+        ],
+    ) + 1j * np.random.randint(
         1,
         500,
         [
@@ -7240,7 +7266,13 @@ def test_put():
         ],
     ).item()
     inputSlice = NumCpp.Slice(start, stop, step)
-    randomValues = np.random.randint(1, 500, [inputSlice.numElements(cArray.size()),]) + 1j * np.random.randint(
+    randomValues = np.random.randint(
+        1,
+        500,
+        [
+            inputSlice.numElements(cArray.size()),
+        ],
+    ) + 1j * np.random.randint(
         1,
         500,
         [
@@ -10231,7 +10263,13 @@ def test_putMask():
             ],
         ).item()
     )
-    inputValues = np.random.randint(0, 666, [np.count_nonzero(mask),]) + 1j * np.random.randint(
+    inputValues = np.random.randint(
+        0,
+        666,
+        [
+            np.count_nonzero(mask),
+        ],
+    ) + 1j * np.random.randint(
         0,
         666,
         [
@@ -10624,7 +10662,15 @@ def test_rows():
     array = np.random.randint(0, 100, shapeInput)
     cArray = NumCpp.NdArray(*array.shape)
     cArray.setArray(array)
-    rowIndices = np.unique(np.random.randint(0, shapeInput[0], [shapeInput[0] // 4, ])).astype(np.uint32)
+    rowIndices = np.unique(
+        np.random.randint(
+            0,
+            shapeInput[0],
+            [
+                shapeInput[0] // 4,
+            ],
+        )
+    ).astype(np.uint32)
     assert np.array_equal(cArray.rows(rowIndices), array[rowIndices, :])
 
 

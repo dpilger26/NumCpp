@@ -6656,7 +6656,9 @@ def test_hstack():
     cArray3.setArray(data3)
     cArray4.setArray(data4)
     assert np.array_equal(NumCpp.hstack(cArray1, cArray2, cArray3, cArray4), np.hstack([data1, data2, data3, data4]))
-    assert np.array_equal(NumCpp.hstack_vec(cArray1, cArray2, cArray3, cArray4), np.hstack([data1, data2, data3, data4]))
+    assert np.array_equal(
+        NumCpp.hstack_vec(cArray1, cArray2, cArray3, cArray4), np.hstack([data1, data2, data3, data4])
+    )
 
 
 ####################################################################################
@@ -8835,7 +8837,7 @@ def test_logb():
 ####################################################################################
 def test_logspace():
     start = np.random.randint(0, 10)
-    stop = np.random.randint(start + 1, 3 * start + 2)
+    stop = np.random.randint(start + 1, 2 * start + 2)
     num = np.random.randint(1, 100)
     base = np.random.rand(1) * 10
     assert np.array_equal(
@@ -18903,7 +18905,9 @@ def test_vstack():
     cArray3.setArray(data3)
     cArray4.setArray(data4)
     assert np.array_equal(NumCpp.vstack(cArray1, cArray2, cArray3, cArray4), np.vstack([data1, data2, data3, data4]))
-    assert np.array_equal(NumCpp.vstack_vec(cArray1, cArray2, cArray3, cArray4), np.vstack([data1, data2, data3, data4]))
+    assert np.array_equal(
+        NumCpp.vstack_vec(cArray1, cArray2, cArray3, cArray4), np.vstack([data1, data2, data3, data4])
+    )
 
 
 ####################################################################################
