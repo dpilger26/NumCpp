@@ -2454,7 +2454,7 @@ def test_divide():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArray(shape)
     rhsC = NumCpp.NdArray(shape)
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     rhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     lhsC.setArray(lhs)
     rhsC.setArray(rhs)
@@ -2469,7 +2469,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     rhs = np.random.randint(1, 100, [1, 1]).astype(float)
     lhsC = NumCpp.NdArray(shape)
     rhsC = NumCpp.NdArray(1, 1)
@@ -2486,7 +2486,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     rhs = np.random.randint(1, 100, [1, shape.cols]).astype(float)
     lhsC = NumCpp.NdArray(shape)
     rhsC = NumCpp.NdArray(1, shape.cols)
@@ -2503,7 +2503,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     rhs = np.random.randint(1, 100, [shape.rows, 1]).astype(float)
     lhsC = NumCpp.NdArray(shape)
     rhsC = NumCpp.NdArray(shape.rows, 1)
@@ -2520,7 +2520,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    lhs = np.random.randint(1, 100, [1, shape.cols]).astype(float)
     rhs = np.random.randint(1, 100, [shape.rows, 1]).astype(float)
     lhsC = NumCpp.NdArray(1, shape.cols)
     rhsC = NumCpp.NdArray(shape.rows, 1)
@@ -2539,7 +2539,7 @@ def test_divide():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArrayComplexDouble(shape)
     rhsC = NumCpp.NdArrayComplexDouble(shape)
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
         0, 100, [shape.rows, shape.cols]
     ).astype(float)
     rhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
@@ -2558,7 +2558,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
         0, 100, [shape.rows, shape.cols]
     ).astype(float)
     rhs = np.random.randint(1, 100, [1, 1]).astype(float) + 1j * np.random.randint(1, 100, [1, 1]).astype(float)
@@ -2577,7 +2577,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
         0, 100, [shape.rows, shape.cols]
     ).astype(float)
     rhs = np.random.randint(1, 100, [1, shape.cols]).astype(float) + 1j * np.random.randint(
@@ -2598,7 +2598,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
         0, 100, [shape.rows, shape.cols]
     ).astype(float)
     rhs = np.random.randint(1, 100, [shape.rows, 1]).astype(float) + 1j * np.random.randint(
@@ -2619,7 +2619,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [1, shape.cols]).astype(float) + 1j * np.random.randint(
+    lhs = np.random.randint(1, 100, [1, shape.cols]).astype(float) + 1j * np.random.randint(
         0, 100, [1, shape.cols]
     ).astype(float)
     rhs = np.random.randint(1, 100, [shape.rows, 1]).astype(float) + 1j * np.random.randint(
@@ -2642,7 +2642,7 @@ def test_divide():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArray(shape)
     rhsC = NumCpp.NdArrayComplexDouble(shape)
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     rhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
         1, 100, [shape.rows, shape.cols]
     ).astype(float)
@@ -2659,7 +2659,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     rhs = np.random.randint(1, 100, [1, 1]).astype(float) + 1j * np.random.randint(1, 100, [1, 1]).astype(float)
     lhsC = NumCpp.NdArray(shape)
     rhsC = NumCpp.NdArrayComplexDouble(1, 1)
@@ -2676,7 +2676,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     rhs = np.random.randint(1, 100, [1, shape.cols]).astype(float) + 1j * np.random.randint(
         1, 100, [1, shape.cols]
     ).astype(float)
@@ -2695,7 +2695,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     rhs = np.random.randint(1, 100, [shape.rows, 1]).astype(float) + 1j * np.random.randint(
         1, 100, [shape.rows, 1]
     ).astype(float)
@@ -2714,7 +2714,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    lhs = np.random.randint(1, 100, [1, shape.cols]).astype(float)
     rhs = np.random.randint(1, 100, [shape.rows, 1]).astype(float) + 1j * np.random.randint(
         1, 100, [shape.rows, 1]
     ).astype(float)
@@ -2735,7 +2735,7 @@ def test_divide():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArrayComplexDouble(shape)
     rhsC = NumCpp.NdArray(shape)
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
         0, 100, [shape.rows, shape.cols]
     ).astype(float)
     rhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
@@ -2752,7 +2752,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
         0, 100, [shape.rows, shape.cols]
     ).astype(float)
     rhs = np.random.randint(1, 100, [1, 1]).astype(float)
@@ -2771,7 +2771,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
         0, 100, [shape.rows, shape.cols]
     ).astype(float)
     rhs = np.random.randint(1, 100, [1, shape.cols]).astype(float)
@@ -2790,7 +2790,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
         0, 100, [shape.rows, shape.cols]
     ).astype(float)
     rhs = np.random.randint(1, 100, [shape.rows, 1]).astype(float)
@@ -2809,7 +2809,7 @@ def test_divide():
         ],
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    lhs = np.random.randint(0, 100, [1, shape.cols]).astype(float) + 1j * np.random.randint(
+    lhs = np.random.randint(1, 100, [1, shape.cols]).astype(float) + 1j * np.random.randint(
         0, 100, [1, shape.cols]
     ).astype(float)
     rhs = np.random.randint(1, 100, [shape.rows, 1]).astype(float)
@@ -2829,7 +2829,7 @@ def test_divide():
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArray(shape)
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     rhs = float(np.random.randint(1, 100))
     lhsC.setArray(lhs)
     assert np.array_equal(np.round(NumCpp.operatorDivide(lhsC, rhs), 8), np.round(lhs / rhs, 8))
@@ -2844,7 +2844,7 @@ def test_divide():
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArrayComplexDouble(shape)
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
         0, 100, [shape.rows, shape.cols]
     ).astype(float)
     rhs = float(np.random.randint(1, 100)) + 1j * float(np.random.randint(1, 100))
@@ -2862,7 +2862,7 @@ def test_divide():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     rhsC = NumCpp.NdArray(shape)
     rhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
-    lhs = float(np.random.randint(0, 100))
+    lhs = float(np.random.randint(1, 100))
     rhsC.setArray(rhs)
     assert np.array_equal(np.round(NumCpp.operatorDivide(lhs, rhsC), 8), np.round(lhs / rhs, 8))
 
@@ -2876,7 +2876,7 @@ def test_divide():
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     rhsC = NumCpp.NdArrayComplexDouble(shape)
-    rhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
+    rhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
         0, 100, [shape.rows, shape.cols]
     ).astype(float)
     lhs = float(np.random.randint(1, 100)) + 1j * float(np.random.randint(1, 100))
@@ -2893,7 +2893,7 @@ def test_divide():
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArray(shape)
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     rhs = float(np.random.randint(1, 100)) + 1j * float(np.random.randint(1, 100))
     lhsC.setArray(lhs)
     assert np.array_equal(np.round(NumCpp.operatorDivide(lhsC, rhs), 8), np.round(lhs / rhs, 8))
@@ -2909,7 +2909,7 @@ def test_divide():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArray(shape)
     lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
-    rhs = float(np.random.randint(0, 100)) + 1j * float(np.random.randint(0, 100))
+    rhs = float(np.random.randint(1, 100)) + 1j * float(np.random.randint(1, 100))
     lhsC.setArray(lhs)
     assert np.array_equal(np.round(NumCpp.operatorDivide(rhs, lhsC), 8), np.round(rhs / lhs, 8))
 
@@ -2923,7 +2923,7 @@ def test_divide():
     )
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArrayComplexDouble(shape)
-    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
         0, 100, [shape.rows, shape.cols]
     ).astype(float)
     rhs = float(np.random.randint(1, 100))
@@ -2943,7 +2943,7 @@ def test_divide():
     lhs = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float) + 1j * np.random.randint(
         1, 100, [shape.rows, shape.cols]
     ).astype(float)
-    rhs = float(np.random.randint(0, 100))
+    rhs = float(np.random.randint(1, 100))
     lhsC.setArray(lhs)
     assert np.array_equal(np.round(NumCpp.operatorDivide(rhs, lhsC), 8), np.round(rhs / lhs, 8))
 

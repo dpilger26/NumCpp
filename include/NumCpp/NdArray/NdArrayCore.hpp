@@ -285,8 +285,9 @@ namespace nc
             }
             else
             {
-                array_   = inArray.data();
-                ownsPtr_ = false;
+                array_         = inArray.data();
+                ownsPtr_       = false;
+                tookOwnership_ = false;
             }
         }
 
@@ -314,8 +315,9 @@ namespace nc
             }
             else
             {
-                array_   = in2dArray.front().data();
-                ownsPtr_ = false;
+                array_         = in2dArray.front().data();
+                ownsPtr_       = false;
+                tookOwnership_ = false;
             }
         }
 
@@ -342,8 +344,9 @@ namespace nc
             }
             else
             {
-                array_   = inVector.data();
-                ownsPtr_ = false;
+                array_         = inVector.data();
+                ownsPtr_       = false;
+                tookOwnership_ = false;
             }
         }
 
@@ -403,8 +406,9 @@ namespace nc
             }
             else
             {
-                array_   = in2dArray.front().data();
-                ownsPtr_ = false;
+                array_         = in2dArray.front().data();
+                ownsPtr_       = false;
+                tookOwnership_ = false;
             }
         }
 
@@ -553,7 +557,8 @@ namespace nc
             shape_(1, size),
             size_(size),
             array_(inPtr),
-            ownsPtr_(takeOwnership)
+            ownsPtr_(takeOwnership),
+            tookOwnership_(takeOwnership)
         {
         }
 
@@ -573,7 +578,8 @@ namespace nc
             shape_(numRows, numCols),
             size_(numRows * numCols),
             array_(inPtr),
-            ownsPtr_(takeOwnership)
+            ownsPtr_(takeOwnership),
+            tookOwnership_(takeOwnership)
         {
         }
 
@@ -606,11 +612,13 @@ namespace nc
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_),
             array_(inOtherArray.array_),
-            ownsPtr_(inOtherArray.ownsPtr_)
+            ownsPtr_(inOtherArray.ownsPtr_),
+            tookOwnership_(inOtherArray.tookOwnership_)
         {
             inOtherArray.shape_.rows = inOtherArray.shape_.cols = 0;
             inOtherArray.size_                                  = 0;
             inOtherArray.ownsPtr_                               = false;
+            inOtherArray.tookOwnership_                         = false;
             inOtherArray.array_                                 = nullptr;
         }
 
@@ -686,15 +694,17 @@ namespace nc
             if (&rhs != this)
             {
                 deleteArray();
-                shape_     = rhs.shape_;
-                size_      = rhs.size_;
-                endianess_ = rhs.endianess_;
-                array_     = rhs.array_;
-                ownsPtr_   = rhs.ownsPtr_;
+                shape_         = rhs.shape_;
+                size_          = rhs.size_;
+                endianess_     = rhs.endianess_;
+                array_         = rhs.array_;
+                ownsPtr_       = rhs.ownsPtr_;
+                tookOwnership_ = rhs.tookOwnership_;
 
                 rhs.shape_.rows = rhs.shape_.cols = rhs.size_ = 0;
                 rhs.array_                                    = nullptr;
                 rhs.ownsPtr_                                  = false;
+                rhs.tookOwnership_                            = false;
             }
 
             return *this;
@@ -2574,7 +2584,8 @@ namespace nc
         ///
         [[nodiscard]] pointer dataRelease() noexcept
         {
-            ownsPtr_ = false;
+            ownsPtr_       = false;
+            tookOwnership_ = false;
             return data();
         }
 
@@ -4868,6 +4879,7 @@ namespace nc
         Endian         endianess_{ Endian::NATIVE };
         pointer        array_{ nullptr };
         bool           ownsPtr_{ false };
+        bool           tookOwnership_{ false };
 
         //============================================================================
         // Method Description:
@@ -4875,7 +4887,11 @@ namespace nc
         ///
         void deleteArray() noexcept
         {
-            if (ownsPtr_ && array_ != nullptr)
+            if (tookOwnership_ && array_ != nullptr)
+            {
+                delete[] array_;
+            }
+            else if (ownsPtr_ && array_ != nullptr)
             {
                 allocator_.deallocate(array_, size_);
             }
@@ -4884,6 +4900,7 @@ namespace nc
             shape_.rows = shape_.cols = 0;
             size_                     = 0;
             ownsPtr_                  = false;
+            tookOwnership_            = false;
             endianess_                = Endian::NATIVE;
         }
 
@@ -4895,8 +4912,9 @@ namespace nc
         {
             if (size_ > 0)
             {
-                array_   = allocator_.allocate(size_);
-                ownsPtr_ = true;
+                array_         = allocator_.allocate(size_);
+                ownsPtr_       = true;
+                tookOwnership_ = false;
             }
         }
 

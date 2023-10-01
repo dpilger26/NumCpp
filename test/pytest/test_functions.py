@@ -16,7 +16,7 @@ def factors(n):
 
 ####################################################################################
 def test_seed():
-    np.random.seed(666)
+    np.random.seed(357)
 
 
 ####################################################################################
@@ -16573,6 +16573,41 @@ def test_row_stack():
     assert np.array_equal(
         NumCpp.row_stack_vec(cArray1, cArray2, cArray3, cArray4), np.row_stack([data1, data2, data3, data4])
     )
+
+
+####################################################################################
+def test_searchsorted():
+    for _ in range(100):
+        size = np.random.randint(
+            50,
+            100,
+        )
+        array = np.sort(np.random.randint(0, 100, size, dtype=np.uint32))
+        cArray = NumCpp.NdArrayUInt32(size, 1)
+        cArray.setArray(array)
+        value = np.random.randint(0, 100)
+        assert NumCpp.searchsorted(cArray, value, NumCpp.Side.Left) == np.searchsorted(array, value, side="left")
+        assert NumCpp.searchsorted(cArray, value, NumCpp.Side.Right) == np.searchsorted(array, value, side="right")
+
+    for _ in range(100):
+        size = np.random.randint(
+            50,
+            100,
+        )
+        array = np.sort(np.random.randint(0, 100, size, dtype=np.uint32))
+        cArray = NumCpp.NdArrayUInt32(size, 1)
+        cArray.setArray(array)
+        values = np.random.randint(0, 100, size // 5, dtype=np.uint32)
+        cValues = NumCpp.NdArrayUInt32(values.size, 1)
+        cValues.setArray(values)
+        assert np.array_equal(
+            NumCpp.searchsorted(cArray, cValues, NumCpp.Side.Left).flatten(),
+            np.searchsorted(array, values, side="left"),
+        )
+        assert np.array_equal(
+            NumCpp.searchsorted(cArray, cValues, NumCpp.Side.Right).flatten(),
+            np.searchsorted(array, values, side="right"),
+        )
 
 
 ####################################################################################

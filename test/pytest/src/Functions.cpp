@@ -2048,6 +2048,22 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    typename NdArray<dtype>::index_type searchsortedScalar(const NdArray<dtype>& array, dtype value, Side side)
+    {
+        return nc::searchsorted(array, value, side);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric searchsorted(const NdArray<dtype>& array, const NdArray<dtype>& values, Side side)
+    {
+        return nc2pybind(nc::searchsorted(array, values, side));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric
         select(std::vector<pbArray<bool>> condlist, std::vector<pbArray<dtype>> choicelist, dtype defaultValue)
     {
@@ -3721,6 +3737,8 @@ void initFunctions(pb11::module& m)
     m.def("row_stack", &FunctionsInterface::row_stack<double>);
     m.def("row_stack_vec", &FunctionsInterface::row_stack_vec<double>);
 
+    m.def("searchsorted", &FunctionsInterface::searchsortedScalar<uint32>);
+    m.def("searchsorted", &FunctionsInterface::searchsorted<uint32>);
     m.def("select", &FunctionsInterface::select<double>);
     m.def("selectVector", &FunctionsInterface::selectVector<double>);
     m.def("select", &FunctionsInterface::selectInitializerList<double>);
@@ -3867,4 +3885,7 @@ void initFunctions(pb11::module& m)
     m.def("zerosListComplex", &FunctionsInterface::zerosList<ComplexDouble>);
     m.def("zeros_like", &zeros_like<double, double>);
     m.def("zeros_likeComplex", &zeros_like<ComplexDouble, double>);
+
+    // helpers
+    pb11::enum_<Side>(m, "Side").value("Left", Side::Left).value("Right", Side::Right);
 }
