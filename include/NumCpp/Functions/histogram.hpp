@@ -130,11 +130,10 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("number of bins must be positive.");
         }
 
-        constexpr bool        useEndPoint = true;
-        const NdArray<double> binEdges    = linspace(static_cast<double>(inArray.min().item()),
+        const NdArray<double> binEdges = linspace(static_cast<double>(inArray.min().item()),
                                                   static_cast<double>(inArray.max().item()),
                                                   inNumBins + 1,
-                                                  useEndPoint);
+                                                  EndPoint::TRUE);
 
         const auto histo = histogram(inArray, binEdges);
         return std::make_pair(histo, binEdges);

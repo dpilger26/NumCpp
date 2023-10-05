@@ -33,6 +33,7 @@
 #include <thread>
 #include <type_traits>
 
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Types.hpp"
 
 namespace nc
@@ -44,7 +45,7 @@ namespace nc
     {
     public:
         //==============================Typedefs======================================
-        using ChronoClock = std::chrono::high_resolution_clock;
+        using ChronoClock = std::chrono::steady_clock;
         using TimePoint   = std::chrono::time_point<ChronoClock>;
 
         //============================================================================
@@ -105,15 +106,15 @@ namespace nc
         // Method Description:
         /// Stops the timer
         ///
-        /// @param printElapsedTime: bool whether or not to print the elapsed time to
+        /// @param printElapsedTime: whether or not to print the elapsed time to
         /// the console
         /// @return ellapsed time in specified time units
         ///
-        TimeUnit toc(bool printElapsedTime = true)
+        TimeUnit toc(PrintElapsedTime printElapsedTime = PrintElapsedTime::TRUE)
         {
             const auto duration = std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_);
 
-            if (printElapsedTime)
+            if (printElapsedTime == PrintElapsedTime::TRUE)
             {
                 std::cout << name_ << "Elapsed Time = " << duration.count() << unit_ << std::endl;
             }

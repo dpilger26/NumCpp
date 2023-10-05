@@ -30,6 +30,7 @@
 #include <cmath>
 #include <utility>
 
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Functions/fliplr.hpp"
@@ -56,7 +57,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    auto vander(const NdArray<dtype>& x, uint32 n, bool increasing = true)
+    auto vander(const NdArray<dtype>& x, uint32 n, Increasing increasing = Increasing::TRUE)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -69,7 +70,7 @@ namespace nc
             }
         }
 
-        if (!increasing)
+        if (increasing == Increasing::FALSE)
         {
             return fliplr(result);
         }
@@ -94,7 +95,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    auto vander(const NdArray<dtype>& x, bool increasing = true)
+    auto vander(const NdArray<dtype>& x, Increasing increasing = Increasing::TRUE)
     {
         return vander(x, x.size(), increasing);
     }

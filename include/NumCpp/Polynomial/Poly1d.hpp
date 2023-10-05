@@ -35,6 +35,7 @@
 #include <vector>
 
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
@@ -74,7 +75,7 @@ namespace nc::polynomial
         /// polynomial roots if second input is true)
         /// @param isRoots
         ///
-        Poly1d(const NdArray<dtype>& inValues, bool isRoots = false)
+        Poly1d(const NdArray<dtype>& inValues, IsRoots isRoots = IsRoots::FALSE)
         {
             if (inValues.size() > DtypeInfo<uint8>::max())
             {
@@ -82,13 +83,13 @@ namespace nc::polynomial
                                              utils::num2str(DtypeInfo<uint8>::max()));
             }
 
-            if (isRoots)
+            if (isRoots == IsRoots::TRUE)
             {
                 coefficients_.push_back(1);
                 for (auto value : inValues)
                 {
                     NdArray<dtype> coeffs = { -(value), static_cast<dtype>(1) };
-                    *this *= Poly1d<dtype>(coeffs, !isRoots);
+                    *this *= Poly1d<dtype>(coeffs, IsRoots::FALSE);
                 }
             }
             else

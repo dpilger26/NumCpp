@@ -29,6 +29,7 @@
 
 #include <type_traits>
 
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/mean.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -49,15 +50,16 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> cov(const NdArray<dtype>& x, bool bias = false)
+    NdArray<double> cov(const NdArray<dtype>& x, Bias bias = Bias::FALSE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto varMeans            = mean(x, Axis::COL);
-        const auto numVars             = x.numRows();
-        const auto numObs              = x.numCols();
-        const auto normilizationFactor = bias ? static_cast<double>(numObs) : static_cast<double>(numObs - 1);
-        using IndexType                = typename std::remove_const<decltype(numVars)>::type;
+        const auto varMeans = mean(x, Axis::COL);
+        const auto numVars  = x.numRows();
+        const auto numObs   = x.numCols();
+        const auto normilizationFactor =
+            bias == Bias::TRUE ? static_cast<double>(numObs) : static_cast<double>(numObs - 1);
+        using IndexType = typename std::remove_const<decltype(numVars)>::type;
 
         // upper triangle
         auto covariance = NdArray<double>(numVars);

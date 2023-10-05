@@ -58,7 +58,7 @@ namespace nc
 
         NdArray<double> result(1, m);
         int32           i = 0;
-        for (auto n : linspace(0., mDouble - 1., m, true))
+        for (auto n : linspace(0., mDouble - 1., m, EndPoint::TRUE))
         {
             result[i++] = mMinus1Over2Inv * (mMinus1Over2 - std::abs(n - mMinus1Over2));
         }

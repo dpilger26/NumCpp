@@ -63,7 +63,7 @@ namespace nc
 
         NdArray<double> result(1, m);
         int32           i = 0;
-        for (auto n : linspace(-mMinus1Over2, mMinus1Over2, m, true))
+        for (auto n : linspace(-mMinus1Over2, mMinus1Over2, m, EndPoint::TRUE))
         {
             auto value  = beta * std::sqrt(1. - (4. * utils::sqr(n)) / mMinus1Squared);
             result[i++] = special::bessel_in(0, value) / i0Beta;

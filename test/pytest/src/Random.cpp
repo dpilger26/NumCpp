@@ -15,7 +15,7 @@ namespace RandomInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum, bool replace)
+    pbArrayGeneric choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum, Replace replace)
     {
         return nc2pybind(random::choice(inArray, inNum, replace));
     }
@@ -129,7 +129,7 @@ namespace RandomInterface
         //============================================================================
 
         template<typename RNG_t, typename dtype>
-        pbArrayGeneric choiceShape(RNG_t rng, const NdArray<dtype>& inArray, uint32 inNum, bool replace)
+        pbArrayGeneric choiceShape(RNG_t rng, const NdArray<dtype>& inArray, uint32 inNum, Replace replace)
         {
             return nc2pybind(rng.choice(inArray, inNum, replace));
         }

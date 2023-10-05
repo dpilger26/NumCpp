@@ -271,7 +271,7 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayArray1D(dtype inValue1, dtype inValue2)
     {
         std::array<dtype, 2> arr = { inValue1, inValue2 };
-        auto                 a   = asarray(arr, false);
+        auto                 a   = asarray(arr, PointerPolicy::SHELL);
         return nc2pybind<dtype>(a);
     }
 
@@ -281,7 +281,7 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayArray1DCopy(dtype inValue1, dtype inValue2)
     {
         std::array<dtype, 2> arr = { inValue1, inValue2 };
-        auto                 a   = asarray(arr, true);
+        auto                 a   = asarray(arr, PointerPolicy::COPY);
         return nc2pybind<dtype>(a);
     }
 
@@ -296,7 +296,7 @@ namespace FunctionsInterface
             row[0] = inValue1;
             row[1] = inValue2;
         }
-        auto a = asarray(arr, false);
+        auto a = asarray(arr, PointerPolicy::SHELL);
         return nc2pybind<dtype>(a);
     }
 
@@ -311,7 +311,7 @@ namespace FunctionsInterface
             row[0] = inValue1;
             row[1] = inValue2;
         }
-        auto a = asarray(arr, true);
+        auto a = asarray(arr, PointerPolicy::COPY);
         return nc2pybind<dtype>(a);
     }
 
@@ -321,7 +321,7 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayVector1D(dtype inValue1, dtype inValue2)
     {
         std::vector<dtype> arr = { inValue1, inValue2 };
-        auto               a   = asarray(arr, false);
+        auto               a   = asarray(arr, PointerPolicy::SHELL);
         return nc2pybind<dtype>(a);
     }
 
@@ -331,7 +331,7 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayVector1DCopy(dtype inValue1, dtype inValue2)
     {
         std::vector<dtype> arr = { inValue1, inValue2 };
-        auto               a   = asarray(arr, true);
+        auto               a   = asarray(arr, PointerPolicy::COPY);
         return nc2pybind<dtype>(a);
     }
 
@@ -361,7 +361,7 @@ namespace FunctionsInterface
             row[0] = inValue1;
             row[1] = inValue2;
         }
-        auto a = asarray(arr, false);
+        auto a = asarray(arr, PointerPolicy::SHELL);
         return nc2pybind<dtype>(a);
     }
 
@@ -376,7 +376,7 @@ namespace FunctionsInterface
             row[0] = inValue1;
             row[1] = inValue2;
         }
-        auto a = asarray(arr, true);
+        auto a = asarray(arr, PointerPolicy::COPY);
         return nc2pybind<dtype>(a);
     }
 
@@ -445,7 +445,7 @@ namespace FunctionsInterface
         auto ptr = std::make_unique<dtype[]>(2); // NOLINT(modernize-avoid-c-arrays)
         ptr[0]   = inValue1;
         ptr[1]   = inValue2;
-        auto a   = asarray(ptr.release(), uint32{ 2 });
+        auto a   = asarray(ptr.get(), uint32{ 2 });
         return nc2pybind<dtype>(a);
     }
 
@@ -459,7 +459,7 @@ namespace FunctionsInterface
         ptr[1]   = inValue2;
         ptr[2]   = inValue1;
         ptr[3]   = inValue2;
-        auto a   = asarray(ptr.release(), uint32{ 2 }, uint32{ 2 });
+        auto a   = asarray(ptr.get(), uint32{ 2 }, uint32{ 2 });
         return nc2pybind<dtype>(a);
     }
 
@@ -471,7 +471,7 @@ namespace FunctionsInterface
         auto ptr = std::make_unique<dtype[]>(2); // NOLINT(modernize-avoid-c-arrays)
         ptr[0]   = inValue1;
         ptr[1]   = inValue2;
-        auto a   = asarray(ptr.get(), uint32{ 2 }, false);
+        auto a   = asarray(ptr.get(), uint32{ 2 }, PointerPolicy::SHELL);
         return nc2pybind<dtype>(a);
     }
 
@@ -485,7 +485,7 @@ namespace FunctionsInterface
         ptr[1]   = inValue2;
         ptr[2]   = inValue1;
         ptr[3]   = inValue2;
-        auto a   = asarray(ptr.get(), uint32{ 2 }, uint32{ 2 }, false);
+        auto a   = asarray(ptr.get(), uint32{ 2 }, uint32{ 2 }, PointerPolicy::SHELL);
         return nc2pybind<dtype>(a);
     }
 
@@ -497,7 +497,7 @@ namespace FunctionsInterface
         auto ptr = std::make_unique<dtype[]>(2); // NOLINT(modernize-avoid-c-arrays)
         ptr[0]   = inValue1;
         ptr[1]   = inValue2;
-        auto a   = asarray(ptr.release(), 2, true);
+        auto a   = asarray(ptr.get(), 2, PointerPolicy::COPY);
         return nc2pybind<dtype>(a);
     }
 
@@ -511,7 +511,7 @@ namespace FunctionsInterface
         ptr[1]   = inValue2;
         ptr[2]   = inValue1;
         ptr[3]   = inValue2;
-        auto a   = asarray(ptr.release(), 2, 2, true);
+        auto a   = asarray(ptr.get(), 2, 2, PointerPolicy::COPY);
         return nc2pybind<dtype>(a);
     }
 
@@ -878,7 +878,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric cov(pbArray<dtype> x, bool bias)
+    pbArrayGeneric cov(pbArray<dtype> x, Bias bias)
     {
         return nc2pybind(nc::cov(pybind2nc(x), bias));
     }
@@ -886,7 +886,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric cov_inv(pbArray<dtype> x, bool bias)
+    pbArrayGeneric cov_inv(pbArray<dtype> x, Bias bias)
     {
         return nc2pybind(nc::cov_inv(pybind2nc(x), bias));
     }
@@ -1381,7 +1381,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric geomspace(dtype start, dtype stop, uint32 num, bool endPoint)
+    pbArrayGeneric geomspace(dtype start, dtype stop, uint32 num, EndPoint endPoint)
     {
         return nc2pybind(nc::geomspace(start, stop, num, endPoint));
     }
@@ -1784,7 +1784,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric logspace(dtype start, dtype stop, uint32 num, bool endPoint, double base)
+    pbArrayGeneric logspace(dtype start, dtype stop, uint32 num, EndPoint endPoint, double base)
     {
         return nc2pybind(nc::logspace(start, stop, num, endPoint, base));
     }
@@ -3021,7 +3021,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric vander(const NdArray<dtype>& x, bool increasing)
+    pbArrayGeneric vander(const NdArray<dtype>& x, Increasing increasing)
     {
         return nc2pybind(nc::vander(x, increasing));
     }
@@ -3029,7 +3029,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric vander(const NdArray<dtype>& x, uint32 n, bool increasing)
+    pbArrayGeneric vander(const NdArray<dtype>& x, uint32 n, Increasing increasing)
     {
         return nc2pybind(nc::vander(x, n, increasing));
     }
@@ -3843,15 +3843,15 @@ void initFunctions(pb11::module& m)
     m.def("unwrapScalar", &FunctionsInterface::unwrapScalar<double>);
     m.def("unwrapArray", &FunctionsInterface::unwrapArray<double>);
 
-    pbArrayGeneric (*vanderDouble)(const NdArray<double>&, bool increasing) = &FunctionsInterface::vander<double>;
+    pbArrayGeneric (*vanderDouble)(const NdArray<double>&, Increasing increasing) = &FunctionsInterface::vander<double>;
     m.def("vander", vanderDouble);
-    pbArrayGeneric (*vanderComplexDouble)(const NdArray<ComplexDouble>&, bool increasing) =
+    pbArrayGeneric (*vanderComplexDouble)(const NdArray<ComplexDouble>&, Increasing increasing) =
         &FunctionsInterface::vander<ComplexDouble>;
     m.def("vander", vanderComplexDouble);
-    pbArrayGeneric (*vanderNDouble)(const NdArray<double>&, uint32 n, bool increasing) =
+    pbArrayGeneric (*vanderNDouble)(const NdArray<double>&, uint32 n, Increasing increasing) =
         &FunctionsInterface::vander<double>;
     m.def("vander", vanderNDouble);
-    pbArrayGeneric (*vanderNComplexDouble)(const NdArray<ComplexDouble>&, uint32 n, bool increasing) =
+    pbArrayGeneric (*vanderNComplexDouble)(const NdArray<ComplexDouble>&, uint32 n, Increasing increasing) =
         &FunctionsInterface::vander<ComplexDouble>;
     m.def("vander", vanderNComplexDouble);
     NdArray<double> (*varDouble)(const NdArray<double>&, Axis) = &var<double>;
@@ -3885,7 +3885,4 @@ void initFunctions(pb11::module& m)
     m.def("zerosListComplex", &FunctionsInterface::zerosList<ComplexDouble>);
     m.def("zeros_like", &zeros_like<double, double>);
     m.def("zeros_likeComplex", &zeros_like<ComplexDouble, double>);
-
-    // helpers
-    pb11::enum_<Side>(m, "Side").value("Left", Side::Left).value("Right", Side::Right);
 }

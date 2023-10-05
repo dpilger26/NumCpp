@@ -27,6 +27,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Functions/linspace.hpp"
@@ -54,7 +55,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> logspace(dtype start, dtype stop, uint32 num = 50, bool endPoint = true, double base = 10.)
+    NdArray<double>
+        logspace(dtype start, dtype stop, uint32 num = 50, EndPoint endPoint = EndPoint::TRUE, double base = 10.)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

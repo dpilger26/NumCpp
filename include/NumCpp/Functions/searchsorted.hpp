@@ -30,22 +30,12 @@
 #include <algorithm>
 #include <iterator>
 
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
-
-    //============================================================================
-    // Enum Description:
-    /// Right or Left side
-    ///
-    enum class Side
-    {
-        Left,
-        Right
-    };
-
     //============================================================================
     // Method Description:
     /// Find indices where elements should be inserted to maintain order.
@@ -66,17 +56,17 @@ namespace nc
     ///
     template<typename dtype>
     typename NdArray<dtype>::index_type
-        searchsorted(const NdArray<dtype>& inArray, dtype inValue, Side side = Side::Left)
+        searchsorted(const NdArray<dtype>& inArray, dtype inValue, Side side = Side::LEFT)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
         switch (side)
         {
-            case Side::Left:
+            case Side::LEFT:
             {
                 return std::distance(inArray.begin(), std::lower_bound(inArray.begin(), inArray.end(), inValue));
             }
-            case Side::Right:
+            case Side::RIGHT:
             {
                 return std::distance(inArray.begin(), std::upper_bound(inArray.begin(), inArray.end(), inValue));
             }
@@ -106,7 +96,7 @@ namespace nc
     ///
     template<typename dtype>
     NdArray<typename NdArray<dtype>::index_type>
-        searchsorted(const NdArray<dtype>& inArray, const NdArray<dtype>& inValues, Side side = Side::Left)
+        searchsorted(const NdArray<dtype>& inArray, const NdArray<dtype>& inValues, Side side = Side::LEFT)
     {
         NdArray<typename NdArray<dtype>::index_type> indices(1, inValues.size());
         std::transform(inValues.begin(),

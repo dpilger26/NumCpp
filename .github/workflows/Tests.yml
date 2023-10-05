@@ -485,3 +485,79 @@ jobs:
           boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
           cxx_std_version: 20
           numcpp_use_multithread: true
+
+    test_windows_cxx_23_single_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildTestInstall
+        with:
+          numcpp_no_use_boost: OFF
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          cxx_std_version: 23
+          numcpp_use_multithread: false
+
+  test_windows_cxx_23_multi_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildTestInstall
+        with:
+          numcpp_no_use_boost: OFF
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          cxx_std_version: 23
+          numcpp_use_multithread: true
+
+  test_windows_no_boost_cxx_23_single_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildTestInstall
+        with:
+          numcpp_no_use_boost: ON
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          cxx_std_version: 23
+          numcpp_use_multithread: false
+
+  test_windows_no_boost_cxx_23_multi_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildTestInstall
+        with:
+          numcpp_no_use_boost: ON
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          cxx_std_version: 23
+          numcpp_use_multithread: true

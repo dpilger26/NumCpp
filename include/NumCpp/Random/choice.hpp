@@ -29,6 +29,7 @@
 
 #include <algorithm>
 
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -66,15 +67,17 @@ namespace nc::random
         /// @return NdArray
         ///
         template<typename dtype, typename GeneratorType = std::mt19937>
-        NdArray<dtype>
-            choice(GeneratorType& generator, const NdArray<dtype>& inArray, uint32 inNum, bool replace = true)
+        NdArray<dtype> choice(GeneratorType&        generator,
+                              const NdArray<dtype>& inArray,
+                              uint32                inNum,
+                              Replace               replace = Replace::TRUE)
         {
-            if (!replace && inNum > inArray.size())
+            if (replace == Replace::FALSE && inNum > inArray.size())
             {
-                THROW_INVALID_ARGUMENT_ERROR("when 'replace' == false 'inNum' must be <= inArray.size()");
+                THROW_INVALID_ARGUMENT_ERROR("when Replace::FALSE 'inNum' must be <= inArray.size()");
             }
 
-            if (replace)
+            if (replace == Replace::TRUE)
             {
                 NdArray<dtype> outArray(1, inNum);
                 std::for_each(outArray.begin(),
@@ -111,8 +114,8 @@ namespace nc::random
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum, bool replace = true)
+    NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum, Replace replace = Replace::TRUE)
     {
-        return detail::choice(generator_, inArray, inNum, replace = true);
+        return detail::choice(generator_, inArray, inNum, replace);
     }
 } // namespace nc::random

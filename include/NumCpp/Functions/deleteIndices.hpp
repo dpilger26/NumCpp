@@ -295,7 +295,7 @@ namespace nc
             indices.push_back(i);
         }
 
-        return deleteIndices(inArray, NdArray<int32>(indices.data(), indices.size(), false), inAxis);
+        return deleteIndices(inArray, NdArray<int32>(indices.data(), indices.size(), PointerPolicy::SHELL), inAxis);
     }
 
     //============================================================================
