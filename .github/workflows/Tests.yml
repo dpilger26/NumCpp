@@ -486,7 +486,7 @@ jobs:
           cxx_std_version: 20
           numcpp_use_multithread: true
 
-    test_windows_cxx_23_single_thread:
+  test_windows_cxx_23_single_thread:
     runs-on: windows-latest
     steps:
       - name: Checkout
