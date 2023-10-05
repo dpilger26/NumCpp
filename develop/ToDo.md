@@ -1,9 +1,6 @@
 # TODO
 
-## Version 2.12.0
+## Version 2.13.0
 
 * `ImageProcessing`
   * adaptive cfar
-* `Filters`
-  * mean filter
-  * complementary mean filter

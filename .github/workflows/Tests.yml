@@ -158,6 +158,82 @@ jobs:
           numcpp_use_multithread: true
           sudo: sudo
 
+  test_linux_gcc_cxx_23_single_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildTestInstall
+        with:
+          numcpp_no_use_boost: OFF
+          shell: bash -l {0}
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          cxx_std_version: 23
+          numcpp_use_multithread: false
+          sudo: sudo
+
+  test_linux_gcc_cxx_23_multi_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildTestInstall
+        with:
+          numcpp_no_use_boost: OFF
+          shell: bash -l {0}
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          cxx_std_version: 23
+          numcpp_use_multithread: true
+          sudo: sudo
+
+  test_linux_gcc_no_boost_cxx_23_single_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildTestInstall
+        with:
+          numcpp_no_use_boost: ON
+          shell: bash -l {0}
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          cxx_std_version: 23
+          numcpp_use_multithread: false
+          sudo: sudo
+
+  test_linux_gcc_no_boost_cxx_23_multi_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildTestInstall
+        with:
+          numcpp_no_use_boost: ON
+          shell: bash -l {0}
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          cxx_std_version: 23
+          numcpp_use_multithread: true
+          sudo: sudo
+
   test_linux_clang_cxx_17_single_thread:
     runs-on: ubuntu-latest
     steps:
@@ -331,6 +407,94 @@ jobs:
           shell: bash -l {0}
           boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
           cxx_std_version: 20
+          numcpp_use_multithread: true
+          sudo: sudo
+
+  test_linux_clang_cxx_23_single_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildTestInstall
+        env:
+          CC: clang
+          CXX: clang++
+        with:
+          numcpp_no_use_boost: OFF
+          shell: bash -l {0}
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          cxx_std_version: 23
+          numcpp_use_multithread: false
+          sudo: sudo
+
+  test_linux_clang_cxx_23_multi_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildTestInstall
+        env:
+          CC: clang
+          CXX: clang++
+        with:
+          numcpp_no_use_boost: OFF
+          shell: bash -l {0}
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          cxx_std_version: 23
+          numcpp_use_multithread: true
+          sudo: sudo
+
+  test_linux_clang_no_boost_cxx_23_single_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildTestInstall
+        env:
+          CC: clang
+          CXX: clang++
+        with:
+          numcpp_no_use_boost: ON
+          shell: bash -l {0}
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          cxx_std_version: 23
+          numcpp_use_multithread: false
+          sudo: sudo
+
+  test_linux_clang_no_boost_cxx_23_multi_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildTestInstall
+        env:
+          CC: clang
+          CXX: clang++
+        with:
+          numcpp_no_use_boost: ON
+          shell: bash -l {0}
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          cxx_std_version: 23
           numcpp_use_multithread: true
           sudo: sudo
 
