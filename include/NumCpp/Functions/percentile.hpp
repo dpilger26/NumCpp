@@ -155,6 +155,8 @@ namespace nc
                                 return returnArray;
                             }
                         }
+
+                        return {}; // get rid of compiler warning
                     }
                     case InterpolationMethod::MIDPOINT:
                     {
