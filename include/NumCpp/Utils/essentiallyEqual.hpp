@@ -37,6 +37,7 @@
 namespace nc::utils
 {
     //============================================================================
+    // Method Description:
     /// tests that 2 integer values are "essentially equal"
     ///
     /// @param inValue1
@@ -51,6 +52,7 @@ namespace nc::utils
     }
 
     //============================================================================
+    // Method Description:
     /// tests that 2 floating point values are "essentially equal"
     ///
     /// @param inValue1
@@ -68,6 +70,7 @@ namespace nc::utils
     }
 
     //============================================================================
+    // Method Description:
     /// tests that 2 floating point values are "essentially equal"
     ///
     /// @param inValue1

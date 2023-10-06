@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['positive_2927',['POSITIVE',['../classnc_1_1coordinates_1_1reference__frames_1_1_dec.html#afcdc0ed1532a94a817d44eaaa1fc5a9caab6c31432785221bae58327ef5f6ea58',1,'nc::coordinates::reference_frames::Dec']]]
+  ['midpoint_0',['MIDPOINT',['../namespacenc.html#a476f76c3468948fe24d7abf9cd0d650eaafa8fd4b90a3f8123b4bd30446518a7e',1,'nc']]],
+  ['mirror_1',['MIRROR',['../namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6a72a92ae9c1d172cdda196686278fbfc6',1,'nc::filter']]]
 ];

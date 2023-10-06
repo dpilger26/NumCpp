@@ -109,4 +109,11 @@ void initCore(pb11::module &m)
     pb11::enum_<PrintResults>(m, "PrintResults").value("TRUE", PrintResults::TRUE).value("FALSE", PrintResults::FALSE);
 
     pb11::enum_<Side>(m, "Side").value("LEFT", Side::LEFT).value("RIGHT", Side::RIGHT);
+
+    pb11::enum_<InterpolationMethod>(m, "InterpolationMethod")
+        .value("LINEAR", InterpolationMethod::LINEAR)
+        .value("LOWER", InterpolationMethod::LOWER)
+        .value("HIGHER", InterpolationMethod::HIGHER)
+        .value("NEAREST", InterpolationMethod::NEAREST)
+        .value("MIDPOINT", InterpolationMethod::MIDPOINT);
 }

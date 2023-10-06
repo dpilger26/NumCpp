@@ -5,7 +5,7 @@ var classnc_1_1image_processing_1_1_cluster =
     [ "Cluster", "classnc_1_1image_processing_1_1_cluster.html#a9c84aca9710bec5c721fd6a9f94182c3", null ],
     [ "Cluster", "classnc_1_1image_processing_1_1_cluster.html#a73ce20625b5ca5d9e0d872cc8ad885dc", null ],
     [ "addPixel", "classnc_1_1image_processing_1_1_cluster.html#a9cab13be79b63d9151e60a798ca39cb5", null ],
-    [ "at", "classnc_1_1image_processing_1_1_cluster.html#a5a8d82d40cea566786e8f80ad72a6d10", null ],
+    [ "at", "classnc_1_1image_processing_1_1_cluster.html#ac7a1671ccc52ba9ff878a906f037c7f2", null ],
     [ "begin", "classnc_1_1image_processing_1_1_cluster.html#a6e761b470453d5506015b9332b12e4a4", null ],
     [ "clusterId", "classnc_1_1image_processing_1_1_cluster.html#abcc9f76b1d903546a3604ef87795d37e", null ],
     [ "colMax", "classnc_1_1image_processing_1_1_cluster.html#a8c884e5e55d41c09165bca85446edb1f", null ],
@@ -16,7 +16,7 @@ var classnc_1_1image_processing_1_1_cluster =
     [ "intensity", "classnc_1_1image_processing_1_1_cluster.html#abff111af8d260b45e8657507d067eac8", null ],
     [ "operator!=", "classnc_1_1image_processing_1_1_cluster.html#aa023fb6ea06515f18cd629b155f96a2c", null ],
     [ "operator==", "classnc_1_1image_processing_1_1_cluster.html#a8308c5f0313872c9499de36d69d0ff19", null ],
-    [ "operator[]", "classnc_1_1image_processing_1_1_cluster.html#a386b222d5747fc2b77448ea5a56d24e4", null ],
+    [ "operator[]", "classnc_1_1image_processing_1_1_cluster.html#af859b6a7dece380c955836deb1b024b9", null ],
     [ "peakPixelIntensity", "classnc_1_1image_processing_1_1_cluster.html#aab51c1c4539c3824bcdbd20a5db1fd4a", null ],
     [ "print", "classnc_1_1image_processing_1_1_cluster.html#afdb1943f70f28747a1e83b74de984972", null ],
     [ "rowMax", "classnc_1_1image_processing_1_1_cluster.html#a58eea870dca4a5c61cfd4db24ea50267", null ],
@@ -24,5 +24,5 @@ var classnc_1_1image_processing_1_1_cluster =
     [ "size", "classnc_1_1image_processing_1_1_cluster.html#ae89900f4557d6273fc49b330417e324e", null ],
     [ "str", "classnc_1_1image_processing_1_1_cluster.html#aaa1ee55d0c47196847b8bb1a76258bd3", null ],
     [ "width", "classnc_1_1image_processing_1_1_cluster.html#accbfd3dbb32016c0f4234614347d74ce", null ],
-    [ "operator<<", "classnc_1_1image_processing_1_1_cluster.html#a1b1adec296082d83ee2f87484bfe07cb", null ]
+    [ "operator<<", "classnc_1_1image_processing_1_1_cluster.html#a84f695cac046f8fdee8c6abf87b8ff1a", null ]
 ];

@@ -1,7 +1,7 @@
 var fmax_8hpp =
 [
-    [ "fmax", "fmax_8hpp.html#a25474ba9db4e1467d9395c5c9dc20e96", null ],
-    [ "fmax", "fmax_8hpp.html#a44f16ca6bb3077987b120a4effc29302", null ],
-    [ "fmax", "fmax_8hpp.html#a99c7f7c680632be6a42ebd6b923df328", null ],
+    [ "fmax", "fmax_8hpp.html#a74c270817d4d65eb4c9cfd8cab9f4ff9", null ],
+    [ "fmax", "fmax_8hpp.html#a3f52cf2c34f12f54dd0c89152ffb619e", null ],
+    [ "fmax", "fmax_8hpp.html#a385b0eb2a2b01a24655c1056efa0904b", null ],
     [ "fmax", "fmax_8hpp.html#aebbd1fbc64f00fdeaae6c8cfdf6a7f59", null ]
 ];

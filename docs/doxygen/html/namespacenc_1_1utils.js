@@ -13,6 +13,6 @@ var namespacenc_1_1utils =
     [ "power", "namespacenc_1_1utils.html#a716a63ef8627c73f6cc4146481fcabdf", null ],
     [ "powerf", "namespacenc_1_1utils.html#ac113b30b96f9c707c0cbe2eecbabe85f", null ],
     [ "sqr", "namespacenc_1_1utils.html#ae792e10a24b7e5b8291a6c31a28a4512", null ],
-    [ "timeit", "namespacenc_1_1utils.html#a91bb89238269340670593827df9497e1", null ],
+    [ "timeit", "namespacenc_1_1utils.html#a0e4aa605b6e057bd966f9c23ef365c6f", null ],
     [ "value2str", "namespacenc_1_1utils.html#a83530b13c9cc3b01b9bd8b8d3113290a", null ]
 ];

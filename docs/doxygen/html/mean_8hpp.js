@@ -1,5 +1,5 @@
 var mean_8hpp =
 [
-    [ "mean", "mean_8hpp.html#ae215351046b49fec834d006fd35a4078", null ],
-    [ "mean", "mean_8hpp.html#ac0b868e518c5b489ce25b8a84ebc618b", null ]
+    [ "mean", "mean_8hpp.html#a2740b304fc854a6595195dafcf3dcf89", null ],
+    [ "mean", "mean_8hpp.html#a460a2152074d0199190d624122895ef1", null ]
 ];

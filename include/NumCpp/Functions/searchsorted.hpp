@@ -49,7 +49,7 @@ namespace nc
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.searchsorted.html
     ///
     /// @param inArray: the input array
-    /// @param inValues: values to insert into a
+    /// @param inValue: values to insert into a
     /// @param side: If ‘left’, the index of the first suitable location found is given. If ‘right’, return the
     ///              last such index. If there is no suitable index, return either 0 or N (where N is the length of a).
     /// @return Array of insertion points with the same shape as v, or an integer if v is a scalar.

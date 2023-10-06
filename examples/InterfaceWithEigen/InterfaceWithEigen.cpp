@@ -2,6 +2,7 @@
 
 #include <Eigen/Dense>
 #include <iostream>
+#include <vector>
 
 using EigenIntMatrix    = Eigen::Matrix<int, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>;
 using EigenIntMatrixMap = Eigen::Map<EigenIntMatrix>;
@@ -26,11 +27,10 @@ int main()
     auto ncC = ncA + ncB;
 
     // convert the Eigen result back to NumCpp
-    int* dataPtr                                             = new int[eigenC.rows() * eigenC.cols()];
-    EigenIntMatrixMap(dataPtr, eigenC.rows(), eigenC.cols()) = eigenC;
+    auto data                                                    = std::vector<int>(eigenC.rows() * eigenC.cols());
+    EigenIntMatrixMap(data.data(), eigenC.rows(), eigenC.cols()) = eigenC;
 
-    constexpr bool takeOwnership = true;
-    auto           ncCeigen      = nc::NdArray<int>(dataPtr, eigenC.rows(), eigenC.cols(), takeOwnership);
+    auto ncCeigen = nc::NdArray<int>(data.data(), eigenC.rows(), eigenC.cols(), nc::PointerPolicy::SHELL);
 
     // compare the two outputs
     if (nc::array_equal(ncC, ncCeigen))

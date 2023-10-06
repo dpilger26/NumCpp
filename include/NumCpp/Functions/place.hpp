@@ -41,8 +41,7 @@ namespace nc
     /// @param arr: Array to put data into.
     /// @param mask: Boolean mask array. Must have the same size as arr
     /// @param vals: Values to put into a. Only the first N elements are used, where N is the
-    /// number of True values in mask. If vals is smaller than N, it will be repeated.
-    /// @return NdArray
+    ///              number of True values in mask. If vals is smaller than N, it will be repeated.
     ///
     template<typename dtype>
     void place(NdArray<dtype>& arr, const NdArray<bool>& mask, const NdArray<dtype>& vals)

@@ -40,7 +40,6 @@ namespace nc
     ///
     /// @param inArray
     /// @param inFilename
-    /// @return NdArray
     ///
     template<typename dtype>
     void dump(const NdArray<dtype>& inArray, const std::string& inFilename)

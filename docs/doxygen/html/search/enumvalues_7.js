@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wrap_2930',['WRAP',['../namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae1c8555fcf0ea2bb648a6fd527d658c0',1,'nc::filter']]]
+  ['positive_0',['POSITIVE',['../classnc_1_1coordinates_1_1reference__frames_1_1_dec.html#afcdc0ed1532a94a817d44eaaa1fc5a9caab6c31432785221bae58327ef5f6ea58',1,'nc::coordinates::reference_frames::Dec']]]
 ];

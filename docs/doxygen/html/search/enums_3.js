@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['sign_2917',['Sign',['../classnc_1_1coordinates_1_1reference__frames_1_1_dec.html#afcdc0ed1532a94a817d44eaaa1fc5a9c',1,'nc::coordinates::reference_frames::Dec']]]
+  ['increasing_0',['Increasing',['../namespacenc.html#af9055934b0b2245795a4ecbcde6c8ebd',1,'nc']]],
+  ['interpolationmethod_1',['InterpolationMethod',['../namespacenc.html#a476f76c3468948fe24d7abf9cd0d650e',1,'nc']]],
+  ['isroots_2',['IsRoots',['../namespacenc.html#a85b85e03c940a6f01f9d77308a255455',1,'nc']]]
 ];

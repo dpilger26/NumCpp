@@ -13,6 +13,6 @@ var classnc_1_1coordinates_1_1reference__frames_1_1_r_a =
     [ "seconds", "classnc_1_1coordinates_1_1reference__frames_1_1_r_a.html#a7e69bbd865512642dbd6858c24e7aef5", null ],
     [ "seconds_", "classnc_1_1coordinates_1_1reference__frames_1_1_r_a.html#abfb9df0bdeb2d6bafe0520f007b0d38a", null ],
     [ "str", "classnc_1_1coordinates_1_1reference__frames_1_1_r_a.html#ae57aeec394d31a60595d12a67b4eb35c", null ],
-    [ "operator<<", "classnc_1_1coordinates_1_1reference__frames_1_1_r_a.html#aa7b5289b9d14da6e7b4393be2fddfc33", null ],
+    [ "operator<<", "classnc_1_1coordinates_1_1reference__frames_1_1_r_a.html#ac50255fa40f4a7bb7031aefbe77c3070", null ],
     [ "__pad0__", "classnc_1_1coordinates_1_1reference__frames_1_1_r_a.html#aaa4176a8a626138d10330a3a8516304b", null ]
 ];

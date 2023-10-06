@@ -1,6 +1,6 @@
 var stack_8hpp =
 [
-    [ "stack", "stack_8hpp.html#aa742d7b637335a5a5fa65295eb73b62a", null ],
-    [ "stack", "stack_8hpp.html#a1a0f59e4e74eff3ad3a24929d0db406a", null ],
-    [ "stack", "stack_8hpp.html#a4319d5958fe461cfb5cdb9710b0c9f88", null ]
+    [ "stack", "stack_8hpp.html#a24fef48ccdf0d872dc24bd40189c252c", null ],
+    [ "stack", "stack_8hpp.html#abbb3b38779a9d5cc3f473eef1f914057", null ],
+    [ "stack", "stack_8hpp.html#a2d30e8c82521930d506dd08f5cfaf79b", null ]
 ];

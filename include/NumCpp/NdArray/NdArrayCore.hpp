@@ -284,11 +284,13 @@ namespace nc
                     {
                         stl_algorithms::copy(inArray.begin(), inArray.end(), begin());
                     }
+                    break;
                 }
                 case PointerPolicy::SHELL:
                 {
                     array_   = inArray.data();
                     ownsPtr_ = false;
+                    break;
                 }
                 default:
                 {
@@ -320,11 +322,13 @@ namespace nc
                         const auto start = in2dArray.front().begin();
                         stl_algorithms::copy(start, start + size_, begin());
                     }
+                    break;
                 }
                 case PointerPolicy::SHELL:
                 {
                     array_   = in2dArray.front().data();
                     ownsPtr_ = false;
+                    break;
                 }
                 default:
                 {
@@ -354,11 +358,13 @@ namespace nc
                     {
                         stl_algorithms::copy(inVector.begin(), inVector.end(), begin());
                     }
+                    break;
                 }
                 case PointerPolicy::SHELL:
                 {
                     array_   = inVector.data();
                     ownsPtr_ = false;
+                    break;
                 }
                 default:
                 {
@@ -421,11 +427,13 @@ namespace nc
                         const auto start = in2dArray.front().begin();
                         stl_algorithms::copy(start, start + size_, begin());
                     }
+                    break;
                 }
                 case PointerPolicy::SHELL:
                 {
                     array_   = in2dArray.front().data();
                     ownsPtr_ = false;
+                    break;
                 }
                 default:
                 {
@@ -601,11 +609,13 @@ namespace nc
                     {
                         stl_algorithms::copy(inPtr, inPtr + size_, begin());
                     }
+                    break;
                 }
                 case PointerPolicy::SHELL:
                 {
                     array_   = inPtr;
                     ownsPtr_ = false;
+                    break;
                 }
                 default:
                 {
@@ -4696,7 +4706,6 @@ namespace nc
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html
         ///
         /// @param inFilename
-        /// @return None
         ///
         void tofile(const std::string& inFilename) const
         {
@@ -4713,7 +4722,6 @@ namespace nc
         ///
         /// @param inFilename
         /// @param inSep: Separator between array items for text output.
-        /// @return None
         ///
         void tofile(const std::string& inFilename, const char inSep) const
         {

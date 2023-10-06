@@ -1,4 +1,4 @@
 var nanargmin_8hpp =
 [
-    [ "nanargmin", "nanargmin_8hpp.html#a0c69df200cbe88324129ae3c6fc05330", null ]
+    [ "nanargmin", "nanargmin_8hpp.html#a407ce86c3f6d3ad060253dab6360923f", null ]
 ];
