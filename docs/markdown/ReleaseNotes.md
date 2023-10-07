@@ -1,5 +1,7 @@
 # Release Notes
 
+## Version 2.13.0
+
 ## Version 2.12.0
 
 * added `searchsorted()`  for **Issue #202** <https://numpy.org/doc/stable/reference/generated/numpy.searchsorted.html>
