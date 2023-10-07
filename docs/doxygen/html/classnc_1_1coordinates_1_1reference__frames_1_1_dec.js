@@ -17,5 +17,5 @@ var classnc_1_1coordinates_1_1reference__frames_1_1_dec =
     [ "seconds", "classnc_1_1coordinates_1_1reference__frames_1_1_dec.html#adc60c3122b832fa69069e29f1eb97874", null ],
     [ "sign", "classnc_1_1coordinates_1_1reference__frames_1_1_dec.html#a19892475f282e317b626687605a4b8ac", null ],
     [ "str", "classnc_1_1coordinates_1_1reference__frames_1_1_dec.html#a86d558ee10fd72ba329326721607a782", null ],
-    [ "operator<<", "classnc_1_1coordinates_1_1reference__frames_1_1_dec.html#a83e1fb757cb9153e02dcecd2a37976c1", null ]
+    [ "operator<<", "classnc_1_1coordinates_1_1reference__frames_1_1_dec.html#a317a19743e1fea6e9eee82dec9db9c97", null ]
 ];

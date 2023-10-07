@@ -29,6 +29,7 @@
 
 #include <string>
 
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -57,7 +58,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, bool endPoint = true)
+    NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, EndPoint endPoint = EndPoint::TRUE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -77,7 +78,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("stop value must be greater than the start value.");
         }
 
-        if (endPoint)
+        if (endPoint == EndPoint::TRUE)
         {
             if (inNum == 2)
             {

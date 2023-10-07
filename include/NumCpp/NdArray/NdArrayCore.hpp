@@ -47,6 +47,7 @@
 
 #include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/Endian.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
@@ -179,8 +180,8 @@ namespace nc
         /// @param inSquareSize: square number of rows and columns
         ///
         explicit NdArray(size_type inSquareSize) :
-            shape_(inSquareSize, inSquareSize),
-            size_(inSquareSize * inSquareSize)
+            shape_{ inSquareSize, inSquareSize },
+            size_{ inSquareSize * inSquareSize }
         {
             newArray();
         }
@@ -193,8 +194,8 @@ namespace nc
         /// @param inNumCols
         ///
         NdArray(size_type inNumRows, size_type inNumCols) :
-            shape_(inNumRows, inNumCols),
-            size_(inNumRows * inNumCols)
+            shape_{ inNumRows, inNumCols },
+            size_{ inNumRows * inNumCols }
         {
             newArray();
         }
@@ -206,8 +207,8 @@ namespace nc
         /// @param inShape
         ///
         explicit NdArray(const Shape& inShape) :
-            shape_(inShape),
-            size_(shape_.size())
+            shape_{ inShape },
+            size_{ shape_.size() }
         {
             newArray();
         }
@@ -219,8 +220,8 @@ namespace nc
         /// @param inList
         ///
         NdArray(std::initializer_list<dtype> inList) :
-            shape_(1, static_cast<uint32>(inList.size())),
-            size_(shape_.size())
+            shape_{ 1, static_cast<uint32>(inList.size()) },
+            size_{ shape_.size() }
         {
             newArray();
             if (size_ > 0)
@@ -236,7 +237,7 @@ namespace nc
         /// @param inList: 2D initializer list
         ///
         NdArray(const std::initializer_list<std::initializer_list<dtype>>& inList) :
-            shape_(static_cast<uint32>(inList.size()), 0)
+            shape_{ static_cast<uint32>(inList.size()), 0 }
         {
             for (const auto& list : inList)
             {
@@ -267,26 +268,34 @@ namespace nc
         /// Constructor
         ///
         /// @param inArray
-        /// @param copy: (optional) boolean for whether to make a copy and own the data, or
-        /// act as a non-owning shell. Default true.
+        /// @param policy: the policy to use the pointer, copy or non-owning shell. default copy
         ///
         template<size_t ArraySize, std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-        NdArray(std::array<dtype, ArraySize>& inArray, bool copy = true) :
-            shape_(1, static_cast<uint32>(ArraySize)),
-            size_(shape_.size())
+        NdArray(std::array<dtype, ArraySize>& inArray, PointerPolicy policy = PointerPolicy::COPY) :
+            shape_{ 1, static_cast<uint32>(ArraySize) },
+            size_{ shape_.size() }
         {
-            if (copy)
+            switch (policy)
             {
-                newArray();
-                if (size_ > 0)
+                case PointerPolicy::COPY:
                 {
-                    stl_algorithms::copy(inArray.begin(), inArray.end(), begin());
+                    newArray();
+                    if (size_ > 0)
+                    {
+                        stl_algorithms::copy(inArray.begin(), inArray.end(), begin());
+                    }
+                    break;
                 }
-            }
-            else
-            {
-                array_   = inArray.data();
-                ownsPtr_ = false;
+                case PointerPolicy::SHELL:
+                {
+                    array_   = inArray.data();
+                    ownsPtr_ = false;
+                    break;
+                }
+                default:
+                {
+                    THROW_RUNTIME_ERROR("Unimplemented PointerPolicy type");
+                }
             }
         }
 
@@ -295,27 +304,36 @@ namespace nc
         /// Constructor
         ///
         /// @param in2dArray
-        /// @param copy: (optional) boolean for whether to make a copy and own the data, or
-        /// act as a non-owning shell. Default true.
+        /// @param policy: the policy to use the pointer, copy or non-owning shell. default copy
         ///
         template<size_t Dim0Size, size_t Dim1Size>
-        NdArray(std::array<std::array<dtype, Dim1Size>, Dim0Size>& in2dArray, bool copy = true) :
-            shape_(static_cast<uint32>(Dim0Size), static_cast<uint32>(Dim1Size)),
-            size_(shape_.size())
+        NdArray(std::array<std::array<dtype, Dim1Size>, Dim0Size>& in2dArray,
+                PointerPolicy                                      policy = PointerPolicy::COPY) :
+            shape_{ static_cast<uint32>(Dim0Size), static_cast<uint32>(Dim1Size) },
+            size_{ shape_.size() }
         {
-            if (copy)
+            switch (policy)
             {
-                newArray();
-                if (size_ > 0)
+                case PointerPolicy::COPY:
                 {
-                    const auto start = in2dArray.front().begin();
-                    stl_algorithms::copy(start, start + size_, begin());
+                    newArray();
+                    if (size_ > 0)
+                    {
+                        const auto start = in2dArray.front().begin();
+                        stl_algorithms::copy(start, start + size_, begin());
+                    }
+                    break;
                 }
-            }
-            else
-            {
-                array_   = in2dArray.front().data();
-                ownsPtr_ = false;
+                case PointerPolicy::SHELL:
+                {
+                    array_   = in2dArray.front().data();
+                    ownsPtr_ = false;
+                    break;
+                }
+                default:
+                {
+                    THROW_RUNTIME_ERROR("Unimplemented PointerPolicy type");
+                }
             }
         }
 
@@ -324,26 +342,34 @@ namespace nc
         /// Constructor
         ///
         /// @param inVector
-        /// @param copy: (optional) boolean for whether to make a copy and own the data, or
-        /// act as a non-owning shell. Default true.
+        /// @param policy: the policy to use the pointer, copy or non-owning shell. default copy
         ///
         template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-        NdArray(std::vector<dtype>& inVector, bool copy = true) :
-            shape_(1, static_cast<uint32>(inVector.size())),
-            size_(shape_.size())
+        NdArray(std::vector<dtype>& inVector, PointerPolicy policy = PointerPolicy::COPY) :
+            shape_{ 1, static_cast<uint32>(inVector.size()) },
+            size_{ shape_.size() }
         {
-            if (copy)
+            switch (policy)
             {
-                newArray();
-                if (size_ > 0)
+                case PointerPolicy::COPY:
                 {
-                    stl_algorithms::copy(inVector.begin(), inVector.end(), begin());
+                    newArray();
+                    if (size_ > 0)
+                    {
+                        stl_algorithms::copy(inVector.begin(), inVector.end(), begin());
+                    }
+                    break;
                 }
-            }
-            else
-            {
-                array_   = inVector.data();
-                ownsPtr_ = false;
+                case PointerPolicy::SHELL:
+                {
+                    array_   = inVector.data();
+                    ownsPtr_ = false;
+                    break;
+                }
+                default:
+                {
+                    THROW_RUNTIME_ERROR("Unimplemented PointerPolicy type");
+                }
             }
         }
 
@@ -354,7 +380,7 @@ namespace nc
         /// @param in2dVector
         ///
         explicit NdArray(const std::vector<std::vector<dtype>>& in2dVector) :
-            shape_(static_cast<uint32>(in2dVector.size()), 0)
+            shape_{ static_cast<uint32>(in2dVector.size()), 0 }
         {
             for (const auto& row : in2dVector)
             {
@@ -384,27 +410,35 @@ namespace nc
         /// Constructor
         ///
         /// @param in2dArray
-        /// @param copy: (optional) boolean for whether to make a copy and own the data, or
-        /// act as a non-owning shell. Default true.
+        /// @param policy: the policy to use the pointer, copy or non-owning shell. default copy
         ///
         template<size_t Dim1Size>
-        NdArray(std::vector<std::array<dtype, Dim1Size>>& in2dArray, bool copy = true) :
-            shape_(static_cast<uint32>(in2dArray.size()), static_cast<uint32>(Dim1Size)),
-            size_(shape_.size())
+        NdArray(std::vector<std::array<dtype, Dim1Size>>& in2dArray, PointerPolicy policy = PointerPolicy::COPY) :
+            shape_{ static_cast<uint32>(in2dArray.size()), static_cast<uint32>(Dim1Size) },
+            size_{ shape_.size() }
         {
-            if (copy)
+            switch (policy)
             {
-                newArray();
-                if (size_ > 0)
+                case PointerPolicy::COPY:
                 {
-                    const auto start = in2dArray.front().begin();
-                    stl_algorithms::copy(start, start + size_, begin());
+                    newArray();
+                    if (size_ > 0)
+                    {
+                        const auto start = in2dArray.front().begin();
+                        stl_algorithms::copy(start, start + size_, begin());
+                    }
+                    break;
                 }
-            }
-            else
-            {
-                array_   = in2dArray.front().data();
-                ownsPtr_ = false;
+                case PointerPolicy::SHELL:
+                {
+                    array_   = in2dArray.front().data();
+                    ownsPtr_ = false;
+                    break;
+                }
+                default:
+                {
+                    THROW_RUNTIME_ERROR("Unimplemented PointerPolicy type");
+                }
             }
         }
 
@@ -416,8 +450,8 @@ namespace nc
         ///
         template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
         explicit NdArray(const std::deque<dtype>& inDeque) :
-            shape_(1, static_cast<uint32>(inDeque.size())),
-            size_(shape_.size())
+            shape_{ 1, static_cast<uint32>(inDeque.size()) },
+            size_{ shape_.size() }
         {
             newArray();
             if (size_ > 0)
@@ -433,7 +467,7 @@ namespace nc
         /// @param in2dDeque
         ///
         explicit NdArray(const std::deque<std::deque<dtype>>& in2dDeque) :
-            shape_(static_cast<uint32>(in2dDeque.size()), 0)
+            shape_{ static_cast<uint32>(in2dDeque.size()), 0 }
         {
             for (const auto& row : in2dDeque)
             {
@@ -465,8 +499,8 @@ namespace nc
         /// @param inList
         ///
         explicit NdArray(const std::list<dtype>& inList) :
-            shape_(1, static_cast<uint32>(inList.size())),
-            size_(shape_.size())
+            shape_{ 1, static_cast<uint32>(inList.size()) },
+            size_{ shape_.size() }
         {
             newArray();
             if (size_ > 0)
@@ -485,8 +519,8 @@ namespace nc
         template<typename Iterator,
                  std::enable_if_t<std::is_same_v<typename std::iterator_traits<Iterator>::value_type, dtype>, int> = 0>
         NdArray(Iterator inFirst, Iterator inLast) :
-            shape_(1, static_cast<uint32>(std::distance(inFirst, inLast))),
-            size_(shape_.size())
+            shape_{ 1, static_cast<uint32>(std::distance(inFirst, inLast)) },
+            size_{ shape_.size() }
         {
             newArray();
             if (size_ > 0)
@@ -497,39 +531,33 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// Constructor.  Copies the contents of the buffer into
-        /// the array.
+        /// Constructor. Copies the contents of the buffer into the array
         ///
-        /// @param inPtr: const_pointer to beginning of buffer
+        /// @param inPtr: pointer to beginning of buffer
         /// @param size: number of elements in buffer
         ///
-        NdArray(const_pointer inPtr, size_type size) :
-            shape_(1, size),
-            size_(size)
+        template<typename UIntType,
+                 std::enable_if_t<std::is_integral_v<UIntType> && !std::is_same_v<UIntType, bool>, int> = 0>
+        NdArray(const_pointer inPtr, UIntType size) :
+            NdArray(inPtr, 1, size)
         {
-            newArray();
-            if (inPtr != nullptr && size_ > 0)
-            {
-                stl_algorithms::copy(inPtr, inPtr + size_, begin());
-            }
         }
 
         //============================================================================
         // Method Description:
-        /// Constructor.  Copies the contents of the buffer into
-        /// the array.
+        /// Constructor. Copies the contents of the buffer into the array
         ///
-        /// @param inPtr: const_pointer to beginning of buffer
+        /// @param inPtr: pointer to beginning of buffer
         /// @param numRows: number of rows of the buffer
         /// @param numCols: number of cols of the buffer
         ///
         template<typename UIntType1,
                  typename UIntType2,
-                 std::enable_if_t<!std::is_same_v<UIntType1, bool>, int> = 0,
-                 std::enable_if_t<!std::is_same_v<UIntType2, bool>, int> = 0>
+                 std::enable_if_t<std::is_integral_v<UIntType1> && !std::is_same_v<UIntType1, bool>, int> = 0,
+                 std::enable_if_t<std::is_integral_v<UIntType2> && !std::is_same_v<UIntType2, bool>, int> = 0>
         NdArray(const_pointer inPtr, UIntType1 numRows, UIntType2 numCols) :
             shape_(numRows, numCols),
-            size_(shape_.size())
+            size_{ shape_.size() }
         {
             newArray();
             if (inPtr != nullptr && size_ > 0)
@@ -540,41 +568,60 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// Constructor. Operates as a shell around an already existing
-        /// array of data.
+        /// Constructor. Copies the contents of the buffer into the array, or acts as a
+        ///              non-owning shell
         ///
-        /// @param inPtr: pointer to beginning of the array
-        /// @param size: the number of elements in the array
-        /// @param takeOwnership: whether or not to take ownership of the data
-        /// and call delete[] in the destructor.
+        /// @param inPtr: pointer to beginning of buffer
+        /// @param size: number of elements in buffer
+        /// @param policy: the policy to use the pointer, copy or non-owning shell. default copy
         ///
-        template<typename BoolType, std::enable_if_t<std::is_same_v<BoolType, bool>, int> = 0>
-        NdArray(pointer inPtr, size_type size, BoolType takeOwnership) noexcept :
-            shape_(1, size),
-            size_(size),
-            array_(inPtr),
-            ownsPtr_(takeOwnership)
+        template<typename UIntType,
+                 std::enable_if_t<std::is_integral_v<UIntType> && !std::is_same_v<UIntType, bool>, int> = 0>
+        NdArray(pointer inPtr, UIntType size, PointerPolicy policy) :
+            NdArray(inPtr, 1, size, policy)
         {
         }
 
         //============================================================================
         // Method Description:
-        /// Constructor. Operates as a shell around an already existing
-        /// array of data.
+        /// Constructor. Copies the contents of the buffer into the array, or acts as a
+        ///              non-owning shell
         ///
-        /// @param inPtr: pointer to beginning of the array
-        /// @param numRows: the number of rows in the array
-        /// @param numCols: the nubmer of column in the array
-        /// @param takeOwnership: whether or not to take ownership of the data
-        /// and call delete[] in the destructor.
+        /// @param inPtr: pointer to beginning of buffer
+        /// @param numRows: number of rows of the buffer
+        /// @param numCols: number of cols of the buffer
+        /// @param policy: the policy to use the pointer, copy or non-owning shell
         ///
-        template<typename BoolType, std::enable_if_t<std::is_same_v<BoolType, bool>, int> = 0>
-        NdArray(pointer inPtr, size_type numRows, size_type numCols, BoolType takeOwnership) noexcept :
+        template<typename UIntType1,
+                 typename UIntType2,
+                 std::enable_if_t<std::is_integral_v<UIntType1> && !std::is_same_v<UIntType1, bool>, int> = 0,
+                 std::enable_if_t<std::is_integral_v<UIntType2> && !std::is_same_v<UIntType2, bool>, int> = 0>
+        NdArray(pointer inPtr, UIntType1 numRows, UIntType2 numCols, PointerPolicy policy) :
             shape_(numRows, numCols),
-            size_(numRows * numCols),
-            array_(inPtr),
-            ownsPtr_(takeOwnership)
+            size_{ shape_.size() }
         {
+            switch (policy)
+            {
+                case PointerPolicy::COPY:
+                {
+                    newArray();
+                    if (inPtr != nullptr && size_ > 0)
+                    {
+                        stl_algorithms::copy(inPtr, inPtr + size_, begin());
+                    }
+                    break;
+                }
+                case PointerPolicy::SHELL:
+                {
+                    array_   = inPtr;
+                    ownsPtr_ = false;
+                    break;
+                }
+                default:
+                {
+                    THROW_RUNTIME_ERROR("Unimplemented PointerPolicy type");
+                }
+            }
         }
 
         //============================================================================
@@ -584,9 +631,9 @@ namespace nc
         /// @param inOtherArray
         ///
         NdArray(const self_type& inOtherArray) :
-            shape_(inOtherArray.shape_),
-            size_(inOtherArray.size_),
-            endianess_(inOtherArray.endianess_)
+            shape_{ inOtherArray.shape_ },
+            size_{ inOtherArray.size_ },
+            endianess_{ inOtherArray.endianess_ }
         {
             newArray();
             if (size_ > 0)
@@ -602,11 +649,11 @@ namespace nc
         /// @param inOtherArray
         ///
         NdArray(self_type&& inOtherArray) noexcept :
-            shape_(inOtherArray.shape_),
-            size_(inOtherArray.size_),
-            endianess_(inOtherArray.endianess_),
-            array_(inOtherArray.array_),
-            ownsPtr_(inOtherArray.ownsPtr_)
+            shape_{ inOtherArray.shape_ },
+            size_{ inOtherArray.size_ },
+            endianess_{ inOtherArray.endianess_ },
+            array_{ inOtherArray.array_ },
+            ownsPtr_{ inOtherArray.ownsPtr_ }
         {
             inOtherArray.shape_.rows = inOtherArray.shape_.cols = 0;
             inOtherArray.size_                                  = 0;
@@ -3955,7 +4002,7 @@ namespace nc
                                             });
                           });
 
-            return put(NdArray<size_type>(indices.data(), indices.size(), false), inValues);
+            return put(NdArray<size_type>(indices.data(), indices.size(), PointerPolicy::SHELL), inValues);
         }
 
         //============================================================================
@@ -4659,7 +4706,6 @@ namespace nc
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html
         ///
         /// @param inFilename
-        /// @return None
         ///
         void tofile(const std::string& inFilename) const
         {
@@ -4676,7 +4722,6 @@ namespace nc
         ///
         /// @param inFilename
         /// @param inSep: Separator between array items for text output.
-        /// @return None
         ///
         void tofile(const std::string& inFilename, const char inSep) const
         {

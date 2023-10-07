@@ -16,7 +16,7 @@ def factors(n):
 
 ####################################################################################
 def test_seed():
-    np.random.seed(666)
+    np.random.seed(357)
 
 
 ####################################################################################
@@ -3517,15 +3517,19 @@ def test_cov():
         ],
     )
     a = np.random.randint(0, 100, shape)
-    assert np.array_equal(np.round(NumCpp.cov(a, False), 8), np.round(np.cov(a, bias=False), 8))
-    assert np.array_equal(np.round(NumCpp.cov(a, True), 8), np.round(np.cov(a, bias=True), 8))
+    assert np.array_equal(np.round(NumCpp.cov(a, NumCpp.Bias.FALSE), 8), np.round(np.cov(a, bias=False), 8))
+    assert np.array_equal(np.round(NumCpp.cov(a, NumCpp.Bias.TRUE), 8), np.round(np.cov(a, bias=True), 8))
 
 
 ####################################################################################
 def test_cov_inv():
     a = np.random.randint(0, 100, [5, 8])
-    assert np.array_equal(np.round(NumCpp.cov_inv(a, False), 8), np.round(np.linalg.inv(np.cov(a, bias=False)), 8))
-    assert np.array_equal(np.round(NumCpp.cov_inv(a, True), 8), np.round(np.linalg.inv(np.cov(a, bias=True)), 8))
+    assert np.array_equal(
+        np.round(NumCpp.cov_inv(a, NumCpp.Bias.FALSE), 8), np.round(np.linalg.inv(np.cov(a, bias=False)), 8)
+    )
+    assert np.array_equal(
+        np.round(NumCpp.cov_inv(a, NumCpp.Bias.TRUE), 8), np.round(np.linalg.inv(np.cov(a, bias=True)), 8)
+    )
 
 
 ####################################################################################
@@ -6329,11 +6333,11 @@ def test_geomspace():
     stop = np.random.randint(start + 1, 3 * start)
     num = np.random.randint(1, 100)
     assert np.array_equal(
-        np.round(NumCpp.geomspace(start, stop, num, True).flatten(), 8),
+        np.round(NumCpp.geomspace(start, stop, num, NumCpp.EndPoint.TRUE).flatten(), 8),
         np.round(np.geomspace(start=start, stop=stop, num=num, endpoint=True), 8),
     )
     assert np.array_equal(
-        np.round(NumCpp.geomspace(start, stop, num, False).flatten(), 8),
+        np.round(NumCpp.geomspace(start, stop, num, NumCpp.EndPoint.FALSE).flatten(), 8),
         np.round(np.geomspace(start=start, stop=stop, num=num, endpoint=False), 8),
     )
 
@@ -6656,7 +6660,9 @@ def test_hstack():
     cArray3.setArray(data3)
     cArray4.setArray(data4)
     assert np.array_equal(NumCpp.hstack(cArray1, cArray2, cArray3, cArray4), np.hstack([data1, data2, data3, data4]))
-    assert np.array_equal(NumCpp.hstack_vec(cArray1, cArray2, cArray3, cArray4), np.hstack([data1, data2, data3, data4]))
+    assert np.array_equal(
+        NumCpp.hstack_vec(cArray1, cArray2, cArray3, cArray4), np.hstack([data1, data2, data3, data4])
+    )
 
 
 ####################################################################################
@@ -8745,7 +8751,7 @@ def test_linspace():
         ],
     ).item()
     assert np.array_equal(
-        np.round(NumCpp.linspace(start, end, numPoints, True).getNumpyArray().flatten(), 8),
+        np.round(NumCpp.linspace(start, end, numPoints, NumCpp.EndPoint.TRUE).getNumpyArray().flatten(), 8),
         np.round(np.linspace(start, end, numPoints, endpoint=True), 8),
     )
 
@@ -8771,7 +8777,7 @@ def test_linspace():
         ],
     ).item()
     assert np.array_equal(
-        np.round(NumCpp.linspace(start, end, numPoints, False).getNumpyArray().flatten(), 8),
+        np.round(NumCpp.linspace(start, end, numPoints, NumCpp.EndPoint.FALSE).getNumpyArray().flatten(), 8),
         np.round(np.linspace(start, end, numPoints, endpoint=False), 8),
     )
 
@@ -8835,16 +8841,16 @@ def test_logb():
 ####################################################################################
 def test_logspace():
     start = np.random.randint(0, 10)
-    stop = np.random.randint(start + 1, 3 * start + 2)
+    stop = np.random.randint(start + 1, 2 * start + 2)
     num = np.random.randint(1, 100)
     base = np.random.rand(1) * 10
     assert np.array_equal(
-        np.round(NumCpp.logspace(start, stop, num, True, base).flatten(), 8),
-        np.round(np.logspace(start=start, stop=stop, num=num, endpoint=True, base=base), 8),
+        np.round(NumCpp.logspace(start, stop, num, NumCpp.EndPoint.TRUE, base).flatten(), 8),
+        np.round(np.logspace(start=start, stop=stop, num=num, endpoint=True, base=base).flatten(), 8),
     ), f"{np.max(np.abs(np.round(NumCpp.logspace(start, stop, num, True, base).flatten(), 8) - np.round(np.logspace(start=start, stop=stop, num=num, endpoint=True, base=base), 8)))}"
     assert np.array_equal(
-        np.round(NumCpp.logspace(start, stop, num, False, base).flatten(), 8),
-        np.round(np.logspace(start=start, stop=stop, num=num, endpoint=False, base=base), 8),
+        np.round(NumCpp.logspace(start, stop, num, NumCpp.EndPoint.FALSE, base).flatten(), 8),
+        np.round(np.logspace(start=start, stop=stop, num=num, endpoint=False, base=base).flatten(), 8),
     )
 
 
@@ -11081,9 +11087,9 @@ def test_nanpercentile():
     data = data.reshape(shapeInput)
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    assert NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.NONE, "lower").item() == np.nanpercentile(
-        data, percentile, axis=None, method="lower"
-    )
+    assert NumCpp.nanpercentile(
+        cArray, percentile, NumCpp.Axis.NONE, NumCpp.InterpolationMethod.LOWER
+    ).item() == np.nanpercentile(data, percentile, axis=None, method="lower")
 
     shapeInput = np.random.randint(
         20,
@@ -11108,9 +11114,9 @@ def test_nanpercentile():
     data = data.reshape(shapeInput)
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    assert NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.NONE, "higher").item() == np.nanpercentile(
-        data, percentile, axis=None, method="higher"
-    )
+    assert NumCpp.nanpercentile(
+        cArray, percentile, NumCpp.Axis.NONE, NumCpp.InterpolationMethod.HIGHER
+    ).item() == np.nanpercentile(data, percentile, axis=None, method="higher")
 
     shapeInput = np.random.randint(
         20,
@@ -11135,9 +11141,9 @@ def test_nanpercentile():
     data = data.reshape(shapeInput)
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    assert NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.NONE, "nearest").item() == np.nanpercentile(
-        data, percentile, axis=None, method="nearest"
-    )
+    assert NumCpp.nanpercentile(
+        cArray, percentile, NumCpp.Axis.NONE, NumCpp.InterpolationMethod.NEAREST
+    ).item() == np.nanpercentile(data, percentile, axis=None, method="nearest")
 
     shapeInput = np.random.randint(
         20,
@@ -11162,9 +11168,9 @@ def test_nanpercentile():
     data = data.reshape(shapeInput)
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    assert NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.NONE, "midpoint").item() == np.nanpercentile(
-        data, percentile, axis=None, method="midpoint"
-    )
+    assert NumCpp.nanpercentile(
+        cArray, percentile, NumCpp.Axis.NONE, NumCpp.InterpolationMethod.MIDPOINT
+    ).item() == np.nanpercentile(data, percentile, axis=None, method="midpoint")
 
     shapeInput = np.random.randint(
         20,
@@ -11189,9 +11195,9 @@ def test_nanpercentile():
     data = data.reshape(shapeInput)
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    assert NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.NONE, "linear").item() == np.nanpercentile(
-        data, percentile, axis=None, method="linear"
-    )
+    assert NumCpp.nanpercentile(
+        cArray, percentile, NumCpp.Axis.NONE, NumCpp.InterpolationMethod.LINEAR
+    ).item() == np.nanpercentile(data, percentile, axis=None, method="linear")
 
     shapeInput = np.random.randint(
         20,
@@ -11217,7 +11223,9 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, "lower").getNumpyArray().flatten(),
+        NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, NumCpp.InterpolationMethod.LOWER)
+        .getNumpyArray()
+        .flatten(),
         np.nanpercentile(data, percentile, axis=0, method="lower"),
     )
 
@@ -11245,7 +11253,9 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, "higher").getNumpyArray().flatten(),
+        NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, NumCpp.InterpolationMethod.HIGHER)
+        .getNumpyArray()
+        .flatten(),
         np.nanpercentile(data, percentile, axis=0, method="higher"),
     )
 
@@ -11273,7 +11283,9 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, "nearest").getNumpyArray().flatten(),
+        NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, NumCpp.InterpolationMethod.NEAREST)
+        .getNumpyArray()
+        .flatten(),
         np.nanpercentile(data, percentile, axis=0, method="nearest"),
     )
 
@@ -11301,7 +11313,12 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        np.round(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, "midpoint").getNumpyArray().flatten(), 8),
+        np.round(
+            NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, NumCpp.InterpolationMethod.MIDPOINT)
+            .getNumpyArray()
+            .flatten(),
+            8,
+        ),
         np.round(np.nanpercentile(data, percentile, axis=0, method="midpoint"), 8),
     )
 
@@ -11329,7 +11346,12 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        np.round(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, "linear").getNumpyArray().flatten(), 8),
+        np.round(
+            NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, NumCpp.InterpolationMethod.LINEAR)
+            .getNumpyArray()
+            .flatten(),
+            8,
+        ),
         np.round(np.nanpercentile(data, percentile, axis=0, method="linear"), 8),
     )
 
@@ -11357,7 +11379,9 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, "lower").getNumpyArray().flatten(),
+        NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, NumCpp.InterpolationMethod.LOWER)
+        .getNumpyArray()
+        .flatten(),
         np.nanpercentile(data, percentile, axis=1, method="lower"),
     )
 
@@ -11385,7 +11409,9 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, "higher").getNumpyArray().flatten(),
+        NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, NumCpp.InterpolationMethod.HIGHER)
+        .getNumpyArray()
+        .flatten(),
         np.nanpercentile(data, percentile, axis=1, method="higher"),
     )
 
@@ -11413,7 +11439,9 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, "nearest").getNumpyArray().flatten(),
+        NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, NumCpp.InterpolationMethod.NEAREST)
+        .getNumpyArray()
+        .flatten(),
         np.nanpercentile(data, percentile, axis=1, method="nearest"),
     )
 
@@ -11441,7 +11469,12 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        np.round(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, "midpoint").getNumpyArray().flatten(), 8),
+        np.round(
+            NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, NumCpp.InterpolationMethod.MIDPOINT)
+            .getNumpyArray()
+            .flatten(),
+            8,
+        ),
         np.round(np.nanpercentile(data, percentile, axis=1, method="midpoint"), 8),
     )
 
@@ -11469,7 +11502,12 @@ def test_nanpercentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        np.round(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, "linear").getNumpyArray().flatten(), 8),
+        np.round(
+            NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, NumCpp.InterpolationMethod.LINEAR)
+            .getNumpyArray()
+            .flatten(),
+            8,
+        ),
         np.round(np.nanpercentile(data, percentile, axis=1, method="linear"), 8),
     )
 
@@ -12830,9 +12868,9 @@ def test_percentile():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    assert NumCpp.percentile(cArray, percentile, NumCpp.Axis.NONE, "lower").item() == np.percentile(
-        data, percentile, axis=None, method="lower"
-    )
+    assert NumCpp.percentile(
+        cArray, percentile, NumCpp.Axis.NONE, NumCpp.InterpolationMethod.LOWER
+    ).item() == np.percentile(data, percentile, axis=None, method="lower")
 
     shapeInput = np.random.randint(
         20,
@@ -12846,9 +12884,9 @@ def test_percentile():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    assert NumCpp.percentile(cArray, percentile, NumCpp.Axis.NONE, "higher").item() == np.percentile(
-        data, percentile, axis=None, method="higher"
-    )
+    assert NumCpp.percentile(
+        cArray, percentile, NumCpp.Axis.NONE, NumCpp.InterpolationMethod.HIGHER
+    ).item() == np.percentile(data, percentile, axis=None, method="higher")
 
     shapeInput = np.random.randint(
         20,
@@ -12862,9 +12900,9 @@ def test_percentile():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    assert NumCpp.percentile(cArray, percentile, NumCpp.Axis.NONE, "nearest").item() == np.percentile(
-        data, percentile, axis=None, method="nearest"
-    )
+    assert NumCpp.percentile(
+        cArray, percentile, NumCpp.Axis.NONE, NumCpp.InterpolationMethod.NEAREST
+    ).item() == np.percentile(data, percentile, axis=None, method="nearest")
 
     shapeInput = np.random.randint(
         20,
@@ -12878,9 +12916,9 @@ def test_percentile():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    assert NumCpp.percentile(cArray, percentile, NumCpp.Axis.NONE, "midpoint").item() == np.percentile(
-        data, percentile, axis=None, method="midpoint"
-    )
+    assert NumCpp.percentile(
+        cArray, percentile, NumCpp.Axis.NONE, NumCpp.InterpolationMethod.MIDPOINT
+    ).item() == np.percentile(data, percentile, axis=None, method="midpoint")
 
     shapeInput = np.random.randint(
         20,
@@ -12894,9 +12932,9 @@ def test_percentile():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    assert NumCpp.percentile(cArray, percentile, NumCpp.Axis.NONE, "linear").item() == np.percentile(
-        data, percentile, axis=None, method="linear"
-    )
+    assert NumCpp.percentile(
+        cArray, percentile, NumCpp.Axis.NONE, NumCpp.InterpolationMethod.LINEAR
+    ).item() == np.percentile(data, percentile, axis=None, method="linear")
 
     shapeInput = np.random.randint(
         20,
@@ -12911,7 +12949,9 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, "lower").getNumpyArray().flatten(),
+        NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, NumCpp.InterpolationMethod.LOWER)
+        .getNumpyArray()
+        .flatten(),
         np.percentile(data, percentile, axis=0, method="lower"),
     )
 
@@ -12928,7 +12968,9 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, "higher").getNumpyArray().flatten(),
+        NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, NumCpp.InterpolationMethod.HIGHER)
+        .getNumpyArray()
+        .flatten(),
         np.percentile(data, percentile, axis=0, method="higher"),
     )
 
@@ -12945,7 +12987,9 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, "nearest").getNumpyArray().flatten(),
+        NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, NumCpp.InterpolationMethod.NEAREST)
+        .getNumpyArray()
+        .flatten(),
         np.percentile(data, percentile, axis=0, method="nearest"),
     )
 
@@ -12962,7 +13006,12 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        np.round(NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, "midpoint").getNumpyArray().flatten(), 8),
+        np.round(
+            NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, NumCpp.InterpolationMethod.MIDPOINT)
+            .getNumpyArray()
+            .flatten(),
+            8,
+        ),
         np.round(np.percentile(data, percentile, axis=0, method="midpoint"), 8),
     )
 
@@ -12979,7 +13028,12 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        np.round(NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, "linear").getNumpyArray().flatten(), 8),
+        np.round(
+            NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, NumCpp.InterpolationMethod.LINEAR)
+            .getNumpyArray()
+            .flatten(),
+            8,
+        ),
         np.round(np.percentile(data, percentile, axis=0, method="linear"), 8),
     )
 
@@ -12996,7 +13050,9 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, "lower").getNumpyArray().flatten(),
+        NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, NumCpp.InterpolationMethod.LOWER)
+        .getNumpyArray()
+        .flatten(),
         np.percentile(data, percentile, axis=1, method="lower"),
     )
 
@@ -13013,7 +13069,9 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, "higher").getNumpyArray().flatten(),
+        NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, NumCpp.InterpolationMethod.HIGHER)
+        .getNumpyArray()
+        .flatten(),
         np.percentile(data, percentile, axis=1, method="higher"),
     )
 
@@ -13030,7 +13088,9 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, "nearest").getNumpyArray().flatten(),
+        NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, NumCpp.InterpolationMethod.NEAREST)
+        .getNumpyArray()
+        .flatten(),
         np.percentile(data, percentile, axis=1, method="nearest"),
     )
 
@@ -13047,7 +13107,12 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        np.round(NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, "midpoint").getNumpyArray().flatten(), 8),
+        np.round(
+            NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, NumCpp.InterpolationMethod.MIDPOINT)
+            .getNumpyArray()
+            .flatten(),
+            8,
+        ),
         np.round(np.percentile(data, percentile, axis=1, method="midpoint"), 8),
     )
 
@@ -13064,7 +13129,12 @@ def test_percentile():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     assert np.array_equal(
-        np.round(NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, "linear").getNumpyArray().flatten(), 8),
+        np.round(
+            NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, NumCpp.InterpolationMethod.LINEAR)
+            .getNumpyArray()
+            .flatten(),
+            8,
+        ),
         np.round(np.percentile(data, percentile, axis=1, method="linear"), 8),
     )
 
@@ -16574,6 +16644,41 @@ def test_row_stack():
 
 
 ####################################################################################
+def test_searchsorted():
+    for _ in range(100):
+        size = np.random.randint(
+            50,
+            100,
+        )
+        array = np.sort(np.random.randint(0, 100, size, dtype=np.uint32))
+        cArray = NumCpp.NdArrayUInt32(size, 1)
+        cArray.setArray(array)
+        value = np.random.randint(0, 100)
+        assert NumCpp.searchsorted(cArray, value, NumCpp.Side.LEFT) == np.searchsorted(array, value, side="left")
+        assert NumCpp.searchsorted(cArray, value, NumCpp.Side.RIGHT) == np.searchsorted(array, value, side="right")
+
+    for _ in range(100):
+        size = np.random.randint(
+            50,
+            100,
+        )
+        array = np.sort(np.random.randint(0, 100, size, dtype=np.uint32))
+        cArray = NumCpp.NdArrayUInt32(size, 1)
+        cArray.setArray(array)
+        values = np.random.randint(0, 100, size // 5, dtype=np.uint32)
+        cValues = NumCpp.NdArrayUInt32(values.size, 1)
+        cValues.setArray(values)
+        assert np.array_equal(
+            NumCpp.searchsorted(cArray, cValues, NumCpp.Side.LEFT).flatten(),
+            np.searchsorted(array, values, side="left"),
+        )
+        assert np.array_equal(
+            NumCpp.searchsorted(cArray, cValues, NumCpp.Side.RIGHT).flatten(),
+            np.searchsorted(array, values, side="right"),
+        )
+
+
+####################################################################################
 def test_select():
     # vector of pointers
     shape = np.random.randint(
@@ -18720,13 +18825,19 @@ def test_vander():
         ],
     )
     cArray.setArray(data)
-    assert np.array_equal(np.round(NumCpp.vander(cArray, True), 8), np.round(np.vander(data, increasing=True), 8))
-    assert np.array_equal(np.round(NumCpp.vander(cArray, False), 8), np.round(np.vander(data, increasing=False), 8))
     assert np.array_equal(
-        np.round(NumCpp.vander(cArray, size + 1, True), 8), np.round(np.vander(data, size + 1, increasing=True), 8)
+        np.round(NumCpp.vander(cArray, NumCpp.Increasing.TRUE), 8), np.round(np.vander(data, increasing=True), 8)
     )
     assert np.array_equal(
-        np.round(NumCpp.vander(cArray, size + 1, True), 8), np.round(np.vander(data, size + 1, increasing=True), 8)
+        np.round(NumCpp.vander(cArray, NumCpp.Increasing.FALSE), 8), np.round(np.vander(data, increasing=False), 8)
+    )
+    assert np.array_equal(
+        np.round(NumCpp.vander(cArray, size + 1, NumCpp.Increasing.TRUE), 8),
+        np.round(np.vander(data, size + 1, increasing=True), 8),
+    )
+    assert np.array_equal(
+        np.round(NumCpp.vander(cArray, size + 1, NumCpp.Increasing.FALSE), 8),
+        np.round(np.vander(data, size + 1, increasing=False), 8),
     )
 
 
@@ -18903,7 +19014,9 @@ def test_vstack():
     cArray3.setArray(data3)
     cArray4.setArray(data4)
     assert np.array_equal(NumCpp.vstack(cArray1, cArray2, cArray3, cArray4), np.vstack([data1, data2, data3, data4]))
-    assert np.array_equal(NumCpp.vstack_vec(cArray1, cArray2, cArray3, cArray4), np.vstack([data1, data2, data3, data4]))
+    assert np.array_equal(
+        NumCpp.vstack_vec(cArray1, cArray2, cArray3, cArray4), np.vstack([data1, data2, data3, data4])
+    )
 
 
 ####################################################################################

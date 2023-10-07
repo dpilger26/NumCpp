@@ -52,6 +52,47 @@ PYBIND11_WARNING_DISABLE_MSVC(4127)
 
 PYBIND11_NAMESPACE_BEGIN(detail)
 
+inline std::string replace_newlines_and_squash(const char *text) {
+    const char *whitespaces = " \t\n\r\f\v";
+    std::string result(text);
+    bool previous_is_whitespace = false;
+
+    if (result.size() >= 2) {
+        // Do not modify string representations
+        char first_char = result[0];
+        char last_char = result[result.size() - 1];
+        if (first_char == last_char && first_char == '\'') {
+            return result;
+        }
+    }
+    result.clear();
+
+    // Replace characters in whitespaces array with spaces and squash consecutive spaces
+    while (*text != '\0') {
+        if (std::strchr(whitespaces, *text)) {
+            if (!previous_is_whitespace) {
+                result += ' ';
+                previous_is_whitespace = true;
+            }
+        } else {
+            result += *text;
+            previous_is_whitespace = false;
+        }
+        ++text;
+    }
+
+    // Strip leading and trailing whitespaces
+    const size_t str_begin = result.find_first_not_of(whitespaces);
+    if (str_begin == std::string::npos) {
+        return "";
+    }
+
+    const size_t str_end = result.find_last_not_of(whitespaces);
+    const size_t str_range = str_end - str_begin + 1;
+
+    return result.substr(str_begin, str_range);
+}
+
 // Apply all the extensions translators from a list
 // Return true if one of the translators completed without raising an exception
 // itself. Return of false indicates that if there are other translators
@@ -84,6 +125,7 @@ public:
     cpp_function() = default;
     // NOLINTNEXTLINE(google-explicit-constructor)
     cpp_function(std::nullptr_t) {}
+    cpp_function(std::nullptr_t, const is_setter &) {}
 
     /// Construct a cpp_function from a vanilla function pointer
     template <typename Return, typename... Args, typename... Extra>
@@ -244,10 +286,16 @@ protected:
             using Guard = extract_guard_t<Extra...>;
 
             /* Perform the function call */
-            handle result
-                = cast_out::cast(std::move(args_converter).template call<Return, Guard>(cap->f),
-                                 policy,
-                                 call.parent);
+            handle result;
+            if (call.func.is_setter) {
+                (void) std::move(args_converter).template call<Return, Guard>(cap->f);
+                result = none().release();
+            } else {
+                result = cast_out::cast(
+                    std::move(args_converter).template call<Return, Guard>(cap->f),
+                    policy,
+                    call.parent);
+            }
 
             /* Invoke call policy post-call hook */
             process_attributes<Extra...>::postcall(call, result);
@@ -417,7 +465,7 @@ protected:
                 // Write default value if available.
                 if (!is_starred && arg_index < rec->args.size() && rec->args[arg_index].descr) {
                     signature += " = ";
-                    signature += rec->args[arg_index].descr;
+                    signature += detail::replace_newlines_and_squash(rec->args[arg_index].descr);
                 }
                 // Separator for positional-only arguments (placed after the
                 // argument, rather than before like *
@@ -501,8 +549,8 @@ protected:
             rec->def->ml_flags = METH_VARARGS | METH_KEYWORDS;
 
             capsule rec_capsule(unique_rec.release(),
+                                detail::get_function_record_capsule_name(),
                                 [](void *ptr) { destruct((detail::function_record *) ptr); });
-            rec_capsule.set_name(detail::get_function_record_capsule_name());
             guarded_strdup.release();
 
             object scope_module;
@@ -673,7 +721,7 @@ protected:
         /* Iterator over the list of potentially admissible overloads */
         const function_record *overloads = reinterpret_cast<function_record *>(
                                   PyCapsule_GetPointer(self, get_function_record_capsule_name())),
-                              *it = overloads;
+                              *current_overload = overloads;
         assert(overloads != nullptr);
 
         /* Need to know how many arguments + keyword arguments there are to pick the right
@@ -687,9 +735,8 @@ protected:
         if (overloads->is_constructor) {
             if (!parent
                 || !PyObject_TypeCheck(parent.ptr(), (PyTypeObject *) overloads->scope.ptr())) {
-                PyErr_SetString(
-                    PyExc_TypeError,
-                    "__init__(self, ...) called with invalid or missing `self` argument");
+                set_error(PyExc_TypeError,
+                          "__init__(self, ...) called with invalid or missing `self` argument");
                 return nullptr;
             }
 
@@ -712,9 +759,10 @@ protected:
             std::vector<function_call> second_pass;
 
             // However, if there are no overloads, we can just skip the no-convert pass entirely
-            const bool overloaded = it != nullptr && it->next != nullptr;
+            const bool overloaded
+                = current_overload != nullptr && current_overload->next != nullptr;
 
-            for (; it != nullptr; it = it->next) {
+            for (; current_overload != nullptr; current_overload = current_overload->next) {
 
                 /* For each overload:
                    1. Copy all positional arguments we were given, also checking to make sure that
@@ -735,7 +783,7 @@ protected:
                    a result other than PYBIND11_TRY_NEXT_OVERLOAD.
                  */
 
-                const function_record &func = *it;
+                const function_record &func = *current_overload;
                 size_t num_args = func.nargs; // Number of positional arguments that we need
                 if (func.has_args) {
                     --num_args; // (but don't count py::args
@@ -973,10 +1021,10 @@ protected:
                     }
 
                     if (result.ptr() != PYBIND11_TRY_NEXT_OVERLOAD) {
-                        // The error reporting logic below expects 'it' to be valid, as it would be
-                        // if we'd encountered this failure in the first-pass loop.
+                        // The error reporting logic below expects 'current_overload' to be valid,
+                        // as it would be if we'd encountered this failure in the first-pass loop.
                         if (!result) {
-                            it = &call.func;
+                            current_overload = &call.func;
                         }
                         break;
                     }
@@ -1000,7 +1048,7 @@ protected:
 
                A translator may choose to do one of the following:
 
-                - catch the exception and call PyErr_SetString or PyErr_SetObject
+                - catch the exception and call py::set_error()
                   to set a standard (or custom) Python exception, or
                 - do nothing and let the exception fall through to the next translator, or
                 - delegate translation to the next translator by throwing a new type of exception.
@@ -1016,8 +1064,7 @@ protected:
                 return nullptr;
             }
 
-            PyErr_SetString(PyExc_SystemError,
-                            "Exception escaped from default exception translator!");
+            set_error(PyExc_SystemError, "Exception escaped from default exception translator!");
             return nullptr;
         }
 
@@ -1095,7 +1142,7 @@ protected:
                     }
                     msg += "kwargs: ";
                     bool first = true;
-                    for (auto kwarg : kwargs) {
+                    for (const auto &kwarg : kwargs) {
                         if (first) {
                             first = false;
                         } else {
@@ -1118,20 +1165,21 @@ protected:
                 raise_from(PyExc_TypeError, msg.c_str());
                 return nullptr;
             }
-            PyErr_SetString(PyExc_TypeError, msg.c_str());
+            set_error(PyExc_TypeError, msg.c_str());
             return nullptr;
         }
         if (!result) {
             std::string msg = "Unable to convert function return value to a "
                               "Python type! The signature was\n\t";
-            msg += it->signature;
+            assert(current_overload != nullptr);
+            msg += current_overload->signature;
             append_note_if_missing_header_is_suspected(msg);
             // Attach additional error info to the exception if supported
             if (PyErr_Occurred()) {
                 raise_from(PyExc_TypeError, msg.c_str());
                 return nullptr;
             }
-            PyErr_SetString(PyExc_TypeError, msg.c_str());
+            set_error(PyExc_TypeError, msg.c_str());
             return nullptr;
         }
         if (overloads->is_constructor && !self_value_and_holder.holder_constructed()) {
@@ -1729,7 +1777,8 @@ public:
     template <typename Getter, typename Setter, typename... Extra>
     class_ &
     def_property(const char *name, const Getter &fget, const Setter &fset, const Extra &...extra) {
-        return def_property(name, fget, cpp_function(method_adaptor<type>(fset)), extra...);
+        return def_property(
+            name, fget, cpp_function(method_adaptor<type>(fset), is_setter()), extra...);
     }
     template <typename Getter, typename... Extra>
     class_ &def_property(const char *name,
@@ -1969,7 +2018,7 @@ struct enum_base {
                 object type_name = type::handle_of(arg).attr("__name__");
                 return pybind11::str("{}.{}").format(std::move(type_name), enum_name(arg));
             },
-            name("name"),
+            name("__str__"),
             is_method(m_base));
 
         if (options::show_enum_members_docstring()) {
@@ -2387,7 +2436,7 @@ iterator make_iterator_impl(Iterator first, Sentinel last, Extra &&...extra) {
                 Policy);
     }
 
-    return cast(state{first, last, true});
+    return cast(state{std::forward<Iterator>(first), std::forward<Sentinel>(last), true});
 }
 
 PYBIND11_NAMESPACE_END(detail)
@@ -2404,7 +2453,9 @@ iterator make_iterator(Iterator first, Sentinel last, Extra &&...extra) {
                                       Iterator,
                                       Sentinel,
                                       ValueType,
-                                      Extra...>(first, last, std::forward<Extra>(extra)...);
+                                      Extra...>(std::forward<Iterator>(first),
+                                                std::forward<Sentinel>(last),
+                                                std::forward<Extra>(extra)...);
 }
 
 /// Makes a python iterator over the keys (`.first`) of a iterator over pairs from a
@@ -2420,7 +2471,9 @@ iterator make_key_iterator(Iterator first, Sentinel last, Extra &&...extra) {
                                       Iterator,
                                       Sentinel,
                                       KeyType,
-                                      Extra...>(first, last, std::forward<Extra>(extra)...);
+                                      Extra...>(std::forward<Iterator>(first),
+                                                std::forward<Sentinel>(last),
+                                                std::forward<Extra>(extra)...);
 }
 
 /// Makes a python iterator over the values (`.second`) of a iterator over pairs from a
@@ -2436,7 +2489,9 @@ iterator make_value_iterator(Iterator first, Sentinel last, Extra &&...extra) {
                                       Iterator,
                                       Sentinel,
                                       ValueType,
-                                      Extra...>(first, last, std::forward<Extra>(extra)...);
+                                      Extra...>(std::forward<Iterator>(first),
+                                                std::forward<Sentinel>(last),
+                                                std::forward<Extra>(extra)...);
 }
 
 /// Makes an iterator over values of an stl container or other container supporting
@@ -2520,7 +2575,7 @@ inline void register_local_exception_translator(ExceptionTranslator &&translator
 /**
  * Wrapper to generate a new Python exception type.
  *
- * This should only be used with PyErr_SetString for now.
+ * This should only be used with py::set_error() for now.
  * It is not (yet) possible to use as a py::base.
  * Template type argument is reserved for future use.
  */
@@ -2541,7 +2596,9 @@ public:
     }
 
     // Sets the current python exception to this exception object with the given message
-    void operator()(const char *message) { PyErr_SetString(m_ptr, message); }
+    PYBIND11_DEPRECATED("Please use py::set_error() instead "
+                        "(https://github.com/pybind/pybind11/pull/4772)")
+    void operator()(const char *message) const { set_error(*this, message); }
 };
 
 PYBIND11_NAMESPACE_BEGIN(detail)
@@ -2573,7 +2630,7 @@ register_exception_impl(handle scope, const char *name, handle base, bool isLoca
         try {
             std::rethrow_exception(p);
         } catch (const CppException &e) {
-            detail::get_exception_object<CppException>()(e.what());
+            set_error(detail::get_exception_object<CppException>(), e.what());
         }
     });
     return ex;

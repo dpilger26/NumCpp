@@ -29,7 +29,6 @@ add_library(${TARGET_NAME} SHARED
     Integrate.cpp 
     Linalg.cpp 
     Logger.cpp
-    Misc.cpp 
     NdArray.cpp 
     Polynomial.cpp 
     Random.cpp 

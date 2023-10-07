@@ -30,5 +30,5 @@
 namespace nc
 {
     // NOLINTNEXTLINE(cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays)
-    constexpr char VERSION[] = "2.11.0"; ///< Current NumCpp version number
+    constexpr char VERSION[] = "2.12.0"; ///< Current NumCpp version number
 } // namespace nc

@@ -24,6 +24,7 @@ endif()
 if(NOT CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD 17)
 endif()
+set(CMAKE_CXX_STANDARD_REQUIRED On)
 message(STATUS "Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "") # works

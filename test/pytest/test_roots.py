@@ -30,7 +30,7 @@ def test_bisection():
     largestRoot = np.max(roots).item()
     rootsC = NumCpp.NdArray(1, roots.size)
     rootsC.setArray(roots)
-    polyC = NumCpp.Poly1d(rootsC, True)
+    polyC = NumCpp.Poly1d(rootsC, NumCpp.IsRoots.TRUE)
     rootC = int(np.round(NumCpp.bisection_roots(polyC, largestRoot - 1, largestRoot + 1)))
     assert rootC == largestRoot
 
@@ -60,7 +60,7 @@ def test_brent():
     largestRoot = np.max(roots).item()
     rootsC = NumCpp.NdArray(1, roots.size)
     rootsC.setArray(roots)
-    polyC = NumCpp.Poly1d(rootsC, True)
+    polyC = NumCpp.Poly1d(rootsC, NumCpp.IsRoots.TRUE)
     rootC = int(np.round(NumCpp.brent_roots(polyC, largestRoot - 1, largestRoot + 1)))
     assert rootC == largestRoot
 
@@ -90,7 +90,7 @@ def test_dekker():
     largestRoot = np.max(roots).item()
     rootsC = NumCpp.NdArray(1, roots.size)
     rootsC.setArray(roots)
-    polyC = NumCpp.Poly1d(rootsC, True)
+    polyC = NumCpp.Poly1d(rootsC, NumCpp.IsRoots.TRUE)
     rootC = int(np.round(NumCpp.dekker_roots(polyC, largestRoot - 1, largestRoot + 1)))
     assert rootC == largestRoot
 
@@ -120,7 +120,7 @@ def test_newton():
     largestRoot = np.max(roots).item()
     rootsC = NumCpp.NdArray(1, roots.size)
     rootsC.setArray(roots)
-    polyC = NumCpp.Poly1d(rootsC, True)
+    polyC = NumCpp.Poly1d(rootsC, NumCpp.IsRoots.TRUE)
     rootC = int(np.round(NumCpp.newton_roots(polyC, largestRoot)))
     assert rootC == largestRoot
 
@@ -150,6 +150,6 @@ def test_secant():
     largestRoot = np.max(roots).item()
     rootsC = NumCpp.NdArray(1, roots.size)
     rootsC.setArray(roots)
-    polyC = NumCpp.Poly1d(rootsC, True)
+    polyC = NumCpp.Poly1d(rootsC, NumCpp.IsRoots.TRUE)
     rootC = int(np.round(NumCpp.secant_roots(polyC, largestRoot - 1, largestRoot + 1)))
     assert rootC == largestRoot

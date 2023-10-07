@@ -265,7 +265,10 @@ namespace nc
     NdArray<dtype> insert(const NdArray<dtype>& arr, Slice slice, const dtype& value, Axis axis = Axis::NONE)
     {
         auto sliceIndices = slice.toIndices(arr.dimSize(axis));
-        return insert(arr, NdArray<uint32>(sliceIndices.data(), sliceIndices.size(), false), value, axis);
+        return insert(arr,
+                      NdArray<uint32>(sliceIndices.data(), sliceIndices.size(), PointerPolicy::SHELL),
+                      value,
+                      axis);
     }
 
     //============================================================================
@@ -388,7 +391,7 @@ namespace nc
                     return values_;
                 }();
 
-                result.putMask(!mask, NdArray<dtype>(valuesSorted.data(), valuesSorted.size(), false));
+                result.putMask(!mask, NdArray<dtype>(valuesSorted.data(), valuesSorted.size(), PointerPolicy::SHELL));
 
                 return result;
             }
@@ -546,6 +549,9 @@ namespace nc
     NdArray<dtype> insert(const NdArray<dtype>& arr, Slice slice, const NdArray<dtype>& values, Axis axis = Axis::NONE)
     {
         auto sliceIndices = slice.toIndices(arr.dimSize(axis));
-        return insert(arr, NdArray<uint32>(sliceIndices.data(), sliceIndices.size(), false), values, axis);
+        return insert(arr,
+                      NdArray<uint32>(sliceIndices.data(), sliceIndices.size(), PointerPolicy::SHELL),
+                      values,
+                      axis);
     }
 } // namespace nc

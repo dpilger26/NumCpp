@@ -1,5 +1,5 @@
 var normalize_8hpp =
 [
-    [ "normalize", "normalize_8hpp.html#a4771677a5e77b7ba51110158075f7657", null ],
-    [ "normalize", "normalize_8hpp.html#ab3c9f8551008d66fe6f213bc650ed2ee", null ]
+    [ "normalize", "normalize_8hpp.html#abd578fbf1c44e80070d5140e0d10af49", null ],
+    [ "normalize", "normalize_8hpp.html#a87346fb264aaff0c12adf69d3b56ac59", null ]
 ];

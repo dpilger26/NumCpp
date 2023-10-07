@@ -2,7 +2,6 @@
 
 #include "BindingsIncludes.hpp"
 
-
 //================================================================================
 
 void initFilter(pb11::module &m)
@@ -15,6 +14,8 @@ void initFilter(pb11::module &m)
         .value("MIRROR", filter::Boundary::MIRROR)
         .value("WRAP", filter::Boundary::WRAP);
 
+    m.def("complementaryMeanFilter", &filter::complementaryMeanFilter<double>);
+    m.def("complementaryMeanFilter1d", &filter::complementaryMeanFilter1d<double>);
     m.def("complementaryMedianFilter", &filter::complementaryMedianFilter<double>);
     m.def("complementaryMedianFilter1d", &filter::complementaryMedianFilter1d<double>);
     m.def("convolve", &filter::convolve<double>);
@@ -24,6 +25,8 @@ void initFilter(pb11::module &m)
     m.def("laplaceFilter", &filter::laplace<double>);
     m.def("maximumFilter", &filter::maximumFilter<double>);
     m.def("maximumFilter1d", &filter::maximumFilter1d<double>);
+    m.def("meanFilter", &filter::meanFilter<double>);
+    m.def("meanFilter1d", &filter::meanFilter1d<double>);
     m.def("medianFilter", &filter::medianFilter<double>);
     m.def("medianFilter1d", &filter::medianFilter1d<double>);
     m.def("minimumFilter", &filter::minimumFilter<double>);

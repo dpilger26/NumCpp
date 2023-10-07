@@ -41,7 +41,6 @@ namespace nc
     ///
     /// @param inArray
     /// @param inFunc
-    /// @return NdArray
     ///
     template<typename dtype>
     void applyFunction(NdArray<dtype>& inArray, const std::function<dtype(dtype)>& inFunc)

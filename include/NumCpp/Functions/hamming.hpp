@@ -58,7 +58,7 @@ namespace nc
 
         NdArray<double> result(1, m);
         int32           i = 0;
-        for (auto n : linspace(0., mDouble - 1., m, true))
+        for (auto n : linspace(0., mDouble - 1., m, EndPoint::TRUE))
         {
             result[i++] = 0.54 - 0.46 * std::cos(twoPiDivMMinus1 * n);
         }

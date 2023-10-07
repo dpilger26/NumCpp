@@ -100,8 +100,6 @@ namespace nc::roots
         // Method Description:
         /// Incraments the number of iterations
         ///
-        /// @return the number of iterations prior to incramenting
-        ///
         void incrementNumberOfIterations()
         {
             ++numIterations_;

@@ -30,6 +30,7 @@
 
 #include <random>
 
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Random/bernoulli.hpp"
 #include "NumCpp/Random/beta.hpp"
 #include "NumCpp/Random/binomial.hpp"
@@ -277,7 +278,7 @@ namespace nc::random
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum, bool replace = true)
+        NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum, Replace replace = Replace::TRUE)
         {
             return detail::choice(generator_, inArray, inNum, replace);
         }

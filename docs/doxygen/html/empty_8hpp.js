@@ -1,5 +1,5 @@
 var empty_8hpp =
 [
-    [ "empty", "empty_8hpp.html#a47dcd15b30a7fd2b977377ebb37cbdb6", null ],
-    [ "empty", "empty_8hpp.html#a3da6e6c01236f9c2af8591a890f7d717", null ]
+    [ "empty", "empty_8hpp.html#a97dd73bece2058ce18e59eb2df095042", null ],
+    [ "empty", "empty_8hpp.html#a3012780ddd20c705d9cff13bac986eff", null ]
 ];

@@ -8,19 +8,19 @@ var classnc_1_1coordinates_1_1reference__frames_1_1_celestial =
     [ "Celestial", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a31ee558602214df298c064fdf91eaf10", null ],
     [ "Celestial", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#ae918604b01671ee7eb1d18a16f0c0f28", null ],
     [ "Celestial", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a791d4046df696e4e36440753ffd3c5fd", null ],
-    [ "dec", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a96c73ab87069b2cf2809abf29b64672e", null ],
+    [ "dec", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#aa927c3373686a8618f89789e65e36a48", null ],
     [ "degreeSeperation", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#ad7ca1d03a77b49e1a6845233e3fb8ef4", null ],
     [ "degreeSeperation", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a85579a98ee97dee68d42e736b1ecf2a2", null ],
     [ "operator!=", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#acbb5251279363dc6ce97be52cfe7ce4f", null ],
     [ "operator==", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a4802c3d4d16c479e06037fcaa4185fed", null ],
     [ "print", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#af655d6abdacad6003aa88b1207741eeb", null ],
-    [ "ra", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#ac36965d8ab83b423ac357feea8094db4", null ],
+    [ "ra", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a27035489316217a64db114902079ea59", null ],
     [ "radianSeperation", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a9cc629cc5a7feec5a80acce4f4e935cb", null ],
     [ "radianSeperation", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#af1488e9200aedcc61c9cbc52d181417a", null ],
     [ "str", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#aa3367f604ff7934fce178ce31dc98d9a", null ],
     [ "x", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#aeb435beddef879db69d5c1dff1af8e53", null ],
-    [ "xyz", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a6ac5672bbc44730e3bb4e74c2210429b", null ],
+    [ "xyz", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#aa86c47d2d7762d618e2c8fececcaa594", null ],
     [ "y", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a23bbdb90f757236e0c3160656bc41c13", null ],
     [ "z", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a47889ee592a590a4df206d93d102b1ef", null ],
-    [ "operator<<", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a9dca6f50540a28906f919a40c024f99c", null ]
+    [ "operator<<", "classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a175ec4be0903210fb6afcc513d001812", null ]
 ];

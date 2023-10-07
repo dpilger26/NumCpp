@@ -1,6 +1,6 @@
 var dot_8hpp =
 [
-    [ "dot", "dot_8hpp.html#a2c9414f356ae2025a7cde3a192d6d67d", null ],
-    [ "dot", "dot_8hpp.html#abfdbde62bdc084a9b8f9a894fa173c40", null ],
-    [ "dot", "dot_8hpp.html#a6ab78d4355c57b053b6e44f710d60528", null ]
+    [ "dot", "dot_8hpp.html#a50b693e816ecaa711b09997abaacec9a", null ],
+    [ "dot", "dot_8hpp.html#adb9aa482fe676e54d83d35ec2b761635", null ],
+    [ "dot", "dot_8hpp.html#a086a6d6780772c795a63787412e4e813", null ]
 ];

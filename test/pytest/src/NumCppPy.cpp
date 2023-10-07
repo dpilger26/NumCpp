@@ -17,7 +17,6 @@ void initImageProcessing(pb11::module&);
 void initIntegrate(pb11::module&);
 void initLinalg(pb11::module&);
 void initLogger(pb11::module&);
-void initMisc(pb11::module&);
 void initNdArray(pb11::module&);
 void initPolynomial(pb11::module&);
 void initRandom(pb11::module&);
@@ -46,7 +45,6 @@ PYBIND11_MODULE(NumCppPy, m)
     initIntegrate(m);
     initLinalg(m);
     initLogger(m);
-    initMisc(m);
     initNdArray(m);
     initPolynomial(m);
     initRandom(m);

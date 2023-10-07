@@ -64,8 +64,6 @@ namespace nc::imageProcessing
         /// @param inIntensityArrayPtr: pointer to intensity array
         /// @param inBorderWidth: border to apply around exceedance pixels post clustering (default 0)
         ///
-        /// @return None
-        ///
         ClusterMaker(const NdArray<bool>* const  inXcdArrayPtr,
                      const NdArray<dtype>* const inIntensityArrayPtr,
                      uint8                       inBorderWidth = 0) :

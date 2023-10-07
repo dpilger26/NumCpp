@@ -57,7 +57,7 @@ namespace nc
 
         NdArray<double> result(1, m);
         int32           i = 0;
-        for (auto n : linspace(0., mDouble, m, true))
+        for (auto n : linspace(0., mDouble, m, EndPoint::TRUE))
         {
             const auto nOverM = n / mDouble;
             result[i++] =

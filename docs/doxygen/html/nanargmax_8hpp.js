@@ -1,4 +1,4 @@
 var nanargmax_8hpp =
 [
-    [ "nanargmax", "nanargmax_8hpp.html#a5f3d3d15fae35dc9538f6daa792f3e1b", null ]
+    [ "nanargmax", "nanargmax_8hpp.html#a66db1ea4693a3237b28a0c375b6d669e", null ]
 ];

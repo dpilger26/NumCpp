@@ -39,7 +39,6 @@ namespace nc
     /// Prints the array to the console.
     ///
     /// @param inArray
-    /// @return None
     ///
     template<typename dtype>
     void print(const NdArray<dtype>& inArray)

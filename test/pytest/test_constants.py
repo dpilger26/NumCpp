@@ -21,7 +21,6 @@ def test_version():
 
 ####################################################################################
 def test_c():
-
     assert round(NumCpp.c, NUM_DECIMALS_ROUND) == round(3e8, 10)
 
 

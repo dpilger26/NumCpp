@@ -28,9 +28,9 @@ void initUtils(pb11::module &m)
     m.def("powerf", powerf_int64);
 
     m.def("timeit",
-          [](uint32 numIterations, bool printResults, std::function<void(int, int)> function, int v1, int v2)
+          [](uint32 numIterations, PrintResults printResults, std::function<void(int, int)> function, int v1, int v2)
           { utils::timeit<std::chrono::nanoseconds>(numIterations, printResults, function, v1, v2); });
     m.def("timeit",
-          [](uint32 numIterations, bool printResults, std::function<int(int, int)> function, int v1, int v2)
+          [](uint32 numIterations, PrintResults printResults, std::function<int(int, int)> function, int v1, int v2)
           { utils::timeit<std::chrono::nanoseconds>(numIterations, printResults, function, v1, v2); });
 }

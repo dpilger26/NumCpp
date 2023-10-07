@@ -243,6 +243,7 @@
 #include "NumCpp/Functions/rot90.hpp"
 #include "NumCpp/Functions/round.hpp"
 #include "NumCpp/Functions/row_stack.hpp"
+#include "NumCpp/Functions/searchsorted.hpp"
 #include "NumCpp/Functions/select.hpp"
 #include "NumCpp/Functions/setdiff1d.hpp"
 #include "NumCpp/Functions/shape.hpp"

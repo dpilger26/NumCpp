@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['reflect_2928',['REFLECT',['../namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df',1,'nc::filter']]],
-  ['row_2929',['ROW',['../namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7',1,'nc']]]
+  ['native_0',['NATIVE',['../namespacenc.html#a8dcbcb343147d09e74689ad8a2586152af78504d96ba7177dc0c6784905ac8743',1,'nc']]],
+  ['nearest_1',['NEAREST',['../namespacenc.html#a476f76c3468948fe24d7abf9cd0d650eaad135772d7cf93dd0ccf9d2474b34e6a',1,'nc::NEAREST()'],['../namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6aad135772d7cf93dd0ccf9d2474b34e6a',1,'nc::filter::NEAREST()']]],
+  ['negative_2',['NEGATIVE',['../classnc_1_1coordinates_1_1reference__frames_1_1_dec.html#afcdc0ed1532a94a817d44eaaa1fc5a9ca50546bf973283065b6ccf09faf7a580a',1,'nc::coordinates::reference_frames::Dec']]],
+  ['none_3',['NONE',['../namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693',1,'nc']]]
 ];

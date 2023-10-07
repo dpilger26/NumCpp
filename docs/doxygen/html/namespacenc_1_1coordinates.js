@@ -24,7 +24,7 @@ var namespacenc_1_1coordinates =
       [ "ENUtoLLA", "namespacenc_1_1coordinates_1_1transforms.html#a3fc106e20ec851e48602ff7a002a04cc", null ],
       [ "ENUtoLLA", "namespacenc_1_1coordinates_1_1transforms.html#a2a9677cf3a4e80da17cf254e5df063ca", null ],
       [ "ENUtoNED", "namespacenc_1_1coordinates_1_1transforms.html#aa60ec3d43951a07db58ff93de763fdac", null ],
-      [ "ENUUnitVecsInECEF", "namespacenc_1_1coordinates_1_1transforms.html#a0968ce79335c306452285e98c5e55f6f", null ],
+      [ "ENUUnitVecsInECEF", "namespacenc_1_1coordinates_1_1transforms.html#ac406cc673797cf81dab387ef5d802931", null ],
       [ "geocentricRadius", "namespacenc_1_1coordinates_1_1transforms.html#a3b05413b5dc8368da06449e9ab688b9e", null ],
       [ "geocentricToLLA", "namespacenc_1_1coordinates_1_1transforms.html#ab32c65e331319ec9f7ea3cecbee9c48e", null ],
       [ "LLAtoAER", "namespacenc_1_1coordinates_1_1transforms.html#a2417d189ebd29bd97d04ec85593cbc9a", null ],
@@ -42,7 +42,7 @@ var namespacenc_1_1coordinates =
       [ "NEDtoENU", "namespacenc_1_1coordinates_1_1transforms.html#a87f2d679fc321b6e3711ae527ca07d31", null ],
       [ "NEDtoLLA", "namespacenc_1_1coordinates_1_1transforms.html#a487949c250ac8773a1f9fb65330e952b", null ],
       [ "NEDtoLLA", "namespacenc_1_1coordinates_1_1transforms.html#adf5b05b33084ac43bb44acfbc892af39", null ],
-      [ "NEDUnitVecsInECEF", "namespacenc_1_1coordinates_1_1transforms.html#a7210270c2584dba7269cbbd6e9b51434", null ]
+      [ "NEDUnitVecsInECEF", "namespacenc_1_1coordinates_1_1transforms.html#af43ca6c1f96cf4d95024b7d4eb135605", null ]
     ] ],
     [ "Cartesian", "classnc_1_1coordinates_1_1_cartesian.html", "classnc_1_1coordinates_1_1_cartesian" ],
     [ "Euler", "classnc_1_1coordinates_1_1_euler.html", "classnc_1_1coordinates_1_1_euler" ],
@@ -57,7 +57,7 @@ var namespacenc_1_1coordinates =
     [ "operator+", "namespacenc_1_1coordinates.html#a6f5b3b14c6ed16cb8e338175e898e538", null ],
     [ "operator-", "namespacenc_1_1coordinates.html#ab9915ea88507af06a577c392c5a71939", null ],
     [ "operator/", "namespacenc_1_1coordinates.html#af4708307f7b94f72b403c52bb10e81a4", null ],
-    [ "operator<<", "namespacenc_1_1coordinates.html#a7739308df2230620b9e012b1f1e26535", null ],
-    [ "operator<<", "namespacenc_1_1coordinates.html#a6492a4fa8d7e55f5905e7aaa913d03ed", null ],
-    [ "operator<<", "namespacenc_1_1coordinates.html#ad3b793b8d45725a0a24286919584b69b", null ]
+    [ "operator<<", "namespacenc_1_1coordinates.html#a2f71fe712d74cf7677ad64e770761d95", null ],
+    [ "operator<<", "namespacenc_1_1coordinates.html#afde33ec04e407698b8d0826140b6619a", null ],
+    [ "operator<<", "namespacenc_1_1coordinates.html#aac3cf1b13ed9f25d54791b411fba3033", null ]
 ];

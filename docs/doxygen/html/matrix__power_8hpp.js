@@ -1,4 +1,4 @@
 var matrix__power_8hpp =
 [
-    [ "matrix_power", "matrix__power_8hpp.html#ad27c1996e4e27a6f8ba5d2aed0743bba", null ]
+    [ "matrix_power", "matrix__power_8hpp.html#a59c33bf492f64017c673a151f890dcbf", null ]
 ];

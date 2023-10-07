@@ -10,7 +10,7 @@ var classnc_1_1_shape =
     [ "print", "classnc_1_1_shape.html#a494a3d8467911c47d56aa881e11a69f1", null ],
     [ "size", "classnc_1_1_shape.html#ab29f87cc8479a2d0610a918cd9b08bbc", null ],
     [ "str", "classnc_1_1_shape.html#aadb0e0d633d64e5eb5a4f9bef12b26c4", null ],
-    [ "operator<<", "classnc_1_1_shape.html#a520d818f31bbdacdf8cfbe6de9e88a28", null ],
+    [ "operator<<", "classnc_1_1_shape.html#a0dad002019e83f04ff5b0541ca5e60d7", null ],
     [ "cols", "classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d", null ],
     [ "rows", "classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a", null ]
 ];

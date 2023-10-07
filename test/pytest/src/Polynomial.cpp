@@ -189,7 +189,7 @@ void initPolynomial(pb11::module& m)
 
     pb11::class_<Poly1d>(m, "Poly1d")
         .def(pb11::init<>())
-        .def(pb11::init<NdArray<double>, bool>())
+        .def(pb11::init<NdArray<double>, IsRoots>())
         .def("area", &Poly1d::area)
         .def("coefficients", &Poly1d::coefficients)
         .def("deriv", &Poly1d::deriv)

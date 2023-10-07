@@ -31,6 +31,7 @@
 #include <iostream>
 #include <type_traits>
 
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Timer.hpp"
 #include "NumCpp/Core/Types.hpp"
 
@@ -93,7 +94,7 @@ namespace nc::utils
     /// Timing of a function
     ///
     /// @param numIterations: number of iterations for the timing statistics
-    /// @param printResults: bool true to print the results
+    /// @param printResults: true to print the results
     /// @param function: the function to time
     /// @param args: the arguements that are forwarded to the function input
     ///
@@ -101,7 +102,7 @@ namespace nc::utils
     ///
     template<typename TimeUnit, typename Function, typename... Args>
     timeit_detail::Result<TimeUnit>
-        timeit(uint32 numIterations, bool printResults, Function function, Args&&... args) noexcept
+        timeit(uint32 numIterations, PrintResults printResults, Function function, Args&&... args) noexcept
     {
         auto result = timeit_detail::Result<TimeUnit>{};
         auto timer  = Timer<TimeUnit>{};
@@ -126,7 +127,7 @@ namespace nc::utils
                 [[maybe_unused]] const ResultType functionResult = function(std::forward<Args&>(args)...);
             }
 
-            const auto elapsedTime = timer.toc(false);
+            const auto elapsedTime = timer.toc(PrintElapsedTime::FALSE);
 
             result.mean = result.mean + elapsedTime;
             result.min  = std::min(result.min, elapsedTime);
@@ -135,7 +136,7 @@ namespace nc::utils
 
         result.mean = result.mean / numIterations;
 
-        if (printResults)
+        if (printResults == PrintResults::TRUE)
         {
             std::cout << result;
         }

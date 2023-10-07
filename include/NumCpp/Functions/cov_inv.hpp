@@ -27,6 +27,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/cov.hpp"
 #include "NumCpp/Linalg/inv.hpp"
@@ -46,7 +47,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> cov_inv(const NdArray<dtype>& x, bool bias = false)
+    NdArray<double> cov_inv(const NdArray<dtype>& x, Bias bias = Bias::FALSE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 

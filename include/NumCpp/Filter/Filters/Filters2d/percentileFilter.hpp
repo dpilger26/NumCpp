@@ -74,7 +74,7 @@ namespace nc::filter
                                                           Slice(col - boundarySize, col + boundarySize + 1));
 
                 output(row - boundarySize, col - boundarySize) =
-                    percentile(window, inPercentile, Axis::NONE, "nearest").item();
+                    percentile(window, inPercentile, Axis::NONE, InterpolationMethod::NEAREST).item();
             }
         }
 

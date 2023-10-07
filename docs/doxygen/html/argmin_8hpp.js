@@ -1,4 +1,4 @@
 var argmin_8hpp =
 [
-    [ "argmin", "argmin_8hpp.html#ae26281f75850e9b94272228b56544bd5", null ]
+    [ "argmin", "argmin_8hpp.html#acbeede146d32768e2c0a136eabd8bff8", null ]
 ];

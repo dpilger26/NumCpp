@@ -35,6 +35,7 @@
 #include <map>
 #include <utility>
 
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -74,18 +75,18 @@ namespace nc::pybindInterface
         {
             case 0:
             {
-                return NdArray<dtype>(dataPtr, 0, 0, false);
+                return NdArray<dtype>(dataPtr, 0, 0, PointerPolicy::COPY);
             }
             case 1:
             {
                 const auto size = static_cast<uint32>(numpyArray.size());
-                return NdArray<dtype>(dataPtr, 1, size, false);
+                return NdArray<dtype>(dataPtr, 1, size, PointerPolicy::COPY);
             }
             case 2:
             {
                 const auto numRows = static_cast<uint32>(numpyArray.shape(0));
                 const auto numCols = static_cast<uint32>(numpyArray.shape(1));
-                return NdArray<dtype>(dataPtr, numRows, numCols, false);
+                return NdArray<dtype>(dataPtr, numRows, numCols, PointerPolicy::COPY);
             }
             default:
             {

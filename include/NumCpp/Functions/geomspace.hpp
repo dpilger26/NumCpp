@@ -27,6 +27,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/logb.hpp"
@@ -55,7 +56,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> geomspace(dtype start, dtype stop, uint32 num = 50, bool endPoint = true)
+    NdArray<double> geomspace(dtype start, dtype stop, uint32 num = 50, EndPoint endPoint = EndPoint::TRUE)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -68,7 +69,7 @@ namespace nc
         {
             return { static_cast<double>(start) };
         }
-        else if (num == 2 && endPoint)
+        else if (num == 2 && endPoint == EndPoint::TRUE)
         {
             return { static_cast<double>(start), static_cast<double>(stop) };
         }

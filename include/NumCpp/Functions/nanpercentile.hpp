@@ -32,6 +32,7 @@
 #include <string>
 #include <vector>
 
+#include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
@@ -62,7 +63,7 @@ namespace nc
     NdArray<double> nanpercentile(const NdArray<dtype>& inArray,
                                   double                inPercentile,
                                   Axis                  inAxis         = Axis::NONE,
-                                  const std::string&    inInterpMethod = "linear")
+                                  InterpolationMethod   inInterpMethod = InterpolationMethod::LINEAR)
     {
         STATIC_ASSERT_FLOAT(dtype);
 
@@ -88,7 +89,7 @@ namespace nc
 
                 return percentile(NdArray<double>(arrayCopy.data(),
                                                   static_cast<typename NdArray<dtype>::size_type>(arrayCopy.size()),
-                                                  false),
+                                                  PointerPolicy::SHELL),
                                   inPercentile,
                                   Axis::NONE,
                                   inInterpMethod);

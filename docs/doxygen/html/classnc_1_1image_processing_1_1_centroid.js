@@ -16,5 +16,5 @@ var classnc_1_1image_processing_1_1_centroid =
     [ "print", "classnc_1_1image_processing_1_1_centroid.html#a139efcdd994d1bacdf62d65b3c427d8d", null ],
     [ "row", "classnc_1_1image_processing_1_1_centroid.html#aa3546b7b2430b51650f40fb344ab55a8", null ],
     [ "str", "classnc_1_1image_processing_1_1_centroid.html#aa39ae81638b8f7ed7b81d4476e2a6316", null ],
-    [ "operator<<", "classnc_1_1image_processing_1_1_centroid.html#a787da1f79223e97a2788a2ad47e1c394", null ]
+    [ "operator<<", "classnc_1_1image_processing_1_1_centroid.html#a0a01c6fd74c73f5cc736678aaf38a167", null ]
 ];

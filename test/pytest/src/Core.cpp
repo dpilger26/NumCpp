@@ -80,11 +80,40 @@ void initCore(pb11::module &m)
         .def("tic", &MicroTimer::tic)
         .def("toc", &MicroTimer::toc);
 
-    // Types.hpp
+    // Enums.hpp
     pb11::enum_<Axis>(m, "Axis").value("NONE", Axis::NONE).value("ROW", Axis::ROW).value("COL", Axis::COL);
 
     pb11::enum_<Endian>(m, "Endian")
         .value("NATIVE", Endian::NATIVE)
         .value("BIG", Endian::BIG)
         .value("LITTLE", Endian::LITTLE);
+
+    pb11::enum_<PointerPolicy>(m, "PointerPolicy")
+        .value("COPY", PointerPolicy::COPY)
+        .value("SHELL", PointerPolicy::SHELL);
+
+    pb11::enum_<Bias>(m, "Bias").value("TRUE", Bias::TRUE).value("FALSE", Bias::FALSE);
+
+    pb11::enum_<EndPoint>(m, "EndPoint").value("TRUE", EndPoint::TRUE).value("FALSE", EndPoint::FALSE);
+
+    pb11::enum_<Increasing>(m, "Increasing").value("TRUE", Increasing::TRUE).value("FALSE", Increasing::FALSE);
+
+    pb11::enum_<IsRoots>(m, "IsRoots").value("TRUE", IsRoots::TRUE).value("FALSE", IsRoots::FALSE);
+
+    pb11::enum_<Replace>(m, "Replace").value("TRUE", Replace::TRUE).value("FALSE", Replace::FALSE);
+
+    pb11::enum_<PrintElapsedTime>(m, "PrintElapsedTime")
+        .value("TRUE", PrintElapsedTime::TRUE)
+        .value("FALSE", PrintElapsedTime::FALSE);
+
+    pb11::enum_<PrintResults>(m, "PrintResults").value("TRUE", PrintResults::TRUE).value("FALSE", PrintResults::FALSE);
+
+    pb11::enum_<Side>(m, "Side").value("LEFT", Side::LEFT).value("RIGHT", Side::RIGHT);
+
+    pb11::enum_<InterpolationMethod>(m, "InterpolationMethod")
+        .value("LINEAR", InterpolationMethod::LINEAR)
+        .value("LOWER", InterpolationMethod::LOWER)
+        .value("HIGHER", InterpolationMethod::HIGHER)
+        .value("NEAREST", InterpolationMethod::NEAREST)
+        .value("MIDPOINT", InterpolationMethod::MIDPOINT);
 }

@@ -1,6 +1,6 @@
 var _vec3_8hpp =
 [
-    [ "Vec3", "classnc_1_1_vec3.html", "classnc_1_1_vec3" ],
+    [ "nc::Vec3", "classnc_1_1_vec3.html", "classnc_1_1_vec3" ],
     [ "operator*", "_vec3_8hpp.html#a39b128708b2225a00de527c8ec83d72a", null ],
     [ "operator*", "_vec3_8hpp.html#af51c9efd8dbadbdc664972bd96583a72", null ],
     [ "operator*", "_vec3_8hpp.html#af4ecba4e059c6dcf672644a3c1bff75d", null ],
@@ -12,5 +12,5 @@ var _vec3_8hpp =
     [ "operator-", "_vec3_8hpp.html#a7227073082d530baaf7ebb96ee06995b", null ],
     [ "operator-", "_vec3_8hpp.html#af87da9c66c9e535066221e4f85f3ed90", null ],
     [ "operator/", "_vec3_8hpp.html#a0a070b4ec8a29ee1a357c53857d4778a", null ],
-    [ "operator<<", "_vec3_8hpp.html#a0cf6f27f323d5bc34b6c56316c480865", null ]
+    [ "operator<<", "_vec3_8hpp.html#a7c3d91df2b23cca368428430d131e6f2", null ]
 ];
