@@ -69,11 +69,10 @@ namespace nc
     auto sinc(const NdArray<dtype>& inArray)
     {
         NdArray<decltype(sinc(dtype{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) noexcept -> auto{ return sinc(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> auto { return sinc(inValue); });
 
         return returnArray;
     }

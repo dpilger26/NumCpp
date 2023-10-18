@@ -70,12 +70,11 @@ namespace nc
         }
 
         NdArray<decltype(nc::polar(dtype{ 0 }, dtype{ 0 }))> returnArray(magnitude.shape());
-        stl_algorithms::transform(
-            magnitude.cbegin(),
-            magnitude.cend(),
-            phaseAngle.begin(),
-            returnArray.begin(),
-            [](dtype mag, dtype angle) -> auto{ return nc::polar(mag, angle); });
+        stl_algorithms::transform(magnitude.cbegin(),
+                                  magnitude.cend(),
+                                  phaseAngle.begin(),
+                                  returnArray.begin(),
+                                  [](dtype mag, dtype angle) -> auto { return nc::polar(mag, angle); });
 
         return returnArray;
     }

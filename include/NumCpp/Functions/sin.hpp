@@ -66,11 +66,10 @@ namespace nc
     auto sin(const NdArray<dtype>& inArray)
     {
         NdArray<decltype(sin(dtype{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) noexcept -> auto{ return sin(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> auto { return sin(inValue); });
 
         return returnArray;
     }

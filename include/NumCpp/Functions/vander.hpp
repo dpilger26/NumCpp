@@ -57,7 +57,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    auto vander(const NdArray<dtype>& x, uint32 n, Increasing increasing = Increasing::TRUE)
+    auto vander(const NdArray<dtype>& x, uint32 n, Increasing increasing = Increasing::YES)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -70,7 +70,7 @@ namespace nc
             }
         }
 
-        if (increasing == Increasing::FALSE)
+        if (increasing == Increasing::NO)
         {
             return fliplr(result);
         }
@@ -95,7 +95,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    auto vander(const NdArray<dtype>& x, Increasing increasing = Increasing::TRUE)
+    auto vander(const NdArray<dtype>& x, Increasing increasing = Increasing::YES)
     {
         return vander(x, x.size(), increasing);
     }

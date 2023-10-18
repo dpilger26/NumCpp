@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['c_0',['c',['../namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581',1,'nc::constants']]],
-  ['clusterid_1',['clusterId',['../classnc_1_1image_processing_1_1_pixel.html#ac22936e8b5b80a1c557faaf9722b3183',1,'nc::imageProcessing::Pixel']]],
-  ['col_2',['col',['../classnc_1_1image_processing_1_1_pixel.html#a6749c7a5513e2b7ee5c027aef104b269',1,'nc::imageProcessing::Pixel']]],
-  ['cols_3',['cols',['../classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d',1,'nc::Shape']]]
+  ['data_5felement_5fsize_0',['DATA_ELEMENT_SIZE',['../classnc_1_1logger_1_1detail_1_1_binary_data_logger.html#ae22bd6c329f8c98eff7015d73ac29462',1,'nc::logger::detail::BinaryDataLogger']]],
+  ['date_5ftype_5fhas_5fserialize_5fmethod_1',['DATE_TYPE_HAS_SERIALIZE_METHOD',['../classnc_1_1logger_1_1detail_1_1_binary_data_logger.html#ace9074b5e2606016922d5361cfb98444',1,'nc::logger::detail::BinaryDataLogger']]],
+  ['days_5fper_5fweek_2',['DAYS_PER_WEEK',['../namespacenc_1_1constants.html#a2c11c386e1a07a17f95122fc4630cbe9',1,'nc::constants']]]
 ];

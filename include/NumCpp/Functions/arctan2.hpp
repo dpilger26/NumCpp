@@ -74,12 +74,11 @@ namespace nc
         }
 
         NdArray<decltype(arctan2(dtype{ 0 }, dtype{ 0 }))> returnArray(inY.shape());
-        stl_algorithms::transform(
-            inY.cbegin(),
-            inY.cend(),
-            inX.cbegin(),
-            returnArray.begin(),
-            [](dtype y, dtype x) noexcept -> auto{ return arctan2(y, x); });
+        stl_algorithms::transform(inY.cbegin(),
+                                  inY.cend(),
+                                  inX.cbegin(),
+                                  returnArray.begin(),
+                                  [](dtype y, dtype x) noexcept -> auto { return arctan2(y, x); });
 
         return returnArray;
     }

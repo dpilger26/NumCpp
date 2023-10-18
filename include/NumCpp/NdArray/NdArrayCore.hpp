@@ -884,7 +884,7 @@ namespace nc
         [[nodiscard]] self_type operator()(Slice inRowSlice, index_type inColIndex) const
         {
             const NdArray<index_type> colIndices = { inColIndex };
-            return                    operator()(toIndices(inRowSlice, Axis::ROW), colIndices);
+            return operator()(toIndices(inRowSlice, Axis::ROW), colIndices);
         }
 
         //============================================================================
@@ -899,7 +899,7 @@ namespace nc
         [[nodiscard]] self_type operator()(index_type inRowIndex, Slice inColSlice) const
         {
             const NdArray<index_type> rowIndices = { inRowIndex };
-            return                    operator()(rowIndices, toIndices(inColSlice, Axis::COL));
+            return operator()(rowIndices, toIndices(inColSlice, Axis::COL));
         }
 
         //============================================================================
@@ -915,7 +915,7 @@ namespace nc
         [[nodiscard]] self_type operator()(const Indices& rowIndices, index_type colIndex) const
         {
             const NdArray<index_type> colIndices = { colIndex };
-            return                    operator()(rowIndices, colIndices);
+            return operator()(rowIndices, colIndices);
         }
 
         //============================================================================
@@ -946,7 +946,7 @@ namespace nc
         [[nodiscard]] self_type operator()(index_type rowIndex, const Indices& colIndices) const
         {
             const NdArray<index_type> rowIndices = { rowIndex };
-            return                    operator()(rowIndices, colIndices);
+            return operator()(rowIndices, colIndices);
         }
 
         //============================================================================

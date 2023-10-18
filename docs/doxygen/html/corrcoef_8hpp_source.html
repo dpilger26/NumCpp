@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.12.0</span>
+                                &#160;<span id="projectnumber">2.12.1</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('corrcoef_8hpp_source.html',''); initRe
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_define" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">const</span> <span class="keyword">auto</span> covariance           = <a class="code hl_function" href="namespacenc.html#ad0514ebd5c66aed87a2905311709ddba">cov</a>(x);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">const</span> <span class="keyword">auto</span> covariance           = <a class="code hl_function" href="namespacenc.html#a6f1f1f1ad957f3bfb1e0a4814790adcf">cov</a>(x);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">auto</span>       normalizedCovariance = <a class="code hl_function" href="namespacenc.html#a875e297baf1d0f1ae229b4342bad8f04">empty_like</a>(covariance);</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">for</span> (<span class="keyword">decltype</span>(covariance.numRows()) i = 0; i &lt; covariance.numRows(); ++i)</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        {</div>
@@ -149,9 +149,9 @@ $(document).ready(function(){initNavTree('corrcoef_8hpp_source.html',''); initRe
 <div class="ttc" id="aempty__like_8hpp_html"><div class="ttname"><a href="empty__like_8hpp.html">empty_like.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_1_1constants_html_a0e933571f05ee6af915fc327260517e9"><div class="ttname"><a href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">nc::constants::j</a></div><div class="ttdeci">constexpr auto j</div><div class="ttdef"><b>Definition:</b> Core/Constants.hpp:42</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Cartesian.hpp:40</div></div>
+<div class="ttc" id="anamespacenc_html_a6f1f1f1ad957f3bfb1e0a4814790adcf"><div class="ttname"><a href="namespacenc.html#a6f1f1f1ad957f3bfb1e0a4814790adcf">nc::cov</a></div><div class="ttdeci">NdArray&lt; double &gt; cov(const NdArray&lt; dtype &gt; &amp;x, Bias bias=Bias::NO)</div><div class="ttdef"><b>Definition:</b> cov.hpp:53</div></div>
 <div class="ttc" id="anamespacenc_html_a875e297baf1d0f1ae229b4342bad8f04"><div class="ttname"><a href="namespacenc.html#a875e297baf1d0f1ae229b4342bad8f04">nc::empty_like</a></div><div class="ttdeci">NdArray&lt; dtype &gt; empty_like(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> empty_like.hpp:44</div></div>
 <div class="ttc" id="anamespacenc_html_a941a5a1ffb61387495a6f23dc4036287"><div class="ttname"><a href="namespacenc.html#a941a5a1ffb61387495a6f23dc4036287">nc::sqrt</a></div><div class="ttdeci">auto sqrt(dtype inValue) noexcept</div><div class="ttdef"><b>Definition:</b> sqrt.hpp:48</div></div>
-<div class="ttc" id="anamespacenc_html_ad0514ebd5c66aed87a2905311709ddba"><div class="ttname"><a href="namespacenc.html#ad0514ebd5c66aed87a2905311709ddba">nc::cov</a></div><div class="ttdeci">NdArray&lt; double &gt; cov(const NdArray&lt; dtype &gt; &amp;x, Bias bias=Bias::FALSE)</div><div class="ttdef"><b>Definition:</b> cov.hpp:53</div></div>
 <div class="ttc" id="anamespacenc_html_ae0cc34635631f14a64b96867dbd961ce"><div class="ttname"><a href="namespacenc.html#ae0cc34635631f14a64b96867dbd961ce">nc::corrcoef</a></div><div class="ttdeci">NdArray&lt; double &gt; corrcoef(const NdArray&lt; dtype &gt; &amp;x)</div><div class="ttdef"><b>Definition:</b> corrcoef.hpp:50</div></div>
 <div class="ttc" id="asqrt_8hpp_html"><div class="ttname"><a href="sqrt_8hpp.html">sqrt.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

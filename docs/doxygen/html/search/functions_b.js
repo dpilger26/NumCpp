@@ -12,7 +12,7 @@ var searchData=
   ['lerp_9',['lerp',['../classnc_1_1_vec2.html#a91e6417e5b9903ed6bee3ad90c0c38f4',1,'nc::Vec2::lerp()'],['../classnc_1_1_vec3.html#ab4878c8a4ebcd94fd0baf93059b50ac6',1,'nc::Vec3::lerp()']]],
   ['less_10',['less',['../namespacenc.html#a214ff1cf329d515457a611f0be8e9bd8',1,'nc']]],
   ['less_5fequal_11',['less_equal',['../namespacenc.html#a052d0b4471adf86a70d91430ccb4873d',1,'nc']]],
-  ['linspace_12',['linspace',['../namespacenc.html#a65b6d27a165a415864e5d65fecb2746f',1,'nc']]],
+  ['linspace_12',['linspace',['../namespacenc.html#a6d8333f2bb5e655f0317644d61fab51b',1,'nc']]],
   ['lla_13',['LLA',['../classnc_1_1coordinates_1_1reference__frames_1_1_l_l_a.html#abe5c2e910419324b41862110a7c9b890',1,'nc::coordinates::reference_frames::LLA::LLA()=default'],['../classnc_1_1coordinates_1_1reference__frames_1_1_l_l_a.html#a35500711d2769b513e7ecef2d3e20c9c',1,'nc::coordinates::reference_frames::LLA::LLA(double inLatitude, double inLongitude, double inAltitude=0.) noexcept']]],
   ['llatoaer_14',['LLAtoAER',['../namespacenc_1_1coordinates_1_1transforms.html#a867f4c21fe56499e38b7217eba8caf85',1,'nc::coordinates::transforms::LLAtoAER(const reference_frames::LLA &amp;target, const reference_frames::LLA &amp;referencePoint) noexcept'],['../namespacenc_1_1coordinates_1_1transforms.html#a2417d189ebd29bd97d04ec85593cbc9a',1,'nc::coordinates::transforms::LLAtoAER(const reference_frames::LLA &amp;target, const reference_frames::ECEF &amp;referencePoint) noexcept']]],
   ['llatoecef_15',['LLAtoECEF',['../namespacenc_1_1coordinates_1_1transforms.html#a4534f88d7138f27edf20f951aac05970',1,'nc::coordinates::transforms']]],
@@ -33,7 +33,7 @@ var searchData=
   ['logical_5for_30',['logical_or',['../namespacenc.html#a62d069e9c46eda68c15946a3fa74b1ab',1,'nc']]],
   ['logical_5fxor_31',['logical_xor',['../namespacenc.html#aae5c773c4e480fc760781013a8def13d',1,'nc']]],
   ['lognormal_32',['lognormal',['../classnc_1_1random_1_1_r_n_g.html#a3a65dc0a17943c15f87769e1d5d45b8c',1,'nc::random::RNG::lognormal()'],['../namespacenc_1_1random.html#a03d5528a3a97b3731210ba2cc5d1c75d',1,'nc::random::lognormal(dtype inMean=0, dtype inSigma=1)'],['../namespacenc_1_1random.html#a4373dc28e42b40a6d65accb8c5f5248e',1,'nc::random::lognormal(const Shape &amp;inShape, dtype inMean=0, dtype inSigma=1)'],['../namespacenc_1_1random_1_1detail.html#aa4810e51158c9385d80b93230b92a043',1,'nc::random::detail::lognormal(GeneratorType &amp;generator, const Shape &amp;inShape, dtype inMean=0, dtype inSigma=1)'],['../namespacenc_1_1random_1_1detail.html#aefb6e46b202083c2a279a8ae009af02c',1,'nc::random::detail::lognormal(GeneratorType &amp;generator, dtype inMean=0, dtype inSigma=1)'],['../classnc_1_1random_1_1_r_n_g.html#a31c17ed48b3d97e4888bbbd2d56c5243',1,'nc::random::RNG::lognormal()']]],
-  ['logspace_33',['logspace',['../namespacenc.html#ac56170b374b47439949f5fd1e5878bde',1,'nc']]],
+  ['logspace_33',['logspace',['../namespacenc.html#af30d297f088e3b9356cdba5cb76e70cc',1,'nc']]],
   ['lstsq_34',['lstsq',['../namespacenc_1_1linalg.html#a8baf25f50874e4bd27d2644a2730fb03',1,'nc::linalg']]],
   ['lu_5fdecomposition_35',['lu_decomposition',['../namespacenc_1_1linalg.html#a60e7cebe243cc88b69d508b569456300',1,'nc::linalg']]]
 ];

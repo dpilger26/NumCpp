@@ -66,11 +66,10 @@ namespace nc::special
     {
         NdArray<decltype(gamma1pm1(dtype{ 0 }))> returnArray(inArray.shape());
 
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) -> auto{ return gamma1pm1(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) -> auto { return gamma1pm1(inValue); });
 
         return returnArray;
     }

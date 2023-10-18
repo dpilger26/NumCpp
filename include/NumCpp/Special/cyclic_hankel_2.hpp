@@ -71,11 +71,10 @@ namespace nc::special
     {
         NdArray<decltype(cyclic_hankel_2(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inX.shape());
 
-        stl_algorithms::transform(
-            inX.cbegin(),
-            inX.cend(),
-            returnArray.begin(),
-            [inV](dtype2 x) -> auto{ return cyclic_hankel_2(inV, x); });
+        stl_algorithms::transform(inX.cbegin(),
+                                  inX.cend(),
+                                  returnArray.begin(),
+                                  [inV](dtype2 x) -> auto { return cyclic_hankel_2(inV, x); });
 
         return returnArray;
     }

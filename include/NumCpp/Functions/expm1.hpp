@@ -66,11 +66,10 @@ namespace nc
     {
         NdArray<decltype(expm1(dtype{ 0 }))> returnArray(inArray.shape());
 
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) noexcept -> auto{ return expm1(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> auto { return expm1(inValue); });
 
         return returnArray;
     }

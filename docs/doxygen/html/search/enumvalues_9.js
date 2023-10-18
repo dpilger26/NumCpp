@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['shell_0',['SHELL',['../namespacenc.html#ae31148c2c120e8ed49df98e7dcd960eca28d568b3892dce36f2833542693a1062',1,'nc']]]
+  ['wrap_0',['WRAP',['../namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae1c8555fcf0ea2bb648a6fd527d658c0',1,'nc::filter']]]
 ];

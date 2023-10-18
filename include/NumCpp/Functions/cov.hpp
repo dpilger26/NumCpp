@@ -50,7 +50,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> cov(const NdArray<dtype>& x, Bias bias = Bias::FALSE)
+    NdArray<double> cov(const NdArray<dtype>& x, Bias bias = Bias::NO)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -58,7 +58,7 @@ namespace nc
         const auto numVars  = x.numRows();
         const auto numObs   = x.numCols();
         const auto normilizationFactor =
-            bias == Bias::TRUE ? static_cast<double>(numObs) : static_cast<double>(numObs - 1);
+            bias == Bias::YES ? static_cast<double>(numObs) : static_cast<double>(numObs - 1);
         using IndexType = typename std::remove_const<decltype(numVars)>::type;
 
         // upper triangle

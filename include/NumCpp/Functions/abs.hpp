@@ -66,11 +66,10 @@ namespace nc
     auto abs(const NdArray<dtype>& inArray)
     {
         NdArray<decltype(nc::abs(dtype{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) noexcept -> auto{ return nc::abs(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> auto { return nc::abs(inValue); });
 
         return returnArray;
     }

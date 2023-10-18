@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.12.0</span>
+                                &#160;<span id="projectnumber">2.12.1</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -124,11 +124,11 @@ $(document).ready(function(){initNavTree('cov__inv_8hpp_source.html',''); initRe
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">//============================================================================</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">// Method Description:</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespacenc.html#ac843604a2a36bc7bf47e9ec43fb04071">   50</a></span>    <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> <a class="code hl_function" href="namespacenc.html#ac843604a2a36bc7bf47e9ec43fb04071">cov_inv</a>(<span class="keyword">const</span> <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; x, <a class="code hl_enumeration" href="namespacenc.html#af32f8c9a95a0b701f8ecbcf0d1e9710c">Bias</a> bias = <a class="code hl_enumvalue" href="namespacenc.html#af32f8c9a95a0b701f8ecbcf0d1e9710ca946003f97ccc52d5d3b54ac0ec31bbfc">Bias::FALSE</a>)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespacenc.html#a0907f107884308608b2624f7469af3fd">   50</a></span>    <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> <a class="code hl_function" href="namespacenc.html#a0907f107884308608b2624f7469af3fd">cov_inv</a>(<span class="keyword">const</span> <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; x, <a class="code hl_enumeration" href="namespacenc.html#af32f8c9a95a0b701f8ecbcf0d1e9710c">Bias</a> bias = <a class="code hl_enumvalue" href="namespacenc.html#af32f8c9a95a0b701f8ecbcf0d1e9710cac2f3f489a00553e7a01d369c103c7251">Bias::NO</a>)</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_define" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacenc_1_1linalg.html#a2eeb58d0a34e50e79fcfe59f71c61b4d">linalg::inv</a>(<a class="code hl_function" href="namespacenc.html#ad0514ebd5c66aed87a2905311709ddba">cov</a>(x, bias));</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacenc_1_1linalg.html#a2eeb58d0a34e50e79fcfe59f71c61b4d">linalg::inv</a>(<a class="code hl_function" href="namespacenc.html#a6f1f1f1ad957f3bfb1e0a4814790adcf">cov</a>(x, bias));</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_enums_8hpp_html"><div class="ttname"><a href="_enums_8hpp.html">Enums.hpp</a></div></div>
@@ -140,10 +140,10 @@ $(document).ready(function(){initNavTree('cov__inv_8hpp_source.html',''); initRe
 <div class="ttc" id="ainv_8hpp_html"><div class="ttname"><a href="inv_8hpp.html">inv.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_1_1linalg_html_a2eeb58d0a34e50e79fcfe59f71c61b4d"><div class="ttname"><a href="namespacenc_1_1linalg.html#a2eeb58d0a34e50e79fcfe59f71c61b4d">nc::linalg::inv</a></div><div class="ttdeci">NdArray&lt; double &gt; inv(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> inv.hpp:54</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Cartesian.hpp:40</div></div>
-<div class="ttc" id="anamespacenc_html_ac843604a2a36bc7bf47e9ec43fb04071"><div class="ttname"><a href="namespacenc.html#ac843604a2a36bc7bf47e9ec43fb04071">nc::cov_inv</a></div><div class="ttdeci">NdArray&lt; double &gt; cov_inv(const NdArray&lt; dtype &gt; &amp;x, Bias bias=Bias::FALSE)</div><div class="ttdef"><b>Definition:</b> cov_inv.hpp:50</div></div>
-<div class="ttc" id="anamespacenc_html_ad0514ebd5c66aed87a2905311709ddba"><div class="ttname"><a href="namespacenc.html#ad0514ebd5c66aed87a2905311709ddba">nc::cov</a></div><div class="ttdeci">NdArray&lt; double &gt; cov(const NdArray&lt; dtype &gt; &amp;x, Bias bias=Bias::FALSE)</div><div class="ttdef"><b>Definition:</b> cov.hpp:53</div></div>
+<div class="ttc" id="anamespacenc_html_a0907f107884308608b2624f7469af3fd"><div class="ttname"><a href="namespacenc.html#a0907f107884308608b2624f7469af3fd">nc::cov_inv</a></div><div class="ttdeci">NdArray&lt; double &gt; cov_inv(const NdArray&lt; dtype &gt; &amp;x, Bias bias=Bias::NO)</div><div class="ttdef"><b>Definition:</b> cov_inv.hpp:50</div></div>
+<div class="ttc" id="anamespacenc_html_a6f1f1f1ad957f3bfb1e0a4814790adcf"><div class="ttname"><a href="namespacenc.html#a6f1f1f1ad957f3bfb1e0a4814790adcf">nc::cov</a></div><div class="ttdeci">NdArray&lt; double &gt; cov(const NdArray&lt; dtype &gt; &amp;x, Bias bias=Bias::NO)</div><div class="ttdef"><b>Definition:</b> cov.hpp:53</div></div>
 <div class="ttc" id="anamespacenc_html_af32f8c9a95a0b701f8ecbcf0d1e9710c"><div class="ttname"><a href="namespacenc.html#af32f8c9a95a0b701f8ecbcf0d1e9710c">nc::Bias</a></div><div class="ttdeci">Bias</div><div class="ttdoc">Bias boolean.</div><div class="ttdef"><b>Definition:</b> Enums.hpp:65</div></div>
-<div class="ttc" id="anamespacenc_html_af32f8c9a95a0b701f8ecbcf0d1e9710ca946003f97ccc52d5d3b54ac0ec31bbfc"><div class="ttname"><a href="namespacenc.html#af32f8c9a95a0b701f8ecbcf0d1e9710ca946003f97ccc52d5d3b54ac0ec31bbfc">nc::Bias::FALSE</a></div><div class="ttdeci">@ FALSE</div></div>
+<div class="ttc" id="anamespacenc_html_af32f8c9a95a0b701f8ecbcf0d1e9710cac2f3f489a00553e7a01d369c103c7251"><div class="ttname"><a href="namespacenc.html#af32f8c9a95a0b701f8ecbcf0d1e9710cac2f3f489a00553e7a01d369c103c7251">nc::Bias::NO</a></div><div class="ttdeci">@ NO</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

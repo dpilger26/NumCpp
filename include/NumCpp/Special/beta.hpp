@@ -81,12 +81,11 @@ namespace nc::special
     {
         NdArray<decltype(beta(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayB.shape());
 
-        stl_algorithms::transform(
-            inArrayA.cbegin(),
-            inArrayA.cend(),
-            inArrayB.cbegin(),
-            returnArray.begin(),
-            [](dtype1 a, dtype2 b) -> auto{ return beta(a, b); });
+        stl_algorithms::transform(inArrayA.cbegin(),
+                                  inArrayA.cend(),
+                                  inArrayB.cbegin(),
+                                  returnArray.begin(),
+                                  [](dtype1 a, dtype2 b) -> auto { return beta(a, b); });
 
         return returnArray;
     }

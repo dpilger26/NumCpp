@@ -68,11 +68,10 @@ namespace nc::special
     {
         NdArray<decltype(airy_ai_prime(dtype{ 0 }))> returnArray(inArray.shape());
 
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) -> auto{ return airy_ai_prime(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) -> auto { return airy_ai_prime(inValue); });
 
         return returnArray;
     }

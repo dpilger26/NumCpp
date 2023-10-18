@@ -78,11 +78,10 @@ namespace nc::special
     {
         NdArray<decltype(comp_ellint_2(dtype{ 0 }))> returnArray(inArrayK.shape());
 
-        stl_algorithms::transform(
-            inArrayK.cbegin(),
-            inArrayK.cend(),
-            returnArray.begin(),
-            [](dtype inK) -> auto{ return comp_ellint_2(inK); });
+        stl_algorithms::transform(inArrayK.cbegin(),
+                                  inArrayK.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inK) -> auto { return comp_ellint_2(inK); });
 
         return returnArray;
     }

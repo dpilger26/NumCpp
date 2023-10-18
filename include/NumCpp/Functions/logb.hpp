@@ -66,11 +66,10 @@ namespace nc
     auto logb(const NdArray<dtype>& inArray, dtype inBase)
     {
         NdArray<decltype(logb(dtype{ 0 }, dtype{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [inBase](dtype inValue) noexcept -> auto{ return logb(inValue, inBase); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [inBase](dtype inValue) noexcept -> auto { return logb(inValue, inBase); });
 
         return returnArray;
     }

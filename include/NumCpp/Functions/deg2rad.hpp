@@ -64,11 +64,10 @@ namespace nc
     auto deg2rad(const NdArray<dtype>& inArray)
     {
         NdArray<decltype(deg2rad(dtype{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) noexcept -> auto{ return deg2rad(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> auto { return deg2rad(inValue); });
 
         return returnArray;
     }

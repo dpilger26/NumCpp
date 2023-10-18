@@ -61,11 +61,10 @@ namespace nc
     auto proj(const NdArray<std::complex<dtype>>& inArray)
     {
         NdArray<decltype(nc::proj(std::complex<dtype>{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](auto& inValue) -> auto{ return nc::proj(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](auto& inValue) -> auto { return nc::proj(inValue); });
 
         return returnArray;
     }

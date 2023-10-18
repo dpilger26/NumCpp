@@ -127,7 +127,7 @@ namespace nc::utils
                 [[maybe_unused]] const ResultType functionResult = function(std::forward<Args&>(args)...);
             }
 
-            const auto elapsedTime = timer.toc(PrintElapsedTime::FALSE);
+            const auto elapsedTime = timer.toc(PrintElapsedTime::NO);
 
             result.mean = result.mean + elapsedTime;
             result.min  = std::min(result.min, elapsedTime);
@@ -136,7 +136,7 @@ namespace nc::utils
 
         result.mean = result.mean / numIterations;
 
-        if (printResults == PrintResults::TRUE)
+        if (printResults == PrintResults::YES)
         {
             std::cout << result;
         }
