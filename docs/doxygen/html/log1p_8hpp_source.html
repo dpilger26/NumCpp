@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.12.0</span>
+                                &#160;<span id="projectnumber">2.12.1</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -137,15 +137,14 @@ $(document).ready(function(){initNavTree('log1p_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="namespacenc.html#a1ae30700a2db1cd8e44fa59b84c2b547">   71</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="namespacenc.html#a5abcc8523a49a47fd2224d5588f128b4">log1p</a>(<span class="keyword">const</span> <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    {</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray</a>&lt;<span class="keyword">decltype</span>(<a class="code hl_function" href="namespacenc.html#a5abcc8523a49a47fd2224d5588f128b4">log1p</a>(dtype{ 0 }))&gt; returnArray(inArray.<a class="code hl_function" href="classnc_1_1_nd_array.html#a4824e91b22bb46ebc31c9c08de55ef13">shape</a>());</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_function" href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">stl_algorithms::transform</a>(</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            inArray.<a class="code hl_function" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(),</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            inArray.<a class="code hl_function" href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">cend</a>(),</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            returnArray.begin(),</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            [](dtype inValue) noexcept -&gt; <span class="keyword">auto</span>{ return log1p(inValue); });</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">return</span> returnArray;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>} <span class="comment">// namespace nc</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_function" href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">stl_algorithms::transform</a>(inArray.<a class="code hl_function" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(),</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                                  inArray.<a class="code hl_function" href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">cend</a>(),</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                                  returnArray.begin(),</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                                  [](dtype inValue) noexcept -&gt; <span class="keyword">auto</span> { return log1p(inValue); });</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> returnArray;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:39</div></div>

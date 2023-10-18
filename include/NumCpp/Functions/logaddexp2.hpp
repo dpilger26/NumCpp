@@ -77,12 +77,11 @@ namespace nc
         }
 
         NdArray<decltype(logaddexp(dtype{ 0 }, dtype{ 0 }))> returnArray(x1.shape());
-        stl_algorithms::transform(
-            x1.cbegin(),
-            x1.cend(),
-            x2.cbegin(),
-            returnArray.begin(),
-            [](dtype inX1, dtype inX2) noexcept -> auto{ return logaddexp2(inX1, inX2); });
+        stl_algorithms::transform(x1.cbegin(),
+                                  x1.cend(),
+                                  x2.cbegin(),
+                                  returnArray.begin(),
+                                  [](dtype inX1, dtype inX2) noexcept -> auto { return logaddexp2(inX1, inX2); });
 
         return returnArray;
     }

@@ -47,7 +47,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> cov_inv(const NdArray<dtype>& x, Bias bias = Bias::FALSE)
+    NdArray<double> cov_inv(const NdArray<dtype>& x, Bias bias = Bias::NO)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 

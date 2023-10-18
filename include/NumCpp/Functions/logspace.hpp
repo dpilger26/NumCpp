@@ -56,7 +56,7 @@ namespace nc
     ///
     template<typename dtype>
     NdArray<double>
-        logspace(dtype start, dtype stop, uint32 num = 50, EndPoint endPoint = EndPoint::TRUE, double base = 10.)
+        logspace(dtype start, dtype stop, uint32 num = 50, EndPoint endPoint = EndPoint::YES, double base = 10.)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

@@ -58,7 +58,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, EndPoint endPoint = EndPoint::TRUE)
+    NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, EndPoint endPoint = EndPoint::YES)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -78,7 +78,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("stop value must be greater than the start value.");
         }
 
-        if (endPoint == EndPoint::TRUE)
+        if (endPoint == EndPoint::YES)
         {
             if (inNum == 2)
             {

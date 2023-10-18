@@ -3517,18 +3517,18 @@ def test_cov():
         ],
     )
     a = np.random.randint(0, 100, shape)
-    assert np.array_equal(np.round(NumCpp.cov(a, NumCpp.Bias.FALSE), 8), np.round(np.cov(a, bias=False), 8))
-    assert np.array_equal(np.round(NumCpp.cov(a, NumCpp.Bias.TRUE), 8), np.round(np.cov(a, bias=True), 8))
+    assert np.array_equal(np.round(NumCpp.cov(a, NumCpp.Bias.NO), 8), np.round(np.cov(a, bias=False), 8))
+    assert np.array_equal(np.round(NumCpp.cov(a, NumCpp.Bias.YES), 8), np.round(np.cov(a, bias=True), 8))
 
 
 ####################################################################################
 def test_cov_inv():
     a = np.random.randint(0, 100, [5, 8])
     assert np.array_equal(
-        np.round(NumCpp.cov_inv(a, NumCpp.Bias.FALSE), 8), np.round(np.linalg.inv(np.cov(a, bias=False)), 8)
+        np.round(NumCpp.cov_inv(a, NumCpp.Bias.NO), 8), np.round(np.linalg.inv(np.cov(a, bias=False)), 8)
     )
     assert np.array_equal(
-        np.round(NumCpp.cov_inv(a, NumCpp.Bias.TRUE), 8), np.round(np.linalg.inv(np.cov(a, bias=True)), 8)
+        np.round(NumCpp.cov_inv(a, NumCpp.Bias.YES), 8), np.round(np.linalg.inv(np.cov(a, bias=True)), 8)
     )
 
 
@@ -6333,11 +6333,11 @@ def test_geomspace():
     stop = np.random.randint(start + 1, 3 * start)
     num = np.random.randint(1, 100)
     assert np.array_equal(
-        np.round(NumCpp.geomspace(start, stop, num, NumCpp.EndPoint.TRUE).flatten(), 8),
+        np.round(NumCpp.geomspace(start, stop, num, NumCpp.EndPoint.YES).flatten(), 8),
         np.round(np.geomspace(start=start, stop=stop, num=num, endpoint=True), 8),
     )
     assert np.array_equal(
-        np.round(NumCpp.geomspace(start, stop, num, NumCpp.EndPoint.FALSE).flatten(), 8),
+        np.round(NumCpp.geomspace(start, stop, num, NumCpp.EndPoint.NO).flatten(), 8),
         np.round(np.geomspace(start=start, stop=stop, num=num, endpoint=False), 8),
     )
 
@@ -8751,7 +8751,7 @@ def test_linspace():
         ],
     ).item()
     assert np.array_equal(
-        np.round(NumCpp.linspace(start, end, numPoints, NumCpp.EndPoint.TRUE).getNumpyArray().flatten(), 8),
+        np.round(NumCpp.linspace(start, end, numPoints, NumCpp.EndPoint.YES).getNumpyArray().flatten(), 8),
         np.round(np.linspace(start, end, numPoints, endpoint=True), 8),
     )
 
@@ -8777,7 +8777,7 @@ def test_linspace():
         ],
     ).item()
     assert np.array_equal(
-        np.round(NumCpp.linspace(start, end, numPoints, NumCpp.EndPoint.FALSE).getNumpyArray().flatten(), 8),
+        np.round(NumCpp.linspace(start, end, numPoints, NumCpp.EndPoint.NO).getNumpyArray().flatten(), 8),
         np.round(np.linspace(start, end, numPoints, endpoint=False), 8),
     )
 
@@ -8845,11 +8845,11 @@ def test_logspace():
     num = np.random.randint(1, 100)
     base = np.random.rand(1) * 10
     assert np.array_equal(
-        np.round(NumCpp.logspace(start, stop, num, NumCpp.EndPoint.TRUE, base).flatten(), 8),
+        np.round(NumCpp.logspace(start, stop, num, NumCpp.EndPoint.YES, base).flatten(), 8),
         np.round(np.logspace(start=start, stop=stop, num=num, endpoint=True, base=base).flatten(), 8),
     ), f"{np.max(np.abs(np.round(NumCpp.logspace(start, stop, num, True, base).flatten(), 8) - np.round(np.logspace(start=start, stop=stop, num=num, endpoint=True, base=base), 8)))}"
     assert np.array_equal(
-        np.round(NumCpp.logspace(start, stop, num, NumCpp.EndPoint.FALSE, base).flatten(), 8),
+        np.round(NumCpp.logspace(start, stop, num, NumCpp.EndPoint.NO, base).flatten(), 8),
         np.round(np.logspace(start=start, stop=stop, num=num, endpoint=False, base=base).flatten(), 8),
     )
 
@@ -18826,17 +18826,17 @@ def test_vander():
     )
     cArray.setArray(data)
     assert np.array_equal(
-        np.round(NumCpp.vander(cArray, NumCpp.Increasing.TRUE), 8), np.round(np.vander(data, increasing=True), 8)
+        np.round(NumCpp.vander(cArray, NumCpp.Increasing.YES), 8), np.round(np.vander(data, increasing=True), 8)
     )
     assert np.array_equal(
-        np.round(NumCpp.vander(cArray, NumCpp.Increasing.FALSE), 8), np.round(np.vander(data, increasing=False), 8)
+        np.round(NumCpp.vander(cArray, NumCpp.Increasing.NO), 8), np.round(np.vander(data, increasing=False), 8)
     )
     assert np.array_equal(
-        np.round(NumCpp.vander(cArray, size + 1, NumCpp.Increasing.TRUE), 8),
+        np.round(NumCpp.vander(cArray, size + 1, NumCpp.Increasing.YES), 8),
         np.round(np.vander(data, size + 1, increasing=True), 8),
     )
     assert np.array_equal(
-        np.round(NumCpp.vander(cArray, size + 1, NumCpp.Increasing.FALSE), 8),
+        np.round(NumCpp.vander(cArray, size + 1, NumCpp.Increasing.NO), 8),
         np.round(np.vander(data, size + 1, increasing=False), 8),
     )
 

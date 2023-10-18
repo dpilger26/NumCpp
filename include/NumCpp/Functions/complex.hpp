@@ -78,11 +78,10 @@ namespace nc
     auto complex(const NdArray<dtype>& inReal)
     {
         NdArray<decltype(nc::complex(dtype{ 0 }))> returnArray(inReal.shape());
-        stl_algorithms::transform(
-            inReal.cbegin(),
-            inReal.cend(),
-            returnArray.begin(),
-            [](dtype real) -> auto{ return nc::complex(real); });
+        stl_algorithms::transform(inReal.cbegin(),
+                                  inReal.cend(),
+                                  returnArray.begin(),
+                                  [](dtype real) -> auto { return nc::complex(real); });
 
         return returnArray;
     }
@@ -104,12 +103,11 @@ namespace nc
         }
 
         NdArray<decltype(nc::complex(dtype{ 0 }, dtype{ 0 }))> returnArray(inReal.shape());
-        stl_algorithms::transform(
-            inReal.cbegin(),
-            inReal.cend(),
-            inImag.cbegin(),
-            returnArray.begin(),
-            [](dtype real, dtype imag) -> auto{ return nc::complex(real, imag); });
+        stl_algorithms::transform(inReal.cbegin(),
+                                  inReal.cend(),
+                                  inImag.cbegin(),
+                                  returnArray.begin(),
+                                  [](dtype real, dtype imag) -> auto { return nc::complex(real, imag); });
 
         return returnArray;
     }

@@ -110,11 +110,11 @@ namespace nc
         /// the console
         /// @return ellapsed time in specified time units
         ///
-        TimeUnit toc(PrintElapsedTime printElapsedTime = PrintElapsedTime::TRUE)
+        TimeUnit toc(PrintElapsedTime printElapsedTime = PrintElapsedTime::YES)
         {
             const auto duration = std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_);
 
-            if (printElapsedTime == PrintElapsedTime::TRUE)
+            if (printElapsedTime == PrintElapsedTime::YES)
             {
                 std::cout << name_ << "Elapsed Time = " << duration.count() << unit_ << std::endl;
             }

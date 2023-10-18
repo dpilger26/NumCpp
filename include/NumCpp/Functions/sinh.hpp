@@ -66,11 +66,10 @@ namespace nc
     auto sinh(const NdArray<dtype>& inArray)
     {
         NdArray<decltype(sinh(dtype{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) noexcept -> auto{ return sinh(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> auto { return sinh(inValue); });
 
         return returnArray;
     }

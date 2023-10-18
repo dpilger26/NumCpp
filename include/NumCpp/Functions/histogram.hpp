@@ -133,7 +133,7 @@ namespace nc
         const NdArray<double> binEdges = linspace(static_cast<double>(inArray.min().item()),
                                                   static_cast<double>(inArray.max().item()),
                                                   inNumBins + 1,
-                                                  EndPoint::TRUE);
+                                                  EndPoint::YES);
 
         const auto histo = histogram(inArray, binEdges);
         return std::make_pair(histo, binEdges);

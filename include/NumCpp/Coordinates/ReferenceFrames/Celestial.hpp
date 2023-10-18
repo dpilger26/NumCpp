@@ -82,8 +82,7 @@ namespace nc::coordinates::reference_frames
         /// @param inMinutes
         /// @param inSeconds
         ///
-        RA(uint8 inHours, uint8 inMinutes, double inSeconds)
-        noexcept :
+        RA(uint8 inHours, uint8 inMinutes, double inSeconds) noexcept :
             hours_(inHours),
             minutes_(inMinutes),
             seconds_(inSeconds)

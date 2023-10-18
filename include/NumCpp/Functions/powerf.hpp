@@ -68,11 +68,11 @@ namespace nc
     auto powerf(const NdArray<dtype1>& inArray, dtype2 inExponent)
     {
         NdArray<decltype(powerf(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [inExponent](dtype1 inValue) noexcept -> auto{ return nc::powerf(inValue, inExponent); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [inExponent](dtype1 inValue) noexcept -> auto
+                                  { return nc::powerf(inValue, inExponent); });
 
         return returnArray;
     }
@@ -96,12 +96,12 @@ namespace nc
         }
 
         NdArray<decltype(powerf(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            inExponents.cbegin(),
-            returnArray.begin(),
-            [](dtype1 inValue, dtype2 inExponent) noexcept -> auto{ return nc::powerf(inValue, inExponent); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  inExponents.cbegin(),
+                                  returnArray.begin(),
+                                  [](dtype1 inValue, dtype2 inExponent) noexcept -> auto
+                                  { return nc::powerf(inValue, inExponent); });
 
         return returnArray;
     }

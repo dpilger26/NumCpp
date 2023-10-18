@@ -63,8 +63,8 @@ namespace nc
     /// Bias boolean
     enum class Bias : bool
     {
-        TRUE  = true,
-        FALSE = false
+        YES = true,
+        NO  = false
     };
 
     //================================================================================
@@ -72,8 +72,8 @@ namespace nc
     /// End Point boolean
     enum class EndPoint : bool
     {
-        TRUE  = true,
-        FALSE = false
+        YES = true,
+        NO  = false
     };
 
     //================================================================================
@@ -81,8 +81,8 @@ namespace nc
     /// Increasing boolean
     enum class Increasing : bool
     {
-        TRUE  = true,
-        FALSE = false
+        YES = true,
+        NO  = false
     };
 
     //================================================================================
@@ -90,8 +90,8 @@ namespace nc
     /// Is Roots boolean
     enum class IsRoots : bool
     {
-        TRUE  = true,
-        FALSE = false
+        YES = true,
+        NO  = false
     };
 
     //================================================================================
@@ -99,8 +99,8 @@ namespace nc
     /// Replace boolean
     enum class Replace : bool
     {
-        TRUE  = true,
-        FALSE = false
+        YES = true,
+        NO  = false
     };
 
     //================================================================================
@@ -108,8 +108,8 @@ namespace nc
     /// Print Elapsed Time boolean
     enum class PrintElapsedTime : bool
     {
-        TRUE  = true,
-        FALSE = false
+        YES = true,
+        NO  = false
     };
 
     //================================================================================
@@ -117,8 +117,8 @@ namespace nc
     /// Print Results boolean
     enum class PrintResults : bool
     {
-        TRUE  = true,
-        FALSE = false
+        YES = true,
+        NO  = false
     };
 
     //============================================================================

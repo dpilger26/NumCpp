@@ -71,11 +71,10 @@ namespace nc::special
     {
         NdArray<decltype(bessel_kn_prime(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayX.shape());
 
-        stl_algorithms::transform(
-            inArrayX.cbegin(),
-            inArrayX.cend(),
-            returnArray.begin(),
-            [inV](dtype2 inX) -> auto{ return bessel_kn_prime(inV, inX); });
+        stl_algorithms::transform(inArrayX.cbegin(),
+                                  inArrayX.cend(),
+                                  returnArray.begin(),
+                                  [inV](dtype2 inX) -> auto { return bessel_kn_prime(inV, inX); });
 
         return returnArray;
     }

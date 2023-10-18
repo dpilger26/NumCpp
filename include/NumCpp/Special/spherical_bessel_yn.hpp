@@ -78,11 +78,10 @@ namespace nc::special
     {
         NdArray<decltype(spherical_bessel_yn(inV, dtype{ 0 }))> returnArray(inArrayX.shape());
 
-        stl_algorithms::transform(
-            inArrayX.cbegin(),
-            inArrayX.cend(),
-            returnArray.begin(),
-            [inV](dtype inX) -> auto{ return spherical_bessel_yn(inV, inX); });
+        stl_algorithms::transform(inArrayX.cbegin(),
+                                  inArrayX.cend(),
+                                  returnArray.begin(),
+                                  [inV](dtype inX) -> auto { return spherical_bessel_yn(inV, inX); });
 
         return returnArray;
     }

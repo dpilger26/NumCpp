@@ -278,7 +278,7 @@ namespace nc::random
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum, Replace replace = Replace::TRUE)
+        NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum, Replace replace = Replace::YES)
         {
             return detail::choice(generator_, inArray, inNum, replace);
         }

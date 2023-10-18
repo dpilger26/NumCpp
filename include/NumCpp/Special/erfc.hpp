@@ -67,11 +67,10 @@ namespace nc::special
     {
         NdArray<decltype(erfc(dtype{ 0 }))> returnArray(inArray.shape());
 
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) -> auto{ return erfc(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) -> auto { return erfc(inValue); });
 
         return returnArray;
     }

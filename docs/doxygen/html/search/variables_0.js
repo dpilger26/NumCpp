@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['_5f_5fpad0_5f_5f_0',['__pad0__',['../classnc_1_1coordinates_1_1reference__frames_1_1_r_a.html#aaa4176a8a626138d10330a3a8516304b',1,'nc::coordinates::reference_frames::RA']]]
+  ['all_5farithmetic_5fv_0',['all_arithmetic_v',['../namespacenc.html#a0b7796ffd2609d1e093207d8546e091a',1,'nc']]],
+  ['all_5fsame_5fv_1',['all_same_v',['../namespacenc.html#ad3769ded44b203686d0a33dd6623e142',1,'nc']]],
+  ['altitude_2',['altitude',['../classnc_1_1coordinates_1_1reference__frames_1_1_l_l_a.html#a55c73366efd85b96fe3dd17465586b93',1,'nc::coordinates::reference_frames::LLA']]],
+  ['az_3',['az',['../classnc_1_1coordinates_1_1reference__frames_1_1_a_e_r.html#adc68c8434852f9857133178f094aa20a',1,'nc::coordinates::reference_frames::AER']]]
 ];

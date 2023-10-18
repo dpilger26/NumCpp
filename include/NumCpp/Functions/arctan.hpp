@@ -66,11 +66,10 @@ namespace nc
     auto arctan(const NdArray<dtype>& inArray)
     {
         NdArray<decltype(arctan(dtype{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) noexcept -> auto{ return arctan(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> auto { return arctan(inValue); });
 
         return returnArray;
     }

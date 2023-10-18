@@ -115,8 +115,8 @@ def test_choice():
     assert NumCpp.choiceSingle(cArray) in data
 
     num = np.random.randint(data.size)
-    assert NumCpp.choiceMultiple(cArray, num, NumCpp.Replace.FALSE).size == num
-    assert NumCpp.choiceMultiple(cArray, num, NumCpp.Replace.TRUE).size == num
+    assert NumCpp.choiceMultiple(cArray, num, NumCpp.Replace.NO).size == num
+    assert NumCpp.choiceMultiple(cArray, num, NumCpp.Replace.YES).size == num
 
 
 ####################################################################################
@@ -718,8 +718,8 @@ def test_RNG_choice():
     assert rng.choice(cArray) in data
 
     num = np.random.randint(data.size)
-    assert rng.choice(cArray, num, NumCpp.Replace.FALSE).size == num
-    assert rng.choice(cArray, num, NumCpp.Replace.TRUE).size == num
+    assert rng.choice(cArray, num, NumCpp.Replace.NO).size == num
+    assert rng.choice(cArray, num, NumCpp.Replace.YES).size == num
 
 
 ####################################################################################
