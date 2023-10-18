@@ -1,10 +1,5 @@
 var NAVTREEINDEX14 =
 {
-"generator_8hpp.html#ab7a11b67f4e9e18c7b01c7dc4db2fc71":[6,0,1,0,12,11,0],
-"generator_8hpp_source.html":[6,0,1,0,12,11],
-"geocentric_radius_8hpp.html":[6,0,1,0,0,1,16],
-"geocentric_radius_8hpp.html#a3b05413b5dc8368da06449e9ab688b9e":[6,0,1,0,0,1,16,0],
-"geocentric_radius_8hpp_source.html":[6,0,1,0,0,1,16],
 "geocentric_to_l_l_a_8hpp.html":[6,0,1,0,0,1,17],
 "geocentric_to_l_l_a_8hpp.html#ab32c65e331319ec9f7ea3cecbee9c48e":[6,0,1,0,0,1,17,0],
 "geocentric_to_l_l_a_8hpp_source.html":[6,0,1,0,0,1,17],
@@ -15,7 +10,7 @@ var NAVTREEINDEX14 =
 "geometric_8hpp.html#ada321053e95eaa700784d397eda6e247":[6,0,1,0,12,12,2],
 "geometric_8hpp_source.html":[6,0,1,0,12,12],
 "geomspace_8hpp.html":[6,0,1,0,4,103],
-"geomspace_8hpp.html#a2d0a7765ec0ecd4c22cdca2d54ee9f68":[6,0,1,0,4,103,0],
+"geomspace_8hpp.html#a669d2f3d890519e1e8b5020693e56fdb":[6,0,1,0,4,103,0],
 "geomspace_8hpp_source.html":[6,0,1,0,4,103],
 "globals.html":[6,1,0],
 "globals_defs.html":[6,1,1],
@@ -162,7 +157,7 @@ var NAVTREEINDEX14 =
 "less__equal_8hpp.html#a052d0b4471adf86a70d91430ccb4873d":[6,0,1,0,4,131,0],
 "less__equal_8hpp_source.html":[6,0,1,0,4,131],
 "linspace_8hpp.html":[6,0,1,0,4,132],
-"linspace_8hpp.html#a65b6d27a165a415864e5d65fecb2746f":[6,0,1,0,4,132,0],
+"linspace_8hpp.html#a6d8333f2bb5e655f0317644d61fab51b":[6,0,1,0,4,132,0],
 "linspace_8hpp_source.html":[6,0,1,0,4,132],
 "load_8hpp.html":[6,0,1,0,4,133],
 "load_8hpp.html#ad6129b92b4e017a4ca772a59b43960e8":[6,0,1,0,4,133,0],
@@ -218,7 +213,7 @@ var NAVTREEINDEX14 =
 "lognormal_8hpp.html#aefb6e46b202083c2a279a8ae009af02c":[6,0,1,0,12,14,3],
 "lognormal_8hpp_source.html":[6,0,1,0,12,14],
 "logspace_8hpp.html":[6,0,1,0,4,145],
-"logspace_8hpp.html#ac56170b374b47439949f5fd1e5878bde":[6,0,1,0,4,145,0],
+"logspace_8hpp.html#af30d297f088e3b9356cdba5cb76e70cc":[6,0,1,0,4,145,0],
 "logspace_8hpp_source.html":[6,0,1,0,4,145],
 "lstsq_8hpp.html":[6,0,1,0,7,6],
 "lstsq_8hpp.html#a8baf25f50874e4bd27d2644a2730fb03":[6,0,1,0,7,6,0],
@@ -249,5 +244,10 @@ var NAVTREEINDEX14 =
 "maximum_filter_8hpp.html#a998f7c3ef568195b9281e3219f3f983e":[6,0,1,0,3,1,1,5,0],
 "maximum_filter_8hpp_source.html":[6,0,1,0,3,1,1,5],
 "md__home_dpilger__github__num_cpp_docs_markdown__building.html":[2],
-"md__home_dpilger__github__num_cpp_docs_markdown__compiler_flags.html":[3]
+"md__home_dpilger__github__num_cpp_docs_markdown__compiler_flags.html":[3],
+"md__home_dpilger__github__num_cpp_docs_markdown__installation.html":[1],
+"md__home_dpilger__github__num_cpp_docs_markdown__release_notes.html":[0],
+"mean_8hpp.html":[6,0,1,0,4,149],
+"mean_8hpp.html#a2740b304fc854a6595195dafcf3dcf89":[6,0,1,0,4,149,0],
+"mean_8hpp.html#a460a2152074d0199190d624122895ef1":[6,0,1,0,4,149,1]
 };

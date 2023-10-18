@@ -70,11 +70,10 @@ namespace nc::special
     {
         NdArray<decltype(polygamma(n, dtype{ 0 }))> returnArray(inArray.shape());
 
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [n](dtype inValue) -> auto{ return polygamma(n, inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [n](dtype inValue) -> auto { return polygamma(n, inValue); });
 
         return returnArray;
     }

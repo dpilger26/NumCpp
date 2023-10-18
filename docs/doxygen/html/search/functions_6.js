@@ -15,7 +15,7 @@ var searchData=
   ['geocentricradius_12',['geocentricRadius',['../namespacenc_1_1coordinates_1_1transforms.html#a3b05413b5dc8368da06449e9ab688b9e',1,'nc::coordinates::transforms']]],
   ['geocentrictolla_13',['geocentricToLLA',['../namespacenc_1_1coordinates_1_1transforms.html#ab32c65e331319ec9f7ea3cecbee9c48e',1,'nc::coordinates::transforms']]],
   ['geometric_14',['geometric',['../namespacenc_1_1random.html#a00e92a426d274980951976014f44a0c8',1,'nc::random::geometric()'],['../namespacenc_1_1random_1_1detail.html#ac1ca9eacb56a06f62433997a1338aa6d',1,'nc::random::detail::geometric(GeneratorType &amp;generator, double inP=0.5)'],['../namespacenc_1_1random_1_1detail.html#ada321053e95eaa700784d397eda6e247',1,'nc::random::detail::geometric(GeneratorType &amp;generator, const Shape &amp;inShape, double inP=0.5)'],['../namespacenc_1_1random.html#a7199f5c06c0e05440e9a97e01930b896',1,'nc::random::geometric()'],['../classnc_1_1random_1_1_r_n_g.html#a769a75c202cb7933d8dff00baf3ae026',1,'nc::random::RNG::geometric(double inP=0.5)'],['../classnc_1_1random_1_1_r_n_g.html#ac146e159274ef14850643e7dadb25555',1,'nc::random::RNG::geometric(const Shape &amp;inShape, double inP=0.5)']]],
-  ['geomspace_15',['geomspace',['../namespacenc.html#a2d0a7765ec0ecd4c22cdca2d54ee9f68',1,'nc']]],
+  ['geomspace_15',['geomspace',['../namespacenc.html#a669d2f3d890519e1e8b5020693e56fdb',1,'nc']]],
   ['getbyindices_16',['getByIndices',['../classnc_1_1_nd_array.html#a512f522bea639fe97221bf127e9e7e9d',1,'nc::NdArray']]],
   ['getbymask_17',['getByMask',['../classnc_1_1_nd_array.html#ae0dc60f69a97fc128a0641c994e57821',1,'nc::NdArray']]],
   ['getinstance_18',['getInstance',['../classnc_1_1logger_1_1_binary_logger.html#accc7216d949492b2e5f2ccc74454c2ce',1,'nc::logger::BinaryLogger']]],

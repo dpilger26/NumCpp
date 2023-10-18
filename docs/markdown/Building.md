@@ -32,7 +32,7 @@ project("HelloWorld" CXX)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-find_package(NumCpp 2.12.0 REQUIRED)
+find_package(NumCpp 2.12.1 REQUIRED)
 target_link_libraries(${PROJECT_NAME}
     NumCpp::NumCpp
 )
@@ -50,7 +50,7 @@ add_executable(${PROJECT_NAME} main.cpp)
 include(FetchContent)
 FetchContent_Declare(NumCpp
         GIT_REPOSITORY https://github.com/dpilger26/NumCpp
-        GIT_TAG Version_2.12.0)
+        GIT_TAG Version_2.12.1)
 FetchContent_MakeAvailable(NumCpp)
 
 target_link_libraries(${PROJECT_NAME}

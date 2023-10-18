@@ -92,21 +92,21 @@ void initCore(pb11::module &m)
         .value("COPY", PointerPolicy::COPY)
         .value("SHELL", PointerPolicy::SHELL);
 
-    pb11::enum_<Bias>(m, "Bias").value("TRUE", Bias::TRUE).value("FALSE", Bias::FALSE);
+    pb11::enum_<Bias>(m, "Bias").value("YES", Bias::YES).value("NO", Bias::NO);
 
-    pb11::enum_<EndPoint>(m, "EndPoint").value("TRUE", EndPoint::TRUE).value("FALSE", EndPoint::FALSE);
+    pb11::enum_<EndPoint>(m, "EndPoint").value("YES", EndPoint::YES).value("NO", EndPoint::NO);
 
-    pb11::enum_<Increasing>(m, "Increasing").value("TRUE", Increasing::TRUE).value("FALSE", Increasing::FALSE);
+    pb11::enum_<Increasing>(m, "Increasing").value("YES", Increasing::YES).value("NO", Increasing::NO);
 
-    pb11::enum_<IsRoots>(m, "IsRoots").value("TRUE", IsRoots::TRUE).value("FALSE", IsRoots::FALSE);
+    pb11::enum_<IsRoots>(m, "IsRoots").value("YES", IsRoots::YES).value("NO", IsRoots::NO);
 
-    pb11::enum_<Replace>(m, "Replace").value("TRUE", Replace::TRUE).value("FALSE", Replace::FALSE);
+    pb11::enum_<Replace>(m, "Replace").value("YES", Replace::YES).value("NO", Replace::NO);
 
     pb11::enum_<PrintElapsedTime>(m, "PrintElapsedTime")
-        .value("TRUE", PrintElapsedTime::TRUE)
-        .value("FALSE", PrintElapsedTime::FALSE);
+        .value("YES", PrintElapsedTime::YES)
+        .value("NO", PrintElapsedTime::NO);
 
-    pb11::enum_<PrintResults>(m, "PrintResults").value("TRUE", PrintResults::TRUE).value("FALSE", PrintResults::FALSE);
+    pb11::enum_<PrintResults>(m, "PrintResults").value("YES", PrintResults::YES).value("NO", PrintResults::NO);
 
     pb11::enum_<Side>(m, "Side").value("LEFT", Side::LEFT).value("RIGHT", Side::RIGHT);
 

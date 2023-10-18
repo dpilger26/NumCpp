@@ -66,11 +66,10 @@ namespace nc
     auto cosh(const NdArray<dtype>& inArray)
     {
         NdArray<decltype(cosh(dtype{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) noexcept -> auto{ return cosh(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> auto { return cosh(inValue); });
 
         return returnArray;
     }

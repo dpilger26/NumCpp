@@ -70,14 +70,14 @@ namespace nc::random
         NdArray<dtype> choice(GeneratorType&        generator,
                               const NdArray<dtype>& inArray,
                               uint32                inNum,
-                              Replace               replace = Replace::TRUE)
+                              Replace               replace = Replace::YES)
         {
-            if (replace == Replace::FALSE && inNum > inArray.size())
+            if (replace == Replace::NO && inNum > inArray.size())
             {
-                THROW_INVALID_ARGUMENT_ERROR("when Replace::FALSE 'inNum' must be <= inArray.size()");
+                THROW_INVALID_ARGUMENT_ERROR("when Replace::NO 'inNum' must be <= inArray.size()");
             }
 
-            if (replace == Replace::TRUE)
+            if (replace == Replace::YES)
             {
                 NdArray<dtype> outArray(1, inNum);
                 std::for_each(outArray.begin(),
@@ -114,7 +114,7 @@ namespace nc::random
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum, Replace replace = Replace::TRUE)
+    NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum, Replace replace = Replace::YES)
     {
         return detail::choice(generator_, inArray, inNum, replace);
     }

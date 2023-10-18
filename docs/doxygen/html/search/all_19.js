@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['y_0',['y',['../classnc_1_1coordinates_1_1_cartesian.html#ac77a08a542ba4d873c0a86047b25953d',1,'nc::coordinates::Cartesian::y()'],['../classnc_1_1_vec2.html#ad7a5bc1612f92f7e49112cf58caeaace',1,'nc::Vec2::y()'],['../classnc_1_1_vec3.html#a969dd1c195f4c78fc3a93292391e29c1',1,'nc::Vec3::y()'],['../classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a23bbdb90f757236e0c3160656bc41c13',1,'nc::coordinates::reference_frames::Celestial::y()']]],
-  ['yaw_1',['yaw',['../classnc_1_1coordinates_1_1_orientation.html#ab4a0f03f2bc9dc948b15102665dce6c9',1,'nc::coordinates::Orientation::yaw()'],['../classnc_1_1rotations_1_1_d_c_m.html#aef0f27b195b93151a94cb86ca9fa21c9',1,'nc::rotations::DCM::yaw()'],['../classnc_1_1rotations_1_1_quaternion.html#a5b5cef534a39badf5d3079ee642e675c',1,'nc::rotations::Quaternion::yaw() const noexcept']]],
-  ['yawrotation_2',['yawRotation',['../classnc_1_1rotations_1_1_quaternion.html#a7a59f6daaafd941879abecff8d3a1348',1,'nc::rotations::Quaternion']]],
-  ['year_3',['year',['../classnc_1_1_date_time.html#a82c1a1c94b865b537c0ba320f887fd7f',1,'nc::DateTime']]],
-  ['yhat_4',['yHat',['../classnc_1_1coordinates_1_1_cartesian.html#ac149f2d7075f8b145000b7edfdf035e2',1,'nc::coordinates::Cartesian']]],
-  ['yrotation_5',['yRotation',['../classnc_1_1rotations_1_1_d_c_m.html#a178b8bf61941070bd629263312b627dd',1,'nc::rotations::DCM::yRotation()'],['../classnc_1_1rotations_1_1_quaternion.html#ab77da90ef63465f79bd79348330ca9a4',1,'nc::rotations::Quaternion::yRotation()']]]
+  ['z_0',['z',['../classnc_1_1coordinates_1_1_cartesian.html#a9f51fd4fa6aad2c318df86588ed6a34f',1,'nc::coordinates::Cartesian::z()'],['../classnc_1_1_vec3.html#a0896ee691f46ce0bd669b869fe6acb41',1,'nc::Vec3::z()'],['../classnc_1_1coordinates_1_1reference__frames_1_1_celestial.html#a47889ee592a590a4df206d93d102b1ef',1,'nc::coordinates::reference_frames::Celestial::z()']]],
+  ['zeros_1',['zeros',['../classnc_1_1_nd_array.html#a0b05b0b1831bd96b1057f2788795f93f',1,'nc::NdArray::zeros()'],['../namespacenc.html#abce4b61ffbaa3276f4f84088fdf25e95',1,'nc::zeros(uint32 inSquareSize)'],['../namespacenc.html#a1c620c26cc358f639753f2c1cd73f1e0',1,'nc::zeros(uint32 inNumRows, uint32 inNumCols)'],['../namespacenc.html#aba15909fe95d255b0eea84d0f0c93d30',1,'nc::zeros(const Shape &amp;inShape)']]],
+  ['zeros_2ehpp_2',['zeros.hpp',['../zeros_8hpp.html',1,'']]],
+  ['zeros_5flike_3',['zeros_like',['../namespacenc.html#a98f33a60a96942c994a19396907d27c0',1,'nc']]],
+  ['zeros_5flike_2ehpp_4',['zeros_like.hpp',['../zeros__like_8hpp.html',1,'']]],
+  ['zhat_5',['zHat',['../classnc_1_1coordinates_1_1_cartesian.html#a6a34b091a9bf8f03654a533bb469f66c',1,'nc::coordinates::Cartesian']]],
+  ['zrotation_6',['zRotation',['../classnc_1_1rotations_1_1_d_c_m.html#a626b0bd2a3cf54e958f5c4d89b3c843b',1,'nc::rotations::DCM::zRotation()'],['../classnc_1_1rotations_1_1_quaternion.html#aaf688fafc4714f1da399e265c8e49a8d',1,'nc::rotations::Quaternion::zRotation()']]]
 ];

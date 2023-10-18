@@ -35,7 +35,7 @@ def test_poly1D_coefficents_constructor():
     )
     coefficientsC = NumCpp.NdArray(1, numCoefficients)
     coefficientsC.setArray(coefficients)
-    polyC = NumCpp.Poly1d(coefficientsC, NumCpp.IsRoots.FALSE)
+    polyC = NumCpp.Poly1d(coefficientsC, NumCpp.IsRoots.NO)
     assert np.array_equal(polyC.coefficients().getNumpyArray().flatten(), coefficients)
 
 
@@ -58,7 +58,7 @@ def test_poly1D_roots_constructor():
     rootsC = NumCpp.NdArray(1, numRoots)
     rootsC.setArray(roots)
     poly = np.poly1d(roots, True)
-    polyC = NumCpp.Poly1d(rootsC, NumCpp.IsRoots.TRUE)
+    polyC = NumCpp.Poly1d(rootsC, NumCpp.IsRoots.YES)
     assert np.array_equal(
         np.fliplr(polyC.coefficients().getNumpyArray()).flatten().astype(int), poly.coefficients
     )  # noqa
@@ -83,7 +83,7 @@ def test_poly1D_eval():
     rootsC = NumCpp.NdArray(1, numRoots)
     rootsC.setArray(roots)
     poly = np.poly1d(roots, True)
-    polyC = NumCpp.Poly1d(rootsC, NumCpp.IsRoots.TRUE)
+    polyC = NumCpp.Poly1d(rootsC, NumCpp.IsRoots.YES)
     assert np.array_equal(
         np.fliplr(polyC.coefficients().getNumpyArray()).flatten().astype(int), poly.coefficients
     )  # noqa
@@ -121,7 +121,7 @@ def test_poly1D_integ_deriv_area_order():
     rootsC = NumCpp.NdArray(1, numRoots)
     rootsC.setArray(roots)
     poly = np.poly1d(roots, True)
-    polyC = NumCpp.Poly1d(rootsC, NumCpp.IsRoots.TRUE)
+    polyC = NumCpp.Poly1d(rootsC, NumCpp.IsRoots.YES)
 
     bounds = np.random.rand(2) * 100 - 50
     bounds = np.sort(bounds)
@@ -215,7 +215,7 @@ def test_poly1D_operators():
     rootsC = NumCpp.NdArray(1, numRoots)
     rootsC.setArray(roots)
     poly = np.poly1d(roots, True)
-    polyC = NumCpp.Poly1d(rootsC, NumCpp.IsRoots.TRUE)
+    polyC = NumCpp.Poly1d(rootsC, NumCpp.IsRoots.YES)
 
     numCoefficients = np.random.randint(
         3,
@@ -233,7 +233,7 @@ def test_poly1D_operators():
     )
     coefficientsC = NumCpp.NdArray(1, numCoefficients)
     coefficientsC.setArray(coefficients)
-    polyC2 = NumCpp.Poly1d(coefficientsC, NumCpp.IsRoots.FALSE)
+    polyC2 = NumCpp.Poly1d(coefficientsC, NumCpp.IsRoots.NO)
     poly2 = np.poly1d(np.flip(coefficients))
     assert np.array_equal(
         np.fliplr((polyC + polyC2).coefficients().getNumpyArray()).flatten(), (poly + poly2).coefficients

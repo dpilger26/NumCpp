@@ -65,11 +65,10 @@ namespace nc
     auto sqrt(const NdArray<dtype>& inArray)
     {
         NdArray<decltype(sqrt(dtype{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) noexcept -> auto{ return sqrt(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> auto { return sqrt(inValue); });
 
         return returnArray;
     }

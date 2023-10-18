@@ -66,11 +66,10 @@ namespace nc
     auto cos(const NdArray<dtype>& inArray)
     {
         NdArray<decltype(cos(dtype{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) noexcept -> auto{ return cos(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> auto { return cos(inValue); });
 
         return returnArray;
     }

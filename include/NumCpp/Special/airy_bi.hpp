@@ -68,11 +68,10 @@ namespace nc::special
     {
         NdArray<decltype(airy_bi(dtype{ 0 }))> returnArray(inArray.shape());
 
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) -> auto{ return airy_bi(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) -> auto { return airy_bi(inValue); });
 
         return returnArray;
     }

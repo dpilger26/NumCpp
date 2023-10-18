@@ -1,7 +1,7 @@
 var classnc_1_1polynomial_1_1_poly1d =
 [
     [ "Poly1d", "classnc_1_1polynomial_1_1_poly1d.html#a30777a0dd9351cf64f96959dad0d9ba5", null ],
-    [ "Poly1d", "classnc_1_1polynomial_1_1_poly1d.html#acf9f2030fd80305cb0474ca592571505", null ],
+    [ "Poly1d", "classnc_1_1polynomial_1_1_poly1d.html#a4f7f317a4ecbc855aabd4087e1c1b9a2", null ],
     [ "area", "classnc_1_1polynomial_1_1_poly1d.html#adcbfe7e5fe2ed3b73bc5c81a73ece1cb", null ],
     [ "astype", "classnc_1_1polynomial_1_1_poly1d.html#a7e31c4af1b8b0bfe211725224ad44d6b", null ],
     [ "coefficients", "classnc_1_1polynomial_1_1_poly1d.html#adf75c8dad7d05c35e4364149f87cf693", null ],

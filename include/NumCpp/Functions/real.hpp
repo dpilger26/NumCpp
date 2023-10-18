@@ -65,11 +65,10 @@ namespace nc
     auto real(const NdArray<std::complex<dtype>>& inArray)
     {
         NdArray<decltype(nc::real(std::complex<dtype>{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](auto& inValue) -> auto{ return nc::real(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](auto& inValue) -> auto { return nc::real(inValue); });
 
         return returnArray;
     }

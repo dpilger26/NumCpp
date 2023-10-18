@@ -66,11 +66,10 @@ namespace nc
     auto arccos(const NdArray<dtype>& inArray)
     {
         NdArray<decltype(arccos(dtype{ 0 }))> returnArray(inArray.shape());
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) noexcept -> auto{ return arccos(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> auto { return arccos(inValue); });
 
         return returnArray;
     }

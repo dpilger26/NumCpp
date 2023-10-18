@@ -68,11 +68,10 @@ namespace nc::special
     {
         NdArray<decltype(trigamma(dtype{ 0 }))> returnArray(inArray.shape());
 
-        stl_algorithms::transform(
-            inArray.cbegin(),
-            inArray.cend(),
-            returnArray.begin(),
-            [](dtype inValue) -> auto{ return trigamma(inValue); });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) -> auto { return trigamma(inValue); });
 
         return returnArray;
     }

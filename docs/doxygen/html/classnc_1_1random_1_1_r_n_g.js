@@ -13,7 +13,7 @@ var classnc_1_1random_1_1_r_n_g =
     [ "chiSquare", "classnc_1_1random_1_1_r_n_g.html#a325ddc3ae1b4d11d90ac4f7eb5af4e25", null ],
     [ "chiSquare", "classnc_1_1random_1_1_r_n_g.html#a77c47616bc244a197edc12d24b6e8bce", null ],
     [ "choice", "classnc_1_1random_1_1_r_n_g.html#a341f65c24142339cead2ef0a2470e791", null ],
-    [ "choice", "classnc_1_1random_1_1_r_n_g.html#a8eb830e77d0c5137daab17e4c63a9e1e", null ],
+    [ "choice", "classnc_1_1random_1_1_r_n_g.html#a8bc6fdb5a026802d0ba696cddc27cb81", null ],
     [ "discrete", "classnc_1_1random_1_1_r_n_g.html#ab38aaa373d489a9210751f12e52d8c8f", null ],
     [ "discrete", "classnc_1_1random_1_1_r_n_g.html#a08105745a540e6ad098c3025d4054830", null ],
     [ "exponential", "classnc_1_1random_1_1_r_n_g.html#ae7df952d6e30b7b3e74c53c7e30ef388", null ],

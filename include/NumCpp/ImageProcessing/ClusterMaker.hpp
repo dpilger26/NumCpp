@@ -184,9 +184,9 @@ namespace nc::imageProcessing
         {
             // Make sure that on the edges after i've added or subtracted 1 from the row and col that
             // i haven't gone over the edge
-            const uint32 row      = std::min(static_cast<uint32>(std::max<int32>(inRow, 0)), shape_.rows - 1);
-            const uint32 col      = std::min(static_cast<uint32>(std::max<int32>(inCol, 0)), shape_.cols - 1);
-            const dtype intensity = intensities_->operator()(row, col);
+            const uint32 row       = std::min(static_cast<uint32>(std::max<int32>(inRow, 0)), shape_.rows - 1);
+            const uint32 col       = std::min(static_cast<uint32>(std::max<int32>(inCol, 0)), shape_.cols - 1);
+            const dtype  intensity = intensities_->operator()(row, col);
 
             return Pixel<dtype>(row, col, intensity);
         }

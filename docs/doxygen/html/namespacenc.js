@@ -220,8 +220,8 @@ var namespacenc =
       [ "COL", "namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05", null ]
     ] ],
     [ "Bias", "namespacenc.html#af32f8c9a95a0b701f8ecbcf0d1e9710c", [
-      [ "TRUE", "namespacenc.html#af32f8c9a95a0b701f8ecbcf0d1e9710cac0d83f0b82a6b30de8811e69e6d95c61", null ],
-      [ "FALSE", "namespacenc.html#af32f8c9a95a0b701f8ecbcf0d1e9710ca946003f97ccc52d5d3b54ac0ec31bbfc", null ]
+      [ "YES", "namespacenc.html#af32f8c9a95a0b701f8ecbcf0d1e9710ca7469a286259799e5b37e5db9296f00b3", null ],
+      [ "NO", "namespacenc.html#af32f8c9a95a0b701f8ecbcf0d1e9710cac2f3f489a00553e7a01d369c103c7251", null ]
     ] ],
     [ "Endian", "namespacenc.html#a8dcbcb343147d09e74689ad8a2586152", [
       [ "NATIVE", "namespacenc.html#a8dcbcb343147d09e74689ad8a2586152af78504d96ba7177dc0c6784905ac8743", null ],
@@ -229,12 +229,12 @@ var namespacenc =
       [ "LITTLE", "namespacenc.html#a8dcbcb343147d09e74689ad8a2586152a1314341b466dcb5e2c880b76414c49fe", null ]
     ] ],
     [ "EndPoint", "namespacenc.html#af9769af0418268b619b18e7f9ffa7f39", [
-      [ "TRUE", "namespacenc.html#af9769af0418268b619b18e7f9ffa7f39ac0d83f0b82a6b30de8811e69e6d95c61", null ],
-      [ "FALSE", "namespacenc.html#af9769af0418268b619b18e7f9ffa7f39a946003f97ccc52d5d3b54ac0ec31bbfc", null ]
+      [ "YES", "namespacenc.html#af9769af0418268b619b18e7f9ffa7f39a7469a286259799e5b37e5db9296f00b3", null ],
+      [ "NO", "namespacenc.html#af9769af0418268b619b18e7f9ffa7f39ac2f3f489a00553e7a01d369c103c7251", null ]
     ] ],
     [ "Increasing", "namespacenc.html#af9055934b0b2245795a4ecbcde6c8ebd", [
-      [ "TRUE", "namespacenc.html#af9055934b0b2245795a4ecbcde6c8ebdac0d83f0b82a6b30de8811e69e6d95c61", null ],
-      [ "FALSE", "namespacenc.html#af9055934b0b2245795a4ecbcde6c8ebda946003f97ccc52d5d3b54ac0ec31bbfc", null ]
+      [ "YES", "namespacenc.html#af9055934b0b2245795a4ecbcde6c8ebda7469a286259799e5b37e5db9296f00b3", null ],
+      [ "NO", "namespacenc.html#af9055934b0b2245795a4ecbcde6c8ebdac2f3f489a00553e7a01d369c103c7251", null ]
     ] ],
     [ "InterpolationMethod", "namespacenc.html#a476f76c3468948fe24d7abf9cd0d650e", [
       [ "LINEAR", "namespacenc.html#a476f76c3468948fe24d7abf9cd0d650eaaac544aacc3615aada24897a215f5046", null ],
@@ -244,24 +244,24 @@ var namespacenc =
       [ "MIDPOINT", "namespacenc.html#a476f76c3468948fe24d7abf9cd0d650eaafa8fd4b90a3f8123b4bd30446518a7e", null ]
     ] ],
     [ "IsRoots", "namespacenc.html#a85b85e03c940a6f01f9d77308a255455", [
-      [ "TRUE", "namespacenc.html#a85b85e03c940a6f01f9d77308a255455ac0d83f0b82a6b30de8811e69e6d95c61", null ],
-      [ "FALSE", "namespacenc.html#a85b85e03c940a6f01f9d77308a255455a946003f97ccc52d5d3b54ac0ec31bbfc", null ]
+      [ "YES", "namespacenc.html#a85b85e03c940a6f01f9d77308a255455a7469a286259799e5b37e5db9296f00b3", null ],
+      [ "NO", "namespacenc.html#a85b85e03c940a6f01f9d77308a255455ac2f3f489a00553e7a01d369c103c7251", null ]
     ] ],
     [ "PointerPolicy", "namespacenc.html#ae31148c2c120e8ed49df98e7dcd960ec", [
       [ "COPY", "namespacenc.html#ae31148c2c120e8ed49df98e7dcd960ecae8606d021da140a92c7eba8d9b8af84f", null ],
       [ "SHELL", "namespacenc.html#ae31148c2c120e8ed49df98e7dcd960eca28d568b3892dce36f2833542693a1062", null ]
     ] ],
     [ "PrintElapsedTime", "namespacenc.html#a789bf2546eff297f1ecc11542decf8d7", [
-      [ "TRUE", "namespacenc.html#a789bf2546eff297f1ecc11542decf8d7ac0d83f0b82a6b30de8811e69e6d95c61", null ],
-      [ "FALSE", "namespacenc.html#a789bf2546eff297f1ecc11542decf8d7a946003f97ccc52d5d3b54ac0ec31bbfc", null ]
+      [ "YES", "namespacenc.html#a789bf2546eff297f1ecc11542decf8d7a7469a286259799e5b37e5db9296f00b3", null ],
+      [ "NO", "namespacenc.html#a789bf2546eff297f1ecc11542decf8d7ac2f3f489a00553e7a01d369c103c7251", null ]
     ] ],
     [ "PrintResults", "namespacenc.html#a671e78f21b7e89dbb3f0afb50ecba063", [
-      [ "TRUE", "namespacenc.html#a671e78f21b7e89dbb3f0afb50ecba063ac0d83f0b82a6b30de8811e69e6d95c61", null ],
-      [ "FALSE", "namespacenc.html#a671e78f21b7e89dbb3f0afb50ecba063a946003f97ccc52d5d3b54ac0ec31bbfc", null ]
+      [ "YES", "namespacenc.html#a671e78f21b7e89dbb3f0afb50ecba063a7469a286259799e5b37e5db9296f00b3", null ],
+      [ "NO", "namespacenc.html#a671e78f21b7e89dbb3f0afb50ecba063ac2f3f489a00553e7a01d369c103c7251", null ]
     ] ],
     [ "Replace", "namespacenc.html#a522ac3d88d34662e09f35b28fbf97582", [
-      [ "TRUE", "namespacenc.html#a522ac3d88d34662e09f35b28fbf97582ac0d83f0b82a6b30de8811e69e6d95c61", null ],
-      [ "FALSE", "namespacenc.html#a522ac3d88d34662e09f35b28fbf97582a946003f97ccc52d5d3b54ac0ec31bbfc", null ]
+      [ "YES", "namespacenc.html#a522ac3d88d34662e09f35b28fbf97582a7469a286259799e5b37e5db9296f00b3", null ],
+      [ "NO", "namespacenc.html#a522ac3d88d34662e09f35b28fbf97582ac2f3f489a00553e7a01d369c103c7251", null ]
     ] ],
     [ "Side", "namespacenc.html#a7b16f0b406f36ef56a47ff41f4476a09", [
       [ "LEFT", "namespacenc.html#a7b16f0b406f36ef56a47ff41f4476a09a684d325a7303f52e64011467ff5c5758", null ],
@@ -375,8 +375,8 @@ var namespacenc =
     [ "cosh", "namespacenc.html#a520e0290bb667b43a9f494b3858b5f17", null ],
     [ "cosh", "namespacenc.html#abb07133a1f54b24a4a4986eefb5eda85", null ],
     [ "count_nonzero", "namespacenc.html#aac312a24799da39c6cb6960f07812111", null ],
-    [ "cov", "namespacenc.html#ad0514ebd5c66aed87a2905311709ddba", null ],
-    [ "cov_inv", "namespacenc.html#ac843604a2a36bc7bf47e9ec43fb04071", null ],
+    [ "cov", "namespacenc.html#a6f1f1f1ad957f3bfb1e0a4814790adcf", null ],
+    [ "cov_inv", "namespacenc.html#a0907f107884308608b2624f7469af3fd", null ],
     [ "cross", "namespacenc.html#ab414231c92c4fc20d778edc2c9b5dc12", null ],
     [ "cube", "namespacenc.html#a0ac924c98df46360a64fcc156ffe2d98", null ],
     [ "cube", "namespacenc.html#a5899ccef8410243438debea3d8296df6", null ],
@@ -458,7 +458,7 @@ var namespacenc =
     [ "full_like", "namespacenc.html#accb9a92155d4c3d688cce08468296947", null ],
     [ "gcd", "namespacenc.html#a4a496eaa0a42e0b9c80724358664d432", null ],
     [ "gcd", "namespacenc.html#a45b5db91eb9f524459fa3878e23ca0ec", null ],
-    [ "geomspace", "namespacenc.html#a2d0a7765ec0ecd4c22cdca2d54ee9f68", null ],
+    [ "geomspace", "namespacenc.html#a669d2f3d890519e1e8b5020693e56fdb", null ],
     [ "gradient", "namespacenc.html#acd531e597e05821b01747a0ae3b096b7", null ],
     [ "gradient", "namespacenc.html#ad833b82535ebdbb6043df6462c4a0ddd", null ],
     [ "greater", "namespacenc.html#a5a3294d00ff310b4d95b0292adafc94f", null ],
@@ -507,7 +507,7 @@ var namespacenc =
     [ "left_shift", "namespacenc.html#abeea32ab9bfa1e127ceb91c0538d6cb6", null ],
     [ "less", "namespacenc.html#a214ff1cf329d515457a611f0be8e9bd8", null ],
     [ "less_equal", "namespacenc.html#a052d0b4471adf86a70d91430ccb4873d", null ],
-    [ "linspace", "namespacenc.html#a65b6d27a165a415864e5d65fecb2746f", null ],
+    [ "linspace", "namespacenc.html#a6d8333f2bb5e655f0317644d61fab51b", null ],
     [ "load", "namespacenc.html#ad6129b92b4e017a4ca772a59b43960e8", null ],
     [ "log", "namespacenc.html#aba925957229bf54bfe854be197cd3d52", null ],
     [ "log", "namespacenc.html#a3f08d373ae167ac90d3bb6b6c4da0fb9", null ],
@@ -527,7 +527,7 @@ var namespacenc =
     [ "logical_not", "namespacenc.html#a63cf55809c7f46ece3106108a65f8e3a", null ],
     [ "logical_or", "namespacenc.html#a62d069e9c46eda68c15946a3fa74b1ab", null ],
     [ "logical_xor", "namespacenc.html#aae5c773c4e480fc760781013a8def13d", null ],
-    [ "logspace", "namespacenc.html#ac56170b374b47439949f5fd1e5878bde", null ],
+    [ "logspace", "namespacenc.html#af30d297f088e3b9356cdba5cb76e70cc", null ],
     [ "matmul", "namespacenc.html#a666207bcb1e7fe5993aa707cfd8b1f50", null ],
     [ "matmul", "namespacenc.html#a2641ebcbac9389cb1637a2ca85baa8d5", null ],
     [ "matmul", "namespacenc.html#a225e40b104aeec5dcee81e4d7ff5089f", null ],
@@ -885,8 +885,8 @@ var namespacenc =
     [ "unpackbitsLittleEndian", "namespacenc.html#a5ce3cb62877f9e55208335b8dcecb502", null ],
     [ "unwrap", "namespacenc.html#a95b20b603ab817268e65a1718f7063c0", null ],
     [ "unwrap", "namespacenc.html#aac5e942220c693fb9e65fcc3ff4fc50f", null ],
-    [ "vander", "namespacenc.html#aa3ac91e4e7e4089d2c9c9bd76ce5b3d0", null ],
-    [ "vander", "namespacenc.html#adfd5fce2fdfc077bb595fc03fce408ec", null ],
+    [ "vander", "namespacenc.html#a75841a79c6ec1409e304bab6419ab9d1", null ],
+    [ "vander", "namespacenc.html#a3f4ba3545242fa79936ca6f07f5a311b", null ],
     [ "var", "namespacenc.html#af93c7b399ebf8d5d32e4b6077a40b808", null ],
     [ "var", "namespacenc.html#a81a573905b290c2109d706467b896b58", null ],
     [ "vsplit", "namespacenc.html#abe2917067a4a8a00fbd8978e5d30bd40", null ],

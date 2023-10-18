@@ -56,7 +56,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> geomspace(dtype start, dtype stop, uint32 num = 50, EndPoint endPoint = EndPoint::TRUE)
+    NdArray<double> geomspace(dtype start, dtype stop, uint32 num = 50, EndPoint endPoint = EndPoint::YES)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -69,7 +69,7 @@ namespace nc
         {
             return { static_cast<double>(start) };
         }
-        else if (num == 2 && endPoint == EndPoint::TRUE)
+        else if (num == 2 && endPoint == EndPoint::YES)
         {
             return { static_cast<double>(start), static_cast<double>(stop) };
         }

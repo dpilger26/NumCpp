@@ -87,12 +87,11 @@ namespace nc::special
 
         NdArray<decltype(ellint_2(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayK.shape());
 
-        stl_algorithms::transform(
-            inArrayK.cbegin(),
-            inArrayK.cend(),
-            inArrayP.cbegin(),
-            returnArray.begin(),
-            [](dtype1 inK, dtype2 inP) -> auto{ return ellint_2(inK, inP); });
+        stl_algorithms::transform(inArrayK.cbegin(),
+                                  inArrayK.cend(),
+                                  inArrayP.cbegin(),
+                                  returnArray.begin(),
+                                  [](dtype1 inK, dtype2 inP) -> auto { return ellint_2(inK, inP); });
 
         return returnArray;
     }
