@@ -25,5 +25,5 @@ runs:
         sudo apt install -y libboost-all-dev
         wget https://apt.llvm.org/llvm.sh
         chmod u+x llvm.sh
-        sed -i 's/add-apt-repository/add-apt-repository/g -y' llvm.sh 
+        sed -i 's/add-apt-repository/add-apt-repository -y/g' llvm.sh 
         sudo ./llvm.sh 16
