@@ -22,5 +22,8 @@ runs:
       shell: bash -l {0}
       run: |
         sudo apt update
-        sudo apt install -y libboost-all-dev libgtest-dev
-        sudo apt install -y clang --install-suggests
+        sudo apt install -y libboost-all-dev
+        wget https://apt.llvm.org/llvm.sh
+        chmod u+x llvm.sh
+        sed -i 's/add-apt-repository/add-apt-repository/g -y' llvm.sh 
+        sudo ./llvm.sh 16
