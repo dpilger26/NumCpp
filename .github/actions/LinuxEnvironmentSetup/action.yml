@@ -22,5 +22,5 @@ runs:
       shell: bash -l {0}
       run: |
         sudo apt update
-        sudo apt install -y libboost-all-dev
+        sudo apt install -y libboost-all-dev libgtest-dev
         sudo apt install -y clang --install-suggests
