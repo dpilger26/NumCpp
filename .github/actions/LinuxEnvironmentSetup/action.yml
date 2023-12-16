@@ -7,10 +7,9 @@ runs:
     - name: Setup conda
       uses: conda-incubator/setup-miniconda@v3
       with:
-        miniconda-version: 23.10.0
+        miniconda-version: "latest"
         activate-environment: test
         environment-file: test/pytest/environment.yml
-        python-version: 3.10
 
     - name: Activate Env
       shell: bash -l {0}
