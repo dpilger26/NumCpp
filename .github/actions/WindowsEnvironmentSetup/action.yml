@@ -16,7 +16,7 @@ runs:
         auto-activate-base: false
         activate-environment: test
         environment-file: test/pytest/environment.yml
-        python-version: 3.9
+        python-version: 3.10
 
     - name: Activate Env
       shell: powershell
