@@ -7,8 +7,7 @@ runs:
     - name: Setup conda
       uses: conda-incubator/setup-miniconda@v3
       with:
-        auto-update-conda: true
-        auto-activate-base: false
+        miniconda-version: Miniconda3-py310_23.10.0-1-Linux-x86_64
         activate-environment: test
         environment-file: test/pytest/environment.yml
         python-version: 3.10
