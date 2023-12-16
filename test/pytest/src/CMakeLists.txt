@@ -66,9 +66,9 @@ target_compile_options(${TARGET_NAME} PRIVATE
     $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/bigobj>
 )
 
-# target_link_options(${TARGET_NAME} PRIVATE 
-#     $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-static-libstdc++>
-# )
+target_link_options(${TARGET_NAME} PRIVATE 
+    $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-static-libstdc++>
+)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     set(OUTPUT_SUFFIX ".pyd")
