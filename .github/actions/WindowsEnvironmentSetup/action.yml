@@ -10,13 +10,11 @@ runs:
   using: "composite"
   steps:
     - name: Setup conda
-      uses: conda-incubator/setup-miniconda@v2
+      uses: conda-incubator/setup-miniconda@v3
       with:
-        auto-update-conda: true
-        auto-activate-base: false
+        miniconda-version: "latest"
         activate-environment: test
         environment-file: test/pytest/environment.yml
-        python-version: 3.9
 
     - name: Activate Env
       shell: powershell

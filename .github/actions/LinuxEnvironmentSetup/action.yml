@@ -5,13 +5,11 @@ runs:
   using: "composite"
   steps:
     - name: Setup conda
-      uses: conda-incubator/setup-miniconda@v2
+      uses: conda-incubator/setup-miniconda@v3
       with:
-        auto-update-conda: true
-        auto-activate-base: false
+        miniconda-version: "latest"
         activate-environment: test
         environment-file: test/pytest/environment.yml
-        python-version: 3.9
 
     - name: Activate Env
       shell: bash -l {0}
@@ -22,5 +20,9 @@ runs:
       shell: bash -l {0}
       run: |
         sudo apt update
-        sudo apt install -y libboost-all-dev
-        sudo apt install -y clang --install-suggests
+        sudo apt install -y build-essential lsb-release wget software-properties-common gnupg libboost-all-dev
+        wget https://apt.llvm.org/llvm.sh
+        chmod u+x llvm.sh
+        sed -i 's/add-apt-repository "${REPO_NAME}"/add-apt-repository -y "${REPO_NAME}"/g' llvm.sh 
+        sudo ./llvm.sh 16
+        sudo ln -sfn /usr/bin/clang++-16 /usr/bin/clang++
