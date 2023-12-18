@@ -26,5 +26,3 @@ runs:
         sed -i 's/add-apt-repository "${REPO_NAME}"/add-apt-repository -y "${REPO_NAME}"/g' llvm.sh 
         sudo ./llvm.sh 16
         sudo ln -sfn /usr/bin/clang++-16 /usr/bin/clang++
-        echo "export LD_LIBRARY_PATH=/mypath${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" >> ~/.bashrc
-        source ~/.bashrc
