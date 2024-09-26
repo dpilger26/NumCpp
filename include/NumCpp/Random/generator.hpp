@@ -32,7 +32,7 @@
 namespace nc::random
 {
     /// generator function
-    static std::mt19937_64 generator_;
+    inline std::mt19937_64 generator_;
 
     //============================================================================
     // Method Description:
