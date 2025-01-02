@@ -4,6 +4,7 @@
 
 * added `putAlongAxis()` for **Issue #217** <https://numpy.org/doc/stable/reference/generated/numpy.put_along_axis.html>
 * fixed random seeding for **Issue #218**
+* fixed error in `fromfile()` that limited filesize to 4GB for **Issue #219**
 
 ## Version 2.12.1
 

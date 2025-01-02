@@ -66,7 +66,7 @@ namespace nc
         }
 
         file.seekg(0, std::ifstream::end);
-        const uint32 fileSize = static_cast<uint32>(file.tellg());
+        const auto fileSize = static_cast<uint64>(file.tellg());
         file.seekg(0, std::ifstream::beg);
 
         std::vector<char> fileBuffer;
@@ -75,7 +75,7 @@ namespace nc
 
         if (file.bad() || file.fail())
         {
-            THROW_INVALID_ARGUMENT_ERROR("error occured while reading the file");
+            THROW_INVALID_ARGUMENT_ERROR("error occured while reading the file\n");
         }
 
         file.close();
