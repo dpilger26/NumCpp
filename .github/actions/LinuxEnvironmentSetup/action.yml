@@ -14,7 +14,7 @@ runs:
     - name: Activate Env
       shell: bash -l {0}
       run: |
-        conda activate test 
+        conda activate test
 
     - name: Install Dependency libs
       shell: bash -l {0}
@@ -24,5 +24,5 @@ runs:
         wget https://apt.llvm.org/llvm.sh
         chmod u+x llvm.sh
         sed -i 's/add-apt-repository "${REPO_NAME}"/add-apt-repository -y "${REPO_NAME}"/g' llvm.sh 
-        sudo ./llvm.sh 16
+        sudo ./llvm.sh 18
         sudo ln -sfn /usr/bin/clang++-16 /usr/bin/clang++
