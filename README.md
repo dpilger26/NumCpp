@@ -11,7 +11,7 @@
 
 # NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)
 
-## Author: David Pilger dpilger26@gmail.com
+## Author: David Pilger <dpilger26@gmail.com>
 
 ## Version: ![GitHub tag (latest by date)](https://img.shields.io/github/tag-date/dpilger26/NumCpp.svg?color=blue&label=Official%20Release&style=popout)
 
@@ -22,11 +22,12 @@
 **C++ Standards:**  
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/std/the-standard)
 [![C++20](https://img.shields.io/badge/C%2B%2B-20-blue.svg)](https://isocpp.org/std/the-standard)
+[![C++23](https://img.shields.io/badge/C%2B%2B-23-blue.svg)](https://isocpp.org/std/the-standard)
 
 **Compilers:**  
 Visual Studio: 2022  
-GNU: 11.3
-Clang: 14  
+GNU: 13.3
+Clang: 18
 
 **Boost Versions:**  
 1.73+

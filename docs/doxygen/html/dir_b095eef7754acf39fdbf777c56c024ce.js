@@ -1,7 +1,7 @@
 var dir_b095eef7754acf39fdbf777c56c024ce =
 [
-    [ "Random/bernoulli.hpp", "_random_2bernoulli_8hpp.html", "_random_2bernoulli_8hpp" ],
-    [ "Random/beta.hpp", "_random_2beta_8hpp.html", "_random_2beta_8hpp" ],
+    [ "bernoulli.hpp", "_random_2bernoulli_8hpp.html", "_random_2bernoulli_8hpp" ],
+    [ "beta.hpp", "_random_2beta_8hpp.html", "_random_2beta_8hpp" ],
     [ "binomial.hpp", "binomial_8hpp.html", "binomial_8hpp" ],
     [ "cauchy.hpp", "cauchy_8hpp.html", "cauchy_8hpp" ],
     [ "chiSquare.hpp", "chi_square_8hpp.html", "chi_square_8hpp" ],
@@ -10,10 +10,10 @@ var dir_b095eef7754acf39fdbf777c56c024ce =
     [ "exponential.hpp", "exponential_8hpp.html", "exponential_8hpp" ],
     [ "extremeValue.hpp", "extreme_value_8hpp.html", "extreme_value_8hpp" ],
     [ "f.hpp", "f_8hpp.html", "f_8hpp" ],
-    [ "Random/gamma.hpp", "_random_2gamma_8hpp.html", "_random_2gamma_8hpp" ],
+    [ "gamma.hpp", "_random_2gamma_8hpp.html", "_random_2gamma_8hpp" ],
     [ "generator.hpp", "generator_8hpp.html", "generator_8hpp" ],
     [ "geometric.hpp", "geometric_8hpp.html", "geometric_8hpp" ],
-    [ "Random/laplace.hpp", "_random_2laplace_8hpp.html", "_random_2laplace_8hpp" ],
+    [ "laplace.hpp", "_random_2laplace_8hpp.html", "_random_2laplace_8hpp" ],
     [ "lognormal.hpp", "lognormal_8hpp.html", "lognormal_8hpp" ],
     [ "negativeBinomial.hpp", "negative_binomial_8hpp.html", "negative_binomial_8hpp" ],
     [ "nonCentralChiSquared.hpp", "non_central_chi_squared_8hpp.html", "non_central_chi_squared_8hpp" ],

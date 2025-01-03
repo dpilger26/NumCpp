@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['release_20notes_0',['Release Notes',['../md__home_dpilger__github__num_cpp_docs_markdown__release_notes.html',1,'']]]
+  ['release_20notes_0',['Release Notes',['../md__2home_2dpilger_2_github_2_num_cpp_2docs_2markdown_2_release_notes.html',1,'']]]
 ];

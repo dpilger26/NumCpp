@@ -15,6 +15,7 @@ var classnc_1_1_nd_array_column_iterator =
     [ "operator-", "classnc_1_1_nd_array_column_iterator.html#a6918b5de4f8eef3081abe3ce5ddefa7a", null ],
     [ "operator-", "classnc_1_1_nd_array_column_iterator.html#a6dda98c1eba18dff31c9a66f528cd72b", null ],
     [ "operator-", "classnc_1_1_nd_array_column_iterator.html#a60c7f27f5b0574716750257d89ba7a70", null ],
+    [ "operator-", "classnc_1_1_nd_array_column_iterator.html#a60c7f27f5b0574716750257d89ba7a70", null ],
     [ "operator--", "classnc_1_1_nd_array_column_iterator.html#ac8797260f0a82e1d99b23c055d8f7225", null ],
     [ "operator--", "classnc_1_1_nd_array_column_iterator.html#a8ee7c1ecf2dc107159aec64377f5d6bd", null ],
     [ "operator-=", "classnc_1_1_nd_array_column_iterator.html#a6f9a636be75554081a33cf5731e3f213", null ],

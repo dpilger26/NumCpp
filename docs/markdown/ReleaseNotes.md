@@ -1,12 +1,18 @@
 # Release Notes
 
+## Version 2.13.0
+
+* added `putAlongAxis()` for **Issue #217** <https://numpy.org/doc/stable/reference/generated/numpy.put_along_axis.html>
+* fixed random seeding for **Issue #218**
+* fixed error in `fromfile()` that limited filesize to 4GB for **Issue #219**
+
 ## Version 2.12.1
 
 * updated TRUE/FALSE enum fields to YES/NO to deconflict with other libraries terrible macro practice of #defining TRUE/FALSE
 
 ## Version 2.12.0
 
-* added `searchsorted()`  for **Issue #202** <https://numpy.org/doc/stable/reference/generated/numpy.searchsorted.html>
+* added `searchsorted()` for **Issue #202** <https://numpy.org/doc/stable/reference/generated/numpy.searchsorted.html>
 * added `meanFilter` to `Filters`
 * added `complementaryMeanFilter` to `Filters`
 

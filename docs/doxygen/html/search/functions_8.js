@@ -19,7 +19,7 @@ var searchData=
   ['isenabled_16',['isEnabled',['../classnc_1_1logger_1_1detail_1_1_binary_data_logger.html#a3add35e141c5f4ad3452af9587a42dcd',1,'nc::logger::detail::BinaryDataLogger']]],
   ['isflat_17',['isflat',['../classnc_1_1_nd_array.html#a344f12e052eeb49cc87e361127386a64',1,'nc::NdArray']]],
   ['isinf_18',['isinf',['../namespacenc.html#a1a94a76a63d77e13fddf0cfbad1fd562',1,'nc::isinf(const NdArray&lt; dtype &gt; &amp;inArray)'],['../namespacenc.html#ac2770d614de64c300c2f10cb39a299c0',1,'nc::isinf(dtype inValue) noexcept']]],
-  ['isinteger_19',['isInteger',['../classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html#ac055638657a1459bc6a7c9d94d5c96a4',1,'nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;::isInteger()'],['../classnc_1_1_dtype_info.html#a10b60bd27123b5c724e2a52526fe8cfe',1,'nc::DtypeInfo::isInteger()']]],
+  ['isinteger_19',['isinteger',['../classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html#ac055638657a1459bc6a7c9d94d5c96a4',1,'nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;::isInteger()'],['../classnc_1_1_dtype_info.html#a10b60bd27123b5c724e2a52526fe8cfe',1,'nc::DtypeInfo::isInteger()']]],
   ['islittleendian_20',['isLittleEndian',['../namespacenc_1_1endian.html#a11907ef8078650aee8fe900854ba5bb4',1,'nc::endian']]],
   ['isnan_21',['isnan',['../namespacenc.html#a5f22d549d66717d09107559ea35b801a',1,'nc::isnan(const NdArray&lt; dtype &gt; &amp;inArray)'],['../namespacenc.html#ac28569da874c0b37a4c50c86b31a98ab',1,'nc::isnan(dtype inValue) noexcept']]],
   ['isneginf_22',['isneginf',['../namespacenc.html#abb7321e4da99b273ff4736c5b19b32f7',1,'nc::isneginf(const NdArray&lt; dtype &gt; &amp;inArray)'],['../namespacenc.html#abb8e6e08f1b4374017ef8e4cd1841ba6',1,'nc::isneginf(dtype inValue) noexcept']]],
@@ -27,10 +27,10 @@ var searchData=
   ['isposinf_24',['isposinf',['../namespacenc.html#a0e89470783b4671ba4e360fb318d49ba',1,'nc::isposinf(const NdArray&lt; dtype &gt; &amp;inArray)'],['../namespacenc.html#a7229b43ce1e19fb560d461b6beda24af',1,'nc::isposinf(dtype inValue) noexcept']]],
   ['ispoweroftwo_25',['isPowerOfTwo',['../namespacenc_1_1edac_1_1detail.html#a7f066ec8b196c2943ae99382eb63e2fb',1,'nc::edac::detail']]],
   ['isscalar_26',['isscalar',['../classnc_1_1_nd_array.html#abbde96c48b2fbebf4edc6337020fabea',1,'nc::NdArray']]],
-  ['issigned_27',['isSigned',['../classnc_1_1_dtype_info.html#a039ecfb9a5bd9fe0cb751a59f28055d1',1,'nc::DtypeInfo::isSigned()'],['../classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html#ac58a829905d11a1a7fca32427eab41d3',1,'nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;::isSigned()']]],
+  ['issigned_27',['issigned',['../classnc_1_1_dtype_info.html#a039ecfb9a5bd9fe0cb751a59f28055d1',1,'nc::DtypeInfo::isSigned()'],['../classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html#ac58a829905d11a1a7fca32427eab41d3',1,'nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;::isSigned()']]],
   ['issorted_28',['issorted',['../classnc_1_1_nd_array.html#ae39809331766e9d6490533040afbd589',1,'nc::NdArray']]],
   ['issquare_29',['issquare',['../classnc_1_1_shape.html#a939dd0ab6edf83b7abaf8b8c93a99152',1,'nc::Shape::issquare()'],['../classnc_1_1_nd_array.html#a302be17d815b1a4e353e6a2aade581a5',1,'nc::NdArray::issquare()']]],
   ['isvalid_30',['isValid',['../classnc_1_1rotations_1_1_d_c_m.html#ab1947c7618408b063b704ec391e27888',1,'nc::rotations::DCM']]],
   ['item_31',['item',['../classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa',1,'nc::NdArray']]],
-  ['iteration_32',['Iteration',['../classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136',1,'nc::roots::Iteration::Iteration(double epsilon) noexcept'],['../classnc_1_1roots_1_1_iteration.html#a7948f08cfaa01f5685ec35149bf6bba0',1,'nc::roots::Iteration::Iteration(double epsilon, uint32 maxNumIterations) noexcept']]]
+  ['iteration_32',['iteration',['../classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136',1,'nc::roots::Iteration::Iteration(double epsilon) noexcept'],['../classnc_1_1roots_1_1_iteration.html#a7948f08cfaa01f5685ec35149bf6bba0',1,'nc::roots::Iteration::Iteration(double epsilon, uint32 maxNumIterations) noexcept']]]
 ];

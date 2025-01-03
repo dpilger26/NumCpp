@@ -73,6 +73,8 @@ function getYPos(item)
   return y;
 }
 
+var searchResults = new SearchResults("searchResults");
+
 /* A class handling everything associated with the search panel.
 
    Parameters:
@@ -80,7 +82,7 @@ function getYPos(item)
           storing this instance.  Is needed to be able to set timeouts.
    resultPath - path to use for external files
 */
-function SearchBox(name, resultsPath, label, extension)
+function SearchBox(name, resultsPath, extension)
 {
   if (!name || !resultsPath) {  alert("Missing parameters to SearchBox."); }
   if (!extension || extension == "") { extension = ".html"; }
@@ -96,7 +98,6 @@ function SearchBox(name, resultsPath, label, extension)
   this.hideTimeout           = 0;
   this.searchIndex           = 0;
   this.searchActive          = false;
-  this.searchLabel           = label;
   this.extension             = extension;
 
   // ----------- DOM Elements
@@ -155,7 +156,7 @@ function SearchBox(name, resultsPath, label, extension)
 
   this.OnSearchSelectHide = function()
   {
-    this.hideTimeout = setTimeout(this.name +".CloseSelectionWindow()",
+    this.hideTimeout = setTimeout(this.CloseSelectionWindow.bind(this),
                                   this.closeSelectionTimeout);
   }
 
@@ -188,11 +189,13 @@ function SearchBox(name, resultsPath, label, extension)
       }
       else
       {
-        window.frames.MSearchResults.postMessage("take_focus", "*");
+        var elem = searchResults.NavNext(0);
+        if (elem) elem.focus();
       }
     }
     else if (e.keyCode==27) // Escape out of the search field
     {
+      e.stopPropagation();
       this.DOMSearchField().blur();
       this.DOMPopupSearchResultsWindow().style.display = 'none';
       this.DOMSearchClose().style.display = 'none';
@@ -209,7 +212,7 @@ function SearchBox(name, resultsPath, label, extension)
       if (searchValue != "") // non-empty search
       {
         // set timer for search update
-        this.keyTimeout = setTimeout(this.name + '.Search()',
+        this.keyTimeout = setTimeout(this.Search.bind(this),
                                      this.keyTimeoutLength);
       }
       else // empty search field
@@ -287,6 +290,7 @@ function SearchBox(name, resultsPath, label, extension)
     }
     else if (e.keyCode==13 || e.keyCode==27)
     {
+      e.stopPropagation();
       this.OnSelectItem(this.searchIndex);
       this.CloseSelectionWindow();
       this.DOMSearchField().focus();
@@ -324,48 +328,70 @@ function SearchBox(name, resultsPath, label, extension)
       idxChar = searchValue.substr(0, 2);
     }
 
-    var resultsPage;
-    var resultsPageWithSearch;
-    var hasResultsPage;
+    var jsFile;
 
     var idx = indexSectionsWithContent[this.searchIndex].indexOf(idxChar);
     if (idx!=-1)
     {
        var hexCode=idx.toString(16);
-       resultsPage = this.resultsPath + '/' + indexSectionNames[this.searchIndex] + '_' + hexCode + this.extension;
-       resultsPageWithSearch = resultsPage+'?'+escape(searchValue);
-       hasResultsPage = true;
-    }
-    else // nothing available for this search term
-    {
-       resultsPage = this.resultsPath + '/nomatches' + this.extension;
-       resultsPageWithSearch = resultsPage;
-       hasResultsPage = false;
+       jsFile = this.resultsPath + indexSectionNames[this.searchIndex] + '_' + hexCode + '.js';
     }
 
-    window.frames.MSearchResults.location = resultsPageWithSearch;
+    var loadJS = function(url, impl, loc){
+      var scriptTag = document.createElement('script');
+      scriptTag.src = url;
+      scriptTag.onload = impl;
+      scriptTag.onreadystatechange = impl;
+      loc.appendChild(scriptTag);
+    }
+
     var domPopupSearchResultsWindow = this.DOMPopupSearchResultsWindow();
+    var domSearchBox = this.DOMSearchBox();
+    var domPopupSearchResults = this.DOMPopupSearchResults();
+    var domSearchClose = this.DOMSearchClose();
+    var resultsPath = this.resultsPath;
 
-    if (domPopupSearchResultsWindow.style.display!='block')
-    {
-       var domSearchBox = this.DOMSearchBox();
-       this.DOMSearchClose().style.display = 'inline-block';
-       var domPopupSearchResults = this.DOMPopupSearchResults();
-       var left = getXPos(domSearchBox) + 150; // domSearchBox.offsetWidth;
-       var top  = getYPos(domSearchBox) + 20;  // domSearchBox.offsetHeight + 1;
-       domPopupSearchResultsWindow.style.display = 'block';
-       left -= domPopupSearchResults.offsetWidth;
-       var maxWidth = document.body.clientWidth;
-       var width = 400;
-       if (left<10) left=10;
-       if (width+left+8>maxWidth) width=maxWidth-left-8;
-       domPopupSearchResultsWindow.style.top     = top  + 'px';
-       domPopupSearchResultsWindow.style.left    = left + 'px';
-       domPopupSearchResultsWindow.style.width   = width + 'px';
+    var handleResults = function() {
+      document.getElementById("Loading").style.display="none";
+      if (typeof searchData !== 'undefined') {
+        createResults(resultsPath);
+        document.getElementById("NoMatches").style.display="none";
+      }
+ 
+      if (idx!=-1) {
+        searchResults.Search(searchValue);
+      } else { // no file with search results => force empty search results
+        searchResults.Search('====');
+      }
+
+      if (domPopupSearchResultsWindow.style.display!='block')
+      {
+        domSearchClose.style.display = 'inline-block';
+        var left = getXPos(domSearchBox) + 150;
+        var top  = getYPos(domSearchBox) + 20;
+        domPopupSearchResultsWindow.style.display = 'block';
+        left -= domPopupSearchResults.offsetWidth;
+        var maxWidth  = document.body.clientWidth;
+        var maxHeight = document.body.clientHeight;
+        var width = 300;
+        if (left<10) left=10;
+        if (width+left+8>maxWidth) width=maxWidth-left-8;
+        var height = 400;
+        if (height+top+8>maxHeight) height=maxHeight-top-8;
+        domPopupSearchResultsWindow.style.top     = top  + 'px';
+        domPopupSearchResultsWindow.style.left    = left + 'px';
+        domPopupSearchResultsWindow.style.width   = width + 'px';
+        domPopupSearchResultsWindow.style.height  = height + 'px';
+      }
+    }
+
+    if (jsFile) {
+      loadJS(jsFile, handleResults, this.DOMPopupSearchResultsWindow());
+    } else {
+      handleResults();
     }
 
     this.lastSearchValue = searchValue;
-    this.lastResultsPage = resultsPage;
   }
 
   // -------- Activation Functions
@@ -379,22 +405,15 @@ function SearchBox(name, resultsPath, label, extension)
        )
     {
       this.DOMSearchBox().className = 'MSearchBoxActive';
-
-      var searchField = this.DOMSearchField();
-
-      if (searchField.value == this.searchLabel) // clear "Search" term upon entry
-      {
-        searchField.value = '';
-        this.searchActive = true;
-      }
+      this.searchActive = true;
     }
     else if (!isActive) // directly remove the panel
     {
       this.DOMSearchBox().className = 'MSearchBoxInactive';
-      this.DOMSearchField().value   = this.searchLabel;
       this.searchActive             = false;
       this.lastSearchValue          = ''
       this.lastResultsPage          = '';
+      this.DOMSearchField().value   = '';
     }
   }
 }
@@ -623,7 +642,7 @@ function SearchResults(name)
         }
         else // return focus to search field
         {
-           parent.document.getElementById("MSearchField").focus();
+           document.getElementById("MSearchField").focus();
         }
       }
       else if (this.lastKey==40) // Down
@@ -653,8 +672,9 @@ function SearchResults(name)
       }
       else if (this.lastKey==27) // Escape
       {
-        parent.searchBox.CloseResultsWindow();
-        parent.document.getElementById("MSearchField").focus();
+        e.stopPropagation();
+        searchBox.CloseResultsWindow();
+        document.getElementById("MSearchField").focus();
       }
       else if (this.lastKey==13) // Enter
       {
@@ -696,8 +716,9 @@ function SearchResults(name)
       }
       else if (this.lastKey==27) // Escape
       {
-        parent.searchBox.CloseResultsWindow();
-        parent.document.getElementById("MSearchField").focus();
+        e.stopPropagation();
+        searchBox.CloseResultsWindow();
+        document.getElementById("MSearchField").focus();
       }
       else if (this.lastKey==13) // Enter
       {
@@ -720,9 +741,10 @@ function setClassAttr(elem,attr)
   elem.setAttribute('className',attr);
 }
 
-function createResults()
+function createResults(resultsPath)
 {
   var results = document.getElementById("SRResults");
+  results.innerHTML = '';
   for (var e=0; e<searchData.length; e++)
   {
     var id = searchData[e][0];
@@ -739,8 +761,8 @@ function createResults()
     srEntry.appendChild(srLink);
     if (searchData[e][1].length==2) // single result
     {
-      srLink.setAttribute('href',searchData[e][1][1][0]);
-      srLink.setAttribute('onclick','parent.searchBox.CloseResultsWindow()');
+      srLink.setAttribute('href',resultsPath+searchData[e][1][1][0]);
+      srLink.setAttribute('onclick','searchBox.CloseResultsWindow()');
       if (searchData[e][1][1][1])
       {
        srLink.setAttribute('target','_parent');
@@ -765,8 +787,8 @@ function createResults()
         srChild.setAttribute('id','Item'+e+'_c'+c);
         setKeyActions(srChild,'return searchResults.NavChild(event,'+e+','+c+')');
         setClassAttr(srChild,'SRScope');
-        srChild.setAttribute('href',searchData[e][1][c+1][0]);
-        srChild.setAttribute('onclick','parent.searchBox.CloseResultsWindow()');
+        srChild.setAttribute('href',resultsPath+searchData[e][1][c+1][0]);
+        srChild.setAttribute('onclick','searchBox.CloseResultsWindow()');
         if (searchData[e][1][c+1][1])
         {
          srChild.setAttribute('target','_parent');
@@ -788,6 +810,7 @@ function createResults()
 function init_search()
 {
   var results = document.getElementById("MSearchSelectWindow");
+  results.tabIndex=0;
   for (var key in indexSectionLabels)
   {
     var link = document.createElement('a');
@@ -798,5 +821,20 @@ function init_search()
     results.appendChild(link);
   }
   searchBox.OnSelectItem(0);
+
+  var input = document.getElementById("MSearchSelect");
+  var searchSelectWindow = document.getElementById("MSearchSelectWindow");
+  input.tabIndex=0;
+  input.addEventListener("keydown", function(event) {
+    if (event.keyCode==13 || event.keyCode==40) {
+      event.preventDefault();
+      if (searchSelectWindow.style.display == 'block') {
+        searchBox.CloseSelectionWindow();
+      } else {
+        searchBox.OnSearchSelectShow();
+        searchBox.DOMSearchSelectWindow().focus();
+      }
+    }
+  });
 }
 /* @license-end */
