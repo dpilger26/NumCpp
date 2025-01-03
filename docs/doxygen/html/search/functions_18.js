@@ -5,5 +5,5 @@ var searchData=
   ['yawrotation_2',['yawRotation',['../classnc_1_1rotations_1_1_quaternion.html#a7a59f6daaafd941879abecff8d3a1348',1,'nc::rotations::Quaternion']]],
   ['year_3',['year',['../classnc_1_1_date_time.html#a82c1a1c94b865b537c0ba320f887fd7f',1,'nc::DateTime']]],
   ['yhat_4',['yHat',['../classnc_1_1coordinates_1_1_cartesian.html#ac149f2d7075f8b145000b7edfdf035e2',1,'nc::coordinates::Cartesian']]],
-  ['yrotation_5',['yRotation',['../classnc_1_1rotations_1_1_d_c_m.html#a178b8bf61941070bd629263312b627dd',1,'nc::rotations::DCM::yRotation()'],['../classnc_1_1rotations_1_1_quaternion.html#ab77da90ef63465f79bd79348330ca9a4',1,'nc::rotations::Quaternion::yRotation()']]]
+  ['yrotation_5',['yrotation',['../classnc_1_1rotations_1_1_d_c_m.html#a178b8bf61941070bd629263312b627dd',1,'nc::rotations::DCM::yRotation()'],['../classnc_1_1rotations_1_1_quaternion.html#ab77da90ef63465f79bd79348330ca9a4',1,'nc::rotations::Quaternion::yRotation()']]]
 ];

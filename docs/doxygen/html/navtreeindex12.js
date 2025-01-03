@@ -1,16 +1,20 @@
 var NAVTREEINDEX12 =
 {
+"classnc_1_1rotations_1_1_quaternion.html#adad6ca92266f6090930addc585900805":[4,0,0,15,1,21],
+"classnc_1_1rotations_1_1_quaternion.html#adcf57fd29d62e19f5c764750262ff7c3":[4,0,0,15,1,19],
+"classnc_1_1rotations_1_1_quaternion.html#adcf57fd29d62e19f5c764750262ff7c3":[5,0,0,8,1,19],
+"classnc_1_1rotations_1_1_quaternion.html#addcc7fb7b4acd4201e7f5b90ef207f4d":[4,0,0,15,1,4],
 "classnc_1_1rotations_1_1_quaternion.html#addcc7fb7b4acd4201e7f5b90ef207f4d":[5,0,0,8,1,4],
-"classnc_1_1rotations_1_1_quaternion.html#ade406544e8360506bb77102d17b14e61":[5,0,0,8,1,11],
 "classnc_1_1rotations_1_1_quaternion.html#ade406544e8360506bb77102d17b14e61":[4,0,0,15,1,11],
-"classnc_1_1rotations_1_1_quaternion.html#ae093d333b66b63eeef5704be4a374af2":[5,0,0,8,1,13],
+"classnc_1_1rotations_1_1_quaternion.html#ade406544e8360506bb77102d17b14e61":[5,0,0,8,1,11],
 "classnc_1_1rotations_1_1_quaternion.html#ae093d333b66b63eeef5704be4a374af2":[4,0,0,15,1,13],
-"classnc_1_1rotations_1_1_quaternion.html#ae64d991c058b8646a98682fc8b3c1e18":[5,0,0,8,1,10],
+"classnc_1_1rotations_1_1_quaternion.html#ae093d333b66b63eeef5704be4a374af2":[5,0,0,8,1,13],
 "classnc_1_1rotations_1_1_quaternion.html#ae64d991c058b8646a98682fc8b3c1e18":[4,0,0,15,1,10],
-"classnc_1_1rotations_1_1_quaternion.html#aeef47bcd4879e9727ac33838aaac3112":[5,0,0,8,1,8],
+"classnc_1_1rotations_1_1_quaternion.html#ae64d991c058b8646a98682fc8b3c1e18":[5,0,0,8,1,10],
 "classnc_1_1rotations_1_1_quaternion.html#aeef47bcd4879e9727ac33838aaac3112":[4,0,0,15,1,8],
-"classnc_1_1rotations_1_1_quaternion.html#af150a85479ebc3348ed733715bec6084":[5,0,0,8,1,30],
+"classnc_1_1rotations_1_1_quaternion.html#aeef47bcd4879e9727ac33838aaac3112":[5,0,0,8,1,8],
 "classnc_1_1rotations_1_1_quaternion.html#af150a85479ebc3348ed733715bec6084":[4,0,0,15,1,30],
+"classnc_1_1rotations_1_1_quaternion.html#af150a85479ebc3348ed733715bec6084":[5,0,0,8,1,30],
 "classnc_1_1rotations_1_1_quaternion.html#af5136e02f6b852d9f91c70c2c6bf66a8":[4,0,0,15,1,24],
 "classnc_1_1rotations_1_1_quaternion.html#af5136e02f6b852d9f91c70c2c6bf66a8":[5,0,0,8,1,24],
 "classnc_1_1rotations_1_1_quaternion.html#aff32c4f1c065428e8ed31e552a1c8e53":[5,0,0,8,1,35],
@@ -245,9 +249,5 @@ var NAVTREEINDEX12 =
 "empty__like_8hpp.html":[6,0,1,0,4,74],
 "empty__like_8hpp.html#a875e297baf1d0f1ae229b4342bad8f04":[6,0,1,0,4,74,0],
 "empty__like_8hpp_source.html":[6,0,1,0,4,74],
-"endianess_8hpp.html":[6,0,1,0,4,75],
-"endianess_8hpp.html#a6d1bce5e0cf3f24f84a50b945eec7a26":[6,0,1,0,4,75,0],
-"endianess_8hpp_source.html":[6,0,1,0,4,75],
-"equal_8hpp.html":[6,0,1,0,4,76],
-"equal_8hpp.html#a6891660e45d9f047bfc3a4625f4a255d":[6,0,1,0,4,76,0]
+"endianess_8hpp.html":[6,0,1,0,4,75]
 };

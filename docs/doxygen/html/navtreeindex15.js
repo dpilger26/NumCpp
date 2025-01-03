@@ -1,5 +1,9 @@
 var NAVTREEINDEX15 =
 {
+"md__2home_2dpilger_2_github_2_num_cpp_2docs_2markdown_2_release_notes.html":[0],
+"mean_8hpp.html":[6,0,1,0,4,149],
+"mean_8hpp.html#a2740b304fc854a6595195dafcf3dcf89":[6,0,1,0,4,149,0],
+"mean_8hpp.html#a460a2152074d0199190d624122895ef1":[6,0,1,0,4,149,1],
 "mean_8hpp_source.html":[6,0,1,0,4,149],
 "mean_filter1d_8hpp.html":[6,0,1,0,3,1,0,5],
 "mean_filter1d_8hpp.html#a8aa5f54202058dc025ef2913bcf41ea2":[6,0,1,0,3,1,0,5,0],
@@ -57,8 +61,8 @@ var NAVTREEINDEX15 =
 "multiply_8hpp.html#af4d3a487916ea7c3b1f12e7d5add97f5":[6,0,1,0,4,155,7],
 "multiply_8hpp.html#afe5b04365769a6bcdafdaed3a3efa75c":[6,0,1,0,4,155,8],
 "multiply_8hpp_source.html":[6,0,1,0,4,155],
-"namespacemembers.html":[4,1,0,0],
 "namespacemembers.html":[4,1,0],
+"namespacemembers.html":[4,1,0,0],
 "namespacemembers_b.html":[4,1,0,1],
 "namespacemembers_c.html":[4,1,0,2],
 "namespacemembers_d.html":[4,1,0,3],
@@ -245,9 +249,5 @@ var NAVTREEINDEX15 =
 "namespacenc.html#a31e0d2c99574826098d4a1ac984ca5f8":[4,0,0,246],
 "namespacenc.html#a32e869df2216c793407d6addea9bf890":[4,0,0,114],
 "namespacenc.html#a3353e2e3983e12e07ed79c022c4df5e8":[4,0,0,479],
-"namespacenc.html#a34fd32b4ac2703d6256ec75546cd65f8":[4,0,0,563],
-"namespacenc.html#a353a2bc19ad44d06d42c6e0feb44a970":[4,0,0,425],
-"namespacenc.html#a353e0426a7f482dce2ca0dcdc2292c11":[4,0,0,542],
-"namespacenc.html#a3560b7f9e3a8a9c5a917af05d1e3380e":[4,0,0,606],
-"namespacenc.html#a35cdd4bb265142ff795a9990ed42a5c0":[4,0,0,291]
+"namespacenc.html#a34fd32b4ac2703d6256ec75546cd65f8":[4,0,0,563]
 };
