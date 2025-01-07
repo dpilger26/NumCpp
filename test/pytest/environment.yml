@@ -1,6 +1,6 @@
 name: test
 dependencies:
-  - python=3.10
+  - python=3.12
   - pip
   - numpy
   - astropy
@@ -8,10 +8,11 @@ dependencies:
   - matplotlib
   - mpmath
   - pytest
+  - boost
   - tbb
-  - tbb-devel 
+  - tbb-devel
   - gtest
   - gmock
   - pip:
-    - pymap3d
-    - vectormath
+      - pymap3d
+      - vectormath
