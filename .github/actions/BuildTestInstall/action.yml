@@ -40,7 +40,7 @@ runs:
       working-directory: ${{github.workspace}}/test/pytest
       run: pytest
 
-    - name: gtest
+    - name: ctest
       shell: ${{inputs.shell}}
       working-directory: ${{github.workspace}}/build
       run: ctest

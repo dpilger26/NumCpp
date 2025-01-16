@@ -53,8 +53,19 @@ find_package(Python 3.11 REQUIRED
     Development.Module
 )
 
+if(UNIX)
+    execute_process(
+        COMMAND 
+            python3-config --ldflags 
+        OUTPUT_VARIABLE 
+            PYTHON_LD_FLAGS 
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+endif()
+
 target_link_libraries(${TARGET_NAME} PRIVATE 
     Python::Module
+    ${PYTHON_LD_FLAGS}
     ${ALL_INTERFACE_TARGET}
 )
 
