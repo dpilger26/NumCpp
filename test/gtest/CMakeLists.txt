@@ -1,5 +1,5 @@
 
-set(TARGET_NAME NumCpp_tests)
+set(TARGET_NAME LoggerTests)
 
 add_executable(${TARGET_NAME}
     test_BinaryLogger.cpp
@@ -24,7 +24,3 @@ target_link_libraries(${TARGET_NAME} PRIVATE
 
 include(GoogleTest)
 gtest_discover_tests(${TARGET_NAME})
-
-add_test(NAME ${TARGET_NAME}
-    COMMAND ${TARGET_NAME}
-)
