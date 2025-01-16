@@ -13,3 +13,8 @@ if(BUILD_CPPCHECK_TEST)
     message(STATUS "Configuring CPPCheck Test")
     add_subdirectory(cppcheck)
 endif()
+
+if(BUILD_GTEST)
+    message(STATUS "Configuring GTest")
+    add_subdirectory(gtest)
+endif()
