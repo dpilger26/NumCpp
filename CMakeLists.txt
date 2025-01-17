@@ -13,8 +13,6 @@ project("NumCpp"
     LANGUAGES CXX
 )
 
-enable_testing()
-
 message(STATUS "Building ${PROJECT_NAME} version ${VERSION_STRING}")
 
 if(NOT CMAKE_BUILD_TYPE)
@@ -30,10 +28,12 @@ message(STATUS "Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "") # works
 
 option(BUILD_ALL "Build All targets" OFF)
+option(BUILD_ALL_NON_PYTHON "Build All targets except the python bindings for pytest" OFF)
 option(BUILD_DOCS "Build the doxygen documentation" OFF)
 option(BUILD_TESTS "Build the unit tests" OFF)
 option(BUILD_MULTIPLE_TEST "Build the multiple translation unit test" OFF)
 option(BUILD_CPPCHECK_TEST "Build the cppcheck test" OFF)
+option(BUILD_GTEST "Build the gtest tests" OFF)
 option(BUILD_EXAMPLE_ALL "Build all of the examples" OFF)
 option(BUILD_EXAMPLE_GAUSS_NEWTON_NLLS "Build the Gauss-Newton NLLS example" OFF)
 option(BUILD_EXAMPLE_INTERFACE_WITH_EIGEN "Build the Interface with Eigen example" OFF)
@@ -44,10 +44,15 @@ option(NUMCPP_NO_USE_BOOST "Don't use the boost libraries" OFF)
 option(NUMCPP_USE_MULTITHREAD "Enable multithreading" OFF)
 
 if(BUILD_ALL)
-    set(BUILD_DOCS ON)
+    set(BUILD_ALL_NON_PYTHON ON)
     set(BUILD_TESTS ON)
+endif()
+
+if(BUILD_ALL_NON_PYTHON)
+    set(BUILD_DOCS ON)
     set(BUILD_MULTIPLE_TEST ON)
     set(BUILD_CPPCHECK_TEST ON)
+    set(BUILD_GTEST ON)
     set(BUILD_EXAMPLE_ALL ON)
 endif()
 
@@ -134,6 +139,7 @@ get_filename_component(NUMCPP_INCLUDES ./include ABSOLUTE)
 set(OUTPUT_BINARY_DIR ${PROJECT_SOURCE_DIR}/bin/$<0:>)
 
 if (BUILD_TESTS OR BUILD_MULTIPLE_TEST OR BUILD_CPPCHECK_TEST) 
+    enable_testing()
     add_subdirectory(test)
 endif()
 

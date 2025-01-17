@@ -7,7 +7,8 @@
 
 #pragma once
 
-#include "../numpy.h"
+#include <pybind11/numpy.h>
+
 #include "common.h"
 
 #if defined(__GNUC__) && !defined(__clang__) && !defined(__INTEL_COMPILER)
@@ -70,7 +71,7 @@ struct eigen_tensor_helper<Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexTy
 
     template <size_t... Is>
     struct helper<index_sequence<Is...>> {
-        static constexpr auto value = concat(const_name(((void) Is, "?"))...);
+        static constexpr auto value = ::pybind11::detail::concat(const_name(((void) Is, "?"))...);
     };
 
     static constexpr auto dimensions_descriptor
@@ -104,7 +105,8 @@ struct eigen_tensor_helper<
         return get_shape() == shape;
     }
 
-    static constexpr auto dimensions_descriptor = concat(const_name<Indices>()...);
+    static constexpr auto dimensions_descriptor
+        = ::pybind11::detail::concat(const_name<Indices>()...);
 
     template <typename... Args>
     static Type *alloc(Args &&...args) {
@@ -122,9 +124,9 @@ struct eigen_tensor_helper<
 template <typename Type, bool ShowDetails, bool NeedsWriteable = false>
 struct get_tensor_descriptor {
     static constexpr auto details
-        = const_name<NeedsWriteable>(", flags.writeable", "")
-          + const_name<static_cast<int>(Type::Layout) == static_cast<int>(Eigen::RowMajor)>(
-              ", flags.c_contiguous", ", flags.f_contiguous");
+        = const_name<NeedsWriteable>(", flags.writeable", "") + const_name
+              < static_cast<int>(Type::Layout)
+          == static_cast<int>(Eigen::RowMajor) > (", flags.c_contiguous", ", flags.f_contiguous");
     static constexpr auto value
         = const_name("numpy.ndarray[") + npy_format_descriptor<typename Type::Scalar>::name
           + const_name("[") + eigen_tensor_helper<remove_cv_t<Type>>::dimensions_descriptor
@@ -468,9 +470,6 @@ struct type_caster<Eigen::TensorMap<Type, Options>,
                 parent_object = reinterpret_borrow<object>(parent);
                 break;
 
-            case return_value_policy::take_ownership:
-                delete src;
-                // fallthrough
             default:
                 // move, take_ownership don't make any sense for a ref/map:
                 pybind11_fail("Invalid return_value_policy for Eigen Map type, must be either "

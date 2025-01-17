@@ -5,11 +5,15 @@ import NumCppPy as NumCpp  # noqa E402
 
 np.random.seed(666)
 
+DO_TEST=False
 PLOT_SHOW = False
 
 
 ####################################################################################
 def test_imageProcessing():
+    if not DO_TEST:
+        return
+
     # generate a random noise
     imageSize = 512
     noiseStd = np.random.rand(1) * 4

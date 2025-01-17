@@ -59,6 +59,7 @@ struct sequence_item;
 struct list_item;
 struct tuple_item;
 } // namespace accessor_policies
+// PLEASE KEEP handle_type_name SPECIALIZATIONS IN SYNC.
 using obj_attr_accessor = accessor<accessor_policies::obj_attr>;
 using str_attr_accessor = accessor<accessor_policies::str_attr>;
 using item_accessor = accessor<accessor_policies::generic_item>;
@@ -111,6 +112,17 @@ public:
     obj_attr_accessor attr(object &&key) const;
     /// See above (the only difference is that the key is provided as a string literal)
     str_attr_accessor attr(const char *key) const;
+
+    /** \rst
+         Similar to the above attr functions with the difference that the templated Type
+         is used to set the `__annotations__` dict value to the corresponding key. Worth noting
+         that attr_with_type_hint is implemented in cast.h.
+    \endrst */
+    template <typename T>
+    obj_attr_accessor attr_with_type_hint(handle key) const;
+    /// See above (the only difference is that the key is provided as a string literal)
+    template <typename T>
+    str_attr_accessor attr_with_type_hint(const char *key) const;
 
     /** \rst
         Matches * unpacking in Python, e.g. to unpack arguments out of a ``tuple``
@@ -181,8 +193,19 @@ public:
     /// Get or set the object's docstring, i.e. ``obj.__doc__``.
     str_attr_accessor doc() const;
 
+    /// Get or set the object's annotations, i.e. ``obj.__annotations__``.
+    object annotations() const;
+
     /// Return the object's current reference count
-    int ref_count() const { return static_cast<int>(Py_REFCNT(derived().ptr())); }
+    ssize_t ref_count() const {
+#ifdef PYPY_VERSION
+        // PyPy uses the top few bits for REFCNT_FROM_PYPY & REFCNT_FROM_PYPY_LIGHT
+        // Following pybind11 2.12.1 and older behavior and removing this part
+        return static_cast<ssize_t>(static_cast<int>(Py_REFCNT(derived().ptr())));
+#else
+        return Py_REFCNT(derived().ptr());
+#endif
+    }
 
     // TODO PYBIND11_DEPRECATED(
     //     "Call py::type::handle_of(h) or py::type::of(h) instead of h.get_type()")
@@ -305,19 +328,19 @@ private:
             "https://pybind11.readthedocs.io/en/stable/advanced/"
             "misc.html#common-sources-of-global-interpreter-lock-errors for debugging advice.\n"
             "If you are convinced there is no bug in your code, you can #define "
-            "PYBIND11_NO_ASSERT_GIL_HELD_INCREF_DECREF"
+            "PYBIND11_NO_ASSERT_GIL_HELD_INCREF_DECREF "
             "to disable this check. In that case you have to ensure this #define is consistently "
             "used for all translation units linked into a given pybind11 extension, otherwise "
             "there will be ODR violations.",
             function_name.c_str());
-        fflush(stderr);
         if (Py_TYPE(m_ptr)->tp_name != nullptr) {
             fprintf(stderr,
-                    "The failing %s call was triggered on a %s object.\n",
+                    " The failing %s call was triggered on a %s object.",
                     function_name.c_str(),
                     Py_TYPE(m_ptr)->tp_name);
-            fflush(stderr);
         }
+        fprintf(stderr, "\n");
+        fflush(stderr);
         throw std::runtime_error(function_name + " PyGILState_Check() failure.");
     }
 #endif
@@ -634,7 +657,7 @@ struct error_fetch_and_normalize {
 
         bool have_trace = false;
         if (m_trace) {
-#if !defined(PYPY_VERSION)
+#if !defined(PYPY_VERSION) && !defined(GRAALVM_PYTHON)
             auto *tb = reinterpret_cast<PyTracebackObject *>(m_trace.ptr());
 
             // Get the deepest trace possible.
@@ -971,6 +994,23 @@ inline PyObject *dict_getitem(PyObject *v, PyObject *key) {
     return rv;
 }
 
+inline PyObject *dict_getitemstringref(PyObject *v, const char *key) {
+#if PY_VERSION_HEX >= 0x030D0000
+    PyObject *rv;
+    if (PyDict_GetItemStringRef(v, key, &rv) < 0) {
+        throw error_already_set();
+    }
+    return rv;
+#else
+    PyObject *rv = dict_getitemstring(v, key);
+    if (rv == nullptr && PyErr_Occurred()) {
+        throw error_already_set();
+    }
+    Py_XINCREF(rv);
+    return rv;
+#endif
+}
+
 // Helper aliases/functions to support implicit casting of values given to python
 // accessors/methods. When given a pyobject, this simply returns the pyobject as-is; for other C++
 // type, the value goes through pybind11::cast(obj) to convert it to an `object`.
@@ -1233,6 +1273,7 @@ protected:
     using pointer = arrow_proxy<const handle>;
 
     sequence_fast_readonly(handle obj, ssize_t n) : ptr(PySequence_Fast_ITEMS(obj.ptr()) + n) {}
+    sequence_fast_readonly() = default;
 
     // NOLINTNEXTLINE(readability-const-return-type) // PR #3263
     reference dereference() const { return *ptr; }
@@ -1255,6 +1296,7 @@ protected:
     using pointer = arrow_proxy<const sequence_accessor>;
 
     sequence_slow_readwrite(handle obj, ssize_t index) : obj(obj), index(index) {}
+    sequence_slow_readwrite() = default;
 
     reference dereference() const { return {obj, static_cast<size_t>(index)}; }
     void increment() { ++index; }
@@ -1328,7 +1370,7 @@ inline bool PyUnicode_Check_Permissive(PyObject *o) {
 #    define PYBIND11_STR_CHECK_FUN PyUnicode_Check
 #endif
 
-inline bool PyStaticMethod_Check(PyObject *o) { return o->ob_type == &PyStaticMethod_Type; }
+inline bool PyStaticMethod_Check(PyObject *o) { return Py_TYPE(o) == &PyStaticMethod_Type; }
 
 class kwargs_proxy : public handle {
 public:
@@ -1442,11 +1484,17 @@ public:
     PYBIND11_OBJECT_DEFAULT(iterator, object, PyIter_Check)
 
     iterator &operator++() {
+        init();
         advance();
         return *this;
     }
 
     iterator operator++(int) {
+        // Note: We must call init() first so that rv.value is
+        // the same as this->value just before calling advance().
+        // Otherwise, dereferencing the returned iterator may call
+        // advance() again and return the 3rd item instead of the 1st.
+        init();
         auto rv = *this;
         advance();
         return rv;
@@ -1454,15 +1502,12 @@ public:
 
     // NOLINTNEXTLINE(readability-const-return-type) // PR #3263
     reference operator*() const {
-        if (m_ptr && !value.ptr()) {
-            auto &self = const_cast<iterator &>(*this);
-            self.advance();
-        }
+        init();
         return value;
     }
 
     pointer operator->() const {
-        operator*();
+        init();
         return &value;
     }
 
@@ -1485,6 +1530,13 @@ public:
     friend bool operator!=(const iterator &a, const iterator &b) { return a->ptr() != b->ptr(); }
 
 private:
+    void init() const {
+        if (m_ptr && !value.ptr()) {
+            auto &self = const_cast<iterator &>(*this);
+            self.advance();
+        }
+    }
+
     void advance() {
         value = reinterpret_steal<object>(PyIter_Next(m_ptr));
         if (value.ptr() == nullptr && PyErr_Occurred()) {
@@ -2174,6 +2226,11 @@ public:
             throw error_already_set();
         }
     }
+    void clear() /* py-non-const */ {
+        if (PyList_SetSlice(m_ptr, 0, PyList_Size(m_ptr), nullptr) == -1) {
+            throw error_already_set();
+        }
+    }
 };
 
 class args : public tuple {
@@ -2181,6 +2238,18 @@ class args : public tuple {
 };
 class kwargs : public dict {
     PYBIND11_OBJECT_DEFAULT(kwargs, dict, PyDict_Check)
+};
+
+// Subclasses of args and kwargs to support type hinting
+// as defined in PEP 484. See #5357 for more info.
+template <typename T>
+class Args : public args {
+    using args::args;
+};
+
+template <typename T>
+class KWArgs : public kwargs {
+    using kwargs::kwargs;
 };
 
 class anyset : public object {
@@ -2501,6 +2570,19 @@ pybind11::str object_api<D>::str() const {
 template <typename D>
 str_attr_accessor object_api<D>::doc() const {
     return attr("__doc__");
+}
+
+template <typename D>
+object object_api<D>::annotations() const {
+#if PY_MAJOR_VERSION == 3 && PY_MINOR_VERSION <= 9
+    // https://docs.python.org/3/howto/annotations.html#accessing-the-annotations-dict-of-an-object-in-python-3-9-and-older
+    if (!hasattr(derived(), "__annotations__")) {
+        setattr(derived(), "__annotations__", dict());
+    }
+    return attr("__annotations__");
+#else
+    return getattr(derived(), "__annotations__", dict());
+#endif
 }
 
 template <typename D>
