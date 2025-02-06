@@ -49,6 +49,7 @@
 #include "NumCpp/Functions/arctanh.hpp"
 #include "NumCpp/Functions/argmax.hpp"
 #include "NumCpp/Functions/argmin.hpp"
+#include "NumCpp/Functions/argpartition.hpp"
 #include "NumCpp/Functions/argsort.hpp"
 #include "NumCpp/Functions/argwhere.hpp"
 #include "NumCpp/Functions/around.hpp"

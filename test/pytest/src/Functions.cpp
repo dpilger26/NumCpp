@@ -3201,6 +3201,8 @@ void initFunctions(pb11::module& m)
     m.def("argmax", &FunctionsInterface::argmaxArray<ComplexDouble>);
     m.def("argmin", &FunctionsInterface::argminArray<double>);
     m.def("argmin", &FunctionsInterface::argminArray<ComplexDouble>);
+    m.def("argpartition", &argpartition<double>);
+    m.def("argpartition", &argpartition<ComplexDouble>);
     m.def("argsort", &FunctionsInterface::argsortArray<double>);
     m.def("argsort", &FunctionsInterface::argsortArray<ComplexDouble>);
     m.def("argwhere", &FunctionsInterface::argwhere<double>);

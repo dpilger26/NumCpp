@@ -1,5 +1,9 @@
 # Release Notes
 
+## Version 2.14.0
+
+* added `argpartition()` for **Issue #225** <https://numpy.org/doc/stable/reference/generated/numpy.argpartition.html>
+
 ## Version 2.13.0
 
 * added `putAlongAxis()` for **Issue #217** <https://numpy.org/doc/stable/reference/generated/numpy.put_along_axis.html>

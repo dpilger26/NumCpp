@@ -1,5 +1,5 @@
 ---
-Language:        Cpp
+Language: Cpp
 # BasedOnStyle:  NumCpp
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
@@ -9,7 +9,7 @@ AlignConsecutiveAssignments: true
 AlignConsecutiveBitFields: None
 AlignConsecutiveDeclarations: true
 AlignEscapedNewlines: Left
-AlignOperands:   true
+AlignOperands: true
 AlignTrailingComments: true
 AllowAllArgumentsOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
@@ -27,21 +27,21 @@ AlwaysBreakTemplateDeclarations: Yes
 BinPackArguments: false
 BinPackParameters: false
 BraceWrapping:
-  AfterCaseLabel:  true
-  AfterClass:      true
+  AfterCaseLabel: true
+  AfterClass: true
   AfterControlStatement: Always
-  AfterEnum:       true
-  AfterFunction:   true
-  AfterNamespace:  false
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: false
   AfterObjCDeclaration: false
-  AfterStruct:     true
-  AfterUnion:      true
+  AfterStruct: true
+  AfterUnion: true
   AfterExternBlock: true
-  BeforeCatch:     true
-  BeforeElse:      true
+  BeforeCatch: true
+  BeforeElse: true
   BeforeLambdaBody: false
-  BeforeWhile:     true
-  IndentBraces:    false
+  BeforeWhile: true
+  IndentBraces: false
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
@@ -56,7 +56,7 @@ BreakConstructorInitializers: AfterColon
 BreakAfterJavaFieldAnnotations: false
 BreakStringLiterals: true
 ColumnLimit: 120
-CommentPragmas:  '^ NumCpp pragma:'
+CommentPragmas: "^ NumCpp pragma:"
 QualifierAlignment: Leave
 CompactNamespaces: false
 ConstructorInitializerIndentWidth: 4
@@ -64,44 +64,44 @@ ContinuationIndentWidth: 4
 Cpp11BracedListStyle: false
 DeriveLineEnding: true
 DerivePointerAlignment: true
-DisableFormat:   false
+DisableFormat: false
 EmptyLineAfterAccessModifier: Never
 EmptyLineBeforeAccessModifier: Always
 ExperimentalAutoDetectBinPacking: false
 FixNamespaceComments: true
 PackConstructorInitializers: Never
-IncludeBlocks:   Regroup
+IncludeBlocks: Regroup
 IncludeCategories:
-  - Regex:           '^"NumCpp/'
-    Priority:        4
-    SortPriority:    0
-  - Regex:           '^"boost/'
-    Priority:        3
-    SortPriority:    0
-  - Regex:           '^<'
-    Priority:        2
-    SortPriority:    0
-  - Regex:           '.*'
-    Priority:        1
-    SortPriority:    0
-IncludeIsMainRegex: '$'
-IncludeIsMainSourceRegex: ''
+  - Regex: '^"NumCpp/'
+    Priority: 4
+    SortPriority: 0
+  - Regex: '^"boost/'
+    Priority: 3
+    SortPriority: 0
+  - Regex: "^<"
+    Priority: 2
+    SortPriority: 0
+  - Regex: ".*"
+    Priority: 1
+    SortPriority: 0
+IncludeIsMainRegex: "$"
+IncludeIsMainSourceRegex: ""
 IndentAccessModifiers: false
 IndentCaseLabels: true
 IndentCaseBlocks: false
 IndentGotoLabels: true
 IndentPPDirectives: None
 IndentExternBlock: AfterExternBlock
-IndentRequires:  true
-IndentWidth:     4
+IndentRequires: true
+IndentWidth: 4
 IndentWrappedFunctionNames: true
 InsertTrailingCommas: None
 JavaScriptQuotes: Leave
 JavaScriptWrapImports: true
 KeepEmptyLinesAtTheStartOfBlocks: false
 LambdaBodyIndentation: Signature
-MacroBlockBegin: ''
-MacroBlockEnd:   ''
+MacroBlockBegin: ""
+MacroBlockEnd: ""
 MaxEmptyLinesToKeep: 1
 NamespaceIndentation: All
 ObjCBinPackProtocolList: Auto
@@ -120,9 +120,9 @@ PenaltyReturnTypeOnItsOwnLine: 60
 PenaltyIndentedWhitespace: 0
 PointerAlignment: Left
 ReferenceAlignment: Pointer
-ReflowComments:  true
+ReflowComments: true
 SeparateDefinitionBlocks: Always
-SortIncludes:    CaseSensitive
+SortIncludes: CaseSensitive
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: false
 SpaceAfterLogicalNot: false
@@ -138,16 +138,14 @@ SpaceBeforeRangeBasedForLoopColon: true
 SpaceInEmptyBlock: true
 SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 1
-SpacesInAngles:  false
+SpacesInAngles: false
 SpacesInConditionalStatement: false
 SpacesInContainerLiterals: true
 SpacesInCStyleCastParentheses: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
 SpaceBeforeSquareBrackets: false
-Standard:        Latest
-TabWidth:        4
-Standard:        c++17
-UseCRLF:         false
-UseTab:          Never
-...
+Standard: Latest
+TabWidth: 4
+UseCRLF: false
+UseTab: Never

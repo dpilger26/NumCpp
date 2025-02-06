@@ -583,6 +583,14 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric argpartition(NdArray<dtype>& self, uint32 inKth, Axis inAxis = Axis::NONE)
+    {
+        return nc2pybind(self.argpartition(inKth, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric argsort(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return nc2pybind(self.argsort(inAxis));
@@ -2908,6 +2916,7 @@ void initNdArray(pb11::module& m)
         .def("any", &NdArrayInterface::any<double>)
         .def("argmax", &NdArrayInterface::argmax<double>)
         .def("argmin", &NdArrayInterface::argmin<double>)
+        .def("argpartition", &NdArrayInterface::argpartition<double>)
         .def("argsort", &NdArrayInterface::argsort<double>)
         .def("astypeUint32", &NdArrayDouble::astype<uint32>)
         .def("astypeComplex", &NdArrayDouble::astype<ComplexDouble>)
@@ -3421,6 +3430,7 @@ void initNdArray(pb11::module& m)
         .def("any", &NdArrayInterface::any<ComplexDouble>)
         .def("argmax", &NdArrayInterface::argmax<ComplexDouble>)
         .def("argmin", &NdArrayInterface::argmin<ComplexDouble>)
+        .def("argpartition", &NdArrayInterface::argpartition<ComplexDouble>)
         .def("argsort", &NdArrayInterface::argsort<ComplexDouble>)
         .def("astypeDouble", &NdArrayComplexDouble::astype<double>)
         .def("astypeComplexFloat", &NdArrayComplexDouble::astype<std::complex<float>>)

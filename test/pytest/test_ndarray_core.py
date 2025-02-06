@@ -4284,6 +4284,183 @@ def test_argmin():
 
 
 ####################################################################################
+def test_argpartition():
+    shapeInput = np.random.randint(
+        2,
+        100,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    kthElement = np.random.randint(
+        0,
+        shapeInput.prod(),
+        [
+            1,
+        ],
+        dtype=np.uint32,
+    ).item()
+    argPartitionedArray = cArray.argpartition(kthElement, NumCpp.Axis.NONE).flatten()
+    partitionedArray = data.flatten()[argPartitionedArray]
+    assert np.all(partitionedArray[:kthElement] <= partitionedArray[kthElement]) and np.all(
+        partitionedArray[kthElement:] >= partitionedArray[kthElement]
+    )
+
+    shapeInput = np.random.randint(
+        2,
+        100,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    kthElement = np.random.randint(
+        0,
+        shapeInput.prod(),
+        [
+            1,
+        ],
+        dtype=np.uint32,
+    ).item()
+    argPartitionedArray = cArray.argpartition(kthElement, NumCpp.Axis.NONE).flatten()
+    partitionedArray = data.flatten()[argPartitionedArray]
+    assert np.all(partitionedArray[:kthElement] <= partitionedArray[kthElement]) and np.all(
+        partitionedArray[kthElement:] >= partitionedArray[kthElement]
+    )
+
+    shapeInput = np.random.randint(
+        2,
+        100,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    kthElement = np.random.randint(
+        0,
+        shapeInput[0],
+        [
+            1,
+        ],
+        dtype=np.uint32,
+    ).item()
+    argPartitionedArray = cArray.argpartition(kthElement, NumCpp.Axis.ROW).transpose()
+    allPass = True
+    for idx, row in enumerate(argPartitionedArray):
+        partitionedArrayRow = data[row, idx]
+        if not (
+            np.all(partitionedArrayRow[:kthElement] <= partitionedArrayRow[kthElement])
+            and np.all(partitionedArrayRow[kthElement:] >= partitionedArrayRow[kthElement])
+        ):
+            allPass = False
+            break
+    assert allPass
+
+    shapeInput = np.random.randint(
+        2,
+        100,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    kthElement = np.random.randint(
+        0,
+        shapeInput[0],
+        [
+            1,
+        ],
+        dtype=np.uint32,
+    ).item()
+    argPartitionedArray = cArray.argpartition(kthElement, NumCpp.Axis.ROW).transpose()
+    allPass = True
+    for idx, row in enumerate(argPartitionedArray):
+        partitionedArrayRow = data[row, idx]
+        if not (
+            np.all(partitionedArrayRow[:kthElement] <= partitionedArrayRow[kthElement])
+            and np.all(partitionedArrayRow[kthElement:] >= partitionedArrayRow[kthElement])
+        ):
+            allPass = False
+            break
+    assert allPass
+
+    shapeInput = np.random.randint(
+        2,
+        100,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    kthElement = np.random.randint(
+        0,
+        shapeInput[1],
+        [
+            1,
+        ],
+        dtype=np.uint32,
+    ).item()
+    argPartitionedArray = cArray.argpartition(kthElement, NumCpp.Axis.COL)
+    allPass = True
+    for idx, row in enumerate(argPartitionedArray):
+        partitionedArrayRow = data[idx, row]
+        if not (np.all(partitionedArrayRow[:kthElement] <= partitionedArrayRow[kthElement]) and np.all(partitionedArrayRow[kthElement:] >= partitionedArrayRow[kthElement])):
+            allPass = False
+            break
+    assert allPass
+
+    shapeInput = np.random.randint(
+        2,
+        100,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    kthElement = np.random.randint(
+        0,
+        shapeInput[1],
+        [
+            1,
+        ],
+        dtype=np.uint32,
+    ).item()
+    argPartitionedArray = cArray.argpartition(kthElement, NumCpp.Axis.COL)
+    allPass = True
+    for idx, row in enumerate(argPartitionedArray):
+        partitionedArrayRow = data[idx, row]
+        if not (np.all(partitionedArrayRow[:kthElement] <= partitionedArrayRow[kthElement]) and np.all(partitionedArrayRow[kthElement:] >= partitionedArrayRow[kthElement])):
+            allPass = False
+            break
+    assert allPass
+
+
+####################################################################################
 def test_argsort():
     shapeInput = np.random.randint(
         2,
