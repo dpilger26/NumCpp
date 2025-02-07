@@ -488,16 +488,16 @@ def test_rankFilter1d():
         #     mode=mode,
         #     cval=constantValue,
         # )
-        print(data)
-        print(rank)
-        print(kernalSize)
-        print(mode)
-        print(constantValue)
-        print(np.ones(
+        print(f"data = {data}")
+        print(f"rank = {rank}")
+        print(f"footprint = {np.ones(
                 [
                     kernalSize,
                 ]
-            ))
+            )}")
+        print(f"mode = {mode}")
+        print(f"constantValue = {constantValue}")
+
         # assert np.array_equal(dataOutC, dataOutPy)
 
 
