@@ -460,7 +460,7 @@ def test_rankFilter1d():
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
-            kernalSize = np.random.randint(5, 15)
+            kernalSize = np.random.randint(5, 15).item()
         rank = np.random.randint(
             0,
             kernalSize - 1,
@@ -477,17 +477,17 @@ def test_rankFilter1d():
             ],
         ).item()
         dataOutC = NumCpp.rankFilter1d(cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray().flatten()
-        # dataOutPy = ndimage.rank_filter(
-        #     data,
-        #     rank,
-        #     footprint=np.ones(
-        #         [
-        #             kernalSize,
-        #         ]
-        #     ),
-        #     mode=mode,
-        #     cval=constantValue,
-        # )
+        dataOutPy = ndimage.rank_filter(
+            data,
+            rank,
+            footprint=np.ones(
+                [
+                    kernalSize,
+                ]
+            ),
+            mode=mode,
+            cval=constantValue,
+        )
         # assert np.array_equal(dataOutC, dataOutPy)
 
 
