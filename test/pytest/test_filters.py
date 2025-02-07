@@ -15,7 +15,7 @@ modes = {
 
 ####################################################################################
 def test_seed():
-    np.random.seed(523)
+    np.random.seed(555)
 
 
 ####################################################################################
@@ -460,7 +460,7 @@ def test_rankFilter1d():
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
-            kernalSize = np.random.randint(5, 15).item()
+            kernalSize = np.random.randint(5, 15)
         rank = np.random.randint(
             0,
             kernalSize - 1,
