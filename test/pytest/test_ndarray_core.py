@@ -6,12 +6,15 @@ import warnings
 
 import NumCppPy as NumCpp  # noqa E402
 
-np.random.seed(666)
-
 
 ####################################################################################
 def factors(n):
     return set(reduce(list.__add__, ([i, n // i] for i in range(1, int(n**0.5) + 1) if n % i == 0)))
+
+
+####################################################################################
+def test_seed():
+    np.random.seed(888)
 
 
 ####################################################################################
@@ -920,7 +923,7 @@ def test_access_operators():
     cArray.setArray(data)
     start = np.random.randint(
         0,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
@@ -934,7 +937,7 @@ def test_access_operators():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
@@ -956,7 +959,7 @@ def test_access_operators():
     cArray.setArray(data)
     start = np.random.randint(
         0,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
@@ -970,7 +973,7 @@ def test_access_operators():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
@@ -991,7 +994,7 @@ def test_access_operators():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -1005,14 +1008,14 @@ def test_access_operators():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -1026,7 +1029,7 @@ def test_access_operators():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -1051,7 +1054,7 @@ def test_access_operators():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -1065,14 +1068,14 @@ def test_access_operators():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -1086,7 +1089,7 @@ def test_access_operators():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -1110,7 +1113,7 @@ def test_access_operators():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -1124,7 +1127,7 @@ def test_access_operators():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -1155,7 +1158,7 @@ def test_access_operators():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -1169,7 +1172,7 @@ def test_access_operators():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -1206,7 +1209,7 @@ def test_access_operators():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -1220,7 +1223,7 @@ def test_access_operators():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -1251,7 +1254,7 @@ def test_access_operators():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -1265,7 +1268,7 @@ def test_access_operators():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -1355,7 +1358,7 @@ def test_access_operators():
     cRowIndices.setArray(rowIndices)
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -1369,7 +1372,7 @@ def test_access_operators():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -1405,7 +1408,7 @@ def test_access_operators():
     cRowIndices.setArray(rowIndices)
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -1419,7 +1422,7 @@ def test_access_operators():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -1509,7 +1512,7 @@ def test_access_operators():
     cColIndices.setArray(colIndices)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -1523,7 +1526,7 @@ def test_access_operators():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -1559,7 +1562,7 @@ def test_access_operators():
     cColIndices.setArray(colIndices)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -1573,7 +1576,7 @@ def test_access_operators():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -1974,7 +1977,7 @@ def test_at():
     cArray.setArray(data)
     start = np.random.randint(
         0,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
@@ -1988,7 +1991,7 @@ def test_at():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
@@ -2010,7 +2013,7 @@ def test_at():
     cArray.setArray(data)
     start = np.random.randint(
         0,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
@@ -2024,7 +2027,7 @@ def test_at():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
@@ -2045,7 +2048,7 @@ def test_at():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -2059,14 +2062,14 @@ def test_at():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -2080,7 +2083,7 @@ def test_at():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -2105,7 +2108,7 @@ def test_at():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -2119,14 +2122,14 @@ def test_at():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -2140,7 +2143,7 @@ def test_at():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -2164,7 +2167,7 @@ def test_at():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -2178,7 +2181,7 @@ def test_at():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -2209,7 +2212,7 @@ def test_at():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -2223,7 +2226,7 @@ def test_at():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -2260,7 +2263,7 @@ def test_at():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -2274,7 +2277,7 @@ def test_at():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -2305,7 +2308,7 @@ def test_at():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -2319,7 +2322,7 @@ def test_at():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -2409,7 +2412,7 @@ def test_at():
     cRowIndices.setArray(rowIndices)
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -2423,7 +2426,7 @@ def test_at():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -2459,7 +2462,7 @@ def test_at():
     cRowIndices.setArray(rowIndices)
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -2473,7 +2476,7 @@ def test_at():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -2563,7 +2566,7 @@ def test_at():
     cColIndices.setArray(colIndices)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -2577,7 +2580,7 @@ def test_at():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -2613,7 +2616,7 @@ def test_at():
     cColIndices.setArray(colIndices)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -2627,7 +2630,7 @@ def test_at():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -6917,7 +6920,7 @@ def test_put():
     cArray.setArray(data)
     start = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -6931,7 +6934,7 @@ def test_put():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -6964,7 +6967,7 @@ def test_put():
     cArray.setArray(data)
     start = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -6978,7 +6981,7 @@ def test_put():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7021,7 +7024,7 @@ def test_put():
     cArray.setArray(data)
     start = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7035,7 +7038,7 @@ def test_put():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7043,7 +7046,7 @@ def test_put():
     inputIndices = np.arange(start, stop, step).astype(np.int32)
     cIndices = NumCpp.NdArrayInt32(1, inputIndices.size)
     cIndices.setArray(inputIndices)
-    randomValues = np.random.randint(1, 500, 1)
+    randomValues = np.random.randint(1, 500, 1).item()
     cArray.put(cIndices, randomValues)
     assert np.all(cArray.get(cIndices).astype(np.uint32) == randomValues)
 
@@ -7062,7 +7065,7 @@ def test_put():
     cArray.setArray(data)
     start = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7076,7 +7079,7 @@ def test_put():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7102,7 +7105,7 @@ def test_put():
     cArray.setArray(data)
     start = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7116,7 +7119,7 @@ def test_put():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 2,
         [
             1,
         ],
@@ -7131,6 +7134,7 @@ def test_put():
             inputIndices.size,
         ],
     )
+    assert randomValues.size > 1, f"{randomValues.size}"
     cArray.put(cIndices, randomValues)
     assert np.array_equal(cArray.get(cIndices).flatten().astype(np.uint32), randomValues)
 
@@ -7149,7 +7153,7 @@ def test_put():
     cArray.setArray(data)
     start = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7163,7 +7167,7 @@ def test_put():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7215,7 +7219,7 @@ def test_put():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
@@ -7260,7 +7264,7 @@ def test_put():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
@@ -7315,13 +7319,13 @@ def test_put():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
     ).item()
     inputSlice = NumCpp.Slice(start, stop, step)
-    randomValues = np.random.randint(1, 500, 1)
+    randomValues = np.random.randint(1, 500, 1).item()
     cArray.put(inputSlice, randomValues)
     assert np.all(cArray.get(inputSlice).astype(np.uint32) == randomValues)
 
@@ -7354,13 +7358,13 @@ def test_put():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
     ).item()
     inputSlice = NumCpp.Slice(start, stop, step)
-    randomValues = np.random.randint(1, 500, 1) + 1j * np.random.randint(1, 500, 1)
+    randomValues = np.random.randint(1, 500, 1).item() + 1j * np.random.randint(1, 500, 1).item()
     cArray.put(inputSlice, randomValues)
     assert np.all(cArray.get(inputSlice) == randomValues)
 
@@ -7392,7 +7396,7 @@ def test_put():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
@@ -7437,7 +7441,7 @@ def test_put():
     ).item()
     step = np.random.randint(
         1,
-        shapeInput.prod() // 10,
+        shapeInput.prod() // 5,
         [
             1,
         ],
@@ -7473,7 +7477,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7487,14 +7491,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7508,7 +7512,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7544,7 +7548,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7558,14 +7562,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7579,7 +7583,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7624,7 +7628,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7638,14 +7642,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7659,7 +7663,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7693,7 +7697,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7707,14 +7711,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7728,7 +7732,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7771,7 +7775,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7785,14 +7789,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7806,7 +7810,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7840,7 +7844,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7854,14 +7858,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7875,7 +7879,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7918,7 +7922,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7932,14 +7936,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7953,7 +7957,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -7985,7 +7989,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -7999,14 +8003,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8020,7 +8024,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8068,7 +8072,7 @@ def test_put():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8082,7 +8086,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8122,7 +8126,7 @@ def test_put():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8136,7 +8140,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8185,7 +8189,7 @@ def test_put():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8199,7 +8203,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8237,7 +8241,7 @@ def test_put():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8251,7 +8255,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8291,7 +8295,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8305,7 +8309,7 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8345,7 +8349,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8359,7 +8363,7 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8408,7 +8412,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8422,7 +8426,7 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8460,7 +8464,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8474,7 +8478,7 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8522,7 +8526,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8536,14 +8540,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8557,7 +8561,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8568,7 +8572,7 @@ def test_put():
     cColIndices = NumCpp.NdArrayInt32(1, inputColIndices.size)
     cRowIndices.setArray(inputRowIndices)
     cColIndices.setArray(inputColIndices)
-    randomValues = np.random.randint(1, 500, 1)
+    randomValues = np.random.randint(1, 500, 1).item()
     cArray.put(cRowIndices, cColIndices, randomValues)
     assert np.all(cArray.get(cRowIndices, cColIndices).astype(np.uint32) == randomValues)
 
@@ -8587,7 +8591,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8601,14 +8605,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8622,7 +8626,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8651,7 +8655,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8665,14 +8669,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8686,7 +8690,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8716,7 +8720,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8730,14 +8734,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8751,7 +8755,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8783,7 +8787,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8797,14 +8801,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8818,7 +8822,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8827,7 +8831,7 @@ def test_put():
     inputColSlice = NumCpp.Slice(startCol, stopCol, stepCol)
     cRowIndices = NumCpp.NdArrayInt32(1, inputRowIndices.size)
     cRowIndices.setArray(inputRowIndices)
-    randomValues = np.random.randint(1, 500, 1)
+    randomValues = np.random.randint(1, 500, 1).item()
     cArray.put(cRowIndices, inputColSlice, randomValues)
     assert np.all(cArray.get(cRowIndices, inputColSlice).astype(np.uint32) == randomValues)
 
@@ -8846,7 +8850,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8860,14 +8864,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8881,7 +8885,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8908,7 +8912,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8922,14 +8926,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8943,7 +8947,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -8971,7 +8975,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -8985,14 +8989,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9006,7 +9010,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9036,7 +9040,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -9050,14 +9054,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9071,7 +9075,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9099,7 +9103,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -9113,14 +9117,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9134,7 +9138,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9161,7 +9165,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -9175,14 +9179,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9196,7 +9200,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9224,7 +9228,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -9238,14 +9242,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9259,7 +9263,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9289,7 +9293,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -9303,14 +9307,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9324,14 +9328,14 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
     ).item()
     inputRowSlice = NumCpp.Slice(startRow, stopRow, stepRow)
     inputColSlice = NumCpp.Slice(startCol, stopCol, stepCol)
-    randomValues = np.random.randint(1, 500, 1)
+    randomValues = np.random.randint(1, 500, 1).item()
     cArray.put(inputRowSlice, inputColSlice, randomValues)
     assert np.all(cArray.get(inputRowSlice, inputColSlice).astype(np.uint32) == randomValues)
 
@@ -9350,7 +9354,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -9364,14 +9368,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9385,7 +9389,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9410,7 +9414,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -9424,14 +9428,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9445,7 +9449,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9473,7 +9477,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -9487,14 +9491,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9508,7 +9512,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9542,7 +9546,7 @@ def test_put():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9556,7 +9560,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9564,7 +9568,7 @@ def test_put():
     inputColIndices = np.arange(startCol, stopCol, stepCol).astype(np.int32)
     cColIndices = NumCpp.NdArrayInt32(1, inputColIndices.size)
     cColIndices.setArray(inputColIndices)
-    randomValues = np.random.randint(1, 500, 1)
+    randomValues = np.random.randint(1, 500, 1).item()
     cArray.put(idxRow, cColIndices, randomValues)
     assert np.all(cArray.get(idxRow, cColIndices).astype(np.uint32) == randomValues)
 
@@ -9590,7 +9594,7 @@ def test_put():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9604,7 +9608,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9612,7 +9616,7 @@ def test_put():
     inputColIndices = np.arange(startCol, stopCol, stepCol).astype(np.int32)
     cColIndices = NumCpp.NdArrayInt32(1, inputColIndices.size)
     cColIndices.setArray(inputColIndices)
-    randomValues = np.random.randint(1, 500, 1) + 1j * np.random.randint(1, 500, 1)
+    randomValues = np.random.randint(1, 500, 1).item() + 1j * np.random.randint(1, 500, 1).item()
     cArray.put(idxRow, cColIndices, randomValues)
     assert np.all(cArray.get(idxRow, cColIndices) == randomValues)
 
@@ -9637,7 +9641,7 @@ def test_put():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9651,7 +9655,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9685,7 +9689,7 @@ def test_put():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9699,7 +9703,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9735,7 +9739,7 @@ def test_put():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9749,13 +9753,13 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
     ).item()
     inputColSlice = NumCpp.Slice(startCol, stopCol, stepCol)
-    randomValues = np.random.randint(1, 500, 1)
+    randomValues = np.random.randint(1, 500, 1).item()
     cArray.put(idxRow, inputColSlice, randomValues)
     assert np.all(cArray.get(idxRow, inputColSlice).astype(np.uint32) == randomValues)
 
@@ -9781,7 +9785,7 @@ def test_put():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9795,7 +9799,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9826,7 +9830,7 @@ def test_put():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9840,7 +9844,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9872,7 +9876,7 @@ def test_put():
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9886,7 +9890,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -9912,7 +9916,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -9926,7 +9930,7 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -9941,7 +9945,7 @@ def test_put():
     inputRowIndices = np.arange(startRow, stopRow, stepRow).astype(np.int32)
     cRowIndices = NumCpp.NdArrayInt32(1, inputRowIndices.size)
     cRowIndices.setArray(inputRowIndices)
-    randomValues = np.random.randint(1, 500, 1)
+    randomValues = np.random.randint(1, 500, 1).item()
     cArray.put(cRowIndices, idxCol, randomValues)
     assert np.all(cArray.get(cRowIndices, idxCol).astype(np.uint32) == randomValues)
 
@@ -9960,7 +9964,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -9974,7 +9978,7 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -10007,7 +10011,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -10021,7 +10025,7 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -10055,7 +10059,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -10069,7 +10073,7 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -10105,7 +10109,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -10119,14 +10123,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -10140,14 +10144,14 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
     ).item()
     inputRowSlice = NumCpp.Slice(startRow, stopRow, stepRow)
     inputColSlice = NumCpp.Slice(startCol, stopCol, stepCol)
-    randomValues = np.random.randint(1, 500, 1)
+    randomValues = np.random.randint(1, 500, 1).item()
     cArray.put(inputRowSlice, inputColSlice, randomValues)
     assert np.all(cArray.get(inputRowSlice, inputColSlice).astype(np.uint32) == randomValues)
 
@@ -10166,7 +10170,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -10180,7 +10184,7 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -10211,7 +10215,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -10225,14 +10229,14 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
     ).item()
     startCol = np.random.randint(
         0,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -10246,7 +10250,7 @@ def test_put():
     ).item()
     stepCol = np.random.randint(
         1,
-        shapeInput[1] // 10,
+        shapeInput[1] // 5,
         [
             1,
         ],
@@ -10274,7 +10278,7 @@ def test_put():
     cArray.setArray(data)
     startRow = np.random.randint(
         0,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],
@@ -10288,7 +10292,7 @@ def test_put():
     ).item()
     stepRow = np.random.randint(
         1,
-        shapeInput[0] // 10,
+        shapeInput[0] // 5,
         [
             1,
         ],

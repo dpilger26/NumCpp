@@ -9020,7 +9020,7 @@ def test_logspace():
     start = np.random.randint(0, 10)
     stop = np.random.randint(start + 1, 2 * start + 2)
     num = np.random.randint(1, 100)
-    base = np.random.rand(1) * 10
+    base = np.random.rand(1).item() * 10
     assert np.array_equal(
         np.round(NumCpp.logspace(start, stop, num, NumCpp.EndPoint.YES, base).flatten(), 8),
         np.round(np.logspace(start=start, stop=stop, num=num, endpoint=True, base=base).flatten(), 8),

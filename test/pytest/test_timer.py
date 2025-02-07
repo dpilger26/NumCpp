@@ -2,11 +2,13 @@ import numpy as np
 
 import NumCppPy as NumCpp  # noqa E402
 
+####################################################################################
+def test_seed():
+    np.random.seed(666)
+
 
 ####################################################################################
 def test_timer():
-    np.random.seed(666)
-
     """Tests the NumCpp Timer class"""
     SLEEP_TIME = int(
         np.random.randint(

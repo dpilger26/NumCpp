@@ -2,7 +2,10 @@ import numpy as np
 
 import NumCppPy as NumCpp  # noqa E402
 
-np.random.seed(666)
+
+####################################################################################
+def test_seed():
+    np.random.seed(666)
 
 
 # it is kind of hard to test randomness so my criteria for passing will
@@ -57,7 +60,7 @@ def test_binomial():
     ).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     n = np.random.randint(100)
-    p = np.random.rand(1)
+    p = np.random.rand(1).item()
     assert np.array_equal(NumCpp.binomial(inShape, n, p).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.binomial(n, p)) is int
 
@@ -656,7 +659,7 @@ def test_RNG_binomial():
     ).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     n = np.random.randint(100)
-    p = np.random.rand(1)
+    p = np.random.rand(1).item()
     rng = NumCpp.RNG()
     assert np.array_equal(rng.binomial(inShape, n, p).shape, shapeInput)
     assert type(rng.binomial(n, p)) is int
