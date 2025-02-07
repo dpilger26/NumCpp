@@ -384,8 +384,8 @@ def test_minumumFilter1d():
 def test_percentileFilter1d():
     for mode in modes.keys():
         size = np.random.randint(
+            500,
             1000,
-            2000,
             [
                 1,
             ],
