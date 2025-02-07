@@ -476,7 +476,7 @@ def test_rankFilter1d():
                 1,
             ],
         ).item()
-        # dataOutC = NumCpp.rankFilter1d(cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.rankFilter1d(cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray().flatten()
         # dataOutPy = ndimage.rank_filter(
         #     data,
         #     rank,
