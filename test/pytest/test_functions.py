@@ -2311,7 +2311,7 @@ def test_asarray():
     data = real + 1j * imag
     cArray.setArray(data)
     cArrayCast = NumCpp.astypeComplexToDouble(cArray).getNumpyArray()
-    warnings.filterwarnings("ignore", category=np.ComplexWarning)
+    warnings.filterwarnings("ignore", category=np.exceptions.ComplexWarning)
     assert np.array_equal(cArrayCast, data.astype(float))
     warnings.filters.pop()  # noqa
     assert cArrayCast.dtype == float
@@ -12141,9 +12141,10 @@ def test_newbyteorderArray():
             1,
         ],
     ).item()
+    data = np.asarray([value], dtype=np.uint32)
     assert (
         NumCpp.newbyteorderScalar(value, NumCpp.Endian.BIG)
-        == np.asarray([value], dtype=np.uint32).newbyteorder().item()
+        == data.view(data.dtype.newbyteorder('S'))
     )
 
     shapeInput = np.random.randint(
@@ -12157,7 +12158,7 @@ def test_newbyteorderArray():
     cArray = NumCpp.NdArrayUInt32(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint32)
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.newbyteorderArray(cArray, NumCpp.Endian.BIG), data.newbyteorder())
+    assert np.array_equal(NumCpp.newbyteorderArray(cArray, NumCpp.Endian.BIG), data.view(data.dtype.newbyteorder('S')))
 
 
 ####################################################################################
@@ -13643,7 +13644,7 @@ def test_ptp():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    assert NumCpp.ptp(cArray, NumCpp.Axis.NONE).getNumpyArray().item() == data.ptp()
+    assert NumCpp.ptp(cArray, NumCpp.Axis.NONE).getNumpyArray().item() == np.ptp(data)
 
     shapeInput = np.random.randint(
         1,
@@ -13658,7 +13659,7 @@ def test_ptp():
     imag = np.random.randint(1, 100, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    assert NumCpp.ptp(cArray, NumCpp.Axis.NONE).getNumpyArray().item() == data.ptp()
+    assert NumCpp.ptp(cArray, NumCpp.Axis.NONE).getNumpyArray().item() == np.ptp(data)
 
     shapeInput = np.random.randint(
         1,
@@ -13672,7 +13673,7 @@ def test_ptp():
     data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
     assert np.array_equal(
-        NumCpp.ptp(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten().astype(np.uint32), data.ptp(axis=0)
+        NumCpp.ptp(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten().astype(np.uint32), np.ptp(data, axis=0)
     )
 
     shapeInput = np.random.randint(
@@ -13687,7 +13688,7 @@ def test_ptp():
     data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
     assert np.array_equal(
-        NumCpp.ptp(cArray, NumCpp.Axis.COL).getNumpyArray().flatten().astype(np.uint32), data.ptp(axis=1)
+        NumCpp.ptp(cArray, NumCpp.Axis.COL).getNumpyArray().flatten().astype(np.uint32), np.ptp(data, axis=1)
     )
 
 
@@ -16813,10 +16814,10 @@ def test_row_stack():
     cArray3.setArray(data3)
     cArray4.setArray(data4)
     assert np.array_equal(
-        NumCpp.row_stack(cArray1, cArray2, cArray3, cArray4), np.row_stack([data1, data2, data3, data4])
+        NumCpp.vstack(cArray1, cArray2, cArray3, cArray4), np.vstack([data1, data2, data3, data4])
     )
     assert np.array_equal(
-        NumCpp.row_stack_vec(cArray1, cArray2, cArray3, cArray4), np.row_stack([data1, data2, data3, data4])
+        NumCpp.row_stack_vec(cArray1, cArray2, cArray3, cArray4), np.vstack([data1, data2, data3, data4])
     )
 
 
@@ -16977,7 +16978,7 @@ def test_sign():
     assert NumCpp.signScalar(value) == np.sign(value)
 
     value = np.random.randn(1).item() * 100 + 1j * np.random.randn(1).item() * 100
-    assert NumCpp.signScalar(value) == np.sign(value)
+    assert NumCpp.signScalar(value) == np.sign(value.real)
 
     shapeInput = np.random.randint(
         20,
@@ -17005,7 +17006,7 @@ def test_sign():
     imag = np.random.randint(1, 100, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.signArray(cArray), np.sign(data))
+    assert np.array_equal(NumCpp.signArray(cArray), np.sign(data.real))
 
 
 ####################################################################################
@@ -18258,7 +18259,7 @@ def test_trapz():
     data = np.array([x**2 - coeffs[0] * x + coeffs[1] for x in range(shape.size())])
     cArray.setArray(data)
     integralC = NumCpp.trapzDx(cArray, dx, NumCpp.Axis.NONE).item()
-    integralPy = np.trapz(data, dx=dx)
+    integralPy = np.trapezoid(data, dx=dx)
     assert np.round(integralC, 8) == np.round(integralPy, 8)
 
     shape = NumCpp.Shape(
@@ -18289,7 +18290,7 @@ def test_trapz():
     data = np.array([x**2 - coeffs[0] * x - coeffs[1] for x in range(shape.size())]).reshape(shape.rows, shape.cols)
     cArray.setArray(data)
     integralC = NumCpp.trapzDx(cArray, dx, NumCpp.Axis.ROW).flatten()
-    integralPy = np.trapz(data, dx=dx, axis=0)
+    integralPy = np.trapezoid(data, dx=dx, axis=0)
     assert np.array_equal(np.round(integralC, 8), np.round(integralPy, 8))
 
     shape = NumCpp.Shape(
@@ -18320,7 +18321,7 @@ def test_trapz():
     data = np.array([x**2 - coeffs[0] * x - coeffs[1] for x in range(shape.size())]).reshape(shape.rows, shape.cols)
     cArray.setArray(data)
     integralC = NumCpp.trapzDx(cArray, dx, NumCpp.Axis.COL).flatten()
-    integralPy = np.trapz(data, dx=dx, axis=1)
+    integralPy = np.trapezoid(data, dx=dx, axis=1)
     assert np.array_equal(np.round(integralC, 8), np.round(integralPy, 8))
 
     shape = NumCpp.Shape(
@@ -18347,7 +18348,7 @@ def test_trapz():
     cArrayY.setArray(data)
     cArrayX.setArray(dx)
     integralC = NumCpp.trapz(cArrayY, cArrayX, NumCpp.Axis.NONE).item()
-    integralPy = np.trapz(data, x=dx)
+    integralPy = np.trapezoid(data, x=dx)
     assert np.round(integralC, 8) == np.round(integralPy, 8)
 
     shape = NumCpp.Shape(
@@ -18380,7 +18381,7 @@ def test_trapz():
     cArrayY.setArray(data)
     cArrayX.setArray(dx)
     integralC = NumCpp.trapz(cArrayY, cArrayX, NumCpp.Axis.ROW).flatten()
-    integralPy = np.trapz(data, x=dx, axis=0)
+    integralPy = np.trapezoid(data, x=dx, axis=0)
     assert np.array_equal(np.round(integralC, 8), np.round(integralPy, 8))
 
     shape = NumCpp.Shape(
@@ -18413,7 +18414,7 @@ def test_trapz():
     cArrayY.setArray(data)
     cArrayX.setArray(dx)
     integralC = NumCpp.trapz(cArrayY, cArrayX, NumCpp.Axis.COL).flatten()
-    integralPy = np.trapz(data, x=dx, axis=1)
+    integralPy = np.trapezoid(data, x=dx, axis=1)
     assert np.array_equal(np.round(integralC, 8), np.round(integralPy, 8))
 
 

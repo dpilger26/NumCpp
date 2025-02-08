@@ -4649,7 +4649,7 @@ def test_astype():
     data = real + 1j * imag
     cArray.setArray(data)
     cArrayCast = cArray.astypeDouble().getNumpyArray()
-    warnings.filterwarnings("ignore", category=np.ComplexWarning)
+    warnings.filterwarnings("ignore", category=np.exceptions.ComplexWarning)
     assert np.array_equal(cArrayCast, data.astype(float))
     warnings.filters.pop()  # noqa
     assert cArrayCast.dtype == float
@@ -6259,7 +6259,7 @@ def test_newbyteorder():
     cArray = NumCpp.NdArrayUInt32(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
-    assert np.array_equal(cArray.newbyteorder(NumCpp.Endian.BIG).astype(np.uint32), data.newbyteorder())
+    assert np.array_equal(cArray.newbyteorder(NumCpp.Endian.BIG).astype(np.uint32), data.view(data.dtype.newbyteorder('S')))
 
 
 ####################################################################################
@@ -6678,7 +6678,7 @@ def test_ptp():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
-    assert cArray.ptp(NumCpp.Axis.NONE).astype(np.uint32).item() == data.ptp()
+    assert cArray.ptp(NumCpp.Axis.NONE).astype(np.uint32).item() == np.ptp(data)
 
     shapeInput = np.random.randint(
         2,
@@ -6693,7 +6693,7 @@ def test_ptp():
     imag = np.random.randint(1, 15, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    assert cArray.ptp(NumCpp.Axis.NONE).item() == data.ptp()
+    assert cArray.ptp(NumCpp.Axis.NONE).item() == np.ptp(data)
 
     shapeInput = np.random.randint(
         2,
@@ -6706,7 +6706,7 @@ def test_ptp():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
-    assert np.array_equal(cArray.ptp(NumCpp.Axis.ROW).flatten().astype(np.uint32), data.ptp(axis=0))
+    assert np.array_equal(cArray.ptp(NumCpp.Axis.ROW).flatten().astype(np.uint32), np.ptp(data, axis=0))
 
     shapeInput = np.random.randint(
         2,
@@ -6721,7 +6721,7 @@ def test_ptp():
     imag = np.random.randint(1, 15, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    assert np.array_equal(cArray.ptp(NumCpp.Axis.ROW).flatten(), data.ptp(axis=0))
+    assert np.array_equal(cArray.ptp(NumCpp.Axis.ROW).flatten(), np.ptp(data, axis=0))
 
     shapeInput = np.random.randint(
         2,
@@ -6734,7 +6734,7 @@ def test_ptp():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
-    assert np.array_equal(cArray.ptp(NumCpp.Axis.COL).flatten().astype(np.uint32), data.ptp(axis=1))
+    assert np.array_equal(cArray.ptp(NumCpp.Axis.COL).flatten().astype(np.uint32), np.ptp(data, axis=1))
 
     shapeInput = np.random.randint(
         2,
@@ -6749,7 +6749,7 @@ def test_ptp():
     imag = np.random.randint(1, 15, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    assert np.array_equal(cArray.ptp(NumCpp.Axis.COL).flatten(), data.ptp(axis=1))
+    assert np.array_equal(cArray.ptp(NumCpp.Axis.COL).flatten(), np.ptp(data, axis=1))
 
 
 ####################################################################################

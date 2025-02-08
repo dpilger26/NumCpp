@@ -93,7 +93,7 @@ def test_Vec2_distance():
     vec2_2py = vectormath.Vector2(*components2)
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_2cpp = NumCpp.Vec2(*components2)
-    assert round((vec2_2py - vec2_1py).length, DECIMALS_TO_ROUND) == round(
+    assert round(np.linalg.norm(vec2_2py - vec2_1py), DECIMALS_TO_ROUND) == round(
         vec2_1cpp.distance(vec2_2cpp), DECIMALS_TO_ROUND
     )
 
@@ -114,7 +114,7 @@ def test_Vec2_norm():
     components = np.random.rand(2)
     vec2py = vectormath.Vector2(*components)
     vec2cpp = NumCpp.Vec2(*components)
-    assert round(vec2py.length, DECIMALS_TO_ROUND) == round(vec2cpp.norm(), DECIMALS_TO_ROUND)
+    assert round(np.linalg.norm(vec2py), DECIMALS_TO_ROUND) == round(vec2cpp.norm(), DECIMALS_TO_ROUND)
 
 
 ####################################################################################
@@ -429,7 +429,7 @@ def test_Vec3_distance():
     vec3_2py = vectormath.Vector3(*components2)
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_2cpp = NumCpp.Vec3(*components2)
-    assert round((vec3_2py - vec3_1py).length, DECIMALS_TO_ROUND) == round(
+    assert round(np.linalg.norm(vec3_2py - vec3_1py), DECIMALS_TO_ROUND) == round(
         vec3_1cpp.distance(vec3_2cpp), DECIMALS_TO_ROUND
     )
 
@@ -464,7 +464,7 @@ def test_Vec3_norm():
     components = np.random.rand(3)
     vec3py = vectormath.Vector3(*components)
     vec3cpp = NumCpp.Vec3(*components)
-    assert round(vec3py.length, DECIMALS_TO_ROUND) == round(vec3cpp.norm(), DECIMALS_TO_ROUND)
+    assert round(np.linalg.norm(vec3py), DECIMALS_TO_ROUND) == round(vec3cpp.norm(), DECIMALS_TO_ROUND)
 
 
 ####################################################################################
