@@ -44,6 +44,7 @@ var classnc_1_1_nd_array =
     [ "any", "classnc_1_1_nd_array.html#a752ce557b611da928ccad1dc150fbeb2", null ],
     [ "argmax", "classnc_1_1_nd_array.html#a798c35bcc3c3ecb46629571234afd384", null ],
     [ "argmin", "classnc_1_1_nd_array.html#ae69249dbc6d5d243e0ddbf4be470cf92", null ],
+    [ "argpartition", "classnc_1_1_nd_array.html#ae60447b4fbb3246ac07d0203128bce90", null ],
     [ "argsort", "classnc_1_1_nd_array.html#a2c9a1479a94c2293ee7cd7637d191e17", null ],
     [ "astype", "classnc_1_1_nd_array.html#a637b1256589ea7e1da466e3406ffa280", null ],
     [ "astype", "classnc_1_1_nd_array.html#a637b1256589ea7e1da466e3406ffa280", null ],

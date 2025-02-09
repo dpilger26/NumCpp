@@ -308,6 +308,7 @@ var namespacenc =
     [ "arctanh", "namespacenc.html#a01f43fad4032a2823fc3ed56137b93de", null ],
     [ "argmax", "namespacenc.html#a9bd808dce04134c3a70d0cb202f94464", null ],
     [ "argmin", "namespacenc.html#acbeede146d32768e2c0a136eabd8bff8", null ],
+    [ "argpartition", "namespacenc.html#a2f1343a882a233d701fdb5cbaedcb1f0", null ],
     [ "argsort", "namespacenc.html#a2cc9510519d4d8ff92c3be56f1675ad3", null ],
     [ "argwhere", "namespacenc.html#a2698517c2f77a53ee8a14a6a3a03497f", null ],
     [ "around", "namespacenc.html#a04bda32d0f6189b4f55ea8e97673f273", null ],

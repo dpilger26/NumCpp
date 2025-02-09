@@ -2113,7 +2113,6 @@ namespace nc
         ///
         /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.argpartition.html
         ///
-        /// @param inArray
         /// @param inKth: kth element
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray

@@ -1,5 +1,3 @@
 # TODO
 
-## Version 2.14.0
-
-* argpartition
+## Version 2.15.0
