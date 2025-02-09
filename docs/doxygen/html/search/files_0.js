@@ -34,12 +34,13 @@ var searchData=
   ['arctanh_2ehpp_31',['arctanh.hpp',['../arctanh_8hpp.html',1,'']]],
   ['argmax_2ehpp_32',['argmax.hpp',['../argmax_8hpp.html',1,'']]],
   ['argmin_2ehpp_33',['argmin.hpp',['../argmin_8hpp.html',1,'']]],
-  ['argsort_2ehpp_34',['argsort.hpp',['../argsort_8hpp.html',1,'']]],
-  ['argwhere_2ehpp_35',['argwhere.hpp',['../argwhere_8hpp.html',1,'']]],
-  ['around_2ehpp_36',['around.hpp',['../around_8hpp.html',1,'']]],
-  ['array_5fequal_2ehpp_37',['array_equal.hpp',['../array__equal_8hpp.html',1,'']]],
-  ['array_5fequiv_2ehpp_38',['array_equiv.hpp',['../array__equiv_8hpp.html',1,'']]],
-  ['asarray_2ehpp_39',['asarray.hpp',['../asarray_8hpp.html',1,'']]],
-  ['astype_2ehpp_40',['astype.hpp',['../astype_8hpp.html',1,'']]],
-  ['average_2ehpp_41',['average.hpp',['../average_8hpp.html',1,'']]]
+  ['argpartition_2ehpp_34',['argpartition.hpp',['../argpartition_8hpp.html',1,'']]],
+  ['argsort_2ehpp_35',['argsort.hpp',['../argsort_8hpp.html',1,'']]],
+  ['argwhere_2ehpp_36',['argwhere.hpp',['../argwhere_8hpp.html',1,'']]],
+  ['around_2ehpp_37',['around.hpp',['../around_8hpp.html',1,'']]],
+  ['array_5fequal_2ehpp_38',['array_equal.hpp',['../array__equal_8hpp.html',1,'']]],
+  ['array_5fequiv_2ehpp_39',['array_equiv.hpp',['../array__equiv_8hpp.html',1,'']]],
+  ['asarray_2ehpp_40',['asarray.hpp',['../asarray_8hpp.html',1,'']]],
+  ['astype_2ehpp_41',['astype.hpp',['../astype_8hpp.html',1,'']]],
+  ['average_2ehpp_42',['average.hpp',['../average_8hpp.html',1,'']]]
 ];

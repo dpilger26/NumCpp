@@ -45,7 +45,7 @@ namespace nc::filter
     ///
     /// @param inImageArray
     /// @param inSize: linear size of the kernel to apply
-    /// @param inRank: ([0, inSize^2 - 1])
+    /// @param inRank: ([0, inSize - 1])
     /// @param inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
     /// @param inConstantValue: contant value if boundary = 'constant' (default 0)
     /// @return NdArray
@@ -57,6 +57,11 @@ namespace nc::filter
                                 Boundary              inBoundaryType  = Boundary::REFLECT,
                                 dtype                 inConstantValue = 0)
     {
+        if (inRank >= inSize)
+        {
+            THROW_INVALID_ARGUMENT_ERROR("rank not within filter footprint size.");
+        }
+
         NdArray<dtype> arrayWithBoundary =
             boundary::addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
         NdArray<dtype> output(1, inImageArray.size());

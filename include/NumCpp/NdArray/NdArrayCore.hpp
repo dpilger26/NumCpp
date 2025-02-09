@@ -2107,6 +2107,82 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        /// Perform an indirect partition along the given axis using the algorithm specified by the kind keyword. It
+        /// returns an array of indices of the same shape as a that index data along the given axis in partitioned
+        /// order.
+        ///
+        /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.argpartition.html
+        ///
+        /// @param inKth: kth element
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
+        ///
+        [[nodiscard]] NdArray<size_type> argpartition(size_type inKth, Axis inAxis = Axis::NONE) const
+        {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            switch (inAxis)
+            {
+                case Axis::NONE:
+                {
+                    if (inKth >= size_)
+                    {
+                        std::string errStr = "kth(=" + utils::num2str(inKth);
+                        errStr += ") out of bounds (" + utils::num2str(size_) + ")";
+                        THROW_INVALID_ARGUMENT_ERROR(errStr);
+                    }
+
+                    std::vector<size_type> idx(size_);
+                    std::iota(idx.begin(), idx.end(), 0);
+
+                    const auto comparitor = [this](size_type i1, size_type i2) noexcept -> bool
+                    { return (*this)[i1] < (*this)[i2]; };
+
+                    stl_algorithms::nth_element(idx.begin(), idx.begin() + inKth, idx.end(), comparitor);
+                    return NdArray<size_type>(idx); // NOLINT(modernize-return-braced-init-list)
+                }
+                case Axis::COL:
+                {
+                    if (inKth >= shape_.cols)
+                    {
+                        std::string errStr = "kth(=" + utils::num2str(inKth);
+                        errStr += ") out of bounds (" + utils::num2str(shape_.cols) + ")";
+                        THROW_INVALID_ARGUMENT_ERROR(errStr);
+                    }
+
+                    NdArray<size_type>     returnArray(shape_);
+                    std::vector<size_type> idx(shape_.cols);
+
+                    for (uint32 row = 0; row < shape_.rows; ++row)
+                    {
+                        std::iota(idx.begin(), idx.end(), 0);
+
+                        const auto comparitor = [this, row](size_type i1, size_type i2) noexcept -> bool
+                        { return operator()(row, i1) < operator()(row, i2); };
+
+                        stl_algorithms::nth_element(idx.begin(), idx.begin() + inKth, idx.end(), comparitor);
+
+                        for (index_type col = 0; col < static_cast<index_type>(shape_.cols); ++col)
+                        {
+                            returnArray(row, col) = idx[static_cast<size_type>(col)];
+                        }
+                    }
+                    return returnArray;
+                }
+                case Axis::ROW:
+                {
+                    return transpose().argpartition(inKth, Axis::COL).transpose();
+                }
+                default:
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
+                }
+            }
+        }
+
+        //============================================================================
+        // Method Description:
         /// Returns the indices that would sort this array.
         ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argsort.html
@@ -2125,10 +2201,10 @@ namespace nc
                     std::vector<size_type> idx(size_);
                     std::iota(idx.begin(), idx.end(), 0);
 
-                    const auto function = [this](size_type i1, size_type i2) noexcept -> bool
+                    const auto comparitor = [this](size_type i1, size_type i2) noexcept -> bool
                     { return (*this)[i1] < (*this)[i2]; };
 
-                    stl_algorithms::stable_sort(idx.begin(), idx.end(), function);
+                    stl_algorithms::stable_sort(idx.begin(), idx.end(), comparitor);
                     return NdArray<size_type>(idx); // NOLINT(modernize-return-braced-init-list)
                 }
                 case Axis::COL:
@@ -2140,10 +2216,10 @@ namespace nc
                     {
                         std::iota(idx.begin(), idx.end(), 0);
 
-                        const auto function = [this, row](size_type i1, size_type i2) noexcept -> bool
+                        const auto comparitor = [this, row](size_type i1, size_type i2) noexcept -> bool
                         { return operator()(row, i1) < operator()(row, i2); };
 
-                        stl_algorithms::stable_sort(idx.begin(), idx.end(), function);
+                        stl_algorithms::stable_sort(idx.begin(), idx.end(), comparitor);
 
                         for (index_type col = 0; col < static_cast<index_type>(shape_.cols); ++col)
                         {

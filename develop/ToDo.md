@@ -1,6 +1,3 @@
 # TODO
 
-## Version 2.13.0
-
-* `ImageProcessing`
-  * adaptive cfar
+## Version 2.15.0

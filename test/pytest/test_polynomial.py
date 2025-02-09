@@ -1,5 +1,3 @@
-import platform
-
 import numpy as np
 from numpy.polynomial.polynomial import Polynomial
 import scipy.special as sp

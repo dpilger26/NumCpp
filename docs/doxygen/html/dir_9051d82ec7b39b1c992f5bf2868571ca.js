@@ -22,6 +22,7 @@ var dir_9051d82ec7b39b1c992f5bf2868571ca =
     [ "arctanh.hpp", "arctanh_8hpp.html", "arctanh_8hpp" ],
     [ "argmax.hpp", "argmax_8hpp.html", "argmax_8hpp" ],
     [ "argmin.hpp", "argmin_8hpp.html", "argmin_8hpp" ],
+    [ "argpartition.hpp", "argpartition_8hpp.html", "argpartition_8hpp" ],
     [ "argsort.hpp", "argsort_8hpp.html", "argsort_8hpp" ],
     [ "argwhere.hpp", "argwhere_8hpp.html", "argwhere_8hpp" ],
     [ "around.hpp", "around_8hpp.html", "around_8hpp" ],
