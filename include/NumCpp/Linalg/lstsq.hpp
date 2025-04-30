@@ -57,9 +57,6 @@ namespace nc::linalg
     NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1e-12)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
-        std::cout<<"inA.shape().rows "<<inA.shape().rows <<std::endl;
-        std::cout<<"inB.shape().rows "<<inA.shape().rows <<std::endl;
-        std::cout<<"inB.shape().cols "<<inA.shape().cols <<std::endl;
         if (inA.shape().rows != inB.shape().rows && inB.shape().cols != inA.shape().rows)
         {
             THROW_INVALID_ARGUMENT_ERROR("bad sizes.");
