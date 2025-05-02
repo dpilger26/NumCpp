@@ -99,6 +99,31 @@ def test_lstsq():
     x = NumCpp.lstsq(aArray, bArray, 1e-12).getNumpyArray().flatten()
     assert np.array_equal(np.round(x, 8), np.round(np.linalg.lstsq(aData, bData, rcond=None)[0], 8))
 
+    shapeInput = np.random.randint(
+        5,
+        50,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    bCols = np.random.randint(1, 100)
+    bArray = NumCpp.NdArray(shape.rows, bCols)
+    aData = np.random.randint(1, 100, [shape.rows, shape.cols])
+    bData = np.random.randint(
+        1,
+        100,
+        [
+            shape.rows,
+            bCols
+        ],
+    )
+    aArray.setArray(aData)
+    bArray.setArray(bData)
+    x = NumCpp.lstsq(aArray, bArray, 1e-12).getNumpyArray()
+    assert np.array_equal(np.round(x, 8), np.round(np.linalg.lstsq(aData, bData, rcond=None)[0], 8))
+
 
 ####################################################################################
 def test_lu_decomposition():

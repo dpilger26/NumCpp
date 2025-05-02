@@ -48,7 +48,8 @@ namespace nc::linalg
     /// https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq
     ///
     /// @param inA: coefficient matrix
-    /// @param inB: Ordinate or "dependent variable" values
+    /// @param inB: Ordinate or "dependent variable" values. If b is two-dimensional, the least-squares solution is
+    ///             calculated for each of the K columns of b.
     /// @param inTolerance (default 1e-12)
     ///
     /// @return NdArray
@@ -58,9 +59,38 @@ namespace nc::linalg
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
+        const auto& aShape = inA.shape();
+        const auto& bShape = inB.shape();
+
+        const auto bIsFlat = inB.isflat();
+        if (bIsFlat && bShape.size() != aShape.rows)
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Invalid matrix dimensions");
+        }
+        else if (!bIsFlat && inA.shape().rows != bShape.rows)
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Invalid matrix dimensions");
+        }
+
         SVD          svdSolver(inA.template astype<double>());
         const double threshold = inTolerance * svdSolver.s().front();
 
-        return svdSolver.solve(inB.template astype<double>(), threshold);
+        if (bIsFlat)
+        {
+            return svdSolver.solve(inB.template astype<double>(), threshold);
+        }
+
+        const auto bCast     = inB.template astype<double>();
+        const auto bRowSlice = bCast.rSlice();
+
+        auto       result         = NdArray<double>(aShape.cols, bShape.cols);
+        const auto resultRowSlice = result.rSlice();
+
+        for (uint32 col = 0; col < bShape.cols; ++col)
+        {
+            result.put(resultRowSlice, col, svdSolver.solve(bCast(bRowSlice, col), threshold));
+        }
+
+        return result;
     }
 } // namespace nc::linalg

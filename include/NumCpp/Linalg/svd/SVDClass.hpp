@@ -113,7 +113,7 @@ namespace nc::linalg
 
             if (inInput.size() != m_)
             {
-                THROW_INVALID_ARGUMENT_ERROR("bad sizes.");
+                THROW_INVALID_ARGUMENT_ERROR("Invalid matrix dimensions");
             }
 
             NdArray<double> returnArray(1, n_);
