@@ -1,5 +1,9 @@
 # Release Notes
 
+## Version 2.14.1
+
+* made behavior of `linalg::lstsq` match NumPy when inputting a multidimensional `b` array for **Issue #229**
+
 ## Version 2.14.0
 
 * added `argpartition()` for **Issue #225** <https://numpy.org/doc/stable/reference/generated/numpy.argpartition.html>
