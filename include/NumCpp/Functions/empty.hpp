@@ -46,6 +46,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> empty(uint32 inNumRows, uint32 inNumCols)
     {
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
         return NdArray<dtype>(inNumRows, inNumCols);
     }
 
@@ -61,6 +62,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> empty(const Shape& inShape)
     {
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
         return NdArray<dtype>(inShape);
     }
 } // namespace nc

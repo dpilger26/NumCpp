@@ -50,7 +50,7 @@ namespace nc
     template<typename dtype>
     NdArray<double> var(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
 
         NdArray<double> stdValues = stdev(inArray, inAxis);
         const auto      function  = [](double& value) -> void { value *= value; };
@@ -73,7 +73,7 @@ namespace nc
     template<typename dtype>
     NdArray<std::complex<double>> var(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
 
         NdArray<std::complex<double>> stdValues = stdev(inArray, inAxis);
         const auto                    function  = [](std::complex<double>& value) -> void { value *= value; };

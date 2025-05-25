@@ -61,7 +61,7 @@ namespace nc::rotations
     template<typename dtype>
     NdArray<double> wahbasProblem(const NdArray<dtype>& wk, const NdArray<dtype>& vk, const NdArray<dtype>& ak)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
 
         const auto wkShape = wk.shape();
         if (wkShape.cols != 3)

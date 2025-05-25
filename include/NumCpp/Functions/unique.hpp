@@ -52,7 +52,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> unique(const NdArray<dtype>& inArray)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        static_assert(nc::ArithmeticOrComplex<dtype>, "Can only be used with arithmetic or std::complex types");
 
         const auto comp = [](const dtype lhs, const dtype rhs) noexcept -> bool
         { return utils::essentiallyEqual(lhs, rhs); };

@@ -68,7 +68,7 @@ namespace nc
                                Axis                  inAxis         = Axis::NONE,
                                InterpolationMethod   inInterpMethod = InterpolationMethod::LINEAR)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
 
         if (inPercentile < 0. || inPercentile > 100.)
         {

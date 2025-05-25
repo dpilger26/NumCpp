@@ -55,7 +55,7 @@ namespace nc
     template<typename dtype>
     dtype fmin(dtype inValue1, dtype inValue2) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        static_assert(nc::ArithmeticOrComplex<dtype>, "Can only be used with arithmetic or std::complex types");
 
         return std::min(inValue1,
                         inValue2,

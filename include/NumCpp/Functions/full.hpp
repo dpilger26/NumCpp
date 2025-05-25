@@ -46,6 +46,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> full(uint32 inSquareSize, dtype inFillValue)
     {
+        static_assert(nc::ArithmeticOrComplex<dtype>, "Can only be used with arithmetic or std::complex types");
         NdArray<dtype> returnArray(inSquareSize, inSquareSize);
         returnArray.fill(inFillValue);
         return returnArray;
@@ -65,6 +66,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue)
     {
+        static_assert(nc::ArithmeticOrComplex<dtype>, "Can only be used with arithmetic or std::complex types");
         NdArray<dtype> returnArray(inNumRows, inNumCols);
         returnArray.fill(inFillValue);
         return returnArray;
@@ -83,6 +85,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> full(const Shape& inShape, dtype inFillValue)
     {
+        static_assert(nc::ArithmeticOrComplex<dtype>, "Can only be used with arithmetic or std::complex types");
         return full(inShape.rows, inShape.cols, inFillValue);
     }
 } // namespace nc

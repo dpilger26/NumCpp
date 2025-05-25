@@ -44,6 +44,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> transpose(const NdArray<dtype>& inArray)
     {
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
         return inArray.transpose();
     }
 } // namespace nc

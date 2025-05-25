@@ -44,6 +44,7 @@ namespace nc
     template<typename dtype>
     dtype round(dtype inValue, uint8 inDecimals = 0)
     {
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
         NdArray<dtype> input = { inValue };
         return input.round(inDecimals).item();
     }
@@ -60,6 +61,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> round(const NdArray<dtype>& inArray, uint8 inDecimals = 0)
     {
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
         return inArray.round(inDecimals);
     }
 } // namespace nc

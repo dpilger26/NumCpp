@@ -46,6 +46,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> median(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
+        static_assert(nc::ArithmeticOrComplex<dtype>, "Can only be used with arithmetic or std::complex types");
         return inArray.median(inAxis);
     }
 } // namespace nc

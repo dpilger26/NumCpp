@@ -49,7 +49,7 @@ namespace nc
     template<typename dtype>
     dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        static_assert(nc::ArithmeticOrComplex<dtype>, "Can only be used with arithmetic or std::complex types");
 
 #ifdef __cpp_lib_clamp
         const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool { return lhs < rhs; };

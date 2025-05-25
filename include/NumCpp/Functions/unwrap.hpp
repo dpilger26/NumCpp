@@ -49,7 +49,7 @@ namespace nc
     template<typename dtype>
     dtype unwrap(dtype inValue) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
 
         return static_cast<dtype>(std::atan2(std::sin(inValue), std::cos(inValue)));
     }

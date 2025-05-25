@@ -46,6 +46,7 @@ namespace nc
     template<typename dtype>
     dtype trace(const NdArray<dtype>& inArray, int16 inOffset = 0, Axis inAxis = Axis::ROW) noexcept
     {
+        static_assert(nc::ArithmeticOrComplex<dtype>, "Can only be used with arithmetic or std::complex types");
         return inArray.trace(inOffset, inAxis);
     }
 } // namespace nc
