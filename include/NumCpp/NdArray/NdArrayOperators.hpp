@@ -207,13 +207,9 @@ namespace nc
     NdArray<std::complex<dtype>> operator+(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
-
-        const auto function = [rhs](dtype value) -> std::complex<dtype> { return value + rhs; };
-
         NdArray<std::complex<dtype>> returnArray(lhs.shape());
-
+        const auto function = [rhs](dtype value) -> std::complex<dtype> { return value + rhs; };
         stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
-
         return returnArray;
     }
 
@@ -433,13 +429,9 @@ namespace nc
     NdArray<std::complex<dtype>> operator-(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
-
-        const auto function = [lhs](dtype value) -> std::complex<dtype> { return lhs - value; };
-
-        NdArray<std::complex<dtype>> returnArray(rhs.shape());
-
-        stl_algorithms::transform(rhs.cbegin(), rhs.cend(), returnArray.begin(), function);
-
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+        const auto function = [rhs](dtype value) -> std::complex<dtype> { return value - rhs; };
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
         return returnArray;
     }
 
@@ -455,13 +447,9 @@ namespace nc
     NdArray<std::complex<dtype>> operator-(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
-
-        const auto function = [lhs](dtype value) -> std::complex<dtype> { return lhs - value; };
-
         NdArray<std::complex<dtype>> returnArray(rhs.shape());
-
+        const auto function = [lhs](dtype value) -> std::complex<dtype> { return lhs - value; };
         stl_algorithms::transform(rhs.cbegin(), rhs.cend(), returnArray.begin(), function);
-
         return returnArray;
     }
 
@@ -493,7 +481,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [lhs](std::complex<dtype> value) -> std::complex<dtype> { return lhs - value; };
+        const auto function = [lhs](const std::complex<dtype>& value) -> std::complex<dtype> { return lhs - value; };
 
         NdArray<std::complex<dtype>> returnArray(rhs.shape());
 
