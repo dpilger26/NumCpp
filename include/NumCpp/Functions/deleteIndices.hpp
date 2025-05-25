@@ -52,7 +52,7 @@ namespace nc
         template<typename dtype, NdArrayInt Indices>
         NdArray<dtype> deleteFlatIndices(const NdArray<dtype>& inArray, Indices inIndices)
         {
-            if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+            if constexpr (NdArraySignedInt<Indices>)
             {
                 const auto arraySize = inArray.size();
                 stl_algorithms::for_each(inIndices.begin(),
@@ -95,7 +95,7 @@ namespace nc
         NdArray<dtype> deleteRowIndices(const NdArray<dtype>& inArray, Indices inIndices)
         {
             const auto arrayRows = static_cast<int32>(inArray.numRows());
-            if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+            if constexpr (NdArraySignedInt<Indices>)
             {
                 stl_algorithms::for_each(inIndices.begin(),
                                          inIndices.end(),
@@ -165,7 +165,7 @@ namespace nc
         NdArray<dtype> deleteColumnIndices(const NdArray<dtype>& inArray, Indices inIndices)
         {
             const auto arrayCols = static_cast<int32>(inArray.numCols());
-            if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+            if constexpr (NdArraySignedInt<Indices>)
             {
                 stl_algorithms::for_each(inIndices.begin(),
                                          inIndices.end(),

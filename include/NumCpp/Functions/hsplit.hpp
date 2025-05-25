@@ -56,7 +56,7 @@ namespace nc
                                   uniqueIndices.begin(),
                                   [numCols](auto index) noexcept -> int32
                                   {
-                                      if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                      if constexpr (NdArraySignedInt<Indices>)
                                       {
                                           if (index < 0)
                                           {

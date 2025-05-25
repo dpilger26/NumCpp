@@ -309,7 +309,7 @@ namespace nc
                                               indexValues.begin(),
                                               [arrSize, value](auto index) -> std::pair<int32, dtype>
                                               {
-                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  if constexpr (NdArraySignedInt<Indices>)
                                                   {
                                                       if (index < 0)
                                                       {
@@ -337,7 +337,7 @@ namespace nc
                                               indexValues.begin(),
                                               [arrSize](auto index, const auto& value) -> std::pair<int32, dtype>
                                               {
-                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  if constexpr (NdArraySignedInt<Indices>)
                                                   {
                                                       if (index < 0)
                                                       {
@@ -410,7 +410,7 @@ namespace nc
                                               indexValues.begin(),
                                               [arrNumRows, &valueRow](auto index) -> std::pair<int32, NdArray<dtype>>
                                               {
-                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  if constexpr (NdArraySignedInt<Indices>)
                                                   {
                                                       if (index < 0)
                                                       {
@@ -437,7 +437,7 @@ namespace nc
                                               indexValues.begin(),
                                               [arrNumRows, &values](auto index) -> std::pair<int32, NdArray<dtype>>
                                               {
-                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  if constexpr (NdArraySignedInt<Indices>)
                                                   {
                                                       if (index < 0)
                                                       {
@@ -465,7 +465,7 @@ namespace nc
                                    indexValues.begin(),
                                    [arrNumRows, &values, &counter](auto index) -> std::pair<int32, NdArray<dtype>>
                                    {
-                                       if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                       if constexpr (NdArraySignedInt<Indices>)
                                        {
                                            if (index < 0)
                                            {

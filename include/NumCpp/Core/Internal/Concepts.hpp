@@ -86,6 +86,19 @@ namespace nc
 
     //============================================================================
     // Concept Description:
+    /// Concept for checking if a type is an NdArray of signed integral type (for signed index arrays)
+    ///
+    template<typename T>
+    concept NdArraySignedInt = requires {
+        typename T::value_type;
+        typename T::allocator_type;
+        requires std::is_signed_v<typename T::value_type>;
+        requires std::is_integral_v<typename T::value_type>;
+        requires std::is_same_v<T, NdArray<typename T::value_type, typename T::allocator_type>>;
+    };
+
+    //============================================================================
+    // Concept Description:
     /// Concept for checking if a type is std::complex<>
     ///
     template<typename T>
