@@ -1,5 +1,9 @@
 # Release Notes
 
+## Version 2.15.0
+
+* converted SFINAE componenents to concepts when a C++20 compliant compiler is used
+
 ## Version 2.14.1
 
 * made behavior of `linalg::lstsq` match NumPy when inputting a multidimensional `b` array for **Issue #229**

@@ -32,7 +32,7 @@ project("HelloWorld" CXX)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-find_package(NumCpp 2.14.1 REQUIRED)
+find_package(NumCpp 2.15.0 REQUIRED)
 target_link_libraries(${PROJECT_NAME}
     NumCpp::NumCpp
 )
