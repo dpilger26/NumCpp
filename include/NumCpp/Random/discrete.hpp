@@ -35,6 +35,7 @@
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
+#include "NumCpp/Core/Internal/Concepts.hpp"
 
 namespace nc::random
 {
@@ -100,7 +101,7 @@ namespace nc::random
     /// @param inWeights
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<nc::Integer dtype>
     dtype discrete(const NdArray<double>& inWeights)
     {
         return detail::discrete<dtype>(generator_, inWeights);
@@ -118,7 +119,7 @@ namespace nc::random
     /// @param inWeights
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<nc::Integer dtype>
     NdArray<dtype> discrete(const Shape& inShape, const NdArray<double>& inWeights)
     {
         return detail::discrete<dtype>(generator_, inShape, inWeights);

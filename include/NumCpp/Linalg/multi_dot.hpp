@@ -34,7 +34,7 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/NdArray.hpp"
-
+#include "NumCpp/Core/Internal/Concepts.hpp"
 namespace nc::linalg
 {
     //============================================================================
@@ -49,11 +49,9 @@ namespace nc::linalg
     ///
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<nc::ArithmeticOrComplex dtype>
     NdArray<dtype> multi_dot(const std::initializer_list<NdArray<dtype>>& inList)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
         typename std::initializer_list<NdArray<dtype>>::iterator iter = inList.begin();
 
         if (inList.size() == 0)

@@ -33,6 +33,7 @@
 #include "NumCpp/Functions/diagflat.hpp"
 #include "NumCpp/Linalg/svd/SVDClass.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/Concepts.hpp"
 
 namespace nc::linalg
 {
@@ -47,11 +48,9 @@ namespace nc::linalg
     /// @param outS: NdArray output S
     /// @param outVt: NdArray output V transpose
     ///
-    template<typename dtype>
+    template<nc::Arithmetic dtype>
     void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
         SVD svdSolver(inArray.template astype<double>());
         outU = svdSolver.u();
 

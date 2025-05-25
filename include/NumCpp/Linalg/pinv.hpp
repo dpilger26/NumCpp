@@ -34,7 +34,7 @@
 #include "NumCpp/Functions/zeros.hpp"
 #include "NumCpp/Linalg/svd.hpp"
 #include "NumCpp/NdArray.hpp"
-
+#include "NumCpp/Core/Internal/Concepts.hpp"
 namespace nc::linalg
 {
     //============================================================================
@@ -46,11 +46,9 @@ namespace nc::linalg
     /// @param inArray
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<nc::ArithmeticOrComplex dtype>
     NdArray<double> pinv(const NdArray<dtype>& inArray)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
         NdArray<double> u;
         NdArray<double> d;
         NdArray<double> v;

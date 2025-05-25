@@ -38,6 +38,7 @@
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
+#include "NumCpp/Core/Internal/Concepts.hpp"
 
 namespace nc::random
 {
@@ -60,8 +61,6 @@ namespace nc::random
         template<typename dtype, typename GeneratorType = std::mt19937>
         dtype randInt(GeneratorType& generator, dtype inLow, dtype inHigh = 0)
         {
-            STATIC_ASSERT_INTEGER(dtype);
-
             if (inLow == inHigh)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input low value must be less than the input high value.");
@@ -93,8 +92,6 @@ namespace nc::random
         template<typename dtype, typename GeneratorType = std::mt19937>
         NdArray<dtype> randInt(GeneratorType& generator, const Shape& inShape, dtype inLow, dtype inHigh = 0)
         {
-            STATIC_ASSERT_INTEGER(dtype);
-
             if (inLow == inHigh)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input low value must be less than the input high value.");
@@ -129,7 +126,7 @@ namespace nc::random
     /// @param inHigh default 0.
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<nc::Integer dtype>
     dtype randInt(dtype inLow, dtype inHigh = 0)
     {
         return detail::randInt(generator_, inLow, inHigh);
@@ -149,7 +146,7 @@ namespace nc::random
     /// @param inHigh default 0.
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<nc::Integer dtype>
     NdArray<dtype> randInt(const Shape& inShape, dtype inLow, dtype inHigh = 0)
     {
         return detail::randInt(generator_, inShape, inLow, inHigh);

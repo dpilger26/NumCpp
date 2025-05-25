@@ -36,7 +36,7 @@
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/identity.hpp"
 #include "NumCpp/NdArray.hpp"
-
+#include "NumCpp/Core/Internal/Concepts.hpp"
 namespace nc::linalg
 {
     //============================================================================
@@ -56,11 +56,9 @@ namespace nc::linalg
     ///
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<nc::ArithmeticOrComplex dtype>
     NdArray<double> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
         const Shape inShape = inArray.shape();
         if (inShape.rows != inShape.cols)
         {

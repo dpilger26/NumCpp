@@ -36,6 +36,7 @@
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
+#include "NumCpp/Core/Internal/Concepts.hpp"
 
 namespace nc::random
 {
@@ -55,8 +56,6 @@ namespace nc::random
         template<typename dtype, typename GeneratorType = std::mt19937>
         dtype geometric(GeneratorType& generator, double inP = 0.5)
         {
-            STATIC_ASSERT_INTEGER(dtype);
-
             if (inP < 0 || inP > 1)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
@@ -82,8 +81,6 @@ namespace nc::random
         template<typename dtype, typename GeneratorType = std::mt19937>
         NdArray<dtype> geometric(GeneratorType& generator, const Shape& inShape, double inP = 0.5)
         {
-            STATIC_ASSERT_INTEGER(dtype);
-
             if (inP < 0 || inP > 1)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
@@ -111,7 +108,7 @@ namespace nc::random
     /// @param inP (probablity of success [0, 1])
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<nc::Integer dtype>
     dtype geometric(double inP = 0.5)
     {
         return detail::geometric<dtype>(generator_, inP);
@@ -129,7 +126,7 @@ namespace nc::random
     /// @param inP (probablity of success [0, 1])
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<nc::Integer dtype>
     NdArray<dtype> geometric(const Shape& inShape, double inP = 0.5)
     {
         return detail::geometric<dtype>(generator_, inShape, inP);

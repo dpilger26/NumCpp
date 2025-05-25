@@ -33,6 +33,7 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
+#include "NumCpp/Core/Internal/Concepts.hpp"
 
 namespace nc::linalg
 {
@@ -45,11 +46,9 @@ namespace nc::linalg
     /// @param inZ
     /// @return 3x3 NdArray
     ///
-    template<typename dtype>
+    template<nc::Arithmetic dtype>
     NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
         NdArray<dtype> returnArray(3);
         returnArray(0, 0) = 0.;
         returnArray(0, 1) = -inZ;
@@ -71,11 +70,9 @@ namespace nc::linalg
     /// @param inVec (3x1, or 1x3 cartesian vector)
     /// @return 3x3 NdArray
     ///
-    template<typename dtype>
+    template<nc::Arithmetic dtype>
     NdArray<dtype> hat(const NdArray<dtype>& inVec)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
         if (inVec.size() != 3)
         {
             THROW_INVALID_ARGUMENT_ERROR("input vector must be a length 3 cartesian vector.");

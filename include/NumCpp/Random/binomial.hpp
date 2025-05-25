@@ -36,6 +36,7 @@
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
+#include "NumCpp/Core/Internal/Concepts.hpp"
 
 namespace nc::random
 {
@@ -56,8 +57,6 @@ namespace nc::random
         template<typename dtype, typename GeneratorType = std::mt19937>
         dtype binomial(GeneratorType& generator, dtype inN, double inP = 0.5)
         {
-            STATIC_ASSERT_INTEGER(dtype);
-
             if (inN < 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input number of trials must be greater than or equal to zero.");
@@ -89,8 +88,6 @@ namespace nc::random
         template<typename dtype, typename GeneratorType = std::mt19937>
         NdArray<dtype> binomial(GeneratorType& generator, const Shape& inShape, dtype inN, double inP = 0.5)
         {
-            STATIC_ASSERT_INTEGER(dtype);
-
             if (inN < 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input number of trials must be greater than or equal to zero.");
@@ -124,7 +121,7 @@ namespace nc::random
     /// @param inP (probablity of success [0, 1])
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<nc::Integer dtype>
     dtype binomial(dtype inN, double inP = 0.5)
     {
         return detail::binomial(generator_, inN, inP);
@@ -143,7 +140,7 @@ namespace nc::random
     /// @param inP (probablity of success [0, 1])
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<nc::Integer dtype>
     NdArray<dtype> binomial(const Shape& inShape, dtype inN, double inP = 0.5)
     {
         return detail::binomial(generator_, inShape, inN, inP);

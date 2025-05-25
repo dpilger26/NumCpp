@@ -114,4 +114,30 @@ namespace nc
     template<std::size_t Value1, std::size_t Value2>
     concept GreaterThan = (Value1 > Value2);
 
+    //============================================================================
+    // Concept Description:
+    /// Concept for arithmetic types
+    template<typename T>
+    concept Arithmetic = std::is_arithmetic_v<T>;
+
+    /// Concept for integer types
+    template<typename T>
+    concept Integer = std::is_integral_v<T>;
+
+    /// Concept for unsigned integer types
+    template<typename T>
+    concept UnsignedInteger = std::is_integral_v<T> && std::is_unsigned_v<T>;
+
+    /// Concept for floating point types
+    template<typename T>
+    concept Float = std::is_floating_point_v<T>;
+
+    /// Concept for std::complex types
+    template<typename T>
+    concept Complex = requires { typename T::value_type; } && std::is_same_v<T, std::complex<typename T::value_type>>;
+
+    /// Concept for arithmetic or std::complex types
+    template<typename T>
+    concept ArithmeticOrComplex = Arithmetic<T> || Complex<T>;
+
 } // namespace nc 

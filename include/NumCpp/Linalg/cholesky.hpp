@@ -50,11 +50,9 @@ namespace nc::linalg
     ///
     /// @return NdArray of the decomposed L matrix
     ///
-    template<typename dtype>
+    template<nc::Arithmetic dtype>
     NdArray<double> cholesky(const NdArray<dtype>& inMatrix)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
         const auto shape = inMatrix.shape();
         if (!shape.issquare())
         {

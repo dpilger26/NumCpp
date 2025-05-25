@@ -30,6 +30,7 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Linalg/svd/SVDClass.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/Concepts.hpp"
 
 namespace nc::linalg
 {
@@ -54,11 +55,9 @@ namespace nc::linalg
     ///
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<nc::Arithmetic dtype>
     NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1e-12)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
         const auto& aShape = inA.shape();
         const auto& bShape = inB.shape();
 
