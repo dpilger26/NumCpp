@@ -47,38 +47,11 @@ namespace nc::logger
     {
         namespace type_traits
         {
-            /**
-             * @brief type trait to check if a type has a serialize method with the correct signature
-             */
+            // Modern C++20 concept to check for serialize() method returning std::string
             template<typename DataType>
-            using serialize_t = decltype(std::declval<DataType>().serialize());
-
-            /**
-             * @brief type trait to check if a type has a serialize method with the correct signature
-             */
-            template<typename DataType, typename = std::void_t<>>
-            class has_serialize : std::false_type
-            {
-            public:
-                static constexpr bool value = false;
+            concept HasSerialize = requires(DataType data) {
+                { data.serialize() } -> std::same_as<std::string>;
             };
-
-            /**
-             * @brief type trait to check if a type has a serialize method with the correct signature
-             */
-            template<typename DataType>
-            class has_serialize<DataType,
-                                std::void_t<std::enable_if_t<std::is_same_v<serialize_t<DataType>, std::string>, int>>>
-            {
-            public:
-                static constexpr bool value = true;
-            };
-
-            /**
-             * @brief type trait to check if a type has a serialize method with the correct signature
-             */
-            template<typename DataType>
-            inline constexpr bool has_serialize_v = has_serialize<DataType>::value;
         } // namespace type_traits
 
         /**
@@ -95,7 +68,7 @@ namespace nc::logger
             // NOLINTNEXTLINE(cppcoreguidelines-avoid-c-arrays, hicpp-avoid-c-arrays, modernize-avoid-c-arrays)
             static constexpr char LOG_EXT[]                      = ".log";
             static constexpr auto DATA_ELEMENT_SIZE              = sizeof(value_type);
-            static constexpr auto DATE_TYPE_HAS_SERIALIZE_METHOD = type_traits::has_serialize_v<value_type>;
+            static constexpr bool DATE_TYPE_HAS_SERIALIZE_METHOD = type_traits::HasSerialize<value_type>;
 
             /**
              * @brief Default constructor
