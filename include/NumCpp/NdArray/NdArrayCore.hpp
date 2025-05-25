@@ -271,7 +271,7 @@ namespace nc
         /// @param inArray
         /// @param policy: the policy to use the pointer, copy or non-owning shell. default copy
         ///
-        template<size_t ArraySize, std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
+        template<size_t ArraySize> requires ValidDtype<dtype>
         NdArray(std::array<dtype, ArraySize>& inArray, PointerPolicy policy = PointerPolicy::COPY) :
             shape_{ 1, static_cast<uint32>(ArraySize) },
             size_{ shape_.size() }
@@ -308,8 +308,9 @@ namespace nc
         /// @param policy: the policy to use the pointer, copy or non-owning shell. default copy
         ///
         template<size_t Dim0Size, size_t Dim1Size>
+        requires ValidDtype<dtype>
         NdArray(std::array<std::array<dtype, Dim1Size>, Dim0Size>& in2dArray,
-                PointerPolicy                                      policy = PointerPolicy::COPY) :
+                PointerPolicy policy = PointerPolicy::COPY) :
             shape_{ static_cast<uint32>(Dim0Size), static_cast<uint32>(Dim1Size) },
             size_{ shape_.size() }
         {
@@ -345,8 +346,9 @@ namespace nc
         /// @param inVector
         /// @param policy: the policy to use the pointer, copy or non-owning shell. default copy
         ///
-        template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-        NdArray(std::vector<dtype>& inVector, PointerPolicy policy = PointerPolicy::COPY) :
+        NdArray(std::vector<dtype>& inVector, PointerPolicy policy = PointerPolicy::COPY)
+        requires ValidDtype<dtype>
+        :
             shape_{ 1, static_cast<uint32>(inVector.size()) },
             size_{ shape_.size() }
         {
@@ -414,6 +416,7 @@ namespace nc
         /// @param policy: the policy to use the pointer, copy or non-owning shell. default copy
         ///
         template<size_t Dim1Size>
+        requires ValidDtype<dtype>
         NdArray(std::vector<std::array<dtype, Dim1Size>>& in2dArray, PointerPolicy policy = PointerPolicy::COPY) :
             shape_{ static_cast<uint32>(in2dArray.size()), static_cast<uint32>(Dim1Size) },
             size_{ shape_.size() }
@@ -449,8 +452,9 @@ namespace nc
         ///
         /// @param inDeque
         ///
-        template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-        explicit NdArray(const std::deque<dtype>& inDeque) :
+        explicit NdArray(const std::deque<dtype>& inDeque)
+        requires ValidDtype<dtype>
+        :
             shape_{ 1, static_cast<uint32>(inDeque.size()) },
             size_{ shape_.size() }
         {
@@ -518,7 +522,7 @@ namespace nc
         /// @param inLast
         ///
         template<typename Iterator>
-        requires std::is_same_v<typename std::iterator_traits<Iterator>::value_type, dtype>
+        requires std::is_same_v<typename std::iterator_traits<Iterator>::value_type, dtype> && ValidDtype<dtype>
         NdArray(Iterator inFirst, Iterator inLast) :
             shape_{ 1, static_cast<uint32>(std::distance(inFirst, inLast)) },
             size_{ shape_.size() }
@@ -538,7 +542,7 @@ namespace nc
         /// @param size: number of elements in buffer
         ///
         template<std::integral UIntType>
-        requires (!std::is_same_v<UIntType, bool>)
+        requires (!std::is_same_v<UIntType, bool>) && ValidDtype<dtype>
         NdArray(const_pointer inPtr, UIntType size) :
             NdArray(inPtr, 1, size)
         {
@@ -553,7 +557,7 @@ namespace nc
         /// @param numCols: number of cols of the buffer
         ///
         template<std::integral UIntType1, std::integral UIntType2>
-        requires (!std::is_same_v<UIntType1, bool> && !std::is_same_v<UIntType2, bool>)
+        requires (!std::is_same_v<UIntType1, bool> && !std::is_same_v<UIntType2, bool>) && ValidDtype<dtype>
         NdArray(const_pointer inPtr, UIntType1 numRows, UIntType2 numCols) :
             shape_(numRows, numCols),
             size_{ shape_.size() }
@@ -575,7 +579,7 @@ namespace nc
         /// @param policy: the policy to use the pointer, copy or non-owning shell. default copy
         ///
         template<std::integral UIntType>
-        requires (!std::is_same_v<UIntType, bool>)
+        requires (!std::is_same_v<UIntType, bool>) && ValidDtype<dtype>
         NdArray(pointer inPtr, UIntType size, PointerPolicy policy) :
             NdArray(inPtr, 1, size, policy)
         {
@@ -592,7 +596,7 @@ namespace nc
         /// @param policy: the policy to use the pointer, copy or non-owning shell
         ///
         template<std::integral UIntType1, std::integral UIntType2>
-        requires (!std::is_same_v<UIntType1, bool> && !std::is_same_v<UIntType2, bool>)
+        requires (!std::is_same_v<UIntType1, bool> && !std::is_same_v<UIntType2, bool>) && ValidDtype<dtype>
         NdArray(pointer inPtr, UIntType1 numRows, UIntType2 numCols, PointerPolicy policy) :
             shape_(numRows, numCols),
             size_{ shape_.size() }
@@ -842,7 +846,7 @@ namespace nc
         /// @return NdArray
         ///
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<NdArrayInt Indices>
         [[nodiscard]] self_type operator[](const Indices& inIndices) const
         {
             auto      outArray = self_type(1, static_cast<size_type>(inIndices.size()));
@@ -2240,11 +2244,9 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        template<typename dtypeOut,
-                 typename dtype_                                       = dtype,
-                 std::enable_if_t<std::is_same_v<dtype_, dtype>, int>  = 0,
-                 std::enable_if_t<std::is_arithmetic_v<dtype_>, int>   = 0,
-                 std::enable_if_t<std::is_arithmetic_v<dtypeOut>, int> = 0>
+        template<ValidDtype dtypeOut,
+                 typename dtype_ = dtype>
+        requires std::is_same_v<dtype_, dtype> && std::is_arithmetic_v<dtype_> && std::is_arithmetic_v<dtypeOut>
         [[nodiscard]] NdArray<dtypeOut> astype() const
         {
             if constexpr (std::is_same_v<dtypeOut, dtype>)
@@ -2272,11 +2274,9 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        template<typename dtypeOut,
-                 typename dtype_                                      = dtype,
-                 std::enable_if_t<std::is_same_v<dtype_, dtype>, int> = 0,
-                 std::enable_if_t<std::is_arithmetic_v<dtype_>, int>  = 0,
-                 std::enable_if_t<is_complex_v<dtypeOut>, int>        = 0>
+        template<ValidDtype dtypeOut,
+                 typename dtype_ = dtype>
+        requires std::is_same_v<dtype_, dtype> && std::is_arithmetic_v<dtype_> && IsComplex<dtypeOut>
         [[nodiscard]] NdArray<dtypeOut> astype() const
         {
             NdArray<dtypeOut> outArray(shape_);
@@ -2298,11 +2298,9 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        template<typename dtypeOut,
-                 typename dtype_                                      = dtype,
-                 std::enable_if_t<std::is_same_v<dtype_, dtype>, int> = 0,
-                 std::enable_if_t<is_complex_v<dtype_>, int>          = 0,
-                 std::enable_if_t<is_complex_v<dtypeOut>, int>        = 0>
+        template<ValidDtype dtypeOut,
+                 typename dtype_ = dtype>
+        requires std::is_same_v<dtype_, dtype> && IsComplex<dtype_> && IsComplex<dtypeOut>
         [[nodiscard]] NdArray<dtypeOut> astype() const
         {
             if constexpr (std::is_same_v<dtypeOut, dtype>)
@@ -2329,11 +2327,9 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        template<typename dtypeOut,
-                 typename dtype_                                       = dtype,
-                 std::enable_if_t<std::is_same_v<dtype_, dtype>, int>  = 0,
-                 std::enable_if_t<is_complex_v<dtype_>, int>           = 0,
-                 std::enable_if_t<std::is_arithmetic_v<dtypeOut>, int> = 0>
+        template<ValidDtype dtypeOut,
+                 typename dtype_ = dtype>
+        requires std::is_same_v<dtype_, dtype> && IsComplex<dtype_> && std::is_arithmetic_v<dtypeOut>
         [[nodiscard]] NdArray<dtypeOut> astype() const
         {
             NdArray<dtypeOut> outArray(shape_);
