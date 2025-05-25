@@ -33,7 +33,6 @@
 
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
-#include "NumCpp/Core/Internal/TypeTraits.hpp"
 
 namespace nc::utils
 {

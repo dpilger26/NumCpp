@@ -31,7 +31,6 @@
 #include <complex>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Internal/TypeTraits.hpp"
 
 namespace nc::utils
 {
