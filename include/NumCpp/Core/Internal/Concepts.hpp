@@ -140,4 +140,15 @@ namespace nc
     template<typename T>
     concept ArithmeticOrComplex = Arithmetic<T> || Complex<T>;
 
+    // Aliases for deprecated STATIC_ASSERT_* macros as concepts
+    // Use these concepts instead of the macros
+
+    // ValidDtype concept is already defined as nc::ValidDtype
+    // Arithmetic concept is already defined as nc::Arithmetic
+    // Integer concept is already defined as nc::Integer
+    // UnsignedInteger concept is already defined as nc::UnsignedInteger
+    // Float concept is already defined as nc::Float
+    // Complex concept is already defined as nc::Complex
+    // ArithmeticOrComplex concept is already defined as nc::ArithmeticOrComplex
+
 } // namespace nc 

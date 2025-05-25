@@ -28,8 +28,9 @@
 #pragma once
 
 #include <type_traits>
-
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
+
+// DEPRECATED: All STATIC_ASSERT_* macros are deprecated. Use concepts from @Concepts.hpp instead.
 
 // NOLINTNEXTLINE(cppcoreguidelines-macro-usage)
 #define STATIC_ASSERT_VALID_DTYPE(dtype) \
