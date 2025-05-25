@@ -46,7 +46,7 @@ namespace nc
     ///
     /// @return NdArray
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, NdArrayInt Indices>
     std::vector<NdArray<dtype>> hsplit(const NdArray<dtype>& inArray, const Indices& indices)
     {
         const auto     numCols = static_cast<int32>(inArray.numCols());

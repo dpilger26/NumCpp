@@ -242,7 +242,7 @@ namespace nc
     /// @param axis: axis along which to insert values
     /// @return index: index before which values are inserted.
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, NdArrayInt Indices>
     NdArray<dtype> insert(const NdArray<dtype>& arr, const Indices& indices, const dtype& value, Axis axis = Axis::NONE)
     {
         const NdArray<dtype> values = { value };
@@ -283,7 +283,7 @@ namespace nc
     /// @param axis: axis along which to insert values
     /// @return index: index before which values are inserted.
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, NdArrayInt Indices>
     NdArray<dtype>
         insert(const NdArray<dtype>& arr, const Indices& indices, const NdArray<dtype>& values, Axis axis = Axis::NONE)
     {

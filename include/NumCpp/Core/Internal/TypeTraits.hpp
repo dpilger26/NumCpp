@@ -155,13 +155,6 @@ namespace nc
 
     //============================================================================
     // Class Description:
-    /// is_ndarray_int
-    ///
-    template<typename T>
-    using ndarray_int_concept = std::enable_if_t<is_ndarray_int_v<T>, int>;
-
-    //============================================================================
-    // Class Description:
     /// Template class for determining if type is std::complex<>
     ///
     template<class T>

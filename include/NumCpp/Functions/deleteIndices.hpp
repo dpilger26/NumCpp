@@ -49,7 +49,7 @@ namespace nc
         /// @param inIndices
         /// @return NdArray
         ///
-        template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename dtype, NdArrayInt Indices>
         NdArray<dtype> deleteFlatIndices(const NdArray<dtype>& inArray, Indices inIndices)
         {
             if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
@@ -91,7 +91,7 @@ namespace nc
         /// @param inIndices
         /// @return NdArray
         ///
-        template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename dtype, NdArrayInt Indices>
         NdArray<dtype> deleteRowIndices(const NdArray<dtype>& inArray, Indices inIndices)
         {
             const auto arrayRows = static_cast<int32>(inArray.numRows());
@@ -161,7 +161,7 @@ namespace nc
         /// @param inIndices
         /// @return NdArray
         ///
-        template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename dtype, NdArrayInt Indices>
         NdArray<dtype> deleteColumnIndices(const NdArray<dtype>& inArray, Indices inIndices)
         {
             const auto arrayCols = static_cast<int32>(inArray.numCols());
@@ -233,7 +233,7 @@ namespace nc
     /// @param inAxis (Optional, default NONE) if NONE the indices will be applied to the flattened array
     /// @return NdArray
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, NdArrayInt Indices>
     NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const Indices& inIndices, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)

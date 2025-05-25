@@ -74,11 +74,12 @@ namespace nc
 
     //============================================================================
     // Concept Description:
-    /// Concept for checking if a type is a valid index type for NdArray
+    /// Concept for checking if a type is an NdArray of integral type (for index arrays)
     ///
     template<typename T>
-    concept NdArrayInt = requires
-    {
+    concept NdArrayInt = requires {
+        typename T::value_type;
+        typename T::allocator_type;
         requires std::is_integral_v<typename T::value_type>;
         requires std::is_same_v<T, NdArray<typename T::value_type, typename T::allocator_type>>;
     };

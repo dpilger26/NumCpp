@@ -44,7 +44,7 @@ namespace nc
     /// @param inAxis
     /// @return NdArray
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, NdArrayInt Indices>
     NdArray<dtype> take(const NdArray<dtype>& inArray, const Indices& inIndices, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)

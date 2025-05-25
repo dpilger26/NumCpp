@@ -78,7 +78,7 @@ namespace nc
     /// @param inValue
     /// @return reference to self
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, NdArrayInt Indices>
     NdArray<dtype>& put(NdArray<dtype>& inArray, const Indices& inIndices, const dtype& inValue)
     {
         inArray.put(inIndices, inValue);
@@ -96,7 +96,7 @@ namespace nc
     /// @param inValues
     /// @return reference to self
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, NdArrayInt Indices>
     NdArray<dtype>& put(NdArray<dtype>& inArray, const Indices& inIndices, const NdArray<dtype>& inValues)
     {
         inArray.put(inIndices, inValues);
@@ -151,11 +151,7 @@ namespace nc
     /// @param inValue
     /// @return reference to self
     ///
-    template<typename dtype,
-             typename RowIndices,
-             typename ColIndices,
-             type_traits::ndarray_int_concept<RowIndices> = 0,
-             type_traits::ndarray_int_concept<ColIndices> = 0>
+    template<typename dtype, NdArrayInt RowIndices, NdArrayInt ColIndices>
     NdArray<dtype>& put(NdArray<dtype>&   inArray,
                         const RowIndices& inRowIndices,
                         const ColIndices& inColIndices,
@@ -177,7 +173,7 @@ namespace nc
     /// @param inValue
     /// @return reference to self
     ///
-    template<typename dtype, typename RowIndices, type_traits::ndarray_int_concept<RowIndices> = 0>
+    template<typename dtype, NdArrayInt RowIndices>
     NdArray<dtype>&
         put(NdArray<dtype>& inArray, const RowIndices& inRowIndices, const Slice& inColSlice, const dtype& inValue)
     {
@@ -197,7 +193,7 @@ namespace nc
     /// @param inValue
     /// @return reference to self
     ///
-    template<typename dtype, typename ColIndices, type_traits::ndarray_int_concept<ColIndices> = 0>
+    template<typename dtype, NdArrayInt ColIndices>
     NdArray<dtype>&
         put(NdArray<dtype>& inArray, const Slice& inRowSlice, const ColIndices& inColIndices, const dtype& inValue)
     {
@@ -236,7 +232,7 @@ namespace nc
     /// @param inValue
     /// @return reference to self
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, NdArrayInt Indices>
     NdArray<dtype>& put(NdArray<dtype>& inArray, const Indices& inRowIndices, int32 inColIndex, const dtype& inValue)
     {
         inArray.put(inRowIndices, inColIndex, inValue);
@@ -274,7 +270,7 @@ namespace nc
     /// @param inValue
     /// @return reference to self
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, NdArrayInt Indices>
     NdArray<dtype>& put(NdArray<dtype>& inArray, int32 inRowIndex, const Indices& inColIndices, const dtype& inValue)
     {
         inArray.put(inRowIndex, inColIndices, inValue);
@@ -312,11 +308,7 @@ namespace nc
     /// @param inValues
     /// @return reference to self
     ///
-    template<typename dtype,
-             typename RowIndices,
-             typename ColIndices,
-             type_traits::ndarray_int_concept<RowIndices> = 0,
-             type_traits::ndarray_int_concept<ColIndices> = 0>
+    template<typename dtype, NdArrayInt RowIndices, NdArrayInt ColIndices>
     NdArray<dtype>& put(NdArray<dtype>&       inArray,
                         const RowIndices&     inRowIndices,
                         const ColIndices&     inColIndices,
@@ -338,7 +330,7 @@ namespace nc
     /// @param inValues
     /// @return reference to self
     ///
-    template<typename dtype, typename RowIndices, type_traits::ndarray_int_concept<RowIndices> = 0>
+    template<typename dtype, NdArrayInt RowIndices>
     NdArray<dtype>& put(NdArray<dtype>&       inArray,
                         const RowIndices&     inRowIndices,
                         const Slice&          inColSlice,
@@ -360,7 +352,7 @@ namespace nc
     /// @param inValues
     /// @return reference to self
     ///
-    template<typename dtype, typename ColIndices, type_traits::ndarray_int_concept<ColIndices> = 0>
+    template<typename dtype, NdArrayInt ColIndices>
     NdArray<dtype>& put(NdArray<dtype>&       inArray,
                         const Slice&          inRowSlice,
                         const ColIndices&     inColIndices,
@@ -402,7 +394,7 @@ namespace nc
     /// @param inValues
     /// @return reference to self
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, NdArrayInt Indices>
     NdArray<dtype>&
         put(NdArray<dtype>& inArray, const Indices& inRowIndices, int32 inColIndex, const NdArray<dtype>& inValues)
     {
@@ -442,7 +434,7 @@ namespace nc
     /// @param inValues
     /// @return reference to self
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, NdArrayInt Indices>
     NdArray<dtype>&
         put(NdArray<dtype>& inArray, int32 inRowIndex, const Indices& inColIndices, const NdArray<dtype>& inValues)
     {
