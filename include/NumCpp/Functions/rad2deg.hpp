@@ -47,7 +47,7 @@ namespace nc
     template<typename dtype>
     constexpr auto rad2deg(dtype inValue) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
 
         return inValue * 180. / constants::pi;
     }

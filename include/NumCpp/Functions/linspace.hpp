@@ -60,7 +60,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, EndPoint endPoint = EndPoint::YES)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
 
         if (inNum == 0)
         {

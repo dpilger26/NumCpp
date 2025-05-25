@@ -52,7 +52,7 @@ namespace nc
     template<typename dtype>
     NdArray<double> cov(const NdArray<dtype>& x, Bias bias = Bias::NO)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
 
         const auto varMeans = mean(x, Axis::COL);
         const auto numVars  = x.numRows();

@@ -50,7 +50,7 @@ namespace nc
     template<typename dtype>
     NdArray<bool> logical_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        static_assert(nc::ArithmeticOrComplex<dtype>, "Can only be used with arithmetic or std::complex types");
 
         return broadcast::broadcaster<bool>(inArray1,
                                             inArray2,

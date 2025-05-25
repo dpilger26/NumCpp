@@ -48,7 +48,7 @@ namespace nc
     template<typename dtype>
     auto arcsinh(dtype inValue) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        static_assert(nc::ArithmeticOrComplex<dtype>, "Can only be used with arithmetic or std::complex types");
 
         return std::asinh(inValue);
     }

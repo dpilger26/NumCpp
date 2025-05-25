@@ -47,7 +47,7 @@ namespace nc
     template<typename dtype>
     dtype fix(dtype inValue) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
 
         return inValue > 0 ? std::floor(inValue) : std::ceil(inValue);
     }

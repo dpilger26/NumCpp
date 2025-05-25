@@ -51,7 +51,7 @@ namespace nc
     template<typename dtype>
     NdArray<double> stdev(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
 
         double meanValue = 0.;
         double sum       = 0.;
@@ -109,7 +109,7 @@ namespace nc
     template<typename dtype>
     NdArray<std::complex<double>> stdev(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        static_assert(nc::Arithmetic<dtype>, "Can only be used with arithmetic types");
 
         std::complex<double> meanValue(0., 0.);
         std::complex<double> sum(0., 0.);
