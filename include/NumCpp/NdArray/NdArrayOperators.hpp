@@ -434,11 +434,11 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [rhs](dtype value) -> std::complex<dtype> { return value - rhs; };
+        const auto function = [lhs](dtype value) -> std::complex<dtype> { return lhs - value; };
 
-        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+        NdArray<std::complex<dtype>> returnArray(rhs.shape());
 
-        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
+        stl_algorithms::transform(rhs.cbegin(), rhs.cend(), returnArray.begin(), function);
 
         return returnArray;
     }
@@ -983,7 +983,8 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype> || std::is_floating_point_v<dtype>, int> = 0>
+    template<typename dtype>
+    requires std::integral<dtype> || std::floating_point<dtype>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         if constexpr (std::is_integral_v<dtype>)
@@ -1006,7 +1007,8 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype> || std::is_floating_point_v<dtype>, int> = 0>
+    template<typename dtype>
+    requires std::integral<dtype> || std::floating_point<dtype>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, dtype rhs)
     {
         if constexpr (std::is_integral_v<dtype>)
@@ -1031,7 +1033,8 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype> || std::is_floating_point_v<dtype>, int> = 0>
+    template<typename dtype>
+    requires std::integral<dtype> || std::floating_point<dtype>
     NdArray<dtype> operator%(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         if constexpr (std::is_integral_v<dtype>)
@@ -1068,7 +1071,7 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype>, int> = 0>
+    template<std::integral dtype>
     NdArray<dtype> operator%(dtype lhs, const NdArray<dtype>& rhs)
     {
         NdArray<dtype> returnArray(rhs.shape());
@@ -1088,7 +1091,7 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, std::enable_if_t<std::is_floating_point_v<dtype>, int> = 0>
+    template<std::floating_point dtype>
     NdArray<dtype> operator%(dtype lhs, const NdArray<dtype>& rhs)
     {
         NdArray<dtype> returnArray(rhs.shape());

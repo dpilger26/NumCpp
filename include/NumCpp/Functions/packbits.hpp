@@ -31,9 +31,14 @@
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/Concepts.hpp"
 
 namespace nc
 {
+    // Custom concept for integral or bool
+    template<typename T>
+    concept IntegralOrBool = std::is_integral_v<T> || std::is_same_v<T, bool>;
+
     //============================================================================
     // Method Description:
     /// Packs the elements of a binary-valued array into bits in a uint8 array.
@@ -44,7 +49,7 @@ namespace nc
     /// @param axis: The dimension over which bit-packing is done. None implies packing the flattened array.
     /// @return NdArray<uint8>
     ///
-    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype> || std::is_same_v<dtype, bool>, int> = 0>
+    template<IntegralOrBool dtype>
     NdArray<uint8> packbitsLittleEndian(const NdArray<dtype>& a, Axis axis = Axis::NONE)
     {
         switch (axis)
@@ -122,7 +127,7 @@ namespace nc
     /// @param axis: The dimension over which bit-packing is done. None implies packing the flattened array.
     /// @return NdArray<uint8>
     ///
-    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype> || std::is_same_v<dtype, bool>, int> = 0>
+    template<IntegralOrBool dtype>
     NdArray<uint8> packbitsBigEndian(const NdArray<dtype>& a, Axis axis = Axis::NONE)
     {
         switch (axis)

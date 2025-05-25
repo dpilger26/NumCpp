@@ -38,7 +38,7 @@
 #include <vector>
 
 #include "NumCpp/Core/Enums.hpp"
-#include "NumCpp/Core/Internal/TypeTraits.hpp"
+#include "NumCpp/Core/Internal/Concepts.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc
@@ -53,7 +53,7 @@ namespace nc
     /// @param inList
     /// @return NdArray
     ///
-    template<typename dtype, std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
+    template<ValidDtype dtype>
     NdArray<dtype> asarray(std::initializer_list<dtype> inList)
     {
         return NdArray<dtype>(inList);
@@ -86,7 +86,7 @@ namespace nc
     ///                       act as a non-owning shell. Default Copy
     /// @return NdArray
     ///
-    template<typename dtype, size_t ArraySize, std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
+    template<ValidDtype dtype, size_t ArraySize>
     NdArray<dtype> asarray(std::array<dtype, ArraySize>& inArray, PointerPolicy pointerPolicy = PointerPolicy::COPY)
     {
         return NdArray<dtype>(inArray, pointerPolicy);
@@ -121,7 +121,7 @@ namespace nc
     ///                       act as a non-owning shell. Default Copy
     /// @return NdArray
     ///
-    template<typename dtype, std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
+    template<ValidDtype dtype>
     NdArray<dtype> asarray(std::vector<dtype>& inVector, PointerPolicy pointerPolicy = PointerPolicy::COPY)
     {
         return NdArray<dtype>(inVector, pointerPolicy);
@@ -169,7 +169,7 @@ namespace nc
     /// @param inDeque
     /// @return NdArray
     ///
-    template<typename dtype, std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
+    template<ValidDtype dtype>
     NdArray<dtype> asarray(const std::deque<dtype>& inDeque)
     {
         return NdArray<dtype>(inDeque);
@@ -297,9 +297,8 @@ namespace nc
     ///                       act as a non-owning shell. Default Copy
     /// @return NdArray
     ///
-    template<typename dtype,
-             typename UIntType,
-             std::enable_if_t<std::is_integral_v<UIntType> && !std::is_same_v<UIntType, bool>, int> = 0>
+    template<typename dtype, std::integral UIntType>
+    requires (!std::is_same_v<UIntType, bool>)
     NdArray<dtype> asarray(dtype* ptr, UIntType size, PointerPolicy pointerPolicy = PointerPolicy::COPY) noexcept
     {
         return NdArray<dtype>(ptr, size, pointerPolicy);
@@ -318,11 +317,8 @@ namespace nc
     ///                       act as a non-owning shell. Default Copy
     /// @return NdArray
     ///
-    template<typename dtype,
-             typename UIntType1,
-             typename UIntType2,
-             std::enable_if_t<std::is_integral_v<UIntType1> && !std::is_same_v<UIntType1, bool>, int> = 0,
-             std::enable_if_t<std::is_integral_v<UIntType2> && !std::is_same_v<UIntType2, bool>, int> = 0>
+    template<typename dtype, std::integral UIntType1, std::integral UIntType2>
+    requires (!std::is_same_v<UIntType1, bool> && !std::is_same_v<UIntType2, bool>)
     NdArray<dtype> asarray(dtype*        ptr,
                            UIntType1     numRows,
                            UIntType2     numCols,

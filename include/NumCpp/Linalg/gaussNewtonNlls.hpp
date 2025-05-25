@@ -42,12 +42,13 @@
 #include "NumCpp/Functions/rms.hpp"
 #include "NumCpp/Linalg/inv.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/Concepts.hpp"
 
 namespace nc::linalg
 {
     //============================================================================
     // Method Description:
-    /// The Gauss�Newton algorithm is used to solve non-linear least squares problems.
+    /// The GaussNewton algorithm is used to solve non-linear least squares problems.
     /// It is a modification of Newton's method for finding a minimum of a function.
     /// https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm
     ///
@@ -68,11 +69,8 @@ namespace nc::linalg
     ///
     /// @return std::pair of NdArray of solved parameter values, and rms of the residuals value
     ///
-    template<typename dtype,
-             typename... Params,
-             std::enable_if_t<std::is_arithmetic_v<dtype>, int>  = 0,
-             std::enable_if_t<all_arithmetic_v<Params...>, int>  = 0,
-             std::enable_if_t<all_same_v<dtype, Params...>, int> = 0>
+    template<typename dtype, typename... Params>
+    requires AllArithmetic<dtype, Params...> && AllSame<dtype, Params...>
     std::pair<NdArray<double>, double>
         gaussNewtonNlls(const uint32                                                              numIterations,
                         const NdArray<dtype>&                                                     coordinates,
