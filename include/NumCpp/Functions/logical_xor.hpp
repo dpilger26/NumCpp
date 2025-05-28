@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2023 David Pilger
+/// Copyright 2018-2025 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -54,7 +54,8 @@ namespace nc
 
         return broadcast::broadcaster<bool>(inArray1,
                                             inArray2,
-                                            [](dtype inValue1, dtype inValue2) -> bool {
+                                            [](dtype inValue1, dtype inValue2) -> bool
+                                            {
                                                 return !utils::essentiallyEqual(inValue1, dtype{ 0 }) !=
                                                        !utils::essentiallyEqual(inValue2, dtype{ 0 });
                                             });

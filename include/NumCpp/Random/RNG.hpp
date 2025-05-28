@@ -4,7 +4,7 @@
 /// @version 1.1
 ///
 /// License
-/// Copyright 2018-2023 David Pilger
+/// Copyright 2018-2025 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -85,7 +85,7 @@ namespace nc::random
         /// @param seed: the seed value
         ///
         explicit RNG(int seed) :
-            generator_(seed){};
+            generator_(seed) { };
 
         //============================================================================
         // Method Description:
