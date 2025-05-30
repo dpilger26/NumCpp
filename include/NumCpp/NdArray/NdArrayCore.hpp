@@ -50,10 +50,10 @@
 #include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/Endian.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/Restrictions.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
-#include "NumCpp/Core/Internal/TypeTraits.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -67,70 +67,6 @@
 
 namespace nc
 {
-    namespace type_traits
-    {
-        //============================================================================
-        // Class Description:
-        /// Template class for determining if dtype is a valid index type for NdArray
-        ///
-        template<typename>
-        struct is_ndarray_int : std::false_type
-        {
-        };
-
-        //============================================================================
-        // Class Description:
-        /// Template class for determining if dtype is a valid index typefor NdArray
-        ///
-
-        template<typename dtype, typename Allocator>
-        struct is_ndarray_int<NdArray<dtype, Allocator>>
-        {
-            static constexpr bool value = std::is_integral_v<dtype>;
-        };
-
-        //============================================================================
-        // Class Description:
-        /// is_ndarray_int helper
-        ///
-        template<typename T>
-        constexpr bool is_ndarray_int_v = is_ndarray_int<T>::value;
-
-        //============================================================================
-        // Class Description:
-        /// Template class for determining if dtype is an unsigned integer type
-        ///
-        template<typename>
-        struct is_ndarray_signed_int : std::false_type
-        {
-        };
-
-        //============================================================================
-        // Class Description:
-        /// Template class for determining if dtype is an unsigned integer type
-        ///
-
-        template<typename dtype, typename Allocator>
-        struct is_ndarray_signed_int<NdArray<dtype, Allocator>>
-        {
-            static constexpr bool value = std::is_signed_v<dtype>;
-        };
-
-        //============================================================================
-        // Class Description:
-        /// is_ndarray_int helper
-        ///
-        template<typename T>
-        constexpr bool is_ndarray_signed_int_v = is_ndarray_signed_int<T>::value;
-
-        //============================================================================
-        // Class Description:
-        /// is_ndarray_int
-        ///
-        template<typename T>
-        using ndarray_int_concept = std::enable_if_t<is_ndarray_int_v<T>, int>;
-    } // namespace type_traits
-
     //================================================================================
     // Class Description:
     /// Holds 1D and 2D arrays, the main work horse of the NumCpp library
@@ -845,7 +781,7 @@ namespace nc
         /// @return NdArray
         ///
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         [[nodiscard]] self_type operator[](const Indices& inIndices) const
         {
             auto      outArray = self_type(1, static_cast<size_type>(inIndices.size()));
@@ -911,7 +847,7 @@ namespace nc
         /// @param colIndex
         /// @return NdArray
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         [[nodiscard]] self_type operator()(const Indices& rowIndices, index_type colIndex) const
         {
             const NdArray<index_type> colIndices = { colIndex };
@@ -927,7 +863,7 @@ namespace nc
         /// @param colSlice
         /// @return NdArray
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         [[nodiscard]] self_type operator()(const Indices& rowIndices, Slice colSlice) const
         {
             return operator()(rowIndices, toIndices(colSlice, Axis::COL));
@@ -942,7 +878,7 @@ namespace nc
         /// @param colIndices
         /// @return NdArray
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         [[nodiscard]] self_type operator()(index_type rowIndex, const Indices& colIndices) const
         {
             const NdArray<index_type> rowIndices = { rowIndex };
@@ -958,7 +894,7 @@ namespace nc
         /// @param colIndices
         /// @return NdArray
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         [[nodiscard]] self_type operator()(Slice rowSlice, const Indices& colIndices) const
         {
             return operator()(toIndices(rowSlice, Axis::ROW), colIndices);
@@ -975,8 +911,8 @@ namespace nc
         ///
         template<typename RowIndices,
                  typename ColIndices,
-                 type_traits::ndarray_int_concept<RowIndices> = 0,
-                 type_traits::ndarray_int_concept<ColIndices> = 0>
+                 ndarray_int_concept<RowIndices> = 0,
+                 ndarray_int_concept<ColIndices> = 0>
         [[nodiscard]] self_type operator()(const RowIndices& rowIndices, const ColIndices& colIndices) const
         {
             self_type returnArray(rowIndices.size(), colIndices.size());
@@ -1137,7 +1073,7 @@ namespace nc
         /// @param inIndices
         /// @return Ndarray
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         [[nodiscard]] self_type at(const Indices& inIndices) const
         {
             stl_algorithms::for_each(inIndices.begin(),
@@ -1208,7 +1144,7 @@ namespace nc
         /// @param colIndex
         /// @return Ndarray
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         [[nodiscard]] self_type at(const Indices& rowIndices, index_type colIndex) const
         {
             const NdArray<index_type> colIndices = { colIndex };
@@ -1223,7 +1159,7 @@ namespace nc
         /// @param colSlice
         /// @return Ndarray
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         [[nodiscard]] self_type at(const Indices& rowIndices, Slice colSlice) const
         {
             return at(rowIndices, toIndices(colSlice, Axis::COL));
@@ -1237,7 +1173,7 @@ namespace nc
         /// @param colIndices
         /// @return Ndarray
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         [[nodiscard]] self_type at(index_type rowIndex, const Indices& colIndices) const
         {
             const NdArray<index_type> rowIndices = { rowIndex };
@@ -1252,7 +1188,7 @@ namespace nc
         /// @param colIndices
         /// @return Ndarray
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         [[nodiscard]] self_type at(Slice rowSlice, const Indices& colIndices) const
         {
             return at(toIndices(rowSlice, Axis::ROW), colIndices);
@@ -1268,8 +1204,8 @@ namespace nc
         ///
         template<typename RowIndices,
                  typename ColIndices,
-                 type_traits::ndarray_int_concept<RowIndices> = 0,
-                 type_traits::ndarray_int_concept<ColIndices> = 0>
+                 ndarray_int_concept<RowIndices> = 0,
+                 ndarray_int_concept<ColIndices> = 0>
         [[nodiscard]] self_type at(const RowIndices& rowIndices, const ColIndices& colIndices) const
         {
             stl_algorithms::for_each(rowIndices.begin(),
@@ -3800,7 +3736,7 @@ namespace nc
         /// @param inValue
         /// @return reference to self
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         self_type& put(const Indices& inIndices, const value_type& inValue)
         {
             for (auto index : inIndices)
@@ -3821,7 +3757,7 @@ namespace nc
         /// @param inValues
         /// @return reference to self
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         self_type& put(const Indices& inIndices, const self_type& inValues)
         {
             if (inValues.isscalar())
@@ -3885,8 +3821,8 @@ namespace nc
         ///
         template<typename RowIndices,
                  typename ColIndices,
-                 type_traits::ndarray_int_concept<RowIndices> = 0,
-                 type_traits::ndarray_int_concept<ColIndices> = 0>
+                 ndarray_int_concept<RowIndices> = 0,
+                 ndarray_int_concept<ColIndices> = 0>
         self_type& put(const RowIndices& inRowIndices, const ColIndices& inColIndices, const value_type& inValue)
         {
             stl_algorithms::for_each(inRowIndices.begin(),
@@ -3913,7 +3849,7 @@ namespace nc
         /// @param inValue
         /// @return reference to self
         ///
-        template<typename RowIndices, type_traits::ndarray_int_concept<RowIndices> = 0>
+        template<typename RowIndices, ndarray_int_concept<RowIndices> = 0>
         self_type& put(const RowIndices& inRowIndices, const Slice& inColSlice, const value_type& inValue)
         {
             return put(inRowIndices, toIndices(inColSlice, Axis::COL), inValue);
@@ -3930,7 +3866,7 @@ namespace nc
         /// @param inValue
         /// @return reference to self
         ///
-        template<typename ColIndices, type_traits::ndarray_int_concept<ColIndices> = 0>
+        template<typename ColIndices, ndarray_int_concept<ColIndices> = 0>
         self_type& put(const Slice& inRowSlice, const ColIndices& inColIndices, const value_type& inValue)
         {
             return put(toIndices(inRowSlice, Axis::ROW), inColIndices, inValue);
@@ -3963,7 +3899,7 @@ namespace nc
         /// @param inValue
         /// @return reference to self
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         self_type& put(const Indices& inRowIndices, index_type inColIndex, const value_type& inValue)
         {
             const NdArray<index_type> colIndices = { inColIndex };
@@ -3998,7 +3934,7 @@ namespace nc
         /// @param inValue
         /// @return reference to self
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         self_type& put(index_type inRowIndex, const Indices& inColIndices, const value_type& inValue)
         {
             const NdArray<index_type> rowIndices = { inRowIndex };
@@ -4035,8 +3971,8 @@ namespace nc
         ///
         template<typename RowIndices,
                  typename ColIndices,
-                 type_traits::ndarray_int_concept<RowIndices> = 0,
-                 type_traits::ndarray_int_concept<ColIndices> = 0>
+                 ndarray_int_concept<RowIndices> = 0,
+                 ndarray_int_concept<ColIndices> = 0>
         self_type& put(const RowIndices& inRowIndices, const ColIndices& inColIndices, const self_type& inValues)
         {
             std::vector<size_type> indices;
@@ -4092,7 +4028,7 @@ namespace nc
         /// @param inValues
         /// @return reference to self
         ///
-        template<typename RowIndices, type_traits::ndarray_int_concept<RowIndices> = 0>
+        template<typename RowIndices, ndarray_int_concept<RowIndices> = 0>
         self_type& put(const RowIndices& inRowIndices, Slice inColSlice, const self_type& inValues)
         {
             return put(inRowIndices, toIndices(inColSlice, Axis::COL), inValues);
@@ -4109,7 +4045,7 @@ namespace nc
         /// @param inValues
         /// @return reference to self
         ///
-        template<typename ColIndices, type_traits::ndarray_int_concept<ColIndices> = 0>
+        template<typename ColIndices, ndarray_int_concept<ColIndices> = 0>
         self_type& put(Slice inRowSlice, const ColIndices& inColIndices, const self_type& inValues)
         {
             return put(toIndices(inRowSlice, Axis::ROW), inColIndices, inValues);
@@ -4142,7 +4078,7 @@ namespace nc
         /// @param inValues
         /// @return reference to self
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         self_type& put(const Indices& inRowIndices, index_type inColIndex, const self_type& inValues)
         {
             const NdArray<index_type> colIndices = { inColIndex };
@@ -4177,7 +4113,7 @@ namespace nc
         /// @param inValues
         /// @return reference to self
         ///
-        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        template<typename Indices, ndarray_int_concept<Indices> = 0>
         self_type& put(index_type inRowIndex, const Indices& inColIndices, const self_type& inValues)
         {
             const NdArray<index_type> rowIndices = { inRowIndex };

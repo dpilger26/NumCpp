@@ -242,7 +242,7 @@ namespace nc
     /// @param axis: axis along which to insert values
     /// @return index: index before which values are inserted.
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, typename Indices, ndarray_int_concept<Indices> = 0>
     NdArray<dtype> insert(const NdArray<dtype>& arr, const Indices& indices, const dtype& value, Axis axis = Axis::NONE)
     {
         const NdArray<dtype> values = { value };
@@ -283,7 +283,7 @@ namespace nc
     /// @param axis: axis along which to insert values
     /// @return index: index before which values are inserted.
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, typename Indices, ndarray_int_concept<Indices> = 0>
     NdArray<dtype>
         insert(const NdArray<dtype>& arr, const Indices& indices, const NdArray<dtype>& values, Axis axis = Axis::NONE)
     {
@@ -309,7 +309,7 @@ namespace nc
                                               indexValues.begin(),
                                               [arrSize, value](auto index) -> std::pair<int32, dtype>
                                               {
-                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  if constexpr (is_ndarray_signed_int_v<Indices>)
                                                   {
                                                       if (index < 0)
                                                       {
@@ -337,7 +337,7 @@ namespace nc
                                               indexValues.begin(),
                                               [arrSize](auto index, const auto& value) -> std::pair<int32, dtype>
                                               {
-                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  if constexpr (is_ndarray_signed_int_v<Indices>)
                                                   {
                                                       if (index < 0)
                                                       {
@@ -410,7 +410,7 @@ namespace nc
                                               indexValues.begin(),
                                               [arrNumRows, &valueRow](auto index) -> std::pair<int32, NdArray<dtype>>
                                               {
-                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  if constexpr (is_ndarray_signed_int_v<Indices>)
                                                   {
                                                       if (index < 0)
                                                       {
@@ -437,7 +437,7 @@ namespace nc
                                               indexValues.begin(),
                                               [arrNumRows, &values](auto index) -> std::pair<int32, NdArray<dtype>>
                                               {
-                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  if constexpr (is_ndarray_signed_int_v<Indices>)
                                                   {
                                                       if (index < 0)
                                                       {
@@ -465,7 +465,7 @@ namespace nc
                                    indexValues.begin(),
                                    [arrNumRows, &values, &counter](auto index) -> std::pair<int32, NdArray<dtype>>
                                    {
-                                       if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                       if constexpr (is_ndarray_signed_int_v<Indices>)
                                        {
                                            if (index < 0)
                                            {

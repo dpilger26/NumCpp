@@ -23,27 +23,14 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// Description
-/// Functions for working with NdArrays
+/// Standard NumCpp errors
 ///
 #pragma once
 
-#include <complex>
-
-#include "NumCpp/Core/Internal/Restrictions.hpp"
-#include "NumCpp/NdArray.hpp"
-
-namespace nc
-{
-    //============================================================================
-    // Method Description:
-    /// Returns a copy of the array, cast to a specified type.
-    ///
-    /// @param inArray
-    /// @return NdArray
-    ///
-    template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> astype(const NdArray<dtype> inArray)
-    {
-        return inArray.template astype<dtypeOut>();
-    }
-} // namespace nc
+#if __cplusplus >= 202002L
+#define NUMCPP_CONCEPTS_SUPPORTED true
+#include "NumCpp/Core/Internal/Restrictions/Concepts.hpp"
+#else
+#undef NUMCPP_CONCEPTS_SUPPORTED
+#include "NumCpp/Core/Internal/Restrictions/TypeTraits.hpp"
+#endif

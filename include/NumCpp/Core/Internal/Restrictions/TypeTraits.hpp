@@ -139,7 +139,6 @@ namespace nc
     // Class Description:
     /// Template class for determining if dtype is a valid index typefor NdArray
     ///
-
     template<typename dtype, typename Allocator>
     struct is_ndarray_int<NdArray<dtype, Allocator>>
     {
@@ -159,6 +158,40 @@ namespace nc
     ///
     template<typename T>
     using ndarray_int_concept = std::enable_if_t<is_ndarray_int_v<T>, int>;
+
+    //============================================================================
+    // Class Description:
+    /// Template class for determining if dtype is an unsigned integer type
+    ///
+    template<typename>
+    struct is_ndarray_signed_int : std::false_type
+    {
+    };
+
+    //============================================================================
+    // Class Description:
+    /// Template class for determining if dtype is an unsigned integer type
+    ///
+
+    template<typename dtype, typename Allocator>
+    struct is_ndarray_signed_int<NdArray<dtype, Allocator>>
+    {
+        static constexpr bool value = std::is_signed_v<dtype>;
+    };
+
+    //============================================================================
+    // Class Description:
+    /// is_ndarray_int helper
+    ///
+    template<typename T>
+    constexpr bool is_ndarray_signed_int_v = is_ndarray_signed_int<T>::value;
+
+    //============================================================================
+    // Class Description:
+    /// is_ndarray_int
+    ///
+    template<typename T>
+    using ndarray_signed_int_concept = std::enable_if_t<is_ndarray_signed_int_v<T>, int>;
 
     //============================================================================
     // Class Description:
@@ -192,15 +225,15 @@ namespace nc
     /// type trait to test if one value is larger than another at compile time
     ///
     template<std::size_t Value1, std::size_t Value2>
-    struct greaterThan
+    struct greater_than
     {
         static constexpr bool value = Value1 > Value2;
     };
 
     //============================================================================
     // Class Description:
-    /// greaterThan helper
+    /// greater_than helper
     ///
     template<std::size_t Value1, std::size_t Value2>
-    constexpr bool greaterThan_v = greaterThan<Value1, Value2>::value;
+    constexpr bool greater_than_v = greater_than<Value1, Value2>::value;
 } // namespace nc

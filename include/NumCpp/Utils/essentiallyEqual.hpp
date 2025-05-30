@@ -32,7 +32,7 @@
 #include <string>
 
 #include "NumCpp/Core/DtypeInfo.hpp"
-#include "NumCpp/Core/Internal/TypeTraits.hpp"
+#include "NumCpp/Core/Internal/Restrictions.hpp"
 
 namespace nc::utils
 {

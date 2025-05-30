@@ -29,7 +29,7 @@
 
 #include <type_traits>
 
-#include "NumCpp/Core/Internal/TypeTraits.hpp"
+#include "NumCpp/Core/Internal/Restrictions.hpp"
 
 // NOLINTNEXTLINE(cppcoreguidelines-macro-usage)
 #define STATIC_ASSERT_VALID_DTYPE(dtype) \

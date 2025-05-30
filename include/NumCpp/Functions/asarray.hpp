@@ -38,7 +38,7 @@
 #include <vector>
 
 #include "NumCpp/Core/Enums.hpp"
-#include "NumCpp/Core/Internal/TypeTraits.hpp"
+#include "NumCpp/Core/Internal/Restrictions.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc

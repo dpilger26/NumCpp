@@ -32,11 +32,12 @@
 #include <type_traits>
 
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/Restrictions.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Internal/TypeTraits.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+
 
 namespace nc::linalg
 {

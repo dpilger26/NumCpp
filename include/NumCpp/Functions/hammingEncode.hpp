@@ -40,7 +40,7 @@
 
 #include "boost/dynamic_bitset.hpp"
 
-#include "NumCpp/Core/Internal/TypeTraits.hpp"
+#include "NumCpp/Core/Internal/Restrictions.hpp"
 
 namespace nc::edac
 {
@@ -253,7 +253,7 @@ namespace nc::edac
         ///
         template<std::size_t DataBits,
                  std::size_t EncodedBits,
-                 std::enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0>
+                 std::enable_if_t<greater_than_v<EncodedBits, DataBits>, int> = 0>
         std::size_t checkBitsConsistent()
         {
             const auto numParityBits = detail::numSecdedParityBitsNeeded(DataBits);
@@ -275,7 +275,7 @@ namespace nc::edac
         ///
         template<std::size_t DataBits,
                  std::size_t EncodedBits,
-                 std::enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0>
+                 std::enable_if_t<greater_than_v<EncodedBits, DataBits>, int> = 0>
         std::bitset<DataBits> extractData(const std::bitset<EncodedBits>& encodedBits) noexcept
         {
             auto dataBits = std::bitset<DataBits>();
@@ -351,7 +351,7 @@ namespace nc::edac
     ///
     template<std::size_t DataBits,
              std::size_t EncodedBits,
-             std::enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0>
+             std::enable_if_t<greater_than_v<EncodedBits, DataBits>, int> = 0>
     int decode(std::bitset<EncodedBits> encodedBits, std::bitset<DataBits>& decodedBits)
     {
         const auto numParityBits = detail::checkBitsConsistent<DataBits, EncodedBits>();

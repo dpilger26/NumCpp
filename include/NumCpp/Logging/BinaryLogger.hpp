@@ -41,6 +41,8 @@
 #include "boost/algorithm/string.hpp"
 #include "boost/core/demangle.hpp"
 
+#include "NumCpp/Core/Internal/Restrictions.hpp"
+
 namespace nc::logger
 {
     namespace detail

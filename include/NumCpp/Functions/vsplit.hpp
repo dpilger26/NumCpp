@@ -45,7 +45,7 @@ namespace nc
     ///
     /// @return NdArray
     ///
-    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    template<typename dtype, typename Indices, ndarray_int_concept<Indices> = 0>
     std::vector<NdArray<dtype>> vsplit(const NdArray<dtype>& inArray, const Indices& indices)
     {
         const auto     numRows = static_cast<int32>(inArray.numRows());
@@ -55,7 +55,7 @@ namespace nc
                                   uniqueIndices.begin(),
                                   [numRows](auto index) noexcept -> int32
                                   {
-                                      if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                      if constexpr (is_ndarray_signed_int_v<Indices>)
                                       {
                                           if (index < 0)
                                           {
