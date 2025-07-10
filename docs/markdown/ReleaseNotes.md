@@ -1,5 +1,9 @@
 # Release Notes
 
+## Version 2.14.2
+
+* fixed an error in `ENURollPitchYawToECEFEuler()` function
+
 ## Version 2.14.1
 
 * made behavior of `linalg::lstsq` match NumPy when inputting a multidimensional `b` array for **Issue #229**

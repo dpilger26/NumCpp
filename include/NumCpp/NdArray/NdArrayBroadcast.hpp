@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2023 David Pilger
+/// Copyright 2018-2025 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -61,7 +61,8 @@ namespace nc::broadcast
                 inArray1.cend(),
                 inArray2.cbegin(),
                 inArray1.begin(),
-                [&function, &additionalFunctionArgs...](const auto& inValue1, const auto& inValue2) -> dtypeIn1 {
+                [&function, &additionalFunctionArgs...](const auto& inValue1, const auto& inValue2) -> dtypeIn1
+                {
                     return function(inValue1,
                                     inValue2,
                                     std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);
@@ -88,7 +89,8 @@ namespace nc::broadcast
                         inArray1.cbegin(row),
                         inArray1.cend(row),
                         inArray1.begin(row),
-                        [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeIn1 {
+                        [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeIn1
+                        {
                             return function(inValue,
                                             value,
                                             std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);
@@ -104,7 +106,8 @@ namespace nc::broadcast
                         inArray1.ccolbegin(col),
                         inArray1.ccolend(col),
                         inArray1.colbegin(col),
-                        [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeIn1 {
+                        [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeIn1
+                        {
                             return function(inValue,
                                             value,
                                             std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);
@@ -155,7 +158,8 @@ namespace nc::broadcast
                     inArray1.cend(),
                     inArray2.cbegin(),
                     returnArray.begin(),
-                    [&function, &additionalFunctionArgs...](const auto& inValue1, const auto& inValue2) -> dtypeOut {
+                    [&function, &additionalFunctionArgs...](const auto& inValue1, const auto& inValue2) -> dtypeOut
+                    {
                         return function(inValue1,
                                         inValue2,
                                         std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);
@@ -174,7 +178,8 @@ namespace nc::broadcast
                     inArray2.cbegin(),
                     inArray2.cend(),
                     returnArray.begin(),
-                    [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeOut {
+                    [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeOut
+                    {
                         return function(inValue,
                                         value,
                                         std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);
@@ -192,7 +197,8 @@ namespace nc::broadcast
                     inArray1.cbegin(),
                     inArray1.cend(),
                     returnArray.begin(),
-                    [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeOut {
+                    [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeOut
+                    {
                         return function(inValue,
                                         value,
                                         std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);
@@ -257,7 +263,8 @@ namespace nc::broadcast
                             inArray1.cbegin(row),
                             inArray1.cend(row),
                             returnArray.begin(row),
-                            [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeOut {
+                            [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeOut
+                            {
                                 return function(inValue,
                                                 value,
                                                 std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);

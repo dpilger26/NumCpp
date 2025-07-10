@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2023 David Pilger
+/// Copyright 2018-2025 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -176,7 +176,7 @@ namespace nc::pybindInterface
             }
             case ReturnPolicy::REFERENCE:
             {
-                typename pybind11::capsule reference(inArray.data(), [](void* /*ptr*/) {});
+                typename pybind11::capsule reference(inArray.data(), [](void* /*ptr*/) { });
                 return pbArrayGeneric(shape, strides, inArray.data(), reference);
             }
             case ReturnPolicy::TAKE_OWNERSHIP:
