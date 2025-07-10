@@ -892,6 +892,50 @@ def test_ECEFEulerToNEDRollPitchYaw():
 
 
 ####################################################################################
+def test_ECEFEulerToENURollPitchYaw():
+    platform1ECEF = NumCpp.ECEF(889780.8040509718, -5443884.478448521, 3191301.5726495585)
+    platform1Euler = NumCpp.Euler(1.678885817527771, -1.0427558422088623, -3.0950019359588623)
+    platform1RollPitchYaw = NumCpp.Orientation(0.0, 0.0, -0.027159271086905079)
+
+    platform1RollPitchYawCalc = NumCpp.ECEFEulerToENURollPitchYaw(platform1ECEF, platform1Euler)
+    np.testing.assert_almost_equal(platform1RollPitchYawCalc.roll, platform1RollPitchYaw.roll, 5)
+    np.testing.assert_almost_equal(platform1RollPitchYawCalc.pitch, platform1RollPitchYaw.pitch, 5)
+    np.testing.assert_approx_equal(platform1RollPitchYawCalc.yaw, platform1RollPitchYaw.yaw, 5)
+
+    platform1EulerCalc = NumCpp.ENURollPitchYawToECEFEuler(platform1ECEF, platform1RollPitchYaw)
+    np.testing.assert_approx_equal(platform1EulerCalc.psi, platform1Euler.psi, 5)
+    np.testing.assert_approx_equal(platform1EulerCalc.theta, platform1Euler.theta, 5)
+    np.testing.assert_approx_equal(platform1EulerCalc.phi, platform1Euler.phi, 5)
+
+    platform2ECEF = NumCpp.ECEF(-1288345.7521444533, -4718928.642526492, 4079259.935028878)
+    platform2Euler = NumCpp.Euler(1.30427503581543, -0.872403085231781, 3.1415927410125732)
+    platform2RollPitchYaw = NumCpp.Orientation(0.0, 0.0, 0.0)
+
+    platform2RollPitchYawCalc = NumCpp.ECEFEulerToENURollPitchYaw(platform2ECEF, platform2Euler)
+    np.testing.assert_almost_equal(platform2RollPitchYawCalc.roll, platform2RollPitchYaw.roll, 5)
+    np.testing.assert_almost_equal(platform2RollPitchYawCalc.pitch, platform2RollPitchYaw.pitch, 5)
+    np.testing.assert_almost_equal(platform2RollPitchYawCalc.yaw, platform2RollPitchYaw.yaw, 5)
+
+    platform2EulerCalc = NumCpp.ENURollPitchYawToECEFEuler(platform2ECEF, platform2RollPitchYaw)
+    np.testing.assert_approx_equal(platform2EulerCalc.psi, platform2Euler.psi, 5)
+    np.testing.assert_approx_equal(platform2EulerCalc.theta, platform2Euler.theta, 5)
+    np.testing.assert_approx_equal(platform2EulerCalc.phi, -platform2Euler.phi, 5)
+
+    platform3ECEF = NumCpp.ECEF(861284.8918511268, -5441200.936501232, 3203589.383938122)
+    platform3Euler = NumCpp.Euler(-2.4969322681427, -0.4192129075527191, 2.2737600803375244)
+    platform3RollPitchYaw = NumCpp.Orientation(0.6126105674500097, 0.33161255787892263, 1.4049900478554354)
+
+    platform3RollPitchYawCalc = NumCpp.ECEFEulerToENURollPitchYaw(platform3ECEF, platform3Euler)
+    np.testing.assert_approx_equal(platform3RollPitchYawCalc.roll, platform3RollPitchYaw.roll, 5)
+    np.testing.assert_approx_equal(platform3RollPitchYawCalc.pitch, platform3RollPitchYaw.pitch, 5)
+    np.testing.assert_approx_equal(platform3RollPitchYawCalc.yaw, platform3RollPitchYaw.yaw, 5)
+
+    platform3EulerCalc = NumCpp.ENURollPitchYawToECEFEuler(platform3ECEF, platform3RollPitchYaw)
+    np.testing.assert_approx_equal(platform3EulerCalc.psi, platform3Euler.psi, 5)
+    np.testing.assert_approx_equal(platform3EulerCalc.theta, platform3Euler.theta, 5)
+    np.testing.assert_approx_equal(platform3EulerCalc.phi, platform3Euler.phi, 5)
+
+####################################################################################
 def test_ECEFtoAER():
     x1, y1, z1 = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS
     target = NumCpp.ECEF(x1, y1, z1)

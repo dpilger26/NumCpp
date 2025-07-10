@@ -45,7 +45,6 @@ namespace nc::coordinates::transforms
                                                           const Orientation&            orientation) noexcept
     {
         const auto nedOrientation = Orientation{ orientation.pitch, orientation.roll, -orientation.yaw };
-        const auto nedEuler       = NEDRollPitchYawToECEFEuler(location, nedOrientation);
-        return { nedEuler.theta, nedEuler.psi, -nedEuler.phi };
+        return NEDRollPitchYawToECEFEuler(location, nedOrientation);
     }
 } // namespace nc::coordinates::transforms
