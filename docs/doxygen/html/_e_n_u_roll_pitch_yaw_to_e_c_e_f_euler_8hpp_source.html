@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.14.1</span>
+                                &#160;<span id="projectnumber">2.14.2</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -137,11 +137,10 @@ $(document).ready(function(){initNavTree('_e_n_u_roll_pitch_yaw_to_e_c_e_f_euler
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                                                          <span class="keyword">const</span> <a class="code hl_class" href="classnc_1_1coordinates_1_1_orientation.html">Orientation</a>&amp;            orientation) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">nedOrientation</a> = <a class="code hl_class" href="classnc_1_1coordinates_1_1_orientation.html">Orientation</a>{ orientation.<a class="code hl_variable" href="classnc_1_1coordinates_1_1_orientation.html#a819f4482cc856e67b9b8d8d9269ae3cf">pitch</a>, orientation.roll, -orientation.yaw };</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">nedEuler</a>       = <a class="code hl_function" href="namespacenc_1_1coordinates_1_1transforms.html#ab679db34322c0ba96d93e25eb6f16567">NEDRollPitchYawToECEFEuler</a>(<a class="code hl_function" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">location</a>, <a class="code hl_function" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">nedOrientation</a>);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> { <a class="code hl_function" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">nedEuler</a>.theta, <a class="code hl_function" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">nedEuler</a>.psi, -<a class="code hl_function" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">nedEuler</a>.phi };</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacenc_1_1coordinates_1_1transforms.html#ab679db34322c0ba96d93e25eb6f16567">NEDRollPitchYawToECEFEuler</a>(<a class="code hl_function" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">location</a>, <a class="code hl_function" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">nedOrientation</a>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
 </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>} <span class="comment">// namespace nc::coordinates::transforms</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>} <span class="comment">// namespace nc::coordinates::transforms</span></div>
 <div class="ttc" id="a_e_c_e_f_8hpp_html"><div class="ttname"><a href="_e_c_e_f_8hpp.html">ECEF.hpp</a></div></div>
 <div class="ttc" id="a_euler_8hpp_html"><div class="ttname"><a href="_euler_8hpp.html">Euler.hpp</a></div></div>
 <div class="ttc" id="a_n_e_d_roll_pitch_yaw_to_e_c_e_f_euler_8hpp_html"><div class="ttname"><a href="_n_e_d_roll_pitch_yaw_to_e_c_e_f_euler_8hpp.html">NEDRollPitchYawToECEFEuler.hpp</a></div></div>

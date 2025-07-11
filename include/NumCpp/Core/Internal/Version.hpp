@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2023 David Pilger
+/// Copyright 2018-2025 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -30,5 +30,5 @@
 namespace nc
 {
     // NOLINTNEXTLINE(cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays)
-    constexpr char VERSION[] = "2.14.1"; ///< Current NumCpp version number
+    constexpr char VERSION[] = "2.14.2"; ///< Current NumCpp version number
 } // namespace nc
