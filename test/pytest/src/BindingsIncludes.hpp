@@ -1,10 +1,20 @@
 #pragma once
 
+#if defined(NUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE)
+
 #include "pybind11/complex.h"
 #include "pybind11/functional.h"
 #include "pybind11/numpy.h"
 #include "pybind11/pybind11.h"
 #include "pybind11/stl.h"
+
+#elif defined(NUMCPP_INCLUDE_NANOBIND_PYTHON_INTERFACE)
+
+#include "nanobind/nanobind.h"
+#include "nanobind/nb_types.h"
+#include "nanobind/ndarray.h"
+
+#endif
 
 #include <algorithm>
 #include <array>
@@ -28,8 +38,20 @@
 #include "NumCpp/PythonInterface/PybindInterface.hpp"
 
 using namespace nc;
+
+#if defined(NUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE)
+
 using namespace nc::pybindInterface;
-namespace pb11 = pybind11;
+namespace python_interface = pybind11;
+using interface_module     = python_interface::module;
+
+#elif defined(NUMCPP_INCLUDE_NANOBIND_PYTHON_INTERFACE)
+
+using namespace nc::nanobindInterface;
+namespace python_interface = nanobind;
+using interface_module     = python_interface::module_;
+
+#endif
 
 // NdArray.hpp
 using NdArrayDouble                           = NdArray<double>;

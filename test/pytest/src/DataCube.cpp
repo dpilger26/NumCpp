@@ -187,20 +187,20 @@ namespace DataCubeInterface
 
 //================================================================================
 
-void initDataCube(pb11::module& m)
+void initDataCube(python_interface::module& m)
 {
     // DataCube
     using DataCubeDouble = DataCube<double>;
-    pb11::class_<DataCubeDouble>(m, "DataCube")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def("at", &DataCubeInterface::at<double>, pb11::return_value_policy::reference)
-        .def("__getitem__", &DataCubeInterface::getItem<double>, pb11::return_value_policy::reference)
-        .def("back", &DataCubeDouble::back, pb11::return_value_policy::reference)
+    python_interface::class_<DataCubeDouble>(m, "DataCube")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def("at", &DataCubeInterface::at<double>, python_interface::return_value_policy::reference)
+        .def("__getitem__", &DataCubeInterface::getItem<double>, python_interface::return_value_policy::reference)
+        .def("back", &DataCubeDouble::back, python_interface::return_value_policy::reference)
         .def("dump", &DataCubeDouble::dump)
-        .def("front", &DataCubeDouble::front, pb11::return_value_policy::reference)
+        .def("front", &DataCubeDouble::front, python_interface::return_value_policy::reference)
         .def("isempty", &DataCubeDouble::isempty)
-        .def("shape", &DataCubeDouble::shape, pb11::return_value_policy::reference)
+        .def("shape", &DataCubeDouble::shape, python_interface::return_value_policy::reference)
         .def("sizeZ", &DataCubeDouble::sizeZ)
         .def("pop_back", &DataCubeDouble::pop_back)
         .def("push_back", &DataCubeDouble::push_back)

@@ -160,17 +160,17 @@ namespace RotationsInterface
 
 //================================================================================
 
-void initRotations(pb11::module& m)
+void initRotations(python_interface::module& m)
 {
     // Rotations.hpp
-    pb11::class_<rotations::Quaternion>(m, "Quaternion")
-        .def(pb11::init<>())
-        .def(pb11::init<double, double, double>())
-        .def(pb11::init<double, double, double, double>())
-        .def(pb11::init<std::array<double, 4>>())
-        .def(pb11::init<Vec3, double>())
-        .def(pb11::init<NdArray<double>, double>())
-        .def(pb11::init<NdArray<double>>())
+    python_interface::class_<rotations::Quaternion>(m, "Quaternion")
+        .def(python_interface::init<>())
+        .def(python_interface::init<double, double, double>())
+        .def(python_interface::init<double, double, double, double>())
+        .def(python_interface::init<std::array<double, 4>>())
+        .def(python_interface::init<Vec3, double>())
+        .def(python_interface::init<NdArray<double>, double>())
+        .def(python_interface::init<NdArray<double>>())
         .def_static("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationNdArray)
         .def_static("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationVec3)
         .def("angleOfRotation", &rotations::Quaternion::angleOfRotation)
@@ -210,8 +210,8 @@ void initRotations(pb11::module& m)
         .def("__truediv__", &rotations::Quaternion::operator/)
         .def("__str__", &rotations::Quaternion::str);
 
-    pb11::class_<rotations::DCM>(m, "DCM")
-        .def(pb11::init<>())
+    python_interface::class_<rotations::DCM>(m, "DCM")
+        .def(python_interface::init<>())
         .def_static("eulerAnglesValues", &RotationsInterface::eulerAnglesValues)
         .def_static("eulerAnglesArray", &RotationsInterface::eulerAnglesArray)
         .def_static("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationDcmNdArray)

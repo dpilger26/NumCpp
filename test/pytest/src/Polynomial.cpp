@@ -179,7 +179,7 @@ namespace PolynomialInterface
 
 //================================================================================
 
-void initPolynomial(pb11::module& m)
+void initPolynomial(python_interface::module& m)
 {
     // Polynomial.hpp
     using Poly1d = polynomial::Poly1d<double>;
@@ -187,9 +187,9 @@ void initPolynomial(pb11::module& m)
     Poly1d (*fit)(const NdArrayDouble&, const NdArrayDouble&, uint8)                               = &Poly1d::fit;
     Poly1d (*fitWeighted)(const NdArrayDouble&, const NdArrayDouble&, const NdArrayDouble&, uint8) = &Poly1d::fit;
 
-    pb11::class_<Poly1d>(m, "Poly1d")
-        .def(pb11::init<>())
-        .def(pb11::init<NdArray<double>, IsRoots>())
+    python_interface::class_<Poly1d>(m, "Poly1d")
+        .def(python_interface::init<>())
+        .def(python_interface::init<NdArray<double>, IsRoots>())
         .def("area", &Poly1d::area)
         .def("coefficients", &Poly1d::coefficients)
         .def("deriv", &Poly1d::deriv)
@@ -205,13 +205,13 @@ void initPolynomial(pb11::module& m)
         .def("__getitem__", [](const Poly1d& self, double xValue) { return self(xValue); })
         .def("__getitem__", [](const Poly1d& self, const NdArray<double>& xValues) { return self(xValues); })
         .def("__add__", &Poly1d::operator+)
-        .def("__iadd__", &Poly1d::operator+=, pb11::return_value_policy::reference)
+        .def("__iadd__", &Poly1d::operator+=, python_interface::return_value_policy::reference)
         .def("__sub__", &Poly1d::operator-)
-        .def("__isub__", &Poly1d::operator-=, pb11::return_value_policy::reference)
+        .def("__isub__", &Poly1d::operator-=, python_interface::return_value_policy::reference)
         .def("__mul__", &Poly1d::operator*)
-        .def("__imul__", &Poly1d::operator*=, pb11::return_value_policy::reference)
+        .def("__imul__", &Poly1d::operator*=, python_interface::return_value_policy::reference)
         .def("__pow__", &Poly1d::operator^)
-        .def("__ipow__", &Poly1d::operator^=, pb11::return_value_policy::reference);
+        .def("__ipow__", &Poly1d::operator^=, python_interface::return_value_policy::reference);
 
 #ifndef NUMCPP_NO_USE_BOOST
     m.def("chebyshev_t_Scalar", &PolynomialInterface::chebyshev_t_Scalar<double>);

@@ -42,7 +42,7 @@ namespace IntegrateInterface
 
 //================================================================================
 
-void initIntegrate(pb11::module& m)
+void initIntegrate(python_interface::module& m)
 {
     // Integrate.hpp
     m.def("integrate_gauss_legendre", &IntegrateInterface::gauss_legendre);

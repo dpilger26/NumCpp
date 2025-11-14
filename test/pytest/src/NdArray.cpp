@@ -1050,10 +1050,10 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pb11::tuple nonzero(const NdArray<dtype>& self)
+    python_interface::tuple nonzero(const NdArray<dtype>& self)
     {
         auto rowCol = self.nonzero();
-        return pb11::make_tuple(nc2pybind(rowCol.first), nc2pybind(rowCol.second));
+        return python_interface::make_tuple(nc2pybind(rowCol.first), nc2pybind(rowCol.second));
     }
 
     //================================================================================
@@ -2353,11 +2353,11 @@ namespace NdArrayInterface
 
 //================================================================================
 
-void initNdArray(pb11::module& m)
+void initNdArray(python_interface::module& m)
 {
     // NdArray.hpp
-    pb11::class_<NdArrayDoubleIterator>(m, "NdArrayDoubleIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayDoubleIterator>(m, "NdArrayDoubleIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayDoubleIterator>)
@@ -2376,8 +2376,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleIterator>);
 
-    pb11::class_<NdArrayComplexDoubleIterator>(m, "NdArrayComplexDoubleIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayComplexDoubleIterator>(m, "NdArrayComplexDoubleIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayComplexDoubleIterator>)
@@ -2396,8 +2396,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleIterator>);
 
-    pb11::class_<NdArrayDoubleConstIterator>(m, "NdArrayDoubleConstIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayDoubleConstIterator>(m, "NdArrayDoubleConstIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleConstIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleConstIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayDoubleConstIterator>)
@@ -2416,8 +2416,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleConstIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstIterator>);
 
-    pb11::class_<NdArrayComplexDoubleConstIterator>(m, "NdArrayComplexDoubleConstIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayComplexDoubleConstIterator>(m, "NdArrayComplexDoubleConstIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleConstIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleConstIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayComplexDoubleConstIterator>)
@@ -2436,8 +2436,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleConstIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstIterator>);
 
-    pb11::class_<NdArrayDoubleReverseIterator>(m, "NdArrayDoubleReverseIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayDoubleReverseIterator>(m, "NdArrayDoubleReverseIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleReverseIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleReverseIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayDoubleReverseIterator>)
@@ -2456,8 +2456,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleReverseIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleReverseIterator>);
 
-    pb11::class_<NdArrayComplexDoubleReverseIterator>(m, "NdArrayComplexDoubleReverseIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayComplexDoubleReverseIterator>(m, "NdArrayComplexDoubleReverseIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleReverseIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleReverseIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayComplexDoubleReverseIterator>)
@@ -2476,8 +2476,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleReverseIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleReverseIterator>);
 
-    pb11::class_<NdArrayDoubleConstReverseIterator>(m, "NdArrayDoubleConstReverseIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayDoubleConstReverseIterator>(m, "NdArrayDoubleConstReverseIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleConstReverseIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleConstReverseIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayDoubleConstReverseIterator>)
@@ -2496,8 +2496,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleConstReverseIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstReverseIterator>);
 
-    pb11::class_<NdArrayComplexDoubleConstReverseIterator>(m, "NdArrayComplexDoubleConstReverseIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayComplexDoubleConstReverseIterator>(m, "NdArrayComplexDoubleConstReverseIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleConstReverseIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleConstReverseIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayComplexDoubleConstReverseIterator>)
@@ -2518,8 +2518,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleConstReverseIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstReverseIterator>);
 
-    pb11::class_<NdArrayDoubleColumnIterator>(m, "NdArrayDoubleColumnIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayDoubleColumnIterator>(m, "NdArrayDoubleColumnIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleColumnIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayDoubleColumnIterator>)
@@ -2538,8 +2538,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleColumnIterator>);
 
-    pb11::class_<NdArrayComplexDoubleColumnIterator>(m, "NdArrayComplexDoubleColumnIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayComplexDoubleColumnIterator>(m, "NdArrayComplexDoubleColumnIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleColumnIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayComplexDoubleColumnIterator>)
@@ -2558,8 +2558,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleColumnIterator>);
 
-    pb11::class_<NdArrayDoubleConstColumnIterator>(m, "NdArrayDoubleConstColumnIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayDoubleConstColumnIterator>(m, "NdArrayDoubleConstColumnIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleConstColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleConstColumnIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayDoubleConstColumnIterator>)
@@ -2578,8 +2578,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleConstColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstColumnIterator>);
 
-    pb11::class_<NdArrayComplexDoubleConstColumnIterator>(m, "NdArrayComplexDoubleConstColumnIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayComplexDoubleConstColumnIterator>(m, "NdArrayComplexDoubleConstColumnIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleConstColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleConstColumnIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayComplexDoubleConstColumnIterator>)
@@ -2599,8 +2599,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleConstColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstColumnIterator>);
 
-    pb11::class_<NdArrayDoubleReverseColumnIterator>(m, "NdArrayDoubleReverseColumnIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayDoubleReverseColumnIterator>(m, "NdArrayDoubleReverseColumnIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleReverseColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleReverseColumnIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayDoubleReverseColumnIterator>)
@@ -2619,8 +2619,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleReverseColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleReverseColumnIterator>);
 
-    pb11::class_<NdArrayComplexDoubleReverseColumnIterator>(m, "NdArrayComplexDoubleReverseColumnIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayComplexDoubleReverseColumnIterator>(m, "NdArrayComplexDoubleReverseColumnIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleReverseColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleReverseColumnIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayComplexDoubleReverseColumnIterator>)
@@ -2641,8 +2641,8 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleReverseColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleReverseColumnIterator>);
 
-    pb11::class_<NdArrayDoubleConstReverseColumnIterator>(m, "NdArrayDoubleConstReverseColumnIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayDoubleConstReverseColumnIterator>(m, "NdArrayDoubleConstReverseColumnIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleConstReverseColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleConstReverseColumnIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayDoubleConstReverseColumnIterator>)
@@ -2662,8 +2662,10 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleConstReverseColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstReverseColumnIterator>);
 
-    pb11::class_<NdArrayComplexDoubleConstReverseColumnIterator>(m, "NdArrayComplexDoubleConstReverseColumnIterator")
-        .def(pb11::init<>())
+    python_interface::class_<NdArrayComplexDoubleConstReverseColumnIterator>(
+        m,
+        "NdArrayComplexDoubleConstReverseColumnIterator")
+        .def(python_interface::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleConstReverseColumnIterator>)
         .def("operatorPlusPlusPre",
              IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleConstReverseColumnIterator>)
@@ -2841,11 +2843,11 @@ void initNdArray(pb11::module& m)
     m.def("testMoveAssignementOperator", &NdArrayInterface::testMoveAssignementOperator<double>);
     m.def("testMoveAssignementOperator", &NdArrayInterface::testMoveAssignementOperator<ComplexDouble>);
 
-    pb11::class_<NdArrayDouble>(m, "NdArray")
-        .def(pb11::init<>())
-        .def(pb11::init<NdArrayDouble::size_type>())
-        .def(pb11::init<NdArrayDouble::size_type, NdArrayDouble::size_type>())
-        .def(pb11::init<Shape>())
+    python_interface::class_<NdArrayDouble>(m, "NdArray")
+        .def(python_interface::init<>())
+        .def(python_interface::init<NdArrayDouble::size_type>())
+        .def(python_interface::init<NdArrayDouble::size_type, NdArrayDouble::size_type>())
+        .def(python_interface::init<Shape>())
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<double>)
         .def("setArray", &NdArrayInterface::setArray<double>)
         .def("rSlice", &NdArrayDouble::rSlice)
@@ -2955,7 +2957,7 @@ void initNdArray(pb11::module& m)
         .def("max", &NdArrayInterface::max<double>)
         .def("min", &NdArrayInterface::min<double>)
         .def("median", &NdArrayInterface::median<double>)
-        .def("nans", &NdArrayDouble::nans, pb11::return_value_policy::reference)
+        .def("nans", &NdArrayDouble::nans, python_interface::return_value_policy::reference)
         .def("nbytes", &NdArrayDouble::nbytes)
         .def("none", &NdArrayInterface::none<double>)
         .def("nonzero", &NdArrayInterface::nonzero<double>)
@@ -2966,28 +2968,36 @@ void initNdArray(pb11::module& m)
         .def("print", &NdArrayDouble::print)
         .def("prod", &NdArrayInterface::prod<double>)
         .def("ptp", &NdArrayInterface::ptp<double>)
-        .def("put", &NdArrayInterface::putFlat<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putRowCol<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putIndices1DValue<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putIndices1DValues<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putSlice1DValue<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putSlice1DValues<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putIndices2DValue<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putRowIndicesColSliceValue<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putRowSliceColIndicesValue<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putSlice2DValue<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putIndices2DValueRow<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putSlice2DValueRow<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putIndices2DValueCol<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putSlice2DValueCol<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putIndices2DValues<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putRowIndicesColSliceValues<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putRowSliceColIndicesValues<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putSlice2DValues<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putIndices2DValuesRow<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putSlice2DValuesRow<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putIndices2DValuesCol<double>, pb11::return_value_policy::reference)
-        .def("put", &NdArrayInterface::putSlice2DValuesCol<double>, pb11::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putFlat<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putRowCol<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putIndices1DValue<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putIndices1DValues<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putSlice1DValue<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putSlice1DValues<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putIndices2DValue<double>, python_interface::return_value_policy::reference)
+        .def("put",
+             &NdArrayInterface::putRowIndicesColSliceValue<double>,
+             python_interface::return_value_policy::reference)
+        .def("put",
+             &NdArrayInterface::putRowSliceColIndicesValue<double>,
+             python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putSlice2DValue<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putIndices2DValueRow<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putSlice2DValueRow<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putIndices2DValueCol<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putSlice2DValueCol<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putIndices2DValues<double>, python_interface::return_value_policy::reference)
+        .def("put",
+             &NdArrayInterface::putRowIndicesColSliceValues<double>,
+             python_interface::return_value_policy::reference)
+        .def("put",
+             &NdArrayInterface::putRowSliceColIndicesValues<double>,
+             python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putSlice2DValues<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putIndices2DValuesRow<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putSlice2DValuesRow<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putIndices2DValuesCol<double>, python_interface::return_value_policy::reference)
+        .def("put", &NdArrayInterface::putSlice2DValuesCol<double>, python_interface::return_value_policy::reference)
         .def("putMask", &NdArrayInterface::putMaskSingle<double>)
         .def("putMask", &NdArrayInterface::putMaskMultiple<double>)
         .def("ravel", &NdArrayInterface::ravel<double>)
@@ -3019,7 +3029,7 @@ void initNdArray(pb11::module& m)
         .def("toStlVector", &NdArrayDouble::toStlVector)
         .def("trace", &NdArrayDouble::trace)
         .def("transpose", &NdArrayInterface::transpose<double>)
-        .def("zeros", &NdArrayDouble::zeros, pb11::return_value_policy::reference);
+        .def("zeros", &NdArrayDouble::zeros, python_interface::return_value_policy::reference);
 
     m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<double>);                   // (1)
     m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<ComplexDouble>);            // (1)
@@ -3193,26 +3203,26 @@ void initNdArray(pb11::module& m)
     m.def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
 
     using NdArrayUInt32 = NdArray<uint32>;
-    pb11::class_<NdArrayUInt32>(m, "NdArrayUInt32")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def(pb11::init<uint32, uint32>())
-        .def(pb11::init<Shape>())
+    python_interface::class_<NdArrayUInt32>(m, "NdArrayUInt32")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def(python_interface::init<uint32, uint32>())
+        .def(python_interface::init<Shape>())
         .def("item", &NdArrayUInt32::item)
         .def("shape", &NdArrayUInt32::shape)
         .def("size", &NdArrayUInt32::size)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint32>)
         .def("endianess", &NdArrayUInt32::endianess)
         .def("setArray", &NdArrayInterface::setArray<uint32>)
-        .def("byteswap", &NdArrayUInt32::byteswap, pb11::return_value_policy::reference)
+        .def("byteswap", &NdArrayUInt32::byteswap, python_interface::return_value_policy::reference)
         .def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>);
 
     using NdArrayUInt64 = NdArray<uint64>;
-    pb11::class_<NdArrayUInt64>(m, "NdArrayUInt64")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def(pb11::init<uint32, uint32>())
-        .def(pb11::init<Shape>())
+    python_interface::class_<NdArrayUInt64>(m, "NdArrayUInt64")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def(python_interface::init<uint32, uint32>())
+        .def(python_interface::init<Shape>())
         .def("item", &NdArrayUInt64::item)
         .def("shape", &NdArrayUInt64::shape)
         .def("size", &NdArrayUInt64::size)
@@ -3221,11 +3231,11 @@ void initNdArray(pb11::module& m)
         .def("setArray", &NdArrayInterface::setArray<uint64>);
 
     using NdArrayUInt16 = NdArray<uint16>;
-    pb11::class_<NdArrayUInt16>(m, "NdArrayUInt16")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def(pb11::init<uint32, uint32>())
-        .def(pb11::init<Shape>())
+    python_interface::class_<NdArrayUInt16>(m, "NdArrayUInt16")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def(python_interface::init<uint32, uint32>())
+        .def(python_interface::init<Shape>())
         .def("item", &NdArrayUInt16::item)
         .def("shape", &NdArrayUInt16::shape)
         .def("size", &NdArrayUInt16::size)
@@ -3234,11 +3244,11 @@ void initNdArray(pb11::module& m)
         .def("setArray", NdArrayInterface::setArray<uint16>);
 
     using NdArrayUInt8 = NdArray<uint8>;
-    pb11::class_<NdArrayUInt8>(m, "NdArrayUInt8")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def(pb11::init<uint32, uint32>())
-        .def(pb11::init<Shape>())
+    python_interface::class_<NdArrayUInt8>(m, "NdArrayUInt8")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def(python_interface::init<uint32, uint32>())
+        .def(python_interface::init<Shape>())
         .def("item", &NdArrayUInt8::item)
         .def("shape", &NdArrayUInt8::shape)
         .def("size", &NdArrayUInt8::size)
@@ -3247,11 +3257,11 @@ void initNdArray(pb11::module& m)
         .def("setArray", NdArrayInterface::setArray<uint8>);
 
     using NdArrayInt64 = NdArray<int64>;
-    pb11::class_<NdArrayInt64>(m, "NdArrayInt64")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def(pb11::init<uint32, uint32>())
-        .def(pb11::init<Shape>())
+    python_interface::class_<NdArrayInt64>(m, "NdArrayInt64")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def(python_interface::init<uint32, uint32>())
+        .def(python_interface::init<Shape>())
         .def("item", &NdArrayInt64::item)
         .def("shape", &NdArrayInt64::shape)
         .def("size", &NdArrayInt64::size)
@@ -3261,11 +3271,11 @@ void initNdArray(pb11::module& m)
         .def("setArray", &NdArrayInterface::setArray<int64>);
 
     using NdArrayInt32 = NdArray<int32>;
-    pb11::class_<NdArrayInt32>(m, "NdArrayInt32")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def(pb11::init<uint32, uint32>())
-        .def(pb11::init<Shape>())
+    python_interface::class_<NdArrayInt32>(m, "NdArrayInt32")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def(python_interface::init<uint32, uint32>())
+        .def(python_interface::init<Shape>())
         .def("item", &NdArrayInt32::item)
         .def("shape", &NdArrayInt32::shape)
         .def("size", &NdArrayInt32::size)
@@ -3275,11 +3285,11 @@ void initNdArray(pb11::module& m)
         .def("setArray", &NdArrayInterface::setArray<int32>);
 
     using NdArrayInt16 = NdArray<int16>;
-    pb11::class_<NdArrayInt16>(m, "NdArrayInt16")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def(pb11::init<uint32, uint32>())
-        .def(pb11::init<Shape>())
+    python_interface::class_<NdArrayInt16>(m, "NdArrayInt16")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def(python_interface::init<uint32, uint32>())
+        .def(python_interface::init<Shape>())
         .def("item", &NdArrayInt16::item)
         .def("shape", &NdArrayInt16::shape)
         .def("size", &NdArrayInt16::size)
@@ -3289,11 +3299,11 @@ void initNdArray(pb11::module& m)
         .def("setArray", &NdArrayInterface::setArray<int16>);
 
     using NdArrayInt8 = NdArray<int8>;
-    pb11::class_<NdArrayInt8>(m, "NdArrayInt8")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def(pb11::init<uint32, uint32>())
-        .def(pb11::init<Shape>())
+    python_interface::class_<NdArrayInt8>(m, "NdArrayInt8")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def(python_interface::init<uint32, uint32>())
+        .def(python_interface::init<Shape>())
         .def("item", &NdArrayInt8::item)
         .def("shape", &NdArrayInt8::shape)
         .def("size", &NdArrayInt8::size)
@@ -3303,11 +3313,11 @@ void initNdArray(pb11::module& m)
         .def("setArray", &NdArrayInterface::setArray<int8>);
 
     using NdArrayFloat = NdArray<float>;
-    pb11::class_<NdArrayFloat>(m, "NdArrayFloat")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def(pb11::init<uint32, uint32>())
-        .def(pb11::init<Shape>())
+    python_interface::class_<NdArrayFloat>(m, "NdArrayFloat")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def(python_interface::init<uint32, uint32>())
+        .def(python_interface::init<Shape>())
         .def("item", &NdArrayFloat::item)
         .def("shape", &NdArrayFloat::shape)
         .def("size", &NdArrayFloat::size)
@@ -3316,11 +3326,11 @@ void initNdArray(pb11::module& m)
         .def("setArray", &NdArrayInterface::setArray<float>);
 
     using NdArrayBool = NdArray<bool>;
-    pb11::class_<NdArrayBool>(m, "NdArrayBool")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def(pb11::init<uint32, uint32>())
-        .def(pb11::init<Shape>())
+    python_interface::class_<NdArrayBool>(m, "NdArrayBool")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def(python_interface::init<uint32, uint32>())
+        .def(python_interface::init<Shape>())
         .def("item", &NdArrayBool::item)
         .def("shape", &NdArrayBool::shape)
         .def("size", &NdArrayBool::size)
@@ -3329,11 +3339,11 @@ void initNdArray(pb11::module& m)
         .def("setArray", NdArrayInterface::setArray<bool>);
 
     using NdArrayComplexLongDouble = NdArray<std::complex<long double>>;
-    pb11::class_<NdArrayComplexLongDouble>(m, "NdArrayComplexLongDouble")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def(pb11::init<uint32, uint32>())
-        .def(pb11::init<Shape>())
+    python_interface::class_<NdArrayComplexLongDouble>(m, "NdArrayComplexLongDouble")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def(python_interface::init<uint32, uint32>())
+        .def(python_interface::init<Shape>())
         .def("item", &NdArrayComplexLongDouble::item)
         .def("shape", &NdArrayComplexLongDouble::shape)
         .def("size", &NdArrayComplexLongDouble::size)
@@ -3341,23 +3351,23 @@ void initNdArray(pb11::module& m)
         .def("setArray", NdArrayInterface::setArray<std::complex<long double>>);
 
     using NdArrayComplexFloat = NdArray<std::complex<float>>;
-    pb11::class_<NdArrayComplexFloat>(m, "NdArrayComplexFloat")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def(pb11::init<uint32, uint32>())
-        .def(pb11::init<Shape>())
+    python_interface::class_<NdArrayComplexFloat>(m, "NdArrayComplexFloat")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def(python_interface::init<uint32, uint32>())
+        .def(python_interface::init<Shape>())
         .def("item", &NdArrayComplexFloat::item)
         .def("shape", &NdArrayComplexFloat::shape)
         .def("size", &NdArrayComplexFloat::size)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<float>>)
         .def("setArray", NdArrayInterface::setArray<std::complex<float>>);
 
-    pb11::class_<NdArrayComplexDouble>(m, "NdArrayComplexDouble")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32>())
-        .def(pb11::init<uint32, uint32>())
-        .def(pb11::init<Shape>())
-        .def(pb11::init<NdArrayComplexDouble>())
+    python_interface::class_<NdArrayComplexDouble>(m, "NdArrayComplexDouble")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32>())
+        .def(python_interface::init<uint32, uint32>())
+        .def(python_interface::init<Shape>())
+        .def(python_interface::init<NdArrayComplexDouble>())
         .def_static("test1DListContructor", &NdArrayInterface::test1DListContructor<ComplexDouble>)
         .def_static("test2DListContructor", &NdArrayInterface::test2DListContructor<ComplexDouble>)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<ComplexDouble>)
@@ -3526,7 +3536,7 @@ void initNdArray(pb11::module& m)
         .def("toStlVector", &NdArrayComplexDouble::toStlVector)
         .def("trace", &NdArrayComplexDouble::trace)
         .def("transpose", &NdArrayInterface::transpose<ComplexDouble>)
-        .def("zeros", &NdArrayComplexDouble::zeros, pb11::return_value_policy::reference);
+        .def("zeros", &NdArrayComplexDouble::zeros, python_interface::return_value_policy::reference);
 
     m.def("testStructuredArray", &NdArrayInterface::testStructuredArray);
 }

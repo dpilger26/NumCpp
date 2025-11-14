@@ -4,7 +4,7 @@
 
 //================================================================================
 
-void initUtils(pb11::module &m)
+void initUtils(python_interface::module &m)
 {
     // Utils.hpp
     m.def("num2str", &utils::num2str<double>);

@@ -4,10 +4,10 @@
 
 //================================================================================
 
-void initFilter(pb11::module &m)
+void initFilter(python_interface::module &m)
 {
     // Filters.hpp
-    pb11::enum_<filter::Boundary>(m, "Mode")
+    python_interface::enum_<filter::Boundary>(m, "Mode")
         .value("REFLECT", filter::Boundary::REFLECT)
         .value("CONSTANT", filter::Boundary::CONSTANT)
         .value("NEAREST", filter::Boundary::NEAREST)

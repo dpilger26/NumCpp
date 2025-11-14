@@ -2,17 +2,16 @@
 
 #include "BindingsIncludes.hpp"
 
-
 //================================================================================
 
-void initImageProcessing(pb11::module &m)
+void initImageProcessing(python_interface::module &m)
 {
     // Image Processing
     using PixelDouble = imageProcessing::Pixel<double>;
-    pb11::class_<PixelDouble>(m, "Pixel")
-        .def(pb11::init<>())
-        .def(pb11::init<uint32, uint32, double>())
-        .def(pb11::init<PixelDouble>())
+    python_interface::class_<PixelDouble>(m, "Pixel")
+        .def(python_interface::init<>())
+        .def(python_interface::init<uint32, uint32, double>())
+        .def(python_interface::init<PixelDouble>())
         .def("__eq__", &PixelDouble::operator==)
         .def("__ne__", &PixelDouble::operator!=)
         .def("__lt__", &PixelDouble::operator<)
@@ -24,12 +23,12 @@ void initImageProcessing(pb11::module &m)
         .def("print", &PixelDouble::print);
 
     using ClusterDouble = imageProcessing::Cluster<double>;
-    pb11::class_<ClusterDouble>(m, "Cluster")
-        .def(pb11::init<>())
-        .def(pb11::init<ClusterDouble>())
+    python_interface::class_<ClusterDouble>(m, "Cluster")
+        .def(python_interface::init<>())
+        .def(python_interface::init<ClusterDouble>())
         .def("__eq__", &ClusterDouble::operator==)
         .def("__ne__", &ClusterDouble::operator!=)
-        .def("__getitem__", &ClusterDouble::at, pb11::return_value_policy::reference)
+        .def("__getitem__", &ClusterDouble::at, python_interface::return_value_policy::reference)
         .def("size", &ClusterDouble::size)
         .def("clusterId", &ClusterDouble::clusterId)
         .def("rowMin", &ClusterDouble::rowMin)
@@ -45,10 +44,10 @@ void initImageProcessing(pb11::module &m)
         .def("print", &ClusterDouble::print);
 
     using CentroidDouble = imageProcessing::Centroid<double>;
-    pb11::class_<CentroidDouble>(m, "Centroid")
-        .def(pb11::init<>())
-        .def(pb11::init<ClusterDouble>())
-        .def(pb11::init<CentroidDouble>())
+    python_interface::class_<CentroidDouble>(m, "Centroid")
+        .def(python_interface::init<>())
+        .def(python_interface::init<ClusterDouble>())
+        .def(python_interface::init<CentroidDouble>())
         .def("row", &CentroidDouble::row)
         .def("col", &CentroidDouble::col)
         .def("intensity", &CentroidDouble::intensity)

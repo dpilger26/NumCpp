@@ -28,4 +28,5 @@
 #pragma once
 
 #include "NumCpp/PythonInterface/BoostInterface.hpp"
+#include "NumCpp/PythonInterface/NanobindInterface.hpp"
 #include "NumCpp/PythonInterface/PybindInterface.hpp"

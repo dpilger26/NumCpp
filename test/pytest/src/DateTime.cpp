@@ -7,17 +7,17 @@
 
 //================================================================================
 
-void initDateTime(pb11::module& m)
+void initDateTime(python_interface::module& m)
 {
     // Clock
-    pb11::class_<Clock>(m, "Clock")
-        .def(pb11::init<>())
+    python_interface::class_<Clock>(m, "Clock")
+        .def(python_interface::init<>())
         .def_static("now", []() { return std::chrono::time_point_cast<TimePoint::duration>(Clock::now()); });
 
     // Duration
-    pb11::class_<Duration>(m, "Duration")
-        .def(pb11::init<>())
-        .def(pb11::init<std::uint64_t>())
+    python_interface::class_<Duration>(m, "Duration")
+        .def(python_interface::init<>())
+        .def(python_interface::init<std::uint64_t>())
         .def("count", &Duration::count)
         .def("min", &Duration::min)
         .def("max", &Duration::max)
@@ -31,19 +31,19 @@ void initDateTime(pb11::module& m)
         .def("__sub__", [](const Duration& lhs, const Duration& rhs) { return lhs - rhs; });
 
     // TimePoint
-    pb11::class_<TimePoint>(m, "TimePoint")
-        .def(pb11::init<>())
-        .def(pb11::init<Duration>())
+    python_interface::class_<TimePoint>(m, "TimePoint")
+        .def(python_interface::init<>())
+        .def(python_interface::init<Duration>())
         .def("time_since_epoch", &TimePoint::time_since_epoch)
         .def_static("min", &TimePoint::min)
         .def_static("max", &TimePoint::max);
 
     // DateTime
-    pb11::class_<DateTime>(m, "DateTime")
-        .def(pb11::init<>())
-        .def(pb11::init<TimePoint>())
-        .def(pb11::init<std::string>())
-        .def(pb11::init<int, int, int, int, int, int, double>())
+    python_interface::class_<DateTime>(m, "DateTime")
+        .def(python_interface::init<>())
+        .def(python_interface::init<TimePoint>())
+        .def(python_interface::init<std::string>())
+        .def(python_interface::init<int, int, int, int, int, int, double>())
         .def_property("year", &DateTime::year, &DateTime::setYear)
         .def_property("month", &DateTime::month, &DateTime::setMonth)
         .def_property("day", &DateTime::day, &DateTime::setDay)

@@ -1420,10 +1420,10 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pb11::tuple histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
+    python_interface::tuple histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
     {
         std::pair<NdArray<uint32>, NdArray<double>> output = nc::histogram(inArray, inNumBins);
-        return pb11::make_tuple(output.first, output.second);
+        return python_interface::make_tuple(output.first, output.second);
     }
 
     //================================================================================
@@ -3137,7 +3137,7 @@ namespace FunctionsInterface
 
 //================================================================================
 
-void initFunctions(pb11::module& m)
+void initFunctions(python_interface::module& m)
 {
     // Functions.hpp
     m.def("absScalar", &FunctionsInterface::absScalar<double>);
@@ -3708,7 +3708,7 @@ void initFunctions(pb11::module& m)
     m.def("rad2degArray", &FunctionsInterface::rad2degArray<double>);
     m.def("radiansScalar", &FunctionsInterface::radiansScalar<double>);
     m.def("radiansArray", &FunctionsInterface::radiansArray<double>);
-    m.def("ravel", &FunctionsInterface::ravel<double>, pb11::return_value_policy::reference);
+    m.def("ravel", &FunctionsInterface::ravel<double>, python_interface::return_value_policy::reference);
     m.def("reciprocal", &FunctionsInterface::reciprocal<double>);
     m.def("reciprocal", &FunctionsInterface::reciprocal<ComplexDouble>);
     m.def("realScalar", &FunctionsInterface::realScalar<double>);
@@ -3717,14 +3717,18 @@ void initFunctions(pb11::module& m)
     m.def("remainderArray", &FunctionsInterface::remainderArray<double>);
     m.def("replace", &FunctionsInterface::replace<double>);
     m.def("replace", &FunctionsInterface::replace<ComplexDouble>);
-    m.def("reshape", &FunctionsInterface::reshapeInt<double>, pb11::return_value_policy::reference);
-    m.def("reshape", &FunctionsInterface::reshapeShape<double>, pb11::return_value_policy::reference);
-    m.def("reshape", &FunctionsInterface::reshapeValues<double>, pb11::return_value_policy::reference);
-    m.def("reshapeList", &FunctionsInterface::reshapeList<double>, pb11::return_value_policy::reference);
-    m.def("resizeFast", &FunctionsInterface::resizeFast<double>, pb11::return_value_policy::reference);
-    m.def("resizeFastList", &FunctionsInterface::resizeFastList<double>, pb11::return_value_policy::reference);
-    m.def("resizeSlow", &FunctionsInterface::resizeSlow<double>, pb11::return_value_policy::reference);
-    m.def("resizeSlowList", &FunctionsInterface::resizeSlowList<double>, pb11::return_value_policy::reference);
+    m.def("reshape", &FunctionsInterface::reshapeInt<double>, python_interface::return_value_policy::reference);
+    m.def("reshape", &FunctionsInterface::reshapeShape<double>, python_interface::return_value_policy::reference);
+    m.def("reshape", &FunctionsInterface::reshapeValues<double>, python_interface::return_value_policy::reference);
+    m.def("reshapeList", &FunctionsInterface::reshapeList<double>, python_interface::return_value_policy::reference);
+    m.def("resizeFast", &FunctionsInterface::resizeFast<double>, python_interface::return_value_policy::reference);
+    m.def("resizeFastList",
+          &FunctionsInterface::resizeFastList<double>,
+          python_interface::return_value_policy::reference);
+    m.def("resizeSlow", &FunctionsInterface::resizeSlow<double>, python_interface::return_value_policy::reference);
+    m.def("resizeSlowList",
+          &FunctionsInterface::resizeSlowList<double>,
+          python_interface::return_value_policy::reference);
     m.def("right_shift", &right_shift<uint32>);
     m.def("rintScalar", &FunctionsInterface::rintScalar<double>);
     m.def("rintArray", &FunctionsInterface::rintArray<double>);

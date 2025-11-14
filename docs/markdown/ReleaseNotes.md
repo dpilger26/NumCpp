@@ -1,5 +1,10 @@
 # Release Notes
 
+## Version 2.15.0
+
+* added python interface for Nanobind <https://nanobind.readthedocs.io/en/latest/index.html>
+  * use compiler flag `NUMCPP_INCLUDE_NANOBIND_PYTHON_INTERFACE` to enable
+
 ## Version 2.14.2
 
 * fixed an error in `ENURollPitchYawToECEFEuler()` function

@@ -504,7 +504,7 @@ namespace RandomInterface
 
 //================================================================================
 
-void initRandom(pb11::module& m)
+void initRandom(python_interface::module& m)
 {
     // Random.hpp
     NdArray<bool> (*bernoulliArray)(const Shape&, double) = &random::bernoulli;
@@ -659,9 +659,9 @@ void initRandom(pb11::module& m)
     m.def("weibull", weibullScalar);
 
     using RNG_t = random::RNG<>;
-    pb11::class_<RNG_t>(m, "RNG")
-        .def(pb11::init<>())
-        .def(pb11::init<int>())
+    python_interface::class_<RNG_t>(m, "RNG")
+        .def(python_interface::init<>())
+        .def(python_interface::init<int>())
         .def("bernoulli", &RandomInterface::RNG::bernoulliValue<RNG_t>)
         .def("bernoulli", &RandomInterface::RNG::bernoulliShape<RNG_t>)
 #ifndef NUMCPP_NO_USE_BOOST

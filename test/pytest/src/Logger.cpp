@@ -2,4 +2,4 @@
 
 //================================================================================
 
-void initLogger(pb11::module& /*m*/) { }
+void initLogger(python_interface::module& /*m*/) { }

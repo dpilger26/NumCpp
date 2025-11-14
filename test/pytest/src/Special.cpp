@@ -805,7 +805,7 @@ namespace SpecialInterface
 
 //================================================================================
 
-void initSpecial(pb11::module& m)
+void initSpecial(python_interface::module& m)
 {
 // Special.hpp
 #ifndef NUMCPP_NO_USE_BOOST

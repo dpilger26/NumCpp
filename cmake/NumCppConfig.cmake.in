@@ -53,7 +53,7 @@ if(NOT TARGET @PROJECT_NAME@::@PROJECT_NAME@)
         )
     endif()
 
-    if(NUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE OR NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE)
+    if(NUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE OR NUMCPP_INCLUDE_NANOBIND_PYTHON_INTERFACE OR NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE)
         find_package(Python REQUIRED
             COMPONENTS
             Interpreter
@@ -76,6 +76,20 @@ if(NOT TARGET @PROJECT_NAME@::@PROJECT_NAME@)
                 PROPERTY 
                 INTERFACE_LINK_LIBRARIES
                 pybind11::module
+            )
+        endif()
+
+        if(NUMCPP_INCLUDE_NANOBIND_PYTHON_INTERFACE)
+            find_package(nanobind CONFIG REQUIRED)
+            set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND 
+                PROPERTY 
+                INTERFACE_COMPILE_DEFINITIONS
+                NUMCPP_INCLUDE_NANOBIND_PYTHON_INTERFACE
+            )
+            set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND 
+                PROPERTY 
+                INTERFACE_LINK_LIBRARIES
+                nanobind::module
             )
         endif()
 

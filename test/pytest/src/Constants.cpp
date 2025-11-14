@@ -10,42 +10,42 @@
 
 //================================================================================
 
-void initConstants(pb11::module &m)
+void initConstants(interface_module& m)
 {
 #ifdef NUMCPP_NO_USE_BOOST
     m.attr("NUMCPP_NO_USE_BOOST") = true;
 #else
-    m.attr("NUMCPP_NO_USE_BOOST")        = false;
+    m.attr("NUMCPP_NO_USE_BOOST") = false;
 #endif
 
 #ifdef __cpp_lib_gcd_lcm
     m.attr("STL_GCD_LCM") = true;
 #else
-    m.attr("STL_GCD_LCM")                = false;
+    m.attr("STL_GCD_LCM") = false;
 #endif
 
 #ifdef __cpp_lib_clamp
     m.attr("STL_CLAMP") = true;
 #else
-    m.attr("STL_CLAMP")                  = false;
+    m.attr("STL_CLAMP") = false;
 #endif
 
 #ifdef __cpp_lib_hypot
     m.attr("STL_HYPOT") = true;
 #else
-    m.attr("STL_HYPOT")                  = false;
+    m.attr("STL_HYPOT") = false;
 #endif
 
 #ifdef __cpp_lib_math_special_functions
     m.attr("STL_SPECIAL_FUNCTIONS") = true;
 #else
-    m.attr("STL_SPECIAL_FUNCTIONS")      = false;
+    m.attr("STL_SPECIAL_FUNCTIONS") = false;
 #endif
 
 #ifdef __cpp_lib_execution
     m.attr("STL_LIB_EXECUTION") = true;
 #else
-    m.attr("STL_LIB_EXECUTION")          = false;
+    m.attr("STL_LIB_EXECUTION") = false;
 #endif
 
 #ifdef __cpp_lib_parallel_algorithm

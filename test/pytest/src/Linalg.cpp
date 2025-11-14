@@ -2,7 +2,6 @@
 
 #include "BindingsIncludes.hpp"
 
-
 //================================================================================
 
 namespace LinalgInterface
@@ -27,13 +26,13 @@ namespace LinalgInterface
     //================================================================================
 
     template<typename dtype>
-    pb11::tuple pivotLU_decomposition(const NdArray<dtype>& inArray)
+    python_interface::tuple pivotLU_decomposition(const NdArray<dtype>& inArray)
     {
         auto  lup = linalg::pivotLU_decomposition(inArray);
         auto& l   = std::get<0>(lup);
         auto& u   = std::get<1>(lup);
         auto& p   = std::get<2>(lup);
-        return pb11::make_tuple(nc2pybind(l), nc2pybind(u), nc2pybind(p));
+        return python_interface::make_tuple(nc2pybind(l), nc2pybind(u), nc2pybind(p));
     }
 
     //================================================================================
@@ -47,7 +46,7 @@ namespace LinalgInterface
 
 //================================================================================
 
-void initLinalg(pb11::module& m)
+void initLinalg(python_interface::module& m)
 {
     // Linalg.hpp
     m.def("cholesky", &linalg::cholesky<double>);

@@ -218,13 +218,13 @@ namespace Vec3Interface
 
 //================================================================================
 
-void initVector(pb11::module& m)
+void initVector(python_interface::module& m)
 {
     // Vec2.hpp
-    pb11::class_<Vec2>(m, "Vec2")
-        .def(pb11::init<>())
-        .def(pb11::init<double, double>())
-        .def(pb11::init<NdArray<double>>())
+    python_interface::class_<Vec2>(m, "Vec2")
+        .def(python_interface::init<>())
+        .def(python_interface::init<double, double>())
+        .def(python_interface::init<NdArray<double>>())
         .def_readwrite("x", &Vec2::x)
         .def_readwrite("y", &Vec2::y)
         .def("angle", &Vec2::angle)
@@ -243,12 +243,12 @@ void initVector(pb11::module& m)
         .def_static("up", &Vec2::up)
         .def("__eq__", &Vec2::operator==)
         .def("__ne__", &Vec2::operator!=)
-        .def("__iadd__", &Vec2Interface::plusEqualScalar, pb11::return_value_policy::reference)
-        .def("__iadd__", &Vec2Interface::plusEqualVec2, pb11::return_value_policy::reference)
-        .def("__isub__", &Vec2Interface::minusEqualVec2, pb11::return_value_policy::reference)
-        .def("__isub__", &Vec2Interface::minusEqualScalar, pb11::return_value_policy::reference)
-        .def("__imul__", &Vec2::operator*=, pb11::return_value_policy::reference)
-        .def("__itruediv__", &Vec2::operator/=, pb11::return_value_policy::reference);
+        .def("__iadd__", &Vec2Interface::plusEqualScalar, python_interface::return_value_policy::reference)
+        .def("__iadd__", &Vec2Interface::plusEqualVec2, python_interface::return_value_policy::reference)
+        .def("__isub__", &Vec2Interface::minusEqualVec2, python_interface::return_value_policy::reference)
+        .def("__isub__", &Vec2Interface::minusEqualScalar, python_interface::return_value_policy::reference)
+        .def("__imul__", &Vec2::operator*=, python_interface::return_value_policy::reference)
+        .def("__itruediv__", &Vec2::operator/=, python_interface::return_value_policy::reference);
 
     m.def("Vec2_addVec2", &Vec2Interface::addVec2);
     m.def("Vec2_addVec2Scalar", &Vec2Interface::addVec2Scalar);
@@ -262,11 +262,11 @@ void initVector(pb11::module& m)
     m.def("Vec2_print", &Vec2Interface::print);
 
     // Vec3.hpp
-    pb11::class_<Vec3>(m, "Vec3")
-        .def(pb11::init<>())
-        .def(pb11::init<double, double, double>())
-        .def(pb11::init<NdArray<double>>())
-        .def(pb11::init<Vec2>())
+    python_interface::class_<Vec3>(m, "Vec3")
+        .def(python_interface::init<>())
+        .def(python_interface::init<double, double, double>())
+        .def(python_interface::init<NdArray<double>>())
+        .def(python_interface::init<Vec2>())
         .def_readwrite("x", &Vec3::x)
         .def_readwrite("y", &Vec3::y)
         .def_readwrite("z", &Vec3::z)
@@ -289,12 +289,12 @@ void initVector(pb11::module& m)
         .def_static("up", &Vec3::up)
         .def("__eq__", &Vec3::operator==)
         .def("__ne__", &Vec3::operator!=)
-        .def("__iadd__", &Vec3Interface::plusEqualScalar, pb11::return_value_policy::reference)
-        .def("__iadd__", &Vec3Interface::plusEqualVec3, pb11::return_value_policy::reference)
-        .def("__isub__", &Vec3Interface::minusEqualScalar, pb11::return_value_policy::reference)
-        .def("__isub__", &Vec3Interface::minusEqualVec3, pb11::return_value_policy::reference)
-        .def("__imul__", &Vec3::operator*=, pb11::return_value_policy::reference)
-        .def("__itruediv__", &Vec3::operator/=, pb11::return_value_policy::reference);
+        .def("__iadd__", &Vec3Interface::plusEqualScalar, python_interface::return_value_policy::reference)
+        .def("__iadd__", &Vec3Interface::plusEqualVec3, python_interface::return_value_policy::reference)
+        .def("__isub__", &Vec3Interface::minusEqualScalar, python_interface::return_value_policy::reference)
+        .def("__isub__", &Vec3Interface::minusEqualVec3, python_interface::return_value_policy::reference)
+        .def("__imul__", &Vec3::operator*=, python_interface::return_value_policy::reference)
+        .def("__itruediv__", &Vec3::operator/=, python_interface::return_value_policy::reference);
 
     m.def("Vec3_addVec3", &Vec3Interface::addVec3);
     m.def("Vec3_addVec3Scalar", &Vec3Interface::addVec3Scalar);

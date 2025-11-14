@@ -54,7 +54,7 @@ namespace RootsInterface
 
 //================================================================================
 
-void initRoots(pb11::module& m)
+void initRoots(python_interface::module& m)
 {
     // Roots.hpp
     m.def("bisection_roots", &RootsInterface::bisection);
