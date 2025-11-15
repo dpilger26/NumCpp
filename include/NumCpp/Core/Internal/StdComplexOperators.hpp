@@ -28,6 +28,7 @@
 #pragma once
 
 #include <complex>
+#include <utility>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
@@ -114,4 +115,17 @@ namespace nc
 
         return std::complex<Out>(static_cast<Out>(value.real()), static_cast<Out>(value.imag()));
     }
+
+    //============================================================================
+    // Class Description:
+    /// Hash Functor for complex types
+    ///
+    template<typename dtype>
+    struct ComplexHash
+    {
+        std::size_t operator()(const std::complex<dtype>& val) const
+        {
+            return std::hash<dtype>()(val.real()) ^ (std::hash<dtype>()(val.imag()) << 1);
+        }
+    };
 } // namespace nc

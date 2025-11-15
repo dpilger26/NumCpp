@@ -12543,6 +12543,37 @@ def test_not_equal():
 
 
 ####################################################################################
+def test_find_duplicates():
+    shapeInput = np.random.randint(
+        20,
+        100,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayUInt32(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.find_duplicates(cArray).flatten(), np.sort(np.array(np.rec.find_duplicate(data.flatten()))))
+
+    shapeInput = np.random.randint(
+        20,
+        100,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 10, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 10, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.find_duplicates(cArray).flatten(), np.sort(np.array(np.rec.find_duplicate(data.flatten()))))
+
+
+####################################################################################
 def test_ones():
     shapeInput = np.random.randint(
         1,

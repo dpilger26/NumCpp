@@ -1731,6 +1731,22 @@ namespace FunctionsInterface
 
     //================================================================================
 
+    template<typename dtype>
+    pbArrayGeneric find_duplicates(const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(nc::find_duplicates(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric find_duplicatesComplex(const NdArray<std::complex<dtype>>& inArray)
+    {
+        return nc2pybind(nc::find_duplicates(inArray));
+    }
+
+    //================================================================================
+
 #if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype lcmScalar(dtype inValue1, dtype inValue2)
@@ -3390,6 +3406,8 @@ void initFunctions(pb11::module& m)
     m.def("fillDiagonal", &fillDiagonal<double>);
     m.def("find", &FunctionsInterface::find);
     m.def("findN", &FunctionsInterface::findN);
+    m.def("find_duplicates", &FunctionsInterface::find_duplicates<uint32>);
+    m.def("find_duplicates", &FunctionsInterface::find_duplicatesComplex<double>);
     m.def("fixScalar", &FunctionsInterface::fixScalar<double>);
     m.def("fixArray", &FunctionsInterface::fixArray<double>);
     m.def("flatten", &flatten<double>);
