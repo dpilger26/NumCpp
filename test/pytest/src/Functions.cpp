@@ -1021,6 +1021,15 @@ namespace FunctionsInterface
 
     //================================================================================
 
+    template<typename dtype>
+    std::pair<pbArrayGeneric, pbArrayGeneric> divmod(const NdArray<dtype>& in1, const NdArray<dtype>& in2)
+    {
+        const auto& [div, mod] = nc::divmod(in1, in2);
+        return std::make_pair(nc2pybind(div), nc2pybind(mod));
+    }
+
+    //================================================================================
+
     template<typename dtype1, typename dtype2>
     pbArrayGeneric dot(const NdArray<dtype1>& inArray1, const NdArray<dtype2>& inArray2)
     {
@@ -1143,6 +1152,22 @@ namespace FunctionsInterface
     pbArrayGeneric findN(const NdArray<bool>& inArray, uint32 n)
     {
         return nc2pybind(nc::find(inArray, n));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric find_duplicates(const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(nc::find_duplicates(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric find_duplicatesComplex(const NdArray<std::complex<dtype>>& inArray)
+    {
+        return nc2pybind(nc::find_duplicates(inArray));
     }
 
     //================================================================================
@@ -1727,22 +1752,6 @@ namespace FunctionsInterface
     pbArrayGeneric noneArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2pybind(none(inArray, inAxis));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric find_duplicates(const NdArray<dtype>& inArray)
-    {
-        return nc2pybind(nc::find_duplicates(inArray));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric find_duplicatesComplex(const NdArray<std::complex<dtype>>& inArray)
-    {
-        return nc2pybind(nc::find_duplicates(inArray));
     }
 
     //================================================================================
@@ -3372,6 +3381,8 @@ void initFunctions(pb11::module& m)
     m.def("divide", &FunctionsInterface::divide<ComplexDouble, NdArray<double>>);
     m.def("divide", &FunctionsInterface::divide<NdArray<ComplexDouble>, double>);
     m.def("divide", &FunctionsInterface::divide<double, NdArray<ComplexDouble>>);
+    m.def("divmod", &FunctionsInterface::divmod<uint32>);
+    m.def("divmod", &FunctionsInterface::divmod<double>);
     m.def("dot", &FunctionsInterface::dot<double, double>);
     m.def("dot", &FunctionsInterface::dot<ComplexDouble, ComplexDouble>);
     m.def("dot", &FunctionsInterface::dot<double, ComplexDouble>);

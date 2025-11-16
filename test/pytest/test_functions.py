@@ -1341,7 +1341,10 @@ def test_argpartition():
     allPass = True
     for idx, row in enumerate(argPartitionedArray):
         partitionedArrayRow = data[idx, row]
-        if not (np.all(partitionedArrayRow[:kthElement] <= partitionedArrayRow[kthElement]) and np.all(partitionedArrayRow[kthElement:] >= partitionedArrayRow[kthElement])):
+        if not (
+            np.all(partitionedArrayRow[:kthElement] <= partitionedArrayRow[kthElement])
+            and np.all(partitionedArrayRow[kthElement:] >= partitionedArrayRow[kthElement])
+        ):
             allPass = False
             break
     assert allPass
@@ -1371,7 +1374,10 @@ def test_argpartition():
     allPass = True
     for idx, row in enumerate(argPartitionedArray):
         partitionedArrayRow = data[idx, row]
-        if not (np.all(partitionedArrayRow[:kthElement] <= partitionedArrayRow[kthElement]) and np.all(partitionedArrayRow[kthElement:] >= partitionedArrayRow[kthElement])):
+        if not (
+            np.all(partitionedArrayRow[:kthElement] <= partitionedArrayRow[kthElement])
+            and np.all(partitionedArrayRow[kthElement:] >= partitionedArrayRow[kthElement])
+        ):
             allPass = False
             break
     assert allPass
@@ -4864,6 +4870,47 @@ def test_divide():
     cArray.setArray(data)
     value = np.random.randint(-100, 100)
     assert np.array_equal(np.round(NumCpp.divide(value, cArray), 8), np.round(value / data, 8))
+
+
+####################################################################################
+def test_divmod():
+    shapePy = np.random.randint(
+        10,
+        100,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapePy[0], shapePy[0])
+    cArray1 = NumCpp.NdArrayUInt32(shape)
+    cArray2 = NumCpp.NdArrayUInt32(shape)
+    data1 = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    data2 = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    divNumPy, modNumPy = np.divmod(data1, data2)
+    divNumCpp, modNumCpp = NumCpp.divmod(cArray1, cArray2)
+    assert np.array_equal(divNumCpp, divNumPy) and np.array_equal(modNumCpp, modNumPy)
+
+    shapePy = np.random.randint(
+        10,
+        100,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapePy[0], shapePy[0])
+    cArray1 = NumCpp.NdArray(shape)
+    cArray2 = NumCpp.NdArray(shape)
+    data1 = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(float)
+    data2 = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(float)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    divNumPy, modNumPy = np.divmod(data1, data2)
+    divNumCpp, modNumCpp = NumCpp.divmod(cArray1, cArray2)
+    assert np.array_equal(np.round(divNumCpp, 8), np.round(divNumPy, 8)) and np.array_equal(
+        np.round(modNumCpp, 8), np.round(modNumPy, 8)
+    )
 
 
 ####################################################################################
@@ -12142,10 +12189,7 @@ def test_newbyteorderArray():
         ],
     ).item()
     data = np.asarray([value], dtype=np.uint32)
-    assert (
-        NumCpp.newbyteorderScalar(value, NumCpp.Endian.BIG)
-        == data.view(data.dtype.newbyteorder('S'))
-    )
+    assert NumCpp.newbyteorderScalar(value, NumCpp.Endian.BIG) == data.view(data.dtype.newbyteorder("S"))
 
     shapeInput = np.random.randint(
         20,
@@ -12158,7 +12202,7 @@ def test_newbyteorderArray():
     cArray = NumCpp.NdArrayUInt32(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint32)
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.newbyteorderArray(cArray, NumCpp.Endian.BIG), data.view(data.dtype.newbyteorder('S')))
+    assert np.array_equal(NumCpp.newbyteorderArray(cArray, NumCpp.Endian.BIG), data.view(data.dtype.newbyteorder("S")))
 
 
 ####################################################################################
@@ -12555,7 +12599,9 @@ def test_find_duplicates():
     cArray = NumCpp.NdArrayUInt32(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.find_duplicates(cArray).flatten(), np.sort(np.array(np.rec.find_duplicate(data.flatten()))))
+    assert np.array_equal(
+        NumCpp.find_duplicates(cArray).flatten(), np.sort(np.array(np.rec.find_duplicate(data.flatten())))
+    )
 
     shapeInput = np.random.randint(
         20,
@@ -12570,7 +12616,9 @@ def test_find_duplicates():
     imag = np.random.randint(1, 10, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.find_duplicates(cArray).flatten(), np.sort(np.array(np.rec.find_duplicate(data.flatten()))))
+    assert np.array_equal(
+        NumCpp.find_duplicates(cArray).flatten(), np.sort(np.array(np.rec.find_duplicate(data.flatten())))
+    )
 
 
 ####################################################################################
@@ -16844,9 +16892,7 @@ def test_row_stack():
     cArray2.setArray(data2)
     cArray3.setArray(data3)
     cArray4.setArray(data4)
-    assert np.array_equal(
-        NumCpp.vstack(cArray1, cArray2, cArray3, cArray4), np.vstack([data1, data2, data3, data4])
-    )
+    assert np.array_equal(NumCpp.vstack(cArray1, cArray2, cArray3, cArray4), np.vstack([data1, data2, data3, data4]))
     assert np.array_equal(
         NumCpp.row_stack_vec(cArray1, cArray2, cArray3, cArray4), np.vstack([data1, data2, data3, data4])
     )

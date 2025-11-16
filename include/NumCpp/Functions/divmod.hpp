@@ -27,11 +27,11 @@
 ///
 #pragma once
 
-#include <complex>
-#include <numeric>
+#include <cmath>
+#include <type_traits>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -45,73 +45,36 @@ namespace nc
     ///
     /// @param inArray1
     /// @param inArray2
-    /// @param inAxis (Optional, default NONE)
     ///
     /// @return NdArray
     ///
     template<typename dtype>
-    std::pair<NdArray<dtype>, NdArray<dtype>>
-        divmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis inAxis = Axis::NONE)
+    std::pair<NdArray<dtype>, NdArray<dtype>> divmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        switch (inAxis)
+        if (inArray1.size() != inArray2.size())
         {
-            case Axis::NONE:
+            THROW_INVALID_ARGUMENT_ERROR("Arrays must have the same size.");
+        }
+
+        auto div = NdArray<dtype>(inArray1.shape());
+        auto mod = NdArray<dtype>(inArray1.shape());
+
+        for (auto i = 0u; i < inArray1.size(); ++i)
+        {
+            if constexpr (std::is_floating_point_v<dtype>)
             {
+                div[i] = std::floor(inArray1[i] / inArray2[i]);
+                mod[i] = std::fmod(inArray1[i], inArray2[i]);
             }
-            case Axis::COL:
+            else
             {
-            }
-            case Axis::ROW:
-            {
-                return divmod(inArray1.transpose(), inArray2.transpose(), Axis::COL);
-            }
-            default:
-            {
-                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
-                return {};
+                div[i] = inArray1[i] / inArray2[i];
+                mod[i] = inArray1[i] % inArray2[i];
             }
         }
-    }
 
-    //===========================================================================
-    // Method Description:
-    /// Return element-wise quotient and remainder simultaneously along the specified axis.
-    ///
-    /// NumPy Reference: https://numpy.org/doc/2.3/reference/generated/numpy.divmod.html#numpy-divmod
-    ///
-    /// @param inArray1
-    /// @param inArray2
-    /// @param inAxis (Optional, default NONE)
-    ///
-    /// @return NdArray
-    ///
-    template<typename dtype>
-    std::pair<NdArray<std::complex<dtype>>, NdArray<std::complex<dtype>>>
-        divmod(const NdArray<std::complex<dtype>>& inArray1,
-               const NdArray<std::complex<dtype>>& inArray2,
-               Axis                                inAxis = Axis::NONE)
-    {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
-        switch (inAxis)
-        {
-            case Axis::NONE:
-            {
-            }
-            case Axis::COL:
-            {
-            }
-            case Axis::ROW:
-            {
-                return divmod(inArray1.transpose(), inArray2.transpose(), Axis::COL);
-            }
-            default:
-            {
-                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
-                return {};
-            }
-        }
+        return std::make_pair(div, mod);
     }
 } // namespace nc

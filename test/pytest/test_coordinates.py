@@ -935,6 +935,7 @@ def test_ECEFEulerToENURollPitchYaw():
     np.testing.assert_approx_equal(platform3EulerCalc.theta, platform3Euler.theta, 5)
     np.testing.assert_approx_equal(platform3EulerCalc.phi, platform3Euler.phi, 5)
 
+
 ####################################################################################
 def test_ECEFtoAER():
     x1, y1, z1 = np.random.uniform(1, 1.1, 3) * NumCpp.EARTH_EQUATORIAL_RADIUS

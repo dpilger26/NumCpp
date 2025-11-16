@@ -114,10 +114,7 @@ def test_lstsq():
     bData = np.random.randint(
         1,
         100,
-        [
-            shape.rows,
-            bCols
-        ],
+        [shape.rows, bCols],
     )
     aArray.setArray(aData)
     bArray.setArray(bData)

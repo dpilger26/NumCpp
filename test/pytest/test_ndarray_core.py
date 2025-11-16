@@ -4427,7 +4427,10 @@ def test_argpartition():
     allPass = True
     for idx, row in enumerate(argPartitionedArray):
         partitionedArrayRow = data[idx, row]
-        if not (np.all(partitionedArrayRow[:kthElement] <= partitionedArrayRow[kthElement]) and np.all(partitionedArrayRow[kthElement:] >= partitionedArrayRow[kthElement])):
+        if not (
+            np.all(partitionedArrayRow[:kthElement] <= partitionedArrayRow[kthElement])
+            and np.all(partitionedArrayRow[kthElement:] >= partitionedArrayRow[kthElement])
+        ):
             allPass = False
             break
     assert allPass
@@ -4457,7 +4460,10 @@ def test_argpartition():
     allPass = True
     for idx, row in enumerate(argPartitionedArray):
         partitionedArrayRow = data[idx, row]
-        if not (np.all(partitionedArrayRow[:kthElement] <= partitionedArrayRow[kthElement]) and np.all(partitionedArrayRow[kthElement:] >= partitionedArrayRow[kthElement])):
+        if not (
+            np.all(partitionedArrayRow[:kthElement] <= partitionedArrayRow[kthElement])
+            and np.all(partitionedArrayRow[kthElement:] >= partitionedArrayRow[kthElement])
+        ):
             allPass = False
             break
     assert allPass
@@ -6259,7 +6265,9 @@ def test_newbyteorder():
     cArray = NumCpp.NdArrayUInt32(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
-    assert np.array_equal(cArray.newbyteorder(NumCpp.Endian.BIG).astype(np.uint32), data.view(data.dtype.newbyteorder('S')))
+    assert np.array_equal(
+        cArray.newbyteorder(NumCpp.Endian.BIG).astype(np.uint32), data.view(data.dtype.newbyteorder("S"))
+    )
 
 
 ####################################################################################
