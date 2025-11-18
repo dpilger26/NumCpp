@@ -189,6 +189,7 @@
 #include "NumCpp/Functions/min.hpp"
 #include "NumCpp/Functions/minimum.hpp"
 #include "NumCpp/Functions/mod.hpp"
+#include "NumCpp/Functions/mode.hpp"
 #include "NumCpp/Functions/multiply.hpp"
 #include "NumCpp/Functions/nan_to_num.hpp"
 #include "NumCpp/Functions/nanargmax.hpp"

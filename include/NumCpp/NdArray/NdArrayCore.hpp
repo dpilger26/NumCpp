@@ -4824,6 +4824,7 @@ namespace nc
                     ofile << inSep;
                 }
             }
+            ofile << '\n';
             ofile.close();
         }
 

@@ -3594,6 +3594,10 @@ void initFunctions(pb11::module& m)
     m.def("minimum", &FunctionsInterface::minimumScalarArray<double>);
     m.def("minimum", &FunctionsInterface::minimumScalarArray<ComplexDouble>);
     m.def("mod", &mod<uint32>);
+    NdArray<uint32> (*modeUint32)(const NdArray<uint32>&, Axis) = &mode<uint32>;
+    m.def("mode", modeUint32);
+    NdArray<ComplexDouble> (*modeComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &mode<double>;
+    m.def("mode", modeComplexDouble);
     m.def("multiply", &FunctionsInterface::multiply<NdArray<double>, NdArray<double>>);
     m.def("multiply", &FunctionsInterface::multiply<NdArray<double>, double>);
     m.def("multiply", &FunctionsInterface::multiply<double, NdArray<double>>);

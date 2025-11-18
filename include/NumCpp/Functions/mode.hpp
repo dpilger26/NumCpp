@@ -27,9 +27,14 @@
 ///
 #pragma once
 
+#include <algorithm>
 #include <complex>
+#include <unordered_map>
+#include <utility>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -46,20 +51,54 @@ namespace nc
     ///
     /// @return NdArray
     ///
-    template<typename dtype>
-    NdArray<double> mode(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    template<typename dtype, typename HashFunction = std::hash<dtype>>
+    NdArray<dtype> mode(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        const auto modeFunction =
+            [](typename NdArray<dtype>::const_iterator iterBegin, typename NdArray<dtype>::const_iterator iterEnd)
+        {
+            std::unordered_map<dtype, int, HashFunction> counts{};
+            auto                                         greatestCount = int{ 0 };
+            dtype                                        mode{};
+            for (auto iter = iterBegin; iter != iterEnd; ++iter)
+            {
+                const auto& value = *iter;
+
+                if (counts.count(value) > 0)
+                {
+                    auto& count = counts[value];
+                    ++count;
+                    if (count > greatestCount)
+                    {
+                        greatestCount = count;
+                        mode          = value;
+                    }
+                }
+                else
+                {
+                    counts.insert({ value, 1 });
+                }
+            }
+
+            return mode;
+        };
 
         switch (inAxis)
         {
             case Axis::NONE:
             {
-                return {};
+                NdArray<dtype> returnArray = { modeFunction(inArray.cbegin(), inArray.cend()) };
+                return returnArray;
             }
             case Axis::COL:
             {
-                return {};
+                NdArray<dtype> returnArray(1, inArray.numRows());
+                for (uint32 row = 0; row < inArray.numRows(); ++row)
+                {
+                    returnArray(0, row) = modeFunction(inArray.cbegin(row), inArray.cend(row));
+                }
+
+                return returnArray;
             }
             case Axis::ROW:
             {
@@ -85,29 +124,10 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> mode(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<std::complex<dtype>> mode(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        switch (inAxis)
-        {
-            case Axis::NONE:
-            {
-                return {};
-            }
-            case Axis::COL:
-            {
-                return {};
-            }
-            case Axis::ROW:
-            {
-                return mode(inArray.transpose(), Axis::COL);
-            }
-            default:
-            {
-                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
-                return {};
-            }
-        }
+        return mode<std::complex<dtype>, ComplexHash<dtype>>(inArray, inAxis);
     }
 } // namespace nc
