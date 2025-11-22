@@ -29,12 +29,54 @@
 
 #include <complex>
 
+#include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Functions/complex.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
+    namespace detail
+    {
+        //===========================================================================
+        // Method Description:
+        /// Fast Fourier Transform
+        ///
+        /// @param x the data
+        /// @param n Length of the transformed axis of the output.
+        ///
+        NdArray<std::complex<double>> fft(const NdArray<std::complex<double>>& x, uint32 n)
+        {
+            if (n == 0)
+            {
+                return {};
+            }
+
+            auto result = NdArray<std::complex<double>>(1, n);
+
+            stl_algorithms::for_each(result.begin(),
+                                     result.end(),
+                                     [n, &x, &result](auto& resultElement)
+                                     {
+                                         const auto k = static_cast<double>(&resultElement - result.data());
+                                         const auto minusTwoPiKOverN = -constants::twoPi * k / static_cast<double>(n);
+                                         resultElement               = std::complex<double>{ 0., 0. };
+                                         std::for_each(x.begin(),
+                                                       x.begin() + std::min(n, x.size()),
+                                                       [minusTwoPiKOverN, &resultElement, &x, n](const auto& value)
+                                                       {
+                                                           const auto m     = static_cast<double>(&value - x.data());
+                                                           const auto angle = minusTwoPiKOverN * m;
+                                                           resultElement += (value * std::polar(1., angle));
+                                                       });
+                                     });
+
+            return result;
+        }
+    } // namespace detail
+
     //===========================================================================
     // Method Description:
     /// Compute the one-dimensional discrete Fourier Transform.
@@ -56,15 +98,29 @@ namespace nc
         {
             case Axis::NONE:
             {
-                return {};
+                const auto data = nc::complex<dtype, double>(inArray);
+                return detail::fft(data, inN);
             }
             case Axis::COL:
             {
-                return {};
+                auto        data           = nc::complex<dtype, double>(inArray);
+                const auto& shape          = inArray.shape();
+                auto        result         = NdArray<std::complex<double>>(shape.rows, inN);
+                const auto  dataColSlice   = data.cSlice();
+                const auto  resultColSlice = result.cSlice();
+
+                for (uint32 row = 0; row < data.numRows(); ++row)
+                {
+                    const auto rowData   = data(row, dataColSlice);
+                    const auto rowResult = detail::fft(rowData, inN);
+                    result.put(row, resultColSlice, rowResult);
+                }
+
+                return result;
             }
             case Axis::ROW:
             {
-                return fft(inArray.transpose(), inN, Axis::COL);
+                return fft(inArray.transpose(), inN, Axis::COL).transpose();
             }
             default:
             {
@@ -133,15 +189,29 @@ namespace nc
         {
             case Axis::NONE:
             {
-                return {};
+                const auto data = nc::complex<dtype, double>(inArray);
+                return detail::fft(data, inN);
             }
             case Axis::COL:
             {
-                return {};
+                const auto  data           = nc::complex<dtype, double>(inArray);
+                const auto& shape          = inArray.shape();
+                auto        result         = NdArray<std::complex<double>>(shape.rows, inN);
+                const auto  dataColSlice   = data.cSlice();
+                const auto  resultColSlice = result.cSlice();
+
+                for (uint32 row = 0; row < data.numRows(); ++row)
+                {
+                    const auto rowData   = data(row, dataColSlice);
+                    const auto rowResult = detail::fft(rowData, inN);
+                    result.put(row, resultColSlice, rowResult);
+                }
+
+                return result;
             }
             case Axis::ROW:
             {
-                return fft(inArray.transpose(), inN, Axis::COL);
+                return fft(inArray.transpose(), inN, Axis::COL).transpose();
             }
             default:
             {

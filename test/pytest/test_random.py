@@ -843,7 +843,9 @@ def test_RNG_geometric():
 
 
 ####################################################################################
-@pytest.mark.skip(reason="This segfaults right now, but I'm pretty sure it is just the pytest test, nothing wrong with the actual code...")
+@pytest.mark.skip(
+    reason="This segfaults right now, but I'm pretty sure it is just the pytest test, nothing wrong with the actual code..."
+)
 def test_RNG_laplace():
     if NumCpp.NUMCPP_NO_USE_BOOST:
         return

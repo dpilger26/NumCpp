@@ -5359,6 +5359,303 @@ def test_eye():
 
 
 ####################################################################################
+def test_fft():
+    # real input, axis none, default n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert np.array_equal(
+        np.round(NumCpp.fft(cArray, NumCpp.Axis.NONE), 6).flatten(), np.round(np.fft.fft(data.flatten()), 6)
+    )
+
+    # real input, axis none, smaller n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    n = np.random.randint(1, data.size)
+    assert np.array_equal(
+        np.round(NumCpp.fft(cArray, n, NumCpp.Axis.NONE), 6).flatten(), np.round(np.fft.fft(data.flatten(), n), 6)
+    )
+
+    # real input, axis none, larger n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    n = np.random.randint(data.size, data.size + 20)
+    assert np.array_equal(
+        np.round(NumCpp.fft(cArray, n, NumCpp.Axis.NONE), 6).flatten(), np.round(np.fft.fft(data.flatten(), n), 6)
+    )
+
+    # complex input, axis none, default n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(
+        np.round(NumCpp.fft(cArray, NumCpp.Axis.NONE), 6).flatten(), np.round(np.fft.fft(data.flatten()), 6)
+    )
+
+    # complex input, axis none, smaller n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    n = np.random.randint(1, data.size)
+    assert np.array_equal(
+        np.round(NumCpp.fft(cArray, n, NumCpp.Axis.NONE), 6).flatten(), np.round(np.fft.fft(data.flatten(), n), 6)
+    )
+
+    # complex input, axis none, larger n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    n = np.random.randint(data.size, data.size + 20)
+    assert np.array_equal(
+        np.round(NumCpp.fft(cArray, n, NumCpp.Axis.NONE), 6).flatten(), np.round(np.fft.fft(data.flatten(), n), 6)
+    )
+
+    # real input, axis row, default n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert np.array_equal(np.round(NumCpp.fft(cArray, NumCpp.Axis.ROW), 6), np.round(np.fft.fft(data, axis=0), 6))
+
+    # real input, axis row, smaller n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    n = np.random.randint(1, shape.rows)
+    assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.ROW), 6), np.round(np.fft.fft(data, n, axis=0), 6))
+
+    # real input, axis row, larger n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    n = np.random.randint(shape.rows, shape.rows + 20)
+    assert np.array_equal(np.round(NumCpp.fft(cArray, NumCpp.Axis.ROW), 6), np.round(np.fft.fft(data, axis=0), 6))
+
+    # complex input, axis row, default n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(np.round(NumCpp.fft(cArray, NumCpp.Axis.ROW), 6), np.round(np.fft.fft(data, axis=0), 6))
+
+    # complex input, axis row, smaller n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    n = np.random.randint(1, shape.rows)
+    assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.ROW), 6), np.round(np.fft.fft(data, n, axis=0), 6))
+
+    # complex input, axis row, larger n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    n = np.random.randint(shape.rows, shape.rows + 20)
+    assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.ROW), 6), np.round(np.fft.fft(data, n, axis=0), 6))
+
+    # real input, axis col, default n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert np.array_equal(np.round(NumCpp.fft(cArray, NumCpp.Axis.COL), 6), np.round(np.fft.fft(data, axis=1), 6))
+
+    # real input, axis col, smaller n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    n = np.random.randint(1, shape.cols)
+    assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.COL), 6), np.round(np.fft.fft(data, n, axis=1), 6))
+
+    # real input, axis col, larger n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    n = np.random.randint(shape.cols, shape.cols + 20)
+    assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.COL), 6), np.round(np.fft.fft(data, n, axis=1), 6))
+
+    # complex input, axis col, default n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(np.round(NumCpp.fft(cArray, NumCpp.Axis.COL), 6), np.round(np.fft.fft(data, axis=1), 6))
+
+    # complex input, axis col, smaller n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    n = np.random.randint(1, shape.cols)
+    assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.COL), 6), np.round(np.fft.fft(data, n, axis=1), 6))
+
+    # complex input, axis col, larger n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    n = np.random.randint(shape.cols, shape.cols + 20)
+    assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.COL), 6), np.round(np.fft.fft(data, n, axis=1), 6))
+
+
+####################################################################################
 def test_fill_diagonal():
     shapeInput = np.random.randint(
         20,
@@ -5993,7 +6290,9 @@ def test_fmod():
 
 
 ####################################################################################
-@pytest.mark.skip(reason="This segfaults right now, but I'm pretty sure it is just the pytest test, nothing wrong with the actual code...")
+@pytest.mark.skip(
+    reason="This segfaults right now, but I'm pretty sure it is just the pytest test, nothing wrong with the actual code..."
+)
 def test_fromfile():
     shapeInput = np.random.randint(
         20,
@@ -6028,7 +6327,7 @@ def test_fromfile():
     cArray.setArray(data)
     with tempfile.TemporaryDirectory() as tempDir:
         tempFile = os.path.join(tempDir, "NdArrayDump")
-        NumCpp.tofile(cArray, tempFile, ' ')
+        NumCpp.tofile(cArray, tempFile, " ")
         assert os.path.exists(tempFile + ".txt")
         data2 = NumCpp.fromfile(tempFile + ".txt", " ").reshape(shapeInput)
         assert np.array_equal(data, data2)
@@ -6179,7 +6478,9 @@ def test_fromiter():
 
 
 ####################################################################################
-@pytest.mark.skip(reason="This segfaults right now, but I'm pretty sure it is just the pytest test, nothing wrong with the actual code...")
+@pytest.mark.skip(
+    reason="This segfaults right now, but I'm pretty sure it is just the pytest test, nothing wrong with the actual code..."
+)
 def test_fromstring():
     seperator = " "
     shape = np.random.randint(
@@ -18214,7 +18515,9 @@ def test_tile():
 
 
 ####################################################################################
-@pytest.mark.skip(reason="This segfaults right now, but I'm pretty sure it is just the pytest test, nothing wrong with the actual code...")
+@pytest.mark.skip(
+    reason="This segfaults right now, but I'm pretty sure it is just the pytest test, nothing wrong with the actual code..."
+)
 def test_tofile():
     shapeInput = np.random.randint(
         20,
