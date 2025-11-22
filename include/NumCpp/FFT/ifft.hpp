@@ -33,7 +33,7 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::fft
 {
     //===========================================================================
     // Method Description:
@@ -189,4 +189,4 @@ namespace nc
             }
         }
     }
-} // namespace nc
+} // namespace nc::fft

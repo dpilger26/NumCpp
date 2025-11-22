@@ -11,6 +11,7 @@ void initDataCube(pb11::module&);
 #ifndef NUMCPP_NO_USE_BOOST
 void initDateTime(pb11::module&);
 #endif
+void initFFT(pb11::module&);
 void initFilter(pb11::module&);
 void initFunctions(pb11::module&);
 void initImageProcessing(pb11::module&);
@@ -39,6 +40,7 @@ PYBIND11_MODULE(NumCppPy, m)
 #ifndef NUMCPP_NO_USE_BOOST
     initDateTime(m);
 #endif
+    initFFT(m);
     initFilter(m);
     initFunctions(m);
     initImageProcessing(m);

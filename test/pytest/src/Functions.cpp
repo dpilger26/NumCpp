@@ -1142,38 +1142,6 @@ namespace FunctionsInterface
 
     //================================================================================
 
-    template<typename dtype>
-    pbArrayGeneric fft(const NdArray<dtype>& inArray, Axis inAxis)
-    {
-        return nc2pybind(nc::fft(inArray, inAxis));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric fftN(const NdArray<dtype>& inArray, uint32 inN, Axis inAxis)
-    {
-        return nc2pybind(nc::fft(inArray, inN, inAxis));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric fftComplex(const NdArray<std::complex<dtype>>& inArray, Axis inAxis)
-    {
-        return nc2pybind(nc::fft(inArray, inAxis));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric fftComplexN(const NdArray<std::complex<dtype>>& inArray, uint32 inN, Axis inAxis)
-    {
-        return nc2pybind(nc::fft(inArray, inN, inAxis));
-    }
-
-    //================================================================================
-
     pbArrayGeneric find(const NdArray<bool>& inArray)
     {
         return nc2pybind(nc::find(inArray));
@@ -3446,10 +3414,6 @@ void initFunctions(pb11::module& m)
     m.def("eyeShape", &FunctionsInterface::eyeShape<double>);
     m.def("eyeShapeComplex", &FunctionsInterface::eyeShape<ComplexDouble>);
 
-    m.def("fft", &FunctionsInterface::fft<double>);
-    m.def("fft", &FunctionsInterface::fftN<double>);
-    m.def("fft", &FunctionsInterface::fftComplex<double>);
-    m.def("fft", &FunctionsInterface::fftComplexN<double>);
     m.def("fillDiagonal", &fillDiagonal<double>);
     m.def("find", &FunctionsInterface::find);
     m.def("findN", &FunctionsInterface::findN);

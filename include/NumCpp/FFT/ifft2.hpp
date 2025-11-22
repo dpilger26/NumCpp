@@ -33,13 +33,13 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::fft
 {
     //===========================================================================
     // Method Description:
-    /// Compute the 2-dimensional discrete Fourier Transform.
+    /// Compute the 2-dimensional inverse discrete Fourier Transform.
     ///
-    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.fft2.html#numpy.fft.fft2>
+    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.ifft2.html#numpy.fft.ifft2>
     ///
     /// @param inArray
     /// @param inShape Shape (length of each transformed axis) of the output
@@ -47,7 +47,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> fft2(const NdArray<dtype>& inArray, const Shape& inShape)
+    NdArray<double> ifft2(const NdArray<dtype>& inArray, const Shape& inShape)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -56,27 +56,27 @@ namespace nc
 
     //===========================================================================
     // Method Description:
-    /// Compute the 2-dimensional discrete Fourier Transform.
+    /// Compute the 2-dimensional inverse discrete Fourier Transform.
     ///
-    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.fft2.html#numpy.fft.fft2>
+    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.ifft2.html#numpy.fft.ifft2>
     ///
     /// @param inArray
     ///
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> fft2(const NdArray<dtype>& inArray)
+    NdArray<double> ifft2(const NdArray<dtype>& inArray)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return fft2(inArray, inArray.shape());
+        return ifft2(inArray, inArray.shape());
     }
 
     //============================================================================
     // Method Description:
-    /// Compute the 2-dimensional discrete Fourier Transform.
+    /// Compute the 2-dimensional inverse discrete Fourier Transform.
     ///
-    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.fft2.html#numpy.fft.fft2>
+    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.ifft2.html#numpy.fft.ifft2>
     ///
     /// @param inArray
     /// @param inShape Shape (length of each transformed axis) of the output
@@ -84,7 +84,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> fft2(const NdArray<std::complex<dtype>>& inArray, const Shape& inShape)
+    NdArray<std::complex<double>> ifft2(const NdArray<std::complex<dtype>>& inArray, const Shape& inShape)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -93,19 +93,19 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Compute the 2-dimensional discrete Fourier Transform.
+    /// Compute the 2-dimensional inverse discrete Fourier Transform.
     ///
-    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.fft2.html#numpy.fft.fft2>
+    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.ifft2.html#numpy.fft.ifft2>
     ///
     /// @param inArray
     ///
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> fft2(const NdArray<std::complex<dtype>>& inArray)
+    NdArray<std::complex<double>> ifft2(const NdArray<std::complex<dtype>>& inArray)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return fft2(inArray, inArray.shape());
+        return ifft2(inArray, inArray.shape());
     }
-} // namespace nc
+} // namespace nc::fft

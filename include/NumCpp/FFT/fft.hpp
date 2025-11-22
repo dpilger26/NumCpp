@@ -36,7 +36,7 @@
 #include "NumCpp/Functions/complex.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::fft
 {
     namespace detail
     {
@@ -65,7 +65,7 @@ namespace nc
                                          resultElement               = std::complex<double>{ 0., 0. };
                                          std::for_each(x.begin(),
                                                        x.begin() + std::min(n, x.size()),
-                                                       [minusTwoPiKOverN, &resultElement, &x, n](const auto& value)
+                                                       [minusTwoPiKOverN, &resultElement, &x](const auto& value)
                                                        {
                                                            const auto m     = static_cast<double>(&value - x.data());
                                                            const auto angle = minusTwoPiKOverN * m;
@@ -258,4 +258,4 @@ namespace nc
             }
         }
     }
-} // namespace nc
+} // namespace nc::fft

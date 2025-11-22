@@ -23,6 +23,7 @@ add_library(${TARGET_NAME} SHARED
     Core.cpp 
     DataCube.cpp 
     DateTime.cpp
+    FFT.cpp
     Filter.cpp 
     Functions.cpp 
     ImageProcessing.cpp 
