@@ -2,18 +2,19 @@
 
 ## Version 2.15.0
 
-* added `fft::fft` for **Issue #137** <https://numpy.org/doc/stable/reference/generated/numpy.fft.fft.html#numpy.fft.fft>
-* added `fft::fft2` for **Issue #137** <https://numpy.org/doc/stable/reference/generated/numpy.fft.fft2.html#numpy.fft.fft2>
-* added `fft::ifft` for **Issue #137** <https://numpy.org/doc/stable/reference/generated/numpy.fft.ifft.html#numpy.fft.ifft>
-* added `fft::ifft2` for **Issue #137** <https://numpy.org/doc/stable/reference/generated/numpy.fft.ifft2.html#numpy.fft.ifft2>
-* added `fft::rfft` for **Issue #137** <https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.html#numpy.fft.rfft>
-* added `fft::rfft2` for **Issue #137** <https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft2.html#numpy.fft.rfft2>
-* added `fft::irfft` for **Issue #137** <https://numpy.org/doc/stable/reference/generated/numpy.fft.irfft.html#numpy.fft.irfft>
-* added `fft::irfft2` for **Issue #137** <https://numpy.org/doc/stable/reference/generated/numpy.fft.irfft2.html#numpy.fft.irfft2>
-* added `fft::fft_resample`: Resample a series to m points via Fourier interpolation
-* added `fft::fft2_resample`: Resample a series to m x n points via Fourier interpolation
-* added `fft::rfft_resample`: Resample a series to m points via Fourier interpolation
-* added `fft::rfft2_resample`: Resample a series to m x n points via Fourier interpolation
+* added `fft` module for **Issue #137**
+  * `fft::fft` <https://numpy.org/doc/stable/reference/generated/numpy.fft.fft.html#numpy.fft.fft>
+  * `fft::fft2` <https://numpy.org/doc/stable/reference/generated/numpy.fft.fft2.html#numpy.fft.fft2>
+  * `fft::ifft` <https://numpy.org/doc/stable/reference/generated/numpy.fft.ifft.html#numpy.fft.ifft>
+  * `fft::ifft2` <https://numpy.org/doc/stable/reference/generated/numpy.fft.ifft2.html#numpy.fft.ifft2>
+  * `fft::rfft` <https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.html#numpy.fft.rfft>
+  * `fft::rfft2` <https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft2.html#numpy.fft.rfft2>
+  * `fft::irfft` <https://numpy.org/doc/stable/reference/generated/numpy.fft.irfft.html#numpy.fft.irfft>
+  * `fft::irfft2` <https://numpy.org/doc/stable/reference/generated/numpy.fft.irfft2.html#numpy.fft.irfft2>
+  * `fft::fft_resample`: Resample a series to m points via Fourier interpolation
+  * `fft::fft2_resample`: Resample a series to m x n points via Fourier interpolation
+  * `fft::rfft_resample`: Resample a series to m points via Fourier interpolation
+  * `fft::rfft2_resample`: Resample a series to m x n points via Fourier interpolation
 * added `divmod` <https://numpy.org/doc/stable/reference/generated/numpy.divmod.html#numpy-divmod>
 * added `find_duplicates` <https://numpy.org/doc/stable//reference/generated/numpy.rec.find_duplicate.html>
 * added `mode` <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mode.html>

@@ -29,7 +29,12 @@
 
 #include "NumCpp/FFT/fft.hpp"
 #include "NumCpp/FFT/fft2.hpp"
+#include "NumCpp/FFT/fft2_resample.hpp"
+#include "NumCpp/FFT/fft_resample.hpp"
 #include "NumCpp/FFT/ifft.hpp"
 #include "NumCpp/FFT/ifft2.hpp"
 #include "NumCpp/FFT/irfft.hpp"
 #include "NumCpp/FFT/rfft.hpp"
+#include "NumCpp/FFT/rfft2.hpp"
+#include "NumCpp/FFT/rfft2_resample.hpp"
+#include "NumCpp/FFT/rfft_resample.hpp"
