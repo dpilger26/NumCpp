@@ -31,3 +31,5 @@
 #include "NumCpp/FFT/fft2.hpp"
 #include "NumCpp/FFT/ifft.hpp"
 #include "NumCpp/FFT/ifft2.hpp"
+#include "NumCpp/FFT/irfft.hpp"
+#include "NumCpp/FFT/rfft.hpp"

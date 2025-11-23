@@ -47,7 +47,7 @@ namespace nc::fft
         /// @param x the data
         /// @param n Length of the transformed axis of the output.
         ///
-        NdArray<std::complex<double>> fft(const NdArray<std::complex<double>>& x, uint32 n)
+        NdArray<std::complex<double>> fft_internal(const NdArray<std::complex<double>>& x, uint32 n)
         {
             if (n == 0)
             {
@@ -99,7 +99,7 @@ namespace nc::fft
             case Axis::NONE:
             {
                 const auto data = nc::complex<dtype, double>(inArray);
-                return detail::fft(data, inN);
+                return detail::fft_internal(data, inN);
             }
             case Axis::COL:
             {
@@ -112,7 +112,7 @@ namespace nc::fft
                 for (uint32 row = 0; row < data.numRows(); ++row)
                 {
                     const auto rowData   = data(row, dataColSlice);
-                    const auto rowResult = detail::fft(rowData, inN);
+                    const auto rowResult = detail::fft_internal(rowData, inN);
                     result.put(row, resultColSlice, rowResult);
                 }
 
@@ -190,7 +190,7 @@ namespace nc::fft
             case Axis::NONE:
             {
                 const auto data = nc::complex<dtype, double>(inArray);
-                return detail::fft(data, inN);
+                return detail::fft_internal(data, inN);
             }
             case Axis::COL:
             {
@@ -203,7 +203,7 @@ namespace nc::fft
                 for (uint32 row = 0; row < data.numRows(); ++row)
                 {
                     const auto rowData   = data(row, dataColSlice);
-                    const auto rowResult = detail::fft(rowData, inN);
+                    const auto rowResult = detail::fft_internal(rowData, inN);
                     result.put(row, resultColSlice, rowResult);
                 }
 

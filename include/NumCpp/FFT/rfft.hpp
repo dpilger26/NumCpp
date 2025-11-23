@@ -47,31 +47,31 @@ namespace nc::fft
         /// @param x the data
         /// @param n Length of the transformed axis of the output.
         ///
-        NdArray<std::complex<double>> internal_ifft(const NdArray<std::complex<double>>& x, uint32 n)
+        NdArray<std::complex<double>> internal_rfft(const NdArray<std::complex<double>>& x, uint32 n)
         {
             if (n == 0)
             {
                 return {};
             }
 
-            auto result = NdArray<std::complex<double>>(1, n);
+            const auto realN  = n / 2 + 1;
+            auto       result = NdArray<std::complex<double>>(1, realN);
 
             stl_algorithms::for_each(result.begin(),
                                      result.end(),
                                      [n, &x, &result](auto& resultElement)
                                      {
-                                         const auto m = static_cast<double>(&resultElement - result.data());
-                                         const auto minusTwoPiKOverN = constants::twoPi * m / static_cast<double>(n);
+                                         const auto k = static_cast<double>(&resultElement - result.data());
+                                         const auto minusTwoPiKOverN = -constants::twoPi * k / static_cast<double>(n);
                                          resultElement               = std::complex<double>{ 0., 0. };
                                          std::for_each(x.begin(),
                                                        x.begin() + std::min(n, x.size()),
                                                        [minusTwoPiKOverN, &resultElement, &x](const auto& value)
                                                        {
-                                                           const auto k     = static_cast<double>(&value - x.data());
-                                                           const auto angle = minusTwoPiKOverN * k;
+                                                           const auto m     = static_cast<double>(&value - x.data());
+                                                           const auto angle = minusTwoPiKOverN * m;
                                                            resultElement += (value * std::polar(1., angle));
                                                        });
-                                         resultElement /= n;
                                      });
 
             return result;
@@ -80,9 +80,9 @@ namespace nc::fft
 
     //===========================================================================
     // Method Description:
-    /// Compute the one-dimensional inverse discrete Fourier Transform.
+    /// Compute the one-dimensional discrete Fourier Transform for real input
     ///
-    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.ifft.html#numpy.fft.ifft>
+    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.rfft.html#numpy.fft.rfft>
     ///
     /// @param inArray
     /// @param n Length of the transformed axis of the output.
@@ -91,7 +91,7 @@ namespace nc::fft
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> ifft(const NdArray<dtype>& inArray, uint32 inN, Axis inAxis = Axis::NONE)
+    NdArray<std::complex<double>> rfft(const NdArray<dtype>& inArray, uint32 inN, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -100,20 +100,21 @@ namespace nc::fft
             case Axis::NONE:
             {
                 const auto data = nc::complex<dtype, double>(inArray);
-                return detail::internal_ifft(data, inN);
+                return detail::internal_rfft(data, inN);
             }
             case Axis::COL:
             {
                 auto        data           = nc::complex<dtype, double>(inArray);
                 const auto& shape          = inArray.shape();
-                auto        result         = NdArray<std::complex<double>>(shape.rows, inN);
+                const auto  realN          = inN / 2 + 1;
+                auto        result         = NdArray<std::complex<double>>(shape.rows, realN);
                 const auto  dataColSlice   = data.cSlice();
                 const auto  resultColSlice = result.cSlice();
 
                 for (uint32 row = 0; row < data.numRows(); ++row)
                 {
                     const auto rowData   = data(row, dataColSlice);
-                    const auto rowResult = detail::internal_ifft(rowData, inN);
+                    const auto rowResult = detail::internal_rfft(rowData, inN);
                     result.put(row, resultColSlice, rowResult);
                 }
 
@@ -121,7 +122,7 @@ namespace nc::fft
             }
             case Axis::ROW:
             {
-                return ifft(inArray.transpose(), inN, Axis::COL).transpose();
+                return rfft(inArray.transpose(), inN, Axis::COL).transpose();
             }
             default:
             {
@@ -133,101 +134,9 @@ namespace nc::fft
 
     //===========================================================================
     // Method Description:
-    /// Compute the one-dimensional inverse discrete Fourier Transform.
+    /// Compute the one-dimensional discrete Fourier Transform for real input
     ///
-    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.ifft.html#numpy.fft.ifft>
-    ///
-    /// @param inArray
-    /// @param inAxis (Optional, default NONE)
-    ///
-    /// @return NdArray
-    ///
-    template<typename dtype>
-    NdArray<std::complex<double>> ifft(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
-    {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
-        switch (inAxis)
-        {
-            case Axis::NONE:
-            {
-                return ifft(inArray, inArray.size(), inAxis);
-            }
-            case Axis::COL:
-            {
-                return ifft(inArray, inArray.numCols(), inAxis);
-            }
-            case Axis::ROW:
-            {
-                return ifft(inArray, inArray.numRows(), inAxis);
-            }
-            default:
-            {
-                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
-                return {};
-            }
-        }
-    }
-
-    //============================================================================
-    // Method Description:
-    /// Compute the one-dimensional inverse discrete Fourier Transform.
-    ///
-    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.ifft.html#numpy.fft.ifft>
-    ///
-    /// @param inArray
-    /// @param n Length of the transformed axis of the output.
-    /// @param inAxis (Optional, default NONE)
-    ///
-    /// @return NdArray
-    ///
-    template<typename dtype>
-    NdArray<std::complex<double>>
-        ifft(const NdArray<std::complex<dtype>>& inArray, uint32 inN, Axis inAxis = Axis::NONE)
-    {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
-        switch (inAxis)
-        {
-            case Axis::NONE:
-            {
-                const auto data = nc::complex<dtype, double>(inArray);
-                return detail::internal_ifft(data, inN);
-            }
-            case Axis::COL:
-            {
-                const auto  data           = nc::complex<dtype, double>(inArray);
-                const auto& shape          = inArray.shape();
-                auto        result         = NdArray<std::complex<double>>(shape.rows, inN);
-                const auto  dataColSlice   = data.cSlice();
-                const auto  resultColSlice = result.cSlice();
-
-                for (uint32 row = 0; row < data.numRows(); ++row)
-                {
-                    const auto rowData   = data(row, dataColSlice);
-                    const auto rowResult = detail::internal_ifft(rowData, inN);
-                    result.put(row, resultColSlice, rowResult);
-                }
-
-                return result;
-            }
-            case Axis::ROW:
-            {
-                return ifft(inArray.transpose(), inN, Axis::COL).transpose();
-            }
-            default:
-            {
-                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
-                return {};
-            }
-        }
-    }
-
-    //============================================================================
-    // Method Description:
-    /// Compute the one-dimensional inverse discrete Fourier Transform.
-    ///
-    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.ifft.html#numpy.fft.ifft>
+    /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.rfft.html#numpy.fft.rfft>
     ///
     /// @param inArray
     /// @param inAxis (Optional, default NONE)
@@ -235,7 +144,7 @@ namespace nc::fft
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> ifft(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<std::complex<double>> rfft(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -243,15 +152,15 @@ namespace nc::fft
         {
             case Axis::NONE:
             {
-                return ifft(inArray, inArray.size(), inAxis);
+                return rfft(inArray, inArray.size(), inAxis);
             }
             case Axis::COL:
             {
-                return ifft(inArray, inArray.numCols(), inAxis);
+                return rfft(inArray, inArray.numCols(), inAxis);
             }
             case Axis::ROW:
             {
-                return ifft(inArray, inArray.numRows(), inAxis);
+                return rfft(inArray, inArray.numRows(), inAxis);
             }
             default:
             {

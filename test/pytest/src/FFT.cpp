@@ -39,6 +39,8 @@ namespace FFTInterface
         return nc2pybind(nc::fft::fft(inArray, inN, inAxis));
     }
 
+    //================================================================================
+
     template<typename dtype>
     pbArrayGeneric ifft(const NdArray<dtype>& inArray, Axis inAxis)
     {
@@ -69,6 +71,38 @@ namespace FFTInterface
         return nc2pybind(nc::fft::ifft(inArray, inN, inAxis));
     }
 
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric rfft(const NdArray<dtype>& inArray, Axis inAxis)
+    {
+        return nc2pybind(nc::fft::rfft(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric rfftN(const NdArray<dtype>& inArray, uint32 inN, Axis inAxis)
+    {
+        return nc2pybind(nc::fft::rfft(inArray, inN, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric irfftComplex(const NdArray<std::complex<dtype>>& inArray, Axis inAxis)
+    {
+        return nc2pybind(nc::fft::irfft(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric irfftComplexN(const NdArray<std::complex<dtype>>& inArray, uint32 inN, Axis inAxis)
+    {
+        return nc2pybind(nc::fft::irfft(inArray, inN, inAxis));
+    }
+
 } // namespace FFTInterface
 
 //================================================================================
@@ -85,4 +119,10 @@ void initFFT(pb11::module& m)
     m.def("ifft", &FFTInterface::ifftN<double>);
     m.def("ifft", &FFTInterface::ifftComplex<double>);
     m.def("ifft", &FFTInterface::ifftComplexN<double>);
+
+    m.def("rfft", &FFTInterface::rfft<double>);
+    m.def("rfft", &FFTInterface::rfftN<double>);
+
+    m.def("irfft", &FFTInterface::irfftComplex<double>);
+    m.def("irfft", &FFTInterface::irfftComplexN<double>);
 }

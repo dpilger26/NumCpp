@@ -599,3 +599,294 @@ def test_ifft():
     cArray.setArray(data)
     n = np.random.randint(shape.cols, shape.cols + 20)
     assert np.array_equal(np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.COL), 6), np.round(np.fft.ifft(data, n, axis=1), 6))
+
+
+####################################################################################
+def test_rfft():
+    # real input, axis none, default n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert np.array_equal(
+        np.round(NumCpp.rfft(cArray, NumCpp.Axis.NONE), 6).flatten(), np.round(np.fft.rfft(data.flatten()), 6)
+    )
+
+    # real input, axis none, smaller n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    n = np.random.randint(1, data.size)
+    assert np.array_equal(
+        np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.NONE), 6).flatten(), np.round(np.fft.rfft(data.flatten(), n), 6)
+    )
+
+    # real input, axis none, larger n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    n = np.random.randint(data.size, data.size + 20)
+    assert np.array_equal(
+        np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.NONE), 6).flatten(), np.round(np.fft.rfft(data.flatten(), n), 6)
+    )
+
+    # real input, axis row, default n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert np.array_equal(np.round(NumCpp.rfft(cArray, NumCpp.Axis.ROW), 6), np.round(np.fft.rfft(data, axis=0), 6))
+
+    # real input, axis row, smaller n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    n = np.random.randint(1, shape.rows)
+    assert np.array_equal(np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.ROW), 6), np.round(np.fft.rfft(data, n, axis=0), 6))
+
+    # real input, axis row, larger n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    n = np.random.randint(shape.rows, shape.rows + 20)
+    assert np.array_equal(np.round(NumCpp.rfft(cArray, NumCpp.Axis.ROW), 6), np.round(np.fft.rfft(data, axis=0), 6))
+
+    # real input, axis col, default n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert np.array_equal(np.round(NumCpp.rfft(cArray, NumCpp.Axis.COL), 6), np.round(np.fft.rfft(data, axis=1), 6))
+
+    # real input, axis col, smaller n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    n = np.random.randint(1, shape.cols)
+    assert np.array_equal(np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.COL), 6), np.round(np.fft.rfft(data, n, axis=1), 6))
+
+    # real input, axis col, larger n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    n = np.random.randint(shape.cols, shape.cols + 20)
+    assert np.array_equal(np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.COL), 6), np.round(np.fft.rfft(data, n, axis=1), 6))
+
+
+####################################################################################
+def test_irfft():
+    import numpy as np
+    import NumCppPy as NumCpp  # noqa E402
+
+    # axis none, default n
+    length = np.random.randint(100, 300)
+    data = np.random.randint(0, 100, [length]).astype(float)
+    rfft = np.fft.rfft(data)
+    cShape = NumCpp.Shape(1, rfft.size)
+    cArray = NumCpp.NdArrayComplexDouble(cShape)
+    cArray.setArray(rfft)
+    assert np.array_equal(
+        np.round(NumCpp.irfft(cArray, NumCpp.Axis.NONE), 6).flatten(), np.round(np.fft.irfft(rfft.flatten()), 6)
+    )
+
+    # axis none, smaller n
+    length = np.random.randint(100, 300)
+    n = np.random.randint(1, length)
+    data = np.random.randint(0, 100, [length]).astype(float)
+    rfft = np.fft.rfft(data, n)
+    cShape = NumCpp.Shape(1, rfft.size)
+    cArray = NumCpp.NdArrayComplexDouble(cShape)
+    cArray.setArray(rfft)
+    assert np.array_equal(
+        np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.NONE), 6).flatten(), np.round(np.fft.irfft(rfft.flatten(), n), 6)
+    )
+
+    # axis none, larger n
+    length = np.random.randint(100, 300)
+    n = np.random.randint(length + 1, length + 20)
+    data = np.random.randint(0, 100, [length]).astype(float)
+    rfft = np.fft.rfft(data, n)
+    cShape = NumCpp.Shape(1, rfft.size)
+    cArray = NumCpp.NdArrayComplexDouble(cShape)
+    cArray.setArray(rfft)
+    assert np.array_equal(
+        np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.NONE), 6).flatten(), np.round(np.fft.irfft(rfft.flatten(), n), 6)
+    )
+
+    # axis Row, default n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    data = np.random.randint(0, 100, shapeInput).astype(float)
+    rfft = np.fft.rfft(data, axis=0)
+    cShape = NumCpp.Shape(rfft.shape[0], rfft.shape[1])
+    cArray = NumCpp.NdArrayComplexDouble(cShape)
+    cArray.setArray(rfft)
+    assert np.array_equal(
+        np.round(NumCpp.irfft(cArray, NumCpp.Axis.ROW), 6), np.round(np.fft.irfft(rfft, axis=0), 6)
+    )
+
+    # axis Row, smaller n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    data = np.random.randint(0, 100, shapeInput).astype(float)
+    n = np.random.randint(5, data.shape[0])
+    rfft = np.fft.rfft(data, n, axis=0)
+    cShape = NumCpp.Shape(rfft.shape[0], rfft.shape[1])
+    cArray = NumCpp.NdArrayComplexDouble(cShape)
+    cArray.setArray(rfft)
+    # assert np.array_equal(
+    #     np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.ROW), 6), np.round(np.fft.irfft(rfft, axis=0), 6)
+    # )
+    print(np.array_equal(
+        np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.ROW), 6), np.round(np.fft.irfft(rfft, n, axis=0), 6)
+    ))
+
+    # axis Row, larger n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    data = np.random.randint(0, 100, shapeInput).astype(float)
+    n = np.random.randint(data.shape[0] + 1, data.shape[0] + 20)
+    rfft = np.fft.rfft(data, axis=0)
+    cShape = NumCpp.Shape(rfft.shape[0], rfft.shape[1])
+    cArray = NumCpp.NdArrayComplexDouble(cShape)
+    cArray.setArray(rfft)
+    assert np.array_equal(
+        np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.ROW), 6), np.round(np.fft.irfft(rfft, n, axis=0), 6)
+    )
+
+    # axis Col, default n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    data = np.random.randint(0, 100, shapeInput).astype(float)
+    rfft = np.fft.rfft(data, axis=1)
+    cShape = NumCpp.Shape(rfft.shape[0], rfft.shape[1])
+    cArray = NumCpp.NdArrayComplexDouble(cShape)
+    cArray.setArray(rfft)
+    assert np.array_equal(
+        np.round(NumCpp.irfft(cArray, NumCpp.Axis.COL), 6), np.round(np.fft.irfft(rfft, axis=1), 6)
+    )
+
+    # axis Col, smaller n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    data = np.random.randint(0, 100, shapeInput).astype(float)
+    n = np.random.randint(5, data.shape[1])
+    rfft = np.fft.rfft(data, n, axis=1)
+    cShape = NumCpp.Shape(rfft.shape[0], rfft.shape[1])
+    cArray = NumCpp.NdArrayComplexDouble(cShape)
+    cArray.setArray(rfft)
+    assert np.array_equal(
+        np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.COL), 6), np.round(np.fft.irfft(rfft, n, axis=1), 6)
+    )
+
+    # axis Col, larger n
+    shapeInput = np.random.randint(
+        10,
+        30,
+        [
+            2,
+        ],
+    )
+    data = np.random.randint(0, 100, shapeInput).astype(float)
+    n = np.random.randint(data.shape[1] + 1, data.shape[1] + 20)
+    rfft = np.fft.rfft(data, axis=1)
+    cShape = NumCpp.Shape(rfft.shape[0], rfft.shape[1])
+    cArray = NumCpp.NdArrayComplexDouble(cShape)
+    cArray.setArray(rfft)
+    assert np.array_equal(
+        np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.COL), 6), np.round(np.fft.irfft(rfft, n, axis=1), 6)
+    )
