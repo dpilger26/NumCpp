@@ -602,13 +602,11 @@ def test_ifft():
 
 
 ####################################################################################
-def test_fftresample():
-    assert False
-
-
-####################################################################################
 def test_fftfreq():
-    assert False
+    for _ in range(50):
+        n = np.random.randint(10, 1000)
+        d = np.random.rand()
+        assert np.array_equal(np.round(NumCpp.fftfreq(n , d).flatten(), 8), np.round(np.fft.fftfreq(n, d), 8))
 
 
 ####################################################################################
@@ -628,11 +626,6 @@ def test_fft2():
 
 ####################################################################################
 def test_ifft2():
-    assert False
-
-
-####################################################################################
-def test_fft2resample():
     assert False
 
 
@@ -928,13 +921,11 @@ def test_irfft():
 
 
 ####################################################################################
-def test_rfftresample():
-    assert False
-
-
-####################################################################################
 def test_rfftfreq():
-    assert False
+    for _ in range(50):
+        n = np.random.randint(10, 1000)
+        d = np.random.rand()
+        assert np.array_equal(np.round(NumCpp.rfftfreq(n , d).flatten(), 8), np.round(np.fft.rfftfreq(n, d), 8))
 
 
 ####################################################################################
@@ -944,9 +935,4 @@ def test_rfft2():
 
 ####################################################################################
 def test_irfft2():
-    assert False
-
-
-####################################################################################
-def test_rfft2resample():
     assert False

@@ -74,38 +74,6 @@ namespace FFTInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric fftresample(const NdArray<dtype>& inArray, Axis inAxis)
-    {
-        return nc2pybind(nc::fft::fftresample(inArray, inAxis));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric fftresampleN(const NdArray<dtype>& inArray, uint32 inN, Axis inAxis)
-    {
-        return nc2pybind(nc::fft::fftresample(inArray, inN, inAxis));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric fftresampleComplex(const NdArray<std::complex<dtype>>& inArray, Axis inAxis)
-    {
-        return nc2pybind(nc::fft::fftresample(inArray, inAxis));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric fftresampleComplexN(const NdArray<std::complex<dtype>>& inArray, uint32 inN, Axis inAxis)
-    {
-        return nc2pybind(nc::fft::fftresample(inArray, inN, inAxis));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
     pbArrayGeneric fftfreq(uint32 inN, double inD)
     {
         return nc2pybind(nc::fft::fftfreq(inN, inD));
@@ -194,38 +162,6 @@ namespace FFTInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric fft2resample(const NdArray<dtype>& inArray)
-    {
-        return nc2pybind(nc::fft::fft2resample(inArray));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric fft2resampleShape(const NdArray<dtype>& inArray, const Shape& inShape)
-    {
-        return nc2pybind(nc::fft::fft2resample(inArray, inShape));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric fft2resampleComplex(const NdArray<std::complex<dtype>>& inArray)
-    {
-        return nc2pybind(nc::fft::fft2resample(inArray));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric fft2resampleComplexShape(const NdArray<std::complex<dtype>>& inArray, const Shape& inShape)
-    {
-        return nc2pybind(nc::fft::fft2resample(inArray, inShape));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
     pbArrayGeneric rfft(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return nc2pybind(nc::fft::rfft(inArray, inAxis));
@@ -253,22 +189,6 @@ namespace FFTInterface
     pbArrayGeneric irfftComplexN(const NdArray<std::complex<dtype>>& inArray, uint32 inN, Axis inAxis)
     {
         return nc2pybind(nc::fft::irfft(inArray, inN, inAxis));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric rfftresample(const NdArray<dtype>& inArray, Axis inAxis)
-    {
-        return nc2pybind(nc::fft::rfftresample(inArray, inAxis));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric rfftresampleN(const NdArray<dtype>& inArray, uint32 inN, Axis inAxis)
-    {
-        return nc2pybind(nc::fft::rfftresample(inArray, inN, inAxis));
     }
 
     //================================================================================
@@ -310,23 +230,6 @@ namespace FFTInterface
     {
         return nc2pybind(nc::fft::irfft2(inArray, inShape));
     }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric rfft2resample(const NdArray<dtype>& inArray)
-    {
-        return nc2pybind(nc::fft::rfft2resample(inArray));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    pbArrayGeneric rfft2resampleShape(const NdArray<dtype>& inArray, const Shape& inShape)
-    {
-        return nc2pybind(nc::fft::rfft2resample(inArray, inShape));
-    }
-
 } // namespace FFTInterface
 
 //================================================================================
@@ -344,11 +247,6 @@ void initFFT(pb11::module& m)
     m.def("ifft", &FFTInterface::ifftComplex<double>);
     m.def("ifft", &FFTInterface::ifftComplexN<double>);
 
-    m.def("fftresample", &FFTInterface::fftresample<double>);
-    m.def("fftresample", &FFTInterface::fftresampleN<double>);
-    m.def("fftresample", &FFTInterface::fftresampleComplex<double>);
-    m.def("fftresample", &FFTInterface::fftresampleComplexN<double>);
-
     m.def("fftfreq", &FFTInterface::fftfreq<double>);
 
     m.def("fftshift", &FFTInterface::fftshift<double>);
@@ -364,19 +262,11 @@ void initFFT(pb11::module& m)
     m.def("ifft2", &FFTInterface::ifft2Complex<double>);
     m.def("ifft2", &FFTInterface::ifft2ComplexShape<double>);
 
-    m.def("fft2resample", &FFTInterface::fft2resample<double>);
-    m.def("fft2resample", &FFTInterface::fft2resampleShape<double>);
-    m.def("fft2resample", &FFTInterface::fft2resampleComplex<double>);
-    m.def("fft2resample", &FFTInterface::fft2resampleComplexShape<double>);
-
     m.def("rfft", &FFTInterface::rfft<double>);
     m.def("rfft", &FFTInterface::rfftN<double>);
 
     m.def("irfft", &FFTInterface::irfftComplex<double>);
     m.def("irfft", &FFTInterface::irfftComplexN<double>);
-
-    m.def("rfftresample", &FFTInterface::rfftresample<double>);
-    m.def("rfftresample", &FFTInterface::rfftresampleN<double>);
 
     m.def("rfftfreq", &FFTInterface::rfftfreq<double>);
 
@@ -385,7 +275,4 @@ void initFFT(pb11::module& m)
 
     m.def("irfft2", &FFTInterface::irfft2Complex<double>);
     m.def("irfft2", &FFTInterface::irfft2ComplexShape<double>);
-
-    m.def("rfft2resample", &FFTInterface::rfft2resample<double>);
-    m.def("rfft2resample", &FFTInterface::rfft2resampleShape<double>);
 }

@@ -41,12 +41,42 @@ namespace nc::fft
     /// NumPy Reference: <https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html#>
     ///
     /// @param inN Window Length
-    /// @param inD (Optional) Sample spacing (inverse of the sampling rate). Defaults to 1.
+    /// @param inD (Optional) Sample spacing (inverse of the sampling rate). Must be positive non-zero. Defaults to 1.
     ///
     /// @return NdArray
     ///
     inline NdArray<double> fftfreq(uint32 inN, double inD = 1.)
     {
-        return {};
+        if (inN == 0)
+        {
+            return {};
+        }
+        else if (inN == 1)
+        {
+            return { 0 };
+        }
+
+        if (inD <= 0.)
+        {
+            return {};
+        }
+
+        const auto nTimesD = static_cast<double>(inN) * inD;
+
+        auto result = NdArray<double>(1, inN);
+        result[0]   = 0.;
+
+        for (auto i = 1u; i < (inN + 1) / 2; ++i)
+        {
+            result[i]       = static_cast<double>(i) / nTimesD;
+            result[inN - i] = -static_cast<double>(i) / nTimesD;
+        }
+
+        if (inN % 2 == 0)
+        {
+            result[inN / 2] = -static_cast<double>(inN / 2) / nTimesD;
+        }
+
+        return result;
     }
 } // namespace nc::fft

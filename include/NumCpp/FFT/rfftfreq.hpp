@@ -47,6 +47,29 @@ namespace nc::fft
     ///
     inline NdArray<double> rfftfreq(uint32 inN, double inD = 1.)
     {
-        return {};
+        if (inN == 0)
+        {
+            return {};
+        }
+        else if (inN == 1)
+        {
+            return { 0 };
+        }
+
+        if (inD <= 0.)
+        {
+            return {};
+        }
+
+        const auto halfN   = (inN / 2) + 1;
+        const auto nTimesD = static_cast<double>(inN) * inD;
+
+        auto result = NdArray<double>(1, halfN);
+        for (auto i = 0u; i < halfN; ++i)
+        {
+            result[i] = static_cast<double>(i) / nTimesD;
+        }
+
+        return result;
     }
 } // namespace nc::fft
