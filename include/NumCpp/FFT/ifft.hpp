@@ -47,7 +47,7 @@ namespace nc::fft
         /// @param x the data
         /// @param n Length of the transformed axis of the output.
         ///
-        inline NdArray<std::complex<double>> internal_ifft(const NdArray<std::complex<double>>& x, uint32 n)
+        inline NdArray<std::complex<double>> ifft_internal(const NdArray<std::complex<double>>& x, uint32 n)
         {
             if (n == 0)
             {
@@ -98,7 +98,7 @@ namespace nc::fft
             case Axis::NONE:
             {
                 const auto data = nc::complex<dtype, double>(inArray);
-                return detail::internal_ifft(data, inN);
+                return detail::ifft_internal(data, inN);
             }
             case Axis::COL:
             {
@@ -111,7 +111,7 @@ namespace nc::fft
                 for (uint32 row = 0; row < data.numRows(); ++row)
                 {
                     const auto rowData   = data(row, dataColSlice);
-                    const auto rowResult = detail::internal_ifft(rowData, inN);
+                    const auto rowResult = detail::ifft_internal(rowData, inN);
                     result.put(row, resultColSlice, rowResult);
                 }
 
@@ -190,7 +190,7 @@ namespace nc::fft
             case Axis::NONE:
             {
                 const auto data = nc::complex<dtype, double>(inArray);
-                return detail::internal_ifft(data, inN);
+                return detail::ifft_internal(data, inN);
             }
             case Axis::COL:
             {
@@ -203,7 +203,7 @@ namespace nc::fft
                 for (uint32 row = 0; row < data.numRows(); ++row)
                 {
                     const auto rowData   = data(row, dataColSlice);
-                    const auto rowResult = detail::internal_ifft(rowData, inN);
+                    const auto rowResult = detail::ifft_internal(rowData, inN);
                     result.put(row, resultColSlice, rowResult);
                 }
 
