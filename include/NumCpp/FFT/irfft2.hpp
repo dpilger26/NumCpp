@@ -44,7 +44,7 @@ namespace nc::fft
     {
         //===========================================================================
         // Method Description:
-        /// Fast Fourier Transform
+        /// Inverse Fast Fourier Transform
         ///
         /// @param x the data
         /// @param shape Shape (length of each transformed axis) of the output

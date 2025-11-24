@@ -42,7 +42,7 @@ namespace nc::fft
     {
         //===========================================================================
         // Method Description:
-        /// Fast Fourier Transform
+        /// Inverse Fast Fourier Transform
         ///
         /// @param x the data
         /// @param n Length of the transformed axis of the output.
@@ -63,14 +63,12 @@ namespace nc::fft
                                          const auto m = static_cast<double>(&resultElement - result.data());
                                          const auto minusTwoPiKOverN = constants::twoPi * m / static_cast<double>(n);
                                          resultElement               = std::complex<double>{ 0., 0. };
-                                         std::for_each(x.begin(),
-                                                       x.begin() + std::min(n, x.size()),
-                                                       [minusTwoPiKOverN, &resultElement, &x](const auto& value)
-                                                       {
-                                                           const auto k     = static_cast<double>(&value - x.data());
-                                                           const auto angle = minusTwoPiKOverN * k;
-                                                           resultElement += (value * std::polar(1., angle));
-                                                       });
+                                         for (auto k = 0u; k < std::min(n, x.size()); ++k)
+                                         {
+                                             const auto angle = minusTwoPiKOverN * static_cast<double>(k);
+                                             resultElement += (x[k] * std::polar(1., angle));
+                                         }
+
                                          resultElement /= n;
                                      });
 

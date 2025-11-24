@@ -64,14 +64,11 @@ namespace nc::fft
                                          const auto k = static_cast<double>(&resultElement - result.data());
                                          const auto minusTwoPiKOverN = -constants::twoPi * k / static_cast<double>(n);
                                          resultElement               = std::complex<double>{ 0., 0. };
-                                         std::for_each(x.begin(),
-                                                       x.begin() + std::min(n, x.size()),
-                                                       [minusTwoPiKOverN, &resultElement, &x](const auto& value)
-                                                       {
-                                                           const auto m     = static_cast<double>(&value - x.data());
-                                                           const auto angle = minusTwoPiKOverN * m;
-                                                           resultElement += (value * std::polar(1., angle));
-                                                       });
+                                         for (auto m = 0u; m < std::min(n, x.size()); ++m)
+                                         {
+                                             const auto angle = minusTwoPiKOverN * static_cast<double>(m);
+                                             resultElement += (x[m] * std::polar(1., angle));
+                                         }
                                      });
 
             return result;
