@@ -49,7 +49,7 @@ namespace nc::fft
         /// @param x the data
         /// @param n Length of the transformed axis of the output.
         ///
-        NdArray<double> internal_irfft(const NdArray<std::complex<double>>& x, uint32 n)
+        inline NdArray<double> internal_irfft(const NdArray<std::complex<double>>& x, uint32 n)
         {
             if (x.size() == 0 || n == 0)
             {

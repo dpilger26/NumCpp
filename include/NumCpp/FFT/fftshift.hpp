@@ -50,5 +50,7 @@ namespace nc::fft
     NdArray<dtype> fftshift(const NdArray<dtype>& inX, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        return {};
     }
 } // namespace nc::fft

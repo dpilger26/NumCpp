@@ -41,14 +41,16 @@ namespace nc::fft
     /// Resample a series to m,n points via Fourier interpolation
     ///
     /// @param inArray
-    /// @param n Length of the transformed axis of the output.
-    /// @param inAxis (Optional, default NONE)
+    /// @param inShape Shape (length of each transformed axis) of the output
     ///
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> rfft2_resample(const NdArray<dtype>& inArray, uint32 inN, Axis inAxis = Axis::NONE)
+    NdArray<double> rfft2resample(const NdArray<dtype>& inArray, const Shape& inShape)
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        return irfft2(rfft2(inArray, inShape), inShape);
     }
 
     //===========================================================================
@@ -56,12 +58,14 @@ namespace nc::fft
     /// Resample a series to m,n points via Fourier interpolation
     ///
     /// @param inArray
-    /// @param inAxis (Optional, default NONE)
     ///
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> rfft2_resample(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<double> rfft2resample(const NdArray<dtype>& inArray)
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        return irfft2(rfft2(inArray));
     }
 } // namespace nc::fft

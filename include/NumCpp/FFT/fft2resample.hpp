@@ -42,13 +42,15 @@ namespace nc::fft
     ///
     /// @param inArray
     /// @param n Length of the transformed axis of the output.
-    /// @param inAxis (Optional, default NONE)
     ///
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> fft2_resample(const NdArray<dtype>& inArray, uint32 inN, Axis inAxis = Axis::NONE)
+    NdArray<std::complex<double>> fft2resample(const NdArray<dtype>& inArray, const Shape& inShape)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        return ifft2(fft2(inArray, inShape), inShape);
     }
 
     //===========================================================================
@@ -56,42 +58,14 @@ namespace nc::fft
     /// Resample a series to m,n points via Fourier interpolation
     ///
     /// @param inArray
-    /// @param inAxis (Optional, default NONE)
     ///
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> fft2_resample(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<std::complex<double>> fft2resample(const NdArray<dtype>& inArray)
     {
-    }
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-    //============================================================================
-    // Method Description:
-    /// Resample a series to m,n points via Fourier interpolation
-    ///
-    /// @param inArray
-    /// @param n Length of the transformed axis of the output.
-    /// @param inAxis (Optional, default NONE)
-    ///
-    /// @return NdArray
-    ///
-    template<typename dtype>
-    NdArray<std::complex<double>>
-        fft2_resample(const NdArray<std::complex<dtype>>& inArray, uint32 inN, Axis inAxis = Axis::NONE)
-    {
-    }
-
-    //============================================================================
-    // Method Description:
-    /// Resample a series to m,n points via Fourier interpolation
-    ///
-    /// @param inArray
-    /// @param inAxis (Optional, default NONE)
-    ///
-    /// @return NdArray
-    ///
-    template<typename dtype>
-    NdArray<std::complex<double>> fft2_resample(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE)
-    {
+        return ifft2(fft2(inArray));
     }
 } // namespace nc::fft

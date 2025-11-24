@@ -35,6 +35,21 @@
 
 namespace nc::fft
 {
+    namespace detail
+    {
+        //===========================================================================
+        // Method Description:
+        /// Fast Fourier Transform
+        ///
+        /// @param x the data
+        /// @param shape Shape (length of each transformed axis) of the output
+        ///
+        inline NdArray<std::complex<double>> ifft2_internal(const NdArray<std::complex<double>>& x, const Shape& shape)
+        {
+            return {};
+        }
+    } // namespace detail
+
     //===========================================================================
     // Method Description:
     /// Compute the 2-dimensional inverse discrete Fourier Transform.

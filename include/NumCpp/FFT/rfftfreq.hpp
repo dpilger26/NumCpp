@@ -45,5 +45,8 @@ namespace nc::fft
     ///
     /// @return NdArray
     ///
-    inline NdArray<double> rfftfreq(uint32 inN, double inD = 1.) { }
+    inline NdArray<double> rfftfreq(uint32 inN, double inD = 1.)
+    {
+        return {};
+    }
 } // namespace nc::fft

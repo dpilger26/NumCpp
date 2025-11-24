@@ -47,7 +47,7 @@ namespace nc::fft
         /// @param x the data
         /// @param n Length of the transformed axis of the output.
         ///
-        NdArray<std::complex<double>> fft_internal(const NdArray<std::complex<double>>& x, uint32 n)
+        inline NdArray<std::complex<double>> fft_internal(const NdArray<std::complex<double>>& x, uint32 n)
         {
             if (n == 0)
             {

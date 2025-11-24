@@ -47,8 +47,11 @@ namespace nc::fft
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> fft_resample(const NdArray<dtype>& inArray, uint32 inN, Axis inAxis = Axis::NONE)
+    NdArray<std::complex<double>> fftresample(const NdArray<dtype>& inArray, uint32 inN, Axis inAxis = Axis::NONE)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        return ifft(fft(inArray, inN, inAxis), inN, inAxis);
     }
 
     //===========================================================================
@@ -61,37 +64,10 @@ namespace nc::fft
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> fft_resample(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<std::complex<double>> fftresample(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-    }
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-    //============================================================================
-    // Method Description:
-    /// Resample a series to m points via Fourier interpolation
-    ///
-    /// @param inArray
-    /// @param n Length of the transformed axis of the output.
-    /// @param inAxis (Optional, default NONE)
-    ///
-    /// @return NdArray
-    ///
-    template<typename dtype>
-    NdArray<std::complex<double>>
-        fft_resample(const NdArray<std::complex<dtype>>& inArray, uint32 inN, Axis inAxis = Axis::NONE)
-    {
-    }
-
-    //============================================================================
-    // Method Description:
-    /// Resample a series to m points via Fourier interpolation
-    ///
-    /// @param inArray
-    /// @param inAxis (Optional, default NONE)
-    ///
-    /// @return NdArray
-    ///
-    template<typename dtype>
-    NdArray<std::complex<double>> fft_resample(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE)
-    {
+        return ifft(fft(inArray, inAxis), inAxis);
     }
 } // namespace nc::fft

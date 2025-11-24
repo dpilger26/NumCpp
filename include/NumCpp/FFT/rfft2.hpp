@@ -36,6 +36,21 @@
 
 namespace nc::fft
 {
+    namespace detail
+    {
+        //===========================================================================
+        // Method Description:
+        /// Fast Fourier Transform
+        ///
+        /// @param x the data
+        /// @param shape Shape (length of each transformed axis) of the output
+        ///
+        inline NdArray<std::complex<double>> rfft2_internal(const NdArray<double>& x, const Shape& shape)
+        {
+            return {};
+        }
+    } // namespace detail
+
     //============================================================================
     // Method Description:
     /// Compute the 2-dimensional FFT of a real array.
@@ -48,7 +63,7 @@ namespace nc::fft
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> rfft2(const NdArray<std::complex<dtype>>& inArray, const Shape& inShape)
+    NdArray<std::complex<double>> rfft2(const NdArray<dtype>& inArray, const Shape& inShape)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -66,10 +81,10 @@ namespace nc::fft
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> rfft2(const NdArray<std::complex<dtype>>& inArray)
+    NdArray<std::complex<double>> rfft2(const NdArray<dtype>& inArray)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return fft2(inArray, inArray.shape());
+        return rfft2(inArray, inArray.shape());
     }
 } // namespace nc::fft

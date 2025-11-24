@@ -47,8 +47,11 @@ namespace nc::fft
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> rfft_resample(const NdArray<dtype>& inArray, uint32 inN, Axis inAxis = Axis::NONE)
+    NdArray<double> rfftresample(const NdArray<dtype>& inArray, uint32 inN, Axis inAxis = Axis::NONE)
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        return irfft(rfft(inArray, inN, inAxis), inN, inAxis);
     }
 
     //===========================================================================
@@ -61,7 +64,10 @@ namespace nc::fft
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> rfft_resample(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<double> rfftresample(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        return irfft(rfft(inArray, inAxis), inAxis);
     }
 } // namespace nc::fft

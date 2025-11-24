@@ -40,6 +40,21 @@
 
 namespace nc::fft
 {
+    namespace detail
+    {
+        //===========================================================================
+        // Method Description:
+        /// Fast Fourier Transform
+        ///
+        /// @param x the data
+        /// @param shape Shape (length of each transformed axis) of the output
+        ///
+        inline NdArray<double> internal_irfft2(const NdArray<std::complex<double>>& x, const Shape& inShape)
+        {
+            return {};
+        }
+    } // namespace detail
+
     //============================================================================
     // Method Description:
     /// Computes the inverse of rfft2.
