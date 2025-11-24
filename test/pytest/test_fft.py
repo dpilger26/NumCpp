@@ -713,6 +713,7 @@ def test_fft2():
         s = [np.random.randint(1, shapeInput[0]), np.random.randint(1, shapeInput[1])]
         assert np.array_equal(np.round(NumCpp.fft2(cArray, NumCpp.Shape(*s)), ROUNDING_DIGITS), np.round(np.fft.fft2(data, s), ROUNDING_DIGITS))
 
+
 ####################################################################################
 def test_ifft2():
     for _ in range(NUM_TRIALS):
@@ -1048,7 +1049,33 @@ def test_rfftfreq():
 
 ####################################################################################
 def test_rfft2():
-    assert False
+    for _ in range(NUM_TRIALS):
+        shapeInput = np.random.randint(
+            10,
+            30,
+            [
+                2,
+            ],
+        )
+        data = np.random.randint(0, 100, shapeInput)
+        cShape = NumCpp.Shape(*shapeInput)
+        cArray = NumCpp.NdArray(cShape)
+        cArray.setArray(data)
+        assert np.array_equal(np.round(NumCpp.rfft2(cArray), ROUNDING_DIGITS), np.round(np.fft.rfft2(data), ROUNDING_DIGITS))
+
+        shapeInput = np.random.randint(
+            10,
+            30,
+            [
+                2,
+            ],
+        )
+        data = np.random.randint(0, 100, shapeInput)
+        cShape = NumCpp.Shape(*shapeInput)
+        cArray = NumCpp.NdArray(cShape)
+        cArray.setArray(data)
+        s = [np.random.randint(1, shapeInput[0]), np.random.randint(1, shapeInput[1])]
+        assert np.array_equal(np.round(NumCpp.rfft2(cArray, NumCpp.Shape(*s)), ROUNDING_DIGITS), np.round(np.fft.rfft2(data, s), ROUNDING_DIGITS))
 
 
 ####################################################################################

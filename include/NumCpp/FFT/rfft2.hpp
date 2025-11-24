@@ -40,14 +40,43 @@ namespace nc::fft
     {
         //===========================================================================
         // Method Description:
-        /// Fast Fourier Transform
+        /// 2D Fast Fourier Transform for real inputs
         ///
         /// @param x the data
         /// @param shape Shape (length of each transformed axis) of the output
         ///
-        inline NdArray<std::complex<double>> rfft2_internal(const NdArray<double>& x, const Shape& shape)
+        inline NdArray<std::complex<double>> rfft2_internal(const NdArray<std::complex<double>>& x, const Shape& shape)
         {
-            return {};
+            if (shape.rows == 0 || shape.cols == 0)
+            {
+                return {};
+            }
+
+            const auto realN  = shape.cols / 2 + 1;
+            auto       result = NdArray<std::complex<double>>(shape.rows, realN);
+
+            stl_algorithms::for_each(result.begin(),
+                                     result.end(),
+                                     [&](auto& resultElement)
+                                     {
+                                         const auto i  = &resultElement - result.data();
+                                         const auto k  = static_cast<double>(i / realN);
+                                         const auto l  = static_cast<double>(i % realN);
+                                         resultElement = std::complex<double>{ 0., 0. };
+                                         for (auto m = 0u; m < std::min(shape.rows, x.numRows()); ++m)
+                                         {
+                                             for (auto n = 0u; n < std::min(shape.cols, x.numCols()); ++n)
+                                             {
+                                                 const auto angle =
+                                                     -constants::twoPi *
+                                                     (((static_cast<double>(m) * k) / static_cast<double>(shape.rows)) +
+                                                      ((static_cast<double>(n) * l) / static_cast<double>(shape.cols)));
+                                                 resultElement += (x(m, n) * std::polar(1., angle));
+                                             }
+                                         }
+                                     });
+
+            return result;
         }
     } // namespace detail
 
@@ -67,7 +96,8 @@ namespace nc::fft
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return {};
+        const auto data = nc::complex<dtype, double>(inArray);
+        return detail::rfft2_internal(data, inShape);
     }
 
     //============================================================================
