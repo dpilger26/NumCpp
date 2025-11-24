@@ -39,7 +39,7 @@ namespace nc::fft
     {
         //===========================================================================
         // Method Description:
-        /// Inverse Fast Fourier Transform
+        /// 2D Inverse Fast Fourier Transform
         ///
         /// @param x the data
         /// @param shape Shape (length of each transformed axis) of the output

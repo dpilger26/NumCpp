@@ -58,7 +58,7 @@ namespace nc::fft
 
             stl_algorithms::for_each(result.begin(),
                                      result.end(),
-                                     [n, &x, &result](auto& resultElement)
+                                     [&](auto& resultElement)
                                      {
                                          const auto m = static_cast<double>(&resultElement - result.data());
                                          const auto minusTwoPiKOverN = constants::twoPi * m / static_cast<double>(n);
