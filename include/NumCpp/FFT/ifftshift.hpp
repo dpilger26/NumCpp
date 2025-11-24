@@ -50,6 +50,31 @@ namespace nc::fft
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        return {};
+        switch (inAxis)
+        {
+            case Axis::NONE:
+            {
+                auto shift = inX.size() / 2;
+                shift += inX.size() % 2 == 1 ? 1 : 0;
+                return roll(inX, shift, inAxis);
+            }
+            case Axis::COL:
+            {
+                auto shift = inX.numCols() / 2;
+                shift += inX.numCols() % 2 == 1 ? 1 : 0;
+                return roll(inX, shift, inAxis);
+            }
+            case Axis::ROW:
+            {
+                auto shift = inX.numRows() / 2;
+                shift += inX.numRows() % 2 == 1 ? 1 : 0;
+                return roll(inX, shift, inAxis);
+            }
+            default:
+            {
+                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                return {};
+            }
+        }
     }
 } // namespace nc::fft

@@ -611,12 +611,44 @@ def test_fftfreq():
 
 ####################################################################################
 def test_fftshift():
-    assert False
+    for _ in range(50):
+        n = np.random.randint(10, 1000)
+        d = np.random.rand()
+        freqs = np.fft.fftfreq(n, d)
+        cFreqs = NumCpp.NdArray(1, freqs.size)
+        cFreqs.setArray(freqs)
+        assert np.array_equal(np.round(NumCpp.fftshift(cFreqs, NumCpp.Axis.NONE).flatten(), 8), np.round(np.fft.fftshift(freqs), 8))
+
+        dim0 = np.random.randint(10, 100)
+        dim1 = np.random.randint(10, 100)
+        n = dim0 * dim1
+        d = np.random.rand()
+        freqs = np.fft.fftfreq(n, d).reshape(dim0, dim1)
+        cFreqs = NumCpp.NdArray(freqs.shape[0], freqs.shape[1])
+        cFreqs.setArray(freqs)
+        assert np.array_equal(np.round(NumCpp.fftshift(cFreqs, NumCpp.Axis.ROW), 8), np.round(np.fft.fftshift(freqs, axes=0), 8))
+        assert np.array_equal(np.round(NumCpp.fftshift(cFreqs, NumCpp.Axis.COL), 8), np.round(np.fft.fftshift(freqs, axes=1), 8))
 
 
 ####################################################################################
 def test_ifftshift():
-    assert False
+    for _ in range(50):
+        n = np.random.randint(10, 1000)
+        d = np.random.rand()
+        freqs = np.fft.fftfreq(n, d)
+        cFreqs = NumCpp.NdArray(1, freqs.size)
+        cFreqs.setArray(freqs)
+        assert np.array_equal(np.round(NumCpp.ifftshift(cFreqs, NumCpp.Axis.NONE).flatten(), 8), np.round(np.fft.ifftshift(freqs), 8))
+
+        dim0 = np.random.randint(10, 100)
+        dim1 = np.random.randint(10, 100)
+        n = dim0 * dim1
+        d = np.random.rand()
+        freqs = np.fft.fftfreq(n, d).reshape(dim0, dim1)
+        cFreqs = NumCpp.NdArray(freqs.shape[0], freqs.shape[1])
+        cFreqs.setArray(freqs)
+        assert np.array_equal(np.round(NumCpp.ifftshift(cFreqs, NumCpp.Axis.ROW), 8), np.round(np.fft.ifftshift(freqs, axes=0), 8))
+        assert np.array_equal(np.round(NumCpp.ifftshift(cFreqs, NumCpp.Axis.COL), 8), np.round(np.fft.ifftshift(freqs, axes=1), 8))
 
 
 ####################################################################################

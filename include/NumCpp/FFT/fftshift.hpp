@@ -29,6 +29,7 @@
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Functions/roll.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc::fft
@@ -51,6 +52,25 @@ namespace nc::fft
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        return {};
+        switch (inAxis)
+        {
+            case Axis::NONE:
+            {
+                return roll(inX, inX.size() / 2, inAxis);
+            }
+            case Axis::COL:
+            {
+                return roll(inX, inX.numCols() / 2, inAxis);
+            }
+            case Axis::ROW:
+            {
+                return roll(inX, inX.numRows() / 2, inAxis);
+            }
+            default:
+            {
+                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                return {};
+            }
+        }
     }
 } // namespace nc::fft
