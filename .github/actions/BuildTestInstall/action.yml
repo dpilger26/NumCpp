@@ -38,7 +38,7 @@ runs:
     - name: pytest
       shell: ${{inputs.shell}}
       working-directory: ${{github.workspace}}/test/pytest
-      run: pytest -s
+      run: pytest
 
     - name: ctest
       shell: ${{inputs.shell}}
