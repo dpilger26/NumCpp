@@ -6,6 +6,7 @@ var hierarchy =
     [ "nc::all_same< T1, Ts >", "structnc_1_1all__same.html", null ],
     [ "nc::all_same< T1, Head, Tail... >", "structnc_1_1all__same_3_01_t1_00_01_head_00_01_tail_8_8_8_01_4.html", null ],
     [ "nc::all_same< T1, T2 >", "structnc_1_1all__same_3_01_t1_00_01_t2_01_4.html", null ],
+    [ "nc::ComplexHash< dtype >", "structnc_1_1_complex_hash.html", null ],
     [ "nc::coordinates::Cartesian", "classnc_1_1coordinates_1_1_cartesian.html", [
       [ "nc::coordinates::reference_frames::ECEF", "classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html", null ],
       [ "nc::coordinates::reference_frames::ENU", "classnc_1_1coordinates_1_1reference__frames_1_1_e_n_u.html", null ],

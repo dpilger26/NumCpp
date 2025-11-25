@@ -39,7 +39,7 @@
 
 ## Version 2.12.1
 
-* updated TRUE/FALSE enum fields to YES/NO to deconflict with other libraries terrible macro practice of #defining TRUE/FALSE
+* updated `TRUE`/`FALSE` enum fields to `YES`/`NO` to deconflict with other libraries terrible macro practice of `#defining TRUE/FALSE`
 
 ## Version 2.12.0
 

@@ -82,7 +82,7 @@ namespace nc::fft
     /// NumPy Reference: <https://numpy.org/doc/2.3/reference/generated/numpy.fft.rfft.html#numpy.fft.rfft>
     ///
     /// @param inArray
-    /// @param n Length of the transformed axis of the output.
+    /// @param inN Length of the transformed axis of the output.
     /// @param inAxis (Optional, default NONE)
     ///
     /// @return NdArray

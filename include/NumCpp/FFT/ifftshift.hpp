@@ -41,7 +41,7 @@ namespace nc::fft
     /// NumPy Reference: <https://numpy.org/doc/stable/reference/generated/numpy.fft.ifftshift.html>
     ///
     /// @param inX input array
-    /// @param Axes (Optional) Axes over which to shift. Default is None, which shifts all axes.
+    /// @param inAxis (Optional) Axes over which to shift. Default is None, which shifts all axes.
     ///
     /// @return NdArray
     ///

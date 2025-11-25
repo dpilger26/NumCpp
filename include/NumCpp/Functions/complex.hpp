@@ -119,7 +119,7 @@ namespace nc
     // Method Description:
     /// Returns a std::complex from the input real and imag components
     ///
-    /// @param inReal: the real component of the complex number
+    /// @param inArray the real component of the complex number
     /// @return NdArray
     ///
     template<typename dtype, typename dtypeOut = dtype>

@@ -20,6 +20,7 @@ var searchData=
   ['mirror1d_2ehpp_17',['mirror1d.hpp',['../mirror1d_8hpp.html',1,'']]],
   ['mirror2d_2ehpp_18',['mirror2d.hpp',['../mirror2d_8hpp.html',1,'']]],
   ['mod_2ehpp_19',['mod.hpp',['../mod_8hpp.html',1,'']]],
-  ['multi_5fdot_2ehpp_20',['multi_dot.hpp',['../multi__dot_8hpp.html',1,'']]],
-  ['multiply_2ehpp_21',['multiply.hpp',['../multiply_8hpp.html',1,'']]]
+  ['mode_2ehpp_20',['mode.hpp',['../mode_8hpp.html',1,'']]],
+  ['multi_5fdot_2ehpp_21',['multi_dot.hpp',['../multi__dot_8hpp.html',1,'']]],
+  ['multiply_2ehpp_22',['multiply.hpp',['../multiply_8hpp.html',1,'']]]
 ];

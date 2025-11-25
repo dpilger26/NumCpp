@@ -4084,220 +4084,221 @@ $(document).ready(function(){initNavTree('_nd_array_core_8hpp_source.html',''); 
 <div class="line"><a id="l04824" name="l04824"></a><span class="lineno"> 4824</span>                    ofile &lt;&lt; inSep;</div>
 <div class="line"><a id="l04825" name="l04825"></a><span class="lineno"> 4825</span>                }</div>
 <div class="line"><a id="l04826" name="l04826"></a><span class="lineno"> 4826</span>            }</div>
-<div class="line"><a id="l04827" name="l04827"></a><span class="lineno"> 4827</span>            ofile.close();</div>
-<div class="line"><a id="l04828" name="l04828"></a><span class="lineno"> 4828</span>        }</div>
+<div class="line"><a id="l04827" name="l04827"></a><span class="lineno"> 4827</span>            ofile &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a id="l04828" name="l04828"></a><span class="lineno"> 4828</span>            ofile.close();</div>
+<div class="line"><a id="l04829" name="l04829"></a><span class="lineno"> 4829</span>        }</div>
 </div>
-<div class="line"><a id="l04829" name="l04829"></a><span class="lineno"> 4829</span> </div>
-<div class="line"><a id="l04830" name="l04830"></a><span class="lineno"> 4830</span>        <span class="comment">//============================================================================</span></div>
-<div class="line"><a id="l04831" name="l04831"></a><span class="lineno"> 4831</span>        <span class="comment">// Method Description:</span></div>
-<div class="foldopen" id="foldopen04839" data-start="{" data-end="}">
-<div class="line"><a id="l04839" name="l04839"></a><span class="lineno"><a class="line" href="classnc_1_1_nd_array.html#a01777607b6958af633cc543f9c3ab85f"> 4839</a></span>        [[nodiscard]] <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;size_type&gt;</a> <a class="code hl_function" href="classnc_1_1_nd_array.html#a01777607b6958af633cc543f9c3ab85f">toIndices</a>(<a class="code hl_class" href="classnc_1_1_slice.html">Slice</a> inSlice, <a class="code hl_enumeration" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis = Axis::NONE)<span class="keyword"> const</span></div>
-<div class="line"><a id="l04840" name="l04840"></a><span class="lineno"> 4840</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l04841" name="l04841"></a><span class="lineno"> 4841</span>            <a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> numElements = 0;</div>
-<div class="line"><a id="l04842" name="l04842"></a><span class="lineno"> 4842</span>            <span class="keywordflow">switch</span> (inAxis)</div>
-<div class="line"><a id="l04843" name="l04843"></a><span class="lineno"> 4843</span>            {</div>
-<div class="line"><a id="l04844" name="l04844"></a><span class="lineno"> 4844</span>                <span class="keywordflow">case</span> Axis::NONE:</div>
-<div class="line"><a id="l04845" name="l04845"></a><span class="lineno"> 4845</span>                {</div>
-<div class="line"><a id="l04846" name="l04846"></a><span class="lineno"> 4846</span>                    numElements = inSlice.<a class="code hl_function" href="classnc_1_1_slice.html#aab35be40c38521a4bd9b3c99b3d33731">numElements</a>(size_);</div>
-<div class="line"><a id="l04847" name="l04847"></a><span class="lineno"> 4847</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l04848" name="l04848"></a><span class="lineno"> 4848</span>                }</div>
-<div class="line"><a id="l04849" name="l04849"></a><span class="lineno"> 4849</span>                <span class="keywordflow">case</span> Axis::ROW:</div>
-<div class="line"><a id="l04850" name="l04850"></a><span class="lineno"> 4850</span>                {</div>
-<div class="line"><a id="l04851" name="l04851"></a><span class="lineno"> 4851</span>                    numElements = inSlice.<a class="code hl_function" href="classnc_1_1_slice.html#aab35be40c38521a4bd9b3c99b3d33731">numElements</a>(shape_.rows);</div>
-<div class="line"><a id="l04852" name="l04852"></a><span class="lineno"> 4852</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l04853" name="l04853"></a><span class="lineno"> 4853</span>                }</div>
-<div class="line"><a id="l04854" name="l04854"></a><span class="lineno"> 4854</span>                <span class="keywordflow">case</span> Axis::COL:</div>
-<div class="line"><a id="l04855" name="l04855"></a><span class="lineno"> 4855</span>                {</div>
-<div class="line"><a id="l04856" name="l04856"></a><span class="lineno"> 4856</span>                    numElements = inSlice.<a class="code hl_function" href="classnc_1_1_slice.html#aab35be40c38521a4bd9b3c99b3d33731">numElements</a>(shape_.cols);</div>
-<div class="line"><a id="l04857" name="l04857"></a><span class="lineno"> 4857</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l04858" name="l04858"></a><span class="lineno"> 4858</span>                }</div>
-<div class="line"><a id="l04859" name="l04859"></a><span class="lineno"> 4859</span>                <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l04860" name="l04860"></a><span class="lineno"> 4860</span>                {</div>
-<div class="line"><a id="l04861" name="l04861"></a><span class="lineno"> 4861</span>                    <span class="comment">// not actually possible, getting rid of compiler warning</span></div>
-<div class="line"><a id="l04862" name="l04862"></a><span class="lineno"> 4862</span>                    <a class="code hl_define" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;Invalid &#39;inAxis&#39; option&quot;</span>);</div>
-<div class="line"><a id="l04863" name="l04863"></a><span class="lineno"> 4863</span>                }</div>
-<div class="line"><a id="l04864" name="l04864"></a><span class="lineno"> 4864</span>            }</div>
-<div class="line"><a id="l04865" name="l04865"></a><span class="lineno"> 4865</span> </div>
-<div class="line"><a id="l04866" name="l04866"></a><span class="lineno"> 4866</span>            <span class="keywordflow">if</span> (numElements == 0)</div>
-<div class="line"><a id="l04867" name="l04867"></a><span class="lineno"> 4867</span>            {</div>
-<div class="line"><a id="l04868" name="l04868"></a><span class="lineno"> 4868</span>                <span class="keywordflow">return</span> {};</div>
-<div class="line"><a id="l04869" name="l04869"></a><span class="lineno"> 4869</span>            }</div>
-<div class="line"><a id="l04870" name="l04870"></a><span class="lineno"> 4870</span> </div>
-<div class="line"><a id="l04871" name="l04871"></a><span class="lineno"> 4871</span>            <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;size_type&gt;</a> indices(1, numElements);</div>
-<div class="line"><a id="l04872" name="l04872"></a><span class="lineno"> 4872</span>            indices[0] = <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a><span class="keyword">&gt;</span>(inSlice.<a class="code hl_variable" href="classnc_1_1_slice.html#a36ddb261d9057db4a9794b4fc46e9d3f">start</a>);</div>
-<div class="line"><a id="l04873" name="l04873"></a><span class="lineno"> 4873</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> i = 1; i &lt; indices.<a class="code hl_function" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>(); ++i)</div>
-<div class="line"><a id="l04874" name="l04874"></a><span class="lineno"> 4874</span>            {</div>
-<div class="line"><a id="l04875" name="l04875"></a><span class="lineno"> 4875</span>                indices[<span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="classnc_1_1_nd_array.html#af788b0229707ce6291f177e18e7e872d">index_type</a><span class="keyword">&gt;</span>(i)] = <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a><span class="keyword">&gt;</span>(</div>
-<div class="line"><a id="l04876" name="l04876"></a><span class="lineno"> 4876</span>                    indices[<span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="classnc_1_1_nd_array.html#af788b0229707ce6291f177e18e7e872d">index_type</a><span class="keyword">&gt;</span>(i - <a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a>{ 1 })] + <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a><span class="keyword">&gt;</span>(inSlice.<a class="code hl_variable" href="classnc_1_1_slice.html#a112855a11aa1737b7859e3d63feb09c4">step</a>));</div>
-<div class="line"><a id="l04877" name="l04877"></a><span class="lineno"> 4877</span>            }</div>
-<div class="line"><a id="l04878" name="l04878"></a><span class="lineno"> 4878</span> </div>
-<div class="line"><a id="l04879" name="l04879"></a><span class="lineno"> 4879</span>            <span class="keywordflow">return</span> indices;</div>
-<div class="line"><a id="l04880" name="l04880"></a><span class="lineno"> 4880</span>        }</div>
+<div class="line"><a id="l04830" name="l04830"></a><span class="lineno"> 4830</span> </div>
+<div class="line"><a id="l04831" name="l04831"></a><span class="lineno"> 4831</span>        <span class="comment">//============================================================================</span></div>
+<div class="line"><a id="l04832" name="l04832"></a><span class="lineno"> 4832</span>        <span class="comment">// Method Description:</span></div>
+<div class="foldopen" id="foldopen04840" data-start="{" data-end="}">
+<div class="line"><a id="l04840" name="l04840"></a><span class="lineno"><a class="line" href="classnc_1_1_nd_array.html#a01777607b6958af633cc543f9c3ab85f"> 4840</a></span>        [[nodiscard]] <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;size_type&gt;</a> <a class="code hl_function" href="classnc_1_1_nd_array.html#a01777607b6958af633cc543f9c3ab85f">toIndices</a>(<a class="code hl_class" href="classnc_1_1_slice.html">Slice</a> inSlice, <a class="code hl_enumeration" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis = Axis::NONE)<span class="keyword"> const</span></div>
+<div class="line"><a id="l04841" name="l04841"></a><span class="lineno"> 4841</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l04842" name="l04842"></a><span class="lineno"> 4842</span>            <a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> numElements = 0;</div>
+<div class="line"><a id="l04843" name="l04843"></a><span class="lineno"> 4843</span>            <span class="keywordflow">switch</span> (inAxis)</div>
+<div class="line"><a id="l04844" name="l04844"></a><span class="lineno"> 4844</span>            {</div>
+<div class="line"><a id="l04845" name="l04845"></a><span class="lineno"> 4845</span>                <span class="keywordflow">case</span> Axis::NONE:</div>
+<div class="line"><a id="l04846" name="l04846"></a><span class="lineno"> 4846</span>                {</div>
+<div class="line"><a id="l04847" name="l04847"></a><span class="lineno"> 4847</span>                    numElements = inSlice.<a class="code hl_function" href="classnc_1_1_slice.html#aab35be40c38521a4bd9b3c99b3d33731">numElements</a>(size_);</div>
+<div class="line"><a id="l04848" name="l04848"></a><span class="lineno"> 4848</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l04849" name="l04849"></a><span class="lineno"> 4849</span>                }</div>
+<div class="line"><a id="l04850" name="l04850"></a><span class="lineno"> 4850</span>                <span class="keywordflow">case</span> Axis::ROW:</div>
+<div class="line"><a id="l04851" name="l04851"></a><span class="lineno"> 4851</span>                {</div>
+<div class="line"><a id="l04852" name="l04852"></a><span class="lineno"> 4852</span>                    numElements = inSlice.<a class="code hl_function" href="classnc_1_1_slice.html#aab35be40c38521a4bd9b3c99b3d33731">numElements</a>(shape_.rows);</div>
+<div class="line"><a id="l04853" name="l04853"></a><span class="lineno"> 4853</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l04854" name="l04854"></a><span class="lineno"> 4854</span>                }</div>
+<div class="line"><a id="l04855" name="l04855"></a><span class="lineno"> 4855</span>                <span class="keywordflow">case</span> Axis::COL:</div>
+<div class="line"><a id="l04856" name="l04856"></a><span class="lineno"> 4856</span>                {</div>
+<div class="line"><a id="l04857" name="l04857"></a><span class="lineno"> 4857</span>                    numElements = inSlice.<a class="code hl_function" href="classnc_1_1_slice.html#aab35be40c38521a4bd9b3c99b3d33731">numElements</a>(shape_.cols);</div>
+<div class="line"><a id="l04858" name="l04858"></a><span class="lineno"> 4858</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l04859" name="l04859"></a><span class="lineno"> 4859</span>                }</div>
+<div class="line"><a id="l04860" name="l04860"></a><span class="lineno"> 4860</span>                <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l04861" name="l04861"></a><span class="lineno"> 4861</span>                {</div>
+<div class="line"><a id="l04862" name="l04862"></a><span class="lineno"> 4862</span>                    <span class="comment">// not actually possible, getting rid of compiler warning</span></div>
+<div class="line"><a id="l04863" name="l04863"></a><span class="lineno"> 4863</span>                    <a class="code hl_define" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;Invalid &#39;inAxis&#39; option&quot;</span>);</div>
+<div class="line"><a id="l04864" name="l04864"></a><span class="lineno"> 4864</span>                }</div>
+<div class="line"><a id="l04865" name="l04865"></a><span class="lineno"> 4865</span>            }</div>
+<div class="line"><a id="l04866" name="l04866"></a><span class="lineno"> 4866</span> </div>
+<div class="line"><a id="l04867" name="l04867"></a><span class="lineno"> 4867</span>            <span class="keywordflow">if</span> (numElements == 0)</div>
+<div class="line"><a id="l04868" name="l04868"></a><span class="lineno"> 4868</span>            {</div>
+<div class="line"><a id="l04869" name="l04869"></a><span class="lineno"> 4869</span>                <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l04870" name="l04870"></a><span class="lineno"> 4870</span>            }</div>
+<div class="line"><a id="l04871" name="l04871"></a><span class="lineno"> 4871</span> </div>
+<div class="line"><a id="l04872" name="l04872"></a><span class="lineno"> 4872</span>            <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;size_type&gt;</a> indices(1, numElements);</div>
+<div class="line"><a id="l04873" name="l04873"></a><span class="lineno"> 4873</span>            indices[0] = <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a><span class="keyword">&gt;</span>(inSlice.<a class="code hl_variable" href="classnc_1_1_slice.html#a36ddb261d9057db4a9794b4fc46e9d3f">start</a>);</div>
+<div class="line"><a id="l04874" name="l04874"></a><span class="lineno"> 4874</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> i = 1; i &lt; indices.<a class="code hl_function" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>(); ++i)</div>
+<div class="line"><a id="l04875" name="l04875"></a><span class="lineno"> 4875</span>            {</div>
+<div class="line"><a id="l04876" name="l04876"></a><span class="lineno"> 4876</span>                indices[<span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="classnc_1_1_nd_array.html#af788b0229707ce6291f177e18e7e872d">index_type</a><span class="keyword">&gt;</span>(i)] = <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a><span class="keyword">&gt;</span>(</div>
+<div class="line"><a id="l04877" name="l04877"></a><span class="lineno"> 4877</span>                    indices[<span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="classnc_1_1_nd_array.html#af788b0229707ce6291f177e18e7e872d">index_type</a><span class="keyword">&gt;</span>(i - <a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a>{ 1 })] + <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a><span class="keyword">&gt;</span>(inSlice.<a class="code hl_variable" href="classnc_1_1_slice.html#a112855a11aa1737b7859e3d63feb09c4">step</a>));</div>
+<div class="line"><a id="l04878" name="l04878"></a><span class="lineno"> 4878</span>            }</div>
+<div class="line"><a id="l04879" name="l04879"></a><span class="lineno"> 4879</span> </div>
+<div class="line"><a id="l04880" name="l04880"></a><span class="lineno"> 4880</span>            <span class="keywordflow">return</span> indices;</div>
+<div class="line"><a id="l04881" name="l04881"></a><span class="lineno"> 4881</span>        }</div>
 </div>
-<div class="line"><a id="l04881" name="l04881"></a><span class="lineno"> 4881</span> </div>
-<div class="line"><a id="l04882" name="l04882"></a><span class="lineno"> 4882</span>        <span class="comment">//============================================================================</span></div>
-<div class="line"><a id="l04883" name="l04883"></a><span class="lineno"> 4883</span>        <span class="comment">// Method Description:</span></div>
-<div class="foldopen" id="foldopen04888" data-start="{" data-end="}">
-<div class="line"><a id="l04888" name="l04888"></a><span class="lineno"><a class="line" href="classnc_1_1_nd_array.html#a5b35f00bf7af382d3c98792a20bd3531"> 4888</a></span>        [[nodiscard]] std::vector&lt;dtype&gt; <a class="code hl_function" href="classnc_1_1_nd_array.html#a5b35f00bf7af382d3c98792a20bd3531">toStlVector</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l04889" name="l04889"></a><span class="lineno"> 4889</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l04890" name="l04890"></a><span class="lineno"> 4890</span>            <span class="keywordflow">return</span> std::vector&lt;dtype&gt;(cbegin(), cend());</div>
-<div class="line"><a id="l04891" name="l04891"></a><span class="lineno"> 4891</span>        }</div>
+<div class="line"><a id="l04882" name="l04882"></a><span class="lineno"> 4882</span> </div>
+<div class="line"><a id="l04883" name="l04883"></a><span class="lineno"> 4883</span>        <span class="comment">//============================================================================</span></div>
+<div class="line"><a id="l04884" name="l04884"></a><span class="lineno"> 4884</span>        <span class="comment">// Method Description:</span></div>
+<div class="foldopen" id="foldopen04889" data-start="{" data-end="}">
+<div class="line"><a id="l04889" name="l04889"></a><span class="lineno"><a class="line" href="classnc_1_1_nd_array.html#a5b35f00bf7af382d3c98792a20bd3531"> 4889</a></span>        [[nodiscard]] std::vector&lt;dtype&gt; <a class="code hl_function" href="classnc_1_1_nd_array.html#a5b35f00bf7af382d3c98792a20bd3531">toStlVector</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l04890" name="l04890"></a><span class="lineno"> 4890</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l04891" name="l04891"></a><span class="lineno"> 4891</span>            <span class="keywordflow">return</span> std::vector&lt;dtype&gt;(cbegin(), cend());</div>
+<div class="line"><a id="l04892" name="l04892"></a><span class="lineno"> 4892</span>        }</div>
 </div>
-<div class="line"><a id="l04892" name="l04892"></a><span class="lineno"> 4892</span> </div>
-<div class="line"><a id="l04893" name="l04893"></a><span class="lineno"> 4893</span>        <span class="comment">//============================================================================</span></div>
-<div class="line"><a id="l04894" name="l04894"></a><span class="lineno"> 4894</span>        <span class="comment">// Method Description:</span></div>
-<div class="foldopen" id="foldopen04905" data-start="{" data-end="}">
-<div class="line"><a id="l04905" name="l04905"></a><span class="lineno"><a class="line" href="classnc_1_1_nd_array.html#add51f0dd66fd9e6f8833a059262e3acf"> 4905</a></span>        [[nodiscard]] <a class="code hl_typedef" href="classnc_1_1_nd_array.html#aed76b0d590eff875e09a6f0d7968e7db">value_type</a> <a class="code hl_function" href="classnc_1_1_nd_array.html#add51f0dd66fd9e6f8833a059262e3acf">trace</a>(<a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> inOffset = 0, <a class="code hl_enumeration" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis = Axis::ROW) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l04906" name="l04906"></a><span class="lineno"> 4906</span>        {</div>
-<div class="line"><a id="l04907" name="l04907"></a><span class="lineno"> 4907</span>            <a class="code hl_define" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
-<div class="line"><a id="l04908" name="l04908"></a><span class="lineno"> 4908</span> </div>
-<div class="line"><a id="l04909" name="l04909"></a><span class="lineno"> 4909</span>            <a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> rowStart = 0;</div>
-<div class="line"><a id="l04910" name="l04910"></a><span class="lineno"> 4910</span>            <a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> colStart = 0;</div>
-<div class="line"><a id="l04911" name="l04911"></a><span class="lineno"> 4911</span>            <span class="keywordflow">switch</span> (inAxis)</div>
-<div class="line"><a id="l04912" name="l04912"></a><span class="lineno"> 4912</span>            {</div>
-<div class="line"><a id="l04913" name="l04913"></a><span class="lineno"> 4913</span>                <span class="keywordflow">case</span> Axis::ROW:</div>
-<div class="line"><a id="l04914" name="l04914"></a><span class="lineno"> 4914</span>                {</div>
-<div class="line"><a id="l04915" name="l04915"></a><span class="lineno"> 4915</span>                    rowStart += inOffset;</div>
-<div class="line"><a id="l04916" name="l04916"></a><span class="lineno"> 4916</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l04917" name="l04917"></a><span class="lineno"> 4917</span>                }</div>
-<div class="line"><a id="l04918" name="l04918"></a><span class="lineno"> 4918</span>                <span class="keywordflow">case</span> Axis::COL:</div>
-<div class="line"><a id="l04919" name="l04919"></a><span class="lineno"> 4919</span>                {</div>
-<div class="line"><a id="l04920" name="l04920"></a><span class="lineno"> 4920</span>                    colStart += inOffset;</div>
-<div class="line"><a id="l04921" name="l04921"></a><span class="lineno"> 4921</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l04922" name="l04922"></a><span class="lineno"> 4922</span>                }</div>
-<div class="line"><a id="l04923" name="l04923"></a><span class="lineno"> 4923</span>                <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l04924" name="l04924"></a><span class="lineno"> 4924</span>                {</div>
-<div class="line"><a id="l04925" name="l04925"></a><span class="lineno"> 4925</span>                    <span class="comment">// if the user input NONE, override back to ROW</span></div>
-<div class="line"><a id="l04926" name="l04926"></a><span class="lineno"> 4926</span>                    inAxis = Axis::ROW;</div>
-<div class="line"><a id="l04927" name="l04927"></a><span class="lineno"> 4927</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l04928" name="l04928"></a><span class="lineno"> 4928</span>                }</div>
-<div class="line"><a id="l04929" name="l04929"></a><span class="lineno"> 4929</span>            }</div>
-<div class="line"><a id="l04930" name="l04930"></a><span class="lineno"> 4930</span> </div>
-<div class="line"><a id="l04931" name="l04931"></a><span class="lineno"> 4931</span>            <span class="keywordflow">if</span> (rowStart &gt;= shape_.rows || colStart &gt;= shape_.cols)</div>
-<div class="line"><a id="l04932" name="l04932"></a><span class="lineno"> 4932</span>            {</div>
-<div class="line"><a id="l04933" name="l04933"></a><span class="lineno"> 4933</span>                <span class="keywordflow">return</span> dtype{ 0 };</div>
-<div class="line"><a id="l04934" name="l04934"></a><span class="lineno"> 4934</span>            }</div>
-<div class="line"><a id="l04935" name="l04935"></a><span class="lineno"> 4935</span> </div>
-<div class="line"><a id="l04936" name="l04936"></a><span class="lineno"> 4936</span>            <a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> col = colStart;</div>
-<div class="line"><a id="l04937" name="l04937"></a><span class="lineno"> 4937</span>            dtype     <a class="code hl_function" href="namespacenc.html#ab688952cfec9d98f50dee43378a9f27b">sum</a> = 0;</div>
-<div class="line"><a id="l04938" name="l04938"></a><span class="lineno"> 4938</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> row = rowStart; row &lt; shape_.rows; ++row)</div>
-<div class="line"><a id="l04939" name="l04939"></a><span class="lineno"> 4939</span>            {</div>
-<div class="line"><a id="l04940" name="l04940"></a><span class="lineno"> 4940</span>                <span class="keywordflow">if</span> (col &gt;= shape_.cols)</div>
-<div class="line"><a id="l04941" name="l04941"></a><span class="lineno"> 4941</span>                {</div>
-<div class="line"><a id="l04942" name="l04942"></a><span class="lineno"> 4942</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l04943" name="l04943"></a><span class="lineno"> 4943</span>                }</div>
-<div class="line"><a id="l04944" name="l04944"></a><span class="lineno"> 4944</span>                <a class="code hl_function" href="namespacenc.html#ab688952cfec9d98f50dee43378a9f27b">sum</a> += operator()(row, col++);</div>
-<div class="line"><a id="l04945" name="l04945"></a><span class="lineno"> 4945</span>            }</div>
-<div class="line"><a id="l04946" name="l04946"></a><span class="lineno"> 4946</span> </div>
-<div class="line"><a id="l04947" name="l04947"></a><span class="lineno"> 4947</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacenc.html#ab688952cfec9d98f50dee43378a9f27b">sum</a>;</div>
-<div class="line"><a id="l04948" name="l04948"></a><span class="lineno"> 4948</span>        }</div>
+<div class="line"><a id="l04893" name="l04893"></a><span class="lineno"> 4893</span> </div>
+<div class="line"><a id="l04894" name="l04894"></a><span class="lineno"> 4894</span>        <span class="comment">//============================================================================</span></div>
+<div class="line"><a id="l04895" name="l04895"></a><span class="lineno"> 4895</span>        <span class="comment">// Method Description:</span></div>
+<div class="foldopen" id="foldopen04906" data-start="{" data-end="}">
+<div class="line"><a id="l04906" name="l04906"></a><span class="lineno"><a class="line" href="classnc_1_1_nd_array.html#add51f0dd66fd9e6f8833a059262e3acf"> 4906</a></span>        [[nodiscard]] <a class="code hl_typedef" href="classnc_1_1_nd_array.html#aed76b0d590eff875e09a6f0d7968e7db">value_type</a> <a class="code hl_function" href="classnc_1_1_nd_array.html#add51f0dd66fd9e6f8833a059262e3acf">trace</a>(<a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> inOffset = 0, <a class="code hl_enumeration" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis = Axis::ROW) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l04907" name="l04907"></a><span class="lineno"> 4907</span>        {</div>
+<div class="line"><a id="l04908" name="l04908"></a><span class="lineno"> 4908</span>            <a class="code hl_define" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
+<div class="line"><a id="l04909" name="l04909"></a><span class="lineno"> 4909</span> </div>
+<div class="line"><a id="l04910" name="l04910"></a><span class="lineno"> 4910</span>            <a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> rowStart = 0;</div>
+<div class="line"><a id="l04911" name="l04911"></a><span class="lineno"> 4911</span>            <a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> colStart = 0;</div>
+<div class="line"><a id="l04912" name="l04912"></a><span class="lineno"> 4912</span>            <span class="keywordflow">switch</span> (inAxis)</div>
+<div class="line"><a id="l04913" name="l04913"></a><span class="lineno"> 4913</span>            {</div>
+<div class="line"><a id="l04914" name="l04914"></a><span class="lineno"> 4914</span>                <span class="keywordflow">case</span> Axis::ROW:</div>
+<div class="line"><a id="l04915" name="l04915"></a><span class="lineno"> 4915</span>                {</div>
+<div class="line"><a id="l04916" name="l04916"></a><span class="lineno"> 4916</span>                    rowStart += inOffset;</div>
+<div class="line"><a id="l04917" name="l04917"></a><span class="lineno"> 4917</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l04918" name="l04918"></a><span class="lineno"> 4918</span>                }</div>
+<div class="line"><a id="l04919" name="l04919"></a><span class="lineno"> 4919</span>                <span class="keywordflow">case</span> Axis::COL:</div>
+<div class="line"><a id="l04920" name="l04920"></a><span class="lineno"> 4920</span>                {</div>
+<div class="line"><a id="l04921" name="l04921"></a><span class="lineno"> 4921</span>                    colStart += inOffset;</div>
+<div class="line"><a id="l04922" name="l04922"></a><span class="lineno"> 4922</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l04923" name="l04923"></a><span class="lineno"> 4923</span>                }</div>
+<div class="line"><a id="l04924" name="l04924"></a><span class="lineno"> 4924</span>                <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l04925" name="l04925"></a><span class="lineno"> 4925</span>                {</div>
+<div class="line"><a id="l04926" name="l04926"></a><span class="lineno"> 4926</span>                    <span class="comment">// if the user input NONE, override back to ROW</span></div>
+<div class="line"><a id="l04927" name="l04927"></a><span class="lineno"> 4927</span>                    inAxis = Axis::ROW;</div>
+<div class="line"><a id="l04928" name="l04928"></a><span class="lineno"> 4928</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l04929" name="l04929"></a><span class="lineno"> 4929</span>                }</div>
+<div class="line"><a id="l04930" name="l04930"></a><span class="lineno"> 4930</span>            }</div>
+<div class="line"><a id="l04931" name="l04931"></a><span class="lineno"> 4931</span> </div>
+<div class="line"><a id="l04932" name="l04932"></a><span class="lineno"> 4932</span>            <span class="keywordflow">if</span> (rowStart &gt;= shape_.rows || colStart &gt;= shape_.cols)</div>
+<div class="line"><a id="l04933" name="l04933"></a><span class="lineno"> 4933</span>            {</div>
+<div class="line"><a id="l04934" name="l04934"></a><span class="lineno"> 4934</span>                <span class="keywordflow">return</span> dtype{ 0 };</div>
+<div class="line"><a id="l04935" name="l04935"></a><span class="lineno"> 4935</span>            }</div>
+<div class="line"><a id="l04936" name="l04936"></a><span class="lineno"> 4936</span> </div>
+<div class="line"><a id="l04937" name="l04937"></a><span class="lineno"> 4937</span>            <a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> col = colStart;</div>
+<div class="line"><a id="l04938" name="l04938"></a><span class="lineno"> 4938</span>            dtype     <a class="code hl_function" href="namespacenc.html#ab688952cfec9d98f50dee43378a9f27b">sum</a> = 0;</div>
+<div class="line"><a id="l04939" name="l04939"></a><span class="lineno"> 4939</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> row = rowStart; row &lt; shape_.rows; ++row)</div>
+<div class="line"><a id="l04940" name="l04940"></a><span class="lineno"> 4940</span>            {</div>
+<div class="line"><a id="l04941" name="l04941"></a><span class="lineno"> 4941</span>                <span class="keywordflow">if</span> (col &gt;= shape_.cols)</div>
+<div class="line"><a id="l04942" name="l04942"></a><span class="lineno"> 4942</span>                {</div>
+<div class="line"><a id="l04943" name="l04943"></a><span class="lineno"> 4943</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l04944" name="l04944"></a><span class="lineno"> 4944</span>                }</div>
+<div class="line"><a id="l04945" name="l04945"></a><span class="lineno"> 4945</span>                <a class="code hl_function" href="namespacenc.html#ab688952cfec9d98f50dee43378a9f27b">sum</a> += operator()(row, col++);</div>
+<div class="line"><a id="l04946" name="l04946"></a><span class="lineno"> 4946</span>            }</div>
+<div class="line"><a id="l04947" name="l04947"></a><span class="lineno"> 4947</span> </div>
+<div class="line"><a id="l04948" name="l04948"></a><span class="lineno"> 4948</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacenc.html#ab688952cfec9d98f50dee43378a9f27b">sum</a>;</div>
+<div class="line"><a id="l04949" name="l04949"></a><span class="lineno"> 4949</span>        }</div>
 </div>
-<div class="line"><a id="l04949" name="l04949"></a><span class="lineno"> 4949</span> </div>
-<div class="line"><a id="l04950" name="l04950"></a><span class="lineno"> 4950</span>        <span class="comment">//============================================================================</span></div>
-<div class="line"><a id="l04951" name="l04951"></a><span class="lineno"> 4951</span>        <span class="comment">// Method Description:</span></div>
-<div class="foldopen" id="foldopen04958" data-start="{" data-end="}">
-<div class="line"><a id="l04958" name="l04958"></a><span class="lineno"><a class="line" href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807"> 4958</a></span>        [[nodiscard]] <a class="code hl_class" href="classnc_1_1_nd_array.html">self_type</a> <a class="code hl_function" href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807">transpose</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l04959" name="l04959"></a><span class="lineno"> 4959</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l04960" name="l04960"></a><span class="lineno"> 4960</span>            <a class="code hl_class" href="classnc_1_1_nd_array.html">self_type</a> transArray(shape_.cols, shape_.rows);</div>
-<div class="line"><a id="l04961" name="l04961"></a><span class="lineno"> 4961</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> row = 0; row &lt; shape_.rows; ++row)</div>
-<div class="line"><a id="l04962" name="l04962"></a><span class="lineno"> 4962</span>            {</div>
-<div class="line"><a id="l04963" name="l04963"></a><span class="lineno"> 4963</span>                <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> col = 0; col &lt; shape_.cols; ++col)</div>
-<div class="line"><a id="l04964" name="l04964"></a><span class="lineno"> 4964</span>                {</div>
-<div class="line"><a id="l04965" name="l04965"></a><span class="lineno"> 4965</span>                    transArray(col, row) = operator()(row, col);</div>
-<div class="line"><a id="l04966" name="l04966"></a><span class="lineno"> 4966</span>                }</div>
-<div class="line"><a id="l04967" name="l04967"></a><span class="lineno"> 4967</span>            }</div>
-<div class="line"><a id="l04968" name="l04968"></a><span class="lineno"> 4968</span>            <span class="keywordflow">return</span> transArray;</div>
-<div class="line"><a id="l04969" name="l04969"></a><span class="lineno"> 4969</span>        }</div>
+<div class="line"><a id="l04950" name="l04950"></a><span class="lineno"> 4950</span> </div>
+<div class="line"><a id="l04951" name="l04951"></a><span class="lineno"> 4951</span>        <span class="comment">//============================================================================</span></div>
+<div class="line"><a id="l04952" name="l04952"></a><span class="lineno"> 4952</span>        <span class="comment">// Method Description:</span></div>
+<div class="foldopen" id="foldopen04959" data-start="{" data-end="}">
+<div class="line"><a id="l04959" name="l04959"></a><span class="lineno"><a class="line" href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807"> 4959</a></span>        [[nodiscard]] <a class="code hl_class" href="classnc_1_1_nd_array.html">self_type</a> <a class="code hl_function" href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807">transpose</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l04960" name="l04960"></a><span class="lineno"> 4960</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l04961" name="l04961"></a><span class="lineno"> 4961</span>            <a class="code hl_class" href="classnc_1_1_nd_array.html">self_type</a> transArray(shape_.cols, shape_.rows);</div>
+<div class="line"><a id="l04962" name="l04962"></a><span class="lineno"> 4962</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> row = 0; row &lt; shape_.rows; ++row)</div>
+<div class="line"><a id="l04963" name="l04963"></a><span class="lineno"> 4963</span>            {</div>
+<div class="line"><a id="l04964" name="l04964"></a><span class="lineno"> 4964</span>                <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> col = 0; col &lt; shape_.cols; ++col)</div>
+<div class="line"><a id="l04965" name="l04965"></a><span class="lineno"> 4965</span>                {</div>
+<div class="line"><a id="l04966" name="l04966"></a><span class="lineno"> 4966</span>                    transArray(col, row) = operator()(row, col);</div>
+<div class="line"><a id="l04967" name="l04967"></a><span class="lineno"> 4967</span>                }</div>
+<div class="line"><a id="l04968" name="l04968"></a><span class="lineno"> 4968</span>            }</div>
+<div class="line"><a id="l04969" name="l04969"></a><span class="lineno"> 4969</span>            <span class="keywordflow">return</span> transArray;</div>
+<div class="line"><a id="l04970" name="l04970"></a><span class="lineno"> 4970</span>        }</div>
 </div>
-<div class="line"><a id="l04970" name="l04970"></a><span class="lineno"> 4970</span> </div>
-<div class="line"><a id="l04971" name="l04971"></a><span class="lineno"> 4971</span>        <span class="comment">//============================================================================</span></div>
-<div class="line"><a id="l04972" name="l04972"></a><span class="lineno"> 4972</span>        <span class="comment">// Method Description:</span></div>
-<div class="foldopen" id="foldopen04976" data-start="{" data-end="}">
-<div class="line"><a id="l04976" name="l04976"></a><span class="lineno"><a class="line" href="classnc_1_1_nd_array.html#a0b05b0b1831bd96b1057f2788795f93f"> 4976</a></span>        <a class="code hl_class" href="classnc_1_1_nd_array.html">self_type</a>&amp; <a class="code hl_function" href="classnc_1_1_nd_array.html#a0b05b0b1831bd96b1057f2788795f93f">zeros</a>() noexcept</div>
-<div class="line"><a id="l04977" name="l04977"></a><span class="lineno"> 4977</span>        {</div>
-<div class="line"><a id="l04978" name="l04978"></a><span class="lineno"> 4978</span>            <a class="code hl_define" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
-<div class="line"><a id="l04979" name="l04979"></a><span class="lineno"> 4979</span> </div>
-<div class="line"><a id="l04980" name="l04980"></a><span class="lineno"> 4980</span>            fill(dtype{ 0 });</div>
-<div class="line"><a id="l04981" name="l04981"></a><span class="lineno"> 4981</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l04982" name="l04982"></a><span class="lineno"> 4982</span>        }</div>
+<div class="line"><a id="l04971" name="l04971"></a><span class="lineno"> 4971</span> </div>
+<div class="line"><a id="l04972" name="l04972"></a><span class="lineno"> 4972</span>        <span class="comment">//============================================================================</span></div>
+<div class="line"><a id="l04973" name="l04973"></a><span class="lineno"> 4973</span>        <span class="comment">// Method Description:</span></div>
+<div class="foldopen" id="foldopen04977" data-start="{" data-end="}">
+<div class="line"><a id="l04977" name="l04977"></a><span class="lineno"><a class="line" href="classnc_1_1_nd_array.html#a0b05b0b1831bd96b1057f2788795f93f"> 4977</a></span>        <a class="code hl_class" href="classnc_1_1_nd_array.html">self_type</a>&amp; <a class="code hl_function" href="classnc_1_1_nd_array.html#a0b05b0b1831bd96b1057f2788795f93f">zeros</a>() noexcept</div>
+<div class="line"><a id="l04978" name="l04978"></a><span class="lineno"> 4978</span>        {</div>
+<div class="line"><a id="l04979" name="l04979"></a><span class="lineno"> 4979</span>            <a class="code hl_define" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
+<div class="line"><a id="l04980" name="l04980"></a><span class="lineno"> 4980</span> </div>
+<div class="line"><a id="l04981" name="l04981"></a><span class="lineno"> 4981</span>            fill(dtype{ 0 });</div>
+<div class="line"><a id="l04982" name="l04982"></a><span class="lineno"> 4982</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l04983" name="l04983"></a><span class="lineno"> 4983</span>        }</div>
 </div>
-<div class="line"><a id="l04983" name="l04983"></a><span class="lineno"> 4983</span> </div>
-<div class="line"><a id="l04984" name="l04984"></a><span class="lineno"> 4984</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l04985" name="l04985"></a><span class="lineno"> 4985</span>        <span class="comment">//====================================Attributes==============================</span></div>
-<div class="line"><a id="l04986" name="l04986"></a><span class="lineno"> 4986</span>        allocator_type allocator_{};</div>
-<div class="line"><a id="l04987" name="l04987"></a><span class="lineno"> 4987</span>        Shape          shape_{ 0, 0 };</div>
-<div class="line"><a id="l04988" name="l04988"></a><span class="lineno"> 4988</span>        size_type      size_{ 0 };</div>
-<div class="line"><a id="l04989" name="l04989"></a><span class="lineno"> 4989</span>        <a class="code hl_enumeration" href="namespacenc.html#a8dcbcb343147d09e74689ad8a2586152">Endian</a>         endianess_{ Endian::NATIVE };</div>
-<div class="line"><a id="l04990" name="l04990"></a><span class="lineno"> 4990</span>        pointer        array_{ <span class="keyword">nullptr</span> };</div>
-<div class="line"><a id="l04991" name="l04991"></a><span class="lineno"> 4991</span>        <span class="keywordtype">bool</span>           ownsPtr_{ <span class="keyword">false</span> };</div>
-<div class="line"><a id="l04992" name="l04992"></a><span class="lineno"> 4992</span> </div>
-<div class="line"><a id="l04993" name="l04993"></a><span class="lineno"> 4993</span>        <span class="comment">//============================================================================</span></div>
-<div class="line"><a id="l04994" name="l04994"></a><span class="lineno"> 4994</span>        <span class="comment">// Method Description:</span></div>
-<div class="line"><a id="l04997" name="l04997"></a><span class="lineno"> 4997</span>        <span class="keywordtype">void</span> deleteArray() noexcept</div>
-<div class="line"><a id="l04998" name="l04998"></a><span class="lineno"> 4998</span>        {</div>
-<div class="line"><a id="l04999" name="l04999"></a><span class="lineno"> 4999</span>            <span class="keywordflow">if</span> (ownsPtr_ &amp;&amp; array_ != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a id="l05000" name="l05000"></a><span class="lineno"> 5000</span>            {</div>
-<div class="line"><a id="l05001" name="l05001"></a><span class="lineno"> 5001</span>                allocator_.deallocate(array_, size_);</div>
-<div class="line"><a id="l05002" name="l05002"></a><span class="lineno"> 5002</span>            }</div>
-<div class="line"><a id="l05003" name="l05003"></a><span class="lineno"> 5003</span> </div>
-<div class="line"><a id="l05004" name="l05004"></a><span class="lineno"> 5004</span>            array_      = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l05005" name="l05005"></a><span class="lineno"> 5005</span>            shape_.rows = shape_.cols = 0;</div>
-<div class="line"><a id="l05006" name="l05006"></a><span class="lineno"> 5006</span>            size_                     = 0;</div>
-<div class="line"><a id="l05007" name="l05007"></a><span class="lineno"> 5007</span>            ownsPtr_                  = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l05008" name="l05008"></a><span class="lineno"> 5008</span>            endianess_                = Endian::NATIVE;</div>
-<div class="line"><a id="l05009" name="l05009"></a><span class="lineno"> 5009</span>        }</div>
-<div class="line"><a id="l05010" name="l05010"></a><span class="lineno"> 5010</span> </div>
-<div class="line"><a id="l05011" name="l05011"></a><span class="lineno"> 5011</span>        <span class="comment">//============================================================================</span></div>
-<div class="line"><a id="l05012" name="l05012"></a><span class="lineno"> 5012</span>        <span class="comment">// Method Description:</span></div>
-<div class="line"><a id="l05015" name="l05015"></a><span class="lineno"> 5015</span>        <span class="keywordtype">void</span> newArray()</div>
-<div class="line"><a id="l05016" name="l05016"></a><span class="lineno"> 5016</span>        {</div>
-<div class="line"><a id="l05017" name="l05017"></a><span class="lineno"> 5017</span>            <span class="keywordflow">if</span> (size_ &gt; 0)</div>
-<div class="line"><a id="l05018" name="l05018"></a><span class="lineno"> 5018</span>            {</div>
-<div class="line"><a id="l05019" name="l05019"></a><span class="lineno"> 5019</span>                array_   = allocator_.allocate(size_);</div>
-<div class="line"><a id="l05020" name="l05020"></a><span class="lineno"> 5020</span>                ownsPtr_ = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l05021" name="l05021"></a><span class="lineno"> 5021</span>            }</div>
-<div class="line"><a id="l05022" name="l05022"></a><span class="lineno"> 5022</span>        }</div>
-<div class="line"><a id="l05023" name="l05023"></a><span class="lineno"> 5023</span> </div>
-<div class="line"><a id="l05024" name="l05024"></a><span class="lineno"> 5024</span>        <span class="comment">//============================================================================</span></div>
-<div class="line"><a id="l05025" name="l05025"></a><span class="lineno"> 5025</span>        <span class="comment">// Method Description:</span></div>
-<div class="line"><a id="l05030" name="l05030"></a><span class="lineno"> 5030</span>        <span class="keywordtype">void</span> newArray(<span class="keyword">const</span> Shape&amp; inShape)</div>
-<div class="line"><a id="l05031" name="l05031"></a><span class="lineno"> 5031</span>        {</div>
-<div class="line"><a id="l05032" name="l05032"></a><span class="lineno"> 5032</span>            deleteArray();</div>
-<div class="line"><a id="l05033" name="l05033"></a><span class="lineno"> 5033</span> </div>
-<div class="line"><a id="l05034" name="l05034"></a><span class="lineno"> 5034</span>            shape_ = inShape;</div>
-<div class="line"><a id="l05035" name="l05035"></a><span class="lineno"> 5035</span>            size_  = inShape.size();</div>
-<div class="line"><a id="l05036" name="l05036"></a><span class="lineno"> 5036</span>            newArray();</div>
-<div class="line"><a id="l05037" name="l05037"></a><span class="lineno"> 5037</span>        }</div>
-<div class="line"><a id="l05038" name="l05038"></a><span class="lineno"> 5038</span>    };</div>
-<div class="line"><a id="l05039" name="l05039"></a><span class="lineno"> 5039</span> </div>
-<div class="line"><a id="l05040" name="l05040"></a><span class="lineno"> 5040</span>    <span class="comment">// NOTE: this needs to be defined outside of the class to get rid of a compiler</span></div>
-<div class="line"><a id="l05041" name="l05041"></a><span class="lineno"> 5041</span>    <span class="comment">// error in Visual Studio</span></div>
-<div class="line"><a id="l05042" name="l05042"></a><span class="lineno"> 5042</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">class</span> Alloc_&gt;</div>
-<div class="foldopen" id="foldopen05043" data-start="{" data-end="}">
-<div class="line"><a id="l05043" name="l05043"></a><span class="lineno"><a class="line" href="classnc_1_1_nd_array.html#a6ce7327b2d1c60e74d02345d573c7237"> 5043</a></span>    [[nodiscard]] std::pair&lt;NdArray&lt;uint32&gt;, <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;uint32&gt;</a>&gt; <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype, Alloc_&gt;::nonzero</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l05044" name="l05044"></a><span class="lineno"> 5044</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l05045" name="l05045"></a><span class="lineno"> 5045</span>        <a class="code hl_define" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
-<div class="line"><a id="l05046" name="l05046"></a><span class="lineno"> 5046</span> </div>
-<div class="line"><a id="l05047" name="l05047"></a><span class="lineno"> 5047</span>        std::vector&lt;size_type&gt; rowIndices;</div>
-<div class="line"><a id="l05048" name="l05048"></a><span class="lineno"> 5048</span>        std::vector&lt;size_type&gt; colIndices;</div>
-<div class="line"><a id="l05049" name="l05049"></a><span class="lineno"> 5049</span> </div>
-<div class="line"><a id="l05050" name="l05050"></a><span class="lineno"> 5050</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> row = 0; row &lt; shape_.rows; ++row)</div>
-<div class="line"><a id="l05051" name="l05051"></a><span class="lineno"> 5051</span>        {</div>
-<div class="line"><a id="l05052" name="l05052"></a><span class="lineno"> 5052</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> col = 0; col &lt; shape_.cols; ++col)</div>
-<div class="line"><a id="l05053" name="l05053"></a><span class="lineno"> 5053</span>            {</div>
-<div class="line"><a id="l05054" name="l05054"></a><span class="lineno"> 5054</span>                <span class="keywordflow">if</span> (!utils::essentiallyEqual(<span class="keyword">operator</span>()(row, col), dtype{ 0 }))</div>
-<div class="line"><a id="l05055" name="l05055"></a><span class="lineno"> 5055</span>                {</div>
-<div class="line"><a id="l05056" name="l05056"></a><span class="lineno"> 5056</span>                    rowIndices.push_back(row);</div>
-<div class="line"><a id="l05057" name="l05057"></a><span class="lineno"> 5057</span>                    colIndices.push_back(col);</div>
-<div class="line"><a id="l05058" name="l05058"></a><span class="lineno"> 5058</span>                }</div>
-<div class="line"><a id="l05059" name="l05059"></a><span class="lineno"> 5059</span>            }</div>
-<div class="line"><a id="l05060" name="l05060"></a><span class="lineno"> 5060</span>        }</div>
-<div class="line"><a id="l05061" name="l05061"></a><span class="lineno"> 5061</span> </div>
-<div class="line"><a id="l05062" name="l05062"></a><span class="lineno"> 5062</span>        <span class="keywordflow">return</span> std::make_pair(<a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;size_type&gt;</a>(rowIndices), <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;size_type&gt;</a>(colIndices));</div>
-<div class="line"><a id="l05063" name="l05063"></a><span class="lineno"> 5063</span>    }</div>
+<div class="line"><a id="l04984" name="l04984"></a><span class="lineno"> 4984</span> </div>
+<div class="line"><a id="l04985" name="l04985"></a><span class="lineno"> 4985</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l04986" name="l04986"></a><span class="lineno"> 4986</span>        <span class="comment">//====================================Attributes==============================</span></div>
+<div class="line"><a id="l04987" name="l04987"></a><span class="lineno"> 4987</span>        allocator_type allocator_{};</div>
+<div class="line"><a id="l04988" name="l04988"></a><span class="lineno"> 4988</span>        Shape          shape_{ 0, 0 };</div>
+<div class="line"><a id="l04989" name="l04989"></a><span class="lineno"> 4989</span>        size_type      size_{ 0 };</div>
+<div class="line"><a id="l04990" name="l04990"></a><span class="lineno"> 4990</span>        <a class="code hl_enumeration" href="namespacenc.html#a8dcbcb343147d09e74689ad8a2586152">Endian</a>         endianess_{ Endian::NATIVE };</div>
+<div class="line"><a id="l04991" name="l04991"></a><span class="lineno"> 4991</span>        pointer        array_{ <span class="keyword">nullptr</span> };</div>
+<div class="line"><a id="l04992" name="l04992"></a><span class="lineno"> 4992</span>        <span class="keywordtype">bool</span>           ownsPtr_{ <span class="keyword">false</span> };</div>
+<div class="line"><a id="l04993" name="l04993"></a><span class="lineno"> 4993</span> </div>
+<div class="line"><a id="l04994" name="l04994"></a><span class="lineno"> 4994</span>        <span class="comment">//============================================================================</span></div>
+<div class="line"><a id="l04995" name="l04995"></a><span class="lineno"> 4995</span>        <span class="comment">// Method Description:</span></div>
+<div class="line"><a id="l04998" name="l04998"></a><span class="lineno"> 4998</span>        <span class="keywordtype">void</span> deleteArray() noexcept</div>
+<div class="line"><a id="l04999" name="l04999"></a><span class="lineno"> 4999</span>        {</div>
+<div class="line"><a id="l05000" name="l05000"></a><span class="lineno"> 5000</span>            <span class="keywordflow">if</span> (ownsPtr_ &amp;&amp; array_ != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l05001" name="l05001"></a><span class="lineno"> 5001</span>            {</div>
+<div class="line"><a id="l05002" name="l05002"></a><span class="lineno"> 5002</span>                allocator_.deallocate(array_, size_);</div>
+<div class="line"><a id="l05003" name="l05003"></a><span class="lineno"> 5003</span>            }</div>
+<div class="line"><a id="l05004" name="l05004"></a><span class="lineno"> 5004</span> </div>
+<div class="line"><a id="l05005" name="l05005"></a><span class="lineno"> 5005</span>            array_      = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l05006" name="l05006"></a><span class="lineno"> 5006</span>            shape_.rows = shape_.cols = 0;</div>
+<div class="line"><a id="l05007" name="l05007"></a><span class="lineno"> 5007</span>            size_                     = 0;</div>
+<div class="line"><a id="l05008" name="l05008"></a><span class="lineno"> 5008</span>            ownsPtr_                  = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l05009" name="l05009"></a><span class="lineno"> 5009</span>            endianess_                = Endian::NATIVE;</div>
+<div class="line"><a id="l05010" name="l05010"></a><span class="lineno"> 5010</span>        }</div>
+<div class="line"><a id="l05011" name="l05011"></a><span class="lineno"> 5011</span> </div>
+<div class="line"><a id="l05012" name="l05012"></a><span class="lineno"> 5012</span>        <span class="comment">//============================================================================</span></div>
+<div class="line"><a id="l05013" name="l05013"></a><span class="lineno"> 5013</span>        <span class="comment">// Method Description:</span></div>
+<div class="line"><a id="l05016" name="l05016"></a><span class="lineno"> 5016</span>        <span class="keywordtype">void</span> newArray()</div>
+<div class="line"><a id="l05017" name="l05017"></a><span class="lineno"> 5017</span>        {</div>
+<div class="line"><a id="l05018" name="l05018"></a><span class="lineno"> 5018</span>            <span class="keywordflow">if</span> (size_ &gt; 0)</div>
+<div class="line"><a id="l05019" name="l05019"></a><span class="lineno"> 5019</span>            {</div>
+<div class="line"><a id="l05020" name="l05020"></a><span class="lineno"> 5020</span>                array_   = allocator_.allocate(size_);</div>
+<div class="line"><a id="l05021" name="l05021"></a><span class="lineno"> 5021</span>                ownsPtr_ = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l05022" name="l05022"></a><span class="lineno"> 5022</span>            }</div>
+<div class="line"><a id="l05023" name="l05023"></a><span class="lineno"> 5023</span>        }</div>
+<div class="line"><a id="l05024" name="l05024"></a><span class="lineno"> 5024</span> </div>
+<div class="line"><a id="l05025" name="l05025"></a><span class="lineno"> 5025</span>        <span class="comment">//============================================================================</span></div>
+<div class="line"><a id="l05026" name="l05026"></a><span class="lineno"> 5026</span>        <span class="comment">// Method Description:</span></div>
+<div class="line"><a id="l05031" name="l05031"></a><span class="lineno"> 5031</span>        <span class="keywordtype">void</span> newArray(<span class="keyword">const</span> Shape&amp; inShape)</div>
+<div class="line"><a id="l05032" name="l05032"></a><span class="lineno"> 5032</span>        {</div>
+<div class="line"><a id="l05033" name="l05033"></a><span class="lineno"> 5033</span>            deleteArray();</div>
+<div class="line"><a id="l05034" name="l05034"></a><span class="lineno"> 5034</span> </div>
+<div class="line"><a id="l05035" name="l05035"></a><span class="lineno"> 5035</span>            shape_ = inShape;</div>
+<div class="line"><a id="l05036" name="l05036"></a><span class="lineno"> 5036</span>            size_  = inShape.size();</div>
+<div class="line"><a id="l05037" name="l05037"></a><span class="lineno"> 5037</span>            newArray();</div>
+<div class="line"><a id="l05038" name="l05038"></a><span class="lineno"> 5038</span>        }</div>
+<div class="line"><a id="l05039" name="l05039"></a><span class="lineno"> 5039</span>    };</div>
+<div class="line"><a id="l05040" name="l05040"></a><span class="lineno"> 5040</span> </div>
+<div class="line"><a id="l05041" name="l05041"></a><span class="lineno"> 5041</span>    <span class="comment">// NOTE: this needs to be defined outside of the class to get rid of a compiler</span></div>
+<div class="line"><a id="l05042" name="l05042"></a><span class="lineno"> 5042</span>    <span class="comment">// error in Visual Studio</span></div>
+<div class="line"><a id="l05043" name="l05043"></a><span class="lineno"> 5043</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">class</span> Alloc_&gt;</div>
+<div class="foldopen" id="foldopen05044" data-start="{" data-end="}">
+<div class="line"><a id="l05044" name="l05044"></a><span class="lineno"><a class="line" href="classnc_1_1_nd_array.html#a6ce7327b2d1c60e74d02345d573c7237"> 5044</a></span>    [[nodiscard]] std::pair&lt;NdArray&lt;uint32&gt;, <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;uint32&gt;</a>&gt; <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype, Alloc_&gt;::nonzero</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l05045" name="l05045"></a><span class="lineno"> 5045</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l05046" name="l05046"></a><span class="lineno"> 5046</span>        <a class="code hl_define" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
+<div class="line"><a id="l05047" name="l05047"></a><span class="lineno"> 5047</span> </div>
+<div class="line"><a id="l05048" name="l05048"></a><span class="lineno"> 5048</span>        std::vector&lt;size_type&gt; rowIndices;</div>
+<div class="line"><a id="l05049" name="l05049"></a><span class="lineno"> 5049</span>        std::vector&lt;size_type&gt; colIndices;</div>
+<div class="line"><a id="l05050" name="l05050"></a><span class="lineno"> 5050</span> </div>
+<div class="line"><a id="l05051" name="l05051"></a><span class="lineno"> 5051</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> row = 0; row &lt; shape_.rows; ++row)</div>
+<div class="line"><a id="l05052" name="l05052"></a><span class="lineno"> 5052</span>        {</div>
+<div class="line"><a id="l05053" name="l05053"></a><span class="lineno"> 5053</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> col = 0; col &lt; shape_.cols; ++col)</div>
+<div class="line"><a id="l05054" name="l05054"></a><span class="lineno"> 5054</span>            {</div>
+<div class="line"><a id="l05055" name="l05055"></a><span class="lineno"> 5055</span>                <span class="keywordflow">if</span> (!utils::essentiallyEqual(<span class="keyword">operator</span>()(row, col), dtype{ 0 }))</div>
+<div class="line"><a id="l05056" name="l05056"></a><span class="lineno"> 5056</span>                {</div>
+<div class="line"><a id="l05057" name="l05057"></a><span class="lineno"> 5057</span>                    rowIndices.push_back(row);</div>
+<div class="line"><a id="l05058" name="l05058"></a><span class="lineno"> 5058</span>                    colIndices.push_back(col);</div>
+<div class="line"><a id="l05059" name="l05059"></a><span class="lineno"> 5059</span>                }</div>
+<div class="line"><a id="l05060" name="l05060"></a><span class="lineno"> 5060</span>            }</div>
+<div class="line"><a id="l05061" name="l05061"></a><span class="lineno"> 5061</span>        }</div>
+<div class="line"><a id="l05062" name="l05062"></a><span class="lineno"> 5062</span> </div>
+<div class="line"><a id="l05063" name="l05063"></a><span class="lineno"> 5063</span>        <span class="keywordflow">return</span> std::make_pair(<a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;size_type&gt;</a>(rowIndices), <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;size_type&gt;</a>(colIndices));</div>
+<div class="line"><a id="l05064" name="l05064"></a><span class="lineno"> 5064</span>    }</div>
 </div>
 </div>
-<div class="line"><a id="l05064" name="l05064"></a><span class="lineno"> 5064</span>} <span class="comment">// namespace nc</span></div>
+<div class="line"><a id="l05065" name="l05065"></a><span class="lineno"> 5065</span>} <span class="comment">// namespace nc</span></div>
 </div>
 <div class="ttc" id="a_core_2_constants_8hpp_html"><div class="ttname"><a href="_core_2_constants_8hpp.html">Constants.hpp</a></div></div>
 <div class="ttc" id="a_core_2shape_8hpp_html"><div class="ttname"><a href="_core_2shape_8hpp.html">Shape.hpp</a></div></div>
@@ -4327,7 +4328,7 @@ $(document).ready(function(){initNavTree('_nd_array_core_8hpp_source.html',''); 
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a006dd455d7063cdc800bb6774e651519"><div class="ttname"><a href="classnc_1_1_nd_array.html#a006dd455d7063cdc800bb6774e651519">nc::NdArray::NdArray</a></div><div class="ttdeci">NdArray(pointer inPtr, UIntType size, PointerPolicy policy)</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:580</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a012f1203a072caeba4221aaa3c044186"><div class="ttname"><a href="classnc_1_1_nd_array.html#a012f1203a072caeba4221aaa3c044186">nc::NdArray::rcolbegin</a></div><div class="ttdeci">const_reverse_column_iterator rcolbegin() const noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:1573</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a012f5a3e8cb8414a1b87c9d19e81fd9c"><div class="ttname"><a href="classnc_1_1_nd_array.html#a012f5a3e8cb8414a1b87c9d19e81fd9c">nc::NdArray::dimSize</a></div><div class="ttdeci">size_type dimSize(Axis inAxis) const noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:2760</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a01777607b6958af633cc543f9c3ab85f"><div class="ttname"><a href="classnc_1_1_nd_array.html#a01777607b6958af633cc543f9c3ab85f">nc::NdArray::toIndices</a></div><div class="ttdeci">NdArray&lt; size_type &gt; toIndices(Slice inSlice, Axis inAxis=Axis::NONE) const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4839</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a01777607b6958af633cc543f9c3ab85f"><div class="ttname"><a href="classnc_1_1_nd_array.html#a01777607b6958af633cc543f9c3ab85f">nc::NdArray::toIndices</a></div><div class="ttdeci">NdArray&lt; size_type &gt; toIndices(Slice inSlice, Axis inAxis=Axis::NONE) const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4840</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a039a585820968d4980e9c3e277e2043c"><div class="ttname"><a href="classnc_1_1_nd_array.html#a039a585820968d4980e9c3e277e2043c">nc::NdArray::operator[]</a></div><div class="ttdeci">self_type operator[](Slice inSlice) const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:823</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a03c2c2af1c554cc0619dd431c6f7da71"><div class="ttname"><a href="classnc_1_1_nd_array.html#a03c2c2af1c554cc0619dd431c6f7da71">nc::NdArray::max</a></div><div class="ttdeci">self_type max(Axis inAxis=Axis::NONE) const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:3117</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4600</div></div>
@@ -4337,7 +4338,7 @@ $(document).ready(function(){initNavTree('_nd_array_core_8hpp_source.html',''); 
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a0940e2a76abd7d251e37b48d9942cc90"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0940e2a76abd7d251e37b48d9942cc90">nc::NdArray::put</a></div><div class="ttdeci">self_type &amp; put(const RowIndices &amp;inRowIndices, const ColIndices &amp;inColIndices, const self_type &amp;inValues)</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4040</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a0974831781c6d450358f23aa79622141"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0974831781c6d450358f23aa79622141">nc::NdArray::resizeSlow</a></div><div class="ttdeci">self_type &amp; resizeSlow(size_type inNumRows, size_type inNumCols)</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4479</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a0a95f3798fb3314cd2f93da65d9d3901"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0a95f3798fb3314cd2f93da65d9d3901">nc::NdArray::put</a></div><div class="ttdeci">self_type &amp; put(const Slice &amp;inRowSlice, const ColIndices &amp;inColIndices, const value_type &amp;inValue)</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:3934</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a0b05b0b1831bd96b1057f2788795f93f"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0b05b0b1831bd96b1057f2788795f93f">nc::NdArray::zeros</a></div><div class="ttdeci">self_type &amp; zeros() noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4976</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a0b05b0b1831bd96b1057f2788795f93f"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0b05b0b1831bd96b1057f2788795f93f">nc::NdArray::zeros</a></div><div class="ttdeci">self_type &amp; zeros() noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4977</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a0bd50893ed0ae1893cc28350a41bf80d"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0bd50893ed0ae1893cc28350a41bf80d">nc::NdArray::ones</a></div><div class="ttdeci">self_type &amp; ones() noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:3563</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a0bee49339bdc4d7edbeb5efa73133cc3"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">nc::NdArray::cbegin</a></div><div class="ttdeci">const_iterator cbegin() const noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:1365</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a0c33e11f5531ec5d58cfad4ccc81169e"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0c33e11f5531ec5d58cfad4ccc81169e">nc::NdArray::at</a></div><div class="ttdeci">self_type at(const RowIndices &amp;rowIndices, const ColIndices &amp;colIndices) const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:1273</div></div>
@@ -4360,7 +4361,7 @@ $(document).ready(function(){initNavTree('_nd_array_core_8hpp_source.html',''); 
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a26244901d510466e5dc8fde1c6d74346"><div class="ttname"><a href="classnc_1_1_nd_array.html#a26244901d510466e5dc8fde1c6d74346">nc::NdArray::NdArray</a></div><div class="ttdeci">NdArray(const std::deque&lt; std::deque&lt; dtype &gt; &gt; &amp;in2dDeque)</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:469</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a278bd507c3ebd9f1d9e30ca9d273a820"><div class="ttname"><a href="classnc_1_1_nd_array.html#a278bd507c3ebd9f1d9e30ca9d273a820">nc::NdArray::reshape</a></div><div class="ttdeci">self_type &amp; reshape(size_type inSize)</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4347</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a288e6b26205492751717d3fb8854ca30"><div class="ttname"><a href="classnc_1_1_nd_array.html#a288e6b26205492751717d3fb8854ca30">nc::NdArray::pointer</a></div><div class="ttdeci">typename AllocTraits::pointer pointer</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:152</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a29c62da7ad489f4fc0bc706800820807"><div class="ttname"><a href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807">nc::NdArray::transpose</a></div><div class="ttdeci">self_type transpose() const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4958</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a29c62da7ad489f4fc0bc706800820807"><div class="ttname"><a href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807">nc::NdArray::transpose</a></div><div class="ttdeci">self_type transpose() const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4959</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a2aa9a0589da3c0b19b1b413e71f65667"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2aa9a0589da3c0b19b1b413e71f65667">nc::NdArray::rbegin</a></div><div class="ttdeci">reverse_iterator rbegin(size_type inRow)</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:1481</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a2b9054c892f683e7a59d4715827d31dd"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2b9054c892f683e7a59d4715827d31dd">nc::NdArray::NdArray</a></div><div class="ttdeci">NdArray(std::vector&lt; dtype &gt; &amp;inVector, PointerPolicy policy=PointerPolicy::COPY)</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:348</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a2c9a1479a94c2293ee7cd7637d191e17"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2c9a1479a94c2293ee7cd7637d191e17">nc::NdArray::argsort</a></div><div class="ttdeci">NdArray&lt; size_type &gt; argsort(Axis inAxis=Axis::NONE) const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:2193</div></div>
@@ -4419,7 +4420,7 @@ $(document).ready(function(){initNavTree('_nd_array_core_8hpp_source.html',''); 
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a59de727a0db449ca5a28d436c9cec165"><div class="ttname"><a href="classnc_1_1_nd_array.html#a59de727a0db449ca5a28d436c9cec165">nc::NdArray::rend</a></div><div class="ttdeci">const_reverse_iterator rend() const noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:1727</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a5ae6d993d5c8d41eee61ddca0b9f2b31"><div class="ttname"><a href="classnc_1_1_nd_array.html#a5ae6d993d5c8d41eee61ddca0b9f2b31">nc::NdArray::copy</a></div><div class="ttdeci">self_type copy() const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:2562</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a5b2d31279c20992459ff60643a75acf9"><div class="ttname"><a href="classnc_1_1_nd_array.html#a5b2d31279c20992459ff60643a75acf9">nc::NdArray::round</a></div><div class="ttdeci">self_type round(uint8 inNumDecimals=0) const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4533</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a5b35f00bf7af382d3c98792a20bd3531"><div class="ttname"><a href="classnc_1_1_nd_array.html#a5b35f00bf7af382d3c98792a20bd3531">nc::NdArray::toStlVector</a></div><div class="ttdeci">std::vector&lt; dtype &gt; toStlVector() const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4888</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a5b35f00bf7af382d3c98792a20bd3531"><div class="ttname"><a href="classnc_1_1_nd_array.html#a5b35f00bf7af382d3c98792a20bd3531">nc::NdArray::toStlVector</a></div><div class="ttdeci">std::vector&lt; dtype &gt; toStlVector() const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4889</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a5f3177c5a086cd8e26b318f6e300eb73"><div class="ttname"><a href="classnc_1_1_nd_array.html#a5f3177c5a086cd8e26b318f6e300eb73">nc::NdArray::swapaxes</a></div><div class="ttdeci">self_type swapaxes() const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4735</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a5f70273a5bbff4f0b0c5086649939301"><div class="ttname"><a href="classnc_1_1_nd_array.html#a5f70273a5bbff4f0b0c5086649939301">nc::NdArray::rcolbegin</a></div><div class="ttdeci">const_reverse_column_iterator rcolbegin(size_type inCol) const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:1585</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a612cdd532e56b711ebb9c2478971c04f"><div class="ttname"><a href="classnc_1_1_nd_array.html#a612cdd532e56b711ebb9c2478971c04f">nc::NdArray::difference_type</a></div><div class="ttdeci">typename AllocTraits::difference_type difference_type</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:158</div></div>
@@ -4433,7 +4434,7 @@ $(document).ready(function(){initNavTree('_nd_array_core_8hpp_source.html',''); 
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a66ae5664d66e900a48ca1d9a607f655e"><div class="ttname"><a href="classnc_1_1_nd_array.html#a66ae5664d66e900a48ca1d9a607f655e">nc::NdArray::NdArray</a></div><div class="ttdeci">NdArray(std::initializer_list&lt; dtype &gt; inList)</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:222</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a68cdc1d3eb94c7ec3feea47978ad26a0"><div class="ttname"><a href="classnc_1_1_nd_array.html#a68cdc1d3eb94c7ec3feea47978ad26a0">nc::NdArray::at</a></div><div class="ttdeci">self_type at(const Indices &amp;rowIndices, Slice colSlice) const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:1227</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a6bb650c9e28ff25c9b58c9f4f08d78bb"><div class="ttname"><a href="classnc_1_1_nd_array.html#a6bb650c9e28ff25c9b58c9f4f08d78bb">nc::NdArray::back</a></div><div class="ttdeci">const_reference back() const noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:2363</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a6ce7327b2d1c60e74d02345d573c7237"><div class="ttname"><a href="classnc_1_1_nd_array.html#a6ce7327b2d1c60e74d02345d573c7237">nc::NdArray::nonzero</a></div><div class="ttdeci">std::pair&lt; NdArray&lt; size_type &gt;, NdArray&lt; size_type &gt; &gt; nonzero() const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:5043</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a6ce7327b2d1c60e74d02345d573c7237"><div class="ttname"><a href="classnc_1_1_nd_array.html#a6ce7327b2d1c60e74d02345d573c7237">nc::NdArray::nonzero</a></div><div class="ttdeci">std::pair&lt; NdArray&lt; size_type &gt;, NdArray&lt; size_type &gt; &gt; nonzero() const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:5044</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a6dcd356dd86cdd141307b77a5114b00a"><div class="ttname"><a href="classnc_1_1_nd_array.html#a6dcd356dd86cdd141307b77a5114b00a">nc::NdArray::diagonal</a></div><div class="ttdeci">self_type diagonal(index_type inOffset=0, Axis inAxis=Axis::ROW) const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:2715</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a6dd4a60fee1f8b880d383160d8836b89"><div class="ttname"><a href="classnc_1_1_nd_array.html#a6dd4a60fee1f8b880d383160d8836b89">nc::NdArray::put</a></div><div class="ttdeci">self_type &amp; put(index_type inRowIndex, const Indices &amp;inColIndices, const self_type &amp;inValues)</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4181</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a6de6f2ef3b2519edd272623a9681b527"><div class="ttname"><a href="classnc_1_1_nd_array.html#a6de6f2ef3b2519edd272623a9681b527">nc::NdArray::const_reverse_iterator</a></div><div class="ttdeci">std::reverse_iterator&lt; const_iterator &gt; const_reverse_iterator</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:163</div></div>
@@ -4524,7 +4525,7 @@ $(document).ready(function(){initNavTree('_nd_array_core_8hpp_source.html',''); 
 <div class="ttc" id="aclassnc_1_1_nd_array_html_adb4a1e1a3c3420c4b2133ba81a44a0e0"><div class="ttname"><a href="classnc_1_1_nd_array.html#adb4a1e1a3c3420c4b2133ba81a44a0e0">nc::NdArray::reference</a></div><div class="ttdeci">dtype &amp; reference</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:154</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_adb55ab056ca590042be07b1ebae23045"><div class="ttname"><a href="classnc_1_1_nd_array.html#adb55ab056ca590042be07b1ebae23045">nc::NdArray::put</a></div><div class="ttdeci">self_type &amp; put(const RowIndices &amp;inRowIndices, const Slice &amp;inColSlice, const value_type &amp;inValue)</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:3917</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_add4015cf76c23ee8f3e2fab79e234ede"><div class="ttname"><a href="classnc_1_1_nd_array.html#add4015cf76c23ee8f3e2fab79e234ede">nc::NdArray::put</a></div><div class="ttdeci">self_type &amp; put(index_type inRowIndex, const Slice &amp;inColSlice, const value_type &amp;inValue)</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4019</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_add51f0dd66fd9e6f8833a059262e3acf"><div class="ttname"><a href="classnc_1_1_nd_array.html#add51f0dd66fd9e6f8833a059262e3acf">nc::NdArray::trace</a></div><div class="ttdeci">value_type trace(size_type inOffset=0, Axis inAxis=Axis::ROW) const noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4905</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_add51f0dd66fd9e6f8833a059262e3acf"><div class="ttname"><a href="classnc_1_1_nd_array.html#add51f0dd66fd9e6f8833a059262e3acf">nc::NdArray::trace</a></div><div class="ttdeci">value_type trace(size_type inOffset=0, Axis inAxis=Axis::ROW) const noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:4906</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_ade07629d4094244f1dfca863af67e7c0"><div class="ttname"><a href="classnc_1_1_nd_array.html#ade07629d4094244f1dfca863af67e7c0">nc::NdArray::dataRelease</a></div><div class="ttdeci">pointer dataRelease() noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:2698</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_ade7af18a5e752671e48f45dd0b5b1bf7"><div class="ttname"><a href="classnc_1_1_nd_array.html#ade7af18a5e752671e48f45dd0b5b1bf7">nc::NdArray::ptp</a></div><div class="ttdeci">self_type ptp(Axis inAxis=Axis::NONE) const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:3723</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_ae0617b795de0e3cd37f6e6f3f7fe5013"><div class="ttname"><a href="classnc_1_1_nd_array.html#ae0617b795de0e3cd37f6e6f3f7fe5013">nc::NdArray::clip</a></div><div class="ttdeci">self_type clip(value_type inMin, value_type inMax) const</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:2449</div></div>
