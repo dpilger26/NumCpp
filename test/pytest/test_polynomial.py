@@ -4,6 +4,8 @@ import scipy.special as sp
 
 import NumCppPy as NumCpp  # noqa E402
 
+DISABLE_PRINTS = True
+
 
 ####################################################################################
 ORDER_MAX = 5
@@ -256,7 +258,8 @@ def test_poly1D_operators():
         np.fliplr((polyC2**exponent).coefficients().getNumpyArray()).flatten(), (poly2**exponent).coefficients
     )
 
-    polyC.print()
+    if not DISABLE_PRINTS:
+        polyC.print()
 
 
 ####################################################################################

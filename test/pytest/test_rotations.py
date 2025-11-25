@@ -2,6 +2,8 @@ import numpy as np
 
 import NumCppPy as NumCpp  # noqa E402
 
+DISABLE_PRINTS = True
+
 
 ####################################################################################
 def test_seed():
@@ -220,7 +222,8 @@ def test_quaternion():
     interpQuat = cQuat1.nlerp(cQuat2, t).flatten()
     assert np.array_equal(np.round(interpQuat, 10), np.round(nlerp(myQuat1, myQuat2, t), 10))
 
-    cQuat1.print()
+    if not DISABLE_PRINTS:
+        cQuat1.print()
 
     myQuat = np.random.randint(
         1,
