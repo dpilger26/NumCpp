@@ -33,7 +33,7 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/FFT/ifft.hpp"
+#include "NumCpp/FFT/ifft2.hpp"
 #include "NumCpp/Functions/complex.hpp"
 #include "NumCpp/Functions/real.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -49,9 +49,49 @@ namespace nc::fft
         /// @param x the data
         /// @param shape Shape (length of each transformed axis) of the output
         ///
-        inline NdArray<double> internal_irfft2(const NdArray<std::complex<double>>& x, const Shape& inShape)
+        inline NdArray<double> irfft2_internal(const NdArray<std::complex<double>>& x, const Shape& shape)
         {
-            return {};
+            if (x.size() == 0 || shape.rows == 0 || shape.cols == 0)
+            {
+                return {};
+            }
+
+            const auto necessaryInputPoints = shape.cols / 2 + 1;
+            auto       input                = NdArray<std::complex<double>>{};
+            if (x.numCols() > necessaryInputPoints)
+            {
+                input = x(x.rSlice(), Slice(necessaryInputPoints + 1));
+            }
+            else if (x.numCols() < necessaryInputPoints)
+            {
+                input = NdArray<std::complex<double>>(shape.rows, necessaryInputPoints).zeros();
+                input.put(x.rSlice(), x.cSlice(), x);
+            }
+            else
+            {
+                input = x;
+            }
+
+            auto realN = 2 * (input.numCols() - 1);
+            realN += shape.cols % 2 == 1 ? 1 : 0;
+            auto fullOutput = NdArray<std::complex<double>>(shape.rows, realN).zeros();
+            for (auto row = 0u; row < input.numRows(); ++row)
+            {
+                stl_algorithms::copy(input.begin(row), input.end(row), fullOutput.begin(row));
+            }
+            stl_algorithms::transform(fullOutput.begin(0) + 1,
+                                      fullOutput.begin(0) + input.numCols(),
+                                      fullOutput.rbegin(0),
+                                      [](const auto& value) { return std::conj(value); });
+            for (auto col = 1u; col < input.numCols(); ++col)
+            {
+                stl_algorithms::transform(input.colbegin(col) + 1,
+                                          input.colend(col),
+                                          fullOutput.rcolbegin(fullOutput.numCols() - col),
+                                          [](const auto& value) { return std::conj(value); });
+            }
+
+            return real(ifft2_internal(fullOutput, shape));
         }
     } // namespace detail
 
@@ -71,7 +111,8 @@ namespace nc::fft
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return {};
+        const auto data = nc::complex<dtype, double>(inArray);
+        return detail::irfft2_internal(data, inShape);
     }
 
     //============================================================================
@@ -89,6 +130,8 @@ namespace nc::fft
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return irfft2(inArray, inArray.shape());
+        const auto& shape   = inArray.shape();
+        const auto  newCols = 2 * (shape.cols - 1);
+        return irfft2(inArray, { shape.rows, newCols });
     }
 } // namespace nc::fft

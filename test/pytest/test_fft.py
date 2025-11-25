@@ -2,8 +2,8 @@ import numpy as np
 
 import NumCppPy as NumCpp  # noqa E402
 
-NUM_TRIALS = 1
-ROUNDING_DIGITS = 6
+NUM_TRIALS = 5
+ROUNDING_DIGITS = 5
 
 
 ####################################################################################
@@ -1080,4 +1080,17 @@ def test_rfft2():
 
 ####################################################################################
 def test_irfft2():
-    assert False
+    for _ in range(NUM_TRIALS):
+        shapeInput = np.random.randint(
+            10,
+            30,
+            [
+                2,
+            ],
+        )
+        data = np.random.randint(0, 100, shapeInput)
+        rfft2 = np.fft.rfft2(data)
+        cShape = NumCpp.Shape(*rfft2.shape)
+        cArray = NumCpp.NdArrayComplexDouble(cShape)
+        cArray.setArray(rfft2)
+        assert np.array_equal(np.round(NumCpp.irfft2(cArray), ROUNDING_DIGITS), np.round(np.fft.irfft2(rfft2), ROUNDING_DIGITS))

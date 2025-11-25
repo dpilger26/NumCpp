@@ -36,7 +36,7 @@ namespace nc::constants
     constexpr double c     = 3.e8;                                    ///< speed of light
     constexpr double e     = 2.718281828459045;                       ///< eulers number
     constexpr double inf   = std::numeric_limits<double>::infinity(); ///< infinity
-    constexpr double pi    = 3.141592653589793238462643383279502884;  ///< Pi
+    constexpr double pi    = 3.141592653589793;                       ///< Pi
     constexpr double twoPi = 2. * pi;                                 ///< 2Pi
     const double     nan   = std::nan("1");                           ///< NaN
     constexpr auto   j     = std::complex<double>(0., 1.);            // sqrt(-1) unit imaginary number

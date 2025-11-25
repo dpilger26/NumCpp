@@ -56,8 +56,6 @@ namespace nc::fft
                 return {};
             }
 
-            const auto isOdd = n % 2 == 1;
-
             const auto necessaryInputPoints = n / 2 + 1;
             auto       input                = NdArray<std::complex<double>>{};
             if (x.size() > necessaryInputPoints)
@@ -75,7 +73,7 @@ namespace nc::fft
             }
 
             auto realN = 2 * (input.size() - 1);
-            realN += isOdd ? 1 : 0;
+            realN += n % 2 == 1 ? 1 : 0;
             auto fullOutput = NdArray<std::complex<double>>(1, realN);
             stl_algorithms::copy(input.begin(), input.end(), fullOutput.begin());
             stl_algorithms::transform(fullOutput.begin() + 1,
