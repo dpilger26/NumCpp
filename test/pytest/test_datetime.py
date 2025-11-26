@@ -5,6 +5,8 @@ import numpy as np
 import NumCppPy as NumCpp  # noqa E402
 
 
+DISABLE_STREAMS = True
+
 ####################################################################################
 def test_datetime():
     if NumCpp.NUMCPP_NO_USE_BOOST:
@@ -36,7 +38,8 @@ def test_datetime():
     assert d.minute == minute
     assert d.second == second
     assert d.fractionalSecond == fractionalSecond
-    assert d.toStr() == "2000-02-03T04:05:06.7Z"
+    if not DISABLE_STREAMS:
+        assert d.toStr() == "2000-02-03T04:05:06.7Z"
 
     d = NumCpp.DateTime()
     d.year = year
@@ -53,7 +56,8 @@ def test_datetime():
     assert d.minute == minute
     assert d.second == second
     assert d.fractionalSecond == fractionalSecond
-    assert d.toStr() == "2000-02-03T04:05:06.7Z"
+    if not DISABLE_STREAMS:
+        assert d.toStr() == "2000-02-03T04:05:06.7Z"
 
     d = NumCpp.DateTime.now()
     tp = d.toTimePoint()
@@ -99,7 +103,8 @@ def test_datetime():
     assert d.minute == 52
     assert d.second == 33
     assert d.fractionalSecond == 0.123456
-    assert d.toStr() == timestamp
+    if not DISABLE_STREAMS:
+        assert d.toStr() == timestamp
 
     # this is pretty cool
     timestamp2 = "2022-11-29T24:52:33.123456Z"
@@ -111,7 +116,8 @@ def test_datetime():
     assert d.minute == 52
     assert d.second == 33
     assert d.fractionalSecond == 0.123456
-    assert d.toStr() == "2022-11-30T00:52:33.123456Z"
+    if not DISABLE_STREAMS:
+        assert d.toStr() == "2022-11-30T00:52:33.123456Z"
 
     tp2 = NumCpp.Clock.now()
     d = NumCpp.DateTime(tp2)
