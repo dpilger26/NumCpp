@@ -141,10 +141,10 @@ def test_timeit():
     def function1(value1_: int, value2_: int) -> None:
         time.sleep(1 / 10000000)
 
-    NumCpp.timeit(1000, NumCpp.PrintResults.YES, function1, value1, value2)
+    NumCpp.timeit(1000, NumCpp.PrintResults.NO, function1, value1, value2)
 
     def function2(value1_: int, value2_: int) -> int:
         time.sleep(1 / 10000000)
         return value1 + value2
 
-    NumCpp.timeit(1000, NumCpp.PrintResults.YES, function2, value1, value2)
+    NumCpp.timeit(1000, NumCpp.PrintResults.NO, function2, value1, value2)
