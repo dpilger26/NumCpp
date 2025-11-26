@@ -1,5 +1,9 @@
 # Release Notes
 
+## Version 2.15.1
+
+* fixed Issue #144, `outer` function now operates on arrays of different sizes
+
 ## Version 2.15.0
 
 * added `fft` module for **Issue #137**
