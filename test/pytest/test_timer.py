@@ -24,7 +24,7 @@ def test_timer():
     timer = NumCpp.Timer()
     timer.tic()
     timer.sleep(SLEEP_TIME)
-    elapsedTime = timer.toc(NumCpp.PrintElapsedTime.YES)  # microseconds
+    elapsedTime = timer.toc(NumCpp.PrintElapsedTime.NO)  # microseconds
     assert np.abs(elapsedTime.count() - SLEEP_TIME) < 0.1e6
 
     SLEEP_TIME = int(
@@ -40,5 +40,5 @@ def test_timer():
     timer = NumCpp.Timer("Python Test Case")
     timer.tic()
     timer.sleep(SLEEP_TIME)
-    elapsedTime = timer.toc(NumCpp.PrintElapsedTime.YES)  # microseconds
+    elapsedTime = timer.toc(NumCpp.PrintElapsedTime.NO)  # microseconds
     assert np.abs(elapsedTime.count() - SLEEP_TIME) < 0.1e6
