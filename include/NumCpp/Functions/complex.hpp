@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2025 David Pilger
+/// Copyright 2018-2026 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -43,12 +43,13 @@ namespace nc
     /// @param inReal: the real component of the complex number
     /// @return value
     ///
-    template<typename dtype>
+    template<typename dtype, typename dtypeOut = dtype>
     auto complex(dtype inReal)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtypeOut);
 
-        return std::complex<dtype>(inReal);
+        return std::complex<dtypeOut>(inReal);
     }
 
     //============================================================================
@@ -59,12 +60,13 @@ namespace nc
     /// @param inImag: the imaginary component of the complex number
     /// @return value
     ///
-    template<typename dtype>
+    template<typename dtype, typename dtypeOut = dtype>
     auto complex(dtype inReal, dtype inImag)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtypeOut);
 
-        return std::complex<dtype>(inReal, inImag);
+        return std::complex<dtypeOut>(inReal, inImag);
     }
 
     //============================================================================
@@ -74,14 +76,14 @@ namespace nc
     /// @param inReal: the real component of the complex number
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, typename dtypeOut = dtype, std::enable_if_t<std::is_arithmetic_v<dtype>, int> = 0>
     auto complex(const NdArray<dtype>& inReal)
     {
-        NdArray<decltype(nc::complex(dtype{ 0 }))> returnArray(inReal.shape());
+        NdArray<decltype(nc::complex(dtypeOut{ 0 }))> returnArray(inReal.shape());
         stl_algorithms::transform(inReal.cbegin(),
                                   inReal.cend(),
                                   returnArray.begin(),
-                                  [](dtype real) -> auto { return nc::complex(real); });
+                                  [](dtype real) -> auto { return nc::complex<dtype, dtypeOut>(real); });
 
         return returnArray;
     }
@@ -94,7 +96,7 @@ namespace nc
     /// @param inImag: the imaginary component of the complex number
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, typename dtypeOut = dtype>
     auto complex(const NdArray<dtype>& inReal, const NdArray<dtype>& inImag)
     {
         if (inReal.shape() != inImag.shape())
@@ -102,13 +104,30 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Input real array must be the same shape as input imag array");
         }
 
-        NdArray<decltype(nc::complex(dtype{ 0 }, dtype{ 0 }))> returnArray(inReal.shape());
+        NdArray<decltype(nc::complex(dtypeOut{ 0 }, dtypeOut{ 0 }))> returnArray(inReal.shape());
         stl_algorithms::transform(inReal.cbegin(),
                                   inReal.cend(),
                                   inImag.cbegin(),
                                   returnArray.begin(),
-                                  [](dtype real, dtype imag) -> auto { return nc::complex(real, imag); });
+                                  [](dtype real, dtype imag) -> auto
+                                  { return nc::complex<dtype, dtypeOut>(real, imag); });
 
         return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    /// Returns a std::complex from the input real and imag components
+    ///
+    /// @param inArray the real component of the complex number
+    /// @return NdArray
+    ///
+    template<typename dtype, typename dtypeOut = dtype>
+    auto complex(const NdArray<std::complex<dtype>>& inArray)
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtypeOut);
+
+        return inArray.template astype<std::complex<dtypeOut>>();
     }
 } // namespace nc

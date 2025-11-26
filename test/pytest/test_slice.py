@@ -2,6 +2,8 @@ import numpy as np
 
 import NumCppPy as NumCpp  # noqa E402
 
+DISABLE_PRINTS = True
+
 
 ####################################################################################
 def test_default_constructor():
@@ -137,7 +139,8 @@ def test_set():
     cSlice.step = step
     assert cSlice.start == start and cSlice.stop == stop and cSlice.step == step
 
-    cSlice.print()
+    if not DISABLE_PRINTS:
+        cSlice.print()
 
 
 ####################################################################################

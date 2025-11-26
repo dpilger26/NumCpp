@@ -1,5 +1,24 @@
 # Release Notes
 
+## Version 2.15.0
+
+* added `fft` module for **Issue #137**
+  * `fft::fft` <https://numpy.org/doc/stable/reference/generated/numpy.fft.fft.html#numpy.fft.fft>
+  * `fft::ifft` <https://numpy.org/doc/stable/reference/generated/numpy.fft.ifft.html#numpy.fft.ifft>
+  * `fft::fftfreq` <https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html>
+  * `fft::fftshift` <https://numpy.org/doc/stable/reference/generated/numpy.fft.fftshfit.html>
+  * `fft::ifftshift` <https://numpy.org/doc/stable/reference/generated/numpy.fft.ifftshfit.html>
+  * `fft::fft2` <https://numpy.org/doc/stable/reference/generated/numpy.fft.fft2.html#numpy.fft.fft2>
+  * `fft::ifft2` <https://numpy.org/doc/stable/reference/generated/numpy.fft.ifft2.html#numpy.fft.ifft2>
+  * `fft::rfft` <https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.html#numpy.fft.rfft>
+  * `fft::irfft` <https://numpy.org/doc/stable/reference/generated/numpy.fft.irfft.html#numpy.fft.irfft>
+  * `fft::rfftfreq` <https://numpy.org/doc/stable/reference/generated/numpy.fft.rfftfreq.html>
+  * `fft::rfft2` <https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft2.html#numpy.fft.rfft2>
+  * `fft::irfft2` <https://numpy.org/doc/stable/reference/generated/numpy.fft.irfft2.html#numpy.fft.irfft2>
+* added `divmod` <https://numpy.org/doc/stable/reference/generated/numpy.divmod.html#numpy-divmod>
+* added `find_duplicates` <https://numpy.org/doc/stable//reference/generated/numpy.rec.find_duplicate.html>
+* added `mode` <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mode.html>
+
 ## Version 2.14.2
 
 * fixed an error in `ENURollPitchYawToECEFEuler()` function
@@ -20,7 +39,7 @@
 
 ## Version 2.12.1
 
-* updated TRUE/FALSE enum fields to YES/NO to deconflict with other libraries terrible macro practice of #defining TRUE/FALSE
+* updated `TRUE`/`FALSE` enum fields to `YES`/`NO` to deconflict with other libraries terrible macro practice of `#defining TRUE/FALSE`
 
 ## Version 2.12.0
 

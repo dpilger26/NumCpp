@@ -17,7 +17,8 @@ var searchData=
   ['digitize_2ehpp_14',['digitize.hpp',['../digitize_8hpp.html',1,'']]],
   ['discrete_2ehpp_15',['discrete.hpp',['../discrete_8hpp.html',1,'']]],
   ['divide_2ehpp_16',['divide.hpp',['../divide_8hpp.html',1,'']]],
-  ['dot_2ehpp_17',['dot.hpp',['../dot_8hpp.html',1,'']]],
-  ['dtypeinfo_2ehpp_18',['DtypeInfo.hpp',['../_dtype_info_8hpp.html',1,'']]],
-  ['dump_2ehpp_19',['dump.hpp',['../dump_8hpp.html',1,'']]]
+  ['divmod_2ehpp_17',['divmod.hpp',['../divmod_8hpp.html',1,'']]],
+  ['dot_2ehpp_18',['dot.hpp',['../dot_8hpp.html',1,'']]],
+  ['dtypeinfo_2ehpp_19',['DtypeInfo.hpp',['../_dtype_info_8hpp.html',1,'']]],
+  ['dump_2ehpp_20',['dump.hpp',['../dump_8hpp.html',1,'']]]
 ];

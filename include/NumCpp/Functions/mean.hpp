@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2025 David Pilger
+/// Copyright 2018-2026 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -123,17 +123,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<std::complex<double>> transposedArray = inArray.transpose();
-                NdArray<std::complex<double>> returnArray(1, transposedArray.numRows());
-                for (uint32 row = 0; row < transposedArray.numRows(); ++row)
-                {
-                    auto sum            = std::accumulate(transposedArray.cbegin(row),
-                                               transposedArray.cend(row),
-                                               std::complex<double>(0.));
-                    returnArray(0, row) = sum / std::complex<double>(transposedArray.numCols());
-                }
-
-                return returnArray;
+                return mean(inArray.transpose(), Axis::COL);
             }
             default:
             {

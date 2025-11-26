@@ -1,0 +1,75 @@
+/// @file
+/// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
+///
+/// License
+/// Copyright 2018-2026 David Pilger
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy of this
+/// software and associated documentation files(the "Software"), to deal in the Software
+/// without restriction, including without limitation the rights to use, copy, modify,
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+/// permit persons to whom the Software is furnished to do so, subject to the following
+/// conditions :
+///
+/// The above copyright notice and this permission notice shall be included in all copies
+/// or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+/// DEALINGS IN THE SOFTWARE.
+///
+/// Description
+/// Functions for working with NdArrays
+///
+#pragma once
+
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
+
+namespace nc::fft
+{
+    //===========================================================================
+    // Method Description:
+    /// Return the Discrete Fourier Transform sample frequencies (for usage with rfft, irfft).
+    /// The returned float array f contains the frequency bin centers in cycles per unit of the sample spacing (with
+    /// zero at the start). For instance, if the sample spacing is in seconds, then the frequency unit is cycles/second.
+    ///
+    /// NumPy Reference: <https://numpy.org/doc/stable/reference/generated/numpy.fft.rfftfreq.html>
+    ///
+    /// @param inN Window Length
+    /// @param inD (Optional) Sample spacing (inverse of the sampling rate). Defaults to 1.
+    ///
+    /// @return NdArray
+    ///
+    inline NdArray<double> rfftfreq(uint32 inN, double inD = 1.)
+    {
+        if (inN == 0)
+        {
+            return {};
+        }
+        else if (inN == 1)
+        {
+            return { 0 };
+        }
+
+        if (inD <= 0.)
+        {
+            return {};
+        }
+
+        const auto halfN   = (inN / 2) + 1;
+        const auto nTimesD = static_cast<double>(inN) * inD;
+
+        auto result = NdArray<double>(1, halfN);
+        for (auto i = 0u; i < halfN; ++i)
+        {
+            result[i] = static_cast<double>(i) / nTimesD;
+        }
+
+        return result;
+    }
+} // namespace nc::fft

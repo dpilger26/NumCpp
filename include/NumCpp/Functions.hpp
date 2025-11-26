@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2025 David Pilger
+/// Copyright 2018-2026 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -99,6 +99,7 @@
 #include "NumCpp/Functions/diff.hpp"
 #include "NumCpp/Functions/digitize.hpp"
 #include "NumCpp/Functions/divide.hpp"
+#include "NumCpp/Functions/divmod.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/dump.hpp"
 #include "NumCpp/Functions/empty.hpp"
@@ -112,6 +113,7 @@
 #include "NumCpp/Functions/eye.hpp"
 #include "NumCpp/Functions/fillDiagnol.hpp"
 #include "NumCpp/Functions/find.hpp"
+#include "NumCpp/Functions/find_duplicates.hpp"
 #include "NumCpp/Functions/fix.hpp"
 #include "NumCpp/Functions/flatnonzero.hpp"
 #include "NumCpp/Functions/flatten.hpp"
@@ -183,6 +185,7 @@
 #include "NumCpp/Functions/min.hpp"
 #include "NumCpp/Functions/minimum.hpp"
 #include "NumCpp/Functions/mod.hpp"
+#include "NumCpp/Functions/mode.hpp"
 #include "NumCpp/Functions/multiply.hpp"
 #include "NumCpp/Functions/nan_to_num.hpp"
 #include "NumCpp/Functions/nanargmax.hpp"

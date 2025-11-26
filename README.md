@@ -26,8 +26,8 @@
 
 **Compilers:**  
 Visual Studio: 2022  
-GNU: 13.3, 14.2  
-Clang: 18, 19  
+GNU: 13.3, 14.2, 15.2  
+Clang: 18, 19, 20  
 
 **Boost Versions:**  
 1.73+

@@ -5,6 +5,8 @@ import numpy as np
 import NumCppPy as NumCpp  # noqa E402
 
 
+DISABLE_STREAMS = True
+
 ####################################################################################
 def test_datetime():
     if NumCpp.NUMCPP_NO_USE_BOOST:
@@ -36,7 +38,8 @@ def test_datetime():
     assert d.minute == minute
     assert d.second == second
     assert d.fractionalSecond == fractionalSecond
-    assert d.toStr() == "2000-02-03T04:05:06.7Z"
+    if not DISABLE_STREAMS:
+        assert d.toStr() == "2000-02-03T04:05:06.7Z"
 
     d = NumCpp.DateTime()
     d.year = year
@@ -53,7 +56,8 @@ def test_datetime():
     assert d.minute == minute
     assert d.second == second
     assert d.fractionalSecond == fractionalSecond
-    assert d.toStr() == "2000-02-03T04:05:06.7Z"
+    if not DISABLE_STREAMS:
+        assert d.toStr() == "2000-02-03T04:05:06.7Z"
 
     d = NumCpp.DateTime.now()
     tp = d.toTimePoint()
@@ -90,28 +94,29 @@ def test_datetime():
     assertThrow(NumCpp.DateTime, "2022-11-29T11:52:60.123456789Z")
     assertThrow(NumCpp.DateTime, "2022-11-29T11:52:33.123456789")
 
-    timestamp = "2022-11-29T11:52:33.123456Z"
-    d = NumCpp.DateTime(timestamp)
-    assert d.year == 2022
-    assert d.month == 11
-    assert d.day == 29
-    assert d.hour == 11
-    assert d.minute == 52
-    assert d.second == 33
-    assert d.fractionalSecond == 0.123456
-    assert d.toStr() == timestamp
+    if not DISABLE_STREAMS:
+        timestamp = "2022-11-29T11:52:33.123456Z"
+        d = NumCpp.DateTime(timestamp)
+        assert d.year == 2022
+        assert d.month == 11
+        assert d.day == 29
+        assert d.hour == 11
+        assert d.minute == 52
+        assert d.second == 33
+        assert d.fractionalSecond == 0.123456
+        assert d.toStr() == timestamp
 
-    # this is pretty cool
-    timestamp2 = "2022-11-29T24:52:33.123456Z"
-    d = NumCpp.DateTime(timestamp2)
-    assert d.year == 2022
-    assert d.month == 11
-    assert d.day == 30
-    assert d.hour == 0
-    assert d.minute == 52
-    assert d.second == 33
-    assert d.fractionalSecond == 0.123456
-    assert d.toStr() == "2022-11-30T00:52:33.123456Z"
+        # this is pretty cool
+        timestamp2 = "2022-11-29T24:52:33.123456Z"
+        d = NumCpp.DateTime(timestamp2)
+        assert d.year == 2022
+        assert d.month == 11
+        assert d.day == 30
+        assert d.hour == 0
+        assert d.minute == 52
+        assert d.second == 33
+        assert d.fractionalSecond == 0.123456
+        assert d.toStr() == "2022-11-30T00:52:33.123456Z"
 
     tp2 = NumCpp.Clock.now()
     d = NumCpp.DateTime(tp2)

@@ -7,6 +7,7 @@ import NumCppPy as NumCpp  # noqa E402
 DO_TEST = False
 PLOT_SHOW = False
 
+
 ####################################################################################
 def test_seed():
     np.random.seed(666)

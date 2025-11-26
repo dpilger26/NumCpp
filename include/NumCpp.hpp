@@ -6,7 +6,7 @@
 ///
 ///
 /// @section License
-/// Copyright 2018-2025 David Pilger
+/// Copyright 2018-2026 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -44,6 +44,7 @@
 #include "NumCpp/Coordinates.hpp"
 #include "NumCpp/Core.hpp"
 #include "NumCpp/DateTime.hpp"
+#include "NumCpp/FFT.hpp"
 #include "NumCpp/Filter.hpp"
 #include "NumCpp/Functions.hpp"
 #include "NumCpp/ImageProcessing.hpp"

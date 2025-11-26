@@ -19,13 +19,13 @@ runs:
     - name: Activate Env
       shell: powershell
       run: |
-        conda activate test 
+        conda activate test
 
     - name: Install boost
-      uses: MarkusJx/install-boost@v2.3.0
+      uses: MarkusJx/install-boost@v2.5.1
       id: install-boost
       with:
-        boost_version: 1.79.0
+        boost_version: 1.80.0
         platform_version: 2022
         toolset: msvc
         link: static
