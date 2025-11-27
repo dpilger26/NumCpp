@@ -19,7 +19,7 @@
 * added `find_duplicates` <https://numpy.org/doc/stable//reference/generated/numpy.rec.find_duplicate.html>
 * added `mode` <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mode.html>
 
-## Version 2.15.0
+## Version 2.14.2
 
 * fixed an error in `ENURollPitchYawToECEFEuler()` function
 
