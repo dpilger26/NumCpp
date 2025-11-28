@@ -44,6 +44,38 @@ def test_det():
 
 
 ####################################################################################
+def test_eig():
+    for _ in range(50):
+        shape = np.random.randint(5, 50, [2,])
+        data = np.random.randint(0, 100, shape).astype(float)
+        data = np.dot(data, data.T) # real symmetric
+        cArray = NumCpp.NdArray()
+        cArray.setArray(data)
+        cEigenValues, cEigenVectors = NumCpp.eig(cArray)
+        eigenValues, eigenVectors = np.linalg.eig(data)
+        assert np.array_equal(np.round(np.abs(cEigenValues.flatten()), 5), np.flip(np.sort(np.round(np.abs(eigenValues), 5))).real)
+
+        for idx, eigenValue in enumerate(cEigenValues.flatten()):
+            eigenVector = cEigenVectors[:, idx]
+            assert np.round(np.linalg.norm(eigenVector), 8) == 1.0
+            aTimesV = np.round(np.linalg.norm(np.dot(data, eigenVector)), 6)
+            assert aTimesV == np.round(eigenValue, 6)
+
+
+####################################################################################
+def test_eigvals():
+    for _ in range(50):
+        size = np.random.randint(5, 50)
+        data = np.random.randint(0, 100, [size, size])
+        data = np.dot(data, data.T)
+        cArray = NumCpp.NdArray()
+        cArray.setArray(data)
+        cEigenValues = NumCpp.eigvals(cArray)
+        eigenValues = np.linalg.eigvals(data)
+        assert np.array_equal(np.round(np.abs(cEigenValues.flatten()), 5), np.flip(np.sort(np.round(np.abs(eigenValues), 5))).real)
+
+
+####################################################################################
 def test_hat():
     shape = NumCpp.Shape(1, 3)
     cArray = NumCpp.NdArray(shape)

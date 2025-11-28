@@ -2,11 +2,27 @@
 
 #include "BindingsIncludes.hpp"
 
-
 //================================================================================
 
 namespace LinalgInterface
 {
+    template<typename dtype>
+    std::pair<pbArrayGeneric, pbArrayGeneric> eig(const NdArray<dtype>& inArray)
+    {
+        const auto& [eigenValues, eigenVectors] = linalg::eig(inArray);
+        return std::make_pair(nc2pybind(eigenValues), nc2pybind(eigenVectors));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric eigvals(const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(linalg::eigvals(inArray));
+    }
+
+    //================================================================================
+
     template<typename dtype>
     pbArrayGeneric hatArray(const NdArray<dtype>& inArray)
     {
@@ -53,6 +69,8 @@ void initLinalg(pb11::module& m)
     m.def("cholesky", &linalg::cholesky<double>);
     m.def("det", &linalg::det<double>);
     m.def("det", &linalg::det<int64>);
+    m.def("eig", &LinalgInterface::eig<double>);
+    m.def("eigvals", &LinalgInterface::eigvals<double>);
     m.def("hat", &LinalgInterface::hatArray<double>);
     m.def("inv", &linalg::inv<double>);
     m.def("lstsq", &linalg::lstsq<double>);

@@ -23,22 +23,36 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// Description
-/// Module for doing linear algebra operations
+/// linear least squares
 ///
 #pragma once
 
-#include "NumCpp/Linalg/cholesky.hpp"
-#include "NumCpp/Linalg/det.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Linalg/eig.hpp"
-#include "NumCpp/Linalg/eigvals.hpp"
-#include "NumCpp/Linalg/gaussNewtonNlls.hpp"
-#include "NumCpp/Linalg/hat.hpp"
-#include "NumCpp/Linalg/inv.hpp"
-#include "NumCpp/Linalg/lstsq.hpp"
-#include "NumCpp/Linalg/lu_decomposition.hpp"
-#include "NumCpp/Linalg/matrix_power.hpp"
-#include "NumCpp/Linalg/multi_dot.hpp"
-#include "NumCpp/Linalg/pinv.hpp"
-#include "NumCpp/Linalg/pivotLU_decomposition.hpp"
-#include "NumCpp/Linalg/solve.hpp"
-#include "NumCpp/Linalg/svd.hpp"
+#include "NumCpp/NdArray.hpp"
+
+namespace nc::linalg
+{
+    //============================================================================
+    // Method Description:
+    /// Compute the eigen values of a real symmetric matrix.
+    ///
+    /// NumPy Reference:
+    /// https://numpy.org/doc/stable/reference/generated/numpy.linalg.eigvals.html
+    ///
+    /// @param inA: Matrix for which the eigen values and will be computed, must be a real, symmetric MxM
+    ///             array
+    /// @param inTolerance (default 1e-12)
+    ///
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<double> eigvals(const NdArray<dtype>& inA, double inTolerance = 1e-12)
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        const auto& [eigenValues, _] = eig(inA, inTolerance);
+
+        return eigenValues;
+    }
+} // namespace nc::linalg
