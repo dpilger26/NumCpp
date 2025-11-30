@@ -1,6 +1,6 @@
 # Release Notes
 
-## Version 2.15.1
+## Version 2.16.0
 
 * fixed **Issue #144**, `outer` function now operates on arrays of different sizes
 * fixed **Issue #215**, `pinv` function has been corrected
