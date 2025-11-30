@@ -42,3 +42,4 @@
 #include "NumCpp/Linalg/pivotLU_decomposition.hpp"
 #include "NumCpp/Linalg/solve.hpp"
 #include "NumCpp/Linalg/svd.hpp"
+#include "NumCpp/Linalg/svdvals.hpp"

@@ -23,33 +23,39 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// Description
-/// matrix psuedo-inverse
+/// matrix svd
 ///
 #pragma once
 
-#include <string>
+#include <utility>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Linalg/svd/SVD.hpp"
+#include "NumCpp/Linalg/svd.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc::linalg
 {
     //============================================================================
     // Method Description:
-    /// matrix psuedo-inverse
+    /// Singular Value Decomposition.
     ///
-    /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html
+    /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.linalg.svd.html
     ///
-    /// @param inArray
-    /// @return NdArray
+    /// @param inArray: NdArray to be SVDed
+    ///
+    /// @returns array of singular values
     ///
     template<typename dtype>
-    NdArray<double> pinv(const NdArray<dtype>& inArray)
+    NdArray<double> svdvals(const NdArray<dtype>& inArray)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return SVD{ inArray }.pinv();
+        auto u  = NdArray<double>{};
+        auto s  = NdArray<double>{};
+        auto vT = NdArray<double>{};
+
+        svd(inArray, u, s, vT);
+
+        return s;
     }
 } // namespace nc::linalg

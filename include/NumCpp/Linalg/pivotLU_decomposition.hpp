@@ -58,7 +58,7 @@ namespace nc::linalg
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto shape = inMatrix.shape();
+        const auto& shape = inMatrix.shape();
 
         if (!shape.issquare())
         {

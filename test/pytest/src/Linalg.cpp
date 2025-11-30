@@ -55,9 +55,17 @@ namespace LinalgInterface
     //================================================================================
 
     template<typename dtype>
-    pbArray<double> solve(const NdArray<dtype>& inA, const NdArray<dtype>& inB)
+    pbArrayGeneric solve(const NdArray<dtype>& inA, const NdArray<dtype>& inB)
     {
         return nc2pybind(linalg::solve(inA, inB));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric svdvals(const NdArray<dtype>& inA)
+    {
+        return nc2pybind(linalg::svdvals(inA));
     }
 } // namespace LinalgInterface
 
@@ -82,4 +90,5 @@ void initLinalg(pb11::module& m)
     m.def("pivotLU_decomposition", &LinalgInterface::pivotLU_decomposition<double>);
     m.def("solve", &LinalgInterface::solve<double>);
     m.def("svd", &linalg::svd<double>);
+    m.def("svdvals", &LinalgInterface::svdvals<double>);
 }
