@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['u_0',['u',['../classnc_1_1linalg_1_1_s_v_d.html#af28a679bf8a8ef8af95184a26a6fbb4e',1,'nc::linalg::SVD']]],
+  ['u_0',['u',['../classnc_1_1linalg_1_1_s_v_d.html#a158910084dd44940dca481dbf5f92382',1,'nc::linalg::SVD']]],
   ['uniform_1',['uniform',['../classnc_1_1random_1_1_r_n_g.html#a8882c8c42caef3308bba1cfddb456221',1,'nc::random::RNG::uniform(dtype inLow, dtype inHigh)'],['../classnc_1_1random_1_1_r_n_g.html#a6c8199f0f3aa6438fcb893aee0b5cdcc',1,'nc::random::RNG::uniform(const Shape &amp;inShape, dtype inLow, dtype inHigh)'],['../namespacenc_1_1random.html#a36da9b7a166bcdaaf8177191b8e15944',1,'nc::random::uniform(const Shape &amp;inShape, dtype inLow, dtype inHigh)'],['../namespacenc_1_1random.html#adbff3f6b80e512d4153b12bae9c6c732',1,'nc::random::uniform(dtype inLow, dtype inHigh)'],['../namespacenc_1_1random_1_1detail.html#a648263b5450fb64ba93952637984feb4',1,'nc::random::detail::uniform(GeneratorType &amp;generator, const Shape &amp;inShape, dtype inLow, dtype inHigh)'],['../namespacenc_1_1random_1_1detail.html#ab77de38f57e578f6ae45db74f0c9f4dd',1,'nc::random::detail::uniform(GeneratorType &amp;generator, dtype inLow, dtype inHigh)']]],
   ['uniformfilter_2',['uniformFilter',['../namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952',1,'nc::filter']]],
   ['uniformfilter1d_3',['uniformFilter1d',['../namespacenc_1_1filter.html#afcf603e5055c7bc01aed09067357e004',1,'nc::filter']]],

@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.15.0</span>
+                                &#160;<span id="projectnumber">2.16.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -117,7 +117,21 @@ $(document).ready(function(){initNavTree('md__2home_2dpilger_2_github_2_num_cpp_
   <div class="headertitle"><div class="title">Release Notes</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1>Version 2.15.0</h1>
+<div class="textblock"><h1>Version 2.16.0</h1>
+<ul>
+<li>fixed <b>Issue #144</b>, <code>outer</code> function now operates on arrays of different sizes</li>
+<li>fixed <b>Issue #215</b>, <code>pinv</code> function has been corrected</li>
+<li>added <code>eig()</code> for <b>Issue #143</b> <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.eig.html#numpy.linalg.eig">https://numpy.org/doc/stable/reference/generated/numpy.linalg.eig.html#numpy.linalg.eig</a><ul>
+<li>unlike NumPy, the NumCpp implementation is only suitable for real symmetric matrices</li>
+</ul>
+</li>
+<li>added <code>eigvals()</code> for <b>Issue #143</b> <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.eigvals.html#numpy.linalg.eigvals">https://numpy.org/doc/stable/reference/generated/numpy.linalg.eigvals.html#numpy.linalg.eigvals</a><ul>
+<li>unlike NumPy, the NumCpp implementation is only suitable for real symmetric matrices</li>
+</ul>
+</li>
+<li>added <code>svdvals</code> <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.svdvals.html">https://numpy.org/doc/stable/reference/generated/numpy.linalg.svdvals.html</a></li>
+</ul>
+<h1>Version 2.15.0</h1>
 <ul>
 <li>added <code>fft</code> module for <b>Issue #137</b><ul>
 <li><code>fft::fft</code> <a href="https://numpy.org/doc/stable/reference/generated/numpy.fft.fft.html#numpy.fft.fft">https://numpy.org/doc/stable/reference/generated/numpy.fft.fft.html#numpy.fft.fft</a></li>

@@ -10,8 +10,6 @@ var NAVTREEINDEX2 =
 "_roots_8hpp_source.html":[6,0,1,0,33],
 "_rotations_8hpp.html":[6,0,1,0,34],
 "_rotations_8hpp_source.html":[6,0,1,0,34],
-"_s_v_d_class_8hpp.html":[6,0,1,0,8,0,0],
-"_s_v_d_class_8hpp_source.html":[6,0,1,0,8,0,0],
 "_secant_8hpp.html":[6,0,1,0,14,5],
 "_secant_8hpp_source.html":[6,0,1,0,14,5],
 "_slice_8hpp.html":[6,0,1,0,1,6],
@@ -249,5 +247,7 @@ var NAVTREEINDEX2 =
 "arcsinh_8hpp.html#a74ebb0003f6cf0d0dc0fd8af1e983969":[6,0,1,0,5,16,1],
 "arcsinh_8hpp.html#abbf91db9344e5d1a53325990ef5535a0":[6,0,1,0,5,16,0],
 "arcsinh_8hpp_source.html":[6,0,1,0,5,16],
-"arctan2_8hpp.html":[6,0,1,0,5,18]
+"arctan2_8hpp.html":[6,0,1,0,5,18],
+"arctan2_8hpp.html#a3d3c4c6b273e6eee45cf6359cf621980":[6,0,1,0,5,18,0],
+"arctan2_8hpp.html#abdec674ddb32540775e97e0fca6016aa":[6,0,1,0,5,18,1]
 };

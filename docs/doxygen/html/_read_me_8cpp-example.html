@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.15.0</span>
+                                &#160;<span id="projectnumber">2.16.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -295,14 +295,14 @@ $(document).ready(function(){initNavTree('_read_me_8cpp-example.html',''); initR
 <div class="line">    <span class="keyword">auto</span>                  a75    = nc::random::randInt&lt;int&gt;({ 1, 4 }, 0, 10);</div>
 <div class="line">    [[maybe_unused]] <span class="keyword">auto</span> value9 = <a id="a62" name="a62"></a><a class="code hl_function" href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">nc::linalg::det</a>(a73);</div>
 <div class="line">    <span class="keyword">auto</span>                  a76    = <a id="a63" name="a63"></a><a class="code hl_function" href="namespacenc_1_1linalg.html#a2eeb58d0a34e50e79fcfe59f71c61b4d">nc::linalg::inv</a>(a73);</div>
-<div class="line">    <span class="keyword">auto</span>                  a77    = <a id="a64" name="a64"></a><a class="code hl_function" href="namespacenc_1_1linalg.html#a8baf25f50874e4bd27d2644a2730fb03">nc::linalg::lstsq</a>(a74, a75);</div>
+<div class="line">    <span class="keyword">auto</span>                  a77    = <a id="a64" name="a64"></a><a class="code hl_function" href="namespacenc_1_1linalg.html#af96af1e6e215b975a74f12949b5f0b46">nc::linalg::lstsq</a>(a74, a75);</div>
 <div class="line">    <span class="keyword">auto</span>                  a78    = nc::linalg::matrix_power&lt;int&gt;(a73, 3);</div>
 <div class="line">    <span class="keyword">auto</span>                  a79    = nc::linalg::multi_dot&lt;int&gt;({ a, b.transpose(), c });</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_class" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> u;</div>
 <div class="line">    <a class="code hl_class" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> s;</div>
 <div class="line">    <a class="code hl_class" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> vt;</div>
-<div class="line">    <a id="a65" name="a65"></a><a class="code hl_function" href="namespacenc_1_1linalg.html#acb38ad2613d50422afc539d005159055">nc::linalg::svd</a>(a.astype&lt;<span class="keywordtype">double</span>&gt;(), u, s, vt);</div>
+<div class="line">    <a id="a65" name="a65"></a><a class="code hl_function" href="namespacenc_1_1linalg.html#a305c49baed6667d8d64b9cd13f2c5060">nc::linalg::svd</a>(a.astype&lt;<span class="keywordtype">double</span>&gt;(), u, s, vt);</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
@@ -313,9 +313,9 @@ $(document).ready(function(){initNavTree('_read_me_8cpp-example.html',''); initR
 <div class="ttc" id="anamespacenc_1_1constants_html_a2f1219a120c9cc1434486d9de75a8221"><div class="ttname"><a href="namespacenc_1_1constants.html#a2f1219a120c9cc1434486d9de75a8221">nc::constants::pi</a></div><div class="ttdeci">constexpr double pi</div><div class="ttdoc">Pi.</div><div class="ttdef"><b>Definition</b> Core/Constants.hpp:39</div></div>
 <div class="ttc" id="anamespacenc_1_1constants_html_af94758715a9a5157d7ca95ab89d390ac"><div class="ttname"><a href="namespacenc_1_1constants.html#af94758715a9a5157d7ca95ab89d390ac">nc::constants::nan</a></div><div class="ttdeci">const double nan</div><div class="ttdoc">NaN.</div><div class="ttdef"><b>Definition</b> Core/Constants.hpp:41</div></div>
 <div class="ttc" id="anamespacenc_1_1linalg_html_a2eeb58d0a34e50e79fcfe59f71c61b4d"><div class="ttname"><a href="namespacenc_1_1linalg.html#a2eeb58d0a34e50e79fcfe59f71c61b4d">nc::linalg::inv</a></div><div class="ttdeci">NdArray&lt; double &gt; inv(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition</b> inv.hpp:54</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_html_a305c49baed6667d8d64b9cd13f2c5060"><div class="ttname"><a href="namespacenc_1_1linalg.html#a305c49baed6667d8d64b9cd13f2c5060">nc::linalg::svd</a></div><div class="ttdeci">void svd(const NdArray&lt; dtype &gt; &amp;inArray, NdArray&lt; double &gt; &amp;outU, NdArray&lt; double &gt; &amp;outS, NdArray&lt; double &gt; &amp;outVT)</div><div class="ttdef"><b>Definition</b> svd.hpp:51</div></div>
 <div class="ttc" id="anamespacenc_1_1linalg_html_a560873e98ef9b3d8da501ad6feb121e9"><div class="ttname"><a href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">nc::linalg::det</a></div><div class="ttdeci">auto det(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition</b> det.hpp:131</div></div>
-<div class="ttc" id="anamespacenc_1_1linalg_html_a8baf25f50874e4bd27d2644a2730fb03"><div class="ttname"><a href="namespacenc_1_1linalg.html#a8baf25f50874e4bd27d2644a2730fb03">nc::linalg::lstsq</a></div><div class="ttdeci">NdArray&lt; double &gt; lstsq(const NdArray&lt; dtype &gt; &amp;inA, const NdArray&lt; dtype &gt; &amp;inB, double inTolerance=1e-12)</div><div class="ttdef"><b>Definition</b> lstsq.hpp:58</div></div>
-<div class="ttc" id="anamespacenc_1_1linalg_html_acb38ad2613d50422afc539d005159055"><div class="ttname"><a href="namespacenc_1_1linalg.html#acb38ad2613d50422afc539d005159055">nc::linalg::svd</a></div><div class="ttdeci">void svd(const NdArray&lt; dtype &gt; &amp;inArray, NdArray&lt; double &gt; &amp;outU, NdArray&lt; double &gt; &amp;outS, NdArray&lt; double &gt; &amp;outVt)</div><div class="ttdef"><b>Definition</b> svd.hpp:51</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_html_af96af1e6e215b975a74f12949b5f0b46"><div class="ttname"><a href="namespacenc_1_1linalg.html#af96af1e6e215b975a74f12949b5f0b46">nc::linalg::lstsq</a></div><div class="ttdeci">NdArray&lt; double &gt; lstsq(const NdArray&lt; dtype &gt; &amp;inA, const NdArray&lt; dtype &gt; &amp;inB)</div><div class="ttdef"><b>Definition</b> lstsq.hpp:57</div></div>
 <div class="ttc" id="anamespacenc_1_1random_html_ab7a11b67f4e9e18c7b01c7dc4db2fc71"><div class="ttname"><a href="namespacenc_1_1random.html#ab7a11b67f4e9e18c7b01c7dc4db2fc71">nc::random::seed</a></div><div class="ttdeci">void seed(int inSeed)</div><div class="ttdef"><b>Definition</b> generator.hpp:46</div></div>
 <div class="ttc" id="anamespacenc_1_1random_html_ad60ec32743642bd0540fec0076043fed"><div class="ttname"><a href="namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed">nc::random::choice</a></div><div class="ttdeci">dtype choice(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition</b> choice.hpp:102</div></div>
 <div class="ttc" id="anamespacenc_html_a05c4de5a2c55f32884dec4b1d5634a36"><div class="ttname"><a href="namespacenc.html#a05c4de5a2c55f32884dec4b1d5634a36">nc::triu</a></div><div class="ttdeci">NdArray&lt; dtype &gt; triu(uint32 inN, uint32 inM, int32 inOffset=0)</div><div class="ttdef"><b>Definition</b> tri.hpp:175</div></div>

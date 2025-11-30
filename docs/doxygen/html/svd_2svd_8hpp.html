@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9" />
     <meta name="generator" content="Doxygen 1.9.8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NumCpp: SVDClass.hpp File Reference</title>
+    <title>NumCpp: SVD.hpp File Reference</title>
     <link href="tabs.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="dynsections.js"></script>
@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.15.0</span>
+                                &#160;<span id="projectnumber">2.16.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -88,7 +88,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('_s_v_d_class_8hpp.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('svd_2svd_8hpp.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('_s_v_d_class_8hpp.html',''); initResiz
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
-  <div class="headertitle"><div class="title">SVDClass.hpp File Reference</div></div>
+  <div class="headertitle"><div class="title">SVD.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;cmath&gt;</code><br />
@@ -125,14 +125,18 @@ $(document).ready(function(){initNavTree('_s_v_d_class_8hpp.html',''); initResiz
 <code>#include &lt;string&gt;</code><br />
 <code>#include &quot;<a class="el" href="_error_8hpp_source.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_types_8hpp_source.html">NumCpp/Core/Types.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="dot_8hpp_source.html">NumCpp/Functions/dot.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="norm_8hpp_source.html">NumCpp/Functions/norm.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="zeros_8hpp_source.html">NumCpp/Functions/zeros.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="eig_8hpp_source.html">NumCpp/Linalg/eig.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_nd_array_8hpp_source.html">NumCpp/NdArray.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="essentially_equal_8hpp_source.html">NumCpp/Utils/essentiallyEqual.hpp</a>&quot;</code><br />
 </div>
-<p><a href="_s_v_d_class_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="svd_2svd_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html">nc::linalg::SVD</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html">nc::linalg::SVD&lt; dtype &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the singular value decomposition of a general matrix.  <a href="classnc_1_1linalg_1_1_s_v_d.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -154,7 +158,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_34171bd951b13a53aa9f237277a18e40.html">NumCpp</a></li><li class="navelem"><a class="el" href="dir_d784f51d362276329e5940df711baf3d.html">Linalg</a></li><li class="navelem"><a class="el" href="dir_093b14450e434accd2cde91cedff0d18.html">svd</a></li><li class="navelem"><a class="el" href="_s_v_d_class_8hpp.html">SVDClass.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_34171bd951b13a53aa9f237277a18e40.html">NumCpp</a></li><li class="navelem"><a class="el" href="dir_d784f51d362276329e5940df711baf3d.html">Linalg</a></li><li class="navelem"><a class="el" href="dir_093b14450e434accd2cde91cedff0d18.html">svd</a></li><li class="navelem"><a class="el" href="svd_2svd_8hpp.html">SVD.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
