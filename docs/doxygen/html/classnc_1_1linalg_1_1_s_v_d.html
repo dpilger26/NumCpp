@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9" />
     <meta name="generator" content="Doxygen 1.9.8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NumCpp: nc::linalg::SVD Class Reference</title>
+    <title>NumCpp: nc::linalg::SVD&lt; dtype &gt; Class Template Reference</title>
     <link href="tabs.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="dynsections.js"></script>
@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.15.0</span>
+                                &#160;<span id="projectnumber">2.16.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -115,42 +115,58 @@ $(document).ready(function(){initNavTree('classnc_1_1linalg_1_1_s_v_d.html','');
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
-  <div class="headertitle"><div class="title">nc::linalg::SVD Class Reference</div></div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
+  <div class="headertitle"><div class="title">nc::linalg::SVD&lt; dtype &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_s_v_d_class_8hpp_source.html">SVDClass.hpp</a>&gt;</code></p>
+<p>Performs the singular value decomposition of a general matrix.  
+ <a href="classnc_1_1linalg_1_1_s_v_d.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="svd_2svd_8hpp_source.html">SVD.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae0561bbc9633e436139258b0c70b98ba" id="r_ae0561bbc9633e436139258b0c70b98ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html#ae0561bbc9633e436139258b0c70b98ba">SVD</a> (<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp;<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">inMatrix</a>)</td></tr>
-<tr class="separator:ae0561bbc9633e436139258b0c70b98ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3628ab32a1117f00645ce377c4b8654" id="r_aa3628ab32a1117f00645ce377c4b8654"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html#aa3628ab32a1117f00645ce377c4b8654">s</a> () <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">noexcept</a></td></tr>
-<tr class="separator:aa3628ab32a1117f00645ce377c4b8654"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f8126b97109ff2929842d861522de19" id="r_a5f8126b97109ff2929842d861522de19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html#a5f8126b97109ff2929842d861522de19">solve</a> (<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp;<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">inInput</a>, <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">inThresh</a>=-1.)</td></tr>
-<tr class="separator:a5f8126b97109ff2929842d861522de19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af28a679bf8a8ef8af95184a26a6fbb4e" id="r_af28a679bf8a8ef8af95184a26a6fbb4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html#af28a679bf8a8ef8af95184a26a6fbb4e">u</a> () <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">noexcept</a></td></tr>
-<tr class="separator:af28a679bf8a8ef8af95184a26a6fbb4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0ff491e89a4242d15854683d0a45650" id="r_ab0ff491e89a4242d15854683d0a45650"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html#ab0ff491e89a4242d15854683d0a45650">v</a> () <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">noexcept</a></td></tr>
-<tr class="separator:ab0ff491e89a4242d15854683d0a45650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4ba7cba1b76cd0a05805c894b93e356" id="r_ab4ba7cba1b76cd0a05805c894b93e356"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html#ab4ba7cba1b76cd0a05805c894b93e356">SVD</a> (<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt; &amp;<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">inMatrix</a>)</td></tr>
+<tr class="separator:ab4ba7cba1b76cd0a05805c894b93e356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac242186475a35804492d717f933024bd" id="r_ac242186475a35804492d717f933024bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html#ac242186475a35804492d717f933024bd">lstsq</a> (<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp;<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">inInput</a>)</td></tr>
+<tr class="separator:ac242186475a35804492d717f933024bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c5d57cc757e95a3dc48cec03ca80fb" id="r_a81c5d57cc757e95a3dc48cec03ca80fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html#a81c5d57cc757e95a3dc48cec03ca80fb">pinv</a> ()</td></tr>
+<tr class="separator:a81c5d57cc757e95a3dc48cec03ca80fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16f7636b9dc063e1636effbc71240f4b" id="r_a16f7636b9dc063e1636effbc71240f4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html#a16f7636b9dc063e1636effbc71240f4b">s</a> () <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">noexcept</a></td></tr>
+<tr class="separator:a16f7636b9dc063e1636effbc71240f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a3dacc268968d6910618f0ff79073e" id="r_a38a3dacc268968d6910618f0ff79073e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html#a38a3dacc268968d6910618f0ff79073e">STATIC_ASSERT_ARITHMETIC</a> (<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a>)</td></tr>
+<tr class="separator:a38a3dacc268968d6910618f0ff79073e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a158910084dd44940dca481dbf5f92382" id="r_a158910084dd44940dca481dbf5f92382"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html#a158910084dd44940dca481dbf5f92382">u</a> () <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">noexcept</a></td></tr>
+<tr class="separator:a158910084dd44940dca481dbf5f92382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc73c87eefc76c303ef510b5c2534fa3" id="r_adc73c87eefc76c303ef510b5c2534fa3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html#adc73c87eefc76c303ef510b5c2534fa3">v</a> () <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">noexcept</a></td></tr>
+<tr class="separator:adc73c87eefc76c303ef510b5c2534fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a6dd64d76d201318568ce13eb305810fd" id="r_a6dd64d76d201318568ce13eb305810fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">static</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">constexpr</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html#a6dd64d76d201318568ce13eb305810fd">TOLERANCE</a> = 1e-12</td></tr>
+<tr class="separator:a6dd64d76d201318568ce13eb305810fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>performs the singular value decomposition of a general matrix, taken and adapted from Numerical Recipes Third Edition svd.h </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">typename</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a>&gt;<br />
+class nc::linalg::SVD&lt; dtype &gt;</div><p>Performs the singular value decomposition of a general matrix. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae0561bbc9633e436139258b0c70b98ba" name="ae0561bbc9633e436139258b0c70b98ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0561bbc9633e436139258b0c70b98ba">&#9670;&#160;</a></span>SVD()</h2>
+<a id="ab4ba7cba1b76cd0a05805c894b93e356" name="ab4ba7cba1b76cd0a05805c894b93e356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4ba7cba1b76cd0a05805c894b93e356">&#9670;&#160;</a></span>SVD()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">typename</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">nc::linalg::SVD::SVD </td>
+          <td class="memname"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html">nc::linalg::SVD</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt;::SVD </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>inMatrix</em></td><td>)</td>
           <td></td>
         </tr>
@@ -164,7 +180,7 @@ Public Member Functions</h2></td></tr>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">inMatrix</td><td>matrix to perform <a class="el" href="classnc_1_1linalg_1_1_s_v_d.html">SVD</a> on </td></tr>
+    <tr><td class="paramname">inMatrix</td><td>matrix to perform <a class="el" href="classnc_1_1linalg_1_1_s_v_d.html" title="Performs the singular value decomposition of a general matrix.">SVD</a> on </td></tr>
   </table>
   </dd>
 </dl>
@@ -172,20 +188,87 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa3628ab32a1117f00645ce377c4b8654" name="aa3628ab32a1117f00645ce377c4b8654"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3628ab32a1117f00645ce377c4b8654">&#9670;&#160;</a></span>s()</h2>
+<a id="ac242186475a35804492d717f933024bd" name="ac242186475a35804492d717f933024bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac242186475a35804492d717f933024bd">&#9670;&#160;</a></span>lstsq()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">typename</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp; nc::linalg::SVD::s </td>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; <a class="el" href="classnc_1_1linalg_1_1_s_v_d.html">nc::linalg::SVD</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt;::lstsq </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inInput</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>solves the linear least squares problem</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inInput</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="a81c5d57cc757e95a3dc48cec03ca80fb" name="a81c5d57cc757e95a3dc48cec03ca80fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81c5d57cc757e95a3dc48cec03ca80fb">&#9670;&#160;</a></span>pinv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">typename</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; <a class="el" href="classnc_1_1linalg_1_1_s_v_d.html">nc::linalg::SVD</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt;::pinv </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the pseudo-inverse of the input matrix</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="a16f7636b9dc063e1636effbc71240f4b" name="a16f7636b9dc063e1636effbc71240f4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16f7636b9dc063e1636effbc71240f4b">&#9670;&#160;</a></span>s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">typename</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp; <a class="el" href="classnc_1_1linalg_1_1_s_v_d.html">nc::linalg::SVD</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt;::s </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -199,65 +282,42 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5f8126b97109ff2929842d861522de19" name="a5f8126b97109ff2929842d861522de19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f8126b97109ff2929842d861522de19">&#9670;&#160;</a></span>solve()</h2>
+<a id="a38a3dacc268968d6910618f0ff79073e" name="a38a3dacc268968d6910618f0ff79073e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a3dacc268968d6910618f0ff79073e">&#9670;&#160;</a></span>STATIC_ASSERT_ARITHMETIC()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">typename</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; nc::linalg::SVD::solve </td>
+          <td class="memname"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html">nc::linalg::SVD</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt;::STATIC_ASSERT_ARITHMETIC </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>inInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a>&#160;</td>
-          <td class="paramname"><em>inThresh</em> = <code>-1.</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>solves the linear least squares problem</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inInput</td><td></td></tr>
-    <tr><td class="paramname">inThresh</td><td>(default -1.)</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
-
-</div>
-</div>
-<a id="af28a679bf8a8ef8af95184a26a6fbb4e" name="af28a679bf8a8ef8af95184a26a6fbb4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af28a679bf8a8ef8af95184a26a6fbb4e">&#9670;&#160;</a></span>u()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp; nc::linalg::SVD::u </td>
-          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a158910084dd44940dca481dbf5f92382" name="a158910084dd44940dca481dbf5f92382"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a158910084dd44940dca481dbf5f92382">&#9670;&#160;</a></span>u()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">typename</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp; <a class="el" href="classnc_1_1linalg_1_1_s_v_d.html">nc::linalg::SVD</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt;::u </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -271,20 +331,22 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab0ff491e89a4242d15854683d0a45650" name="ab0ff491e89a4242d15854683d0a45650"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0ff491e89a4242d15854683d0a45650">&#9670;&#160;</a></span>v()</h2>
+<a id="adc73c87eefc76c303ef510b5c2534fa3" name="adc73c87eefc76c303ef510b5c2534fa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc73c87eefc76c303ef510b5c2534fa3">&#9670;&#160;</a></span>v()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">typename</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp; nc::linalg::SVD::v </td>
+          <td class="memname"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">const</a> <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">double</a> &gt; &amp; <a class="el" href="classnc_1_1linalg_1_1_s_v_d.html">nc::linalg::SVD</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt;::v </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -293,13 +355,38 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>the resultant v matrix</p>
+<p>the resultant v transpose matrix</p>
 <dl class="section return"><dt>Returns</dt><dd>v matrix </dd></dl>
 
 </div>
 </div>
+<h2 class="groupheader">Field Documentation</h2>
+<a id="a6dd64d76d201318568ce13eb305810fd" name="a6dd64d76d201318568ce13eb305810fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dd64d76d201318568ce13eb305810fd">&#9670;&#160;</a></span>TOLERANCE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">typename</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">constexpr</a> <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">auto</a> <a class="el" href="classnc_1_1linalg_1_1_s_v_d.html">nc::linalg::SVD</a>&lt; <a class="el" href="namespacenc.html#a8e78c416b2386411d8c6b5226bd4c78a">dtype</a> &gt;::TOLERANCE = 1e-12</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="_s_v_d_class_8hpp_source.html">SVDClass.hpp</a></li>
+<li><a class="el" href="svd_2svd_8hpp_source.html">svd/svd.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

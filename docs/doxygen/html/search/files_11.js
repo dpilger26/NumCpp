@@ -39,9 +39,10 @@ var searchData=
   ['subtract_2ehpp_36',['subtract.hpp',['../subtract_8hpp.html',1,'']]],
   ['sum_2ehpp_37',['sum.hpp',['../sum_8hpp.html',1,'']]],
   ['svd_2ehpp_38',['svd.hpp',['../svd_8hpp.html',1,'']]],
-  ['svdclass_2ehpp_39',['SVDClass.hpp',['../_s_v_d_class_8hpp.html',1,'']]],
-  ['swap_2ehpp_40',['swap.hpp',['../swap_8hpp.html',1,'']]],
-  ['swapaxes_2ehpp_41',['swapaxes.hpp',['../swapaxes_8hpp.html',1,'']]],
-  ['swapcols_2ehpp_42',['swapCols.hpp',['../swap_cols_8hpp.html',1,'']]],
-  ['swaprows_2ehpp_43',['swapRows.hpp',['../swap_rows_8hpp.html',1,'']]]
+  ['svd_2fsvd_2ehpp_39',['SVD.hpp',['../svd_2svd_8hpp.html',1,'']]],
+  ['svdvals_2ehpp_40',['svdvals.hpp',['../svdvals_8hpp.html',1,'']]],
+  ['swap_2ehpp_41',['swap.hpp',['../swap_8hpp.html',1,'']]],
+  ['swapaxes_2ehpp_42',['swapaxes.hpp',['../swapaxes_8hpp.html',1,'']]],
+  ['swapcols_2ehpp_43',['swapCols.hpp',['../swap_cols_8hpp.html',1,'']]],
+  ['swaprows_2ehpp_44',['swapRows.hpp',['../swap_rows_8hpp.html',1,'']]]
 ];

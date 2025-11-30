@@ -104,7 +104,7 @@ var searchData=
   ['convolve1d_2ehpp_101',['convolve1d.hpp',['../convolve1d_8hpp.html',1,'']]],
   ['coordinates_2ehpp_102',['Coordinates.hpp',['../_coordinates_8hpp.html',1,'']]],
   ['coordinates_2freferenceframes_2fconstants_2ehpp_103',['Constants.hpp',['../_coordinates_2_reference_frames_2_constants_8hpp.html',1,'']]],
-  ['copy_104',['copy',['../classnc_1_1_nd_array.html#a5ae6d993d5c8d41eee61ddca0b9f2b31',1,'nc::NdArray::copy()'],['../namespacenc.html#ae31148c2c120e8ed49df98e7dcd960ecae8606d021da140a92c7eba8d9b8af84f',1,'nc::COPY'],['../namespacenc_1_1stl__algorithms.html#ae62a4e197ec640aacea520220bd27cef',1,'nc::stl_algorithms::copy()'],['../namespacenc.html#a77989f6ee687183d9797ef6d4a8c3dce',1,'nc::copy()']]],
+  ['copy_104',['copy',['../classnc_1_1_nd_array.html#a5ae6d993d5c8d41eee61ddca0b9f2b31',1,'nc::NdArray::copy()'],['../namespacenc_1_1stl__algorithms.html#ae62a4e197ec640aacea520220bd27cef',1,'nc::stl_algorithms::copy()'],['../namespacenc.html#a77989f6ee687183d9797ef6d4a8c3dce',1,'nc::copy(const NdArray&lt; dtype &gt; &amp;inArray)'],['../namespacenc.html#ae31148c2c120e8ed49df98e7dcd960ecae8606d021da140a92c7eba8d9b8af84f',1,'nc::COPY']]],
   ['copy_2ehpp_105',['copy.hpp',['../copy_8hpp.html',1,'']]],
   ['copysign_106',['copySign',['../namespacenc.html#ab889b055de45596f5c541cdfc213b5c9',1,'nc']]],
   ['copysign_2ehpp_107',['copySign.hpp',['../copy_sign_8hpp.html',1,'']]],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['u_0',['u',['../classnc_1_1linalg_1_1_s_v_d.html#af28a679bf8a8ef8af95184a26a6fbb4e',1,'nc::linalg::SVD']]],
+  ['u_0',['u',['../classnc_1_1linalg_1_1_s_v_d.html#a158910084dd44940dca481dbf5f92382',1,'nc::linalg::SVD']]],
   ['uint16_1',['uint16',['../namespacenc.html#a8146518cf6c6a8029c3d84a376167793',1,'nc']]],
   ['uint32_2',['uint32',['../namespacenc.html#af0f49663fb63332596e2e6327009d581',1,'nc']]],
   ['uint64_3',['uint64',['../namespacenc.html#a773f8535ba713f886e9e1b8378f6d76d',1,'nc']]],

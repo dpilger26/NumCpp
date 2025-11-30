@@ -1,4 +1,4 @@
 var lstsq_8hpp =
 [
-    [ "lstsq", "lstsq_8hpp.html#a8baf25f50874e4bd27d2644a2730fb03", null ]
+    [ "lstsq", "lstsq_8hpp.html#af96af1e6e215b975a74f12949b5f0b46", null ]
 ];

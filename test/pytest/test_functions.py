@@ -12858,37 +12858,49 @@ def test_ones_like():
 
 ####################################################################################
 def test_outer():
-    size = np.random.randint(
+    size1 = np.random.randint(
         1,
         100,
         [
             1,
         ],
     ).item()
-    shape = NumCpp.Shape(1, size)
-    cArray1 = NumCpp.NdArray(shape)
-    cArray2 = NumCpp.NdArray(shape)
-    data1 = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
-    data2 = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    size2 = np.random.randint(
+        1,
+        100,
+        [
+            1,
+        ],
+    ).item()
+    cArray1 = NumCpp.NdArray(NumCpp.Shape(1, size1))
+    cArray2 = NumCpp.NdArray(NumCpp.Shape(1, size2))
+    data1 = np.random.randint(1, 50, size1, dtype=np.uint32)
+    data2 = np.random.randint(1, 50, size2, dtype=np.uint32)
     cArray1.setArray(data1)
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.outer(cArray1, cArray2), np.outer(data1, data2))
 
-    size = np.random.randint(
+    size1= np.random.randint(
         1,
         100,
         [
             1,
         ],
     ).item()
-    shape = NumCpp.Shape(1, size)
-    cArray1 = NumCpp.NdArrayComplexDouble(shape)
-    cArray2 = NumCpp.NdArrayComplexDouble(shape)
-    real1 = np.random.randint(1, 50, [shape.rows, shape.cols])
-    imag1 = np.random.randint(1, 50, [shape.rows, shape.cols])
+    size2 = np.random.randint(
+        1,
+        100,
+        [
+            1,
+        ],
+    ).item()
+    cArray1 = NumCpp.NdArrayComplexDouble(NumCpp.Shape(1, size1))
+    cArray2 = NumCpp.NdArrayComplexDouble(NumCpp.Shape(1, size2))
+    real1 = np.random.randint(1, 50, size1)
+    imag1 = np.random.randint(1, 50, size1)
     data1 = real1 + 1j * imag1
-    real2 = np.random.randint(1, 50, [shape.rows, shape.cols])
-    imag2 = np.random.randint(1, 50, [shape.rows, shape.cols])
+    real2 = np.random.randint(1, 50, size2)
+    imag2 = np.random.randint(1, 50, size2)
     data2 = real2 + 1j * imag2
     cArray1.setArray(data1)
     cArray2.setArray(data2)

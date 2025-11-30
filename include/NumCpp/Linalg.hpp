@@ -29,6 +29,8 @@
 
 #include "NumCpp/Linalg/cholesky.hpp"
 #include "NumCpp/Linalg/det.hpp"
+#include "NumCpp/Linalg/eig.hpp"
+#include "NumCpp/Linalg/eigvals.hpp"
 #include "NumCpp/Linalg/gaussNewtonNlls.hpp"
 #include "NumCpp/Linalg/hat.hpp"
 #include "NumCpp/Linalg/inv.hpp"
@@ -40,3 +42,4 @@
 #include "NumCpp/Linalg/pivotLU_decomposition.hpp"
 #include "NumCpp/Linalg/solve.hpp"
 #include "NumCpp/Linalg/svd.hpp"
+#include "NumCpp/Linalg/svdvals.hpp"

@@ -34,7 +34,7 @@ var hierarchy =
     [ "nc::is_complex< std::complex< T > >", "structnc_1_1is__complex_3_01std_1_1complex_3_01_t_01_4_01_4.html", null ],
     [ "nc::is_ndarray_int< NdArray< dtype, Allocator > >", "structnc_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html", null ],
     [ "nc::is_valid_dtype< dtype >", "structnc_1_1is__valid__dtype.html", null ],
-    [ "nc::linalg::SVD", "classnc_1_1linalg_1_1_s_v_d.html", null ],
+    [ "nc::linalg::SVD< dtype >", "classnc_1_1linalg_1_1_s_v_d.html", null ],
     [ "nc::logger::BinaryLogger", "classnc_1_1logger_1_1_binary_logger.html", null ],
     [ "nc::logger::detail::BinaryDataLogger< DataType >", "classnc_1_1logger_1_1detail_1_1_binary_data_logger.html", null ],
     [ "nc::logger::detail::type_traits::has_serialize< DataType, std::void_t< std::enable_if_t< std::is_same_v< serialize_t< DataType >, std::string >, int > > >", "classnc_1_1logger_1_1detail_1_1type__traits_1_1has__serialize_3_01_data_type_00_01std_1_1void__te6ccce939d7e8d93862519645c528e31.html", null ],
