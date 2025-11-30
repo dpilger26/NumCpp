@@ -1,5 +1,15 @@
 # Release Notes
 
+## Version 2.16.0
+
+* fixed **Issue #144**, `outer` function now operates on arrays of different sizes
+* fixed **Issue #215**, `pinv` function has been corrected
+* added `eig()` for **Issue #143** <https://numpy.org/doc/stable/reference/generated/numpy.linalg.eig.html#numpy.linalg.eig>
+  * unlike NumPy, the NumCpp implementation is only suitable for real symmetric matrices
+* added `eigvals()` for **Issue #143** <https://numpy.org/doc/stable/reference/generated/numpy.linalg.eigvals.html#numpy.linalg.eigvals>
+  * unlike NumPy, the NumCpp implementation is only suitable for real symmetric matrices
+* added `svdvals` <https://numpy.org/doc/stable/reference/generated/numpy.linalg.svdvals.html>
+
 ## Version 2.15.0
 
 * added `fft` module for **Issue #137**

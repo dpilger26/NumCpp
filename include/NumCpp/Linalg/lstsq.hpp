@@ -28,7 +28,7 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Linalg/svd/SVDClass.hpp"
+#include "NumCpp/Linalg/svd/SVD.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc::linalg
@@ -50,12 +50,11 @@ namespace nc::linalg
     /// @param inA: coefficient matrix
     /// @param inB: Ordinate or "dependent variable" values. If b is two-dimensional, the least-squares solution is
     ///             calculated for each of the K columns of b.
-    /// @param inTolerance (default 1e-12)
     ///
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1e-12)
+    NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -72,12 +71,11 @@ namespace nc::linalg
             THROW_INVALID_ARGUMENT_ERROR("Invalid matrix dimensions");
         }
 
-        SVD          svdSolver(inA.template astype<double>());
-        const double threshold = inTolerance * svdSolver.s().front();
+        SVD svd(inA.template astype<double>());
 
         if (bIsFlat)
         {
-            return svdSolver.solve(inB.template astype<double>(), threshold);
+            return svd.lstsq(inB.template astype<double>());
         }
 
         const auto bCast     = inB.template astype<double>();
@@ -88,7 +86,7 @@ namespace nc::linalg
 
         for (uint32 col = 0; col < bShape.cols; ++col)
         {
-            result.put(resultRowSlice, col, svdSolver.solve(bCast(bRowSlice, col), threshold));
+            result.put(resultRowSlice, col, svd.lstsq(bCast(bRowSlice, col)));
         }
 
         return result;

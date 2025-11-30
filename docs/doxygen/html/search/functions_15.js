@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['v_0',['v',['../classnc_1_1linalg_1_1_s_v_d.html#ab0ff491e89a4242d15854683d0a45650',1,'nc::linalg::SVD']]],
+  ['v_0',['v',['../classnc_1_1linalg_1_1_s_v_d.html#adc73c87eefc76c303ef510b5c2534fa3',1,'nc::linalg::SVD']]],
   ['value2str_1',['value2str',['../namespacenc_1_1utils.html#a83530b13c9cc3b01b9bd8b8d3113290a',1,'nc::utils']]],
   ['vander_2',['vander',['../namespacenc.html#a75841a79c6ec1409e304bab6419ab9d1',1,'nc::vander(const NdArray&lt; dtype &gt; &amp;x, Increasing increasing=Increasing::YES)'],['../namespacenc.html#a3f4ba3545242fa79936ca6f07f5a311b',1,'nc::vander(const NdArray&lt; dtype &gt; &amp;x, uint32 n, Increasing increasing=Increasing::YES)']]],
   ['var_3',['var',['../namespacenc.html#a81a573905b290c2109d706467b896b58',1,'nc::var(const NdArray&lt; std::complex&lt; dtype &gt; &gt; &amp;inArray, Axis inAxis=Axis::NONE)'],['../namespacenc.html#af93c7b399ebf8d5d32e4b6077a40b808',1,'nc::var(const NdArray&lt; dtype &gt; &amp;inArray, Axis inAxis=Axis::NONE)']]],
