@@ -36,8 +36,6 @@ Clang: 18, 19, 20
 
 ## [GitHub](https://github.com/dpilger26/NumCpp)
 
-[![Star History Chart](https://api.star-history.com/svg?repos=dpilger26/NumCpp&type=Date)](https://star-history.com/#dpilger26/NumCpp&Date)
-
 ## [Installation](https://github.com/dpilger26/NumCpp/tree/master/docs/markdown/Installation.md)
 
 ## [Building](https://github.com/dpilger26/NumCpp/tree/master/docs/markdown/Building.md)
