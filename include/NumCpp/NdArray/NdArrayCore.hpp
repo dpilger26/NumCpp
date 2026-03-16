@@ -2803,6 +2803,7 @@ namespace nc
                 self_type returnArray = { dotProduct };
                 return returnArray;
             }
+
             if (shape_.cols == inOtherArray.shape_.rows)
             {
                 // 2D array, use matrix multiplication

@@ -28,6 +28,7 @@
 #pragma once
 
 #include <algorithm>
+#include <complex>
 #include <iterator>
 #include <numeric>
 #include <utility>
@@ -791,11 +792,37 @@ namespace nc::stl_algorithms
     /// @param first1: the first iterator of the source
     /// @param last1: the last iterator of the source
     /// @param first2: the first iterator of the second source
+    /// @param destination: the first iterator of the destination
+    /// @param unaryFunction: the function to apply to the input iterators
+    /// @return OutputIt
+    ///
+    template<class InputIt1, class InputIt2, class OutputIt, class BinaryOperation>
+    OutputIt
+        transform(InputIt1 first1, InputIt1 last1, InputIt2 first2, OutputIt destination, BinaryOperation unaryFunction)
+    {
+        return std::transform(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::execution::par_unseq,
+#endif
+            first1,
+            last1,
+            first2,
+            destination,
+            unaryFunction);
+    }
+
+    //============================================================================
+    // Method Description:
+    /// Transforms the elements of the range
+    ///
+    /// @param first1: the first iterator of the source
+    /// @param last1: the last iterator of the source
+    /// @param first2: the first iterator of the second source
     /// @param init: the initial value for the reduction
     /// @return OutputIt
     ///
     template<class ForwardIt1, class ForwardIt2, class T>
-    T transform_reduce(ForwardIt1 first1, ForwardIt1 last1, ForwardIt2 first2, T init = T{})
+    T transform_reduce(ForwardIt1 first1, ForwardIt1 last1, ForwardIt2 first2, T init)
     {
         return std::transform_reduce(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -814,23 +841,23 @@ namespace nc::stl_algorithms
     /// @param first1: the first iterator of the source
     /// @param last1: the last iterator of the source
     /// @param first2: the first iterator of the second source
-    /// @param destination: the first iterator of the destination
-    /// @param unaryFunction: the function to apply to the input iterators
+    /// @param init: the initial value for the reduction
     /// @return OutputIt
     ///
-    template<class InputIt1, class InputIt2, class OutputIt, class BinaryOperation>
-    OutputIt
-        transform(InputIt1 first1, InputIt1 last1, InputIt2 first2, OutputIt destination, BinaryOperation unaryFunction)
+    template<class ForwardIt1, class ForwardIt2, class T>
+    std::complex<T>
+        transform_reduce(ForwardIt1 first1, ForwardIt1 last1, ForwardIt2 first2, const std::complex<T>& init)
     {
-        return std::transform(
+        return std::transform_reduce(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
             std::execution::par_unseq,
 #endif
             first1,
             last1,
             first2,
-            destination,
-            unaryFunction);
+            init,
+            std::plus<std::complex<T>>(),
+            [](const auto a, const auto& b) { return std::complex<T>(a * b); });
     }
 
     //============================================================================
