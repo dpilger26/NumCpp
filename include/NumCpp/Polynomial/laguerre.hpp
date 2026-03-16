@@ -47,7 +47,7 @@ namespace nc::polynomial
     /// NOTE: Use of this function requires either using the Boost
     /// includes or a C++17 compliant compiler.
     ///
-    /// @param n: the order of the leguerre polynomial
+    /// @param n: the degree of the legendre polynomial
     /// @param x: the input value
     /// @return double
     ///
@@ -69,8 +69,8 @@ namespace nc::polynomial
     /// NOTE: Use of this function requires either using the Boost
     /// includes or a C++17 compliant compiler.
     ///
-    /// @param n: the order of the leguerre polynomial
-    /// @param m: the degree of the legendre polynomial
+    /// @param n: the degree of the legendre polynomial
+    /// @param m: the order of the leguerre polynomial
     /// @param x: the input value
     /// @return double
     ///
@@ -80,9 +80,9 @@ namespace nc::polynomial
         STATIC_ASSERT_ARITHMETIC(dtype);
 
 #ifdef __cpp_lib_math_special_functions
-        return std::assoc_laguerre(m, n, static_cast<double>(x));
+        return std::assoc_laguerre(n, m, static_cast<double>(x));
 #else
-        return boost::math::laguerre(m, n, static_cast<double>(x));
+        return boost::math::laguerre(n, m, static_cast<double>(x));
 #endif
     }
 
@@ -114,8 +114,8 @@ namespace nc::polynomial
     /// NOTE: Use of this function requires either using the Boost
     /// includes or a C++17 compliant compiler.
     ///
-    /// @param n: the order of the leguerre polynomial
-    /// @param m: the degree of the legendre polynomial
+    /// @param n: the degree of the legendre polynomial
+    /// @param m: the order of the leguerre polynomial
     /// @param inArrayX: the input value
     /// @return NdArray<double>
     ///

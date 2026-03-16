@@ -46,10 +46,10 @@ namespace nc::polynomial
     /// symmetry is not present.
     /// NOTE: Use of this function requires using the Boost includes.
     ///
-    /// @param n: order of the harmonic
-    /// @param m: degree of the harmonic
-    /// @param theta: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
-    /// @param phi: Polar (colatitudinal) coordinate; must be in [0, pi].
+    /// @param n: degree of the harmonic
+    /// @param m: order of the harmonic
+    /// @param theta: Polar (colatitudinal) coordinate; must be in [0, pi].
+    /// @param phi: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
     /// @return double
     ///
     template<typename dtype1, typename dtype2>
@@ -58,7 +58,7 @@ namespace nc::polynomial
         STATIC_ASSERT_ARITHMETIC(dtype1);
         STATIC_ASSERT_ARITHMETIC(dtype2);
 
-        return boost::math::spherical_harmonic(m, n, static_cast<double>(phi), static_cast<double>(theta));
+        return boost::math::spherical_harmonic(n, m, static_cast<double>(theta), static_cast<double>(phi));
     }
 
     //============================================================================
@@ -69,10 +69,10 @@ namespace nc::polynomial
     /// symmetry is not present.
     /// NOTE: Use of this function requires using the Boost includes.
     ///
-    /// @param n: order of the harmonic
-    /// @param m: degree of the harmonic
-    /// @param theta: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
-    /// @param phi: Polar (colatitudinal) coordinate; must be in [0, pi].
+    /// @param n: degree of the harmonic
+    /// @param m: order of the harmonic
+    /// @param theta: Polar (colatitudinal) coordinate; must be in [0, pi].
+    /// @param phi: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
     /// @return double
     ///
     template<typename dtype1, typename dtype2>
@@ -81,7 +81,7 @@ namespace nc::polynomial
         STATIC_ASSERT_ARITHMETIC(dtype1);
         STATIC_ASSERT_ARITHMETIC(dtype2);
 
-        return boost::math::spherical_harmonic_r(m, n, static_cast<double>(phi), static_cast<double>(theta));
+        return boost::math::spherical_harmonic_r(n, m, static_cast<double>(theta), static_cast<double>(phi));
     }
 
     //============================================================================
@@ -92,10 +92,10 @@ namespace nc::polynomial
     /// symmetry is not present.
     /// NOTE: Use of this function requires using the Boost includes.
     ///
-    /// @param n: order of the harmonic
-    /// @param m: degree of the harmonic
-    /// @param theta: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
-    /// @param phi: Polar (colatitudinal) coordinate; must be in [0, pi].
+    /// @param n: degree of the harmonic
+    /// @param m: order of the harmonic
+    /// @param theta: Polar (colatitudinal) coordinate; must be in [0, pi].
+    /// @param phi: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
     /// @return double
     ///
     template<typename dtype1, typename dtype2>
@@ -104,7 +104,7 @@ namespace nc::polynomial
         STATIC_ASSERT_ARITHMETIC(dtype1);
         STATIC_ASSERT_ARITHMETIC(dtype2);
 
-        return boost::math::spherical_harmonic_i(m, n, static_cast<double>(phi), static_cast<double>(theta));
+        return boost::math::spherical_harmonic_i(n, m, static_cast<double>(theta), static_cast<double>(phi));
     }
 } // namespace nc::polynomial
 
