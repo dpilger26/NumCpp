@@ -2798,7 +2798,8 @@ namespace nc
 
             if (shape_ == inOtherArray.shape_ && (shape_.rows == 1 || shape_.cols == 1))
             {
-                dtype     dotProduct  = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), dtype{ 0 });
+                dtype dotProduct =
+                    stl_algorithms::transform_reduce(cbegin(), cend(), inOtherArray.cbegin(), dtype{ 0 });
                 self_type returnArray = { dotProduct };
                 return returnArray;
             }
@@ -2812,8 +2813,10 @@ namespace nc
                 {
                     for (uint32 j = 0; j < otherArrayT.shape_.rows; ++j)
                     {
-                        returnArray(i, j) =
-                            std::inner_product(otherArrayT.cbegin(j), otherArrayT.cend(j), cbegin(i), dtype{ 0 });
+                        returnArray(i, j) = stl_algorithms::transform_reduce(otherArrayT.cbegin(j),
+                                                                             otherArrayT.cend(j),
+                                                                             cbegin(i),
+                                                                             dtype{ 0 });
                     }
                 }
 

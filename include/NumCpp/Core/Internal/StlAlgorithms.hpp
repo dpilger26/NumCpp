@@ -791,6 +791,29 @@ namespace nc::stl_algorithms
     /// @param first1: the first iterator of the source
     /// @param last1: the last iterator of the source
     /// @param first2: the first iterator of the second source
+    /// @param init: the initial value for the reduction
+    /// @return OutputIt
+    ///
+    template<class ForwardIt1, class ForwardIt2, class T>
+    T transform_reduce(ForwardIt1 first1, ForwardIt1 last1, ForwardIt2 first2, T init = T{})
+    {
+        return std::transform_reduce(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::execution::par_unseq,
+#endif
+            first1,
+            last1,
+            first2,
+            init);
+    }
+
+    //============================================================================
+    // Method Description:
+    /// Transforms the elements of the range
+    ///
+    /// @param first1: the first iterator of the source
+    /// @param last1: the last iterator of the source
+    /// @param first2: the first iterator of the second source
     /// @param destination: the first iterator of the destination
     /// @param unaryFunction: the function to apply to the input iterators
     /// @return OutputIt
