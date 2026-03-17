@@ -172,6 +172,8 @@ var namespacenc =
       [ "stable_sort", "namespacenc_1_1stl__algorithms.html#a7b2c4b6a3ef5cc55ebdae2aa757d1874", null ],
       [ "transform", "namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4", null ],
       [ "transform", "namespacenc_1_1stl__algorithms.html#af358fec5563ae500162b310fe263a36d", null ],
+      [ "transform_reduce", "namespacenc_1_1stl__algorithms.html#ab14226802110d42354979b36116fbff5", null ],
+      [ "transform_reduce", "namespacenc_1_1stl__algorithms.html#a183391c61c4799ac114483049cee39cf", null ],
       [ "unique_copy", "namespacenc_1_1stl__algorithms.html#a7cec030870d1f3b4d1c7caf26c8d907d", null ],
       [ "unique_copy", "namespacenc_1_1stl__algorithms.html#aefa150cdbb6a1110c2164a3970a317a8", null ]
     ] ],
