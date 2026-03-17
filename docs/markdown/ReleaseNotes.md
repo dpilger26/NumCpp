@@ -2,7 +2,7 @@
 
 ## Version 2.16.1
 
-* **Issue #214**
+* **Issue #241**
 
 ## Version 2.16.0
 
