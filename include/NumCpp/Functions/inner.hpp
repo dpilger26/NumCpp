@@ -31,6 +31,7 @@
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc
@@ -55,6 +56,6 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Inputs 'a' and 'b' must have the same size");
         }
 
-        return std::inner_product(a.cbegin(), a.cend(), b.cbegin(), dtype{ 0 });
+        return stl_algorithms::transform_reduce(a.cbegin(), a.cend(), b.cbegin(), dtype{ 0 });
     }
 } // namespace nc

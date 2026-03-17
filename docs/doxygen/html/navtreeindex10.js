@@ -1,5 +1,7 @@
 var NAVTREEINDEX10 =
 {
+"classnc_1_1image_processing_1_1_pixel.html#ae47f279d2f0ba0921027e787e3773ee8":[4,0,0,9,3,6],
+"classnc_1_1integrate_1_1_legendre_polynomial.html":[5,0,0,2,0],
 "classnc_1_1integrate_1_1_legendre_polynomial.html":[4,0,0,10,0],
 "classnc_1_1integrate_1_1_legendre_polynomial.html#a2e1fefae138e66215cd7586a85fc3642":[5,0,0,2,0,0],
 "classnc_1_1integrate_1_1_legendre_polynomial.html#a2e1fefae138e66215cd7586a85fc3642":[4,0,0,10,0,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX10 =
 "classnc_1_1random_1_1_r_n_g.html#ab38aaa373d489a9210751f12e52d8c8f":[4,0,0,14,1,14],
 "classnc_1_1random_1_1_r_n_g.html#ab4c52249d04f6d8ee215e4067b0ba3cb":[5,0,0,6,0,27],
 "classnc_1_1random_1_1_r_n_g.html#ab4c52249d04f6d8ee215e4067b0ba3cb":[4,0,0,14,1,27],
-"classnc_1_1random_1_1_r_n_g.html#ab5ba9d32c4d0ef34396b3535f97bc19e":[5,0,0,6,0,26],
-"classnc_1_1random_1_1_r_n_g.html#ab5ba9d32c4d0ef34396b3535f97bc19e":[4,0,0,14,1,26],
-"classnc_1_1random_1_1_r_n_g.html#ab6d643e302961dd57e28d5cef0124377":[4,0,0,14,1,60]
+"classnc_1_1random_1_1_r_n_g.html#ab5ba9d32c4d0ef34396b3535f97bc19e":[5,0,0,6,0,26]
 };

@@ -29,6 +29,7 @@
 
 #include <complex>
 
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc
@@ -72,8 +73,10 @@ namespace nc
 
         if (shape1 == shape2 && (shape1.rows == 1 || shape1.cols == 1))
         {
-            const std::complex<dtype> dotProduct =
-                std::inner_product(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), std::complex<dtype>{ 0 });
+            const std::complex<dtype>    dotProduct  = stl_algorithms::transform_reduce(inArray1.cbegin(),
+                                                                                    inArray1.cend(),
+                                                                                    inArray2.cbegin(),
+                                                                                    std::complex<dtype>{ 0 });
             NdArray<std::complex<dtype>> returnArray = { dotProduct };
             return returnArray;
         }
@@ -87,10 +90,10 @@ namespace nc
             {
                 for (uint32 j = 0; j < shape2.cols; ++j)
                 {
-                    returnArray(i, j) = std::inner_product(array2T.cbegin(j),
-                                                           array2T.cend(j),
-                                                           inArray1.cbegin(i),
-                                                           std::complex<dtype>{ 0 });
+                    returnArray(i, j) = stl_algorithms::transform_reduce(array2T.cbegin(j),
+                                                                         array2T.cend(j),
+                                                                         inArray1.cbegin(i),
+                                                                         std::complex<dtype>{ 0 });
                 }
             }
 
@@ -128,8 +131,10 @@ namespace nc
 
         if (shape1 == shape2 && (shape1.rows == 1 || shape1.cols == 1))
         {
-            const std::complex<dtype> dotProduct =
-                std::inner_product(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), std::complex<dtype>{ 0 });
+            const std::complex<dtype>    dotProduct  = stl_algorithms::transform_reduce(inArray1.cbegin(),
+                                                                                    inArray1.cend(),
+                                                                                    inArray2.cbegin(),
+                                                                                    std::complex<dtype>{ 0 });
             NdArray<std::complex<dtype>> returnArray = { dotProduct };
             return returnArray;
         }
@@ -143,10 +148,10 @@ namespace nc
             {
                 for (uint32 j = 0; j < shape2.cols; ++j)
                 {
-                    returnArray(i, j) = std::inner_product(array2T.cbegin(j),
-                                                           array2T.cend(j),
-                                                           inArray1.cbegin(i),
-                                                           std::complex<dtype>{ 0 });
+                    returnArray(i, j) = stl_algorithms::transform_reduce(array2T.cbegin(j),
+                                                                         array2T.cend(j),
+                                                                         inArray1.cbegin(i),
+                                                                         std::complex<dtype>{ 0 });
                 }
             }
 

@@ -61,6 +61,6 @@ var searchData=
   ['broadcaster_58',['broadcaster',['../namespacenc_1_1broadcast.html#a945483bb9b8f03ba097d62d517b67a87',1,'nc::broadcast::broadcaster(NdArray&lt; dtypeIn1 &gt; &amp;inArray1, const NdArray&lt; dtypeIn2 &gt; &amp;inArray2, const Function &amp;function, const AdditionalFunctionArgs &amp;&amp;... additionalFunctionArgs)'],['../namespacenc_1_1broadcast.html#add9a4b7093978b3c951d12c702edf898',1,'nc::broadcast::broadcaster(const NdArray&lt; dtypeIn1 &gt; &amp;inArray1, const NdArray&lt; dtypeIn2 &gt; &amp;inArray2, const Function &amp;function, const AdditionalFunctionArgs &amp;&amp;... additionalFunctionArgs)']]],
   ['building_59',['Building',['../md__2home_2dpilger_2_github_2_num_cpp_2docs_2markdown_2_building.html',1,'']]],
   ['building_2emd_60',['Building.md',['../_building_8md.html',1,'']]],
-  ['byteswap_61',['byteswap',['../namespacenc_1_1endian.html#a28d96487f9ac66755e2dd4925a459e0d',1,'nc::endian::byteSwap()'],['../namespacenc.html#a96f6d582acc2a14ae7c02897cca96991',1,'nc::byteswap()'],['../classnc_1_1_nd_array.html#a4ebe59dc21a3b5e035ff1c4e6e82189d',1,'nc::NdArray::byteswap()']]],
+  ['byteswap_61',['byteswap',['../namespacenc.html#a96f6d582acc2a14ae7c02897cca96991',1,'nc::byteswap()'],['../namespacenc_1_1endian.html#a28d96487f9ac66755e2dd4925a459e0d',1,'nc::endian::byteSwap()'],['../classnc_1_1_nd_array.html#a4ebe59dc21a3b5e035ff1c4e6e82189d',1,'nc::NdArray::byteswap()']]],
   ['byteswap_2ehpp_62',['byteswap.hpp',['../byteswap_8hpp.html',1,'']]]
 ];

@@ -1,5 +1,9 @@
 # Release Notes
 
+## Version 2.16.1
+
+* **Issue #241**
+
 ## Version 2.16.0
 
 * fixed **Issue #144**, `outer` function now operates on arrays of different sizes

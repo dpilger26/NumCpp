@@ -381,7 +381,7 @@ def test_laguerre():
         ).item()
         x = np.random.rand(1).item()
         valuePy = sp.eval_genlaguerre(degree, order, x)
-        valueCpp = NumCpp.laguerre_Scalar2(order, degree, x)
+        valueCpp = NumCpp.laguerre_Scalar2(degree, order, x)
         assert np.round(valuePy, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND)
 
     for order in range(ORDER_MAX):
@@ -405,7 +405,7 @@ def test_laguerre():
         x = np.random.rand(*shapeInput)
         cArray.setArray(x)
         valuePy = sp.eval_genlaguerre(degree, order, x)
-        valueCpp = NumCpp.laguerre_Array2(order, degree, cArray)
+        valueCpp = NumCpp.laguerre_Array2(degree, order, cArray)
         assert np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND))
 
 
@@ -441,8 +441,8 @@ def test_legendre():
         for order in range(ORDER_MAX):
             x = np.random.rand(1).item()
             degree = np.random.randint(order, ORDER_MAX)
-            valuePy = sp.lpmn(order, degree, x)[0][order, degree]
-            valueCpp = NumCpp.legendre_p_Scalar2(order, degree, x)
+            valuePy = sp.assoc_legendre_p_all(degree, order, x)[0][degree, order]
+            valueCpp = NumCpp.legendre_p_Scalar2(degree, order, x)
             try:
                 assert np.round(valuePy, DECIMALS_ROUND) == np.round(
                     valueCpp, DECIMALS_ROUND
@@ -468,26 +468,26 @@ def test_spherical_harmonic():
 
     for order in range(ORDER_MAX):
         degree = np.random.randint(order, ORDER_MAX)
-        theta = np.random.rand(1).item() * np.pi * 2
-        phi = np.random.rand(1).item() * np.pi
-        valuePy = sp.sph_harm(order, degree, theta, phi)
-        valueCpp = NumCpp.spherical_harmonic(order, degree, theta, phi)
+        theta = np.random.rand(1).item() * np.pi
+        phi = np.random.rand(1).item() * np.pi * 2
+        valuePy = sp.sph_harm_y(degree, order, theta, phi)
+        valueCpp = NumCpp.spherical_harmonic(degree, order, theta, phi)
         assert np.round(valuePy.real, DECIMALS_ROUND) == np.round(valueCpp[0], DECIMALS_ROUND) and np.round(
             valuePy.imag, DECIMALS_ROUND
         ) == np.round(valueCpp[1], DECIMALS_ROUND)
 
     for order in range(ORDER_MAX):
         degree = np.random.randint(order, ORDER_MAX)
-        theta = np.random.rand(1).item() * np.pi * 2
-        phi = np.random.rand(1).item() * np.pi
-        valuePy = sp.sph_harm(order, degree, theta, phi)
-        valueCpp = NumCpp.spherical_harmonic_r(order, degree, theta, phi)
+        theta = np.random.rand(1).item() * np.pi
+        phi = np.random.rand(1).item() * np.pi * 2
+        valuePy = sp.sph_harm_y(degree, order, theta, phi)
+        valueCpp = NumCpp.spherical_harmonic_r(degree, order, theta, phi)
         assert np.round(valuePy.real, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND)
 
     for order in range(ORDER_MAX):
         degree = np.random.randint(order, ORDER_MAX)
-        theta = np.random.rand(1).item() * np.pi * 2
-        phi = np.random.rand(1).item() * np.pi
-        valuePy = sp.sph_harm(order, degree, theta, phi)
-        valueCpp = NumCpp.spherical_harmonic_i(order, degree, theta, phi)
+        theta = np.random.rand(1).item() * np.pi
+        phi = np.random.rand(1).item() * np.pi * 2
+        valuePy = sp.sph_harm_y(degree, order, theta, phi)
+        valueCpp = NumCpp.spherical_harmonic_i(degree, order, theta, phi)
         assert np.round(valuePy.imag, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND)
