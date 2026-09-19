@@ -35,6 +35,62 @@ namespace RotationsInterface
 
     //================================================================================
 
+    void propagateBody(rotations::Quaternion& inQuat, const Vec3& inBodyAngularVelocity, double inDeltaT)
+    {
+        inQuat.propagateBody(inBodyAngularVelocity, inDeltaT);
+    }
+
+    //================================================================================
+
+    void propagateBodyRoll(rotations::Quaternion& inQuat, double rollRate, double inDeltaT)
+    {
+        inQuat.propagateBodyRoll(rollRate, inDeltaT);
+    }
+
+    //================================================================================
+
+    void propagateBodyPitch(rotations::Quaternion& inQuat, double pitchRate, double inDeltaT)
+    {
+        inQuat.propagateBodyPitch(pitchRate, inDeltaT);
+    }
+
+    //================================================================================
+
+    void propagateBodyYaw(rotations::Quaternion& inQuat, double yawRate, double inDeltaT)
+    {
+        inQuat.propagateBodyYaw(yawRate, inDeltaT);
+    }
+
+    //================================================================================
+
+    void propagateInertial(rotations::Quaternion& inQuat, const Vec3& inInertialAngularVelocity, double inDeltaT)
+    {
+        inQuat.propagateInertial(inInertialAngularVelocity, inDeltaT);
+    }
+
+    //================================================================================
+
+    void propagateInertialRoll(rotations::Quaternion& inQuat, double rollRate, double inDeltaT)
+    {
+        inQuat.propagateInertialRoll(rollRate, inDeltaT);
+    }
+
+    //================================================================================
+
+    void propagateInertialPitch(rotations::Quaternion& inQuat, double pitchRate, double inDeltaT)
+    {
+        inQuat.propagateInertialPitch(pitchRate, inDeltaT);
+    }
+
+    //================================================================================
+
+    void propagateInertialYaw(rotations::Quaternion& inQuat, double yawRate, double inDeltaT)
+    {
+        inQuat.propagateInertialYaw(yawRate, inDeltaT);
+    }
+
+    //================================================================================
+
     pbArray<double> rotateNdArray(const rotations::Quaternion& inQuat, const NdArray<double>& inVec)
     {
         return nc2pybind(inQuat.rotate(inVec));
@@ -186,6 +242,14 @@ void initRotations(pb11::module& m)
         .def("pitch", &rotations::Quaternion::pitch)
         .def_static("pitchRotation", &rotations::Quaternion::pitchRotation)
         .def("print", &rotations::Quaternion::print)
+        .def("propagateBody", &RotationsInterface::propagateBody)
+        .def("propagateBodyRoll", &RotationsInterface::propagateBodyRoll)
+        .def("propagateBodyPitch", &RotationsInterface::propagateBodyPitch)
+        .def("propagateBodyYaw", &RotationsInterface::propagateBodyYaw)
+        .def("propagateInertial", &RotationsInterface::propagateInertial)
+        .def("propagateInertialRoll", &RotationsInterface::propagateInertialRoll)
+        .def("propagateInertialPitch", &RotationsInterface::propagateInertialPitch)
+        .def("propagateInertialYaw", &RotationsInterface::propagateInertialYaw)
         .def("roll", &rotations::Quaternion::roll)
         .def_static("rollRotation", &rotations::Quaternion::rollRotation)
         .def("rotateNdArray", &RotationsInterface::rotateNdArray)

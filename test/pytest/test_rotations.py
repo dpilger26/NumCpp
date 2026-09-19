@@ -225,6 +225,9 @@ def test_quaternion():
     if not DISABLE_PRINTS:
         cQuat1.print()
 
+    ## propagate tests
+    
+
     myQuat = np.random.randint(
         1,
         5,
