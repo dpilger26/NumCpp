@@ -68,15 +68,9 @@ static constexpr bool type_has_shared_from_this(...) { return false; }
 // This overload uses SFINAE to skip enable_shared_from_this checks when the
 // base is inaccessible (e.g. private inheritance).
 template <typename T>
-static auto type_has_shared_from_this(const T *ptr)
+auto type_has_shared_from_this(const T *ptr)
     -> decltype(static_cast<const std::enable_shared_from_this<T> *>(ptr), true) {
     return true;
-}
-
-// Inaccessible base → substitution failure → fallback overload selected
-template <typename T>
-static constexpr bool type_has_shared_from_this(const void *) {
-    return false;
 }
 
 struct guarded_delete {
@@ -106,7 +100,7 @@ inline guarded_delete *get_guarded_delete(const std::shared_ptr<void> &ptr) {
     return std::get_deleter<guarded_delete>(ptr);
 }
 
-using get_guarded_delete_fn = guarded_delete *(*) (const std::shared_ptr<void> &);
+using get_guarded_delete_fn = guarded_delete *(*)(const std::shared_ptr<void> &);
 
 template <typename T, typename std::enable_if<std::is_destructible<T>::value, int>::type = 0>
 inline void std_default_delete_if_destructible(void *raw_ptr) {
