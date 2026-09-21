@@ -38,6 +38,7 @@
 #include "NumCpp/Functions/argmax.hpp"
 #include "NumCpp/Functions/clip.hpp"
 #include "NumCpp/Functions/dot.hpp"
+#include "NumCpp/Functions/eye.hpp"
 #include "NumCpp/Functions/norm.hpp"
 #include "NumCpp/Functions/square.hpp"
 #include "NumCpp/Linalg/hat.hpp"
@@ -397,12 +398,17 @@ namespace nc::rotations
         // Method Description:
         /// Propagate the quaternion forward in time using the body angular velocity vector
         ///
-        /// @param inBodyAngularVelocity: the body angular velocity vector
+        /// @param inAngularVelocity: the body angular velocity vector (rad/s)
         /// @param inDeltaT: the time step
         ///
-        void propagateBody(const Vec3& inBodyAngularVelocity, double inDeltaT)
+        void propagateBody(const Vec3& inAngularVelocity, double inDeltaT)
         {
-            const auto angularVelocityNorm = inBodyAngularVelocity.norm();
+            if (utils::essentiallyEqual(inDeltaT, 0.))
+            {
+                return;
+            }
+
+            const auto angularVelocityNorm = inAngularVelocity.norm();
             if (utils::essentiallyEqual(angularVelocityNorm, 0.))
             {
                 return;
@@ -412,23 +418,21 @@ namespace nc::rotations
             const auto halfAngle    = angularVelocityNorm * halfDeltaT;
             const auto sinHalfAngle = std::sin(halfAngle) / angularVelocityNorm;
             const auto cosHalfAngle = std::cos(halfAngle);
-            const auto qDeltaTi =
-                cosHalfAngle + sinHalfAngle * (inBodyAngularVelocity.z * j() - inBodyAngularVelocity.y * k() +
-                                               inBodyAngularVelocity.x * s());
-            const auto qDeltaTj =
-                cosHalfAngle + sinHalfAngle * (-inBodyAngularVelocity.z * i() + inBodyAngularVelocity.x * k() +
-                                               inBodyAngularVelocity.y * s());
-            const auto qDeltaTk =
-                cosHalfAngle + sinHalfAngle * (inBodyAngularVelocity.y * i() - inBodyAngularVelocity.x * j() +
-                                               inBodyAngularVelocity.z * s());
-            const auto qDeltaTs =
-                cosHalfAngle + sinHalfAngle * (-inBodyAngularVelocity.x * i() - inBodyAngularVelocity.y * j() -
-                                               inBodyAngularVelocity.z * k());
 
-            components_[0] = qDeltaTi;
-            components_[1] = qDeltaTj;
-            components_[2] = qDeltaTk;
-            components_[3] = qDeltaTs;
+            const auto lhs = cosHalfAngle * eye<double>(4);
+            const auto rhs =
+                sinHalfAngle *
+                NdArray<double>({ { 0., inAngularVelocity.z, -inAngularVelocity.y, inAngularVelocity.x },
+                                  { -inAngularVelocity.z, 0., inAngularVelocity.x, inAngularVelocity.y },
+                                  { inAngularVelocity.y, -inAngularVelocity.x, 0., inAngularVelocity.z },
+                                  { -inAngularVelocity.x, -inAngularVelocity.y, -inAngularVelocity.z, 0. } });
+
+            const auto qDeltaT = (lhs + rhs).dot(toNdArray().transpose());
+
+            components_[0] = qDeltaT[0];
+            components_[1] = qDeltaT[1];
+            components_[2] = qDeltaT[2];
+            components_[3] = qDeltaT[3];
 
             normalize();
         }
@@ -438,12 +442,12 @@ namespace nc::rotations
         /// Propagate the quaternion forward in time using the body angular velocity vector
         ///
         /// @param inQuaternion: the quaternion to propagate
-        /// @param inBodyAngularVelocity: the body angular velocity vector
+        /// @param inAngularVelocity: the body angular velocity vector (rad/s)
         /// @param inDeltaT: the time step
         ///
-        static Quaternion propagateBody(Quaternion inQuaternion, const Vec3& inBodyAngularVelocity, double inDeltaT)
+        static Quaternion propagateBody(Quaternion inQuaternion, const Vec3& inAngularVelocity, double inDeltaT)
         {
-            inQuaternion.propagateBody(inBodyAngularVelocity, inDeltaT);
+            inQuaternion.propagateBody(inAngularVelocity, inDeltaT);
             return inQuaternion;
         }
 
@@ -529,12 +533,17 @@ namespace nc::rotations
         // Method Description:
         /// Propagate the quaternion forward in time using the inertial angular velocity vector
         ///
-        /// @param inInertialAngularVelocity: the inertial angular velocity vector
+        /// @param inAngularVelocity: the inertial angular velocity vector (rad/s)
         /// @param inDeltaT: the time step
         ///
-        void propagateInertial(const Vec3& inInertialAngularVelocity, double inDeltaT)
+        void propagateInertial(const Vec3& inAngularVelocity, double inDeltaT)
         {
-            const auto angularVelocityNorm = inInertialAngularVelocity.norm();
+            if (utils::essentiallyEqual(inDeltaT, 0.))
+            {
+                return;
+            }
+
+            const auto angularVelocityNorm = inAngularVelocity.norm();
             if (utils::essentiallyEqual(angularVelocityNorm, 0.))
             {
                 return;
@@ -544,23 +553,21 @@ namespace nc::rotations
             const auto halfAngle    = angularVelocityNorm * halfDeltaT;
             const auto sinHalfAngle = std::sin(halfAngle) / angularVelocityNorm;
             const auto cosHalfAngle = std::cos(halfAngle);
-            const auto qDeltaTi =
-                cosHalfAngle + sinHalfAngle * (-inInertialAngularVelocity.z * j() + inInertialAngularVelocity.y * k() +
-                                               inInertialAngularVelocity.x * s());
-            const auto qDeltaTj =
-                cosHalfAngle + sinHalfAngle * (inInertialAngularVelocity.z * i() - inInertialAngularVelocity.x * k() +
-                                               inInertialAngularVelocity.y * s());
-            const auto qDeltaTk =
-                cosHalfAngle + sinHalfAngle * (-inInertialAngularVelocity.y * i() + inInertialAngularVelocity.x * j() +
-                                               inInertialAngularVelocity.z * s());
-            const auto qDeltaTs =
-                cosHalfAngle + sinHalfAngle * (-inInertialAngularVelocity.x * i() - inInertialAngularVelocity.y * j() -
-                                               inInertialAngularVelocity.z * k());
 
-            components_[0] = qDeltaTi;
-            components_[1] = qDeltaTj;
-            components_[2] = qDeltaTk;
-            components_[3] = qDeltaTs;
+            const auto lhs = cosHalfAngle * eye<double>(4);
+            const auto rhs =
+                sinHalfAngle *
+                NdArray<double>({ { 0., -inAngularVelocity.z, inAngularVelocity.y, inAngularVelocity.x },
+                                  { inAngularVelocity.z, 0., -inAngularVelocity.x, inAngularVelocity.y },
+                                  { -inAngularVelocity.y, inAngularVelocity.x, 0., inAngularVelocity.z },
+                                  { -inAngularVelocity.x, -inAngularVelocity.y, -inAngularVelocity.z, 0. } });
+
+            const auto qDeltaT = (lhs + rhs).dot(toNdArray().transpose());
+
+            components_[0] = qDeltaT[0];
+            components_[1] = qDeltaT[1];
+            components_[2] = qDeltaT[2];
+            components_[3] = qDeltaT[3];
 
             normalize();
         }
@@ -570,13 +577,12 @@ namespace nc::rotations
         /// Propagate the quaternion forward in time using the inertial angular velocity vector
         ///
         /// @param inQuaternion: the quaternion to propagate
-        /// @param inInertialAngularVelocity: the inertial angular velocity vector
+        /// @param inAngularVelocity: the inertial angular velocity vector (rad/s)
         /// @param inDeltaT: the time step
         ///
-        static Quaternion
-            propagateInertial(Quaternion inQuaternion, const Vec3& inInertialAngularVelocity, double inDeltaT)
+        static Quaternion propagateInertial(Quaternion inQuaternion, const Vec3& inAngularVelocity, double inDeltaT)
         {
-            inQuaternion.propagateInertial(inInertialAngularVelocity, inDeltaT);
+            inQuaternion.propagateInertial(inAngularVelocity, inDeltaT);
             return inQuaternion;
         }
 

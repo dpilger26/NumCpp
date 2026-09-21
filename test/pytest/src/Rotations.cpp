@@ -35,58 +35,60 @@ namespace RotationsInterface
 
     //================================================================================
 
-    void propagateBody(rotations::Quaternion& inQuat, const Vec3& inBodyAngularVelocity, double inDeltaT)
+    rotations::Quaternion
+        propagateBody(const rotations::Quaternion& inQuat, const Vec3& inBodyAngularVelocity, double inDeltaT)
     {
-        inQuat.propagateBody(inBodyAngularVelocity, inDeltaT);
+        return rotations::Quaternion::propagateBody(inQuat, inBodyAngularVelocity, inDeltaT);
     }
 
     //================================================================================
 
-    void propagateBodyRoll(rotations::Quaternion& inQuat, double rollRate, double inDeltaT)
+    rotations::Quaternion propagateBodyRoll(const rotations::Quaternion& inQuat, double rollRate, double inDeltaT)
     {
-        inQuat.propagateBodyRoll(rollRate, inDeltaT);
+        return rotations::Quaternion::propagateBodyRoll(inQuat, rollRate, inDeltaT);
     }
 
     //================================================================================
 
-    void propagateBodyPitch(rotations::Quaternion& inQuat, double pitchRate, double inDeltaT)
+    rotations::Quaternion propagateBodyPitch(const rotations::Quaternion& inQuat, double pitchRate, double inDeltaT)
     {
-        inQuat.propagateBodyPitch(pitchRate, inDeltaT);
+        return rotations::Quaternion::propagateBodyPitch(inQuat, pitchRate, inDeltaT);
     }
 
     //================================================================================
 
-    void propagateBodyYaw(rotations::Quaternion& inQuat, double yawRate, double inDeltaT)
+    rotations::Quaternion propagateBodyYaw(const rotations::Quaternion& inQuat, double yawRate, double inDeltaT)
     {
-        inQuat.propagateBodyYaw(yawRate, inDeltaT);
+        return rotations::Quaternion::propagateBodyYaw(inQuat, yawRate, inDeltaT);
     }
 
     //================================================================================
 
-    void propagateInertial(rotations::Quaternion& inQuat, const Vec3& inInertialAngularVelocity, double inDeltaT)
+    rotations::Quaternion
+        propagateInertial(const rotations::Quaternion& inQuat, const Vec3& inAngularVelocity, double inDeltaT)
     {
-        inQuat.propagateInertial(inInertialAngularVelocity, inDeltaT);
+        return rotations::Quaternion::propagateInertial(inQuat, inAngularVelocity, inDeltaT);
     }
 
     //================================================================================
 
-    void propagateInertialRoll(rotations::Quaternion& inQuat, double rollRate, double inDeltaT)
+    rotations::Quaternion propagateInertialRoll(const rotations::Quaternion& inQuat, double rollRate, double inDeltaT)
     {
-        inQuat.propagateInertialRoll(rollRate, inDeltaT);
+        return rotations::Quaternion::propagateInertialRoll(inQuat, rollRate, inDeltaT);
     }
 
     //================================================================================
 
-    void propagateInertialPitch(rotations::Quaternion& inQuat, double pitchRate, double inDeltaT)
+    rotations::Quaternion propagateInertialPitch(const rotations::Quaternion& inQuat, double pitchRate, double inDeltaT)
     {
-        inQuat.propagateInertialPitch(pitchRate, inDeltaT);
+        return rotations::Quaternion::propagateInertialPitch(inQuat, pitchRate, inDeltaT);
     }
 
     //================================================================================
 
-    void propagateInertialYaw(rotations::Quaternion& inQuat, double yawRate, double inDeltaT)
+    rotations::Quaternion propagateInertialYaw(const rotations::Quaternion& inQuat, double yawRate, double inDeltaT)
     {
-        inQuat.propagateInertialYaw(yawRate, inDeltaT);
+        return rotations::Quaternion::propagateInertialYaw(inQuat, yawRate, inDeltaT);
     }
 
     //================================================================================
