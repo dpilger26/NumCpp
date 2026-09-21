@@ -226,7 +226,217 @@ def test_quaternion():
         cQuat1.print()
 
     ## propagate tests
-    
+    def wrap(angle: float) -> float:
+        angle = np.fmod(angle + np.pi, np.pi * 2)
+        if (angle < 0.):
+            angle += np.pi * 2
+        return angle - np.pi
+
+    stepAngle = np.pi / 8
+
+    # body roll/yaw
+    for i in range(7):
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateBody(NumCpp.Vec3(stepAngle, 0, 0), i)
+        assert np.round(qDeltaT.roll(), 10) == np.round(wrap(stepAngle * i), 10)
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateBodyRoll(stepAngle, i)
+        assert np.round(qDeltaT.roll(), 10) == np.round(wrap(stepAngle * i), 10)
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateBody(NumCpp.Vec3(-stepAngle, 0, 0), i)
+        assert np.round(qDeltaT.roll(), 10) == np.round(wrap(-stepAngle * i), 10)
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateBodyRoll(-stepAngle, i)
+        assert np.round(qDeltaT.roll(), 10) == np.round(wrap(-stepAngle * i), 10)
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateBody(NumCpp.Vec3(0, 0, stepAngle), i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == np.round(wrap(stepAngle * i), 10)
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateBodyYaw(stepAngle, i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == np.round(wrap(stepAngle * i), 10)
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateBody(NumCpp.Vec3(0, 0, -stepAngle), i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == np.round(wrap(-stepAngle * i), 10)
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateBodyYaw(-stepAngle, i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == np.round(wrap(-stepAngle * i), 10)
+
+    # body pitch
+    for i in range(3):
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateBody(NumCpp.Vec3(0, stepAngle, 0), i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == np.round(wrap(stepAngle * i), 10)
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateBodyPitch(stepAngle, i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == np.round(wrap(stepAngle * i), 10)
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateBody(NumCpp.Vec3(0, -stepAngle, 0), i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == np.round(wrap(-stepAngle * i), 10)
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateBodyPitch(-stepAngle, i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == np.round(wrap(-stepAngle * i), 10)
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+    # inertial roll/yaw
+    for i in range(7):
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateInertial(NumCpp.Vec3(stepAngle, 0, 0), i)
+        assert np.round(qDeltaT.roll(), 10) == np.round(wrap(stepAngle * i), 10)
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateInertialRoll(stepAngle, i)
+        assert np.round(qDeltaT.roll(), 10) == np.round(wrap(stepAngle * i), 10)
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateInertial(NumCpp.Vec3(-stepAngle, 0, 0), i)
+        assert np.round(qDeltaT.roll(), 10) == np.round(wrap(-stepAngle * i), 10)
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateInertialRoll(-stepAngle, i)
+        assert np.round(qDeltaT.roll(), 10) == np.round(wrap(-stepAngle * i), 10)
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateInertial(NumCpp.Vec3(0, 0, stepAngle), i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == np.round(wrap(stepAngle * i), 10)
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateInertialYaw(stepAngle, i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == np.round(wrap(stepAngle * i), 10)
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateInertial(NumCpp.Vec3(0, 0, -stepAngle), i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == np.round(wrap(-stepAngle * i), 10)
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateInertialYaw(-stepAngle, i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == 0
+        assert np.round(qDeltaT.yaw(), 10) == np.round(wrap(-stepAngle * i), 10)
+
+    # inertial pitch
+    for i in range(3):
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateInertial(NumCpp.Vec3(0, stepAngle, 0), i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == np.round(wrap(stepAngle * i), 10)
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateInertialPitch(stepAngle, i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == np.round(wrap(stepAngle * i), 10)
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateInertial(NumCpp.Vec3(0, -stepAngle, 0), i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == np.round(wrap(-stepAngle * i), 10)
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+        cQuat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+        qDeltaT = cQuat.propagateInertialPitch(-stepAngle, i)
+        assert np.round(qDeltaT.roll(), 10) == 0
+        assert np.round(qDeltaT.pitch(), 10) == np.round(wrap(-stepAngle * i), 10)
+        assert np.round(qDeltaT.yaw(), 10) == 0
+
+    # numPoints = 10000
+    # stepSize = 0.01
+    # deltaT = 0.1
+    # rolls = []
+    # pitches = []
+    # yaws = []
+    # xs = []
+    # ys = []
+    # zs = []
+    # array = np.array([1, 0, 0])
+    # cArray = NumCpp.NdArray(3, 1)
+    # cArray.setArray(array)
+    # quat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
+    # for i in range(numPoints):
+    #     quatDeltaT = cQuat.propagateInertial(NumCpp.Vec3(stepSize, stepSize, stepSize), i*deltaT)
+    #     rolls.append(quatDeltaT.roll())
+    #     pitches.append(quatDeltaT.pitch())
+    #     yaws.append(quatDeltaT.yaw())
+    #     res = (quatDeltaT * cArray).flatten()
+    #     xs.append(res[0])
+    #     ys.append(res[1])
+    #     zs.append(res[2])
+
+    # plt.figure()
+    # plt.plot(np.arange(numPoints) * deltaT, rolls, label="roll")
+    # plt.plot(np.arange(numPoints) * deltaT, pitches, label="pitch")
+    # plt.plot(np.arange(numPoints) * deltaT, yaws, label="yaw")
+    # plt.title("Inertial Propagation of Quaternion")
+    # plt.xlabel("Time (s)")
+    # plt.ylabel("Angle (rad)")
+    # plt.legend()
+    # plt.show(block=False)
+
+    # plt.figure()
+    # plt.plot(np.arange(numPoints) * deltaT, xs, label="x")
+    # plt.plot(np.arange(numPoints) * deltaT, ys, label="y")
+    # plt.plot(np.arange(numPoints) * deltaT, zs, label="z")
+    # plt.title("Inertial Propagation of Quaternion")
+    # plt.xlabel("Time (s)")
+    # plt.ylabel("Position (m)")
+    # plt.legend()
+    # plt.show(block=False)
+
+    # fig = plt.figure()
+    # ax = fig.add_subplot(projection='3d')
+    # ax.scatter(xs, ys, zs)
+    # ax.set_title("Inertial Propagation of Quaternion")
+    # ax.set_xlabel("X (m)")
+    # ax.set_ylabel("Y (m)")
+    # ax.set_zlabel("Z (m)")
+    # plt.show(block=False)
 
     myQuat = np.random.randint(
         1,
