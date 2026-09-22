@@ -403,38 +403,7 @@ namespace nc::rotations
         ///
         void propagateBody(const Vec3& inAngularVelocity, double inDeltaT)
         {
-            if (utils::essentiallyEqual(inDeltaT, 0.))
-            {
-                return;
-            }
-
-            const auto angularVelocityNorm = inAngularVelocity.norm();
-            if (utils::essentiallyEqual(angularVelocityNorm, 0.))
-            {
-                return;
-            }
-
-            const auto halfDeltaT   = inDeltaT / 2.;
-            const auto halfAngle    = angularVelocityNorm * halfDeltaT;
-            const auto sinHalfAngle = std::sin(halfAngle) / angularVelocityNorm;
-            const auto cosHalfAngle = std::cos(halfAngle);
-
-            const auto lhs = cosHalfAngle * eye<double>(4);
-            const auto rhs =
-                sinHalfAngle *
-                NdArray<double>({ { 0., inAngularVelocity.z, -inAngularVelocity.y, inAngularVelocity.x },
-                                  { -inAngularVelocity.z, 0., inAngularVelocity.x, inAngularVelocity.y },
-                                  { inAngularVelocity.y, -inAngularVelocity.x, 0., inAngularVelocity.z },
-                                  { -inAngularVelocity.x, -inAngularVelocity.y, -inAngularVelocity.z, 0. } });
-
-            const auto qDeltaT = (lhs + rhs).dot(toNdArray().transpose());
-
-            components_[0] = qDeltaT[0];
-            components_[1] = qDeltaT[1];
-            components_[2] = qDeltaT[2];
-            components_[3] = qDeltaT[3];
-
-            normalize();
+            propagate(inAngularVelocity, inDeltaT, getBodyOmegaOperator(inAngularVelocity));
         }
 
         //============================================================================
@@ -538,38 +507,7 @@ namespace nc::rotations
         ///
         void propagateInertial(const Vec3& inAngularVelocity, double inDeltaT)
         {
-            if (utils::essentiallyEqual(inDeltaT, 0.))
-            {
-                return;
-            }
-
-            const auto angularVelocityNorm = inAngularVelocity.norm();
-            if (utils::essentiallyEqual(angularVelocityNorm, 0.))
-            {
-                return;
-            }
-
-            const auto halfDeltaT   = inDeltaT / 2.;
-            const auto halfAngle    = angularVelocityNorm * halfDeltaT;
-            const auto sinHalfAngle = std::sin(halfAngle) / angularVelocityNorm;
-            const auto cosHalfAngle = std::cos(halfAngle);
-
-            const auto lhs = cosHalfAngle * eye<double>(4);
-            const auto rhs =
-                sinHalfAngle *
-                NdArray<double>({ { 0., -inAngularVelocity.z, inAngularVelocity.y, inAngularVelocity.x },
-                                  { inAngularVelocity.z, 0., -inAngularVelocity.x, inAngularVelocity.y },
-                                  { -inAngularVelocity.y, inAngularVelocity.x, 0., inAngularVelocity.z },
-                                  { -inAngularVelocity.x, -inAngularVelocity.y, -inAngularVelocity.z, 0. } });
-
-            const auto qDeltaT = (lhs + rhs).dot(toNdArray().transpose());
-
-            components_[0] = qDeltaT[0];
-            components_[1] = qDeltaT[1];
-            components_[2] = qDeltaT[2];
-            components_[3] = qDeltaT[3];
-
-            normalize();
+            propagate(inAngularVelocity, inDeltaT, getInertialOmegaOperator(inAngularVelocity));
         }
 
         //============================================================================
@@ -1300,6 +1238,73 @@ namespace nc::rotations
                     break;
                 }
             }
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time using the body angular velocity vector
+        ///
+        /// @param inAngularVelocity: the body angular velocity vector (rad/s)
+        /// @param inDeltaT: the time step
+        /// @param inOmegaOperator: the omega operator matrix
+        ///
+        void propagate(const Vec3& inAngularVelocity, double inDeltaT, const NdArray<double>& inOmegaOperator)
+        {
+            if (utils::essentiallyEqual(inDeltaT, 0.))
+            {
+                return;
+            }
+
+            const auto angularVelocityNorm = inAngularVelocity.norm();
+            if (utils::essentiallyEqual(angularVelocityNorm, 0.))
+            {
+                return;
+            }
+
+            const auto halfDeltaT   = inDeltaT / 2.;
+            const auto halfAngle    = angularVelocityNorm * halfDeltaT;
+            const auto sinHalfAngle = std::sin(halfAngle) / angularVelocityNorm;
+            const auto cosHalfAngle = std::cos(halfAngle);
+
+            const auto lhs = cosHalfAngle * eye<double>(4);
+            const auto rhs = sinHalfAngle * inOmegaOperator;
+
+            const auto qDeltaT = (lhs + rhs).dot(toNdArray().transpose());
+
+            components_[0] = qDeltaT[0];
+            components_[1] = qDeltaT[1];
+            components_[2] = qDeltaT[2];
+            components_[3] = qDeltaT[3];
+
+            normalize();
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Gets the Omega operator matrix for the body angular velocity vector
+        ///
+        /// @param inAngularVelocity: the body angular velocity vector (rad/s)
+        ///
+        NdArray<double> getBodyOmegaOperator(const Vec3& inAngularVelocity) const
+        {
+            return NdArray<double>({ { 0., inAngularVelocity.z, -inAngularVelocity.y, inAngularVelocity.x },
+                                     { -inAngularVelocity.z, 0., inAngularVelocity.x, inAngularVelocity.y },
+                                     { inAngularVelocity.y, -inAngularVelocity.x, 0., inAngularVelocity.z },
+                                     { -inAngularVelocity.x, -inAngularVelocity.y, -inAngularVelocity.z, 0. } });
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Gets the Omega operator matrix for the inertial angular velocity vector
+        ///
+        /// @param inAngularVelocity: the inertial angular velocity vector (rad/s)
+        ///
+        NdArray<double> getInertialOmegaOperator(const Vec3& inAngularVelocity) const
+        {
+            return NdArray<double>({ { 0., -inAngularVelocity.z, inAngularVelocity.y, inAngularVelocity.x },
+                                     { inAngularVelocity.z, 0., -inAngularVelocity.x, inAngularVelocity.y },
+                                     { -inAngularVelocity.y, inAngularVelocity.x, 0., inAngularVelocity.z },
+                                     { -inAngularVelocity.x, -inAngularVelocity.y, -inAngularVelocity.z, 0. } });
         }
     };
 } // namespace nc::rotations

@@ -1,5 +1,17 @@
 # Release Notes
 
+## Version 2.17.0
+
+* added angular rate propagation methods to `rotations::Quaternion`
+  * `propagateBody`
+  * `propagateBodyRoll`
+  * `propagateBodyPitch`
+  * `propagateBodyYaw`
+  * `propagateInertial`
+  * `propagateInertialRoll`
+  * `propagateInertialPitch`
+  * `propagateInertialYaw`
+
 ## Version 2.16.1
 
 * **Issue #241**

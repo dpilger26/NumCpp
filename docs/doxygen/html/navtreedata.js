@@ -66,30 +66,26 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_a_e_r_8hpp.html",
-"_functions_8hpp.html",
-"_random_2laplace_8hpp_source.html",
-"arctan2_8hpp.html#a3d3c4c6b273e6eee45cf6359cf621980",
-"classnc_1_1_data_cube.html#ae1a2b07f302a0eaf5d88b53ae2b1032d",
-"classnc_1_1_nd_array.html#a4a493445c10ed3c299632bf8c7077cfb",
-"classnc_1_1_nd_array.html#ad542648eb1451d93172a598b20585c9b",
-"classnc_1_1_nd_array_iterator.html#a60d5e768fcd13cedd43febeb28148aea",
-"classnc_1_1coordinates_1_1_cartesian.html#a6103f46e12b66ef0ab6f344a0688f228",
-"classnc_1_1coordinates_1_1reference__frames_1_1_e_n_u.html#ac3efcb3adec07253d12d8b95c9c36b1a",
-"classnc_1_1image_processing_1_1_pixel.html#ae47f279d2f0ba0921027e787e3773ee8",
-"classnc_1_1random_1_1_r_n_g.html#ab5ba9d32c4d0ef34396b3535f97bc19e",
-"classnc_1_1rotations_1_1_quaternion.html#aaf9230af84ef1133ca9483da561b0450",
-"dot_8hpp.html#adb9aa482fe676e54d83d35ec2b761635",
-"functions_r.html",
-"log2_8hpp.html#a48cbc16dc706678b6f85e655e935cd41",
-"namespacenc.html#a142bd95cc364924602eedeb78a979aa0",
-"namespacenc.html#a7067b2b1095d5a094a1f4287888819f8",
-"namespacenc.html#ac83a50ef99e61f116a86df98196f4a8b",
-"namespacenc_1_1edac_1_1detail.html#aea349d7b4d28ca91b85bcb3a2823c145",
-"namespacenc_1_1random_1_1detail.html#a84375160c024c77e8010a65c1d85456c",
-"newbyteorder_8hpp.html#a44656e6f55718f92f0b7ba6e45ac2ee3",
-"rms_8hpp.html",
-"timeit_8hpp_source.html"
+"_utils_2power_8hpp_source.html",
+"classnc_1_1_date_time.html#a4e91e1d749d40be47ef9ba4611a62fcc",
+"classnc_1_1_nd_array.html#a554edbd2789ec95985acdaaa2c80372e",
+"classnc_1_1_nd_array.html#ae39809331766e9d6490533040afbd589",
+"classnc_1_1_nd_array_iterator.html#af685687e69ea0bd9422b0cb978dbf07c",
+"classnc_1_1coordinates_1_1_euler.html#a3b33f0bf2a2a55f8b6ca6ad8f3aa4c71",
+"classnc_1_1coordinates_1_1reference__frames_1_1_l_l_a.html#a40596774efdb1024b0f6e195072fde5d",
+"classnc_1_1logger_1_1_binary_logger.html#a304694a5e06d6fa9311119443d38d9ec",
+"classnc_1_1roots_1_1_bisection.html#a5eafe219bb90f82da4ece84f012a411a",
+"classnc_1_1rotations_1_1_quaternion.html#ac24335c0e6dc14427a2396888cb19a8d",
+"fmod_8hpp.html",
+"meshgrid_8hpp.html",
+"namespacenc.html#a44656e6f55718f92f0b7ba6e45ac2ee3",
+"namespacenc.html#a941a5a1ffb61387495a6f23dc4036287",
+"namespacenc.html#af87da9c66c9e535066221e4f85f3ed90",
+"namespacenc_1_1linalg.html#a9de81d7c677cb58615fba70679e73f66",
+"namespacenc_1_1special.html#ae7053cd6eafb59a62ba6ede63aac6f90",
+"sign_8hpp.html"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';

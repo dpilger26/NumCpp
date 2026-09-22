@@ -400,7 +400,7 @@ def test_quaternion():
     # cArray.setArray(array)
     # quat = NumCpp.Quaternion(NumCpp.Vec3(1, 0, 0), 0)
     # for i in range(numPoints):
-    #     quatDeltaT = cQuat.propagateInertial(NumCpp.Vec3(stepSize, stepSize, stepSize), i*deltaT)
+    #     quatDeltaT = quat.propagateInertial(NumCpp.Vec3(stepSize, stepSize, stepSize), i*deltaT)
     #     rolls.append(quatDeltaT.roll())
     #     pitches.append(quatDeltaT.pitch())
     #     yaws.append(quatDeltaT.yaw())

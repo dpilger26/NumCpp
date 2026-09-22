@@ -1,4 +1,4 @@
 var fftfreq_8hpp =
 [
-    [ "fftfreq", "fftfreq_8hpp.html#a1ba5f43f815121376002e06d526b5f26", null ]
+    [ "nc::fft::fftfreq", "namespacenc_1_1fft.html#a1ba5f43f815121376002e06d526b5f26", null ]
 ];

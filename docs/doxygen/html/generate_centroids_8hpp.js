@@ -1,4 +1,4 @@
 var generate_centroids_8hpp =
 [
-    [ "generateCentroids", "generate_centroids_8hpp.html#a8ee890ada011f590c3351d205636a91c", null ]
+    [ "nc::imageProcessing::generateCentroids", "namespacenc_1_1image_processing.html#a8ee890ada011f590c3351d205636a91c", null ]
 ];

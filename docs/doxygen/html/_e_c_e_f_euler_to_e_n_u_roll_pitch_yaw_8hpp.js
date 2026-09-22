@@ -1,4 +1,4 @@
 var _e_c_e_f_euler_to_e_n_u_roll_pitch_yaw_8hpp =
 [
-    [ "ECEFEulerToENURollPitchYaw", "_e_c_e_f_euler_to_e_n_u_roll_pitch_yaw_8hpp.html#abff5ec5e13a36310430e0e5a70a0cc2b", null ]
+    [ "nc::coordinates::transforms::ECEFEulerToENURollPitchYaw", "namespacenc_1_1coordinates_1_1transforms.html#abff5ec5e13a36310430e0e5a70a0cc2b", null ]
 ];

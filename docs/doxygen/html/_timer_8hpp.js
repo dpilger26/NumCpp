@@ -1,4 +1,4 @@
 var _timer_8hpp =
 [
-    [ "nc::Timer< TimeUnit >", "classnc_1_1_timer.html", "classnc_1_1_timer" ]
+    [ "nc::Timer&lt; TimeUnit &gt;", "classnc_1_1_timer.html", "classnc_1_1_timer" ]
 ];

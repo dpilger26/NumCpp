@@ -1,4 +1,4 @@
 var apply_threshold_8hpp =
 [
-    [ "applyThreshold", "apply_threshold_8hpp.html#aea250e60088f0e2cfd9f4dc3b9ec34ff", null ]
+    [ "nc::imageProcessing::applyThreshold", "namespacenc_1_1image_processing.html#aea250e60088f0e2cfd9f4dc3b9ec34ff", null ]
 ];

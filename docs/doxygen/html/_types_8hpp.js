@@ -1,11 +1,11 @@
 var _types_8hpp =
 [
-    [ "int16", "_types_8hpp.html#a8f5045ed0f0a08d87fd76d7a74ac128d", null ],
-    [ "int32", "_types_8hpp.html#a9386099a0fdc2bc9fb0dbfde5606584d", null ],
-    [ "int64", "_types_8hpp.html#a6223a7f3b0f7886036f64276f36c921e", null ],
-    [ "int8", "_types_8hpp.html#a0815baab2bc081f4250ba9cb1cf361b4", null ],
-    [ "uint16", "_types_8hpp.html#a8146518cf6c6a8029c3d84a376167793", null ],
-    [ "uint32", "_types_8hpp.html#af0f49663fb63332596e2e6327009d581", null ],
-    [ "uint64", "_types_8hpp.html#a773f8535ba713f886e9e1b8378f6d76d", null ],
-    [ "uint8", "_types_8hpp.html#a9ba5a0aa26753a185985b8273fb9062d", null ]
+    [ "nc::int16", "namespacenc.html#a49efbb5427e4e7d98fe8ef0b8c4a83e6", null ],
+    [ "nc::int32", "namespacenc.html#a8d5f1a8c561c3b93e7563888320fbe94", null ],
+    [ "nc::int64", "namespacenc.html#ada4ba8feabf55ca8230ee4a54a0c8bb6", null ],
+    [ "nc::int8", "namespacenc.html#a31752b70322e491ca2b0eac0d3e760c3", null ],
+    [ "nc::uint16", "namespacenc.html#ab2f01fe238530ca7bee1c61ab1d5a919", null ],
+    [ "nc::uint32", "namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67", null ],
+    [ "nc::uint64", "namespacenc.html#a06769537c26ad6749baa98f34abe8183", null ],
+    [ "nc::uint8", "namespacenc.html#a2e3cabf1f655844277da43cf4fd24b7c", null ]
 ];
