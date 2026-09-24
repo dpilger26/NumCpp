@@ -81,11 +81,26 @@ public:
         }
     }
 
+    /// Keep `h` alive until the current patient frame is destroyed, if there is one.
+    /// Returns false when called outside a bound function (no frame). Use this, rather
+    /// than `add_patient`, when failing to register is acceptable because the caller
+    /// owns the source's lifetime outside the call framework (e.g. a view that points
+    /// into an existing Python object, as opposed to a freshly created temporary).
+    PYBIND11_NOINLINE static bool try_add_patient(handle h) {
+        loader_life_support *frame = tls_current_frame();
+        if (!frame) {
+            return false;
+        }
+        if (frame->keep_alive.insert(h.ptr()).second) {
+            Py_INCREF(h.ptr());
+        }
+        return true;
+    }
+
     /// This can only be used inside a pybind11-bound function, either by `argument_loader`
     /// at argument preparation time or by `py::cast()` at execution time.
     PYBIND11_NOINLINE static void add_patient(handle h) {
-        loader_life_support *frame = tls_current_frame();
-        if (!frame) {
+        if (!try_add_patient(h)) {
             // NOTE: It would be nice to include the stack frames here, as this indicates
             // use of pybind11::cast<> outside the normal call framework, finding such
             // a location is challenging. Developers could consider printing out
@@ -93,10 +108,6 @@ public:
             throw cast_error("When called outside a bound function, py::cast() cannot "
                              "do Python -> C++ conversions which require the creation "
                              "of temporary values");
-        }
-
-        if (frame->keep_alive.insert(h.ptr()).second) {
-            Py_INCREF(h.ptr());
         }
     }
 };
@@ -125,7 +136,7 @@ PYBIND11_NOINLINE void all_type_info_populate(PyTypeObject *t, std::vector<type_
     assert(bases.empty());
     std::vector<PyTypeObject *> check;
     for (handle parent : reinterpret_borrow<tuple>(t->tp_bases)) {
-        check.push_back((PyTypeObject *) parent.ptr());
+        check.push_back(reinterpret_cast<PyTypeObject *>(parent.ptr()));
     }
     auto const &type_dict = get_internals().registered_types_py;
     for (size_t i = 0; i < check.size(); i++) {
@@ -168,7 +179,7 @@ PYBIND11_NOINLINE void all_type_info_populate(PyTypeObject *t, std::vector<type_
                 i--;
             }
             for (handle parent : reinterpret_borrow<tuple>(type->tp_bases)) {
-                check.push_back((PyTypeObject *) parent.ptr());
+                check.push_back(reinterpret_cast<PyTypeObject *>(parent.ptr()));
             }
         }
     }
@@ -286,7 +297,7 @@ PYBIND11_NOINLINE detail::type_info *get_type_info(const std::type_info &tp,
 
 PYBIND11_NOINLINE handle get_type_handle(const std::type_info &tp, bool throw_if_missing) {
     detail::type_info *type_info = get_type_info(tp, throw_if_missing);
-    return handle(type_info ? ((PyObject *) type_info->type) : nullptr);
+    return handle(type_info ? (reinterpret_cast<PyObject *>(type_info->type)) : nullptr);
 }
 
 inline bool try_incref(PyObject *obj) {
@@ -506,7 +517,7 @@ PYBIND11_NOINLINE void instance::allocate_layout() {
         // efficient for small allocations like the one we're doing here;
         // for larger allocations they are just wrappers around malloc.
         // TODO: is this still true for pure Python 3.6?
-        nonsimple.values_and_holders = (void **) PyMem_Calloc(space, sizeof(void *));
+        nonsimple.values_and_holders = static_cast<void **>(PyMem_Calloc(space, sizeof(void *)));
         if (!nonsimple.values_and_holders) {
             throw std::bad_alloc();
         }
@@ -514,6 +525,7 @@ PYBIND11_NOINLINE void instance::allocate_layout() {
             = reinterpret_cast<std::uint8_t *>(&nonsimple.values_and_holders[flags_at]);
     }
     owned = true;
+    old_style_init_active = false;
 }
 
 // NOLINTNEXTLINE(readability-make-member-function-const)
@@ -522,6 +534,55 @@ PYBIND11_NOINLINE void instance::deallocate_layout() {
         PyMem_Free(reinterpret_cast<void *>(nonsimple.values_and_holders));
     }
 }
+
+/// RAII helper preserving lazy value allocation for a constructor chain containing a deprecated
+/// old-style placement-new `__init__`/`__setstate__`. Passing `nullptr` makes this a no-op. The
+/// compatibility window covers the whole chain and all value slots in the Python instance; it does
+/// not attempt to distinguish the old-style `self` load from reentrant, later-argument,
+/// cross-base, nested, or concurrent loads. Nesting restores the previous state but is not made
+/// safe by this scope.
+/// Before narrowing this window, review `old_style_placement_new` in `docs/upgrade.rst` and its
+/// reference from `docs/advanced/classes.rst`: the broad scope preserves historical behavior,
+/// with documented reentrancy, multiple-inheritance, nesting, and concurrency limitations.
+///
+/// When the scope exits, the destructor frees storage that was lazily allocated in any value slot
+/// that was empty on entry and whose holder was never constructed. This keeps the uninitialized-
+/// value guard in `load_value()` effective for later uses of the instance, including sibling slots
+/// in a Python multiple-inheritance layout.
+class old_style_init_scope {
+public:
+    explicit old_style_init_scope(value_and_holder *v_h)
+        : inst_{v_h != nullptr ? v_h->inst : nullptr} {
+        if (inst_ != nullptr) {
+            values_and_holders vhs(inst_);
+            empty_slots_.reserve(vhs.size());
+            for (auto &slot : vhs) {
+                if (slot.value_ptr() == nullptr) {
+                    empty_slots_.push_back(slot);
+                }
+            }
+            was_active_ = inst_->old_style_init_active;
+            inst_->old_style_init_active = true;
+        }
+    }
+    ~old_style_init_scope() {
+        if (inst_ != nullptr) {
+            inst_->old_style_init_active = was_active_;
+            for (auto &slot : empty_slots_) {
+                if (!slot.holder_constructed() && slot.value_ptr() != nullptr) {
+                    slot.type->dealloc(slot); // Frees the storage and nulls the value pointer.
+                }
+            }
+        }
+    }
+    old_style_init_scope(const old_style_init_scope &) = delete;
+    old_style_init_scope &operator=(const old_style_init_scope &) = delete;
+
+private:
+    instance *inst_;
+    std::vector<value_and_holder> empty_slots_;
+    bool was_active_ = false;
+};
 
 PYBIND11_NOINLINE bool isinstance_generic(handle obj, const std::type_info &tp) {
     handle type = detail::get_type_handle(tp, false);
@@ -537,7 +598,7 @@ PYBIND11_NOINLINE handle get_object_handle(const void *ptr, const detail::type_i
         for (auto it = range.first; it != range.second; ++it) {
             for (const auto &vh : values_and_holders(it->second)) {
                 if (vh.type == type) {
-                    return handle((PyObject *) it->second);
+                    return handle(reinterpret_cast<PyObject *>(it->second));
                 }
             }
         }
@@ -1004,6 +1065,18 @@ public:
         return cast(srcs, policy, parent, copy_constructor, move_constructor, existing_holder);
     }
 
+    static handle cast_non_owning(const cast_sources &srcs,
+                                  return_value_policy policy,
+                                  handle parent,
+                                  const void *existing_holder = nullptr) {
+        // Reference-like policies alias an existing C++ object instead of creating
+        // a new one, so copy/move constructor callbacks must remain null here.
+        assert(policy == return_value_policy::reference
+               || policy == return_value_policy::reference_internal
+               || policy == return_value_policy::automatic_reference);
+        return cast(srcs, policy, parent, nullptr, nullptr, existing_holder);
+    }
+
     PYBIND11_NOINLINE static handle cast(const cast_sources &srcs,
                                          return_value_policy policy,
                                          handle parent,
@@ -1117,11 +1190,25 @@ public:
         auto *&vptr = v_h.value_ptr();
         // Lazy allocation for unallocated values:
         if (vptr == nullptr) {
+            // Lazy allocation exists only to support the deprecated old-style placement-new
+            // `__init__`/`__setstate__` idiom, which is handed a reference to uninitialized
+            // storage and constructs the C++ value into it. In any other context a null value
+            // pointer means the C++ object was never constructed -- e.g. the instance was created
+            // with `__new__()`, bypassing `__init__()` -- and handing out a pointer to
+            // uninitialized memory from here is undefined behavior (typically a segfault on the
+            // first virtual call). Fail loudly instead.
+            if (!v_h.inst->old_style_init_active) {
+                throw value_error("Missing value for wrapped C++ type `"
+                                  + clean_type_id(cpptype->name())
+                                  + "`: Python instance is uninitialized: the C++ object was "
+                                    "never constructed (`__init__()` was bypassed, e.g. by "
+                                    "calling `__new__()` directly).");
+            }
             const auto *type = v_h.type ? v_h.type : typeinfo;
             if (type->operator_new) {
                 vptr = type->operator_new(type->type_size);
             } else {
-#if defined(__cpp_aligned_new) && (!defined(_MSC_VER) || _MSC_VER >= 1912)
+#if defined(__cpp_aligned_new)
                 if (type->type_align > __STDCPP_DEFAULT_NEW_ALIGNMENT__) {
                     vptr = ::operator new(type->type_size, std::align_val_t(type->type_align));
                 } else {
@@ -1671,7 +1758,7 @@ public:
     }
 
 protected:
-    using Constructor = void *(*) (const void *);
+    using Constructor = void *(*)(const void *);
 
     /* Only enabled when the types are {copy,move}-constructible *and* when the type
        does not have a private operator new implementation. A comma operator is used in the
@@ -1700,7 +1787,7 @@ inline std::string quote_cpp_type_name(const std::string &cpp_type_name) {
 
 PYBIND11_NOINLINE std::string type_info_description(const std::type_info &ti) {
     if (auto *type_data = get_type_info(ti)) {
-        handle th((PyObject *) type_data->type);
+        handle th(reinterpret_cast<PyObject *>(type_data->type));
         return th.attr("__module__").cast<std::string>() + '.'
                + th.attr("__qualname__").cast<std::string>();
     }

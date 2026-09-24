@@ -367,7 +367,7 @@ namespace nc
         self_type operator++(int) noexcept
         {
             self_type tmp = *this;
-            MyBase::  operator++();
+            MyBase::operator++();
             return tmp;
         }
 
@@ -392,7 +392,7 @@ namespace nc
         self_type operator--(int) noexcept
         {
             self_type tmp = *this;
-            MyBase::  operator--();
+            MyBase::operator--();
             return tmp;
         }
 
@@ -868,7 +868,7 @@ namespace nc
         self_type operator++(int) noexcept
         {
             self_type tmp = *this;
-            MyBase::  operator++();
+            MyBase::operator++();
             return tmp;
         }
 
@@ -893,7 +893,7 @@ namespace nc
         self_type operator--(int) noexcept
         {
             self_type tmp = *this;
-            MyBase::  operator--();
+            MyBase::operator--();
             return tmp;
         }
 

@@ -33,7 +33,7 @@ var annotated_dup =
         [ "detail", "namespacenc_1_1logger_1_1detail.html", [
           [ "type_traits", "namespacenc_1_1logger_1_1detail_1_1type__traits.html", [
             [ "has_serialize", "classnc_1_1logger_1_1detail_1_1type__traits_1_1has__serialize.html", "classnc_1_1logger_1_1detail_1_1type__traits_1_1has__serialize" ],
-            [ "has_serialize< DataType, std::void_t< std::enable_if_t< std::is_same_v< serialize_t< DataType >, std::string >, int > > >", "classnc_1_1logger_1_1detail_1_1type__traits_1_1has__serialize_3_01_data_type_00_01std_1_1void__te6ccce939d7e8d93862519645c528e31.html", "classnc_1_1logger_1_1detail_1_1type__traits_1_1has__serialize_3_01_data_type_00_01std_1_1void__te6ccce939d7e8d93862519645c528e31" ]
+            [ "has_serialize&lt; DataType, std::void_t&lt; std::enable_if_t&lt; std::is_same_v&lt; serialize_t&lt; DataType &gt;, std::string &gt;, int &gt; &gt; &gt;", "classnc_1_1logger_1_1detail_1_1type__traits_1_1has__serialize_3_01_data_type_00_01std_1_1void__te6ccce939d7e8d93862519645c528e31.html", "classnc_1_1logger_1_1detail_1_1type__traits_1_1has__serialize_3_01_data_type_00_01std_1_1void__te6ccce939d7e8d93862519645c528e31" ]
           ] ],
           [ "BinaryDataLogger", "classnc_1_1logger_1_1detail_1_1_binary_data_logger.html", "classnc_1_1logger_1_1detail_1_1_binary_data_logger" ]
         ] ],
@@ -59,9 +59,9 @@ var annotated_dup =
       ] ],
       [ "type_traits", "namespacenc_1_1type__traits.html", [
         [ "is_ndarray_int", "structnc_1_1type__traits_1_1is__ndarray__int.html", null ],
-        [ "is_ndarray_int< NdArray< dtype, Allocator > >", "structnc_1_1type__traits_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html", "structnc_1_1type__traits_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4" ],
+        [ "is_ndarray_int&lt; NdArray&lt; dtype, Allocator &gt; &gt;", "structnc_1_1type__traits_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html", "structnc_1_1type__traits_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4" ],
         [ "is_ndarray_signed_int", "structnc_1_1type__traits_1_1is__ndarray__signed__int.html", null ],
-        [ "is_ndarray_signed_int< NdArray< dtype, Allocator > >", "structnc_1_1type__traits_1_1is__ndarray__signed__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html", "structnc_1_1type__traits_1_1is__ndarray__signed__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4" ]
+        [ "is_ndarray_signed_int&lt; NdArray&lt; dtype, Allocator &gt; &gt;", "structnc_1_1type__traits_1_1is__ndarray__signed__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html", "structnc_1_1type__traits_1_1is__ndarray__signed__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4" ]
       ] ],
       [ "utils", "namespacenc_1_1utils.html", [
         [ "timeit_detail", "namespacenc_1_1utils_1_1timeit__detail.html", [
@@ -69,21 +69,21 @@ var annotated_dup =
         ] ]
       ] ],
       [ "all_arithmetic", "structnc_1_1all__arithmetic.html", null ],
-      [ "all_arithmetic< Head, Tail... >", "structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4.html", "structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4" ],
-      [ "all_arithmetic< T >", "structnc_1_1all__arithmetic_3_01_t_01_4.html", "structnc_1_1all__arithmetic_3_01_t_01_4" ],
+      [ "all_arithmetic&lt; Head, Tail... &gt;", "structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4.html", "structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4" ],
+      [ "all_arithmetic&lt; T &gt;", "structnc_1_1all__arithmetic_3_01_t_01_4.html", "structnc_1_1all__arithmetic_3_01_t_01_4" ],
       [ "all_same", "structnc_1_1all__same.html", null ],
-      [ "all_same< T1, Head, Tail... >", "structnc_1_1all__same_3_01_t1_00_01_head_00_01_tail_8_8_8_01_4.html", "structnc_1_1all__same_3_01_t1_00_01_head_00_01_tail_8_8_8_01_4" ],
-      [ "all_same< T1, T2 >", "structnc_1_1all__same_3_01_t1_00_01_t2_01_4.html", "structnc_1_1all__same_3_01_t1_00_01_t2_01_4" ],
+      [ "all_same&lt; T1, Head, Tail... &gt;", "structnc_1_1all__same_3_01_t1_00_01_head_00_01_tail_8_8_8_01_4.html", "structnc_1_1all__same_3_01_t1_00_01_head_00_01_tail_8_8_8_01_4" ],
+      [ "all_same&lt; T1, T2 &gt;", "structnc_1_1all__same_3_01_t1_00_01_t2_01_4.html", "structnc_1_1all__same_3_01_t1_00_01_t2_01_4" ],
       [ "ComplexHash", "structnc_1_1_complex_hash.html", "structnc_1_1_complex_hash" ],
       [ "DataCube", "classnc_1_1_data_cube.html", "classnc_1_1_data_cube" ],
       [ "DateTime", "classnc_1_1_date_time.html", "classnc_1_1_date_time" ],
       [ "DtypeInfo", "classnc_1_1_dtype_info.html", "classnc_1_1_dtype_info" ],
-      [ "DtypeInfo< std::complex< dtype > >", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4" ],
+      [ "DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4" ],
       [ "greaterThan", "structnc_1_1greater_than.html", "structnc_1_1greater_than" ],
       [ "is_complex", "structnc_1_1is__complex.html", "structnc_1_1is__complex" ],
-      [ "is_complex< std::complex< T > >", "structnc_1_1is__complex_3_01std_1_1complex_3_01_t_01_4_01_4.html", "structnc_1_1is__complex_3_01std_1_1complex_3_01_t_01_4_01_4" ],
+      [ "is_complex&lt; std::complex&lt; T &gt; &gt;", "structnc_1_1is__complex_3_01std_1_1complex_3_01_t_01_4_01_4.html", "structnc_1_1is__complex_3_01std_1_1complex_3_01_t_01_4_01_4" ],
       [ "is_ndarray_int", "structnc_1_1is__ndarray__int.html", null ],
-      [ "is_ndarray_int< NdArray< dtype, Allocator > >", "structnc_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html", "structnc_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4" ],
+      [ "is_ndarray_int&lt; NdArray&lt; dtype, Allocator &gt; &gt;", "structnc_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4.html", "structnc_1_1is__ndarray__int_3_01_nd_array_3_01dtype_00_01_allocator_01_4_01_4" ],
       [ "is_valid_dtype", "structnc_1_1is__valid__dtype.html", "structnc_1_1is__valid__dtype" ],
       [ "NdArray", "classnc_1_1_nd_array.html", "classnc_1_1_nd_array" ],
       [ "NdArrayColumnIterator", "classnc_1_1_nd_array_column_iterator.html", "classnc_1_1_nd_array_column_iterator" ],

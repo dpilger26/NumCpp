@@ -29,6 +29,10 @@
 #include <utility>
 #include <vector>
 
+#ifdef PYBIND11_HAS_SPAN
+#    include <span>
+#endif
+
 #if defined(PYBIND11_NUMPY_1_ONLY)
 #    error "PYBIND11_NUMPY_1_ONLY is no longer supported (see PR #5595)."
 #endif
@@ -231,6 +235,7 @@ struct npy_api {
         NPY_STRING_,
         NPY_UNICODE_,
         NPY_VOID_,
+        NPY_HALF_ = 23, // NPY_DATETIME (21) and NPY_TIMEDELTA (22) are not mirrored
         // Platform-dependent normalization
         NPY_INT8_ = NPY_BYTE_,
         NPY_UINT8_ = NPY_UBYTE_,
@@ -239,29 +244,30 @@ struct npy_api {
         // `npy_common.h` defines the integer aliases. In order, it checks:
         // NPY_BITSOF_LONG, NPY_BITSOF_LONGLONG, NPY_BITSOF_INT, NPY_BITSOF_SHORT, NPY_BITSOF_CHAR
         // and assigns the alias to the first matching size, so we should check in this order.
-        NPY_INT32_
-        = platform_lookup<std::int32_t, long, int, short>(NPY_LONG_, NPY_INT_, NPY_SHORT_),
+        NPY_INT32_ = platform_lookup<std::int32_t, long, int, short>(
+            NPY_LONG_, NPY_INT_, NPY_SHORT_),
         NPY_UINT32_ = platform_lookup<std::uint32_t, unsigned long, unsigned int, unsigned short>(
             NPY_ULONG_, NPY_UINT_, NPY_USHORT_),
-        NPY_INT64_
-        = platform_lookup<std::int64_t, long, long long, int>(NPY_LONG_, NPY_LONGLONG_, NPY_INT_),
-        NPY_UINT64_
-        = platform_lookup<std::uint64_t, unsigned long, unsigned long long, unsigned int>(
-            NPY_ULONG_, NPY_ULONGLONG_, NPY_UINT_),
+        NPY_INT64_ = platform_lookup<std::int64_t, long, long long, int>(
+            NPY_LONG_, NPY_LONGLONG_, NPY_INT_),
+        NPY_UINT64_ = platform_lookup<std::uint64_t,
+                                      unsigned long,
+                                      unsigned long long,
+                                      unsigned int>(NPY_ULONG_, NPY_ULONGLONG_, NPY_UINT_),
         NPY_FLOAT32_ = platform_lookup<float, double, float, long double>(
             NPY_DOUBLE_, NPY_FLOAT_, NPY_LONGDOUBLE_),
         NPY_FLOAT64_ = platform_lookup<double, double, float, long double>(
             NPY_DOUBLE_, NPY_FLOAT_, NPY_LONGDOUBLE_),
-        NPY_COMPLEX64_
-        = platform_lookup<std::complex<float>,
-                          std::complex<double>,
-                          std::complex<float>,
-                          std::complex<long double>>(NPY_DOUBLE_, NPY_FLOAT_, NPY_LONGDOUBLE_),
-        NPY_COMPLEX128_
-        = platform_lookup<std::complex<double>,
-                          std::complex<double>,
-                          std::complex<float>,
-                          std::complex<long double>>(NPY_DOUBLE_, NPY_FLOAT_, NPY_LONGDOUBLE_),
+        NPY_COMPLEX64_ = platform_lookup<std::complex<float>,
+                                         std::complex<double>,
+                                         std::complex<float>,
+                                         std::complex<long double>>(
+            NPY_DOUBLE_, NPY_FLOAT_, NPY_LONGDOUBLE_),
+        NPY_COMPLEX128_ = platform_lookup<std::complex<double>,
+                                          std::complex<double>,
+                                          std::complex<float>,
+                                          std::complex<long double>>(
+            NPY_DOUBLE_, NPY_FLOAT_, NPY_LONGDOUBLE_),
         NPY_CHAR_ = std::is_signed<char>::value ? NPY_BYTE_ : NPY_UBYTE_,
     };
 
@@ -416,7 +422,7 @@ struct npy_format_descriptor_name<T, enable_if_t<is_complex<T>::value>> {
                                  || std::is_same<typename T::value_type, const double>::value
                                         > (const_name("numpy.complex")
                                                + const_name<sizeof(typename T::value_type) * 16>(),
-                                           const_name("numpy.longcomplex"));
+                                           const_name("numpy.clongdouble"));
 };
 
 template <typename T>
@@ -1143,6 +1149,13 @@ public:
     /// Dimensions of the array
     const ssize_t *shape() const { return detail::array_proxy(m_ptr)->dimensions; }
 
+#ifdef PYBIND11_HAS_SPAN
+    /// Dimensions of the array as a span
+    std::span<const ssize_t, std::dynamic_extent> shape_span() const {
+        return std::span(shape(), static_cast<std::size_t>(ndim()));
+    }
+#endif
+
     /// Dimension along a given axis
     ssize_t shape(ssize_t dim) const {
         if (dim >= ndim()) {
@@ -1153,6 +1166,13 @@ public:
 
     /// Strides of the array
     const ssize_t *strides() const { return detail::array_proxy(m_ptr)->strides; }
+
+#ifdef PYBIND11_HAS_SPAN
+    /// Strides of the array as a span
+    std::span<const ssize_t, std::dynamic_extent> strides_span() const {
+        return std::span(strides(), static_cast<std::size_t>(ndim()));
+    }
+#endif
 
     /// Stride along a given axis
     ssize_t strides(ssize_t dim) const {
@@ -1781,16 +1801,29 @@ private:
 #    define PYBIND11_NUMPY_DTYPE_EX(Type, ...) ((void) 0)
 #else
 
-#    define PYBIND11_FIELD_DESCRIPTOR_EX(T, Field, Name)                                          \
+// The _IMPL variants take T parenthesized to survive the comma re-splitting in the
+// PYBIND11_MAP_LIST expansions below; the plain variants keep accepting a bare type (see #4018).
+#    define PYBIND11_UNPAREN_TYPE(T) PYBIND11_TYPE T
+
+#    define PYBIND11_FIELD_DESCRIPTOR_EX_IMPL(T, Field, Name)                                     \
         ::pybind11::detail::field_descriptor {                                                    \
-            Name, offsetof(T, Field), sizeof(decltype(std::declval<T>().Field)),                  \
-                ::pybind11::format_descriptor<decltype(std::declval<T>().Field)>::format(),       \
+            Name, offsetof(PYBIND11_UNPAREN_TYPE(T), Field),                                      \
+                sizeof(decltype(std::declval<PYBIND11_UNPAREN_TYPE(T)>().Field)),                 \
+                ::pybind11::format_descriptor<                                                    \
+                    decltype(std::declval<PYBIND11_UNPAREN_TYPE(T)>().Field)>::format(),          \
                 ::pybind11::detail::npy_format_descriptor<                                        \
-                    decltype(std::declval<T>().Field)>::dtype()                                   \
+                    decltype(std::declval<PYBIND11_UNPAREN_TYPE(T)>().Field)>::dtype()            \
         }
 
+#    define PYBIND11_FIELD_DESCRIPTOR_IMPL(T, Field)                                              \
+        PYBIND11_FIELD_DESCRIPTOR_EX_IMPL(T, Field, #Field)
+
+#    define PYBIND11_FIELD_DESCRIPTOR_EX(T, Field, Name)                                          \
+        PYBIND11_FIELD_DESCRIPTOR_EX_IMPL((T), Field, Name)
+
 // Extract name, offset and format descriptor for a struct field
-#    define PYBIND11_FIELD_DESCRIPTOR(T, Field) PYBIND11_FIELD_DESCRIPTOR_EX(T, Field, #Field)
+#    define PYBIND11_FIELD_DESCRIPTOR(T, Field)                                                   \
+        PYBIND11_FIELD_DESCRIPTOR_EX_IMPL((T), Field, #Field)
 
 // The main idea of this macro is borrowed from https://github.com/swansontec/map-macro
 // (C) William Swanson, Paul Fultz
@@ -1828,7 +1861,7 @@ private:
 #    define PYBIND11_NUMPY_DTYPE(Type, ...)                                                       \
         ::pybind11::detail::npy_format_descriptor<Type>::register_dtype(                          \
             ::std::vector<::pybind11::detail::field_descriptor>{                                  \
-                PYBIND11_MAP_LIST(PYBIND11_FIELD_DESCRIPTOR, Type, __VA_ARGS__)})
+                PYBIND11_MAP_LIST(PYBIND11_FIELD_DESCRIPTOR_IMPL, (Type), __VA_ARGS__)})
 
 #    if defined(_MSC_VER) && !defined(__clang__)
 #        define PYBIND11_MAP2_LIST_NEXT1(test, next)                                              \
@@ -1850,7 +1883,7 @@ private:
 #    define PYBIND11_NUMPY_DTYPE_EX(Type, ...)                                                    \
         ::pybind11::detail::npy_format_descriptor<Type>::register_dtype(                          \
             ::std::vector<::pybind11::detail::field_descriptor>{                                  \
-                PYBIND11_MAP2_LIST(PYBIND11_FIELD_DESCRIPTOR_EX, Type, __VA_ARGS__)})
+                PYBIND11_MAP2_LIST(PYBIND11_FIELD_DESCRIPTOR_EX_IMPL, (Type), __VA_ARGS__)})
 
 #endif // __CLION_IDE__
 
@@ -1860,7 +1893,7 @@ public:
     using value_type = container_type::value_type;
     using size_type = container_type::size_type;
 
-    common_iterator() : m_strides() {}
+    common_iterator() = default;
 
     common_iterator(void *ptr, const container_type &strides, const container_type &shape)
         : p_ptr(reinterpret_cast<char *>(ptr)), m_strides(strides.size()) {
@@ -2308,5 +2341,87 @@ template <typename Return,
 Helper vectorize(Return (Class::*f)(Args...) const) {
     return Helper(std::mem_fn(f));
 }
+
+// Intentionally no &&/const&& overloads: vectorized method calls operate on the bound Python
+// instance and should not consume/move-from self.
+// Vectorize a class method (non-const, lvalue ref-qualified):
+template <typename Return,
+          typename Class,
+          typename... Args,
+          typename Helper = detail::vectorize_helper<
+              decltype(std::mem_fn(std::declval<Return (Class::*)(Args...) &>())),
+              Return,
+              Class *,
+              Args...>>
+Helper vectorize(Return (Class::*f)(Args...) &) {
+    return Helper(std::mem_fn(f));
+}
+
+// Vectorize a class method (const, lvalue ref-qualified):
+template <typename Return,
+          typename Class,
+          typename... Args,
+          typename Helper = detail::vectorize_helper<
+              decltype(std::mem_fn(std::declval<Return (Class::*)(Args...) const &>())),
+              Return,
+              const Class *,
+              Args...>>
+Helper vectorize(Return (Class::*f)(Args...) const &) {
+    return Helper(std::mem_fn(f));
+}
+
+#ifdef __cpp_noexcept_function_type
+// Vectorize a class method (non-const, noexcept):
+template <typename Return,
+          typename Class,
+          typename... Args,
+          typename Helper = detail::vectorize_helper<
+              decltype(std::mem_fn(std::declval<Return (Class::*)(Args...) noexcept>())),
+              Return,
+              Class *,
+              Args...>>
+Helper vectorize(Return (Class::*f)(Args...) noexcept) {
+    return Helper(std::mem_fn(f));
+}
+
+// Vectorize a class method (const, noexcept):
+template <typename Return,
+          typename Class,
+          typename... Args,
+          typename Helper = detail::vectorize_helper<
+              decltype(std::mem_fn(std::declval<Return (Class::*)(Args...) const noexcept>())),
+              Return,
+              const Class *,
+              Args...>>
+Helper vectorize(Return (Class::*f)(Args...) const noexcept) {
+    return Helper(std::mem_fn(f));
+}
+
+// Vectorize a class method (non-const, lvalue ref-qualified, noexcept):
+template <typename Return,
+          typename Class,
+          typename... Args,
+          typename Helper = detail::vectorize_helper<
+              decltype(std::mem_fn(std::declval<Return (Class::*)(Args...) & noexcept>())),
+              Return,
+              Class *,
+              Args...>>
+Helper vectorize(Return (Class::*f)(Args...) & noexcept) {
+    return Helper(std::mem_fn(f));
+}
+
+// Vectorize a class method (const, lvalue ref-qualified, noexcept):
+template <typename Return,
+          typename Class,
+          typename... Args,
+          typename Helper = detail::vectorize_helper<
+              decltype(std::mem_fn(std::declval<Return (Class::*)(Args...) const & noexcept>())),
+              Return,
+              const Class *,
+              Args...>>
+Helper vectorize(Return (Class::*f)(Args...) const & noexcept) {
+    return Helper(std::mem_fn(f));
+}
+#endif
 
 PYBIND11_NAMESPACE_END(PYBIND11_NAMESPACE)

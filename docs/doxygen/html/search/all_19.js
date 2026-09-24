@@ -6,5 +6,5 @@ var searchData=
   ['zeros_5flike_3',['zeros_like',['../namespacenc.html#a98f33a60a96942c994a19396907d27c0',1,'nc']]],
   ['zeros_5flike_2ehpp_4',['zeros_like.hpp',['../zeros__like_8hpp.html',1,'']]],
   ['zhat_5',['zHat',['../classnc_1_1coordinates_1_1_cartesian.html#a6a34b091a9bf8f03654a533bb469f66c',1,'nc::coordinates::Cartesian']]],
-  ['zrotation_6',['zrotation',['../classnc_1_1rotations_1_1_d_c_m.html#a626b0bd2a3cf54e958f5c4d89b3c843b',1,'nc::rotations::DCM::zRotation()'],['../classnc_1_1rotations_1_1_quaternion.html#aaf688fafc4714f1da399e265c8e49a8d',1,'nc::rotations::Quaternion::zRotation()']]]
+  ['zrotation_6',['zRotation',['../classnc_1_1rotations_1_1_d_c_m.html#a626b0bd2a3cf54e958f5c4d89b3c843b',1,'nc::rotations::DCM::zRotation()'],['../classnc_1_1rotations_1_1_quaternion.html#aaf688fafc4714f1da399e265c8e49a8d',1,'nc::rotations::Quaternion::zRotation()']]]
 ];

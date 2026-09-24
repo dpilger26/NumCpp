@@ -38,6 +38,7 @@
 #include "NumCpp/Functions/argmax.hpp"
 #include "NumCpp/Functions/clip.hpp"
 #include "NumCpp/Functions/dot.hpp"
+#include "NumCpp/Functions/eye.hpp"
 #include "NumCpp/Functions/norm.hpp"
 #include "NumCpp/Functions/square.hpp"
 #include "NumCpp/Linalg/hat.hpp"
@@ -391,6 +392,214 @@ namespace nc::rotations
         void print() const
         {
             std::cout << *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time using the body angular velocity vector
+        ///
+        /// @param inAngularVelocity: the body angular velocity vector (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        void propagateBody(const Vec3& inAngularVelocity, double inDeltaT)
+        {
+            propagate(inAngularVelocity, inDeltaT, getBodyOmegaOperator(inAngularVelocity));
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time using the body angular velocity vector
+        ///
+        /// @param inQuaternion: the quaternion to propagate
+        /// @param inAngularVelocity: the body angular velocity vector (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        static Quaternion propagateBody(Quaternion inQuaternion, const Vec3& inAngularVelocity, double inDeltaT)
+        {
+            inQuaternion.propagateBody(inAngularVelocity, inDeltaT);
+            return inQuaternion;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time along body the roll axis
+        ///
+        /// @param rollRate: the body roll rate (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        void propagateBodyRoll(double rollRate, double inDeltaT)
+        {
+            propagateBody(Vec3{ rollRate, 0., 0. }, inDeltaT);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time along body the roll axis
+        ///
+        /// @param inQuaternion: the quaternion to propagate
+        /// @param rollRate: the body roll rate (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        static Quaternion propagateBodyRoll(Quaternion inQuaternion, double rollRate, double inDeltaT)
+        {
+            inQuaternion.propagateBodyRoll(rollRate, inDeltaT);
+            return inQuaternion;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time along body the pitch axis
+        ///
+        /// @param pitchRate: the body pitch rate (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        void propagateBodyPitch(double pitchRate, double inDeltaT)
+        {
+            propagateBody(Vec3{ 0., pitchRate, 0. }, inDeltaT);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time along body the pitch axis
+        ///
+        /// @param inQuaternion: the quaternion to propagate
+        /// @param pitchRate: the body pitch rate (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        static Quaternion propagateBodyPitch(Quaternion inQuaternion, double pitchRate, double inDeltaT)
+        {
+            inQuaternion.propagateBodyPitch(pitchRate, inDeltaT);
+            return inQuaternion;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time along body the yaw axis
+        ///
+        /// @param yawRate: the body yaw rate (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        void propagateBodyYaw(double yawRate, double inDeltaT)
+        {
+            propagateBody(Vec3{ 0., 0., yawRate }, inDeltaT);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time along body the yaw axis
+        ///
+        /// @param inQuaternion: the quaternion to propagate
+        /// @param yawRate: the body yaw rate (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        static Quaternion propagateBodyYaw(Quaternion inQuaternion, double yawRate, double inDeltaT)
+        {
+            inQuaternion.propagateBodyYaw(yawRate, inDeltaT);
+            return inQuaternion;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time using the inertial angular velocity vector
+        ///
+        /// @param inAngularVelocity: the inertial angular velocity vector (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        void propagateInertial(const Vec3& inAngularVelocity, double inDeltaT)
+        {
+            propagate(inAngularVelocity, inDeltaT, getInertialOmegaOperator(inAngularVelocity));
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time using the inertial angular velocity vector
+        ///
+        /// @param inQuaternion: the quaternion to propagate
+        /// @param inAngularVelocity: the inertial angular velocity vector (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        static Quaternion propagateInertial(Quaternion inQuaternion, const Vec3& inAngularVelocity, double inDeltaT)
+        {
+            inQuaternion.propagateInertial(inAngularVelocity, inDeltaT);
+            return inQuaternion;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time along inertial the roll axis
+        ///
+        /// @param rollRate: the body roll rate (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        void propagateInertialRoll(double rollRate, double inDeltaT)
+        {
+            propagateInertial(Vec3{ rollRate, 0., 0. }, inDeltaT);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time along inertial the roll axis
+        ///
+        /// @param inQuaternion: the quaternion to propagate
+        /// @param rollRate: the body roll rate (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        static Quaternion propagateInertialRoll(Quaternion inQuaternion, double rollRate, double inDeltaT)
+        {
+            inQuaternion.propagateInertialRoll(rollRate, inDeltaT);
+            return inQuaternion;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time along inertial the pitch axis
+        ///
+        /// @param pitchRate: the body pitch rate (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        void propagateInertialPitch(double pitchRate, double inDeltaT)
+        {
+            propagateInertial(Vec3{ 0., pitchRate, 0. }, inDeltaT);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time along inertial the pitch axis
+        ///
+        /// @param inQuaternion: the quaternion to propagate
+        /// @param pitchRate: the body pitch rate (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        static Quaternion propagateInertialPitch(Quaternion inQuaternion, double pitchRate, double inDeltaT)
+        {
+            inQuaternion.propagateInertialPitch(pitchRate, inDeltaT);
+            return inQuaternion;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time along inertial the yaw axis
+        ///
+        /// @param yawRate: the body yaw rate (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        void propagateInertialYaw(double yawRate, double inDeltaT)
+        {
+            propagateInertial(Vec3{ 0., 0., yawRate }, inDeltaT);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time along inertial the yaw axis
+        ///
+        /// @param inQuaternion: the quaternion to propagate
+        /// @param yawRate: the body yaw rate (rad/s)
+        /// @param inDeltaT: the time step
+        ///
+        static Quaternion propagateInertialYaw(Quaternion inQuaternion, double yawRate, double inDeltaT)
+        {
+            inQuaternion.propagateInertialYaw(yawRate, inDeltaT);
+            return inQuaternion;
         }
 
         //============================================================================
@@ -1029,6 +1238,73 @@ namespace nc::rotations
                     break;
                 }
             }
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Propagate the quaternion forward in time using the body angular velocity vector
+        ///
+        /// @param inAngularVelocity: the body angular velocity vector (rad/s)
+        /// @param inDeltaT: the time step
+        /// @param inOmegaOperator: the omega operator matrix
+        ///
+        void propagate(const Vec3& inAngularVelocity, double inDeltaT, const NdArray<double>& inOmegaOperator)
+        {
+            if (utils::essentiallyEqual(inDeltaT, 0.))
+            {
+                return;
+            }
+
+            const auto angularVelocityNorm = inAngularVelocity.norm();
+            if (utils::essentiallyEqual(angularVelocityNorm, 0.))
+            {
+                return;
+            }
+
+            const auto halfDeltaT   = inDeltaT / 2.;
+            const auto halfAngle    = angularVelocityNorm * halfDeltaT;
+            const auto sinHalfAngle = std::sin(halfAngle) / angularVelocityNorm;
+            const auto cosHalfAngle = std::cos(halfAngle);
+
+            const auto lhs = cosHalfAngle * eye<double>(4);
+            const auto rhs = sinHalfAngle * inOmegaOperator;
+
+            const auto qDeltaT = (lhs + rhs).dot(toNdArray().transpose());
+
+            components_[0] = qDeltaT[0];
+            components_[1] = qDeltaT[1];
+            components_[2] = qDeltaT[2];
+            components_[3] = qDeltaT[3];
+
+            normalize();
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Gets the Omega operator matrix for the body angular velocity vector
+        ///
+        /// @param inAngularVelocity: the body angular velocity vector (rad/s)
+        ///
+        NdArray<double> getBodyOmegaOperator(const Vec3& inAngularVelocity) const
+        {
+            return NdArray<double>({ { 0., inAngularVelocity.z, -inAngularVelocity.y, inAngularVelocity.x },
+                                     { -inAngularVelocity.z, 0., inAngularVelocity.x, inAngularVelocity.y },
+                                     { inAngularVelocity.y, -inAngularVelocity.x, 0., inAngularVelocity.z },
+                                     { -inAngularVelocity.x, -inAngularVelocity.y, -inAngularVelocity.z, 0. } });
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Gets the Omega operator matrix for the inertial angular velocity vector
+        ///
+        /// @param inAngularVelocity: the inertial angular velocity vector (rad/s)
+        ///
+        NdArray<double> getInertialOmegaOperator(const Vec3& inAngularVelocity) const
+        {
+            return NdArray<double>({ { 0., -inAngularVelocity.z, inAngularVelocity.y, inAngularVelocity.x },
+                                     { inAngularVelocity.z, 0., -inAngularVelocity.x, inAngularVelocity.y },
+                                     { -inAngularVelocity.y, inAngularVelocity.x, 0., inAngularVelocity.z },
+                                     { -inAngularVelocity.x, -inAngularVelocity.y, -inAngularVelocity.z, 0. } });
         }
     };
 } // namespace nc::rotations

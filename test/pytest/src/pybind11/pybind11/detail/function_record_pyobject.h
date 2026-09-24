@@ -48,8 +48,8 @@ static PyMethodDef tp_methods_impl[]
 // Python 3.12+ emits a DeprecationWarning for heap types whose tp_name does
 // not contain a dot ('.') and that lack a __module__ attribute. For pybind11's
 // internal function_record type, we do not have an actual module object to
-// attach, so we cannot use PyType_FromModuleAndSpec (introduced in Python 3.9)
-// to set __module__ automatically.
+// attach, so we cannot use PyType_FromModuleAndSpec to set __module__
+// automatically.
 //
 // As a workaround, we define a "qualified" type name that includes a dummy
 // module name (PYBIND11_DUMMY_MODULE_NAME). This is non‑idiomatic but avoids
@@ -59,8 +59,7 @@ static PyMethodDef tp_methods_impl[]
 //
 // even though no real pybind11_builtins module exists. If pybind11 gains an
 // actual module object in the future, this code should switch to
-// PyType_FromModuleAndSpec for Python 3.9+ and drop the dummy module
-// workaround.
+// PyType_FromModuleAndSpec and drop the dummy module workaround.
 //
 // Note that this name is versioned.
 #define PYBIND11_DETAIL_FUNCTION_RECORD_TP_PLAINNAME                                              \
@@ -126,7 +125,7 @@ inline bool is_function_record_PyObject(PyObject *obj) {
 
 inline function_record *function_record_ptr_from_PyObject(PyObject *obj) {
     if (is_function_record_PyObject(obj)) {
-        return ((detail::function_record_PyObject *) obj)->cpp_func_rec;
+        return (reinterpret_cast<detail::function_record_PyObject *>(obj))->cpp_func_rec;
     }
     return nullptr;
 }
@@ -137,7 +136,7 @@ inline object function_record_PyObject_New() {
         throw error_already_set();
     }
     py_func_rec->cpp_func_rec = nullptr; // For clarity/purity. Redundant in practice.
-    return reinterpret_steal<object>((PyObject *) py_func_rec);
+    return reinterpret_steal<object>(reinterpret_cast<PyObject *>(py_func_rec));
 }
 
 PYBIND11_NAMESPACE_BEGIN(function_record_PyTypeObject_methods)
