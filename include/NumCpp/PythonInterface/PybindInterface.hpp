@@ -33,7 +33,6 @@
 #include "pybind11/pybind11.h"
 
 #include <map>
-#include <utility>
 
 #include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"

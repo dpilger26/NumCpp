@@ -30,7 +30,6 @@
 #include <utility>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Functions/diagflat.hpp"
 #include "NumCpp/Linalg/svd/SVD.hpp"
 #include "NumCpp/NdArray.hpp"
 

@@ -27,15 +27,12 @@
 ///
 #pragma once
 
-#include <algorithm>
-#include <cmath>
 #include <complex>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/norm.hpp"
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Utils/sqr.hpp"
 
 namespace nc
 {

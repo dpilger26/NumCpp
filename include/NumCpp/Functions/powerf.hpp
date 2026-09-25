@@ -27,12 +27,8 @@
 ///
 #pragma once
 
-#include <string>
-
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/powerf.hpp"
 

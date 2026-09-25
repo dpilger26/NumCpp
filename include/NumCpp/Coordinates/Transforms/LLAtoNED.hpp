@@ -28,7 +28,6 @@
 #pragma once
 
 #include "NumCpp/Coordinates/ReferenceFrames/ECEF.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/ENU.hpp"
 #include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
 #include "NumCpp/Coordinates/Transforms/ECEFtoLLA.hpp"
 #include "NumCpp/Coordinates/Transforms/ECEFtoNED.hpp"

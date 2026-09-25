@@ -27,9 +27,6 @@
 ///
 #pragma once
 
-#include <string>
-
-#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Special/factorial.hpp"

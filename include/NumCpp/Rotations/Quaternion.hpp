@@ -40,7 +40,6 @@
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/eye.hpp"
 #include "NumCpp/Functions/norm.hpp"
-#include "NumCpp/Functions/square.hpp"
 #include "NumCpp/Linalg/hat.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"

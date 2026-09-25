@@ -39,8 +39,6 @@
 #include "boost/math/special_functions/beta.hpp"
 #endif
 
-#include <type_traits>
-
 namespace nc::special
 {
     //============================================================================

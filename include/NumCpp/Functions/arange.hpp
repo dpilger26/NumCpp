@@ -27,7 +27,6 @@
 ///
 #pragma once
 
-#include <string>
 #include <vector>
 
 #include "NumCpp/Core/Internal/Error.hpp"

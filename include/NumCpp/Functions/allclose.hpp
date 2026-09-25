@@ -28,12 +28,9 @@
 #pragma once
 
 #include <cmath>
-#include <string>
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Functions/abs.hpp"
-#include "NumCpp/Functions/all.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc

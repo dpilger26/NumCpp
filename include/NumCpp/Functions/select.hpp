@@ -27,8 +27,6 @@
 ///
 #pragma once
 
-#include <cstdlib>
-#include <initializer_list>
 #include <limits>
 #include <vector>
 

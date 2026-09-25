@@ -31,7 +31,6 @@
 
 #if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)
 
-#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 

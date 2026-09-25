@@ -39,8 +39,6 @@
 #include "boost/math/special_functions/expint.hpp"
 #endif
 
-#include <type_traits>
-
 namespace nc::special
 {
     //============================================================================

@@ -40,8 +40,6 @@
 #include "boost/math/special_functions/ellint_2.hpp"
 #endif
 
-#include <type_traits>
-
 namespace nc::special
 {
     //============================================================================

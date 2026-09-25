@@ -2,9 +2,6 @@
 
 #include "BindingsIncludes.hpp"
 
-#include <algorithm>
-#include <numeric>
-
 //================================================================================
 
 namespace FFTInterface

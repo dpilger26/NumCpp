@@ -27,8 +27,6 @@
 ///
 #pragma once
 
-#include <string>
-
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/interp.hpp"

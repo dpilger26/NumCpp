@@ -30,7 +30,6 @@
 #ifndef NUMCPP_NO_USE_BOOST
 
 #include <algorithm>
-#include <string>
 
 #include "boost/random/non_central_chi_squared_distribution.hpp"
 

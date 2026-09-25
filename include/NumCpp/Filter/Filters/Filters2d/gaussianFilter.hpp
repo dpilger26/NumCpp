@@ -28,8 +28,6 @@
 #pragma once
 
 #include <cmath>
-#include <string>
-#include <utility>
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"

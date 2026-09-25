@@ -27,8 +27,6 @@
 ///
 #pragma once
 
-#include <utility>
-
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Linalg/svd.hpp"
 #include "NumCpp/NdArray.hpp"

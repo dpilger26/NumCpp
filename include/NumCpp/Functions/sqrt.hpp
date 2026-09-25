@@ -28,7 +28,6 @@
 #pragma once
 
 #include <cmath>
-#include <complex>
 
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"

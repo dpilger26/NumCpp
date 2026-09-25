@@ -32,8 +32,6 @@
 ///
 #pragma once
 
-#include <functional>
-
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 

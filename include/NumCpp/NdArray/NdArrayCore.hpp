@@ -31,7 +31,6 @@
 #include <cmath>
 #include <deque>
 #include <filesystem>
-#include <forward_list>
 #include <fstream>
 #include <initializer_list>
 #include <iostream>
@@ -39,14 +38,12 @@
 #include <list>
 #include <memory>
 #include <numeric>
-#include <set>
 #include <string>
 #include <type_traits>
 #include <utility>
 #include <vector>
 
 #include "NumCpp/Core/Constants.hpp"
-#include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/Endian.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
@@ -62,7 +59,6 @@
 #include "NumCpp/Utils/essentiallyEqualComplex.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 #include "NumCpp/Utils/power.hpp"
-#include "NumCpp/Utils/sqr.hpp"
 #include "NumCpp/Utils/value2str.hpp"
 
 namespace nc

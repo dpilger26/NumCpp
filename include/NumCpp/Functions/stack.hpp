@@ -28,11 +28,9 @@
 #pragma once
 
 #include <initializer_list>
-#include <string>
 #include <vector>
 
 #include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/column_stack.hpp"
 #include "NumCpp/Functions/row_stack.hpp"
 #include "NumCpp/NdArray.hpp"

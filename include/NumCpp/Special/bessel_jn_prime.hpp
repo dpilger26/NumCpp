@@ -29,8 +29,6 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
-#include <type_traits>
-
 #include "boost/math/special_functions/bessel_prime.hpp"
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"

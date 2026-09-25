@@ -27,7 +27,6 @@
 ///
 #pragma once
 
-#include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/round.hpp"
 #include "NumCpp/Linalg/det.hpp"
 #include "NumCpp/NdArray.hpp"

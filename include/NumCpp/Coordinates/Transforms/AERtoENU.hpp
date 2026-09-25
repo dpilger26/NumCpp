@@ -28,7 +28,6 @@
 #pragma once
 
 #include "NumCpp/Coordinates/ReferenceFrames/AER.hpp"
-#include "NumCpp/Coordinates/ReferenceFrames/NED.hpp"
 #include "NumCpp/Coordinates/Transforms/AERtoNED.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDtoENU.hpp"
 

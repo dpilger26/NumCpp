@@ -28,7 +28,6 @@
 #pragma once
 
 #include <complex>
-#include <string>
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"

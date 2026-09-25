@@ -32,7 +32,6 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
-#include "NumCpp/Utils/sqr.hpp"
 #include "NumCpp/Vector/Vec2.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
 

@@ -32,10 +32,8 @@
 
 #include "NumCpp/Core/Enums.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Functions/fliplr.hpp"
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Utils/powerf.hpp"
 
 namespace nc
 {

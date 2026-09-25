@@ -29,7 +29,6 @@
 
 #include <vector>
 
-#include "NumCpp/Functions/split.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc

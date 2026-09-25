@@ -27,7 +27,7 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray/NdArrayCore.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {

@@ -27,8 +27,6 @@
 ///
 #pragma once
 
-#include <type_traits>
-
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/NdArray.hpp"
 

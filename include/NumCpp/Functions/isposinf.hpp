@@ -28,7 +28,6 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Functions/isinf.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc

@@ -30,7 +30,6 @@
 #include <complex>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc::fft

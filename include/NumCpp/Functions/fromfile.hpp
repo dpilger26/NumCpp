@@ -29,12 +29,10 @@
 
 #include <filesystem>
 #include <fstream>
-#include <memory>
 #include <sstream>
 #include <string>
 
 #include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/fromstring.hpp"
 #include "NumCpp/NdArray.hpp"

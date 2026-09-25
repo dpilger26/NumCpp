@@ -29,7 +29,6 @@
 
 #include <algorithm>
 
-#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 

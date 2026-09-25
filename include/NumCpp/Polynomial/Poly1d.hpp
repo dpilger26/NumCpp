@@ -30,7 +30,6 @@
 #include <iostream>
 #include <numeric>
 #include <string>
-#include <type_traits>
 #include <utility>
 #include <vector>
 
@@ -40,7 +39,6 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Functions/diagflat.hpp"
 #include "NumCpp/Linalg/inv.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"

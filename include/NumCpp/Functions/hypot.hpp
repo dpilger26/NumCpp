@@ -28,11 +28,9 @@
 #pragma once
 
 #include <cmath>
-#include <string>
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 
