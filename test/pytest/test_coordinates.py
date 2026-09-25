@@ -64,6 +64,14 @@ def test_cartesian_ndarray_constructor():
 
 
 ####################################################################################
+def test_cartesian_to_ndarray():
+    x, y, z = np.random.rand(3) * 10
+    c = NumCpp.Cartesian(x, y, z)
+    values = c.toNdArray().getNumpyArray().flatten()
+    assert np.array_equal(values, [x, y, z])
+
+
+####################################################################################
 def test_cartesian_xHat():
     c = NumCpp.Cartesian.xHat()
     assert c.x == 1
@@ -203,6 +211,9 @@ def test_euler():
     euler2 = NumCpp.Euler(theta, psi, phi)
     assert euler != euler2
 
+    values = euler.toNdArray().getNumpyArray().flatten()
+    assert np.array_equal(values, [psi, theta, phi])
+
     if not DISABLE_PRINTS:
         euler.print()
 
@@ -226,6 +237,9 @@ def test_orientation():
     orientation2 = NumCpp.Orientation(pitch, roll, yaw)
     assert orientation != orientation2
 
+    values = orientation.toNdArray().getNumpyArray().flatten()
+    assert np.array_equal(values, [roll, pitch, yaw])
+
     if not DISABLE_PRINTS:
         orientation.print()
 
@@ -235,17 +249,28 @@ def test_aer():
     aer = NumCpp.AER()
     assert aer.az == 0.0
     assert aer.el == 0.0
+    assert aer.range == 0.0
 
     az, el = np.random.rand(2) * np.pi / 4
     aer = NumCpp.AER(az, el)
     assert aer.az == az
     assert aer.el == el
+    assert aer.range == 1.0
 
-    aer2 = NumCpp.AER(az, el)
+    az, el, range_ = np.random.rand(3) * np.pi / 4
+    aer = NumCpp.AER(az, el, range_)
+    assert aer.az == az
+    assert aer.el == el
+    assert aer.range == range_
+
+    aer2 = NumCpp.AER(az, el, range_)
     assert aer == aer2
 
-    aer2 = NumCpp.AER(el, az)
+    aer2 = NumCpp.AER(el, az, range_)
     assert aer != aer2
+
+    values = aer.toNdArray().getNumpyArray().flatten()
+    assert np.array_equal(values, [az, el, range_])
 
     if not DISABLE_PRINTS:
         aer.print()
@@ -350,6 +375,9 @@ def test_geocentric():
     geocentric2 = NumCpp.Geocentric(lon, lat, radius)
     assert geocentric != geocentric2
 
+    values = geocentric.toNdArray().getNumpyArray().flatten()
+    assert np.array_equal(values, [lat, lon, radius])
+
     if not DISABLE_PRINTS:
         geocentric.print()
 
@@ -372,6 +400,9 @@ def test_lla():
 
     lla2 = NumCpp.LLA(lon, lat, alt)
     assert lla != lla2
+
+    values = lla.toNdArray().getNumpyArray().flatten()
+    assert np.array_equal(values, [lat, lon, alt])
 
     if not DISABLE_PRINTS:
         lla.print()

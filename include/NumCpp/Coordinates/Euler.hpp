@@ -29,6 +29,7 @@
 
 #include <iostream>
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
 namespace nc::coordinates
@@ -80,6 +81,16 @@ namespace nc::coordinates
          * @brief Destructor
          */
         virtual ~Euler() = default;
+
+        /**
+         * @brief Convert to NdArray
+         *
+         */
+        [[nodiscard]] NdArray<double> toNdArray() const
+        {
+            NdArray<double> returnArray = { psi, theta, phi };
+            return returnArray.transpose();
+        }
 
         /**
          * @brief Copy Assignement Operator

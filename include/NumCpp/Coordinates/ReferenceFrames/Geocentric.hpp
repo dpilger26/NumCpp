@@ -29,6 +29,7 @@
 
 #include <iostream>
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
 namespace nc::coordinates::reference_frames
@@ -60,6 +61,16 @@ namespace nc::coordinates::reference_frames
             longitude(inLongitude),
             radius(inRadius)
         {
+        }
+
+        /**
+         * @brief Convert to NdArray
+         *
+         */
+        [[nodiscard]] NdArray<double> toNdArray() const
+        {
+            NdArray<double> returnArray = { latitude, longitude, radius };
+            return returnArray.transpose();
         }
 
         /**

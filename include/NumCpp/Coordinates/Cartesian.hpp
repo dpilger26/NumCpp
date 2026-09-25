@@ -127,6 +127,16 @@ namespace nc::coordinates
         virtual ~Cartesian() = default;
 
         /**
+         * @brief Convert to NdArray
+         *
+         */
+        [[nodiscard]] NdArray<double> toNdArray() const
+        {
+            NdArray<double> returnArray = { x, y, z };
+            return returnArray.transpose();
+        }
+
+        /**
          * @brief Copy Assignement Operator
          *
          * @param other: the other Cartesian instance

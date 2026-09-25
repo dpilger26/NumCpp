@@ -30,6 +30,7 @@
 
 #include <iostream>
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
 namespace nc::coordinates::reference_frames
@@ -62,6 +63,16 @@ namespace nc::coordinates::reference_frames
             el(inEl),
             range(inRange)
         {
+        }
+
+        /**
+         * @brief Convert to NdArray
+         *
+         */
+        [[nodiscard]] NdArray<double> toNdArray() const
+        {
+            NdArray<double> returnArray = { az, el, range };
+            return returnArray.transpose();
         }
 
         /**
