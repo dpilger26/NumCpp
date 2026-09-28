@@ -53,5 +53,7 @@
 #include "NumCpp/Coordinates/Transforms/NEDtoAER.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDtoENU.hpp"
 #include "NumCpp/Coordinates/Transforms/NEDtoLLA.hpp"
+#include "NumCpp/Coordinates/Transforms/cart2sph.hpp"
 #include "NumCpp/Coordinates/Transforms/geocentricRadius.hpp"
 #include "NumCpp/Coordinates/Transforms/geocentricToLLA.hpp"
+#include "NumCpp/Coordinates/Transforms/sph2cart.hpp"

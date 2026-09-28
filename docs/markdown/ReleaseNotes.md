@@ -8,6 +8,8 @@
 * added `toNdarray` to `coordinates::reference_frames::AER`
 * added `toNdarray` to `coordinates::reference_frames::Geocentric`
 * added `toNdarray` to `coordinates::reference_frames::LLA`
+* added `coordinates::transforms::cart2sph`
+* added `coordinates::transforms::sph2cart`
 * include cleanup
 
 ## Version 2.17.0

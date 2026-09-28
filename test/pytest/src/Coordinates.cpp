@@ -235,6 +235,7 @@ void initCoordinates(pb11::module& m)
           [](const coordinates::reference_frames::AER& target, const coordinates::reference_frames::LLA& referencePoint)
           { return coordinates::transforms::AERtoLLA(target, referencePoint); });
     m.def("AERtoNED", &coordinates::transforms::AERtoNED);
+    m.def("cart2sph", &coordinates::transforms::cart2sph);
     m.def("ECEFEulerToENURollPitchYaw", &coordinates::transforms::ECEFEulerToENURollPitchYaw);
     m.def("ECEFEulerToNEDRollPitchYaw", &coordinates::transforms::ECEFEulerToNEDRollPitchYaw);
     m.def(
@@ -323,4 +324,5 @@ void initCoordinates(pb11::module& m)
           [](const coordinates::reference_frames::NED& target, const coordinates::reference_frames::LLA& referencePoint)
           { return coordinates::transforms::NEDtoLLA(target, referencePoint); });
     m.def("NEDUnitVecsInECEF", &coordinates::transforms::NEDUnitVecsInECEF);
+    m.def("sph2cart", &coordinates::transforms::sph2cart);
 }

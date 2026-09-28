@@ -3,6 +3,7 @@ from astropy.coordinates import SkyCoord
 from astropy.coordinates import Latitude, Longitude  # Angles
 import astropy.units as u
 import pymap3d
+from pymap3d import utils as pymap3d_utils
 import pytest
 
 import NumCppPy as NumCpp  # noqa E402
@@ -898,6 +899,17 @@ def test_AERtoNED():
     np.testing.assert_approx_equal(ned.east, east, 5)
     np.testing.assert_approx_equal(ned.down, down, 5)
 
+####################################################################################
+def test_cart2sph():
+    for _ in range(10):
+        x, y, z = np.random.rand(3) * 100
+        cartesian = NumCpp.Cartesian(x, y, z)
+        spherical = NumCpp.cart2sph(cartesian)
+        pymap3d_sph = pymap3d_utils.cart2sph(cartesian.x, cartesian.y, cartesian.z)
+        np.testing.assert_approx_equal(spherical.range, pymap3d_sph[0], 5)
+        np.testing.assert_approx_equal(spherical.el, pymap3d_sph[1], 5)
+        np.testing.assert_approx_equal(spherical.az, pymap3d_sph[2], 5)
+
 
 ####################################################################################
 def test_ECEFEulerToNEDRollPitchYaw():
@@ -1295,3 +1307,16 @@ def test_NEDtoLLA():
     np.testing.assert_approx_equal(lla.latitude, lat1, 5)
     np.testing.assert_approx_equal(lla.longitude, lon1, 5)
     np.testing.assert_approx_equal(lla.altitude, alt1, 5)
+
+####################################################################################
+def test_sph2cart():
+    for _ in range(10):
+        az = (np.random.rand(1) * 2 * np.pi).item()
+        el = (np.random.rand(1) * np.pi - np.pi / 2).item()
+        range_ = (np.random.rand(1) * 100).item()
+        spherical = NumCpp.AER(az, el, range_)
+        cartesian = NumCpp.sph2cart(spherical)
+        pymap3d_cart = pymap3d_utils.sph2cart(spherical.az, spherical.el, spherical.range)
+        np.testing.assert_approx_equal(cartesian.x, pymap3d_cart[0], 5)
+        np.testing.assert_approx_equal(cartesian.y, pymap3d_cart[1], 5)
+        np.testing.assert_approx_equal(cartesian.z, pymap3d_cart[2], 5)
