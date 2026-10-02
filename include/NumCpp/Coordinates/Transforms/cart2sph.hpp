@@ -46,6 +46,6 @@ namespace nc::coordinates::transforms
         const auto range     = std::hypot(hxy, cartesian.z);
         const auto elevation = std::atan2(cartesian.z, hxy);
         const auto azimuth   = std::atan2(cartesian.y, cartesian.x);
-        return reference_frames::AER{ range, elevation, azimuth };
+        return reference_frames::AER{ azimuth, elevation, range };
     }
 } // namespace nc::coordinates::transforms

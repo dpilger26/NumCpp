@@ -906,10 +906,10 @@ def test_cart2sph():
         cartesian = NumCpp.Cartesian(x, y, z)
         spherical = NumCpp.cart2sph(cartesian)
         pymap3d_sph = pymap3d_utils.cart2sph(cartesian.x, cartesian.y, cartesian.z)
-        np.testing.assert_approx_equal(spherical.range, pymap3d_sph[0], 5)
+        np.testing.assert_approx_equal(spherical.az, pymap3d_sph[0], 5)
         np.testing.assert_approx_equal(spherical.el, pymap3d_sph[1], 5)
-        np.testing.assert_approx_equal(spherical.az, pymap3d_sph[2], 5)
-
+        np.testing.assert_approx_equal(spherical.range, pymap3d_sph[2], 5)
+        
 
 ####################################################################################
 def test_ECEFEulerToNEDRollPitchYaw():
