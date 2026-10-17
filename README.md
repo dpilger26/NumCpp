@@ -68,13 +68,13 @@ Many initializer functions are provided that return `NdArray`s for common needs.
 |    ```np.arange(3, 7)```    |             ```nc::arange<dtype>(3, 7)```              |
 |       ```np.eye(4)```       |                ```nc::eye<dtype>(4)```                 |
 |   ```np.zeros([3, 4])```    |              ```nc::zeros<dtype>(3, 4)```              |
-|                             |          ```nc::NdArray<dtype>(3, 4) a = 0```          |
+|                             |       ```nc::NdArray<dtype> a(3, 4); a = 0```       |
 |    ```np.ones([3, 4])```    |              ```nc::ones<dtype>(3, 4)```               |
-|                             |          ```nc::NdArray<dtype>(3, 4) a = 1```          |
+|                             |       ```nc::NdArray<dtype> a(3, 4); a = 1```       |
 |    ```np.nans([3, 4])```    |                  ```nc::nans(3, 4)```                  |
-|                             | ```nc::NdArray<double>(3, 4) a = nc::constants::nan``` |
+|                             | ```nc::NdArray<double> a(3, 4); a = nc::constants::nan``` |
 |   ```np.empty([3, 4])```    |              ```nc::empty<dtype>(3, 4)```              |
-|                             |            ```nc::NdArray<dtype>(3, 4) a```            |
+|                             |            ```nc::NdArray<dtype> a(3, 4)```            |
 
 ### SLICING/BROADCASTING
 
