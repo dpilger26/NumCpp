@@ -10,7 +10,10 @@
 * added `toNdarray` to `coordinates::reference_frames::LLA`
 * added `coordinates::transforms::cart2sph`
 * added `coordinates::transforms::sph2cart`
-* include cleanup
+* added `Quaternion::rotate` on `Cartesian`
+* added `Quaternion::angularSeperation`
+* added additional `Cartesian` and `Vec2`/`Vec3` interoperability
+* includes cleanup
 
 ## Version 2.17.0
 

@@ -7,6 +7,7 @@ import NumCppPy as NumCpp  # noqa E402
 
 DISABLE_STREAMS = True
 
+
 ####################################################################################
 def test_datetime():
     if NumCpp.NUMCPP_NO_USE_BOOST:

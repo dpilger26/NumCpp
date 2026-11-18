@@ -7,7 +7,7 @@ DISABLE_PRINTS = True
 
 ####################################################################################
 def test_seed():
-    np.random.seed(666)
+    np.random.seed(667)
 
 
 ####################################################################################
@@ -81,6 +81,22 @@ def test_quaternion():
             3,
         ],
     )
+    normAxis = axis / np.linalg.norm(axis)
+    angle = np.random.rand(1).item() * np.pi
+    quat = NumCpp.Quaternion(NumCpp.Cartesian(*axis), angle)
+    assert np.round(quat.angleOfRotation(), 8) == np.round(angle, 8)
+    axisOfRotation = quat.axisOfRotation()
+    assert np.round(axisOfRotation.x, 8) == np.round(normAxis[0], 8)
+    assert np.round(axisOfRotation.y, 8) == np.round(normAxis[1], 8)
+    assert np.round(axisOfRotation.z, 8) == np.round(normAxis[2], 8)
+
+    axis = np.random.randint(
+        1,
+        10,
+        [
+            3,
+        ],
+    )
     angle = np.random.rand(1).item() * np.pi
     cAxis = NumCpp.NdArray(1, 3)
     cAxis.setArray(axis)
@@ -103,6 +119,20 @@ def test_quaternion():
         np.round(NumCpp.Quaternion.angleAxisRotationVec3(cAxis, angle).flatten(), 10),
         np.round(quatRotateAngleAxis(axis, angle), 10),
     )
+
+    axis = np.random.randint(
+        1,
+        10,
+        [
+            3,
+        ],
+    )
+    normAxis = axis / np.linalg.norm(axis)
+    angle = np.random.rand(1).item() * np.pi
+    quat0 = NumCpp.Quaternion(NumCpp.Cartesian(*axis), 0)
+    quat1 = NumCpp.Quaternion(NumCpp.Cartesian(*axis), angle)
+    angularSep = quat0.angularSeperation(quat1)
+    assert np.round(angularSep, 10) == np.round(angle, 10)
 
     time = np.abs(np.random.randn(1) * 5).item()
     x1 = np.random.rand(3, 1).flatten()
@@ -136,6 +166,7 @@ def test_quaternion():
     )
     quat0 = NumCpp.Quaternion(q0[0], q0[1], q0[2], q0[3])
     quat1 = NumCpp.Quaternion(q1[0], q1[1], q1[2], q1[3])
+
     crossTo = quat0.rotateNdArray(cCross).flatten()
 
     w = quat0.angularVelocity(quat1, time).flatten()
@@ -228,7 +259,7 @@ def test_quaternion():
     ## propagate tests
     def wrap(angle: float) -> float:
         angle = np.fmod(angle + np.pi, np.pi * 2)
-        if (angle < 0.):
+        if angle < 0.0:
             angle += np.pi * 2
         return angle - np.pi
 
@@ -468,6 +499,21 @@ def test_quaternion():
     newVecPy = np.array(cQuat.toDCM()).dot(np.array(vec))
     assert np.array_equal(np.round(newVec.flatten(), 10), np.round(newVecPy.flatten(), 10))
 
+    myQuat = np.random.randint(
+        1,
+        5,
+        [
+            4,
+        ],
+    ).astype(float)
+    cQuat = NumCpp.Quaternion(myQuat[0].item(), myQuat[1].item(), myQuat[2].item(), myQuat[3].item())
+    vec = np.random.rand(3, 1) * 10
+    cVec = NumCpp.NdArray(3, 1)
+    cVec.setArray(vec)
+    newVec = cQuat.rotateCartesian(cVec)
+    newVecPy = np.array(cQuat.toDCM()).dot(np.array(vec))
+    assert np.array_equal(np.round(newVec.flatten(), 10), np.round(newVecPy.flatten(), 10))
+
     myQuat1 = np.random.randint(
         1,
         5,
@@ -698,6 +744,13 @@ def test_dcm():
     cAxis = NumCpp.NdArray(1, 3)
     cAxis.setArray(axis)
     rot = NumCpp.DCM.angleAxisRotationVec3(cAxis, radians.item())
+    assert np.all(np.round(rot, 10) == np.round(angleAxisRotation(axis, radians.item()), 10))
+
+    radians = np.random.rand(1) * 2 * np.pi
+    axis = np.random.rand(3)
+    cAxis = NumCpp.NdArray(1, 3)
+    cAxis.setArray(axis)
+    rot = NumCpp.DCM.angleAxisRotationCartesian(cAxis, radians.item())
     assert np.all(np.round(rot, 10) == np.round(angleAxisRotation(axis, radians.item()), 10))
 
     radians = np.random.rand(1) * 2 * np.pi

@@ -27,7 +27,8 @@ def test_fft():
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
         assert np.array_equal(
-            np.round(NumCpp.fft(cArray, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.fft(data.flatten()), ROUNDING_DIGITS)
+            np.round(NumCpp.fft(cArray, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.fft(data.flatten()), ROUNDING_DIGITS),
         )
 
         # real input, axis none, smaller n
@@ -44,7 +45,8 @@ def test_fft():
         cArray.setArray(data)
         n = np.random.randint(1, data.size)
         assert np.array_equal(
-            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.fft(data.flatten(), n), ROUNDING_DIGITS)
+            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.fft(data.flatten(), n), ROUNDING_DIGITS),
         )
 
         # real input, axis none, larger n
@@ -61,7 +63,8 @@ def test_fft():
         cArray.setArray(data)
         n = np.random.randint(data.size, data.size + 20)
         assert np.array_equal(
-            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.fft(data.flatten(), n), ROUNDING_DIGITS)
+            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.fft(data.flatten(), n), ROUNDING_DIGITS),
         )
 
         # complex input, axis none, default n
@@ -79,7 +82,8 @@ def test_fft():
         data = real + 1j * imag
         cArray.setArray(data)
         assert np.array_equal(
-            np.round(NumCpp.fft(cArray, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.fft(data.flatten()), ROUNDING_DIGITS)
+            np.round(NumCpp.fft(cArray, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.fft(data.flatten()), ROUNDING_DIGITS),
         )
 
         # complex input, axis none, smaller n
@@ -98,7 +102,8 @@ def test_fft():
         cArray.setArray(data)
         n = np.random.randint(1, data.size)
         assert np.array_equal(
-            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.fft(data.flatten(), n), ROUNDING_DIGITS)
+            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.fft(data.flatten(), n), ROUNDING_DIGITS),
         )
 
         # complex input, axis none, larger n
@@ -117,7 +122,8 @@ def test_fft():
         cArray.setArray(data)
         n = np.random.randint(data.size, data.size + 20)
         assert np.array_equal(
-            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.fft(data.flatten(), n), ROUNDING_DIGITS)
+            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.fft(data.flatten(), n), ROUNDING_DIGITS),
         )
 
         # real input, axis row, default n
@@ -132,7 +138,10 @@ def test_fft():
         cArray = NumCpp.NdArray(shape)
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
-        assert np.array_equal(np.round(NumCpp.fft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.fft(data, axis=0), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.fft(data, axis=0), ROUNDING_DIGITS),
+        )
 
         # real input, axis row, smaller n
         shapeInput = np.random.randint(
@@ -147,7 +156,10 @@ def test_fft():
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
         n = np.random.randint(1, shape.rows)
-        assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.fft(data, n, axis=0), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.fft(data, n, axis=0), ROUNDING_DIGITS),
+        )
 
         # real input, axis row, larger n
         shapeInput = np.random.randint(
@@ -162,7 +174,10 @@ def test_fft():
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
         n = np.random.randint(shape.rows, shape.rows + 20)
-        assert np.array_equal(np.round(NumCpp.fft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.fft(data, axis=0), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.fft(data, axis=0), ROUNDING_DIGITS),
+        )
 
         # complex input, axis row, default n
         shapeInput = np.random.randint(
@@ -178,7 +193,10 @@ def test_fft():
         imag = np.random.randint(1, 100, [shape.rows, shape.cols])
         data = real + 1j * imag
         cArray.setArray(data)
-        assert np.array_equal(np.round(NumCpp.fft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.fft(data, axis=0), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.fft(data, axis=0), ROUNDING_DIGITS),
+        )
 
         # complex input, axis row, smaller n
         shapeInput = np.random.randint(
@@ -195,7 +213,10 @@ def test_fft():
         data = real + 1j * imag
         cArray.setArray(data)
         n = np.random.randint(1, shape.rows)
-        assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.fft(data, n, axis=0), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.fft(data, n, axis=0), ROUNDING_DIGITS),
+        )
 
         # complex input, axis row, larger n
         shapeInput = np.random.randint(
@@ -212,7 +233,10 @@ def test_fft():
         data = real + 1j * imag
         cArray.setArray(data)
         n = np.random.randint(shape.rows, shape.rows + 20)
-        assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.fft(data, n, axis=0), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.fft(data, n, axis=0), ROUNDING_DIGITS),
+        )
 
         # real input, axis col, default n
         shapeInput = np.random.randint(
@@ -226,7 +250,10 @@ def test_fft():
         cArray = NumCpp.NdArray(shape)
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
-        assert np.array_equal(np.round(NumCpp.fft(cArray, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.fft(data, axis=1), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft(cArray, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.fft(data, axis=1), ROUNDING_DIGITS),
+        )
 
         # real input, axis col, smaller n
         shapeInput = np.random.randint(
@@ -241,7 +268,10 @@ def test_fft():
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
         n = np.random.randint(1, shape.cols)
-        assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.fft(data, n, axis=1), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.fft(data, n, axis=1), ROUNDING_DIGITS),
+        )
 
         # real input, axis col, larger n
         shapeInput = np.random.randint(
@@ -256,7 +286,10 @@ def test_fft():
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
         n = np.random.randint(shape.cols, shape.cols + 20)
-        assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.fft(data, n, axis=1), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.fft(data, n, axis=1), ROUNDING_DIGITS),
+        )
 
         # complex input, axis col, default n
         shapeInput = np.random.randint(
@@ -272,7 +305,10 @@ def test_fft():
         imag = np.random.randint(1, 100, [shape.rows, shape.cols])
         data = real + 1j * imag
         cArray.setArray(data)
-        assert np.array_equal(np.round(NumCpp.fft(cArray, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.fft(data, axis=1), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft(cArray, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.fft(data, axis=1), ROUNDING_DIGITS),
+        )
 
         # complex input, axis col, smaller n
         shapeInput = np.random.randint(
@@ -289,7 +325,10 @@ def test_fft():
         data = real + 1j * imag
         cArray.setArray(data)
         n = np.random.randint(1, shape.cols)
-        assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.fft(data, n, axis=1), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.fft(data, n, axis=1), ROUNDING_DIGITS),
+        )
 
         # complex input, axis col, larger n
         shapeInput = np.random.randint(
@@ -306,7 +345,10 @@ def test_fft():
         data = real + 1j * imag
         cArray.setArray(data)
         n = np.random.randint(shape.cols, shape.cols + 20)
-        assert np.array_equal(np.round(NumCpp.fft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.fft(data, n, axis=1), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.fft(data, n, axis=1), ROUNDING_DIGITS),
+        )
 
 
 ####################################################################################
@@ -325,7 +367,8 @@ def test_ifft():
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
         assert np.array_equal(
-            np.round(NumCpp.ifft(cArray, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.ifft(data.flatten()), ROUNDING_DIGITS)
+            np.round(NumCpp.ifft(cArray, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.ifft(data.flatten()), ROUNDING_DIGITS),
         )
 
         # real input, axis none, smaller n
@@ -342,7 +385,8 @@ def test_ifft():
         cArray.setArray(data)
         n = np.random.randint(1, data.size)
         assert np.array_equal(
-            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.ifft(data.flatten(), n), ROUNDING_DIGITS)
+            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.ifft(data.flatten(), n), ROUNDING_DIGITS),
         )
 
         # real input, axis none, larger n
@@ -359,7 +403,8 @@ def test_ifft():
         cArray.setArray(data)
         n = np.random.randint(data.size, data.size + 20)
         assert np.array_equal(
-            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.ifft(data.flatten(), n), ROUNDING_DIGITS)
+            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.ifft(data.flatten(), n), ROUNDING_DIGITS),
         )
 
         # complex input, axis none, default n
@@ -377,7 +422,8 @@ def test_ifft():
         data = real + 1j * imag
         cArray.setArray(data)
         assert np.array_equal(
-            np.round(NumCpp.ifft(cArray, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.ifft(data.flatten()), ROUNDING_DIGITS)
+            np.round(NumCpp.ifft(cArray, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.ifft(data.flatten()), ROUNDING_DIGITS),
         )
 
         # complex input, axis none, smaller n
@@ -396,7 +442,8 @@ def test_ifft():
         cArray.setArray(data)
         n = np.random.randint(1, data.size)
         assert np.array_equal(
-            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.ifft(data.flatten(), n), ROUNDING_DIGITS)
+            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.ifft(data.flatten(), n), ROUNDING_DIGITS),
         )
 
         # complex input, axis none, larger n
@@ -415,7 +462,8 @@ def test_ifft():
         cArray.setArray(data)
         n = np.random.randint(data.size, data.size + 20)
         assert np.array_equal(
-            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.ifft(data.flatten(), n), ROUNDING_DIGITS)
+            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.ifft(data.flatten(), n), ROUNDING_DIGITS),
         )
 
         # real input, axis row, default n
@@ -430,7 +478,10 @@ def test_ifft():
         cArray = NumCpp.NdArray(shape)
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
-        assert np.array_equal(np.round(NumCpp.ifft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.ifft(data, axis=0), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.ifft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.ifft(data, axis=0), ROUNDING_DIGITS),
+        )
 
         # real input, axis row, smaller n
         shapeInput = np.random.randint(
@@ -446,7 +497,8 @@ def test_ifft():
         cArray.setArray(data)
         n = np.random.randint(1, shape.rows)
         assert np.array_equal(
-            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.ifft(data, n, axis=0), ROUNDING_DIGITS)
+            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.ifft(data, n, axis=0), ROUNDING_DIGITS),
         )
 
         # real input, axis row, larger n
@@ -462,7 +514,10 @@ def test_ifft():
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
         n = np.random.randint(shape.rows, shape.rows + 20)
-        assert np.array_equal(np.round(NumCpp.ifft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.ifft(data, axis=0), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.ifft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.ifft(data, axis=0), ROUNDING_DIGITS),
+        )
 
         # complex input, axis row, default n
         shapeInput = np.random.randint(
@@ -478,7 +533,10 @@ def test_ifft():
         imag = np.random.randint(1, 100, [shape.rows, shape.cols])
         data = real + 1j * imag
         cArray.setArray(data)
-        assert np.array_equal(np.round(NumCpp.ifft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.ifft(data, axis=0), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.ifft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.ifft(data, axis=0), ROUNDING_DIGITS),
+        )
 
         # complex input, axis row, smaller n
         shapeInput = np.random.randint(
@@ -496,7 +554,8 @@ def test_ifft():
         cArray.setArray(data)
         n = np.random.randint(1, shape.rows)
         assert np.array_equal(
-            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.ifft(data, n, axis=0), ROUNDING_DIGITS)
+            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.ifft(data, n, axis=0), ROUNDING_DIGITS),
         )
 
         # complex input, axis row, larger n
@@ -515,7 +574,8 @@ def test_ifft():
         cArray.setArray(data)
         n = np.random.randint(shape.rows, shape.rows + 20)
         assert np.array_equal(
-            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.ifft(data, n, axis=0), ROUNDING_DIGITS)
+            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.ifft(data, n, axis=0), ROUNDING_DIGITS),
         )
 
         # real input, axis col, default n
@@ -530,7 +590,10 @@ def test_ifft():
         cArray = NumCpp.NdArray(shape)
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
-        assert np.array_equal(np.round(NumCpp.ifft(cArray, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.ifft(data, axis=1), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.ifft(cArray, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.ifft(data, axis=1), ROUNDING_DIGITS),
+        )
 
         # real input, axis col, smaller n
         shapeInput = np.random.randint(
@@ -546,7 +609,8 @@ def test_ifft():
         cArray.setArray(data)
         n = np.random.randint(1, shape.cols)
         assert np.array_equal(
-            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.ifft(data, n, axis=1), ROUNDING_DIGITS)
+            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.ifft(data, n, axis=1), ROUNDING_DIGITS),
         )
 
         # real input, axis col, larger n
@@ -563,7 +627,8 @@ def test_ifft():
         cArray.setArray(data)
         n = np.random.randint(shape.cols, shape.cols + 20)
         assert np.array_equal(
-            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.ifft(data, n, axis=1), ROUNDING_DIGITS)
+            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.ifft(data, n, axis=1), ROUNDING_DIGITS),
         )
 
         # complex input, axis col, default n
@@ -580,7 +645,10 @@ def test_ifft():
         imag = np.random.randint(1, 100, [shape.rows, shape.cols])
         data = real + 1j * imag
         cArray.setArray(data)
-        assert np.array_equal(np.round(NumCpp.ifft(cArray, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.ifft(data, axis=1), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.ifft(cArray, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.ifft(data, axis=1), ROUNDING_DIGITS),
+        )
 
         # complex input, axis col, smaller n
         shapeInput = np.random.randint(
@@ -598,7 +666,8 @@ def test_ifft():
         cArray.setArray(data)
         n = np.random.randint(1, shape.cols)
         assert np.array_equal(
-            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.ifft(data, n, axis=1), ROUNDING_DIGITS)
+            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.ifft(data, n, axis=1), ROUNDING_DIGITS),
         )
 
         # complex input, axis col, larger n
@@ -617,7 +686,8 @@ def test_ifft():
         cArray.setArray(data)
         n = np.random.randint(shape.cols, shape.cols + 20)
         assert np.array_equal(
-            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.ifft(data, n, axis=1), ROUNDING_DIGITS)
+            np.round(NumCpp.ifft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.ifft(data, n, axis=1), ROUNDING_DIGITS),
         )
 
 
@@ -697,7 +767,9 @@ def test_fft2():
         cShape = NumCpp.Shape(*shapeInput)
         cArray = NumCpp.NdArray(cShape)
         cArray.setArray(data)
-        assert np.array_equal(np.round(NumCpp.fft2(cArray), ROUNDING_DIGITS), np.round(np.fft.fft2(data), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft2(cArray), ROUNDING_DIGITS), np.round(np.fft.fft2(data), ROUNDING_DIGITS)
+        )
 
         shapeInput = np.random.randint(
             10,
@@ -711,7 +783,10 @@ def test_fft2():
         cArray = NumCpp.NdArray(cShape)
         cArray.setArray(data)
         s = [np.random.randint(1, shapeInput[0]), np.random.randint(1, shapeInput[1])]
-        assert np.array_equal(np.round(NumCpp.fft2(cArray, NumCpp.Shape(*s)), ROUNDING_DIGITS), np.round(np.fft.fft2(data, s), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.fft2(cArray, NumCpp.Shape(*s)), ROUNDING_DIGITS),
+            np.round(np.fft.fft2(data, s), ROUNDING_DIGITS),
+        )
 
 
 ####################################################################################
@@ -728,7 +803,9 @@ def test_ifft2():
         cShape = NumCpp.Shape(*shapeInput)
         cArray = NumCpp.NdArray(cShape)
         cArray.setArray(data)
-        assert np.array_equal(np.round(NumCpp.ifft2(cArray), ROUNDING_DIGITS), np.round(np.fft.ifft2(data), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.ifft2(cArray), ROUNDING_DIGITS), np.round(np.fft.ifft2(data), ROUNDING_DIGITS)
+        )
 
         shapeInput = np.random.randint(
             10,
@@ -742,7 +819,10 @@ def test_ifft2():
         cArray = NumCpp.NdArray(cShape)
         cArray.setArray(data)
         s = [np.random.randint(1, shapeInput[0]), np.random.randint(1, shapeInput[1])]
-        assert np.array_equal(np.round(NumCpp.ifft2(cArray, NumCpp.Shape(*s)), ROUNDING_DIGITS), np.round(np.fft.ifft2(data, s), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.ifft2(cArray, NumCpp.Shape(*s)), ROUNDING_DIGITS),
+            np.round(np.fft.ifft2(data, s), ROUNDING_DIGITS),
+        )
 
 
 ####################################################################################
@@ -761,7 +841,8 @@ def test_rfft():
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
         assert np.array_equal(
-            np.round(NumCpp.rfft(cArray, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.rfft(data.flatten()), ROUNDING_DIGITS)
+            np.round(NumCpp.rfft(cArray, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.rfft(data.flatten()), ROUNDING_DIGITS),
         )
 
         # real input, axis none, smaller n
@@ -778,7 +859,8 @@ def test_rfft():
         cArray.setArray(data)
         n = np.random.randint(1, data.size)
         assert np.array_equal(
-            np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.rfft(data.flatten(), n), ROUNDING_DIGITS)
+            np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.rfft(data.flatten(), n), ROUNDING_DIGITS),
         )
 
         # real input, axis none, larger n
@@ -795,7 +877,8 @@ def test_rfft():
         cArray.setArray(data)
         n = np.random.randint(data.size, data.size + 20)
         assert np.array_equal(
-            np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.rfft(data.flatten(), n), ROUNDING_DIGITS)
+            np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.rfft(data.flatten(), n), ROUNDING_DIGITS),
         )
 
         # real input, axis row, default n
@@ -810,7 +893,10 @@ def test_rfft():
         cArray = NumCpp.NdArray(shape)
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
-        assert np.array_equal(np.round(NumCpp.rfft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.rfft(data, axis=0), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.rfft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.rfft(data, axis=0), ROUNDING_DIGITS),
+        )
 
         # real input, axis row, smaller n
         shapeInput = np.random.randint(
@@ -826,7 +912,8 @@ def test_rfft():
         cArray.setArray(data)
         n = np.random.randint(1, shape.rows)
         assert np.array_equal(
-            np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.rfft(data, n, axis=0), ROUNDING_DIGITS)
+            np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.rfft(data, n, axis=0), ROUNDING_DIGITS),
         )
 
         # real input, axis row, larger n
@@ -842,7 +929,10 @@ def test_rfft():
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
         n = np.random.randint(shape.rows, shape.rows + 20)
-        assert np.array_equal(np.round(NumCpp.rfft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.rfft(data, axis=0), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.rfft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.rfft(data, axis=0), ROUNDING_DIGITS),
+        )
 
         # real input, axis col, default n
         shapeInput = np.random.randint(
@@ -856,7 +946,10 @@ def test_rfft():
         cArray = NumCpp.NdArray(shape)
         data = np.random.randint(0, 100, [shape.rows, shape.cols])
         cArray.setArray(data)
-        assert np.array_equal(np.round(NumCpp.rfft(cArray, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.rfft(data, axis=1), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.rfft(cArray, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.rfft(data, axis=1), ROUNDING_DIGITS),
+        )
 
         # real input, axis col, smaller n
         shapeInput = np.random.randint(
@@ -872,7 +965,8 @@ def test_rfft():
         cArray.setArray(data)
         n = np.random.randint(1, shape.cols)
         assert np.array_equal(
-            np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.rfft(data, n, axis=1), ROUNDING_DIGITS)
+            np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.rfft(data, n, axis=1), ROUNDING_DIGITS),
         )
 
         # real input, axis col, larger n
@@ -889,7 +983,8 @@ def test_rfft():
         cArray.setArray(data)
         n = np.random.randint(shape.cols, shape.cols + 20)
         assert np.array_equal(
-            np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.rfft(data, n, axis=1), ROUNDING_DIGITS)
+            np.round(NumCpp.rfft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.rfft(data, n, axis=1), ROUNDING_DIGITS),
         )
 
 
@@ -904,7 +999,8 @@ def test_irfft():
         cArray = NumCpp.NdArrayComplexDouble(cShape)
         cArray.setArray(rfft)
         assert np.array_equal(
-            np.round(NumCpp.irfft(cArray, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.irfft(rfft.flatten()), ROUNDING_DIGITS)
+            np.round(NumCpp.irfft(cArray, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.irfft(rfft.flatten()), ROUNDING_DIGITS),
         )
 
         # axis none, smaller n
@@ -916,7 +1012,8 @@ def test_irfft():
         cArray = NumCpp.NdArrayComplexDouble(cShape)
         cArray.setArray(rfft)
         assert np.array_equal(
-            np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.irfft(rfft.flatten(), n), ROUNDING_DIGITS)
+            np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.irfft(rfft.flatten(), n), ROUNDING_DIGITS),
         )
 
         # axis none, larger n
@@ -928,7 +1025,8 @@ def test_irfft():
         cArray = NumCpp.NdArrayComplexDouble(cShape)
         cArray.setArray(rfft)
         assert np.array_equal(
-            np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(), np.round(np.fft.irfft(rfft.flatten(), n), ROUNDING_DIGITS)
+            np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.NONE), ROUNDING_DIGITS).flatten(),
+            np.round(np.fft.irfft(rfft.flatten(), n), ROUNDING_DIGITS),
         )
 
         # axis Row, default n
@@ -944,7 +1042,10 @@ def test_irfft():
         cShape = NumCpp.Shape(rfft.shape[0], rfft.shape[1])
         cArray = NumCpp.NdArrayComplexDouble(cShape)
         cArray.setArray(rfft)
-        assert np.array_equal(np.round(NumCpp.irfft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.irfft(rfft, axis=0), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.irfft(cArray, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.irfft(rfft, axis=0), ROUNDING_DIGITS),
+        )
 
         # axis Row, smaller n
         shapeInput = np.random.randint(
@@ -965,7 +1066,8 @@ def test_irfft():
         # )
         print(
             np.array_equal(
-                np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.irfft(rfft, n, axis=0), ROUNDING_DIGITS)
+                np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+                np.round(np.fft.irfft(rfft, n, axis=0), ROUNDING_DIGITS),
             )
         )
 
@@ -984,7 +1086,8 @@ def test_irfft():
         cArray = NumCpp.NdArrayComplexDouble(cShape)
         cArray.setArray(rfft)
         assert np.array_equal(
-            np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS), np.round(np.fft.irfft(rfft, n, axis=0), ROUNDING_DIGITS)
+            np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.ROW), ROUNDING_DIGITS),
+            np.round(np.fft.irfft(rfft, n, axis=0), ROUNDING_DIGITS),
         )
 
         # axis Col, default n
@@ -1000,7 +1103,10 @@ def test_irfft():
         cShape = NumCpp.Shape(rfft.shape[0], rfft.shape[1])
         cArray = NumCpp.NdArrayComplexDouble(cShape)
         cArray.setArray(rfft)
-        assert np.array_equal(np.round(NumCpp.irfft(cArray, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.irfft(rfft, axis=1), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.irfft(cArray, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.irfft(rfft, axis=1), ROUNDING_DIGITS),
+        )
 
         # axis Col, smaller n
         shapeInput = np.random.randint(
@@ -1017,7 +1123,8 @@ def test_irfft():
         cArray = NumCpp.NdArrayComplexDouble(cShape)
         cArray.setArray(rfft)
         assert np.array_equal(
-            np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.irfft(rfft, n, axis=1), ROUNDING_DIGITS)
+            np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.irfft(rfft, n, axis=1), ROUNDING_DIGITS),
         )
 
         # axis Col, larger n
@@ -1035,7 +1142,8 @@ def test_irfft():
         cArray = NumCpp.NdArrayComplexDouble(cShape)
         cArray.setArray(rfft)
         assert np.array_equal(
-            np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS), np.round(np.fft.irfft(rfft, n, axis=1), ROUNDING_DIGITS)
+            np.round(NumCpp.irfft(cArray, n, NumCpp.Axis.COL), ROUNDING_DIGITS),
+            np.round(np.fft.irfft(rfft, n, axis=1), ROUNDING_DIGITS),
         )
 
 
@@ -1061,7 +1169,9 @@ def test_rfft2():
         cShape = NumCpp.Shape(*shapeInput)
         cArray = NumCpp.NdArray(cShape)
         cArray.setArray(data)
-        assert np.array_equal(np.round(NumCpp.rfft2(cArray), ROUNDING_DIGITS), np.round(np.fft.rfft2(data), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.rfft2(cArray), ROUNDING_DIGITS), np.round(np.fft.rfft2(data), ROUNDING_DIGITS)
+        )
 
         shapeInput = np.random.randint(
             10,
@@ -1075,7 +1185,10 @@ def test_rfft2():
         cArray = NumCpp.NdArray(cShape)
         cArray.setArray(data)
         s = [np.random.randint(1, shapeInput[0]), np.random.randint(1, shapeInput[1])]
-        assert np.array_equal(np.round(NumCpp.rfft2(cArray, NumCpp.Shape(*s)), ROUNDING_DIGITS), np.round(np.fft.rfft2(data, s), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.rfft2(cArray, NumCpp.Shape(*s)), ROUNDING_DIGITS),
+            np.round(np.fft.rfft2(data, s), ROUNDING_DIGITS),
+        )
 
 
 ####################################################################################
@@ -1093,4 +1206,6 @@ def test_irfft2():
         cShape = NumCpp.Shape(*rfft2.shape)
         cArray = NumCpp.NdArrayComplexDouble(cShape)
         cArray.setArray(rfft2)
-        assert np.array_equal(np.round(NumCpp.irfft2(cArray), ROUNDING_DIGITS), np.round(np.fft.irfft2(rfft2), ROUNDING_DIGITS))
+        assert np.array_equal(
+            np.round(NumCpp.irfft2(cArray), ROUNDING_DIGITS), np.round(np.fft.irfft2(rfft2), ROUNDING_DIGITS)
+        )

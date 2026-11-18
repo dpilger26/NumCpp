@@ -13,7 +13,7 @@ DISABLE_PRINTS = True
 
 ####################################################################################
 def test_seed():
-    np.random.seed(666)
+    np.random.seed(667)
 
 
 ####################################################################################
@@ -70,6 +70,23 @@ def test_cartesian_to_ndarray():
     c = NumCpp.Cartesian(x, y, z)
     values = c.toNdArray().getNumpyArray().flatten()
     assert np.array_equal(values, [x, y, z])
+
+    ####################################################################################
+def test_cartesian_to_vec2():
+    x, y = np.random.rand(2) * 10
+    c = NumCpp.Cartesian(x, y, 0)
+    values = c.toVec2()
+    assert values.x == x
+    assert values.y == y
+
+    ####################################################################################
+def test_cartesian_to_vec3():
+    x, y, z = np.random.rand(3) * 10
+    c = NumCpp.Cartesian(x, y, z)
+    values = c.toVec3()
+    assert values.x == x
+    assert values.y == y
+    assert values.z == z
 
 
 ####################################################################################
@@ -899,6 +916,7 @@ def test_AERtoNED():
     np.testing.assert_approx_equal(ned.east, east, 5)
     np.testing.assert_approx_equal(ned.down, down, 5)
 
+
 ####################################################################################
 def test_cart2sph():
     for _ in range(10):
@@ -909,7 +927,7 @@ def test_cart2sph():
         np.testing.assert_approx_equal(spherical.az, pymap3d_sph[0], 5)
         np.testing.assert_approx_equal(spherical.el, pymap3d_sph[1], 5)
         np.testing.assert_approx_equal(spherical.range, pymap3d_sph[2], 5)
-        
+
 
 ####################################################################################
 def test_ECEFEulerToNEDRollPitchYaw():
@@ -1307,6 +1325,7 @@ def test_NEDtoLLA():
     np.testing.assert_approx_equal(lla.latitude, lat1, 5)
     np.testing.assert_approx_equal(lla.longitude, lon1, 5)
     np.testing.assert_approx_equal(lla.altitude, alt1, 5)
+
 
 ####################################################################################
 def test_sph2cart():

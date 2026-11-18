@@ -27,6 +27,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Coordinates/Cartesian.hpp"
 #include "NumCpp/Functions/round.hpp"
 #include "NumCpp/Linalg/det.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -93,6 +94,20 @@ namespace nc::rotations
         /// @return NdArray
         ///
         static NdArray<double> eulerAxisAngle(const Vec3& inAxis, double inAngle)
+        {
+            return Quaternion(inAxis, inAngle).toDCM();
+        }
+
+        //============================================================================
+        // Method Description:
+        /// returns a direction cosine matrix that rotates about
+        /// the input axis by the input angle
+        ///
+        /// @param inAxis: euler axis cartesian vector with x,y,z components
+        /// @param inAngle: euler angle in radians
+        /// @return NdArray
+        ///
+        static NdArray<double> eulerAxisAngle(const coordinates::Cartesian& inAxis, double inAngle)
         {
             return Quaternion(inAxis, inAngle).toDCM();
         }

@@ -136,6 +136,24 @@ namespace nc::coordinates
         }
 
         /**
+         * @brief Convert to Vec2
+         *
+         */
+        [[nodiscard]] Vec2 toVec2() const
+        {
+            return { x, y };
+        }
+
+        /**
+         * @brief Convert to Vec2
+         *
+         */
+        [[nodiscard]] Vec3 toVec3() const
+        {
+            return { x, y, z };
+        }
+
+        /**
          * @brief Copy Assignement Operator
          *
          * @param other: the other Cartesian instance

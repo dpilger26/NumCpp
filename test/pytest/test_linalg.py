@@ -46,14 +46,22 @@ def test_det():
 ####################################################################################
 def test_eig():
     for _ in range(50):
-        shape = np.random.randint(5, 50, [2,])
+        shape = np.random.randint(
+            5,
+            50,
+            [
+                2,
+            ],
+        )
         data = np.random.randint(0, 100, shape).astype(float)
-        data = np.dot(data, data.T) # real symmetric
+        data = np.dot(data, data.T)  # real symmetric
         cArray = NumCpp.NdArray(*shape)
         cArray.setArray(data)
         cEigenValues, cEigenVectors = NumCpp.eig(cArray)
         eigenValues, eigenVectors = np.linalg.eig(data)
-        assert np.array_equal(np.round(np.abs(cEigenValues.flatten()), 5), np.flip(np.sort(np.round(np.abs(eigenValues), 5))).real)
+        assert np.array_equal(
+            np.round(np.abs(cEigenValues.flatten()), 5), np.flip(np.sort(np.round(np.abs(eigenValues), 5))).real
+        )
 
         for idx, eigenValue in enumerate(cEigenValues.flatten()):
             eigenVector = cEigenVectors[:, idx]
@@ -72,7 +80,9 @@ def test_eigvals():
         cArray.setArray(data)
         cEigenValues = NumCpp.eigvals(cArray)
         eigenValues = np.linalg.eigvals(data)
-        assert np.array_equal(np.round(np.abs(cEigenValues.flatten()), 5), np.flip(np.sort(np.round(np.abs(eigenValues), 5))).real)
+        assert np.array_equal(
+            np.round(np.abs(cEigenValues.flatten()), 5), np.flip(np.sort(np.round(np.abs(eigenValues), 5))).real
+        )
 
 
 ####################################################################################
@@ -450,7 +460,7 @@ def test_svd():
     sArray = NumCpp.NdArray()
     vtArray = NumCpp.NdArray()
     NumCpp.svd(cArray, uArray, sArray, vtArray)
-    
+
     u = uArray.getNumpyArray()
     s = sArray.getNumpyArray().flatten()
     vt = vtArray.getNumpyArray()
