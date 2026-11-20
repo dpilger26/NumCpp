@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.17.0</span>
+                                &#160;<span id="projectnumber">2.18.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -122,71 +122,70 @@ $(function(){initNavTree('uniform_on_sphere_8hpp_source.html','',''); });
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#ifndef NUMCPP_NO_USE_BOOST</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;boost/random/uniform_on_sphere.hpp&quot;</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;<a class="code" href="_core_2shape_8hpp.html">NumCpp/Core/Shape.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &quot;<a class="code" href="generator_8hpp.html">NumCpp/Random/generator.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenc_1_1random.html">nc::random</a></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenc_1_1random_1_1detail.html">detail</a></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="comment">//============================================================================</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="comment">// Method Description:</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">typename</span> GeneratorType = std::mt19937&gt;</div>
-<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="namespacenc_1_1random_1_1detail.html#a84375160c024c77e8010a65c1d85456c">   60</a></span>        <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code hl_function" href="namespacenc_1_1random_1_1detail.html#a84375160c024c77e8010a65c1d85456c">uniformOnSphere</a>(GeneratorType&amp; generator, <a class="code hl_typedef" href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">uint32</a> inNumPoints, <a class="code hl_typedef" href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">uint32</a> inDims = 2)</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <a class="code hl_define" href="_static_asserts_8hpp.html#a0cd8e186da549fbdd918111d0302d973">STATIC_ASSERT_FLOAT</a>(dtype);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">if</span> (inNumPoints == 0)</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                <span class="keywordflow">return</span> {};</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            }</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            boost::random::uniform_on_sphere&lt;dtype&gt; dist(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(inDims));</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(inNumPoints, inDims);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">uint32</a> row = 0; row &lt; inNumPoints; ++row)</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; point = dist(generator);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                std::copy(point.begin(), point.end(), returnArray.<a class="code hl_function" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(row));</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            }</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">return</span> returnArray;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;boost/random/uniform_on_sphere.hpp&quot;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &quot;<a class="code" href="_core_2shape_8hpp.html">NumCpp/Core/Shape.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;<a class="code" href="generator_8hpp.html">NumCpp/Random/generator.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenc_1_1random.html">nc::random</a></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenc_1_1random_1_1detail.html">detail</a></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="comment">//============================================================================</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="comment">// Method Description:</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">typename</span> GeneratorType = std::mt19937&gt;</div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="namespacenc_1_1random_1_1detail.html#a84375160c024c77e8010a65c1d85456c">   59</a></span>        <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code hl_function" href="namespacenc_1_1random_1_1detail.html#a84375160c024c77e8010a65c1d85456c">uniformOnSphere</a>(GeneratorType&amp; generator, <a class="code hl_typedef" href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">uint32</a> inNumPoints, <a class="code hl_typedef" href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">uint32</a> inDims = 2)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <a class="code hl_define" href="_static_asserts_8hpp.html#a0cd8e186da549fbdd918111d0302d973">STATIC_ASSERT_FLOAT</a>(dtype);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordflow">if</span> (inNumPoints == 0)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            boost::random::uniform_on_sphere&lt;dtype&gt; dist(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(inDims));</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(inNumPoints, inDims);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">uint32</a> row = 0; row &lt; inNumPoints; ++row)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; point = dist(generator);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                std::copy(point.begin(), point.end(), returnArray.<a class="code hl_function" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(row));</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keywordflow">return</span> returnArray;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        }</div>
 </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    } <span class="comment">// namespace detail</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">//============================================================================</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="comment">// Method Description:</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#a004deaafb82525b8acbbc4a9984ba6e3">   93</a></span>    <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code hl_function" href="namespacenc_1_1random.html#a004deaafb82525b8acbbc4a9984ba6e3">uniformOnSphere</a>(<a class="code hl_typedef" href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">uint32</a> inNumPoints, <a class="code hl_typedef" href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">uint32</a> inDims = 2)</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    {</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacenc_1_1random_1_1detail.html#a84375160c024c77e8010a65c1d85456c">detail::uniformOnSphere&lt;dtype&gt;</a>(<a class="code hl_variable" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>, inNumPoints, inDims);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    } <span class="comment">// namespace detail</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="comment">//============================================================================</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">// Method Description:</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#a004deaafb82525b8acbbc4a9984ba6e3">   92</a></span>    <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code hl_function" href="namespacenc_1_1random.html#a004deaafb82525b8acbbc4a9984ba6e3">uniformOnSphere</a>(<a class="code hl_typedef" href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">uint32</a> inNumPoints, <a class="code hl_typedef" href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">uint32</a> inDims = 2)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacenc_1_1random_1_1detail.html#a84375160c024c77e8010a65c1d85456c">detail::uniformOnSphere&lt;dtype&gt;</a>(<a class="code hl_variable" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>, inNumPoints, inDims);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
 </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>} <span class="comment">// namespace nc::random</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif </span><span class="comment">// #ifndef NUMCPP_NO_USE_BOOST</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>} <span class="comment">// namespace nc::random</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#endif </span><span class="comment">// #ifndef NUMCPP_NO_USE_BOOST</span></div>
 <div class="ttc" id="a_core_2shape_8hpp_html"><div class="ttname"><a href="_core_2shape_8hpp.html">Shape.hpp</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html_a0cd8e186da549fbdd918111d0302d973"><div class="ttname"><a href="_static_asserts_8hpp.html#a0cd8e186da549fbdd918111d0302d973">STATIC_ASSERT_FLOAT</a></div><div class="ttdeci">#define STATIC_ASSERT_FLOAT(dtype)</div><div class="ttdef"><b>Definition</b> StaticAsserts.hpp:50</div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:139</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:1315</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:135</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:1311</div></div>
 <div class="ttc" id="agenerator_8hpp_html"><div class="ttname"><a href="generator_8hpp.html">generator.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_1_1random_1_1detail_html"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html">nc::random::detail</a></div><div class="ttdef"><b>Definition</b> Random/bernoulli.hpp:43</div></div>
-<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_a84375160c024c77e8010a65c1d85456c"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#a84375160c024c77e8010a65c1d85456c">nc::random::detail::uniformOnSphere</a></div><div class="ttdeci">NdArray&lt; dtype &gt; uniformOnSphere(GeneratorType &amp;generator, uint32 inNumPoints, uint32 inDims=2)</div><div class="ttdef"><b>Definition</b> uniformOnSphere.hpp:60</div></div>
-<div class="ttc" id="anamespacenc_1_1random_html"><div class="ttname"><a href="namespacenc_1_1random.html">nc::random</a></div><div class="ttdef"><b>Definition</b> Random/bernoulli.hpp:41</div></div>
-<div class="ttc" id="anamespacenc_1_1random_html_a004deaafb82525b8acbbc4a9984ba6e3"><div class="ttname"><a href="namespacenc_1_1random.html#a004deaafb82525b8acbbc4a9984ba6e3">nc::random::uniformOnSphere</a></div><div class="ttdeci">NdArray&lt; dtype &gt; uniformOnSphere(uint32 inNumPoints, uint32 inDims=2)</div><div class="ttdef"><b>Definition</b> uniformOnSphere.hpp:93</div></div>
+<div class="ttc" id="anamespacenc_1_1random_1_1detail_html"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html">nc::random::detail</a></div><div class="ttdef"><b>Definition</b> Random/bernoulli.hpp:41</div></div>
+<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_a84375160c024c77e8010a65c1d85456c"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#a84375160c024c77e8010a65c1d85456c">nc::random::detail::uniformOnSphere</a></div><div class="ttdeci">NdArray&lt; dtype &gt; uniformOnSphere(GeneratorType &amp;generator, uint32 inNumPoints, uint32 inDims=2)</div><div class="ttdef"><b>Definition</b> uniformOnSphere.hpp:59</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html"><div class="ttname"><a href="namespacenc_1_1random.html">nc::random</a></div><div class="ttdef"><b>Definition</b> Random/bernoulli.hpp:39</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html_a004deaafb82525b8acbbc4a9984ba6e3"><div class="ttname"><a href="namespacenc_1_1random.html#a004deaafb82525b8acbbc4a9984ba6e3">nc::random::uniformOnSphere</a></div><div class="ttdeci">NdArray&lt; dtype &gt; uniformOnSphere(uint32 inNumPoints, uint32 inDims=2)</div><div class="ttdef"><b>Definition</b> uniformOnSphere.hpp:92</div></div>
 <div class="ttc" id="anamespacenc_1_1random_html_aa541047e6b742f1c5251e72f3b7aec95"><div class="ttname"><a href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">nc::random::generator_</a></div><div class="ttdeci">std::mt19937_64 generator_</div><div class="ttdoc">generator function</div><div class="ttdef"><b>Definition</b> generator.hpp:35</div></div>
 <div class="ttc" id="anamespacenc_html_aeca38442148012b5cd13dc42f2a0ac67"><div class="ttname"><a href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition</b> Types.hpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->

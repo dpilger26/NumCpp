@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.17.0</span>
+                                &#160;<span id="projectnumber">2.18.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -119,35 +119,33 @@ $(function(){initNavTree('fill_diagnol_8hpp_source.html','',''); });
 <a href="fill_diagnol_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;<a class="code" href="_core_2shape_8hpp.html">NumCpp/Core/Shape.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenc.html">nc</a></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">//============================================================================</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment">// Method Description:</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="namespacenc.html#a7c40717fa80c513ecbb943859d9d1ac2">   46</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacenc.html#a7c40717fa80c513ecbb943859d9d1ac2">fillDiagonal</a>(<a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, dtype inValue) <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">const</span> <span class="keyword">auto</span> inShape = inArray.shape();</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">uint32</a> row = 0; row &lt; inShape.rows; ++row)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordflow">if</span> (row &lt; inShape.cols)</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                inArray(row, row) = inValue;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            }</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenc.html">nc</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">//============================================================================</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">// Method Description:</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespacenc.html#a7c40717fa80c513ecbb943859d9d1ac2">   45</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacenc.html#a7c40717fa80c513ecbb943859d9d1ac2">fillDiagonal</a>(<a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, dtype inValue) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">const</span> <span class="keyword">auto</span> inShape = inArray.shape();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">uint32</a> row = 0; row &lt; inShape.rows; ++row)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">if</span> (row &lt; inShape.cols)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                inArray(row, row) = inValue;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
 </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>} <span class="comment">// namespace nc</span></div>
-<div class="ttc" id="a_core_2shape_8hpp_html"><div class="ttname"><a href="_core_2shape_8hpp.html">Shape.hpp</a></div></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:139</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition</b> Cartesian.hpp:40</div></div>
-<div class="ttc" id="anamespacenc_html_a7c40717fa80c513ecbb943859d9d1ac2"><div class="ttname"><a href="namespacenc.html#a7c40717fa80c513ecbb943859d9d1ac2">nc::fillDiagonal</a></div><div class="ttdeci">void fillDiagonal(NdArray&lt; dtype &gt; &amp;inArray, dtype inValue) noexcept</div><div class="ttdef"><b>Definition</b> fillDiagnol.hpp:46</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:135</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition</b> Cartesian.hpp:39</div></div>
+<div class="ttc" id="anamespacenc_html_a7c40717fa80c513ecbb943859d9d1ac2"><div class="ttname"><a href="namespacenc.html#a7c40717fa80c513ecbb943859d9d1ac2">nc::fillDiagonal</a></div><div class="ttdeci">void fillDiagonal(NdArray&lt; dtype &gt; &amp;inArray, dtype inValue) noexcept</div><div class="ttdef"><b>Definition</b> fillDiagnol.hpp:45</div></div>
 <div class="ttc" id="anamespacenc_html_aeca38442148012b5cd13dc42f2a0ac67"><div class="ttname"><a href="namespacenc.html#aeca38442148012b5cd13dc42f2a0ac67">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition</b> Types.hpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

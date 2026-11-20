@@ -208,7 +208,7 @@ namespace nc::rotations
         // Method Description:
         /// The angular seperation between the two quaternions.
         ///
-        /// @param inQuat1
+        /// @param inQuat2
         /// @return angle of seperation in radians
         ///
         [[nodiscard]] double angularSeperation(const Quaternion& inQuat2) const

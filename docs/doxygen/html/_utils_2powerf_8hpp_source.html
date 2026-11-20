@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.17.0</span>
+                                &#160;<span id="projectnumber">2.18.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -120,29 +120,26 @@ $(function(){initNavTree('_utils_2powerf_8hpp_source.html','',''); });
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;complex&gt;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;<a class="code" href="_type_traits_8hpp.html">NumCpp/Core/Internal/TypeTraits.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenc_1_1utils.html">nc::utils</a></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">//============================================================================</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype1, <span class="keyword">typename</span> dtype2&gt;</div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespacenc_1_1utils.html#ac113b30b96f9c707c0cbe2eecbabe85f">   47</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="namespacenc_1_1utils.html#ac113b30b96f9c707c0cbe2eecbabe85f">powerf</a>(dtype1 inValue, <span class="keyword">const</span> dtype2 inPower) <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <a class="code hl_define" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype1);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordflow">return</span> std::pow(inValue, inPower);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenc_1_1utils.html">nc::utils</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">//============================================================================</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype1, <span class="keyword">typename</span> dtype2&gt;</div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespacenc_1_1utils.html#ac113b30b96f9c707c0cbe2eecbabe85f">   45</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="namespacenc_1_1utils.html#ac113b30b96f9c707c0cbe2eecbabe85f">powerf</a>(dtype1 inValue, <span class="keyword">const</span> dtype2 inPower) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <a class="code hl_define" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype1);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> std::pow(inValue, inPower);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
 </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>} <span class="comment">// namespace nc::utils</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>} <span class="comment">// namespace nc::utils</span></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition</b> StaticAsserts.hpp:56</div></div>
-<div class="ttc" id="a_type_traits_8hpp_html"><div class="ttname"><a href="_type_traits_8hpp.html">TypeTraits.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_1_1utils_html"><div class="ttname"><a href="namespacenc_1_1utils.html">nc::utils</a></div><div class="ttdef"><b>Definition</b> Utils/cube.hpp:33</div></div>
-<div class="ttc" id="anamespacenc_1_1utils_html_ac113b30b96f9c707c0cbe2eecbabe85f"><div class="ttname"><a href="namespacenc_1_1utils.html#ac113b30b96f9c707c0cbe2eecbabe85f">nc::utils::powerf</a></div><div class="ttdeci">auto powerf(dtype1 inValue, const dtype2 inPower) noexcept</div><div class="ttdef"><b>Definition</b> Utils/powerf.hpp:47</div></div>
+<div class="ttc" id="anamespacenc_1_1utils_html_ac113b30b96f9c707c0cbe2eecbabe85f"><div class="ttname"><a href="namespacenc_1_1utils.html#ac113b30b96f9c707c0cbe2eecbabe85f">nc::utils::powerf</a></div><div class="ttdeci">auto powerf(dtype1 inValue, const dtype2 inPower) noexcept</div><div class="ttdef"><b>Definition</b> Utils/powerf.hpp:45</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

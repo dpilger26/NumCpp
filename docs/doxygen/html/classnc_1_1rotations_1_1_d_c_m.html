@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.17.0</span>
+                                &#160;<span id="projectnumber">2.18.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -126,6 +126,7 @@ $(function(){initNavTree('classnc_1_1rotations_1_1_d_c_m.html','',''); });
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a06a1a09ec0bb27c45690afbc08d22f50" id="r_a06a1a09ec0bb27c45690afbc08d22f50"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06a1a09ec0bb27c45690afbc08d22f50">eulerAngles</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt; &amp;angles)</td></tr>
 <tr class="memitem:afede4ed689a9771968945857c7cd0c1d" id="r_afede4ed689a9771968945857c7cd0c1d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afede4ed689a9771968945857c7cd0c1d">eulerAngles</a> (double <a class="el" href="#ac562518ebdec1ce36cf8897a16f16fca">roll</a>, double <a class="el" href="#a726e1d9c5e2a88dbd7e70b8fc9d55fbf">pitch</a>, double <a class="el" href="#aef0f27b195b93151a94cb86ca9fa21c9">yaw</a>)</td></tr>
+<tr class="memitem:a4bc9900ff08fb4c49afc80bf7f15f4f7" id="r_a4bc9900ff08fb4c49afc80bf7f15f4f7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bc9900ff08fb4c49afc80bf7f15f4f7">eulerAxisAngle</a> (const <a class="el" href="classnc_1_1coordinates_1_1_cartesian.html">coordinates::Cartesian</a> &amp;inAxis, double inAngle)</td></tr>
 <tr class="memitem:ab72e3514a6022ebea6e63030eb0d2418" id="r_ab72e3514a6022ebea6e63030eb0d2418"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab72e3514a6022ebea6e63030eb0d2418">eulerAxisAngle</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt; &amp;inAxis, double inAngle)</td></tr>
 <tr class="memitem:a06b61d863ede73a445a5fb6b5a0673a2" id="r_a06b61d863ede73a445a5fb6b5a0673a2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06b61d863ede73a445a5fb6b5a0673a2">eulerAxisAngle</a> (const <a class="el" href="classnc_1_1_vec3.html">Vec3</a> &amp;inAxis, double inAngle)</td></tr>
 <tr class="memitem:ab1947c7618408b063b704ec391e27888" id="r_ab1947c7618408b063b704ec391e27888"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1947c7618408b063b704ec391e27888">isValid</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt; &amp;inArray)</td></tr>
@@ -216,8 +217,46 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a4bc9900ff08fb4c49afc80bf7f15f4f7" name="a4bc9900ff08fb4c49afc80bf7f15f4f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bc9900ff08fb4c49afc80bf7f15f4f7">&#9670;&#160;</a></span>eulerAxisAngle() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt; nc::rotations::DCM::eulerAxisAngle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1coordinates_1_1_cartesian.html">coordinates::Cartesian</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>inAxis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>inAngle</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>returns a direction cosine matrix that rotates about the input axis by the input angle</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inAxis</td><td>euler axis cartesian vector with x,y,z components </td></tr>
+    <tr><td class="paramname">inAngle</td><td>euler angle in radians </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
+
+</div>
+</div>
 <a id="ab72e3514a6022ebea6e63030eb0d2418" name="ab72e3514a6022ebea6e63030eb0d2418"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab72e3514a6022ebea6e63030eb0d2418">&#9670;&#160;</a></span>eulerAxisAngle() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab72e3514a6022ebea6e63030eb0d2418">&#9670;&#160;</a></span>eulerAxisAngle() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -255,7 +294,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a06b61d863ede73a445a5fb6b5a0673a2" name="a06b61d863ede73a445a5fb6b5a0673a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06b61d863ede73a445a5fb6b5a0673a2">&#9670;&#160;</a></span>eulerAxisAngle() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a06b61d863ede73a445a5fb6b5a0673a2">&#9670;&#160;</a></span>eulerAxisAngle() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

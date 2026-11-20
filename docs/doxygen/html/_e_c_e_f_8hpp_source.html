@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.17.0</span>
+                                &#160;<span id="projectnumber">2.18.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -119,32 +119,30 @@ $(function(){initNavTree('_e_c_e_f_8hpp_source.html','',''); });
 <a href="_e_c_e_f_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;<a class="code" href="_cartesian_8hpp.html">NumCpp/Coordinates/Cartesian.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="_cartesian_8hpp.html">NumCpp/Coordinates/Cartesian.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenc_1_1coordinates_1_1reference__frames.html">nc::coordinates::reference_frames</a></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
-<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html">   39</a></span>    <span class="keyword">class </span><a class="code hl_function" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#ac606bc54b3825a84c997aa6db0153a8e">ECEF</a> final : <span class="keyword">public</span> <a class="code hl_function" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#acd2bb91863149c37e73b9e8ae2a50cf5">Cartesian</a></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keyword">using </span><a class="code hl_function" href="classnc_1_1coordinates_1_1_cartesian.html#acd2bb91863149c37e73b9e8ae2a50cf5">Cartesian::Cartesian</a>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
-<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#ac606bc54b3825a84c997aa6db0153a8e">   48</a></span>        <span class="keyword">constexpr</span> <a class="code hl_function" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#ac606bc54b3825a84c997aa6db0153a8e">ECEF</a>(<span class="keyword">const</span> <a class="code hl_function" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#acd2bb91863149c37e73b9e8ae2a50cf5">Cartesian</a>&amp; cartesian) noexcept :</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <a class="code hl_function" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#acd2bb91863149c37e73b9e8ae2a50cf5">Cartesian</a>(cartesian)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenc_1_1coordinates_1_1reference__frames.html">nc::coordinates::reference_frames</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html">   37</a></span>    <span class="keyword">class </span><a class="code hl_function" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#ac606bc54b3825a84c997aa6db0153a8e">ECEF</a> final : <span class="keyword">public</span> <a class="code hl_function" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#acd2bb91863149c37e73b9e8ae2a50cf5">Cartesian</a></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keyword">using </span><a class="code hl_function" href="classnc_1_1coordinates_1_1_cartesian.html#acd2bb91863149c37e73b9e8ae2a50cf5">Cartesian::Cartesian</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#ac606bc54b3825a84c997aa6db0153a8e">   46</a></span>        <span class="keyword">constexpr</span> <a class="code hl_function" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#ac606bc54b3825a84c997aa6db0153a8e">ECEF</a>(<span class="keyword">const</span> <a class="code hl_function" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#acd2bb91863149c37e73b9e8ae2a50cf5">Cartesian</a>&amp; cartesian) noexcept :</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <a class="code hl_function" href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#acd2bb91863149c37e73b9e8ae2a50cf5">Cartesian</a>(cartesian)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        }</div>
 </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    };</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    };</div>
 </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>} <span class="comment">// namespace nc::coordinates::reference_frames</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>} <span class="comment">// namespace nc::coordinates::reference_frames</span></div>
 <div class="ttc" id="a_cartesian_8hpp_html"><div class="ttname"><a href="_cartesian_8hpp.html">Cartesian.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1coordinates_1_1_cartesian_html_acd2bb91863149c37e73b9e8ae2a50cf5"><div class="ttname"><a href="classnc_1_1coordinates_1_1_cartesian.html#acd2bb91863149c37e73b9e8ae2a50cf5">nc::coordinates::Cartesian::Cartesian</a></div><div class="ttdeci">Cartesian() noexcept=default</div><div class="ttdoc">Default Constructor.</div></div>
-<div class="ttc" id="aclassnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f_html_ac606bc54b3825a84c997aa6db0153a8e"><div class="ttname"><a href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#ac606bc54b3825a84c997aa6db0153a8e">nc::coordinates::reference_frames::ECEF::ECEF</a></div><div class="ttdeci">constexpr ECEF(const Cartesian &amp;cartesian) noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> ECEF.hpp:48</div></div>
+<div class="ttc" id="aclassnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f_html_ac606bc54b3825a84c997aa6db0153a8e"><div class="ttname"><a href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#ac606bc54b3825a84c997aa6db0153a8e">nc::coordinates::reference_frames::ECEF::ECEF</a></div><div class="ttdeci">constexpr ECEF(const Cartesian &amp;cartesian) noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> ECEF.hpp:46</div></div>
 <div class="ttc" id="aclassnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f_html_acd2bb91863149c37e73b9e8ae2a50cf5"><div class="ttname"><a href="classnc_1_1coordinates_1_1reference__frames_1_1_e_c_e_f.html#acd2bb91863149c37e73b9e8ae2a50cf5">nc::coordinates::reference_frames::ECEF::Cartesian</a></div><div class="ttdeci">Cartesian() noexcept=default</div><div class="ttdoc">Default Constructor.</div></div>
-<div class="ttc" id="anamespacenc_1_1coordinates_1_1reference__frames_html"><div class="ttname"><a href="namespacenc_1_1coordinates_1_1reference__frames.html">nc::coordinates::reference_frames</a></div><div class="ttdef"><b>Definition</b> AER.hpp:36</div></div>
+<div class="ttc" id="anamespacenc_1_1coordinates_1_1reference__frames_html"><div class="ttname"><a href="namespacenc_1_1coordinates_1_1reference__frames.html">nc::coordinates::reference_frames</a></div><div class="ttdef"><b>Definition</b> AER.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

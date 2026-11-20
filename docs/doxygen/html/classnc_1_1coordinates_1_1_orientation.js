@@ -9,6 +9,7 @@ var classnc_1_1coordinates_1_1_orientation =
     [ "operator=", "classnc_1_1coordinates_1_1_orientation.html#a495f338e04996d967d75023d07316c2d", null ],
     [ "operator=", "classnc_1_1coordinates_1_1_orientation.html#a2fcb455ee505042158f764fa81314bb3", null ],
     [ "operator==", "classnc_1_1coordinates_1_1_orientation.html#a7ddb54f8f5565a97158ec00076610ce3", null ],
+    [ "toNdArray", "classnc_1_1coordinates_1_1_orientation.html#a5a1dd8afff31ca0e4e61ce477da84ab9", null ],
     [ "pitch", "classnc_1_1coordinates_1_1_orientation.html#a819f4482cc856e67b9b8d8d9269ae3cf", null ],
     [ "roll", "classnc_1_1coordinates_1_1_orientation.html#a53679b5e458c481a3da3c93ed62c85a8", null ],
     [ "yaw", "classnc_1_1coordinates_1_1_orientation.html#ab4a0f03f2bc9dc948b15102665dce6c9", null ]

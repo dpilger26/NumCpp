@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.17.0</span>
+                                &#160;<span id="projectnumber">2.18.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -121,85 +121,83 @@ $(function(){initNavTree('vsplit_8hpp_source.html','',''); });
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="split_8hpp.html">NumCpp/Functions/split.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenc.html">nc</a></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment">//============================================================================</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">// Method Description:</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">typename</span> Indices, type_traits::ndarray_<span class="keywordtype">int</span>_concept&lt;Indices&gt; = 0&gt;</div>
-<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="namespacenc.html#abe2917067a4a8a00fbd8978e5d30bd40">   49</a></span>    std::vector&lt;NdArray&lt;dtype&gt;&gt; <a class="code hl_function" href="namespacenc.html#abe2917067a4a8a00fbd8978e5d30bd40">vsplit</a>(<span class="keyword">const</span> <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <span class="keyword">const</span> Indices&amp; indices)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">const</span> <span class="keyword">auto</span>     numRows = <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="namespacenc.html#a8d5f1a8c561c3b93e7563888320fbe94">int32</a><span class="keyword">&gt;</span>(inArray.<a class="code hl_function" href="classnc_1_1_nd_array.html#a8f0724ebbd94ead973fb3c46f6cca17d">numRows</a>());</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;int32&gt;</a> uniqueIndices(1, indices.size());</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_function" href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">stl_algorithms::transform</a>(indices.begin(),</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                                  indices.end(),</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                                  uniqueIndices.<a class="code hl_function" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(),</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                                  [numRows](<span class="keyword">auto</span> index) noexcept -&gt; <a class="code hl_typedef" href="namespacenc.html#a8d5f1a8c561c3b93e7563888320fbe94">int32</a></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                                  {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                                      if constexpr (type_traits::is_ndarray_signed_int_v&lt;Indices&gt;)</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                                      {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                                          if (index &lt; 0)</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                                          {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                                              index = std::max(index + numRows, int32{ 0 });</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                                          }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                                      }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                                      if (index &gt; numRows - 1)</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                                      {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                                          index = numRows - 1;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                                      }</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                                      <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="namespacenc.html#a8d5f1a8c561c3b93e7563888320fbe94">int32</a><span class="keyword">&gt;</span>(index);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                                  });</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        uniqueIndices = <a class="code hl_function" href="namespacenc.html#a8b346bcf0083d2b809c83bb0433800de">unique</a>(uniqueIndices);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        std::vector&lt;NdArray&lt;dtype&gt;&gt; splits{};</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        splits.reserve(uniqueIndices.size() + 1);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keyword">const</span> <span class="keyword">auto</span> cSlice   = inArray.cSlice();</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <a class="code hl_typedef" href="namespacenc.html#a8d5f1a8c561c3b93e7563888320fbe94">int32</a>      lowerIdx = 0;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> index : uniqueIndices)</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keywordflow">if</span> (index == 0)</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                splits.push_back(<a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>(<a class="code hl_class" href="classnc_1_1_shape.html">Shape</a>(0, inArray.numCols())));</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            }</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            {</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                splits.push_back(inArray(<a class="code hl_class" href="classnc_1_1_slice.html">Slice</a>(lowerIdx, index), cSlice));</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            }</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            lowerIdx = index;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        }</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">if</span> (lowerIdx &lt; numRows - 1)</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        {</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            splits.push_back(inArray(<a class="code hl_class" href="classnc_1_1_slice.html">Slice</a>(lowerIdx, numRows), cSlice));</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        }</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        {</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            splits.push_back(inArray(-1, cSlice));</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        }</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">return</span> splits;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenc.html">nc</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">//============================================================================</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment">// Method Description:</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">typename</span> Indices, type_traits::ndarray_<span class="keywordtype">int</span>_concept&lt;Indices&gt; = 0&gt;</div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="namespacenc.html#abe2917067a4a8a00fbd8978e5d30bd40">   48</a></span>    std::vector&lt;NdArray&lt;dtype&gt;&gt; <a class="code hl_function" href="namespacenc.html#abe2917067a4a8a00fbd8978e5d30bd40">vsplit</a>(<span class="keyword">const</span> <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <span class="keyword">const</span> Indices&amp; indices)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keyword">const</span> <span class="keyword">auto</span>     numRows = <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="namespacenc.html#a8d5f1a8c561c3b93e7563888320fbe94">int32</a><span class="keyword">&gt;</span>(inArray.<a class="code hl_function" href="classnc_1_1_nd_array.html#a8f0724ebbd94ead973fb3c46f6cca17d">numRows</a>());</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;int32&gt;</a> uniqueIndices(1, indices.size());</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_function" href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">stl_algorithms::transform</a>(indices.begin(),</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                                  indices.end(),</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                                  uniqueIndices.<a class="code hl_function" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(),</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                                  [numRows](<span class="keyword">auto</span> index) noexcept -&gt; <a class="code hl_typedef" href="namespacenc.html#a8d5f1a8c561c3b93e7563888320fbe94">int32</a></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                                  {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                                      if constexpr (type_traits::is_ndarray_signed_int_v&lt;Indices&gt;)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                                      {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                                          if (index &lt; 0)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                                          {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                                              index = std::max(index + numRows, int32{ 0 });</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                                          }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                                      }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                                      if (index &gt; numRows - 1)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                                      {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                                          index = numRows - 1;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                                      }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                                      <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="namespacenc.html#a8d5f1a8c561c3b93e7563888320fbe94">int32</a><span class="keyword">&gt;</span>(index);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                                  });</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        uniqueIndices = <a class="code hl_function" href="namespacenc.html#a8b346bcf0083d2b809c83bb0433800de">unique</a>(uniqueIndices);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        std::vector&lt;NdArray&lt;dtype&gt;&gt; splits{};</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        splits.reserve(uniqueIndices.size() + 1);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keyword">const</span> <span class="keyword">auto</span> cSlice   = inArray.cSlice();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <a class="code hl_typedef" href="namespacenc.html#a8d5f1a8c561c3b93e7563888320fbe94">int32</a>      lowerIdx = 0;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> index : uniqueIndices)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordflow">if</span> (index == 0)</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                splits.push_back(<a class="code hl_class" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>(<a class="code hl_class" href="classnc_1_1_shape.html">Shape</a>(0, inArray.numCols())));</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                splits.push_back(inArray(<a class="code hl_class" href="classnc_1_1_slice.html">Slice</a>(lowerIdx, index), cSlice));</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            lowerIdx = index;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordflow">if</span> (lowerIdx &lt; numRows - 1)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            splits.push_back(inArray(<a class="code hl_class" href="classnc_1_1_slice.html">Slice</a>(lowerIdx, numRows), cSlice));</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            splits.push_back(inArray(-1, cSlice));</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordflow">return</span> splits;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    }</div>
 </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>} <span class="comment">// namespace nc</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:139</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a8f0724ebbd94ead973fb3c46f6cca17d"><div class="ttname"><a href="classnc_1_1_nd_array.html#a8f0724ebbd94ead973fb3c46f6cca17d">nc::NdArray::numRows</a></div><div class="ttdeci">size_type numRows() const noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:3557</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:1315</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:135</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a8f0724ebbd94ead973fb3c46f6cca17d"><div class="ttname"><a href="classnc_1_1_nd_array.html#a8f0724ebbd94ead973fb3c46f6cca17d">nc::NdArray::numRows</a></div><div class="ttdeci">size_type numRows() const noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:3553</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition</b> NdArrayCore.hpp:1311</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html"><div class="ttname"><a href="classnc_1_1_shape.html">nc::Shape</a></div><div class="ttdoc">A Shape Class for NdArrays.</div><div class="ttdef"><b>Definition</b> Core/shape.hpp:41</div></div>
 <div class="ttc" id="aclassnc_1_1_slice_html"><div class="ttname"><a href="classnc_1_1_slice.html">nc::Slice</a></div><div class="ttdoc">A Class for slicing into NdArrays.</div><div class="ttdef"><b>Definition</b> Slice.hpp:45</div></div>
 <div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a616d5dabd547326285946d0014361ab4"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">nc::stl_algorithms::transform</a></div><div class="ttdeci">OutputIt transform(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction)</div><div class="ttdef"><b>Definition</b> StlAlgorithms.hpp:776</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition</b> Cartesian.hpp:40</div></div>
-<div class="ttc" id="anamespacenc_html_a8b346bcf0083d2b809c83bb0433800de"><div class="ttname"><a href="namespacenc.html#a8b346bcf0083d2b809c83bb0433800de">nc::unique</a></div><div class="ttdeci">NdArray&lt; dtype &gt; unique(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition</b> unique.hpp:53</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition</b> Cartesian.hpp:39</div></div>
+<div class="ttc" id="anamespacenc_html_a8b346bcf0083d2b809c83bb0433800de"><div class="ttname"><a href="namespacenc.html#a8b346bcf0083d2b809c83bb0433800de">nc::unique</a></div><div class="ttdeci">NdArray&lt; dtype &gt; unique(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition</b> unique.hpp:52</div></div>
 <div class="ttc" id="anamespacenc_html_a8d5f1a8c561c3b93e7563888320fbe94"><div class="ttname"><a href="namespacenc.html#a8d5f1a8c561c3b93e7563888320fbe94">nc::int32</a></div><div class="ttdeci">std::int32_t int32</div><div class="ttdef"><b>Definition</b> Types.hpp:36</div></div>
-<div class="ttc" id="anamespacenc_html_abe2917067a4a8a00fbd8978e5d30bd40"><div class="ttname"><a href="namespacenc.html#abe2917067a4a8a00fbd8978e5d30bd40">nc::vsplit</a></div><div class="ttdeci">std::vector&lt; NdArray&lt; dtype &gt; &gt; vsplit(const NdArray&lt; dtype &gt; &amp;inArray, const Indices &amp;indices)</div><div class="ttdef"><b>Definition</b> vsplit.hpp:49</div></div>
-<div class="ttc" id="asplit_8hpp_html"><div class="ttname"><a href="split_8hpp.html">split.hpp</a></div></div>
+<div class="ttc" id="anamespacenc_html_abe2917067a4a8a00fbd8978e5d30bd40"><div class="ttname"><a href="namespacenc.html#abe2917067a4a8a00fbd8978e5d30bd40">nc::vsplit</a></div><div class="ttdeci">std::vector&lt; NdArray&lt; dtype &gt; &gt; vsplit(const NdArray&lt; dtype &gt; &amp;inArray, const Indices &amp;indices)</div><div class="ttdef"><b>Definition</b> vsplit.hpp:48</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

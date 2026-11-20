@@ -8,6 +8,7 @@ var namespacenc_1_1coordinates =
       [ "AERtoLLA", "namespacenc_1_1coordinates_1_1transforms.html#a8c61c8afd6cb34249504b8d373707a26", null ],
       [ "AERtoLLA", "namespacenc_1_1coordinates_1_1transforms.html#a74197fa26e833207006e941a657347fe", null ],
       [ "AERtoNED", "namespacenc_1_1coordinates_1_1transforms.html#af0b0b2831fbf5b51dee72d5d55ddd84c", null ],
+      [ "cart2sph", "namespacenc_1_1coordinates_1_1transforms.html#a0e4fcd88a71abb8c446880d2af8d47d3", null ],
       [ "ECEFEulerToENURollPitchYaw", "namespacenc_1_1coordinates_1_1transforms.html#abff5ec5e13a36310430e0e5a70a0cc2b", null ],
       [ "ECEFEulerToNEDRollPitchYaw", "namespacenc_1_1coordinates_1_1transforms.html#a45a25b63fe3cae3190b8894c1ecf7063", null ],
       [ "ECEFtoAER", "namespacenc_1_1coordinates_1_1transforms.html#a827065e1e4f8b5d362da323a17cd0083", null ],
@@ -42,7 +43,8 @@ var namespacenc_1_1coordinates =
       [ "NEDtoENU", "namespacenc_1_1coordinates_1_1transforms.html#a87f2d679fc321b6e3711ae527ca07d31", null ],
       [ "NEDtoLLA", "namespacenc_1_1coordinates_1_1transforms.html#a487949c250ac8773a1f9fb65330e952b", null ],
       [ "NEDtoLLA", "namespacenc_1_1coordinates_1_1transforms.html#adf5b05b33084ac43bb44acfbc892af39", null ],
-      [ "NEDUnitVecsInECEF", "namespacenc_1_1coordinates_1_1transforms.html#af43ca6c1f96cf4d95024b7d4eb135605", null ]
+      [ "NEDUnitVecsInECEF", "namespacenc_1_1coordinates_1_1transforms.html#af43ca6c1f96cf4d95024b7d4eb135605", null ],
+      [ "sph2cart", "namespacenc_1_1coordinates_1_1transforms.html#a0db02b1be8cb59940474cb341342ff88", null ]
     ] ],
     [ "Cartesian", "classnc_1_1coordinates_1_1_cartesian.html", "classnc_1_1coordinates_1_1_cartesian" ],
     [ "Euler", "classnc_1_1coordinates_1_1_euler.html", "classnc_1_1coordinates_1_1_euler" ],
