@@ -28,7 +28,6 @@
 #pragma once
 
 #include <complex>
-#include <utility>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"

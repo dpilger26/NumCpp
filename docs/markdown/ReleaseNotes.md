@@ -1,5 +1,20 @@
 # Release Notes
 
+## Version 2.18.0
+
+* added `toNdarray` to `coordinates::Cartesian`
+* added `toNdarray` to `coordinates::Euler`
+* added `toNdarray` to `coordinates::Orientation`
+* added `toNdarray` to `coordinates::reference_frames::AER`
+* added `toNdarray` to `coordinates::reference_frames::Geocentric`
+* added `toNdarray` to `coordinates::reference_frames::LLA`
+* added `coordinates::transforms::cart2sph`
+* added `coordinates::transforms::sph2cart`
+* added `Quaternion::rotate` on `Cartesian`
+* added `Quaternion::angularSeperation`
+* added additional `Cartesian` and `Vec2`/`Vec3` interoperability
+* includes cleanup
+
 ## Version 2.17.0
 
 * added angular rate propagation methods to `rotations::Quaternion`

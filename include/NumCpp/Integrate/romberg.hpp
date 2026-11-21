@@ -32,7 +32,6 @@
 #pragma once
 
 #include <functional>
-#include <vector>
 
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Integrate/trapazoidal.hpp"

@@ -28,7 +28,6 @@
 #pragma once
 
 #include <algorithm>
-#include <cstdint>
 #include <iterator>
 
 #include "NumCpp/Functions/unique.hpp"

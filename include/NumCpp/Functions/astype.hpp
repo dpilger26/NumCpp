@@ -27,8 +27,6 @@
 ///
 #pragma once
 
-#include <complex>
-
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
 #include "NumCpp/NdArray.hpp"
 

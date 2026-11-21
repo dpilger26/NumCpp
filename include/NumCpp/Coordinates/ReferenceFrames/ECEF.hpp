@@ -27,8 +27,6 @@
 ///
 #pragma once
 
-#include <iostream>
-
 #include "NumCpp/Coordinates/Cartesian.hpp"
 
 namespace nc::coordinates::reference_frames

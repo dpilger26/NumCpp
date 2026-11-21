@@ -18,7 +18,7 @@ def factors(n):
 
 ####################################################################################
 def test_seed():
-    np.random.seed(666)
+    np.random.seed(667)
 
 
 ####################################################################################
@@ -12880,7 +12880,7 @@ def test_outer():
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.outer(cArray1, cArray2), np.outer(data1, data2))
 
-    size1= np.random.randint(
+    size1 = np.random.randint(
         1,
         100,
         [

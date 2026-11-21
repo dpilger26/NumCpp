@@ -3,6 +3,7 @@ from astropy.coordinates import SkyCoord
 from astropy.coordinates import Latitude, Longitude  # Angles
 import astropy.units as u
 import pymap3d
+from pymap3d import utils as pymap3d_utils
 import pytest
 
 import NumCppPy as NumCpp  # noqa E402
@@ -12,7 +13,7 @@ DISABLE_PRINTS = True
 
 ####################################################################################
 def test_seed():
-    np.random.seed(666)
+    np.random.seed(667)
 
 
 ####################################################################################
@@ -61,6 +62,31 @@ def test_cartesian_ndarray_constructor():
     assert c.x == components[0]
     assert c.y == components[1]
     assert c.z == components[2]
+
+
+####################################################################################
+def test_cartesian_to_ndarray():
+    x, y, z = np.random.rand(3) * 10
+    c = NumCpp.Cartesian(x, y, z)
+    values = c.toNdArray().getNumpyArray().flatten()
+    assert np.array_equal(values, [x, y, z])
+
+    ####################################################################################
+def test_cartesian_to_vec2():
+    x, y = np.random.rand(2) * 10
+    c = NumCpp.Cartesian(x, y, 0)
+    values = c.toVec2()
+    assert values.x == x
+    assert values.y == y
+
+    ####################################################################################
+def test_cartesian_to_vec3():
+    x, y, z = np.random.rand(3) * 10
+    c = NumCpp.Cartesian(x, y, z)
+    values = c.toVec3()
+    assert values.x == x
+    assert values.y == y
+    assert values.z == z
 
 
 ####################################################################################
@@ -203,6 +229,9 @@ def test_euler():
     euler2 = NumCpp.Euler(theta, psi, phi)
     assert euler != euler2
 
+    values = euler.toNdArray().getNumpyArray().flatten()
+    assert np.array_equal(values, [psi, theta, phi])
+
     if not DISABLE_PRINTS:
         euler.print()
 
@@ -226,6 +255,9 @@ def test_orientation():
     orientation2 = NumCpp.Orientation(pitch, roll, yaw)
     assert orientation != orientation2
 
+    values = orientation.toNdArray().getNumpyArray().flatten()
+    assert np.array_equal(values, [roll, pitch, yaw])
+
     if not DISABLE_PRINTS:
         orientation.print()
 
@@ -235,17 +267,28 @@ def test_aer():
     aer = NumCpp.AER()
     assert aer.az == 0.0
     assert aer.el == 0.0
+    assert aer.range == 0.0
 
     az, el = np.random.rand(2) * np.pi / 4
     aer = NumCpp.AER(az, el)
     assert aer.az == az
     assert aer.el == el
+    assert aer.range == 1.0
 
-    aer2 = NumCpp.AER(az, el)
+    az, el, range_ = np.random.rand(3) * np.pi / 4
+    aer = NumCpp.AER(az, el, range_)
+    assert aer.az == az
+    assert aer.el == el
+    assert aer.range == range_
+
+    aer2 = NumCpp.AER(az, el, range_)
     assert aer == aer2
 
-    aer2 = NumCpp.AER(el, az)
+    aer2 = NumCpp.AER(el, az, range_)
     assert aer != aer2
+
+    values = aer.toNdArray().getNumpyArray().flatten()
+    assert np.array_equal(values, [az, el, range_])
 
     if not DISABLE_PRINTS:
         aer.print()
@@ -350,6 +393,9 @@ def test_geocentric():
     geocentric2 = NumCpp.Geocentric(lon, lat, radius)
     assert geocentric != geocentric2
 
+    values = geocentric.toNdArray().getNumpyArray().flatten()
+    assert np.array_equal(values, [lat, lon, radius])
+
     if not DISABLE_PRINTS:
         geocentric.print()
 
@@ -372,6 +418,9 @@ def test_lla():
 
     lla2 = NumCpp.LLA(lon, lat, alt)
     assert lla != lla2
+
+    values = lla.toNdArray().getNumpyArray().flatten()
+    assert np.array_equal(values, [lat, lon, alt])
 
     if not DISABLE_PRINTS:
         lla.print()
@@ -869,6 +918,18 @@ def test_AERtoNED():
 
 
 ####################################################################################
+def test_cart2sph():
+    for _ in range(10):
+        x, y, z = np.random.rand(3) * 100
+        cartesian = NumCpp.Cartesian(x, y, z)
+        spherical = NumCpp.cart2sph(cartesian)
+        pymap3d_sph = pymap3d_utils.cart2sph(cartesian.x, cartesian.y, cartesian.z)
+        np.testing.assert_approx_equal(spherical.az, pymap3d_sph[0], 5)
+        np.testing.assert_approx_equal(spherical.el, pymap3d_sph[1], 5)
+        np.testing.assert_approx_equal(spherical.range, pymap3d_sph[2], 5)
+
+
+####################################################################################
 def test_ECEFEulerToNEDRollPitchYaw():
     platform1ECEF = NumCpp.ECEF(889780.8040509718, -5443884.478448521, 3191301.5726495585)
     platform1Euler = NumCpp.Euler(1.678885817527771, -1.0427558422088623, -3.0950019359588623)
@@ -1264,3 +1325,17 @@ def test_NEDtoLLA():
     np.testing.assert_approx_equal(lla.latitude, lat1, 5)
     np.testing.assert_approx_equal(lla.longitude, lon1, 5)
     np.testing.assert_approx_equal(lla.altitude, alt1, 5)
+
+
+####################################################################################
+def test_sph2cart():
+    for _ in range(10):
+        az = (np.random.rand(1) * 2 * np.pi).item()
+        el = (np.random.rand(1) * np.pi - np.pi / 2).item()
+        range_ = (np.random.rand(1) * 100).item()
+        spherical = NumCpp.AER(az, el, range_)
+        cartesian = NumCpp.sph2cart(spherical)
+        pymap3d_cart = pymap3d_utils.sph2cart(spherical.az, spherical.el, spherical.range)
+        np.testing.assert_approx_equal(cartesian.x, pymap3d_cart[0], 5)
+        np.testing.assert_approx_equal(cartesian.y, pymap3d_cart[1], 5)
+        np.testing.assert_approx_equal(cartesian.z, pymap3d_cart[2], 5)

@@ -9,6 +9,7 @@ var classnc_1_1coordinates_1_1_euler =
     [ "operator=", "classnc_1_1coordinates_1_1_euler.html#ad6885f046c7e9fa6d26a0d5f120c785b", null ],
     [ "operator=", "classnc_1_1coordinates_1_1_euler.html#a6d8405f8c515501b0d5b0ace2a0dbb79", null ],
     [ "operator==", "classnc_1_1coordinates_1_1_euler.html#a1c01c2348de1a63fb76c3228bd46badf", null ],
+    [ "toNdArray", "classnc_1_1coordinates_1_1_euler.html#ac2c127b27306d54a61325a89bb4b736c", null ],
     [ "phi", "classnc_1_1coordinates_1_1_euler.html#a1516925a2f04d722355c6fa32dcfbece", null ],
     [ "psi", "classnc_1_1coordinates_1_1_euler.html#ab6e8553cb29e3b38932353c7808df47d", null ],
     [ "theta", "classnc_1_1coordinates_1_1_euler.html#acdcc1795fe468bb026d4da943b50b6a4", null ]

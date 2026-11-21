@@ -27,9 +27,6 @@
 ///
 #pragma once
 
-#include <iterator>
-#include <vector>
-
 #include "NumCpp/NdArray.hpp"
 
 namespace nc

@@ -29,7 +29,6 @@
 #pragma once
 
 #include <cmath>
-#include <string>
 
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"

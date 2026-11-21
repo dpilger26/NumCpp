@@ -27,7 +27,6 @@
 ///
 #pragma once
 
-#include <complex>
 #include <sstream>
 #include <string>
 

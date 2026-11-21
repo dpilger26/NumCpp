@@ -32,7 +32,6 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
-#include "NumCpp/Utils/sqr.hpp"
 #include "NumCpp/Vector/Vec2.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
 
@@ -125,6 +124,34 @@ namespace nc::coordinates
          * @brief Destructor
          */
         virtual ~Cartesian() = default;
+
+        /**
+         * @brief Convert to NdArray
+         *
+         */
+        [[nodiscard]] NdArray<double> toNdArray() const
+        {
+            NdArray<double> returnArray = { x, y, z };
+            return returnArray.transpose();
+        }
+
+        /**
+         * @brief Convert to Vec2
+         *
+         */
+        [[nodiscard]] Vec2 toVec2() const
+        {
+            return { x, y };
+        }
+
+        /**
+         * @brief Convert to Vec2
+         *
+         */
+        [[nodiscard]] Vec3 toVec3() const
+        {
+            return { x, y, z };
+        }
 
         /**
          * @brief Copy Assignement Operator

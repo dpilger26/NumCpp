@@ -31,7 +31,6 @@
 #ifndef NUMCPP_NO_USE_BOOST
 
 #include <algorithm>
-#include <string>
 
 #include "boost/random/uniform_on_sphere.hpp"
 

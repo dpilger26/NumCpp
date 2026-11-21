@@ -30,7 +30,6 @@
 #ifndef NUMCPP_NO_USE_BOOST
 
 #include <complex>
-#include <type_traits>
 
 #include "boost/math/special_functions/hankel.hpp"
 

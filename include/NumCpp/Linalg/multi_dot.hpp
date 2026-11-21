@@ -28,7 +28,6 @@
 #pragma once
 
 #include <initializer_list>
-#include <string>
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"

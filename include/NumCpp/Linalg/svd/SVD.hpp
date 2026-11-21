@@ -29,8 +29,6 @@
 #pragma once
 
 #include <cmath>
-#include <limits>
-#include <string>
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"

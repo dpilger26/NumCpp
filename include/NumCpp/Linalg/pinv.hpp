@@ -27,10 +27,7 @@
 ///
 #pragma once
 
-#include <string>
-
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Linalg/svd/SVD.hpp"
 #include "NumCpp/NdArray.hpp"
 

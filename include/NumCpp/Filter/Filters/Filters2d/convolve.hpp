@@ -27,8 +27,6 @@
 ///
 #pragma once
 
-#include <string>
-
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"

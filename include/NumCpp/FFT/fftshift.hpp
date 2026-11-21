@@ -28,7 +28,6 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/roll.hpp"
 #include "NumCpp/NdArray.hpp"
 

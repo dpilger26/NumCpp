@@ -32,7 +32,6 @@
 #include "NumCpp/Coordinates/ReferenceFrames/LLA.hpp"
 #include "NumCpp/Coordinates/Transforms/AERtoECEF.hpp"
 #include "NumCpp/Coordinates/Transforms/ECEFtoLLA.hpp"
-#include "NumCpp/Coordinates/Transforms/LLAtoECEF.hpp"
 
 namespace nc::coordinates::transforms
 {

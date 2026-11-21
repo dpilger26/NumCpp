@@ -16,6 +16,9 @@ void initCoordinates(pb11::module& m)
         .def(pb11::init<const Vec2&>())
         .def(pb11::init<const Vec3&>())
         .def(pb11::init<const NdArray<double>&>())
+        .def("toNdArray", &coordinates::Cartesian::toNdArray)
+        .def("toVec2", &coordinates::Cartesian::toVec2)
+        .def("toVec3", &coordinates::Cartesian::toVec3)
         .def_readwrite("x", &coordinates::Cartesian::x)
         .def_readwrite("y", &coordinates::Cartesian::y)
         .def_readwrite("z", &coordinates::Cartesian::z)
@@ -45,6 +48,7 @@ void initCoordinates(pb11::module& m)
         .def_readwrite("psi", &coordinates::Euler::psi)
         .def_readwrite("theta", &coordinates::Euler::theta)
         .def_readwrite("phi", &coordinates::Euler::phi)
+        .def("toNdArray", &coordinates::Euler::toNdArray)
         .def("__eq__", [](const coordinates::Euler& self, const coordinates::Euler& other) { return self == other; })
         .def("__ne__", [](const coordinates::Euler& self, const coordinates::Euler& other) { return self != other; })
         .def("print", [](const coordinates::Euler& self) { std::cout << self; });
@@ -55,6 +59,7 @@ void initCoordinates(pb11::module& m)
         .def_readwrite("roll", &coordinates::Orientation::roll)
         .def_readwrite("pitch", &coordinates::Orientation::pitch)
         .def_readwrite("yaw", &coordinates::Orientation::yaw)
+        .def("toNdArray", &coordinates::Orientation::toNdArray)
         .def("__eq__",
              [](const coordinates::Orientation& self, const coordinates::Orientation& other) { return self == other; })
         .def("__ne__",
@@ -68,6 +73,7 @@ void initCoordinates(pb11::module& m)
         .def_readwrite("az", &coordinates::reference_frames::AER::az)
         .def_readwrite("el", &coordinates::reference_frames::AER::el)
         .def_readwrite("range", &coordinates::reference_frames::AER::range)
+        .def("toNdArray", &coordinates::reference_frames::AER::toNdArray)
         .def("__eq__",
              [](const coordinates::reference_frames::AER& self, const coordinates::reference_frames::AER& other)
              { return self == other; })
@@ -118,6 +124,7 @@ void initCoordinates(pb11::module& m)
         .def_readwrite("latitude", &coordinates::reference_frames::Geocentric::latitude)
         .def_readwrite("longitude", &coordinates::reference_frames::Geocentric::longitude)
         .def_readwrite("radius", &coordinates::reference_frames::Geocentric::radius)
+        .def("toNdArray", &coordinates::reference_frames::Geocentric::toNdArray)
         .def("__eq__",
              [](const coordinates::reference_frames::Geocentric& self,
                 const coordinates::reference_frames::Geocentric& other) { return self == other; })
@@ -132,6 +139,7 @@ void initCoordinates(pb11::module& m)
         .def_readwrite("latitude", &coordinates::reference_frames::LLA::latitude)
         .def_readwrite("longitude", &coordinates::reference_frames::LLA::longitude)
         .def_readwrite("altitude", &coordinates::reference_frames::LLA::altitude)
+        .def("toNdArray", &coordinates::reference_frames::LLA::toNdArray)
         .def("__eq__",
              [](const coordinates::reference_frames::LLA& self, const coordinates::reference_frames::LLA& other)
              { return self == other; })
@@ -229,6 +237,7 @@ void initCoordinates(pb11::module& m)
           [](const coordinates::reference_frames::AER& target, const coordinates::reference_frames::LLA& referencePoint)
           { return coordinates::transforms::AERtoLLA(target, referencePoint); });
     m.def("AERtoNED", &coordinates::transforms::AERtoNED);
+    m.def("cart2sph", &coordinates::transforms::cart2sph);
     m.def("ECEFEulerToENURollPitchYaw", &coordinates::transforms::ECEFEulerToENURollPitchYaw);
     m.def("ECEFEulerToNEDRollPitchYaw", &coordinates::transforms::ECEFEulerToNEDRollPitchYaw);
     m.def(
@@ -317,4 +326,5 @@ void initCoordinates(pb11::module& m)
           [](const coordinates::reference_frames::NED& target, const coordinates::reference_frames::LLA& referencePoint)
           { return coordinates::transforms::NEDtoLLA(target, referencePoint); });
     m.def("NEDUnitVecsInECEF", &coordinates::transforms::NEDUnitVecsInECEF);
+    m.def("sph2cart", &coordinates::transforms::sph2cart);
 }

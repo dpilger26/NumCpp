@@ -36,7 +36,6 @@
 #include <functional>
 #include <utility>
 
-#include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Roots/Iteration.hpp"
 

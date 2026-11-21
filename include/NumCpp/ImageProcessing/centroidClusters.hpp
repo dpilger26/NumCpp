@@ -28,7 +28,6 @@
 
 #pragma once
 
-#include <utility>
 #include <vector>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"

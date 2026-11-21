@@ -27,7 +27,6 @@
 ///
 #pragma once
 
-#include <cmath>
 #include <utility>
 
 #include "NumCpp/Core/Internal/Error.hpp"

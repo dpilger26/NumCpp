@@ -32,6 +32,7 @@
 #include <iostream>
 #include <string>
 
+#include "NumCpp/Coordinates/Cartesian.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -40,7 +41,6 @@
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/eye.hpp"
 #include "NumCpp/Functions/norm.hpp"
-#include "NumCpp/Functions/square.hpp"
 #include "NumCpp/Linalg/hat.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
@@ -142,13 +142,25 @@ namespace nc::rotations
         /// @param inAxis: Euler axis
         /// @param inAngle: Euler angle in radians
         ///
-        Quaternion(const Vec3& inAxis, double inAngle) noexcept
+        Quaternion(const Vec3& inAxis, double inAngle) noexcept :
+            Quaternion(coordinates::Cartesian(inAxis), inAngle)
+        {
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Constructor
+        ///
+        /// @param inAxis: Euler axis
+        /// @param inAngle: Euler angle in radians
+        ///
+        Quaternion(const coordinates::Cartesian& inAxis, double inAngle) noexcept
         {
             // normalize the input vector
-            Vec3 normAxis = inAxis.normalize();
+            const auto normAxis = coordinates::normalize(inAxis);
 
-            const double halfAngle    = inAngle / 2.;
-            const double sinHalfAngle = std::sin(halfAngle);
+            const auto halfAngle    = inAngle / 2.;
+            const auto sinHalfAngle = std::sin(halfAngle);
 
             components_[0] = normAxis.x * sinHalfAngle;
             components_[1] = normAxis.y * sinHalfAngle;
@@ -181,6 +193,31 @@ namespace nc::rotations
 
         //============================================================================
         // Method Description:
+        /// The angular seperation between the two quaternions.
+        ///
+        /// @param inQuat1
+        /// @param inQuat2
+        /// @return angle of seperation in radians
+        ///
+        static double angularSeperation(const Quaternion& inQuat1, const Quaternion& inQuat2)
+        {
+            return (inQuat1 * inQuat2.inverse()).angleOfRotation();
+        }
+
+        //============================================================================
+        // Method Description:
+        /// The angular seperation between the two quaternions.
+        ///
+        /// @param inQuat2
+        /// @return angle of seperation in radians
+        ///
+        [[nodiscard]] double angularSeperation(const Quaternion& inQuat2) const
+        {
+            return angularSeperation(*this, inQuat2);
+        }
+
+        //============================================================================
+        // Method Description:
         /// angular velocity vector between the two quaternions. The norm
         /// of the array is the magnitude
         ///
@@ -191,26 +228,26 @@ namespace nc::rotations
         ///
         static NdArray<double> angularVelocity(const Quaternion& inQuat1, const Quaternion& inQuat2, double inTime)
         {
-            NdArray<double> q0 = inQuat1.toNdArray();
-            NdArray<double> q1 = inQuat2.toNdArray();
+            const auto q0 = inQuat1.toNdArray();
+            const auto q1 = inQuat2.toNdArray();
 
-            NdArray<double> qDot = q1 - q0;
+            auto qDot = q1 - q0;
             qDot /= inTime;
 
-            NdArray<double> eyeTimesScalar(3);
+            auto eyeTimesScalar = NdArray<double>(3);
             eyeTimesScalar.zeros();
             eyeTimesScalar(0, 0) = inQuat2.s();
             eyeTimesScalar(1, 1) = inQuat2.s();
             eyeTimesScalar(2, 2) = inQuat2.s();
 
-            NdArray<double> epsilonHat = linalg::hat<double>(inQuat2.i(), inQuat2.j(), inQuat2.k());
-            NdArray<double> q(4, 3);
+            const auto epsilonHat = linalg::hat<double>(inQuat2.i(), inQuat2.j(), inQuat2.k());
+            auto       q          = NdArray<double>(4, 3);
             q.put(Slice(0, 3), Slice(0, 3), eyeTimesScalar + epsilonHat);
             q(3, 0) = -inQuat2.i();
             q(3, 1) = -inQuat2.j();
             q(3, 2) = -inQuat2.k();
 
-            NdArray<double> omega = q.transpose().dot(qDot.transpose());
+            auto omega = q.transpose().dot(qDot.transpose());
             return omega *= 2.;
         }
 
@@ -336,8 +373,8 @@ namespace nc::rotations
                 return inQuat2;
             }
 
-            const double          oneMinus = 1. - inPercent;
-            std::array<double, 4> newComponents{};
+            const auto oneMinus      = 1. - inPercent;
+            auto       newComponents = std::array<double, 4>{};
 
             stl_algorithms::transform(inQuat1.components_.begin(),
                                       inQuat1.components_.end(),
@@ -656,6 +693,18 @@ namespace nc::rotations
 
         //============================================================================
         // Method Description:
+        /// rotate a vector using the quaternion
+        ///
+        /// @param inVec3
+        /// @return Vec3
+        ///
+        [[nodiscard]] coordinates::Cartesian rotate(const coordinates::Cartesian& inVec3) const
+        {
+            return *this * inVec3;
+        }
+
+        //============================================================================
+        // Method Description:
         /// returns the s component
         ///
         /// @return double
@@ -695,14 +744,14 @@ namespace nc::rotations
             // If the dot product is negative, the quaternions
             // have opposite handed-ness and slerp won't take
             // the shorter path. Fix by reversing one quaternion.
-            Quaternion quat1Copy(inQuat1);
+            auto quat1Copy = Quaternion(inQuat1);
             if (dotProduct < 0.)
             {
                 quat1Copy *= -1.;
                 dotProduct *= -1.;
             }
 
-            constexpr double DOT_THRESHOLD = 0.9995;
+            constexpr auto DOT_THRESHOLD = 0.9995;
             if (dotProduct > DOT_THRESHOLD)
             {
                 // If the inputs are too close for comfort, linearly interpolate
@@ -710,15 +759,15 @@ namespace nc::rotations
                 return nlerp(inQuat1, inQuat2, inPercent);
             }
 
-            dotProduct          = clip(dotProduct, -1., 1.); // Robustness: Stay within domain of acos()
-            const double theta0 = std::acos(dotProduct);     // angle between input vectors
-            const double theta  = theta0 * inPercent;        // angle between v0 and result
+            dotProduct        = clip(dotProduct, -1., 1.); // Robustness: Stay within domain of acos()
+            const auto theta0 = std::acos(dotProduct);     // angle between input vectors
+            const auto theta  = theta0 * inPercent;        // angle between v0 and result
 
-            const double s0 = std::cos(theta) -
-                              dotProduct * std::sin(theta) / std::sin(theta0); // == sin(theta_0 - theta) / sin(theta_0)
-            const double s1 = std::sin(theta) / std::sin(theta0);
+            const auto s0 = std::cos(theta) -
+                            dotProduct * std::sin(theta) / std::sin(theta0); // == sin(theta_0 - theta) / sin(theta_0)
+            const auto s1 = std::sin(theta) / std::sin(theta0);
 
-            NdArray<double> interpQuat = (quat1Copy.toNdArray() * s0) + (inQuat2.toNdArray() * s1);
+            const auto interpQuat = (quat1Copy.toNdArray() * s0) + (inQuat2.toNdArray() * s1);
             return Quaternion(interpQuat); // NOLINT(modernize-return-braced-init-list)
         }
 
@@ -757,17 +806,17 @@ namespace nc::rotations
         ///
         [[nodiscard]] NdArray<double> toDCM() const
         {
-            NdArray<double> dcm(3);
+            auto dcm = NdArray<double>(3);
 
-            const double q0 = i();
-            const double q1 = j();
-            const double q2 = k();
-            const double q3 = s();
+            const auto q0 = i();
+            const auto q1 = j();
+            const auto q2 = k();
+            const auto q3 = s();
 
-            const double q0sqr = utils::sqr(q0);
-            const double q1sqr = utils::sqr(q1);
-            const double q2sqr = utils::sqr(q2);
-            const double q3sqr = utils::sqr(q3);
+            const auto q0sqr = utils::sqr(q0);
+            const auto q1sqr = utils::sqr(q1);
+            const auto q2sqr = utils::sqr(q2);
+            const auto q3sqr = utils::sqr(q3);
 
             dcm(0, 0) = q3sqr + q0sqr - q1sqr - q2sqr;
             dcm(0, 1) = 2. * (q0 * q1 - q3 * q2);
@@ -803,7 +852,7 @@ namespace nc::rotations
         ///
         static Quaternion xRotation(double inAngle) noexcept
         {
-            const Vec3 eulerAxis = { 1., 0., 0. };
+            const auto eulerAxis = Vec3{ 1., 0., 0. };
             return Quaternion(eulerAxis, inAngle); // NOLINT(modernize-return-braced-init-list)
         }
 
@@ -839,7 +888,7 @@ namespace nc::rotations
         ///
         static Quaternion yRotation(double inAngle) noexcept
         {
-            const Vec3 eulerAxis = { 0., 1., 0. };
+            const auto eulerAxis = Vec3{ 0., 1., 0. };
             return Quaternion(eulerAxis, inAngle); // NOLINT(modernize-return-braced-init-list)
         }
 
@@ -852,7 +901,7 @@ namespace nc::rotations
         ///
         static Quaternion zRotation(double inAngle) noexcept
         {
-            const Vec3 eulerAxis = { 0., 0., 1. };
+            const auto eulerAxis = Vec3{ 0., 0., 1. };
             return Quaternion(eulerAxis, inAngle); // NOLINT(modernize-return-braced-init-list)
         }
 
@@ -967,22 +1016,22 @@ namespace nc::rotations
         ///
         Quaternion& operator*=(const Quaternion& inRhs) noexcept
         {
-            double q0 = inRhs.s() * i();
+            auto q0 = inRhs.s() * i();
             q0 += inRhs.i() * s();
             q0 -= inRhs.j() * k();
             q0 += inRhs.k() * j();
 
-            double q1 = inRhs.s() * j();
+            auto q1 = inRhs.s() * j();
             q1 += inRhs.i() * k();
             q1 += inRhs.j() * s();
             q1 -= inRhs.k() * i();
 
-            double q2 = inRhs.s() * k();
+            auto q2 = inRhs.s() * k();
             q2 -= inRhs.i() * j();
             q2 += inRhs.j() * i();
             q2 += inRhs.k() * s();
 
-            double q3 = inRhs.s() * s();
+            auto q3 = inRhs.s() * s();
             q3 -= inRhs.i() * i();
             q3 -= inRhs.j() * j();
             q3 -= inRhs.k() * k();
@@ -1083,6 +1132,18 @@ namespace nc::rotations
 
         //============================================================================
         // Method Description:
+        /// multiplication operator
+        ///
+        /// @param inVec3
+        /// @return Vec3
+        ///
+        coordinates::Cartesian operator*(const coordinates::Cartesian& inVec3) const
+        {
+            return *this * inVec3.toNdArray();
+        }
+
+        //============================================================================
+        // Method Description:
         /// division assignment operator
         ///
         /// @param inRhs
@@ -1129,13 +1190,13 @@ namespace nc::rotations
         ///
         void normalize() noexcept
         {
-            double sumOfSquares = 0.;
+            auto sumOfSquares = 0.;
             std::for_each(components_.begin(),
                           components_.end(),
                           [&sumOfSquares](double component) noexcept -> void
                           { sumOfSquares += utils::sqr(component); });
 
-            const double norm = std::sqrt(sumOfSquares);
+            const auto norm = std::sqrt(sumOfSquares);
             stl_algorithms::for_each(components_.begin(),
                                      components_.end(),
                                      [norm](double& component) noexcept -> void { component /= norm; });
@@ -1185,7 +1246,7 @@ namespace nc::rotations
         ///
         void dcmToQuat(const NdArray<double>& dcm)
         {
-            const Shape inShape = dcm.shape();
+            const auto inShape = dcm.shape();
             if (!(inShape.rows == 3 && inShape.cols == 3))
             {
                 THROW_INVALID_ARGUMENT_ERROR("input direction cosine matrix must have shape = (3,3).");
@@ -1285,7 +1346,7 @@ namespace nc::rotations
         ///
         /// @param inAngularVelocity: the body angular velocity vector (rad/s)
         ///
-        NdArray<double> getBodyOmegaOperator(const Vec3& inAngularVelocity) const
+        [[nodiscard]] NdArray<double> getBodyOmegaOperator(const Vec3& inAngularVelocity) const
         {
             return NdArray<double>({ { 0., inAngularVelocity.z, -inAngularVelocity.y, inAngularVelocity.x },
                                      { -inAngularVelocity.z, 0., inAngularVelocity.x, inAngularVelocity.y },
@@ -1299,7 +1360,7 @@ namespace nc::rotations
         ///
         /// @param inAngularVelocity: the inertial angular velocity vector (rad/s)
         ///
-        NdArray<double> getInertialOmegaOperator(const Vec3& inAngularVelocity) const
+        [[nodiscard]] NdArray<double> getInertialOmegaOperator(const Vec3& inAngularVelocity) const
         {
             return NdArray<double>({ { 0., -inAngularVelocity.z, inAngularVelocity.y, inAngularVelocity.x },
                                      { inAngularVelocity.z, 0., -inAngularVelocity.x, inAngularVelocity.y },

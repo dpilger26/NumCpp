@@ -20,6 +20,13 @@ namespace RotationsInterface
 
     //================================================================================
 
+    double angularSeperation(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2)
+    {
+        return inQuat1.angularSeperation(inQuat2);
+    }
+
+    //================================================================================
+
     pbArray<double>
         angularVelocity(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inTime)
     {
@@ -107,6 +114,13 @@ namespace RotationsInterface
 
     //================================================================================
 
+    pbArray<double> rotateCartesian(const rotations::Quaternion& inQuat, const NdArray<double>& inVec)
+    {
+        return nc2pybind(inQuat.rotate(coordinates::Cartesian(inVec)).toNdArray());
+    }
+
+    //================================================================================
+
     pbArray<double> slerp(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inPercent)
     {
         return nc2pybind(inQuat1.slerp(inQuat2, inPercent).toNdArray());
@@ -185,6 +199,13 @@ namespace RotationsInterface
 
     //================================================================================
 
+    pbArray<double> angleAxisRotationDcmCartesian(const NdArray<double>& inAxis, double inAngle)
+    {
+        return nc2pybind(rotations::DCM::eulerAxisAngle(coordinates::Cartesian(inAxis), inAngle));
+    }
+
+    //================================================================================
+
     template<typename T>
     pbArrayGeneric rodriguesRotation(pbArray<T>& inK, double inTheta, pbArray<T>& inV)
     {
@@ -227,11 +248,13 @@ void initRotations(pb11::module& m)
         .def(pb11::init<double, double, double, double>())
         .def(pb11::init<std::array<double, 4>>())
         .def(pb11::init<Vec3, double>())
+        .def(pb11::init<coordinates::Cartesian, double>())
         .def(pb11::init<NdArray<double>, double>())
         .def(pb11::init<NdArray<double>>())
         .def_static("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationNdArray)
         .def_static("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationVec3)
         .def("angleOfRotation", &rotations::Quaternion::angleOfRotation)
+        .def("angularSeperation", &RotationsInterface::angularSeperation)
         .def("angularVelocity", &RotationsInterface::angularVelocity)
         .def("axisOfRotation", &rotations::Quaternion::axisOfRotation)
         .def("conjugate", &rotations::Quaternion::conjugate)
@@ -256,6 +279,7 @@ void initRotations(pb11::module& m)
         .def_static("rollRotation", &rotations::Quaternion::rollRotation)
         .def("rotateNdArray", &RotationsInterface::rotateNdArray)
         .def("rotateVec3", &RotationsInterface::rotateVec3)
+        .def("rotateCartesian", &RotationsInterface::rotateCartesian)
         .def("s", &rotations::Quaternion::s)
         .def("slerp", &RotationsInterface::slerp)
         .def("toDCM", &RotationsInterface::toDCM)
@@ -282,6 +306,7 @@ void initRotations(pb11::module& m)
         .def_static("eulerAnglesArray", &RotationsInterface::eulerAnglesArray)
         .def_static("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationDcmNdArray)
         .def_static("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationDcmVec3)
+        .def_static("angleAxisRotationCartesian", &RotationsInterface::angleAxisRotationDcmCartesian)
         .def_static("isValid", &rotations::DCM::isValid)
         .def_static("roll", &rotations::DCM::roll)
         .def_static("pitch", &rotations::DCM::pitch)

@@ -39,6 +39,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
+#include "NumCpp/Utils/sqr.hpp"
 
 namespace nc::imageProcessing
 {

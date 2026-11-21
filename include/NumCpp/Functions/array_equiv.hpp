@@ -27,8 +27,6 @@
 ///
 #pragma once
 
-#include <complex>
-
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"

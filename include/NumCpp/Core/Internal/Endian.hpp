@@ -30,6 +30,7 @@
 #include <array>
 #include <climits>
 
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 
 namespace nc::endian

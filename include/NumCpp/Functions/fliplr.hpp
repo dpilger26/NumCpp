@@ -27,7 +27,6 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/flip.hpp"
 #include "NumCpp/NdArray.hpp"
 

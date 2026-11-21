@@ -30,7 +30,6 @@
 
 #include <algorithm>
 #include <random>
-#include <string>
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"

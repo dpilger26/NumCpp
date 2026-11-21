@@ -36,7 +36,6 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
-#include <string_view>
 
 #include "boost/date_time/posix_time/posix_time.hpp"
 

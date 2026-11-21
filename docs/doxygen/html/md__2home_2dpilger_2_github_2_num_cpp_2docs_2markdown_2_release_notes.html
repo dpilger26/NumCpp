@@ -50,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.17.0</span>
+                                &#160;<span id="projectnumber">2.18.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -116,7 +116,22 @@ $(function(){initNavTree('md__2home_2dpilger_2_github_2_num_cpp_2docs_2markdown_
   <div class="headertitle"><div class="title">Release Notes </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1>Version 2.17.0</h1>
+<div class="textblock"><h1>Version 2.18.0</h1>
+<ul>
+<li>added <span class="tt">toNdarray</span> to <span class="tt">coordinates::Cartesian</span></li>
+<li>added <span class="tt">toNdarray</span> to <span class="tt">coordinates::Euler</span></li>
+<li>added <span class="tt">toNdarray</span> to <span class="tt">coordinates::Orientation</span></li>
+<li>added <span class="tt">toNdarray</span> to <span class="tt">coordinates::reference_frames::AER</span></li>
+<li>added <span class="tt">toNdarray</span> to <span class="tt">coordinates::reference_frames::Geocentric</span></li>
+<li>added <span class="tt">toNdarray</span> to <span class="tt">coordinates::reference_frames::LLA</span></li>
+<li>added <span class="tt">coordinates::transforms::cart2sph</span></li>
+<li>added <span class="tt">coordinates::transforms::sph2cart</span></li>
+<li>added <span class="tt">Quaternion::rotate</span> on <span class="tt">Cartesian</span></li>
+<li>added <span class="tt">Quaternion::angularSeperation</span></li>
+<li>added additional <span class="tt">Cartesian</span> and <span class="tt">Vec2</span>/<span class="tt">Vec3</span> interoperability</li>
+<li>includes cleanup</li>
+</ul>
+<h1>Version 2.17.0</h1>
 <ul>
 <li>added angular rate propagation methods to <span class="tt">rotations::Quaternion</span><ul>
 <li><span class="tt">propagateBody</span></li>

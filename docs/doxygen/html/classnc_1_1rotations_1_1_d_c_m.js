@@ -2,6 +2,7 @@ var classnc_1_1rotations_1_1_d_c_m =
 [
     [ "eulerAngles", "classnc_1_1rotations_1_1_d_c_m.html#a06a1a09ec0bb27c45690afbc08d22f50", null ],
     [ "eulerAngles", "classnc_1_1rotations_1_1_d_c_m.html#afede4ed689a9771968945857c7cd0c1d", null ],
+    [ "eulerAxisAngle", "classnc_1_1rotations_1_1_d_c_m.html#a4bc9900ff08fb4c49afc80bf7f15f4f7", null ],
     [ "eulerAxisAngle", "classnc_1_1rotations_1_1_d_c_m.html#ab72e3514a6022ebea6e63030eb0d2418", null ],
     [ "eulerAxisAngle", "classnc_1_1rotations_1_1_d_c_m.html#a06b61d863ede73a445a5fb6b5a0673a2", null ],
     [ "isValid", "classnc_1_1rotations_1_1_d_c_m.html#ab1947c7618408b063b704ec391e27888", null ],

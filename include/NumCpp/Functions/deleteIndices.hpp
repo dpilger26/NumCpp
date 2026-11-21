@@ -27,12 +27,10 @@
 ///
 #pragma once
 
-#include <string>
 #include <vector>
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
-#include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Functions/unique.hpp"
 #include "NumCpp/NdArray.hpp"
